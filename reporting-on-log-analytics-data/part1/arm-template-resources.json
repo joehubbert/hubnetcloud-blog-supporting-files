@@ -1,0 +1,117 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "deploymentLocation": {
+            "type": "String"
+        },
+        "resourceRandomName": {
+            "type": "string",
+            "maxLength": 16
+        },
+        "tenantId": {
+            "type": "string"
+        },
+        "principalObjectId": {
+            "type": "string"
+        }
+    },
+
+    "resources": [
+        {
+            "name": "[concat(parameters('resourceRandomName'), '-kv')]",
+            "type": "Microsoft.KeyVault/vaults",
+            "apiVersion": "2019-09-01",
+            "location": "[parameters('deploymentLocation')]",
+            "tags": {},
+            "properties": {
+                "tenantId": "[parameters('tenantId')]",
+                "sku": {
+                    "family": "A",
+                    "name": "standard"
+        },
+                "accessPolicies": [
+                    {
+                        "tenantId": "[parameters('tenantId')]",
+                        "objectId": "[parameters('principalObjectId')]",
+                        "permissions": {
+                            "keys": [
+                                "all"
+                            ],
+                            "secrets": [
+                                "all"
+                            ],
+                            "certificates": [
+                                "all"
+                            ],
+                            "storage": [
+                                "all"
+                            ]
+                        }
+                    }
+                ],
+                "enabledForDeployment": true,
+                "enabledForDiskEncryption": true,
+                "enabledForTemplateDeployment": true,
+                "enableSoftDelete": false,
+                "softDeleteRetentionInDays": 7,
+                "enableRbacAuthorization": true
+    
+            }
+
+        },
+        {
+            "name": "[concat(parameters('resourceRandomName'), '-loganalytics')]",
+            "type": "Microsoft.OperationalInsights/workspaces",
+            "apiVersion": "2020-08-01",
+            "location": "[parameters('deploymentLocation')]",
+            "properties": {
+                "sku": {
+                "name": "PerGB2018"
+                },
+                "retentionInDays": 30,
+                "publicNetworkAccessForIngestion": "Enabled",
+                "publicNetworkAccessForQuery": "Enabled"
+            }
+        },
+        {
+            "name": "[parameters('resourceRandomName')]",
+            "type": "Microsoft.Storage/storageAccounts",
+            "apiVersion": "2019-06-01",
+            "sku": {
+                "name": "Standard_LRS"
+            },
+            "kind": "StorageV2",
+            "location": "[parameters('deploymentLocation')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "encryption": {
+                "services": {
+                    "blob": {
+                    "enabled": true,
+                    "keyType": "Account"
+                    }
+                },
+                "keySource": "Microsoft.Storage"
+                },
+                "accessTier": "Hot",
+                "supportsHttpsTrafficOnly": true,
+                "isHnsEnabled": true,
+                "allowBlobPublicAccess": false,
+                "minimumTlsVersion": "TLS1_2"
+            }
+        },
+        {
+            "name": "[concat(parameters('resourceRandomName'), '-df')]",
+            "type": "Microsoft.DataFactory/factories",
+            "apiVersion": "2018-06-01",
+            "location": "[parameters('deploymentLocation')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {}
+        }
+    ]
+}

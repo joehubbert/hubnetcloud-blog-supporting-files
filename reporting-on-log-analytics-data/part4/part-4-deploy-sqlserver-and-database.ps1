@@ -10,7 +10,8 @@ Connect-AzAccount
 
 $resourceGroup = '<The same resource group that we have been using so far>' 
 $serverName = $resourceGroup + '-sql' 
-$databaseName = 'reportingDatabase' $location = '<The same location all the other resources have been deployed to e.g. uksouth>' 
+$databaseName = 'reportingDatabase' 
+$location = '<The same location all the other resources have been deployed to e.g. uksouth>' 
 
 ## currentUser is needed so we are able to login with our current user with Azure Active Directory authentication 
 $currentUser = (Get-AzContext).Account 

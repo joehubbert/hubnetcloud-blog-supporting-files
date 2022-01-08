@@ -1,3 +1,5 @@
+USE [reportingDatabase]
+
 --1. Create DimDate table
 
 CREATE TABLE [dbo].[DimDate] 

@@ -25,5 +25,8 @@ New-AzSqlServer -ServerName $serverName -SqlAdministratorCredentials $sqlAdminCr
 
 New-AzSqlServerFirewallRule -FirewallRuleName 'AllowMyAccess' -StartIpAddress $publicIpAddress -EndIpAddress $publicIpAddress -ServerName $serverName -ResourceGroupName $resourceGroup
 
+##Only run if using a public endpoint for your SQL server 
+New-AzSqlServerFirewallRule -AllowAllAzureServices 'AllowMyAccess' -ServerName $serverName -ResourceGroupName $resourceGroup
+
 ##The bytesize shown is 2GB which at the time of writing is the smallest Azure SQL Database offering in the Basic series of the DTU pricing model 
 New-AzSqlDatabase -DatabaseName $databaseName -ResourceGroupName $resourceGroup -ServerName $serverName -BackupStorageRedundancy 'Local' -Edition 'Basic' -LicenseType 'BasePrice' -MaxSizeBytes 2147483648

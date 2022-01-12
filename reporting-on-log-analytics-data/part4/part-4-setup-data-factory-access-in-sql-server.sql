@@ -1,12 +1,8 @@
---1. Create SQL Server login for the service princpal for the Azure Data Factory instance
-
-USE [master]
+--1. Create SQL Server login for the service princpal for the Azure Data Factory instance in the context of the master database
 
 CREATE LOGIN [<Name of our data factory>] FROM EXTERNAL PROVIDER
 
---2. Create database user for the login that was just created
-USE [reportingDatabase]
-
+--2. Create database user for the login that was just created in the context of the reportingDatabase
 CREATE USER [<Name of our data factory>] FROM LOGIN [<Name of our data factory>]
 
 --3. Add database user to database reader and writer roles 

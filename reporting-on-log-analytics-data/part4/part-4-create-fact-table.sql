@@ -8,7 +8,7 @@ CREATE TABLE [dbo].[FactHubnetCloudWebsiteStats](
     [Request_App_URL] NVARCHAR(500) NULL,
     [Request_Success_Flag] BIT NULL,
     [Request_HTTP_Code] INT NULL,
-    [Request_Duration_Ms] FLOAT NULL,
+    [Request_Duration_Milliseconds] FLOAT NULL,
     [Request_Client_Type] NVARCHAR(50) NULL,
     [Request_Client_OS] NVARCHAR(50) NULL,
     [Request_Client_Browser] NVARCHAR(50) NULL,

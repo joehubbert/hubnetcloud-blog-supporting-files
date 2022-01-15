@@ -1,5 +1,4 @@
-USE [reportingDatabase]
-
+--Run in the context of reportingDatabase
 --1.Create DimHttpCode table
 CREATE TABLE [dbo].[DimHTTPCode] (
     

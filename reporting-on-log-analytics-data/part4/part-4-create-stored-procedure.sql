@@ -85,3 +85,8 @@ SRC.[Request_Client_State_Or_Province],
 SRC.[Request_Client_Country_Or_Region],
 SRC.[Request_App_Role_Name]
 );
+
+--Some logic to control the size of your staging table by only keeping limited history, in this case, 1 week
+
+DELETE FROM [dbo].[staging_factHubnetCloudWebsiteStats]
+WHERE [adfCopyTimestamp] < DATEADD(WEEK,-1,GETUTCDATE())

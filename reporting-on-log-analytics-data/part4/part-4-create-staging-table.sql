@@ -16,8 +16,8 @@ CREATE TABLE [dbo].[staging_factHubnetCloudWebsiteStats](
     [appRoleName] NVARCHAR(50) NULL,
     [requestDate] DATE NULL,
     [requestHour] TINYINT NULL,
-    [adfPipelineRunId] NVARCHAR(50),
-    [adfCopyTimestamp] DATETIME2
+    [adfPipelineRunId] NVARCHAR(50) NOT NULL,
+    [adfCopyTimestamp] DATETIME2 NOT NULL
 )
 
 ALTER TABLE [dbo].[staging_factHubnetCloudWebsiteStats] ADD DEFAULT GETUTCDATE() FOR [adfCopyTimestamp]

@@ -14,6 +14,6 @@ CREATE TABLE [dbo].[FactHubnetCloudWebsiteStats](
     [Request_Client_Browser] NVARCHAR(50) NULL,
     [Request_Client_City] NVARCHAR(50) NULL,
     [Request_Client_State_Or_Province] NVARCHAR(50) NULL,
-    [Request_ClientCountryOrRegion] NVARCHAR(50) NULL,
+    [Request_Client_Country_Or_Region] NVARCHAR(50) NULL,
     [Request_App_Role_Name] NVARCHAR(50)
 )

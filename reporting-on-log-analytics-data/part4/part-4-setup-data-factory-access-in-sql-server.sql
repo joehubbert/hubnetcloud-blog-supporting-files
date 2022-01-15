@@ -7,7 +7,7 @@ CREATE USER [<Name of our data factory>] FROM LOGIN [<Name of our data factory>]
 
 --3. Add database user to database reader and writer roles 
 ALTER ROLE [db_datareader] ADD MEMBER [<Name of our data factory>]
-ALTER ROLE [db_datareader] ADD MEMBER [<Name of our data factory>]
+ALTER ROLE [db_datawriter] ADD MEMBER [<Name of our data factory>]
 
 --4. Create database role to execute stored procedures that we'll need to merge in the data on an ongoing basis to avoid data duplication
 CREATE ROLE [db_spexector]

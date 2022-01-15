@@ -107,6 +107,27 @@ display(transformedDfDelta)
 
 // COMMAND ----------
 
+// DBTITLE 1,Remove stale data, optimize and vacuum delta table
+import io.delta.tables._
+
+display(spark.sql("""
+DELETE 
+FROM logAnalyticsdb.websitelogs 
+WHERE requestDate < DATE_ADD(CURRENT_TIMESTAMP, -7)
+"""))
+
+display(spark.sql("""
+OPTIMIZE logAnalyticsdb.websitelogs 
+ZORDER BY (snapshotTimestamp)
+"""))
+
+val deltaTable = DeltaTable.forPath(spark, "/delta/logAnalytics/websiteLogs")
+deltaTable.vacuum()
+
+display(spark.sql("DESCRIBE HISTORY logAnalyticsdb.websitelogs"))
+
+// COMMAND ----------
+
 // DBTITLE 1,Create data frame for output file
 import org.apache.spark.sql.SparkSession 
 

@@ -1,7 +1,7 @@
 ﻿CREATE FUNCTION [dbo].[CalculateCustomerPrice]
 (
 	@flightScheduleId INT,
-	@ticketType INT
+	@ticketTypeId INT
 )
 RETURNS MONEY
 AS
@@ -13,10 +13,10 @@ BEGIN
 	DECLARE @ticketTypeDescription NVARCHAR(30)
 
 	--Gets date of flight
-	SET @flightDate = (SELECT CAST([Scheduled_Date_Time_Of_Departure_UTC] AS DATE) FROM [dbo].[FlightSchedule])
+	SET @flightDate = (SELECT CAST([Scheduled_Date_Time_Of_Departure_UTC] AS DATE) FROM [dbo].[FlightSchedule] WHERE [Flight_Schedule_Id] = @flightScheduleId)
 
 	--Looks up the correct ticket type based in integer being passed into function
-	SET @ticketTypeDescription = (SELECT [Ticket_Type] FROM [dbo].[TicketType] WHERE [Ticket_Type_Id] = @ticketType)
+	SET @ticketTypeDescription = (SELECT [Ticket_Type] FROM [dbo].[TicketType] WHERE [Ticket_Type_Id] = @ticketTypeId)
 
 	--Gets fare rate based on date of flight
 	SET @fareRateToApply = 

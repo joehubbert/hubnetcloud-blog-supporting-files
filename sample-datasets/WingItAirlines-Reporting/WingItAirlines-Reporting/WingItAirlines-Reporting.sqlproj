@@ -81,8 +81,6 @@
     <Build Include="dbo\Tables\TicketStatus.sql" />
     <Build Include="dbo\Tables\TicketType.sql" />
     <Build Include="dbo\Views\vwRoute.sql" />
-    <Build Include="dbo\Stored Procedures\CreateBulkEconomyClassBooking.sql" />
-    <Build Include="dbo\Stored Procedures\CreateBulkPremiumEconomyClassBooking.sql" />
-    <Build Include="dbo\Stored Procedures\CreateBulkBusinessClassBooking.sql" />
+    <Build Include="dbo\Stored Procedures\CreateBulkBooking.sql" />
   </ItemGroup>
 </Project>

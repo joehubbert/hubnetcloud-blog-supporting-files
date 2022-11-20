@@ -4,6 +4,7 @@
 	[Flight_Schedule_Id] BIGINT NOT NULL,
 	[Ticket_Type_Id] INT NOT NULL,
 	[Ticket_Status_Id] INT NOT NULL,
+	[Ticket_Sale_Timestamp] DATETIME2 NOT NULL,
 	[Customer_Price_Paid] MONEY NOT NULL,
 	[Agency_Id] INT NOT NULL,
 	[Agency_User_Id] INT NOT NULL,

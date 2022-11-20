@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[CreateBooking]
 	@agencyUserId INT,
 	@routeId INT,
+	@ticketSaleDateTime DATETIME,
 	@ticketTypeId INT,
 	@travelDateTime DATETIME
 AS
@@ -26,12 +27,13 @@ SET @agencyCommission = [dbo].[CalculateAgencyCommission] (@agencyId, @customerP
 IF @availabilityCheck = 0
 THROW 51000, 'There is not enough capacity on the flight, please try a different flight.', 1
 ELSE IF @availabilityCheck = 1
-INSERT INTO [dbo].[TicketSale] ([Flight_Schedule_Id], [Ticket_Type_Id], [Ticket_Status_Id], [Customer_Price_Paid], [Agency_Id], [Agency_User_Id], [Agency_Commission])
+INSERT INTO [dbo].[TicketSale] ([Flight_Schedule_Id], [Ticket_Type_Id], [Ticket_Status_Id], [Ticket_Sale_Timestamp], [Customer_Price_Paid], [Agency_Id], [Agency_User_Id], [Agency_Commission])
 VALUES 
 (
 @flightToBook,
 @ticketTypeId,
 (SELECT [Ticket_Status_Id] FROM [dbo].[TicketStatus] WHERE [Ticket_Status] = 'Confirmed'), 
+@ticketSaleDateTime,
 @customerPrice,
 @agencyId,
 @agencyUserId,

@@ -81,6 +81,5 @@
     <Build Include="dbo\Tables\TicketStatus.sql" />
     <Build Include="dbo\Tables\TicketType.sql" />
     <Build Include="dbo\Views\vwRoute.sql" />
-    <Build Include="dbo\Stored Procedures\CreateBulkBooking.sql" />
   </ItemGroup>
 </Project>

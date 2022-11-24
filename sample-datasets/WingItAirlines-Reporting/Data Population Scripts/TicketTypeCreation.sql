@@ -1,6 +1,0 @@
-INSERT INTO [dbo].[TicketType] ([Ticket_Type])
-VALUES ('Economy Class')
-INSERT INTO [dbo].[TicketType] ([Ticket_Type])
-VALUES ('Premium Economy Class')
-INSERT INTO [dbo].[TicketType] ([Ticket_Type])
-VALUES ('Business Class')

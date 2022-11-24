@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[Agency]
+(
+	[Agency_Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+	[Agency_Name] NVARCHAR(50) NOT NULL
+)

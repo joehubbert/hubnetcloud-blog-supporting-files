@@ -1,0 +1,6 @@
+INSERT INTO [dbo].[TicketStatus] (Ticket_Status)
+VALUES ('Confirmed')
+INSERT INTO [dbo].[TicketStatus] (Ticket_Status)
+VALUES ('Cancelled')
+INSERT INTO [dbo].[TicketStatus] (Ticket_Status)
+VALUES ('Rebooked')

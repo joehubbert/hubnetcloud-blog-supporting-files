@@ -22,23 +22,11 @@ resource networkSecurityGroupRule 'Microsoft.Network/networkSecurityGroups/secur
     access: networkSecurityGroupRuleAccess
     description: networkSecurityGroupRuleDescription
     destinationAddressPrefix: networkSecurityGroupRuleDestinationAddressPrefix
-    destinationAddressPrefixes: [
-      networkSecurityGroupRuleDestinationAddressPrefix
-    ]
     destinationPortRange: networkSecurityGroupRuleDestinationPortRange
-    destinationPortRanges: [
-      networkSecurityGroupRuleDestinationPortRange
-    ]
     direction: networkSecurityGroupRuleDirection
     priority: networkSecurityGroupRulePriority
     protocol: networkSecurityGroupRuleProtocol
     sourceAddressPrefix: networkSecurityGroupRuleSourceAddressPrefix
-    sourceAddressPrefixes: [
-      networkSecurityGroupRuleSourceAddressPrefix
-    ]
     sourcePortRange: networkSecurityGroupRuleSourcePortRange
-    sourcePortRanges: [
-      networkSecurityGroupRuleSourcePortRange
-    ]
   }
 }

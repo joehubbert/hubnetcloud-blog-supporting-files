@@ -42,6 +42,106 @@ module networkSecurityGroup 'networkSecurityGroup.bicep' = {
   }
 }
 
+module remoteDesktopRuleSQLVM 'networkSecurityGroupRule.bicep' = {
+  name: 'deployRemoteDesktopRuleSQLVM'
+  dependsOn: [
+    networkSecurityGroup
+  ]
+  params: {
+    networkSecurityGroupName: networkSecurityGroupName
+    networkSecurityGroupRuleAccess: 'Allow'
+    networkSecurityGroupRuleDescription: 'Allows access between Bastion and SQL VM Subnet for RDP'
+    networkSecurityGroupRuleDestinationAddressPrefix: sqlVMSubnetAddressSpace
+    networkSecurityGroupRuleDestinationPortRange: '3389'
+    networkSecurityGroupRuleDirection: 'Inbound'
+    networkSecurityGroupRulePriority: 100
+    networkSecurityGroupRuleProtocol: 'TCP'
+    networkSecurityGroupRuleSourceAddressPrefix: bastionSubnetAddressSpace
+    networkSecurityGroupRuleSourcePortRange: '*'
+    networkSecurityGroupRuleName: 'Allow_Bastion_RDP_Access_SQLVM'
+  }
+}
+
+module remoteDesktopRuleADDSVM 'networkSecurityGroupRule.bicep' = {
+  name: 'deployRemoteDesktopRuleADDSVM'
+  dependsOn: [
+    networkSecurityGroup
+  ]
+  params: {
+    networkSecurityGroupName: networkSecurityGroupName
+    networkSecurityGroupRuleAccess: 'Allow'
+    networkSecurityGroupRuleDescription: 'Allows access between Bastion and VM Subnet for RDP'
+    networkSecurityGroupRuleDestinationAddressPrefix: virtualMachineSubnetAddressSpace
+    networkSecurityGroupRuleDestinationPortRange: '3389'
+    networkSecurityGroupRuleDirection: 'Inbound'
+    networkSecurityGroupRulePriority: 101
+    networkSecurityGroupRuleProtocol: 'TCP'
+    networkSecurityGroupRuleSourceAddressPrefix: bastionSubnetAddressSpace
+    networkSecurityGroupRuleSourcePortRange: '*'
+    networkSecurityGroupRuleName: 'Allow_Bastion_RDP_Access_VM'
+  }
+}
+
+module dnsRule 'networkSecurityGroupRule.bicep' = {
+  name: 'deployDNSRule'
+  dependsOn: [
+    networkSecurityGroup
+  ]
+  params: {
+    networkSecurityGroupName: networkSecurityGroupName
+    networkSecurityGroupRuleAccess: 'Allow'
+    networkSecurityGroupRuleDescription: 'Allows access between VM Subnet and SQL VM subnet for DNS'
+    networkSecurityGroupRuleDestinationAddressPrefix: virtualMachineSubnetAddressSpace
+    networkSecurityGroupRuleDestinationPortRange: '53'
+    networkSecurityGroupRuleDirection: 'Inbound'
+    networkSecurityGroupRulePriority: 102
+    networkSecurityGroupRuleProtocol: 'TCP'
+    networkSecurityGroupRuleSourceAddressPrefix: sqlVMSubnetAddressSpace
+    networkSecurityGroupRuleSourcePortRange: '*'
+    networkSecurityGroupRuleName: 'Allow_DNS_VM_SQLVM'
+  }
+}
+
+module httpsRuleVM 'networkSecurityGroupRule.bicep' = {
+  name: 'deployHTTPSVMSubnetRule'
+  dependsOn: [
+    networkSecurityGroup
+  ]
+  params: {
+    networkSecurityGroupName: networkSecurityGroupName
+    networkSecurityGroupRuleAccess: 'Allow'
+    networkSecurityGroupRuleDescription: 'Allows access between VM Subnet and the internet'
+    networkSecurityGroupRuleDestinationAddressPrefix: '*'
+    networkSecurityGroupRuleDestinationPortRange: '443'
+    networkSecurityGroupRuleDirection: 'Outbound'
+    networkSecurityGroupRulePriority: 103
+    networkSecurityGroupRuleProtocol: 'TCP'
+    networkSecurityGroupRuleSourceAddressPrefix: virtualMachineSubnetAddressSpace
+    networkSecurityGroupRuleSourcePortRange: '*'
+    networkSecurityGroupRuleName: 'Allow_HTTPS_VM'
+  }
+}
+
+module httpsRuleSQLVM 'networkSecurityGroupRule.bicep' = {
+  name: 'deployHTTPSSQLVMSubnetRule'
+  dependsOn: [
+    networkSecurityGroup
+  ]
+  params: {
+    networkSecurityGroupName: networkSecurityGroupName
+    networkSecurityGroupRuleAccess: 'Allow'
+    networkSecurityGroupRuleDescription: 'Allows access between SQLVM Subnet and the internet'
+    networkSecurityGroupRuleDestinationAddressPrefix: '*'
+    networkSecurityGroupRuleDestinationPortRange: '443'
+    networkSecurityGroupRuleDirection: 'Outbound'
+    networkSecurityGroupRulePriority: 104
+    networkSecurityGroupRuleProtocol: 'TCP'
+    networkSecurityGroupRuleSourceAddressPrefix: sqlVMSubnetAddressSpace
+    networkSecurityGroupRuleSourcePortRange: '*'
+    networkSecurityGroupRuleName: 'Allow_HTTPS_SQLVM'
+  }
+}
+
 module privateDNSZone 'privateDNSZone.bicep' = {
   name: 'deploySQLPrivateDNSZone'
   params: {

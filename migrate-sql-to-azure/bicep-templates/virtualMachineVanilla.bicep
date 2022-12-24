@@ -9,12 +9,10 @@ param virtualMachineName string
 @secure()
 param virtualMachinePrivateIPAddress string
 param virtualMachineSize string
-param virtualNetworkResourceGroupName string
 param virtualNetworkSubnetName string
 
 resource virtualNetworkSubnet 'Microsoft.Network/virtualNetworks/subnets@2022-05-01' existing = {
   name: virtualNetworkSubnetName
-  scope: resourceGroup(virtualNetworkResourceGroupName)
 }
 
 resource networkInterfaceCard 'Microsoft.Network/networkInterfaces@2022-05-01' = {

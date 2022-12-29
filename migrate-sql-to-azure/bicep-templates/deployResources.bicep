@@ -22,7 +22,7 @@ var bastionSubnetName = 'AzureBastionSubnet'
 var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
-var sqlPrivateDNSZoneName = 'privatelink.${environment().suffixes.sqlServerHostname}'
+var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
 var virtualMachineADDSServerAPrivateIP = '10.13.0.84'
@@ -155,65 +155,22 @@ module privateDNSZone 'privateDNSZone.bicep' = {
 module virtualNetwork 'virtualNetwork.bicep' = {
   name: 'deployVirtualNetwork'
   params: {
+    bastionSubnetAddressSpace: bastionSubnetAddressSpace
+    bastionSubnetName: bastionSubnetName
     costCenter: costCenter
     environmentType: environmentType
+    networkSecurityGroupName: networkSecurityGroupName
+    privateEndpointSubnetAddressSpace: privateEndpointSubnetAddressSPace
+    privateEndpointSubnetName: privateEndpointSubnetName
     resourceLocation: resourceLocation
+    sqlVMSubnetAddressSpace: sqlVMSubnetAddressSpace
+    sqlVMSubnetName: sqlVMSubnetName
+    virtualMachineSubnetAddressSpace: virtualMachineSubnetAddressSpace
+    virtualMachineSubnetName: virtualMachineSubnetName
     virtualNetworkAddressSpace: '10.13.0.0/24'
     virtualNetworkDNSServerAPrivateIPAddress: virtualMachineADDSServerAPrivateIP
     virtualNetworkDNSServerBPrivateIPAddress: virtualMachineADDSServerBPrivateIP
     virtualNetworkName: virtualNetworkName
-  }
-}
-
-module bastionSubnet 'virtualNetworkSubnet.bicep' = {
-  name: 'deployBastionSubnet'
-  dependsOn: [
-    virtualNetwork, networkSecurityGroup
-  ]
-  params: {
-    networkSecurityGroupName: networkSecurityGroupName
-    virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetAddressSpace: bastionSubnetAddressSpace
-    virtualNetworkSubnetName: bastionSubnetName
-  }
-}
-
-module sqlVMSubnet 'virtualNetworkSubnet.bicep' = {
-  name: 'deploySQLVMSubnet'
-  dependsOn: [
-    virtualNetwork, networkSecurityGroup
-  ]
-  params: {
-    networkSecurityGroupName: networkSecurityGroupName
-    virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetAddressSpace: sqlVMSubnetAddressSpace
-    virtualNetworkSubnetName: sqlVMSubnetName
-  }
-}
-
-module vmSubnet 'virtualNetworkSubnet.bicep' = {
-  name: 'deployVMSubnet'
-  dependsOn: [
-    virtualNetwork, networkSecurityGroup
-  ]
-  params: {
-    networkSecurityGroupName: networkSecurityGroupName
-    virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetAddressSpace: virtualMachineSubnetAddressSpace
-    virtualNetworkSubnetName: virtualMachineSubnetName
-  }
-}
-
-module privateEndpointSubnet 'virtualNetworkSubnet.bicep' = {
-  name: 'deployPrivateEndpointSubnet'
-  dependsOn: [
-    virtualNetwork, networkSecurityGroup
-  ]
-  params: {
-    networkSecurityGroupName: networkSecurityGroupName
-    virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetAddressSpace: privateEndpointSubnetAddressSPace
-    virtualNetworkSubnetName: privateEndpointSubnetName
   }
 }
 
@@ -230,7 +187,7 @@ module bastionPublicIpAddress 'publicIPAddress.bicep' = {
 module bastion 'bastion.bicep' = {
   name: 'deployBastion'
   dependsOn: [
-    bastionSubnet, bastionPublicIpAddress
+    virtualNetwork, bastionPublicIpAddress
   ]
   params: {
     bastionName: bastionName
@@ -248,7 +205,7 @@ module bastion 'bastion.bicep' = {
 module domainControllerA 'virtualMachineVanilla.bicep' = {
   name: 'deployADDSServerA'
   dependsOn: [
-    vmSubnet
+    virtualNetwork
   ]
   params: {
     costCenter: costCenter
@@ -266,7 +223,7 @@ module domainControllerA 'virtualMachineVanilla.bicep' = {
 module domainControllerB 'virtualMachineVanilla.bicep' = {
   name: 'deployADDSServerB'
   dependsOn: [
-    vmSubnet
+    virtualNetwork
   ]
   params: {
     costCenter: costCenter
@@ -284,7 +241,7 @@ module domainControllerB 'virtualMachineVanilla.bicep' = {
 module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
   name: 'deploySQLServerVirtualMachine'
   dependsOn: [
-    sqlVMSubnet
+    virtualNetwork
   ]
   params: {
     costCenter: costCenter
@@ -302,7 +259,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
 module azureSQLServer 'azureSQLServer.bicep' = {
   name: 'deployAzureSQLLogicalServer'
   dependsOn: [
-    privateEndpointSubnet, privateDNSZone
+    virtualNetwork, privateDNSZone
   ]
   params: {
     azureActiveDirectorySQLServerAdministrator: azureActiveDirectorySQLServerAdministrator

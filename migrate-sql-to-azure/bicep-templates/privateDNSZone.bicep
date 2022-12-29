@@ -8,7 +8,7 @@ resource privateDNSZone 'Microsoft.Network/privateDnsZones@2020-06-01' = {
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {}
 }

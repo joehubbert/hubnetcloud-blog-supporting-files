@@ -8,9 +8,9 @@ resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-05-0
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {
-    flushConnection: true
+    flushConnection: false
   }
 }

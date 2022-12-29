@@ -8,7 +8,7 @@ resource publicIPAddress 'Microsoft.Network/publicIPAddresses@2022-05-01' = {
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   sku: {
     name: 'Standard'

@@ -20,10 +20,11 @@ resource networkInterfaceCard 'Microsoft.Network/networkInterfaces@2022-05-01' =
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {
     enableAcceleratedNetworking: true
+    enableIPForwarding: false
     ipConfigurations: [
       {
         name: '${virtualMachineName}-nic-001-ip-configuration'
@@ -47,7 +48,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {
     additionalCapabilities: {

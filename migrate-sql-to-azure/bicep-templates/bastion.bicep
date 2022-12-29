@@ -26,7 +26,7 @@ resource bastionHost 'Microsoft.Network/bastionHosts@2022-05-01' = {
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   sku: {
     name: bastionSKU

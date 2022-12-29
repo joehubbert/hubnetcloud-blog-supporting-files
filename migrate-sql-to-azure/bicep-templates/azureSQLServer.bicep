@@ -30,7 +30,7 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {
     administratorLogin: sqlServerAdministratorUsername
@@ -54,7 +54,7 @@ resource sqlServerPrivateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01
   location: resourceLocation
   tags: {
     costCenter: costCenter
-    enivronmentType: environmentType
+    environmentType: environmentType
   }
   properties: {
     customNetworkInterfaceName: '${sqlServerName}-sqlserver-pep-nic'

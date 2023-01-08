@@ -148,12 +148,15 @@ module privateDNSZone 'privateDNSZone.bicep' = {
     costCenter: costCenter
     environmentType: environmentType
     privateDNSZoneName: sqlPrivateDNSZoneName
-    resourceLocation: resourceLocation    
+    resourceLocation: 'Global'    
   }
 }
 
 module virtualNetwork 'virtualNetwork.bicep' = {
   name: 'deployVirtualNetwork'
+  dependsOn: [
+    networkSecurityGroup
+  ]
   params: {
     bastionSubnetAddressSpace: bastionSubnetAddressSpace
     bastionSubnetName: bastionSubnetName

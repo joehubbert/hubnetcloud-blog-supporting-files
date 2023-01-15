@@ -218,7 +218,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
     virtualMachineAdminPassword: virtualMachineAdminPassword
     virtualMachineAdminUsername: virtualMachineAdminUsername
     virtualMachinePrivateIPAddress: virtualMachineSQLServerPrivateIP
-    virtualMachineName: 'azvm${resourceLocationShort}sql2014001'
+    virtualMachineName: 'vm${resourceLocationShort}sql2014db01'
     virtualMachineSize: 'Standard_D2ads_v5'
     virtualNetworkName: virtualNetworkName
     virtualNetworkSubnetName: sqlVMSubnetName

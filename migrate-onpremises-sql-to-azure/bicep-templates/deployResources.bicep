@@ -24,6 +24,7 @@ var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
 var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
+var sqlVMName = 'SQLVM2014DB01'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
 var virtualMachineADDSServerAPrivateIP = '10.13.0.84'
@@ -218,7 +219,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
     virtualMachineAdminPassword: virtualMachineAdminPassword
     virtualMachineAdminUsername: virtualMachineAdminUsername
     virtualMachinePrivateIPAddress: virtualMachineSQLServerPrivateIP
-    virtualMachineName: 'vm${resourceLocationShort}sql2014db01'
+    virtualMachineName: sqlVMName
     virtualMachineSize: 'Standard_D2ads_v5'
     virtualNetworkName: virtualNetworkName
     virtualNetworkSubnetName: sqlVMSubnetName

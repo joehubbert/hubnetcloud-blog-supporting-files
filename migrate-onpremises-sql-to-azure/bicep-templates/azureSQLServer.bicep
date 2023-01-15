@@ -1,4 +1,5 @@
 param azureActiveDirectorySQLServerAdministrator string
+param azureActiveDirectorySQLServerAdministratorSID string
 param azureActiveDirectoryTenantId string
 param costCenter string
 param environmentType string
@@ -39,6 +40,7 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
       administratorType: 'ActiveDirectory'
       azureADOnlyAuthentication: false
       login: azureActiveDirectorySQLServerAdministrator
+      sid: azureActiveDirectorySQLServerAdministratorSID
       principalType: 'User'
       tenantId: azureActiveDirectoryTenantId
     }

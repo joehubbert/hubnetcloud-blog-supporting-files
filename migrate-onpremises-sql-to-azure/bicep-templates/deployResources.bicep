@@ -1,4 +1,5 @@
 param azureActiveDirectorySQLServerAdministrator string
+param azureActiveDirectorySQLServerAdministratorSID string
 param azureActiveDirectoryTenantId string
 param costCenter string
 param currentDate string = utcNow('yyyyMMdd')
@@ -266,6 +267,7 @@ module azureSQLServer 'azureSQLServer.bicep' = {
   ]
   params: {
     azureActiveDirectorySQLServerAdministrator: azureActiveDirectorySQLServerAdministrator
+    azureActiveDirectorySQLServerAdministratorSID: azureActiveDirectorySQLServerAdministratorSID
     azureActiveDirectoryTenantId: azureActiveDirectoryTenantId
     costCenter: costCenter
     environmentType: environmentType

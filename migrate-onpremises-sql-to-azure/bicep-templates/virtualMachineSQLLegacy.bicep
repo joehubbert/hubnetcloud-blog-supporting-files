@@ -70,7 +70,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
     hardwareProfile: {
       vmSize: virtualMachineSize
     }
-    licenseType: 'Windows-Server'
+    licenseType: 'Windows_Server'
     networkProfile: {
       networkInterfaces: [
         {

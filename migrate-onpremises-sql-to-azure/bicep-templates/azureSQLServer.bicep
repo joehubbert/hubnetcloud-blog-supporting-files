@@ -68,7 +68,7 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
         name: '${sqlServerName}-privateLinkServiceConnection'
         properties: {
           groupIds: [
-            'SqlServer'
+            'sqlServer'
           ]
           privateLinkServiceId: resourceId('Microsoft.Sql/servers', sqlServerName)
         }

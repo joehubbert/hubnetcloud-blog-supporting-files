@@ -38,7 +38,7 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
     administrators: {
       administratorType: 'ActiveDirectory'
       azureADOnlyAuthentication: false
-      sid: azureActiveDirectorySQLServerAdministrator
+      login: azureActiveDirectorySQLServerAdministrator
       principalType: 'User'
       tenantId: azureActiveDirectoryTenantId
     }

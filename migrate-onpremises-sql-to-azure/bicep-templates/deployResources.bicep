@@ -221,7 +221,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
     virtualMachineName: 'azvm${resourceLocationShort}sql2014001'
     virtualMachineSize: 'Standard_D2ads_v5'
     virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetName: virtualMachineSubnetName    
+    virtualNetworkSubnetName: sqlVMSubnetName
   }
 }
 

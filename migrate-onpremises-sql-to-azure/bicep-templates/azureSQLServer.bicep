@@ -74,15 +74,6 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
         }
       }
     ]
-    ipConfigurations: [
-      {
-        name: '${sqlServerName}-sqlserver-pep-nic-ip-configuration'
-        properties: {
-          groupId: 'sqlServer'
-          memberName: sqlServerName
-        }
-      }
-    ]
     subnet: {
       id: virtualNetworkSubnet.id
     }

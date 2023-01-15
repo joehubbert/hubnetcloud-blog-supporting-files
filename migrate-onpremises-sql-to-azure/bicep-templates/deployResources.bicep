@@ -206,42 +206,6 @@ module bastion 'bastion.bicep' = {
   }
 }
 
-module domainControllerA 'virtualMachineVanilla.bicep' = {
-  name: 'deployADDSServerA'
-  dependsOn: [
-    virtualNetwork
-  ]
-  params: {
-    costCenter: costCenter
-    environmentType: environmentType
-    resourceLocation: resourceLocation
-    virtualMachineAdminPassword: virtualMachineAdminPassword
-    virtualMachineAdminUsername: virtualMachineAdminUsername
-    virtualMachinePrivateIPAddress: virtualMachineADDSServerAPrivateIP
-    virtualMachineName: 'azvm${resourceLocationShort}adds001'
-    virtualMachineSize: 'Standard_D2ads_v5'
-    virtualNetworkSubnetName: virtualMachineSubnetName
-  }
-}
-
-module domainControllerB 'virtualMachineVanilla.bicep' = {
-  name: 'deployADDSServerB'
-  dependsOn: [
-    virtualNetwork
-  ]
-  params: {
-    costCenter: costCenter
-    environmentType: environmentType
-    resourceLocation: resourceLocation
-    virtualMachineAdminPassword: virtualMachineAdminPassword
-    virtualMachineAdminUsername: virtualMachineAdminUsername
-    virtualMachinePrivateIPAddress: virtualMachineADDSServerBPrivateIP
-    virtualMachineName: 'azvm${resourceLocationShort}adds002'
-    virtualMachineSize: 'Standard_D2ads_v5'
-    virtualNetworkSubnetName: virtualMachineSubnetName
-  }
-}
-
 module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
   name: 'deploySQLServerVirtualMachine'
   dependsOn: [

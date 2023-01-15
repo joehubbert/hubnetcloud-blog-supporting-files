@@ -9,10 +9,16 @@ param virtualMachineName string
 @secure()
 param virtualMachinePrivateIPAddress string
 param virtualMachineSize string
+param virtualNetworkName string
 param virtualNetworkSubnetName string
+
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' existing = {
+  name: virtualNetworkName
+}
 
 resource virtualNetworkSubnet 'Microsoft.Network/virtualNetworks/subnets@2022-05-01' existing = {
   name: virtualNetworkSubnetName
+  parent: virtualNetwork
 }
 
 resource virtualMachineNetworkInterfaceCard 'Microsoft.Network/networkInterfaces@2022-05-01' = {
@@ -53,7 +59,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
   }
   properties: {
     additionalCapabilities: {
-      hibernationEnabled: true
+      hibernationEnabled: false
       ultraSSDEnabled: false
     }
     diagnosticsProfile: {
@@ -66,7 +72,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
     }
     licenseType: 'Windows-Server'
     networkProfile: {
-      networkApiVersion: '2020-11-01'
       networkInterfaces: [
         {
           id: virtualMachineNetworkInterfaceCard.id
@@ -74,8 +79,8 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
       ]
     }
     osProfile: {
-      adminPassword: virtualMachineAdminUsername
-      adminUsername: virtualMachineAdminPassword
+      adminPassword: virtualMachineAdminPassword
+      adminUsername: virtualMachineAdminUsername
       allowExtensionOperations: true
       computerName: virtualMachineName
       windowsConfiguration: {
@@ -86,7 +91,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           automaticByPlatformSettings: {
             rebootSetting: 'IfRequired'
           }
-          enableHotpatching: true
+          enableHotpatching: false
           patchMode: 'AutomaticByPlatform'
         }
         provisionVMAgent: true

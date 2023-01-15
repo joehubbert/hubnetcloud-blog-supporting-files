@@ -220,6 +220,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
     virtualMachinePrivateIPAddress: virtualMachineSQLServerPrivateIP
     virtualMachineName: 'azvm${resourceLocationShort}sql2014001'
     virtualMachineSize: 'Standard_D2ads_v5'
+    virtualNetworkName: virtualNetworkName
     virtualNetworkSubnetName: virtualMachineSubnetName    
   }
 }

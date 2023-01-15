@@ -15,19 +15,20 @@ resource virtualNetworkSubnet 'Microsoft.Network/virtualNetworks/subnets@2022-05
   name: virtualNetworkSubnetName
 }
 
-resource networkInterfaceCard 'Microsoft.Network/networkInterfaces@2022-05-01' = {
-  name: '${virtualMachineName}-nic-001'
+resource virtualMachineNetworkInterfaceCard 'Microsoft.Network/networkInterfaces@2022-05-01' = {
+  name: '${virtualMachineName}-nic-01'
   location: resourceLocation
   tags: {
-    costCenter: costCenter
+    associatedResource: virtualMachineName
     environmentType: environmentType
+    resourceLocation: resourceLocation
   }
   properties: {
     enableAcceleratedNetworking: true
     enableIPForwarding: false
     ipConfigurations: [
       {
-        name: '${virtualMachineName}-nic-001-ip-configuration'
+        name: '${virtualMachineName}-nic-01-configuration'
         properties: {
           primary: true
           privateIPAddress: virtualMachinePrivateIPAddress
@@ -68,7 +69,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
       networkApiVersion: '2020-11-01'
       networkInterfaces: [
         {
-          id: networkInterfaceCard.id
+          id: virtualMachineNetworkInterfaceCard.id
         }
       ]
     }

@@ -119,7 +119,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           deleteOption: 'Detach'
           detachOption: 'ForceDetach'
           diskSizeGB: 32
-          lun: 0
+          lun: 1
           managedDisk: {
             storageAccountType: 'StandardSSD_LRS'
           }
@@ -131,7 +131,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           deleteOption: 'Detach'
           detachOption: 'ForceDetach'
           diskSizeGB: 32
-          lun: 0
+          lun: 2
           managedDisk: {
             storageAccountType: 'StandardSSD_LRS'
           }
@@ -143,7 +143,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           deleteOption: 'Detach'
           detachOption: 'ForceDetach'
           diskSizeGB: 32
-          lun: 0
+          lun: 3
           managedDisk: {
             storageAccountType: 'StandardSSD_LRS'
           }

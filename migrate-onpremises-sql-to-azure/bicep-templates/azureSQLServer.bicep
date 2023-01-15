@@ -49,8 +49,11 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
   }
 }
 
-resource sqlServerPrivateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
   name: '${sqlServerName}-sqlserver-pep'
+  dependsOn: [
+    sqlServer
+  ]
   location: resourceLocation
   tags: {
     costCenter: costCenter
@@ -58,6 +61,17 @@ resource sqlServerPrivateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01
   }
   properties: {
     customNetworkInterfaceName: '${sqlServerName}-sqlserver-pep-nic'
+    privateLinkServiceConnections: [
+      {
+        name: '${sqlServerName}-privateLinkServiceConnection'
+        properties: {
+          groupIds: [
+            'SqlServer'
+          ]
+          privateLinkServiceId: resourceId('Microsoft.Sql/servers', sqlServerName)
+        }
+      }
+    ]
     ipConfigurations: [
       {
         name: '${sqlServerName}-sqlserver-pep-nic-ip-configuration'
@@ -73,12 +87,17 @@ resource sqlServerPrivateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01
   }
 }
 
-resource sqlServerPrivateEndpointConnection 'Microsoft.Sql/servers/privateEndpointConnections@2022-05-01-preview' = {
-  name: '${sqlServerName}-sqlserver-pep-connection'
-  parent: sqlServer
+resource sqlServerPrivateEndpointDNSZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-07-01' = {
+  name: sqlServerPrivateDNSZoneName
+  parent: privateEndpoint
   properties: {
-    privateEndpoint: {
-      id: sqlServerPrivateEndpoint.id
-    }
+    privateDnsZoneConfigs: [
+      {
+        name: 'SqlServerDNSConfig'
+        properties: {
+          privateDnsZoneId: resourceId('Microsoft.Network/privateDnsZones', sqlServerPrivateDNSZoneName)
+        }
+      }
+    ]
   }
 }

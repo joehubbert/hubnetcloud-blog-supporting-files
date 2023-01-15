@@ -105,7 +105,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           caching: 'ReadOnly'
           createOption: 'Empty'
           deleteOption: 'Detach'
-          detachOption: 'ForceDetach'
           diskSizeGB: 32
           lun: 0
           managedDisk: {
@@ -117,7 +116,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           caching: 'None'
           createOption: 'Empty'
           deleteOption: 'Detach'
-          detachOption: 'ForceDetach'
           diskSizeGB: 32
           lun: 1
           managedDisk: {
@@ -129,7 +127,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           caching: 'None'
           createOption: 'Empty'
           deleteOption: 'Detach'
-          detachOption: 'ForceDetach'
           diskSizeGB: 32
           lun: 2
           managedDisk: {
@@ -141,7 +138,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           caching: 'None'
           createOption: 'Empty'
           deleteOption: 'Detach'
-          detachOption: 'ForceDetach'
           diskSizeGB: 32
           lun: 3
           managedDisk: {
@@ -166,7 +162,6 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
         }
         name: '${virtualMachineName}-OS-Disk'
         osType: 'Windows'
-        writeAcceleratorEnabled: false
       }
     }
   }

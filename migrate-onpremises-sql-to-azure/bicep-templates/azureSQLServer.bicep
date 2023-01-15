@@ -78,7 +78,7 @@ resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
       {
         name: '${sqlServerName}-sqlserver-pep-nic-ip-configuration'
         properties: {
-          groupId: privateDNSZone.id
+          groupId: 'sqlServer'
           memberName: sqlServerName
         }
       }

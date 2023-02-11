@@ -1,48 +1,6 @@
 $databaseName = 'WingItAirlines-Reporting'
 $sqlServerCredential = Get-Credential
 
-function Get-RandomDateBetween{
-    [Cmdletbinding()]
-    param(
-        [parameter(Mandatory=$True)][DateTime]$StartDate,
-        [parameter(Mandatory=$True)][DateTime]$EndDate
-        )
-
-    process{
-       return Get-Random -Minimum $StartDate.Ticks -Maximum $EndDate.Ticks | Get-Date -Format "dd/MM/yyyy HH:mm:ss"
-    }
-}
-
-function Get-RandomTimeBetween{
-       [Cmdletbinding()]
-      param(
-          [parameter(Mandatory=$True)][string]$StartTime,
-          [parameter(Mandatory=$True)][string]$EndTime
-          )
-      begin{
-          $minuteTimeArray = @("00","15","30","45")
-      }    
-      process{
-          $rangeHours = @($StartTime.Split(":")[0],$EndTime.Split(":")[0])
-          $hourTime = Get-Random -Minimum $rangeHours[0] -Maximum $rangeHours[1]
-          $minuteTime = "00"
-          if($hourTime -ne $rangeHours[0] -and $hourTime -ne $rangeHours[1]){
-              $minuteTime = Get-Random $minuteTimeArray
-              return "${hourTime}:${minuteTime}"
-          }
-          elseif ($hourTime -eq $rangeHours[0]) { # hour is the same as the start time so we ensure the minute time is higher
-              $minuteTime = $minuteTimeArray | ?{ [int]$_ -ge [int]$StartTime.Split(":")[1] } | Get-Random # Pick the next quarter
-              #If there is no quarter available (eg 09:50) we jump to the next hour (10:00)
-              return (.{If(-not $minuteTime){ "${[int]hourTime+1}:00" }else{ "${hourTime}:${minuteTime}" }})               
-           
-          }else { # hour is the same as the end time
-              #By sorting the array, 00 will be pick if no close hour quarter is found
-              $minuteTime = $minuteTimeArray | Sort-Object -Descending | ?{ [int]$_ -le [int]$EndTime.Split(":")[1] } | Get-Random
-              return "${hourTime}:${minuteTime}"
-          }
-      }
-  }
-
 $businessClassAgencyUser = `
 Invoke-Sqlcmd `
 -Credential $sqlServerCredential `
@@ -55,7 +13,6 @@ WHERE A.[Agency_Name] = 'Christopher Columbus' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $businessClassAgencyUser = $businessClassAgencyUser.Agency_User_Id
-Write-Host "The Business Class Agency User is: $businessClassAgencyUser"
 
 $businessClassTicketType = `
 Invoke-Sqlcmd `
@@ -68,7 +25,6 @@ WHERE [Ticket_Type] = 'Business Class' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $businessClassTicketType = $businessClassTicketType.Ticket_Type_Id
-Write-Host "The Business Class Ticket Type is: $businessClassTicketType"
 
 $economyClassAgencyUser = `
 Invoke-Sqlcmd `
@@ -82,7 +38,6 @@ WHERE A.[Agency_Name] = 'Sunchasers Ltd' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $economyClassAgencyUser = $economyClassAgencyUser.Agency_User_Id
-Write-Host "The Economy Class Agency User is: $economyClassAgencyUser"
 
 $economyClassTicketType = `
 Invoke-Sqlcmd `
@@ -95,7 +50,6 @@ WHERE [Ticket_Type] = 'Economy Class' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $economyClassTicketType = $economyClassTicketType.Ticket_Type_Id
-Write-Host "The Economy Class Ticket Type is: $economyClassTicketType"
 
 $flightSchedule = `
 Invoke-Sqlcmd `
@@ -106,6 +60,8 @@ Invoke-Sqlcmd `
 [Flight_Schedule_Id] `
 FROM [dbo].[FlightSchedule]" `
 -ServerInstance $env:COMPUTERNAME
+
+$flightSchedule = $flightSchedule.Flight_Schedule_Id
 
 $premiumEconomyClassAgencyUser = `
 Invoke-Sqlcmd `
@@ -119,7 +75,6 @@ WHERE A.[Agency_Name] = 'Suntours Vacaction LLC' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $premiumEconomyClassAgencyUser = $premiumEconomyClassAgencyUser.Agency_User_Id
-Write-Host "The Premium Economy Class Agency User is: $premiumEconomyClassAgencyUser"
 
 $premiumEconomyClassTicketType = `
 Invoke-Sqlcmd `
@@ -132,10 +87,65 @@ WHERE [Ticket_Type] = 'Premium Economy Class' "`
 -ServerInstance $env:COMPUTERNAME 
 
 $premiumEconomyClassTicketType = $premiumEconomyClassTicketType.Ticket_Type_Id
-Write-Host "The Premium Economy Class Ticket Type is: $premiumEconomyClassTicketType"
 
-foreach($flight in $flightSchedule.Flight_Schedule_Id)
+foreach($flight in $flightSchedule)
 {
+    Start-Job -Name CreateBulkBookings -ArgumentList $businessClassAgencyUser, $businessClassTicketType, $databaseName, $economyClassAgencyUser, $economyClassTicketType, $flight, $premiumEconomyClassAgencyUser, $premiumEconomyClassTicketType, $sqlServerCredential -ScriptBlock {
+    param
+    (
+        [int]$businessClassAgencyUser,
+        [int]$businessClassTicketType,
+        [string]$databaseName,
+        [int]$economyClassAgencyUser,
+        [int]$economyClassTicketType,
+        [int]$flight,
+        [int]$premiumEconomyClassAgencyUser,
+        [int]$premiumEconomyClassTicketType,
+        [pscredential]$sqlServerCredential
+    )
+
+    function Get-RandomDateBetween{
+        [Cmdletbinding()]
+        param(
+            [parameter(Mandatory=$True)][DateTime]$StartDate,
+            [parameter(Mandatory=$True)][DateTime]$EndDate
+            )
+    
+        process{
+           return Get-Random -Minimum $StartDate.Ticks -Maximum $EndDate.Ticks | Get-Date -Format "dd/MM/yyyy HH:mm:ss"
+        }
+    }
+    
+    function Get-RandomTimeBetween{
+           [Cmdletbinding()]
+          param(
+              [parameter(Mandatory=$True)][string]$StartTime,
+              [parameter(Mandatory=$True)][string]$EndTime
+              )
+          begin{
+              $minuteTimeArray = @("00","15","30","45")
+          }    
+          process{
+              $rangeHours = @($StartTime.Split(":")[0],$EndTime.Split(":")[0])
+              $hourTime = Get-Random -Minimum $rangeHours[0] -Maximum $rangeHours[1]
+              $minuteTime = "00"
+              if($hourTime -ne $rangeHours[0] -and $hourTime -ne $rangeHours[1]){
+                  $minuteTime = Get-Random $minuteTimeArray
+                  return "${hourTime}:${minuteTime}"
+              }
+              elseif ($hourTime -eq $rangeHours[0]) { # hour is the same as the start time so we ensure the minute time is higher
+                  $minuteTime = $minuteTimeArray | ?{ [int]$_ -ge [int]$StartTime.Split(":")[1] } | Get-Random # Pick the next quarter
+                  #If there is no quarter available (eg 09:50) we jump to the next hour (10:00)
+                  return (.{If(-not $minuteTime){ "${[int]hourTime+1}:00" }else{ "${hourTime}:${minuteTime}" }})               
+               
+              }else { # hour is the same as the end time
+                  #By sorting the array, 00 will be pick if no close hour quarter is found
+                  $minuteTime = $minuteTimeArray | Sort-Object -Descending | ?{ [int]$_ -le [int]$EndTime.Split(":")[1] } | Get-Random
+                  return "${hourTime}:${minuteTime}"
+              }
+          }
+      }
+    
     $airplaneFlight = `
     Invoke-SqlCmd `
     -Credential $sqlServerCredential `
@@ -147,7 +157,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $airplaneFlight = $airplaneFlight.Airplane_Id
-    Write-Host "The airplane for the flight is $airplaneFlight"
 
     $dateTimeFlight = `
     Invoke-SqlCmd `
@@ -160,7 +169,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $dateTimeFlight = $dateTimeFlight.Scheduled_Date_Time_Of_Departure_UTC
-    Write-Host "The datetime for flight departure is $dateTimeFlight"
 
     $routeToBook = `
     Invoke-SqlCmd `
@@ -173,7 +181,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $routeToBook = $routeToBook.Route_Id
-    Write-Host "The route for the flight is $routeToBook"
 
     $businessClassBookingsCapacityUtilisation = Get-Random -Minimum 0.65 -Maximum 1
     $businessClassBookingsCapacityUtilisationRounded = [Math]::Round($businessClassBookingsCapacityUtilisation, 2)
@@ -189,7 +196,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $businessClassBookingsToCreate = $businessClassBookingsToCreate.Bookings_To_Create
-    Write-Host "$businessClassBookingsToCreate booking(s) will be created for this flight in Business Class"
 
     $economyClassBookingsCapacityUtilisation = Get-Random -Minimum 0.65 -Maximum 1
     $economyClassBookingsCapacityUtilisationRounded = [Math]::Round($economyClassBookingsCapacityUtilisation, 2)
@@ -205,7 +211,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $economyClassBookingsToCreate = $economyClassBookingsToCreate.Bookings_To_Create
-    Write-Host "$economyClassBookingsToCreate booking(s) will be created for this flight in Economy Class"
 
     $premiumEconomyClassBookingsCapacityUtilisation = Get-Random -Minimum 0.65 -Maximum 1
     $premiumEconomyClassBookingsCapacityUtilisationRounded = [Math]::Round($premiumEconomyClassBookingsCapacityUtilisation, 2)
@@ -221,7 +226,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
     -ServerInstance $env:COMPUTERNAME
 
     $premiumEconomyClassBookingsToCreate = $premiumEconomyClassBookingsToCreate.Bookings_To_Create
-    Write-Host "$premiumEconomyClassBookingsToCreate booking(s) will be created for this flight in Premium Economy Class"
 
         while($businessClassBookingsToCreate -gt 0)
         {
@@ -231,7 +235,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             $timeOfBooking = [System.Timespan]::Parse($timeOfBooking)
           
             [datetime]$dateTimeTicketSale = $dateOfBooking.Add($timeOfBooking)
-            Write-Host "The timestamp of the booking is: $dateTimeTicketSale"
 
             Invoke-SqlCmd `
             -Credential $sqlServerCredential `
@@ -250,7 +253,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             -ServerInstance $env:COMPUTERNAME
 
             $businessClassBookingsToCreate = $businessClassBookingsToCreate - 1
-            Write-Host "There are $businessClassBookingsToCreate more Business Class bookings to create for flight_schedule $flight"
         }
 
         while($economyClassBookingsToCreate -gt 0)
@@ -261,7 +263,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             $timeOfBooking = [System.Timespan]::Parse($timeOfBooking)
           
             [datetime]$dateTimeTicketSale = $dateOfBooking.Add($timeOfBooking)
-            Write-Host "The timestamp of the booking is: $dateTimeTicketSale"
 
             Invoke-SqlCmd `
             -Credential $sqlServerCredential `
@@ -280,8 +281,7 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             -ServerInstance $env:COMPUTERNAME
 
             $economyClassBookingsToCreate = $economyClassBookingsToCreate -1
-            "There are $economyClassBookingsToCreate more Economy Class bookings to create for flight_schedule $flight"
-        }            
+        }
 
         while($premiumEconomyClassBookingsToCreate -gt 0)
         {
@@ -291,7 +291,6 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             $timeOfBooking = [System.Timespan]::Parse($timeOfBooking)
           
             [datetime]$dateTimeTicketSale = $dateOfBooking.Add($timeOfBooking)
-            Write-Host "The timestamp of the booking is: $dateTimeTicketSale"
 
             Invoke-SqlCmd `
             -Credential $sqlServerCredential `
@@ -310,8 +309,8 @@ foreach($flight in $flightSchedule.Flight_Schedule_Id)
             -ServerInstance $env:COMPUTERNAME
 
             $premiumEconomyClassBookingsToCreate = $premiumEconomyClassBookingsToCreate -1
-            "There are $premiumEconomyClassBookingsToCreate more Premium Economy Class bookings to create for flight_schedule $flight"
-        }            
+        }
+    }
+} 
 
-    Write-Host "All bookings have been created for flight_schedule $flight"
-}
+Get-Job | Wait-Job

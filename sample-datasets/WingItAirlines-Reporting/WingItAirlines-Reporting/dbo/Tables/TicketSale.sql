@@ -5,6 +5,7 @@
 	[Ticket_Type_Id] INT NOT NULL,
 	[Ticket_Status_Id] INT NOT NULL,
 	[Ticket_Sale_Timestamp] DATETIME2 NOT NULL,
+	[Ticket_Sale_Date] AS CAST([Ticket_Sale_Timestamp] AS DATE) PERSISTED,
 	[Customer_Price_Paid] MONEY NOT NULL,
 	[Agency_Id] INT NOT NULL,
 	[Agency_User_Id] INT NOT NULL,
@@ -35,3 +36,7 @@ ADD CONSTRAINT [FK_TicketSale_AgencyUser]
 FOREIGN KEY([Agency_User_Id])
 REFERENCES [dbo].[AgencyUser] ([Agency_User_Id])
 GO
+
+CREATE INDEX [IDX_TicketSale]
+ON [dbo].[TicketSale]
+([Ticket_Sale_Date])

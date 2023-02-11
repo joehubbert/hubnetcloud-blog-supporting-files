@@ -132,7 +132,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           managedDisk: {
             storageAccountType: 'StandardSSD_LRS'
           }
-          name: '${virtualMachineName}-SQL-Log-TempDB'
+          name: '${virtualMachineName}-SQL-TempDB-Disk'
         }
         {
           caching: 'None'
@@ -143,7 +143,7 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
           managedDisk: {
             storageAccountType: 'StandardSSD_LRS'
           }
-          name: '${virtualMachineName}-SQL-Log-Backup'
+          name: '${virtualMachineName}-SQL-Backup-Disk'
         }
       ]
       imageReference: {
@@ -163,6 +163,39 @@ resource virtualMachine 'Microsoft.Compute/virtualMachines@2022-08-01' = {
         name: '${virtualMachineName}-OS-Disk'
         osType: 'Windows'
       }
+    }
+  }
+}
+
+resource configureVirtualMachine 'Microsoft.Compute/virtualMachines/runCommands@2022-08-01' = {
+  name: virtualMachineName
+  location: resourceLocation
+  tags: {
+    associatedResource: virtualMachineName
+    environmentType: environmentType
+    resourceLocation: resourceLocation
+  }
+  parent: virtualMachine
+  properties: {
+    asyncExecution: false
+    parameters: [
+      {
+        name: 'string'
+        value: 'string'
+      }
+    ]
+    protectedParameters: [
+      {
+        name: 'string'
+        value: 'string'
+      }
+    ]
+    runAsPassword: virtualMachineAdminPassword
+    runAsUser: virtualMachineAdminUsername
+    source: {
+      commandId: 'RunPowerShellScript'
+      script: 'string'
+      scriptUri: 'string'
     }
   }
 }

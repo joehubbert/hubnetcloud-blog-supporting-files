@@ -1,6 +1,8 @@
 param
 (
     [string]$sqlServerSAAccountPassword,
+    [string]$sqlServerSQLAuthPassword,
+    [string]$sqlServerSQLAuthUsername,
     [string]$sqlServerSysAdminAccount,
     [string]$storageAccountBlobPrefix
 )
@@ -14,11 +16,12 @@ $sqlDataDiskName = 'SQLData'
 $sqlLogDiskName = 'SQLLog'
 $sqlServerSAAccountPasswordForCredential = (ConvertTo-SecureString $sqlServerSAAccountPassword -AsPlainText -Force)
 $sqlServerSAAccountCredential = New-Object System.Management.Automation.PSCredential ('sa', $sqlServerSAAccountPasswordForCredential)
+$sqlServerSQLAuthPasswordForCredential = (ConvertTo-SecureString $sqlServerSQLAuthPassword -AsPlainText -Force)
+$sqlServerSQLAuthCredential = New-Object System.Management.Automation.PSCredential ($sqlServerSQLAuthUsername, $sqlServerSQLAuthPasswordForCredential)
 $sqlTempDBDiskName = 'SQLTempDB'
 
 #Create computer setup directory
-$computerSetupDirectory = 'C:\ComputerSetup'
-New-Item -Path $computerSetupDirectory -ItemType Directory
+$computerSetupDirectory = 'C:\ComputerSetup\Install'
 Set-Location $computerSetupDirectory
 
 #Initialise Data Disks
@@ -122,18 +125,33 @@ Set-Location ?:\
 /UpdateEnabled=True `
 /UpdateSource='MU'
 
-#Restore databases
+#Create SQLAuth Login
 Invoke-SqlCmd `
 -Credential $sqlServerSAAccountCredential `
 -Database 'master' `
--Query "RESTORE DATABASE [WingIt_Sales] FROM  DISK = N'C:\ComputerSetup\Sales.bak' WITH  FILE = 1, MOVE N'SalesDBData' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\WingIt_SalesDBData.mdf',  MOVE N'SalesDBLog' TO N'G:\MSSQL15.MSSQLSERVER\USER_LOG\WingIt_SalesDBLog.ldf',  NOUNLOAD,  STATS = 5
-" `
+-Query "CREATE LOGIN [$sqlServerSQLAuthUsername] WITH PASSWORD = '$sqlServerSQLAuthPassword' `
+GO `
+ALTER SERVER ROLE sysadmin ADD MEMBER [$sqlServeSQLAuthUsername]" `
+-ServerInstance $env:computername
+
+#Disable sa Login
+Invoke-SqlCmd `
+-Credential $sqlServerSQlAuthCredential `
+-Database 'master' `
+-Query "ALTER LOGIN [sa] DISABLE" `
+-ServerInstance $env:computername
+
+#Restore databases
+Invoke-SqlCmd `
+-Credential $sqlServerSQLAuthCredential `
+-Database 'master' `
+-Query "RESTORE DATABASE [WingIt_Sales] FROM  DISK = N'C:\ComputerSetup\Install\Sales.bak' WITH  FILE = 1, MOVE N'SalesDBData' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\WingIt_SalesDBData.mdf',  MOVE N'SalesDBLog' TO N'G:\MSSQL15.MSSQLSERVER\USER_LOG\WingIt_SalesDBLog.ldf',  NOUNLOAD,  STATS = 5" `
 -ServerInstance $env:computername
 
 Invoke-SqlCmd `
--Credential $sqlServerSAAccountCredential `
+-Credential $sqlServerSQLAuthCredential `
 -Database 'master' `
--Query "RESTORE DATABASE [WingItAirlines2014-Bookings] FROM  DISK = N'C:\ComputerSetup\WingItAirlines2014-Bookings.bak' WITH  FILE = 1,  MOVE N'AdventureWorks2014_Data' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\WingItAirlines2014-Bookings_Data.mdf',  MOVE N'AdventureWorks2014_Log' TO N'G:\MSSQL15.MSSQLSERVER\USER_LOG\WingItAirlines2014-Bookings_Log.ldf',  MOVE N'customer001-invoice' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\customer002-invoice.jpg',  NOUNLOAD,  STATS = 5" `
+-Query "RESTORE DATABASE [WingItAirlines2014-Bookings] FROM  DISK = N'C:\ComputerSetup\Install\WingItAirlines2014-Bookings.bak' WITH  FILE = 1,  MOVE N'AdventureWorks2014_Data' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\WingItAirlines2014-Bookings_Data.mdf',  MOVE N'AdventureWorks2014_Log' TO N'G:\MSSQL15.MSSQLSERVER\USER_LOG\WingItAirlines2014-Bookings_Log.ldf',  MOVE N'customer001-invoice' TO N'F:\MSSQL15.MSSQLSERVER\USER_DATA\customer002-invoice.jpg',  NOUNLOAD,  STATS = 5" `
 -ServerInstance $env:computername
 
 Restart-Computer

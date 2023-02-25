@@ -24,11 +24,9 @@ var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
 var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
-var sqlVMName = 'SQLVM2014DB01'
+var sqlVMName = 'SQLVM2016DB01'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
-var virtualMachineADDSServerAPrivateIP = '10.13.0.84'
-var virtualMachineADDSServerBPrivateIP = '10.13.0.85'
 var virtualMachineSQLServerPrivateIP = '10.13.0.68'
 var virtualMachineSubnetAddressSpace = '10.13.0.80/28'
 var virtualMachineSubnetName = 'vm-subnet'
@@ -173,8 +171,6 @@ module virtualNetwork 'virtualNetwork.bicep' = {
     virtualMachineSubnetAddressSpace: virtualMachineSubnetAddressSpace
     virtualMachineSubnetName: virtualMachineSubnetName
     virtualNetworkAddressSpace: '10.13.0.0/24'
-    virtualNetworkDNSServerAPrivateIPAddress: virtualMachineADDSServerAPrivateIP
-    virtualNetworkDNSServerBPrivateIPAddress: virtualMachineADDSServerBPrivateIP
     virtualNetworkName: virtualNetworkName
   }
 }

@@ -16,10 +16,6 @@ param virtualMachineSubnetAddressSpace string
 param virtualMachineSubnetName string
 @secure()
 param virtualNetworkAddressSpace string
-@secure()
-param virtualNetworkDNSServerAPrivateIPAddress string
-@secure()
-param virtualNetworkDNSServerBPrivateIPAddress string
 param virtualNetworkName string
 
 resource networkSecurityGroup 'Microsoft.Network/networkSecurityGroups@2022-07-01' existing = {
@@ -41,8 +37,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
     }
     dhcpOptions: {
       dnsServers: [
-        virtualNetworkDNSServerAPrivateIPAddress
-        virtualNetworkDNSServerBPrivateIPAddress
       ]
     }
     subnets: [

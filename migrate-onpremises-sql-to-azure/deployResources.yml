@@ -37,7 +37,7 @@ jobs:
 
               foreach($script in $scriptsToUpload)
               {
-                $blobName = ('scripts\' + $script.Replace(".\",""))
+                $blobName = ('sqlmigrationdemo\scripts\' + $script.Replace(".\",""))
                 Set-AzStorageBlobContent -Container $storageContainer -File $script -Blob $blobName -Properties @{"ContentType" = "text/plain"} -Context $storageContext -Force
               }
             azurePowerShellVersion: LatestVersion

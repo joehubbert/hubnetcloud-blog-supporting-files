@@ -10,6 +10,7 @@ param resourceLocationShort string
 param sqlServerAdministratorPassword string
 @secure()
 param sqlServerAdministratorUsername string
+param sqlVMName string
 @secure()
 param virtualMachineAdminPassword string
 @secure()
@@ -24,7 +25,6 @@ var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
 var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
-var sqlVMName = 'SQLVM2016DB01'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
 var virtualMachineSQLServerPrivateIP = '10.13.0.68'

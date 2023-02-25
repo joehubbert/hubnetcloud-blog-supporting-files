@@ -1,0 +1,158 @@
+parameters:
+- name: buildAgent
+  type: string
+
+- name: deploymentAzureSubscriptionName
+  type: string
+
+- name: managementAzureSubscriptionName
+  type: string
+
+- name: variableGroupName
+  type: string
+
+jobs:
+    - job: 'Deploy_Infrastructure'
+      pool: 
+        vmImage: ${{ parameters.buildAgent }}
+      variables:
+        - group: ${{ parameters.variableGroupName }}
+
+      steps:
+        - task: AzurePowerShell@5
+          name: 'Copy_PowerShell_Scripts_To_Deployment_Storage_Account'
+          displayName: 'Copy PowerShell Scripts From Repo To Deployment Storage Account'
+          inputs:
+            azureSubscription: ${{ parameters.managementAzureSubscriptionName }}
+            errorActionPreference: 'Stop'
+            scriptType: 'inlineScript'
+            inline: |
+              Set-Location "$(Build.SourcesDirectory)\powershell-scripts"
+              $scriptsToUpload = @( `
+              ".\configureDemoServer.ps1", `
+              ".\installDataMigrationAssistant.ps1" `
+              )
+              $storageContainer = 'demo-resources'
+              $storageContext = (New-AzStorageContext -StorageAccountName '$(deploymentRepositoryStorageAccount)' -UseConnectedAccount)
+
+              foreach($script in $scriptsToUpload)
+              {
+                $blobName = ('scripts\' + $script.Replace(".\",""))
+                Set-AzStorageBlobContent -Container $storageContainer -File $script -Blob $blobName -Properties @{"ContentType" = "text/plain"} -Context $storageContext -Force
+              }
+            azurePowerShellVersion: LatestVersion
+
+        - task: AzurePowerShell@5
+          name: 'Get_Required_Keyvault_Secrets'
+          displayName: 'Get Required Secrets from Azure KeyVault'
+          inputs:
+            azureSubscription: ${{ parameters.managementAzureSubscriptionName }}
+            errorActionPreference: 'Stop'
+            scriptType: 'inlineScript'
+            inline: |
+              $azureActiveDirectoryTenantId = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureActiveDirectoryTenantId)' -AsPlainText)
+              $azureSQLServerAADAdmin = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerAADAdmin)' -AsPlainText)
+              $azureSQLServerAADAdminSID = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerAADAdminSID)' -AsPlainText)
+              $azureSQLServerSQLAdminPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminPassword)' -AsPlainText)
+              $azureSQLServerSQLAdminUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminUsername)' -AsPlainText)
+              $sqlVMPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$sqlVMPassword)' -AsPlainText)
+              $sqlVMSQLAuthPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthPassword)' -AsPlainText)
+              $sqlVMSQLAuthUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthUsername)' -AsPlainText)
+              $sqlVMSQLSAPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLSAPassword)' -AsPlainText)
+              $sqlVMUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMUsername)' -AsPlainText)
+              $sqlVMUsernameFQ = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMUsernameFQ)' -AsPlainText)
+              
+              Write-Host "##vso[task.setvariable variable=azureActiveDirectoryTenantId;issecret=true;isoutput=true]$azureActiveDirectoryTenantId"
+              Write-Host "##vso[task.setvariable variable=azureSQLServerAADAdmin;issecret=true;isoutput=true]$azureSQLServerAADAdmin"
+              Write-Host "##vso[task.setvariable variable=azureSQLServerAADAdminSID;issecret=true;isoutput=true]$azureSQLServerAADAdminSID"
+              Write-Host "##vso[task.setvariable variable=azureSQLServerSQLAdminPassword;issecret=true;isoutput=true]$azureSQLServerSQLAdminPassword"
+              Write-Host "##vso[task.setvariable variable=azureSQLServerSQLAdminUsername;issecret=true;isoutput=true]$azureSQLServerSQLAdminUsername"
+              Write-Host "##vso[task.setvariable variable=sqlVMPassword;issecret=true;isoutput=true]$sqlVMPassword"
+              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthPassword;issecret=true;isoutput=true]$sqlVMSQLAuthPassword"
+              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthUsername;issecret=true;isoutput=true]$sqlVMSQLAuthUsername"
+              Write-Host "##vso[task.setvariable variable=sqlVMSQLSAPassword;issecret=true;isoutput=true]$sqlVMSQLSAPassword"
+              Write-Host "##vso[task.setvariable variable=sqlVMUsername;issecret=true;isoutput=true]$sqlVMUsername"
+              Write-Host "##vso[task.setvariable variable=sqlVMUsernameFQ;issecret=true;isoutput=true]$sqlVMUsernameFQ"
+            azurePowerShellVersion: LatestVersion
+        
+        - task: AzureCLI@2
+          name: 'Deploy_Resource_Groups'
+          displayName: 'Deploy Resource Groups'
+          inputs:
+            azureSubscription: ${{ parameters.deploymentAzureSubscriptionName }}
+            scriptType: pscore
+            scriptLocation: inlineScript
+            inlineScript: |
+              az deployment sub create `
+              --location $(resourceLocation) `
+              --template-file './bicep-Templates/deployResourceGroup.bicep' `
+              --parameters `
+              costCenter=$(costCenter) `
+              environmentType=$(environmentType) `
+              resourceGroupName=$(resourceGroupName) `
+              resourceLocation=$(resourceLocation)
+
+        - task: AzureCLI@2
+          name: 'Deploy_Resources'
+          displayName: 'Deploy Resources'
+          inputs:
+            azureSubscription: ${{ parameters.deploymentAzureSubscriptionName }}
+            scriptType: pscore
+            scriptLocation: inlineScript
+            inlineScript: |
+              az deployment group create `
+              --resource-group $(resourceGroupName) `
+              --template-file './bicep-Templates/deployResources.bicep' `
+              --parameters `
+              azureActiveDirectorySQLServerAdministrator=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdmin) `
+              azureActiveDirectorySQLServerAdministratorSID=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdminSID) `
+              azureActiveDirectoryTenantId==$(Get_Required_Keyvault_Secrets.azureActiveDirectoryTenantId) `
+              costCenter=$(costCenter) `
+              environmentType=$(environmentType) `
+              resourceLocation=$(resourceLocation) `
+              resourceLocationShort=$(resourceLocationShort) `
+              sqlServerAdministratorPassword=$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminPassword) `
+              sqlServerAdministratorUsername=$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminUsername) `
+              sqlVMName=$(sqlVMName) `
+              virtualMachineAdminPassword=$(Get_Required_Keyvault_Secrets.sqlVMPassword) `
+              virtualMachineAdminUsername=$(Get_Required_Keyvault_Secrets.sqlVMUsername)
+
+        - task: AzurePowerShell@5
+          name: 'Run_Preparation_Scripts'
+          displayName: 'Run Preparation Scripts'
+          inputs:
+            azureSubscription: ${{ parameters.deploymentAzureSubscriptionName }}
+            errorActionPreference: 'Stop'
+            scriptType: 'inlineScript'
+            inline: |
+              $vmPreparationScript = {
+              #Create Computer Configuration Directories
+              New-Item -Path 'C:\ComputerSetup' -ItemType Directory
+              New-Item -Path 'C:\ComputerSetup\Install' -ItemType Directory
+              New-Item -Path 'C:\ComputerSetup\Scripts' -ItemType Directory
+
+              #Download Setup Scripts
+              Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/configureDemoServer.ps1" -OutFile "C:\ComputerSetup\Scripts\configureDemoServer.ps1"
+              Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/installDataMigrationAssistant.ps1" -OutFile "C:\ComputerSetup\Scripts\installDataMigrationAssistant.ps1"
+              }
+
+              $demoServerConfigurationScript = {
+              Set-Location 'C:\ComputerSetup\Scripts'
+              .\configureDemoServer.ps1 `
+              -sqlServerSAAccountPassword "$(Get_Required_Keyvault_Secrets.sqlVMSQLSAPassword)" `
+              -sqlServerSQLAuthPassword "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthPassword)" `
+              -sqlServerSQLAuthUsername "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthUsername)" `
+              -sqlServerSysAdminAccount "$(Get_Required_Keyvault_Secrets.sqlVMUsernameFQ)" `
+              -storageAccountBlobPrefix "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo"
+              }
+
+              $dataMigrationAssistantScript = {
+              Set-Location 'C:\ComputerSetup\Scripts'
+              .\installDataMigrationAssistant.ps1
+              }
+
+              Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $vmPreparationScript
+              Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $demoServerConfigurationScript
+              Start-Sleep -Seconds 60
+              Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $dataMigrationAssistantScript
+            azurePowerShellVersion: LatestVersion

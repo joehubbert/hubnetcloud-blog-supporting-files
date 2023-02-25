@@ -1,0 +1,15 @@
+trigger:
+  branches:
+    exclude:
+      - main
+
+stages:
+  - stage: 'Demo_Deployment'
+    condition: succeeded()
+    jobs:
+      - template: deployResources.yml
+        parameters:
+          buildAgent: 'windows-latest'
+          deploymentAzureSubscriptionName: 'WingIt Airlines Demo'
+          managementAzureSubscriptionName: 'Hubnet Cloud Consumption'
+          variableGroupName: 'SQL_Migration_Demo'

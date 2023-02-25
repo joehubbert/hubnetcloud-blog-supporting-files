@@ -91,7 +91,7 @@ Wait-Process "ndp48-x86-x64-allos-enu"
 
 #Install SQL Server
 Mount-DiskImage -ImagePath "$computerSetupDirectory\enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso"
-Set-Location ?:\
+Set-Location J:\
 
 .\setup.exe `
 /Action=Install `

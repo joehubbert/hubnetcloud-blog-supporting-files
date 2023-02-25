@@ -1,4 +1,4 @@
-$computerSetupDirectory = 'C:\ComputerSetup'
+$computerSetupDirectory = 'C:\ComputerSetup\Install'
 Set-Location $computerSetupDirectory
 
 #Install Database Migration Assistant

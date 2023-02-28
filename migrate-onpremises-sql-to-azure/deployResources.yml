@@ -55,7 +55,7 @@ jobs:
               $azureSQLServerAADAdminSID = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerAADAdminSID)' -AsPlainText)
               $azureSQLServerSQLAdminPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminPassword)' -AsPlainText)
               $azureSQLServerSQLAdminUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminUsername)' -AsPlainText)
-              $sqlVMPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$sqlVMPassword)' -AsPlainText)
+              $sqlVMPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMPassword)' -AsPlainText)
               $sqlVMSQLAuthPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthPassword)' -AsPlainText)
               $sqlVMSQLAuthUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthUsername)' -AsPlainText)
               $sqlVMSQLSAPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLSAPassword)' -AsPlainText)

@@ -107,15 +107,15 @@ jobs:
               azureActiveDirectorySQLServerAdministrator=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdmin) `
               azureActiveDirectorySQLServerAdministratorSID=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdminSID) `
               azureActiveDirectoryTenantId==$(Get_Required_Keyvault_Secrets.azureActiveDirectoryTenantId) `
-              costCenter=$(costCenter) `
+              costCenter="$(costCenter)" `
               environmentType=$(environmentType) `
               resourceLocation=$(resourceLocation) `
               resourceLocationShort=$(resourceLocationShort) `
-              sqlServerAdministratorPassword=$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminPassword) `
-              sqlServerAdministratorUsername=$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminUsername) `
+              sqlServerAdministratorPassword="$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminPassword)" `
+              sqlServerAdministratorUsername="$(Get_Required_Keyvault_Secrets.azureSQLServerSQLAdminUsername)" `
               sqlVMName=$(sqlVMName) `
-              virtualMachineAdminPassword=$(Get_Required_Keyvault_Secrets.sqlVMPassword) `
-              virtualMachineAdminUsername=$(Get_Required_Keyvault_Secrets.sqlVMUsername)
+              virtualMachineAdminPassword="$(Get_Required_Keyvault_Secrets.sqlVMPassword)" `
+              virtualMachineAdminUsername="$(Get_Required_Keyvault_Secrets.sqlVMUsername)"
 
         - task: AzurePowerShell@5
           name: 'Run_Preparation_Scripts'

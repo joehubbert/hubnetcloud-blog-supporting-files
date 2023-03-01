@@ -87,7 +87,7 @@ jobs:
               --location $(resourceLocation) `
               --template-file './bicep-Templates/deployResourceGroup.bicep' `
               --parameters `
-              costCenter=$(costCenter) `
+              costCenter="$(costCenter)" `
               environmentType=$(environmentType) `
               resourceGroupName=$(resourceGroupName) `
               resourceLocation=$(resourceLocation)

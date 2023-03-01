@@ -87,7 +87,7 @@ Install-Module SQLServer -Force
 
 #Install dotnet Framework 4.8
 .\ndp48-x86-x64-allos-enu.exe /install /quiet /norestart
-Wait-Process "ndp48-x86-x64-allos-enu"
+Wait-Process "Setup"
 
 #Install SQL Server
 Mount-DiskImage -ImagePath "$computerSetupDirectory\enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso"

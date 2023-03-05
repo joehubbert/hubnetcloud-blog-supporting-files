@@ -63,7 +63,6 @@ Invoke-WebRequest -Uri "$storageAccountBlobPrefix/WingItAirlines2014-Bookings.ba
 
 #Install Microsoft Edge
 .\MicrosoftEdgeSetup.exe /install
-Wait-Process "MicrosoftEdgeSetup"
 
 #Install Microsoft Azure Storage Explorer
 .\AzureStorageExplorer.exe /VERYSILENT /SUPPRESSMSGBOXES /NORESTART /ALLUSERS

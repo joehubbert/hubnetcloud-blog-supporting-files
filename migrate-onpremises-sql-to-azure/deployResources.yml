@@ -29,8 +29,7 @@ jobs:
             inline: |
               Set-Location "$(Build.SourcesDirectory)\powershell-scripts"
               $scriptsToUpload = @( `
-              ".\configureDemoServer.ps1", `
-              ".\installDataMigrationAssistant.ps1" `
+              ".\configureDemoServer.ps1" `
               )
               $storageContainer = 'demo-resources'
               $storageContext = (New-AzStorageContext -StorageAccountName '$(deploymentRepositoryStorageAccount)' -UseConnectedAccount)
@@ -131,6 +130,20 @@ jobs:
               New-Item -Path 'C:\ComputerSetup\Install' -ItemType Directory
               New-Item -Path 'C:\ComputerSetup\Scripts' -ItemType Directory
 
+              #Set TLS to TLS 1.2 for the session
+              [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
+
+              Set-Location 'C:\ComputerSetup'
+
+              #Download & Configure IISCrypto
+              Invoke-WebRequest -Uri "https://www.nartac.com/Downloads/IISCrypto/IISCryptoCli.exe" -Outfile "C:\ComputerSetup\IISCryptoCli.exe"
+              .\IISCryptoCli.exe /backup 'C:\ComputerSetup\OriginalCryptoConfig.reg' /template best
+
+              #Download & Install dotnet Framework 4.8
+              Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2088631" -OutFile "C:\ComputerSetup\ndp48-x86-x64-allos-enu.exe"
+              .\ndp48-x86-x64-allos-enu.exe /install /quiet /norestart
+              Wait-Process "Setup"
+
               #Download Setup Scripts
               Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/configureDemoServer.ps1" -OutFile "C:\ComputerSetup\Scripts\configureDemoServer.ps1"
               Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/installDataMigrationAssistant.ps1" -OutFile "C:\ComputerSetup\Scripts\installDataMigrationAssistant.ps1"
@@ -152,7 +165,6 @@ jobs:
               }
 
               Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $vmPreparationScript
+              Restart-AzVM -ResourceGroupName '$(resourceGroupName)' -Name $(sqlVMName)
               Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $demoServerConfigurationScript
-              Start-Sleep -Seconds 60
-              Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $dataMigrationAssistantScript
             azurePowerShellVersion: LatestVersion

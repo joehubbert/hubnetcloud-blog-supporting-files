@@ -48,9 +48,6 @@ Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2216182" -OutFile "$c
 #Download PowerShell Core
 Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.3.3/PowerShell-7.3.3-win-x64.msi" -OutFile "$computerSetupDirectory\PowerShell-7.3.3-win-x64.msi"
 
-#Download dotnet Framework 4.8
-Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2088631" -OutFile "$computerSetupDirectory\ndp48-x86-x64-allos-enu.exe"
-
 #Download SQL Server Management Studio
 Invoke-WebRequest -Uri "https://aka.ms/ssmsfullsetup" -OutFile "SSMS-Setup-ENU.exe"
 
@@ -85,9 +82,9 @@ Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force
 Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
 Install-Module SQLServer -Force
 
-#Install dotnet Framework 4.8
-.\ndp48-x86-x64-allos-enu.exe /install /quiet /norestart
-Wait-Process "Setup"
+#Install Database Migration Assistant
+msiexec.exe /package DataMigrationAssistant.msi /quiet
+Wait-Process "msiexec"
 
 #Install SQL Server
 Mount-DiskImage -ImagePath "$computerSetupDirectory\enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso"

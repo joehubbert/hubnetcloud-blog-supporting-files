@@ -106,7 +106,7 @@ jobs:
               --parameters `
               azureActiveDirectorySQLServerAdministrator=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdmin) `
               azureActiveDirectorySQLServerAdministratorSID=$(Get_Required_Keyvault_Secrets.azureSQLServerAADAdminSID) `
-              azureActiveDirectoryTenantId==$(Get_Required_Keyvault_Secrets.azureActiveDirectoryTenantId) `
+              azureActiveDirectoryTenantId=$(Get_Required_Keyvault_Secrets.azureActiveDirectoryTenantId) `
               costCenter="$(costCenter)" `
               environmentType=$(environmentType) `
               resourceLocation=$(resourceLocation) `

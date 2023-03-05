@@ -13,10 +13,6 @@ param sqlServerPrivateDNSZoneName string
 param virtualNetworkName string
 param virtualNetworkSubnetName string
 
-resource privateDNSZone 'Microsoft.Network/privateDnsZones@2020-06-01' existing = {
-  name: sqlServerPrivateDNSZoneName
-}
-
 resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' existing = {
   name: virtualNetworkName
 }

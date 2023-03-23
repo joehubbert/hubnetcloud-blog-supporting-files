@@ -39,4 +39,8 @@ GO
 
 CREATE INDEX [IDX_TicketSale]
 ON [dbo].[TicketSale]
-([Ticket_Sale_Date])
+(
+[Ticket_Sale_Date],
+[Agency_Id],
+[Ticket_Type_Id]
+)

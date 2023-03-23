@@ -59,7 +59,11 @@ Invoke-Sqlcmd `
 -OutputAs DataTables `
 -Query "SELECT `
 [Flight_Schedule_Id] `
-FROM [dbo].[FlightSchedule]" `
+FROM [dbo].[FlightSchedule] `
+WHERE NOT EXISTS ( `
+SELECT `
+[Flight_Schedule_Id] `
+FROM [dbo].[TicketSale])" `
 -ServerInstance $env:COMPUTERNAME
 
 $flightSchedule = $flightSchedule.Flight_Schedule_Id

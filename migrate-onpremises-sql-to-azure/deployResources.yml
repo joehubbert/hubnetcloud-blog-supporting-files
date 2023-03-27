@@ -55,8 +55,8 @@ jobs:
               $azureSQLServerSQLAdminPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminPassword)' -AsPlainText)
               $azureSQLServerSQLAdminUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(azureSQLServerSQLAdminUsername)' -AsPlainText)
               $sqlVMPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMPassword)' -AsPlainText)
-              $sqlVMSQLAuthPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthPassword)' -AsPlainText)
-              $sqlVMSQLAuthUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthUsername)' -AsPlainText)
+              $sqlVMSQLAuthBreakglassPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthPassword)' -AsPlainText)
+              $sqlVMSQLAuthBreakglassUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLAuthUsername)' -AsPlainText)
               $sqlVMSQLSAPassword = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMSQLSAPassword)' -AsPlainText)
               $sqlVMUsername = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMUsername)' -AsPlainText)
               $sqlVMUsernameFQ = (Get-AzKeyVaultSecret -VaultName '$(managementAzureSubscriptionKeyVault)' -Name '$(sqlVMUsernameFQ)' -AsPlainText)
@@ -67,8 +67,8 @@ jobs:
               Write-Host "##vso[task.setvariable variable=azureSQLServerSQLAdminPassword;issecret=true;isoutput=true]$azureSQLServerSQLAdminPassword"
               Write-Host "##vso[task.setvariable variable=azureSQLServerSQLAdminUsername;issecret=true;isoutput=true]$azureSQLServerSQLAdminUsername"
               Write-Host "##vso[task.setvariable variable=sqlVMPassword;issecret=true;isoutput=true]$sqlVMPassword"
-              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthPassword;issecret=true;isoutput=true]$sqlVMSQLAuthPassword"
-              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthUsername;issecret=true;isoutput=true]$sqlVMSQLAuthUsername"
+              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthBreakglassPassword;issecret=true;isoutput=true]$sqlVMSQLAuthBreakglassPassword"
+              Write-Host "##vso[task.setvariable variable=sqlVMSQLAuthBreakglassUsername;issecret=true;isoutput=true]$sqlVMSQLAuthBreakglassUsername"
               Write-Host "##vso[task.setvariable variable=sqlVMSQLSAPassword;issecret=true;isoutput=true]$sqlVMSQLSAPassword"
               Write-Host "##vso[task.setvariable variable=sqlVMUsername;issecret=true;isoutput=true]$sqlVMUsername"
               Write-Host "##vso[task.setvariable variable=sqlVMUsernameFQ;issecret=true;isoutput=true]$sqlVMUsernameFQ"
@@ -128,40 +128,126 @@ jobs:
               #Create Computer Configuration Directories
               New-Item -Path 'C:\ComputerSetup' -ItemType Directory
               New-Item -Path 'C:\ComputerSetup\Install' -ItemType Directory
+              New-Item -Path 'C:\ComputerSetup\Logs' -ItemType Directory
               New-Item -Path 'C:\ComputerSetup\Scripts' -ItemType Directory
+              
+              Set-Location 'C:\ComputerSetup\Install'
 
-              #Set TLS to TLS 1.2 for the session
-              [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
+              $scriptLogFileName = 'vmPreparation-Log.txt'
+              $scriptLogPath = "C:\ComputerSetup\Logs\$scriptLogFileName"
 
-              Set-Location 'C:\ComputerSetup'
+              #Create Script Log File
+              try
+              {
+                  $currentTimestamp = Get-Date
+                  New-Item -Path $computerConfigurationLogDirectory -Name $scriptLogFileName -ItemType File -Value "Script log file created at $currentTimestamp." -Force
+              }
+              catch
+              {
+                  Write-Host "Unable to create log file $scriptLogPath."
+              }
 
-              #Download & Configure IISCrypto
-              Invoke-WebRequest -Uri "https://www.nartac.com/Downloads/IISCrypto/IISCryptoCli.exe" -Outfile "C:\ComputerSetup\IISCryptoCli.exe"
-              .\IISCryptoCli.exe /backup 'C:\ComputerSetup\OriginalCryptoConfig.reg' /template best
+              #Download IISCrypto
+              try
+              {
+                Invoke-WebRequest -Uri "https://www.nartac.com/Downloads/IISCrypto/IISCryptoCli.exe" -Outfile "C:\ComputerSetup\Install\IISCryptoCli.exe"
+                $currentTimestamp = Get-Date
+                $outputText = "IISCrypto has been successfully downloaded to $env:computername at $currentTimestamp."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              catch
+              {
+                $errorMessage = $_.Exception.Message
+                $currentTimestamp = Get-Date
+                $outputText = "An error occured when downloading IISCrypto to $env:computername at $currentTimestamp with the following error '$errorMessage'."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
 
-              #Download & Install dotnet Framework 4.8
-              Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2088631" -OutFile "C:\ComputerSetup\ndp48-x86-x64-allos-enu.exe"
-              .\ndp48-x86-x64-allos-enu.exe /install /quiet /norestart
-              Wait-Process "Setup"
+              #Install IISCrypto
+              try
+              {
+                .\IISCryptoCli.exe /backup 'C:\ComputerSetup\Install\OriginalCryptoConfig.reg' /template best
+                $currentTimestamp = Get-Date
+                $outputText = "IISCrypto has been successfully configured on $env:computername at $currentTimestamp."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              catch
+              {
+                $errorMessage = $_.Exception.Message
+                $currentTimestamp = Get-Date
+                $outputText = "An error occured when configuring IISCrypto on $env:computername at $currentTimestamp with the following error '$errorMessage'."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              
+              #Download dotnet Framework 4.8
+              try
+              {
+                Invoke-WebRequest -Uri "https://go.microsoft.com/fwlink/?linkid=2088631" -OutFile "C:\ComputerSetup\Install\ndp48-x86-x64-allos-enu.exe"
+                $currentTimestamp = Get-Date
+                $outputText = "dotnet Framework 4.8 has been successfully downloaded to $env:computername at $currentTimestamp."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              catch
+              {
+                $errorMessage = $_.Exception.Message
+                $currentTimestamp = Get-Date
+                $outputText = "An error occured when downloading dotnet Framework 4.8 to $env:computername at $currentTimestamp with the following error '$errorMessage'."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
 
-              #Download Setup Scripts
-              Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/configureDemoServer.ps1" -OutFile "C:\ComputerSetup\Scripts\configureDemoServer.ps1"
-              Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/installDataMigrationAssistant.ps1" -OutFile "C:\ComputerSetup\Scripts\installDataMigrationAssistant.ps1"
+              #Install dotnet Framework 4.8
+              try
+              {
+                .\ndp48-x86-x64-allos-enu.exe /install /quiet /norestart
+                Start-Sleep -Seconds 600
+                $currentTimestamp = Get-Date
+                $outputText = "dotnet Framework 4.8 has been successfully installed on $env:computername at $currentTimestamp."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              catch
+              {
+                $errorMessage = $_.Exception.Message
+                $currentTimestamp = Get-Date
+                $outputText = "An error occured when installing dotnet Framework 4.8 on $env:computername at $currentTimestamp with the following error '$errorMessage'."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              
+              #Download Setup Script
+              try
+              {
+                Invoke-WebRequest -Uri "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo/scripts/configureDemoServer.ps1" -OutFile "C:\ComputerSetup\Scripts\configureDemoServer.ps1"
+                $currentTimestamp = Get-Date
+                $outputText = "The demo server configuration script has been successfully downloaded to $env:computername at $currentTimestamp."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText"
+              }
+              catch
+              {
+                $errorMessage = $_.Exception.Message
+                $currentTimestamp = Get-Date
+                $outputText = "An error occured when downloading the demo server configuration script to $env:computername at $currentTimestamp with the following error '$errorMessage'."
+                Write-Host $outputText
+                Add-Content -Path $scriptLogPath "`n$outputText" 
+              }
+             
               }
 
               $demoServerConfigurationScript = {
               Set-Location 'C:\ComputerSetup\Scripts'
               .\configureDemoServer.ps1 `
               -sqlServerSAAccountPassword "$(Get_Required_Keyvault_Secrets.sqlVMSQLSAPassword)" `
-              -sqlServerSQLAuthPassword "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthPassword)" `
-              -sqlServerSQLAuthUsername "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthUsername)" `
+              -sqlServerSQLAuthBreakglassPassword "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthBreakglassPassword)" `
+              -sqlServerSQLAuthBreakglassUsername "$(Get_Required_Keyvault_Secrets.sqlVMSQLAuthBreakglassUsername)" `
               -sqlServerSysAdminAccount "$(Get_Required_Keyvault_Secrets.sqlVMUsernameFQ)" `
               -storageAccountBlobPrefix "https://$(deploymentRepositoryStorageAccount).blob.core.windows.net/demo-resources/sqlmigrationdemo"
-              }
-
-              $dataMigrationAssistantScript = {
-              Set-Location 'C:\ComputerSetup\Scripts'
-              .\installDataMigrationAssistant.ps1
               }
 
               Invoke-AzVMRunCommand -ResourceGroupName '$(resourceGroupName)' -VMName $(sqlVMName) -CommandId 'RunPowerShellScript' -ScriptString $vmPreparationScript

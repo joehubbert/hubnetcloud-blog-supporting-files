@@ -24,7 +24,6 @@ var bastionSubnetName = 'AzureBastionSubnet'
 var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
-var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
 var virtualMachineSQLServerPrivateIP = '10.13.0.68'
@@ -141,17 +140,6 @@ module httpsRuleSQLVM 'networkSecurityGroupRule.bicep' = {
     networkSecurityGroupRuleName: 'Allow_HTTPS_SQLVM'
   }
 }
-
-module privateDNSZone 'privateDNSZone.bicep' = {
-  name: 'deploySQLPrivateDNSZone'
-  params: {
-    costCenter: costCenter
-    environmentType: environmentType
-    privateDNSZoneName: sqlPrivateDNSZoneName
-    resourceLocation: 'Global'    
-  }
-}
-
 module virtualNetwork 'virtualNetwork.bicep' = {
   name: 'deployVirtualNetwork'
   dependsOn: [
@@ -225,7 +213,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
 module azureSQLServer 'azureSQLServer.bicep' = {
   name: 'deployAzureSQLLogicalServer'
   dependsOn: [
-    virtualNetwork, privateDNSZone
+    virtualNetwork
   ]
   params: {
     azureActiveDirectorySQLServerAdministrator: azureActiveDirectorySQLServerAdministrator
@@ -237,7 +225,6 @@ module azureSQLServer 'azureSQLServer.bicep' = {
     sqlServerAdministratorPassword: sqlServerAdministratorPassword
     sqlServerAdministratorUsername: sqlServerAdministratorUsername
     sqlServerName: azureSQLServerName
-    sqlServerPrivateDNSZoneName: sqlPrivateDNSZoneName
     virtualNetworkName: virtualNetworkName
     virtualNetworkSubnetName: privateEndpointSubnetName
   }

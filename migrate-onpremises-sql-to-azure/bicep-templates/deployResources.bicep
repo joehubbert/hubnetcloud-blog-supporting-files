@@ -226,7 +226,7 @@ module azureSQLServer 'azureSQLServer.bicep' = {
     sqlServerAdministratorUsername: sqlServerAdministratorUsername
     sqlServerName: azureSQLServerName
     virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetName: privateEndpointSubnetName
+    virtualNetworkSubnetName: sqlVMSubnetName
   }
 }
 

@@ -5,6 +5,9 @@ parameters:
 - name: deploymentAzureSubscriptionName
   type: string
 
+- name: deploymentType
+  type: string
+
 - name: managementAzureSubscriptionName
   type: string
 
@@ -119,6 +122,7 @@ jobs:
         - task: AzurePowerShell@5
           name: 'Run_Preparation_Scripts'
           displayName: 'Run Preparation Scripts'
+          condition: eq('${{ parameters.deploymentType }}', 'new')
           inputs:
             azureSubscription: ${{ parameters.deploymentAzureSubscriptionName }}
             errorActionPreference: 'Stop'

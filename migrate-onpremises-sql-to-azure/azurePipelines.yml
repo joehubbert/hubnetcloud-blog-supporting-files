@@ -1,3 +1,7 @@
+parameters:
+- name: deploymentType
+  type: string
+
 trigger:
   branches:
     exclude:
@@ -11,5 +15,6 @@ stages:
         parameters:
           buildAgent: 'windows-latest'
           deploymentAzureSubscriptionName: 'WingIt Airlines Demo'
+          deploymentType: ${{ parameters.deploymentType }}
           managementAzureSubscriptionName: 'Hubnet Cloud Consumption'
           variableGroupName: 'SQL_Migration_Demo'

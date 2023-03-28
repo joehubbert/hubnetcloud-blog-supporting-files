@@ -24,6 +24,7 @@ var bastionSubnetName = 'AzureBastionSubnet'
 var networkSecurityGroupName = 'wingitdemo-${resourceLocationShort}-nsg'
 var privateEndpointSubnetAddressSPace = '10.13.0.96/27'
 var privateEndpointSubnetName = 'private-endpoint-subnet'
+var sqlPrivateDNSZoneName = 'privatelink${environment().suffixes.sqlServerHostname}'
 var sqlVMSubnetAddressSpace = '10.13.0.64/28'
 var sqlVMSubnetName = 'sql-vm-subnet'
 var virtualMachineSQLServerPrivateIP = '10.13.0.68'
@@ -163,6 +164,21 @@ module virtualNetwork 'virtualNetwork.bicep' = {
   }
 }
 
+module privateDNSZone 'privateDNSZone.bicep' = {
+  name: 'deploySQLPrivateDNSZone'
+  dependsOn: [
+    virtualNetwork
+  ]
+  params: {
+    costCenter: costCenter
+    environmentType: environmentType
+    privateDNSZoneName: sqlPrivateDNSZoneName
+    resourceLocation: 'Global'
+    virtualNetworkName: virtualNetworkName
+  }
+}
+
+
 module bastionPublicIpAddress 'publicIPAddress.bicep' = {
   name: 'deployBastionPublicIPAddress'
   params: {
@@ -213,7 +229,7 @@ module sqlServerVirtualMachine 'virtualMachineSQLLegacy.bicep' = {
 module azureSQLServer 'azureSQLServer.bicep' = {
   name: 'deployAzureSQLLogicalServer'
   dependsOn: [
-    virtualNetwork
+    virtualNetwork, privateDNSZone
   ]
   params: {
     azureActiveDirectorySQLServerAdministrator: azureActiveDirectorySQLServerAdministrator
@@ -225,8 +241,9 @@ module azureSQLServer 'azureSQLServer.bicep' = {
     sqlServerAdministratorPassword: sqlServerAdministratorPassword
     sqlServerAdministratorUsername: sqlServerAdministratorUsername
     sqlServerName: azureSQLServerName
+    sqlServerPrivateDNSZoneName: sqlPrivateDNSZoneName
     virtualNetworkName: virtualNetworkName
-    virtualNetworkSubnetName: sqlVMSubnetName
+    virtualNetworkSubnetName: privateEndpointSubnetName
   }
 }
 

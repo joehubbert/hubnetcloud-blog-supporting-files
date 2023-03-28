@@ -59,14 +59,6 @@ resource virtualNetwork 'Microsoft.Network/virtualNetworks@2022-05-01' = {
           networkSecurityGroup: {
             id: networkSecurityGroup.id
           }
-          serviceEndpoints:[
-            {
-              service: 'Microsoft.sql'
-              locations: [
-                resourceLocation
-              ]
-            }
-          ]
         }
       }
       {

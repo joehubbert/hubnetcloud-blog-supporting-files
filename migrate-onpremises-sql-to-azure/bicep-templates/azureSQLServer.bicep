@@ -9,6 +9,7 @@ param sqlServerAdministratorPassword string
 @secure()
 param sqlServerAdministratorUsername string
 param sqlServerName string
+param sqlServerPrivateDNSZoneName string
 param virtualNetworkName string
 param virtualNetworkSubnetName string
 
@@ -40,17 +41,52 @@ resource sqlServer 'Microsoft.Sql/servers@2022-05-01-preview' = {
       tenantId: azureActiveDirectoryTenantId
     }
     minimalTlsVersion: '1.2'
-    publicNetworkAccess: 'Enabled'
+    publicNetworkAccess: 'Disabled'
     restrictOutboundNetworkAccess: 'Disabled'
     version: '12.0'
   }
 }
 
-resource sqlServerVirtualNetworkRule 'Microsoft.Sql/servers/virtualNetworkRules@2022-08-01-preview' = {
-  name: '${sqlServerName}-${virtualNetworkSubnetName}-rule'
-  parent: sqlServer
+resource privateEndpoint 'Microsoft.Network/privateEndpoints@2022-05-01' = {
+  name: '${sqlServerName}-sqlserver-pep'
+  dependsOn: [
+    sqlServer
+  ]
+  location: resourceLocation
+  tags: {
+    costCenter: costCenter
+    environmentType: environmentType
+  }
   properties: {
-    ignoreMissingVnetServiceEndpoint: false
-    virtualNetworkSubnetId: virtualNetworkSubnet.id
+    customNetworkInterfaceName: '${sqlServerName}-sqlserver-pep-nic'
+    privateLinkServiceConnections: [
+      {
+        name: '${sqlServerName}-privateLinkServiceConnection'
+        properties: {
+          groupIds: [
+            'sqlServer'
+          ]
+          privateLinkServiceId: resourceId('Microsoft.Sql/servers', sqlServerName)
+        }
+      }
+    ]
+    subnet: {
+      id: virtualNetworkSubnet.id
+    }
   }
 }
+resource sqlServerPrivateEndpointDNSZoneGroup 'Microsoft.Network/privateEndpoints/privateDnsZoneGroups@2022-07-01' = {
+  name: sqlServerPrivateDNSZoneName
+  parent: privateEndpoint
+  properties: {
+    privateDnsZoneConfigs: [
+      {
+        name: 'SqlServerDNSConfig'
+        properties: {
+          privateDnsZoneId: resourceId('Microsoft.Network/privateDnsZones', sqlServerPrivateDNSZoneName)
+        }
+      }
+    ]
+  }
+}
+

@@ -25,6 +25,7 @@ $sqlServerSAAccountCredential = New-Object System.Management.Automation.PSCreden
 $sqlServerSQLAuthBreakglassPasswordForCredential = (ConvertTo-SecureString $sqlServerSQLAuthBreakglassPassword -AsPlainText -Force)
 $sqlServerSQLAuthBreakglassCredential = New-Object System.Management.Automation.PSCredential ($sqlServerSQLAuthBreakglassUsername, $sqlServerSQLAuthBreakglassPasswordForCredential)
 $sqlTempDBDiskName = 'SQLTempDB'
+$webClient = New-Object net.webclient
 
 #Create Script Log File
 try
@@ -132,7 +133,7 @@ Set-Location $computerSetupDirectory
 #Download Microsoft Azure Storage Explorer
 try
 {
-    Invoke-WebRequest "https://go.microsoft.com/fwlink/?linkid=2216182" -OutFile "$computerSetupDirectory\AzureStorageExplorer.exe"
+    $webClient.DownloadFile("https://go.microsoft.com/fwlink/?linkid=2216182", "$computerSetupDirectory\AzureStorageExplorer.exe")
     $currentTimestamp = Get-Date
     $outputText = "Azure Data Explorer has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -150,7 +151,7 @@ catch
 #Download PowerShell Core
 try
 {
-    Invoke-WebRequest -Uri "https://github.com/PowerShell/PowerShell/releases/download/v7.2.10/PowerShell-7.2.10-win-x64.msi" -OutFile "$computerSetupDirectory\PowerShell-7.2.10-win-x64.msi"
+    $webClient.DownloadFile("https://github.com/PowerShell/PowerShell/releases/download/v7.2.10/PowerShell-7.2.10-win-x64.msi", "$computerSetupDirectory\PowerShell-7.2.10-win-x64.msi")
     $currentTimestamp = Get-Date
     $outputText = "PowerShell Core has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -168,7 +169,7 @@ catch
 #Download SQL Server Management Studio
 try
 {
-    Invoke-WebRequest -Uri "https://aka.ms/ssmsfullsetup" -OutFile "SSMS-Setup-ENU.exe"
+    $webClient.DownloadFile("https://aka.ms/ssmsfullsetup", "$computerSetupDirectory\SSMS-Setup-ENU.exe")
     $currentTimestamp = Get-Date
     $outputText = "SQL Server Management Studio has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -186,7 +187,7 @@ catch
 #Download SQL Server from Storage Account
 try
 {
-    Invoke-WebRequest -Uri "$storageAccountBlobPrefix/enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso" -OutFile "$computerSetupDirectory\enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso"
+    $webClient.DownloadFile("$storageAccountBlobPrefix/enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso", "$computerSetupDirectory\enu_sql_server_2016_developer_edition_with_service_pack_3_x64_dvd_ceaed495.iso")
     $currentTimestamp = Get-Date
     $outputText = "The SQL Server 2016 ISO file has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -204,7 +205,7 @@ catch
 #Download SQL Server 2016 Cumulative Update
 try
 {
-    Invoke-WebRequest -Uri "https://download.microsoft.com/download/4/1/d/41d10f6a-58dd-43ee-ad2a-cb2c3a6148ff/SQLServer2016-KB5021129-x64.exe" -OutFile "SQLServer2016-KB5021129-x64.exe"
+    $webClient.DownloadFile("https://download.microsoft.com/download/4/1/d/41d10f6a-58dd-43ee-ad2a-cb2c3a6148ff/SQLServer2016-KB5021129-x64.exe", "$computerSetupDirectory\SQLServer2016-KB5021129-x64.exe")
     $currentTimestamp = Get-Date
     $outputText = "The SQL Server 2016 Cumulative Update has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -222,7 +223,7 @@ catch
 #Download Database Migration Assistant
 try
 {
-    Invoke-WebRequest -Uri "https://download.microsoft.com/download/C/6/3/C63D8695-CEF2-43C3-AF0A-4989507E429B/DataMigrationAssistant.msi" -OutFile "$computerSetupDirectory\DataMigrationAssistant.msi"
+    $webClient.DownloadFile("https://download.microsoft.com/download/C/6/3/C63D8695-CEF2-43C3-AF0A-4989507E429B/DataMigrationAssistant.msi", "$computerSetupDirectory\DataMigrationAssistant.msi")
     $currentTimestamp = Get-Date
     $outputText = "Database Migration Assistant has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -240,7 +241,7 @@ catch
 #Download database backup files
 try
 {
-    Invoke-WebRequest -Uri "$storageAccountBlobPrefix/Sales.bak" -OutFile "$computerSetupDirectory\Sales.bak"
+    $webClient.DownloadFile("$storageAccountBlobPrefix/Sales.bak", "$computerSetupDirectory\Sales.bak")
     $currentTimestamp = Get-Date
     $outputText = "The Sales database backup file has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText
@@ -257,7 +258,7 @@ catch
 
 try
 {
-    Invoke-WebRequest -Uri "$storageAccountBlobPrefix/WingItAirlines2014-Bookings.bak" -OutFile "$computerSetupDirectory\WingItAirlines2014-Bookings.bak"
+    $webClient.DownloadFile("$storageAccountBlobPrefix/WingItAirlines2014-Bookings.bak", "$computerSetupDirectory\WingItAirlines2014-Bookings.bak")
     $currentTimestamp = Get-Date
     $outputText = "The WingIt Airlines Bookings database backup file has been successfully downloaded to $env:computername at $currentTimestamp."
     Write-Host $outputText

@@ -1,5 +1,5 @@
 $databaseName = 'WingItAirlines-Reporting'
-$maxConcurrentJobs = 10
+$maxConcurrentJobs = 2
 $sqlServerCredential = Get-Credential
 
 $businessClassAgencyUser = `

@@ -1,48 +1,35 @@
 #Set Params
 param
 (
-    [Parameter(Mandatory)][SecureString]$azureSubscriptionId,
-    [Parameter(Mandatory)][SecureString]$azureUserManagedIdentityId,
-    [Parameter(Mandatory)][String]$configFilepath,
-    [Parameter(Mandatory)][ValidateSet('Daily','Monthly')][string]$scheduleType,
-    [Parameter(Mandatory)][System.Management.Automation.PSCredential]$sqlServiceCredential
+    [Parameter(Mandatory)][String]$configFilePath,
+    [Parameter(Mandatory)][Array]$databaseScope,
+    [Parameter(Mandatory)][System.Management.Automation.PSCredential]$sqlServiceCredential,
+    [Parameter(Mandatory)][String]$triggerType
 )
 
 #Unpack Configuration Settings
-$configurationSettings = Get-Content $configFilepath | Out-String | ConvertFrom-Json
+$configurationSettings = Get-Content $configFilePath | Out-String | ConvertFrom-Json
 
 #Set Global Variables
+$azureSubscriptionId = $configurationSettings.azureSubscriptionId
+$azureUserManagedIdentityId = $configurationSettings.azureUserManagedIdentityId
 $azureRecoveryServicesVaultName = $configurationSettings.azureRecoveryServicesVaultName
 $azureRecoveryServicesVaultResourceGroupName = $configurationSettings.azureRecoveryServicesVaultResourceGroupName
 $databaseRestoreDirectory = $configurationSettings.databaseRestoreDirectory
 $logDirectory = ('C:\Process\DB-Restore\Log')
 $logTimeFilter = (Get-Date).AddDays(-45)
-$scriptLogFileName = ('dbrestore-'+ (Get-Date -Format "yyyy-MM-dd-HH-mm") + "-$scheduleType-Log.txt")
+$scriptLogFileName = ('dbrestore-'+ (Get-Date -Format "yyyy-MM-dd-HH-mm") + "-$triggerType-Log.txt")
 $scriptLogPath = "$logDirectory\$scriptLogFileName"
 $sourceInstance = $configurationSettings.sourceInstance
+$sourceInstanceCode = $configurationSettings.sourceInstanceCode
 $targetInstance = $configurationSettings.targetInstance
 $targetSQLInstanceNameLocalIdentity = $configurationSettings.targetSQLInstanceNameLocalIdentity
 
-#Databases To Restore
-switch ($scheduleType)
-{
-    'Daily' {$databasesToRestore = @(
-             'AdventureWorks2022',
-             'WideWorldImporters'
-              )
-            }
-
-    'Monthly' {$databasesToRestore = @(
-             'WingItAirlines-Reporting'
-              )
-             }
-}
-
 #Create Log File
 $currentTimestamp = Get-Date
-New-Item -Path $logDirectory -Name $scriptLogFileName -ItemType File -Value "Script log file created at $currentTimestamp for '$scheduleType' schedule." -Force
+New-Item -Path $logDirectory -Name $scriptLogFileName -ItemType File -Value "Script log file created at $currentTimestamp for '$triggerType' schedule." -Force
 
-foreach($database in $databasesToRestore)
+foreach($database in $databaseScope)
 {
     Start-Job -Name "$database - Database Restore" -ScriptBlock {
 
@@ -58,6 +45,7 @@ foreach($database in $databasesToRestore)
     $logDirectory = $using:logDirectory
     $scriptLogPath = $using:scriptLogPath
     $sourceInstance = $using:sourceInstance
+    $sourceInstanceCode = $using:sourceInstanceCode
     $sqlServiceCredential = $using:sqlServiceCredential
     $targetInstance = $using:targetInstance
     $targetSQLInstanceNameLocalIdentity = $using:targetSQLInstanceNameLocalIdentity
@@ -83,7 +71,7 @@ foreach($database in $databasesToRestore)
     #Download backup item from Recovery Services Vault
     try
     {
-        $databaseBackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType 'AzureWorkload' -WorkloadType 'MSSQL' -VaultId $azureRecoveryServicesVault | Where-Object {$_.ServerName -eq $sourceInstance} | Where-Object {$_.Name -like "*$database*"}
+        $databaseBackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType 'AzureWorkload' -WorkloadType 'MSSQL' -VaultId $azureRecoveryServicesVault | Where-Object {$_.ServerName -eq $sourceInstance} | Where-Object {$_.Name -eq ("SQLDataBase;$sourceInstanceCode;$database")}
         $currentTimestamp = Get-Date
         $outputText = "Backup item '$sourceInstance;$database' was successfully retrieved from Azure Recovery Services on $env:computername at $currentTimestamp."
         Write-Host $outputText
@@ -304,6 +292,6 @@ catch
 }
 
 $currentTimestamp = Get-Date
-$outputText = "Execution of dbRestore.ps1 using the '$scheduleType' configuration successfully completed on $env:computername at $currentTimestamp."
+$outputText = "Execution of dbRestore.ps1 using the '$triggerType' configuration successfully completed on $env:computername at $currentTimestamp."
 Write-Host $outputText
 Add-Content -Path $scriptLogPath "`n$outputText"

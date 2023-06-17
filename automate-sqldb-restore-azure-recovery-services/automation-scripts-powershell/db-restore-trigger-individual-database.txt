@@ -1,0 +1,12 @@
+Set-Location "C:\Process\DB-Restore\Script"
+
+#Retrieve Secrets
+$sqlServiceCredential = Import-CliXml -Path 'C:\Process\DB-Restore\Credential\sqlServiceCredential.xml'
+
+#Get Database Name
+$databaseName = Read-Host "Database Name"
+
+.\db-restore-individual-database.ps1 `
+-configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
+-databaseName $databaseName `
+-sqlServiceCredential $sqlServiceCredential

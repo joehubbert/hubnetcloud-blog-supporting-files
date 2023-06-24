@@ -212,9 +212,9 @@ foreach($database in $databaseScope)
 
     try
     {
-        Import-Module SqlServer
+        Import-Module DBATools
         $currentTimestamp = Get-Date
-        $outputText = "The PowerShell module 'SqlServer' has been imported on $env:computername at $currentTimestamp."
+        $outputText = "The PowerShell module 'DBATools' has been imported on $env:computername at $currentTimestamp."
         Write-Host $outputText
         Add-Content -Path $scriptLogPath "`n$outputText"
     }
@@ -222,20 +222,20 @@ foreach($database in $databaseScope)
     {
         $errorMessage = $_.Exception.Message
         $currentTimestamp = Get-Date
-        $outputText = "An error occured when importing the PowerShell module 'SqlServer' on $env:computername at $currentTimestamp with the following error '$errorMessage'."
+        $outputText = "An error occured when importing the PowerShell module 'DBATools' on $env:computername at $currentTimestamp with the following error '$errorMessage'."
         Write-Host $outputText
         Add-Content -Path $scriptLogPath "`n$outputText"
     }
 
     try
     {
-        Restore-SqlDatabase `
-        -AutoRelocateFile `
-        -BackupFile $databaseBackupFullPath `
-        -Credential $sqlServiceCredential `
-        -Database $database `
-        -ReplaceDatabase `
-        -ServerInstance $targetSQLInstanceNameLocalIdentity
+        Restore-DbaDatabase `
+        -DatabaseName $database `
+        -Path $databaseBackupFullPath `
+        -SqlCredential $sqlServiceCredential `
+        -SqlInstance $targetSQLInstanceNameLocalIdentity `
+        -UseDestinationDefaultDirectories `
+        -WithReplace $true
         $currentTimestamp = Get-Date
         $outputText = "The database '$database' has been successfully restored to '$targetSQLInstanceNameLocalIdentity' on $env:computername at $currentTimestamp."
         Write-Host $outputText

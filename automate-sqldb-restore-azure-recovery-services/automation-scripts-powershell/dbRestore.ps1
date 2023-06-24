@@ -234,7 +234,8 @@ foreach($database in $databaseScope)
         -Path $databaseBackupFullPath `
         -SqlCredential $sqlServiceCredential `
         -SqlInstance $targetSQLInstanceNameLocalIdentity `
-        -UseDestinationDefaultDirectories
+        -UseDestinationDefaultDirectories `
+        -WithReplace $true
         $currentTimestamp = Get-Date
         $outputText = "The database '$database' has been successfully restored to '$targetSQLInstanceNameLocalIdentity' on $env:computername at $currentTimestamp."
         Write-Host $outputText

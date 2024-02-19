@@ -1,0 +1,231 @@
+//Program.cs
+
+using tbol_sandbox_gui;
+using tbol_sandbox_gui.Components;
+using tbol_sandbox_gui.Components.Integration;
+
+var builder = WebApplication.CreateBuilder(args);
+
+// Add services to the container.
+builder.Services.AddRazorComponents()
+    .AddInteractiveServerComponents();
+
+builder.Services.AddHttpClient<TheBankofLondonAPI>();
+builder.Services.AddTransient<JWSCryptography>();
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (!app.Environment.IsDevelopment())
+{
+    app.UseExceptionHandler("/Error", createScopeForErrors: true);
+    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+    app.UseHsts();
+}
+
+app.UseHttpsRedirection();
+
+app.UseStaticFiles();
+app.UseAntiforgery();
+
+app.MapRazorComponents<App>()
+    .AddInteractiveServerRenderMode();
+
+app.Run();
+
+//TheBankOfLondonAPI
+using Jose;
+using Microsoft.AspNetCore.Components;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.JSInterop;
+using Newtonsoft.Json;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Net.Mime;
+using System.Text;
+using System.Text.Json.Nodes;
+using tbol_sandbox_gui.Components.Integration;
+using tbol_sandbox_gui.Components.Model.Request;
+using tbol_sandbox_gui.Components.Model.Response;
+using tbol_sandbox_gui.Components.Model.UI;
+
+namespace tbol_sandbox_gui;
+
+public class TheBankofLondonAPI(IJSRuntime jS, JWSCryptography jwsSignature, HttpClient client)
+{
+    public string createOrganisationRequestBodyString;
+    public string createOrganisationResponseBodyString;
+    private string environmentBaseUrl;
+    
+    private async Task GetJSSettings()
+    {
+        if (client.DefaultRequestHeaders.Accept.Count == 0)
+        {
+            client.DefaultRequestHeaders
+                .Accept
+                .Add(new MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        environmentBaseUrl = await jS.InvokeAsync<string>("getFromSession", "environmentBaseUrl");
+        client.BaseAddress = new System.Uri(environmentBaseUrl);
+    }
+
+    public async Task<(HttpRequestMessage request, HttpResponseMessage response)> CreateOrganisation(CreateOrganisationRequestBodyRoot createOrganisationRequestBody)
+    {
+        await GetJSSettings();
+
+        HttpRequestMessage createOrganisationRequest = new HttpRequestMessage(HttpMethod.Post, "/organisations");
+        createOrganisationRequest.Content = JsonContent.Create(createOrganisationRequestBody);
+        
+        var signature = await jwsSignature.SignMessageBody(await createOrganisationRequest.Content.ReadAsStringAsync());
+        createOrganisationRequest.Headers.Add("x-jws-signature", signature);
+
+        var createOrganisationResponse = await client.SendAsync(createOrganisationRequest);
+
+        return (createOrganisationRequest, createOrganisationResponse);
+    }
+
+//    public async Task<string> GetOrganisationFromTbol(CreateOrganisationRequestBodyRoot body, string pathVar1, string atVar2)
+//    {
+//        var response = await client.PostAsync($"tbol/org1/{pathVar1}/person1/{atVar2}", JsonContent.Create(body));
+//        return await response.Content.ReadAsStringAsync();
+//    }
+}
+
+//Razor example
+@page "/CreateOrganisation"
+@rendermode InteractiveServer
+
+<PageTitle>Create Organisation</PageTitle>
+
+<h1>Create Organisation</h1>
+<br />
+<EditForm Model="@model" OnValidSubmit="@SubmitOrganisationCreation" FormName="CreateOrganisation">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div>
+        <label>
+            Organisation Name:
+            <InputText @bind-Value="model!.bodyName" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Company Number:
+            <InputText @bind-Value="model!.bodyCompanyNumber" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Foundation Date:
+            <InputDate @bind-Value="model!.bodyFoundationDate" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Address Country:
+            <InputSelect @bind-Value="model!.bodyAddressCountry">
+                <option></option>
+                @foreach (var bodyAddressCountry in Enum.GetValues(typeof(CreateOrganisationUIModel.CreateOrganisationBodyAddressCountryEnum)))
+                {
+                    <option value="@bodyAddressCountry">@bodyAddressCountry</option>
+                }
+            </InputSelect>
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Address City:
+            <InputText @bind-Value="model!.bodyAddressCity" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Address Postal Code:
+            <InputText @bind-Value="model!.bodyAddressPostalCode" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Address Street:
+            <InputTextArea @bind-Value="model!.bodyAddressStreet" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <label>
+            Organisation Address House Number:
+            <InputText @bind-Value="model!.bodyAddressHouseNumber" />
+        </label>
+    </div>
+    <br />
+    <div>
+        <button class="btn btn-primary" @onclick="SubmitOrganisationCreation">Create Organisation</button>
+    </div>
+
+</EditForm>
+
+
+
+<div>
+    <div id="request">
+        @if(request != null)
+        {
+            <p>@JsonConvert.SerializeObject(request)</p>
+            <h3>Request Body</h3>
+            <p>@(request.Content?.ReadAsStringAsync()?.Result)</p>
+        }
+    </div>
+    <div id="response">
+        @if (response != null)
+        {
+            <p>@JsonConvert.SerializeObject(response)</p>
+            <h3>Response Body</h3>
+            <p>@(response.Content?.ReadAsStringAsync()?.Result)</p>
+        }
+    </div>
+</div>
+
+
+@code {
+    [Inject] public ILogger<CreateOrganisation> Logger { get; set; } = null!;
+    [Inject] public TheBankofLondonAPI tbolApi { get; set; }
+
+    [SupplyParameterFromForm]
+    private CreateOrganisationUIModel model { get; set; } = new CreateOrganisationUIModel();
+
+    private HttpRequestMessage? request { get; set; }
+    private HttpResponseMessage? response { get; set; }
+
+    private async Task SubmitOrganisationCreation()
+    {
+        Logger.LogInformation(JsonConvert.SerializeObject(model));
+
+        var requestBody = new CreateOrganisationRequestBodyRoot
+            {
+                name = model.bodyName,
+                companyNumber = model.bodyCompanyNumber,
+                foundationDate = model.bodyFoundationDate.ToString("yyyy-MM-dd"),
+                address = new CreateOrganisationRequestBodyAddress
+                {
+                    country = model.bodyAddressCountry,
+                    city = model.bodyAddressCity,
+                    postalCode = model.bodyAddressPostalCode,
+                    street = model.bodyAddressStreet,
+                    houseNumber = model.bodyAddressHouseNumber
+                }
+            };
+
+        var requestAndResponse = await tbolApi.CreateOrganisation(requestBody);
+        request = requestAndResponse.request;
+        response = requestAndResponse.response;
+
+    }
+}

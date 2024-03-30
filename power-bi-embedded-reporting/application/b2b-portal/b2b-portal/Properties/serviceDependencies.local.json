@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "identityapp1": {
+      "connectionInfo": "App registration: B2B Portal - PBI Embedded Demo, Tenant: Hubnet Cloud (hubnet.cloud - Microsoft Entra ID)",
+      "secretStore": null,
+      "type": "identityapp.secretStore",
+      "connectionId": "AzureAD:ClientSecret"
+    }
+  }
+}

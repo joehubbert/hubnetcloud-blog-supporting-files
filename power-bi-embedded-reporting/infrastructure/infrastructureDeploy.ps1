@@ -5,6 +5,7 @@ $scriptExecutionTimestamp = (Get-Date).ToString("yyyy-MM-dd-HH-mm")
 
 #Read parameters from user
 $azureAccountId = Read-Host "Azure Account Email Address:"
+$b2cDirectoryName = Read-Host "b2cDirectoryDomain e.g. pbiedemojohubbweu300324"
 $resourceGroupName = 'PBIEmbeddedDemo'
 $resourceLocation = Read-Host "Azure Region Name e.g. westeurope:"
 $subscriptionName = Read-Host "Azure Subscription Name:"
@@ -34,6 +35,7 @@ if(!$rgCheck)
 $templateParameters = @{
     "azureAccountId" = $azureAccountId;
     "azureAccountObjectId" = $azureAccountObjectId;
+    "b2cDirectoryName" = $b2cDirectoryName;
     "publicIpAddress" = $publicIpAddress;
     "resourceLocation" = $resourceLocation;
     "resourcePrefix" = $resourcePrefix;

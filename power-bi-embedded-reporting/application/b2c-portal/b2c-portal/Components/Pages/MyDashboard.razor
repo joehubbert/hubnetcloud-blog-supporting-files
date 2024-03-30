@@ -1,0 +1,193 @@
+﻿@page "/MyDashboard"
+
+@using b2c_portal.Components.Classes
+@using Azure.Identity
+@using Azure.Security.KeyVault.Secrets
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.Data.SqlClient
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Identity.Client
+@using Microsoft.PowerBI.Api
+@using Microsoft.PowerBI.Api.Models
+@using Microsoft.Rest
+@using System.Data
+@using System.Security.Claims
+@using System.Web
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IJSRuntime JSRuntime
+
+<h3>My Dashboard</h3>
+<PageTitle>My Dashboard</PageTitle>
+
+<p>Row Level security is being applied to the underlying dataset based upon the identity of the logged in user.</p>
+<div @ref="@PowerBIElement" style="width:100%;height:1500px;" />
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? authState { get; set; }
+    ElementReference PowerBIElement;
+    [Inject]
+    private IConfiguration configuration { get; set; }
+    [Inject]
+    private IHttpContextAccessor httpContextAccessor { get; set; }
+    protected List<string>? b2bAuthCredentials;
+    private int? customerId;
+    private List<Guid>? powerBISettings;
+    protected string? sqlConnectionString;
+
+
+    //Gets the Azure AD B2B configuration settings from appsettings.json and returns to a list of strings
+    public List<string> GetAppConfiguration()
+    {
+        var b2b = configuration.GetSection("AzureAdB2B");
+        string b2bClientId = b2b.GetValue<string>("ClientId");
+        string b2bClientSecret = b2b.GetValue<string>("ClientSecret");
+        string b2bKeyVaultURI = b2b.GetValue<string>("KeyVaultURI");
+        string b2bTenantId = b2b.GetValue<string>("TenantId");
+
+        string[] credentials = { b2bClientId, b2bClientSecret, b2bKeyVaultURI, b2bTenantId };
+
+        b2bAuthCredentials = new List<string>(credentials);
+
+        return b2bAuthCredentials;
+    }
+
+    //Gets the ReportId and WorkspaceId from Azure Key Vault and returns the values to a list of Guids
+    private List<Guid> GetPowerBIConfiguration()
+    {
+        var keyVaultClient = new SecretClient(vaultUri: new Uri(b2bAuthCredentials[2]), credential: new ClientSecretCredential(b2bAuthCredentials[3], b2bAuthCredentials[0], b2bAuthCredentials[1]));
+
+        Guid reportId = Guid.Parse(keyVaultClient.GetSecret("pbi-reportid").Value.Value);
+        Guid workspaceId = Guid.Parse(keyVaultClient.GetSecret("pbi-workspaceid").Value.Value);
+
+        Guid[] settings = { reportId, workspaceId };
+
+        powerBISettings = new List<Guid>(settings);
+
+        return powerBISettings;
+    }
+
+    //Gets the SQL Connection string from Azure Key Vault and returns to a string
+    private string GetKeyVaultSQLSecret()
+    {
+        var keyVaultClient = new SecretClient(vaultUri: new Uri(b2bAuthCredentials[2]), credential: new ClientSecretCredential(b2bAuthCredentials[3], b2bAuthCredentials[0], b2bAuthCredentials[1]));
+
+        sqlConnectionString = keyVaultClient.GetSecret("sql-connectionstring").Value.Value;
+
+        return sqlConnectionString;
+    }
+
+    //Performs lookup to SQL DB/Organisation Service Lookup to get the int customer id which matches the e-mail address of the logged in user
+    private int? GetCustomerId()
+    {
+        var currentUser = httpContextAccessor?.HttpContext?.User;
+        if (currentUser == null)
+        {
+            throw new Exception("Could not access current user.");
+        }
+
+        string? currentUserEmail = currentUser.Claims?.FirstOrDefault(c => c.Type == "emails")?.Value?.ToString();
+
+        if (currentUserEmail == null)
+        {
+            throw new Exception("Could not find current user in the supplied claims.");
+        }
+
+
+        string queryString = "EXECUTE sp_GetCustomerId @customerEmailAddress = '" + currentUserEmail + "'";
+
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(sqlConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(queryString, connection))
+                    {
+                        connection.Open();
+                        customerId = (int)command.ExecuteScalar();
+                        connection.Close();
+                    }
+                }
+
+                catch (Exception e)
+
+                {
+
+                }
+            }
+        }
+
+        catch (Exception e)
+
+        {
+
+        }
+
+        return customerId;
+    }
+
+    //Renders the Power BI Embedded solution whilst calling the methods defined above to populate required class/razor level variables
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            GetAppConfiguration();
+            GetKeyVaultSQLSecret();
+            GetCustomerId();
+            GetPowerBIConfiguration();
+            var result = new PowerBIEmbedConfig();
+            // Authenticate using created credentials
+            AuthenticationResult authenticationResult = null;
+            authenticationResult = await DoAuthentication();
+            var tokenCredentials =
+                new TokenCredentials(authenticationResult.AccessToken, "Bearer");
+            using (var client = new PowerBIClient(
+                new Uri("https://api.powerbi.com/"), tokenCredentials))
+            {
+                var report =
+                    await client.Reports.GetReportInGroupAsync(
+                        powerBISettings[1],
+                        powerBISettings[0]);
+                var datasetId = report.DatasetId;
+                var generateTokenRequestParameters =
+                    new GenerateTokenRequest("View", null, identities: new List<EffectiveIdentity> {new EffectiveIdentity (
+                    username: customerId.ToString(),
+                    roles: new List<string> {"CustomerView"},
+                    datasets: new List<string> {datasetId })});
+                var tokenResponse =
+                    await client.Reports.GenerateTokenAsync(
+                        powerBISettings[1],
+                        powerBISettings[0],
+                        generateTokenRequestParameters);
+                result.EmbedToken = tokenResponse;
+                result.EmbedUrl = (report.EmbedUrl);
+                result.Id = report.Id.ToString();
+                await PBIServiceInterop.CreateReport(
+                    JSRuntime,
+                    PowerBIElement,
+                    tokenResponse.Token,
+                    report.EmbedUrl,
+                    report.Id.ToString());
+            }
+        }
+    }
+    private const string AuthorityFormat = "https://login.microsoftonline.com/{0}/v2.0";
+    private const string MSGraphScope = "https://analysis.windows.net/powerbi/api/.default";
+
+    //Sets up required authentication to Azure AD (B2B) to render the Power BI report using the variables defined by GetAppConfiguration()
+    private async Task<AuthenticationResult> DoAuthentication()
+    {
+        IConfidentialClientApplication daemonClient;
+        daemonClient = ConfidentialClientApplicationBuilder.Create(b2bAuthCredentials[0])
+            .WithAuthority(string.Format(AuthorityFormat, b2bAuthCredentials[3]))
+            .WithClientSecret(b2bAuthCredentials[1])
+            .Build();
+        AuthenticationResult authResult =
+            await daemonClient.AcquireTokenForClient(new[] { MSGraphScope }).ExecuteAsync();
+        return authResult;
+    }
+
+}

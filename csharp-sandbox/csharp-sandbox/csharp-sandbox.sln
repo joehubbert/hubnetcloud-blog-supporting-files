@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "csharp-sandbox", "csharp-sandbox\csharp-sandbox.csproj", "{1DF7C782-EB0D-4CEB-9D17-1EB3247C5109}"
+EndProject
+Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "csharp-sandbox-database", "csharp-sandbox-database\csharp-sandbox-database.sqlproj", "{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1DF7C782-EB0D-4CEB-9D17-1EB3247C5109}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1DF7C782-EB0D-4CEB-9D17-1EB3247C5109}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1DF7C782-EB0D-4CEB-9D17-1EB3247C5109}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1DF7C782-EB0D-4CEB-9D17-1EB3247C5109}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F6160862-6D88-4FF7-9CEB-DFA6149F6B33}.Release|Any CPU.Deploy.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CF81712F-3089-49DA-A3E8-70EA11D906A3}
+	EndGlobalSection
+EndGlobal

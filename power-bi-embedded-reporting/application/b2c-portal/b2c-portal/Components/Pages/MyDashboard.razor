@@ -21,67 +21,54 @@
 <PageTitle>My Dashboard</PageTitle>
 
 <p>Row Level security is being applied to the underlying dataset based upon the identity of the logged in user.</p>
-<div @ref="@PowerBIElement" style="width:100%;height:1500px;" />
+<div @ref="@powerBIElement" style="width:100%;height:1500px;" />
 
 @code {
     [CascadingParameter]
-    private Task<AuthenticationState>? authState { get; set; }
-    ElementReference PowerBIElement;
     [Inject]
-    private IConfiguration configuration { get; set; }
+    private IConfiguration _configuration { get; set; }
     [Inject]
     private IHttpContextAccessor httpContextAccessor { get; set; }
-    protected List<string>? b2bAuthCredentials;
-    private int? customerId;
-    private List<Guid>? powerBISettings;
-    protected string? sqlConnectionString;
 
+    private string? authenticationDBConnectionString;
+    private const string authorityFormat = "https://login.microsoftonline.com/{0}/v2.0";
+    private Task<AuthenticationState>? authState { get; set; }
+    private List<string>? b2bAuthenticationCredentials;
+    private string? b2bClientId;
+    private string? b2bClientSecret;
+    private string? b2bTenantId;
+    private const string msGraphScope = "https://analysis.windows.net/powerbi/api/.default";
+    private int? portalUserId;
+    ElementReference powerBIElement;
+    private List<Guid>? powerBIConfiguration;
+    private string? powerBIReportId;
+    private string? powerBIWorkspaceId;
 
-    //Gets the Azure AD B2B configuration settings from appsettings.json and returns to a list of strings
+    //Gets the configuration settings from appsettings
     public List<string> GetAppConfiguration()
     {
-        var b2b = configuration.GetSection("AzureAdB2B");
-        string b2bClientId = b2b.GetValue<string>("ClientId");
-        string b2bClientSecret = b2b.GetValue<string>("ClientSecret");
-        string b2bKeyVaultURI = b2b.GetValue<string>("KeyVaultURI");
-        string b2bTenantId = b2b.GetValue<string>("TenantId");
+        authenticationDBConnectionString = _configuration.GetConnectionString("b2bAuthenticationDBConnectionString");
+        b2bClientId = _configuration["b2bClientId"];
+        b2bClientSecret = _configuration["b2bClientSecret"];
+        b2bTenantId = _configuration["b2bTenantId"];
+        powerBIReportId = _configuration["b2bPowerBIReportId"];
+        powerBIWorkspaceId = _configuration["b2bPowerBIWorkspaceId"];
 
-        string[] credentials = { b2bClientId, b2bClientSecret, b2bKeyVaultURI, b2bTenantId };
+        powerBIConfiguration.Add(Guid.Parse(powerBIWorkspaceId));
+        powerBIConfiguration.Add(Guid.Parse(powerBIReportId));
 
-        b2bAuthCredentials = new List<string>(credentials);
+        string[] credentials = { b2bTenantId, b2bClientId, b2bClientSecret};
 
-        return b2bAuthCredentials;
+        b2bAuthenticationCredentials = new List<string>(credentials);
+
+        return b2bAuthenticationCredentials;
     }
 
-    //Gets the ReportId and WorkspaceId from Azure Key Vault and returns the values to a list of Guids
-    private List<Guid> GetPowerBIConfiguration()
-    {
-        var keyVaultClient = new SecretClient(vaultUri: new Uri(b2bAuthCredentials[2]), credential: new ClientSecretCredential(b2bAuthCredentials[3], b2bAuthCredentials[0], b2bAuthCredentials[1]));
-
-        Guid reportId = Guid.Parse(keyVaultClient.GetSecret("pbi-reportid").Value.Value);
-        Guid workspaceId = Guid.Parse(keyVaultClient.GetSecret("pbi-workspaceid").Value.Value);
-
-        Guid[] settings = { reportId, workspaceId };
-
-        powerBISettings = new List<Guid>(settings);
-
-        return powerBISettings;
-    }
-
-    //Gets the SQL Connection string from Azure Key Vault and returns to a string
-    private string GetKeyVaultSQLSecret()
-    {
-        var keyVaultClient = new SecretClient(vaultUri: new Uri(b2bAuthCredentials[2]), credential: new ClientSecretCredential(b2bAuthCredentials[3], b2bAuthCredentials[0], b2bAuthCredentials[1]));
-
-        sqlConnectionString = keyVaultClient.GetSecret("sql-connectionstring").Value.Value;
-
-        return sqlConnectionString;
-    }
-
-    //Performs lookup to SQL DB/Organisation Service Lookup to get the int customer id which matches the e-mail address of the logged in user
-    private int? GetCustomerId()
+    //Performs lookup to Authentication Database Lookup to get the int portalUserId id which matches the e-mail address of the logged in user
+    private int? GetPortalUserId()
     {
         var currentUser = httpContextAccessor?.HttpContext?.User;
+
         if (currentUser == null)
         {
             throw new Exception("Could not access current user.");
@@ -94,38 +81,35 @@
             throw new Exception("Could not find current user in the supplied claims.");
         }
 
-
-        string queryString = "EXECUTE sp_GetCustomerId @customerEmailAddress = '" + currentUserEmail + "'";
+        string queryString = "EXECUTE sp_GetPortalUserId @portalUserEmailAddress = '" + currentUserEmail + "'";
 
         try
         {
-            using (SqlConnection connection = new SqlConnection(sqlConnectionString))
+            using (SqlConnection connection = new SqlConnection(authenticationDBConnectionString))
             {
                 try
                 {
                     using (SqlCommand command = new SqlCommand(queryString, connection))
                     {
                         connection.Open();
-                        customerId = (int)command.ExecuteScalar();
+                        portalUserId = (int)command.ExecuteScalar();
                         connection.Close();
                     }
                 }
 
                 catch (Exception e)
-
                 {
-
+                    throw new Exception(e.ToString());
                 }
             }
         }
 
         catch (Exception e)
-
         {
-
+            throw new Exception(e.ToString());
         }
 
-        return customerId;
+        return portalUserId;
     }
 
     //Renders the Power BI Embedded solution whilst calling the methods defined above to populate required class/razor level variables
@@ -135,10 +119,8 @@
         if (firstRender)
         {
             GetAppConfiguration();
-            GetKeyVaultSQLSecret();
-            GetCustomerId();
-            GetPowerBIConfiguration();
-            var result = new PowerBIEmbedConfig();
+            GetPortalUserId();
+            var pbiEmbeddedConfig = new PowerBIEmbedConfig();
             // Authenticate using created credentials
             AuthenticationResult authenticationResult = null;
             authenticationResult = await DoAuthentication();
@@ -149,44 +131,42 @@
             {
                 var report =
                     await client.Reports.GetReportInGroupAsync(
-                        powerBISettings[1],
-                        powerBISettings[0]);
+                        powerBIConfiguration[0],
+                        powerBIConfiguration[1]);
                 var datasetId = report.DatasetId;
                 var generateTokenRequestParameters =
                     new GenerateTokenRequest("View", null, identities: new List<EffectiveIdentity> {new EffectiveIdentity (
-                    username: customerId.ToString(),
-                    roles: new List<string> {"CustomerView"},
+                    username: portalUserId.ToString(),
+                    roles: new List<string> {"PortalUserView"},
                     datasets: new List<string> {datasetId })});
                 var tokenResponse =
                     await client.Reports.GenerateTokenAsync(
-                        powerBISettings[1],
-                        powerBISettings[0],
+                        powerBIConfiguration[0],
+                        powerBIConfiguration[1],
                         generateTokenRequestParameters);
-                result.EmbedToken = tokenResponse;
-                result.EmbedUrl = (report.EmbedUrl);
-                result.Id = report.Id.ToString();
+                pbiEmbeddedConfig.EmbedToken = tokenResponse;
+                pbiEmbeddedConfig.EmbedUrl = (report.EmbedUrl);
+                pbiEmbeddedConfig.Id = report.Id.ToString();
                 await PBIServiceInterop.CreateReport(
                     JSRuntime,
-                    PowerBIElement,
+                    powerBIElement,
                     tokenResponse.Token,
                     report.EmbedUrl,
                     report.Id.ToString());
             }
         }
     }
-    private const string AuthorityFormat = "https://login.microsoftonline.com/{0}/v2.0";
-    private const string MSGraphScope = "https://analysis.windows.net/powerbi/api/.default";
-
-    //Sets up required authentication to Azure AD (B2B) to render the Power BI report using the variables defined by GetAppConfiguration()
+    
+    //Sets up required authentication to Entra ID (B2B) to render the Power BI report using the variables defined by GetAppConfiguration()
     private async Task<AuthenticationResult> DoAuthentication()
     {
         IConfidentialClientApplication daemonClient;
-        daemonClient = ConfidentialClientApplicationBuilder.Create(b2bAuthCredentials[0])
-            .WithAuthority(string.Format(AuthorityFormat, b2bAuthCredentials[3]))
-            .WithClientSecret(b2bAuthCredentials[1])
+        daemonClient = ConfidentialClientApplicationBuilder.Create(b2bAuthenticationCredentials[1])
+            .WithAuthority(string.Format(authorityFormat, b2bAuthenticationCredentials[0]))
+            .WithClientSecret(b2bAuthenticationCredentials[2])
             .Build();
         AuthenticationResult authResult =
-            await daemonClient.AcquireTokenForClient(new[] { MSGraphScope }).ExecuteAsync();
+            await daemonClient.AcquireTokenForClient(new[] { msGraphScope }).ExecuteAsync();
         return authResult;
     }
 

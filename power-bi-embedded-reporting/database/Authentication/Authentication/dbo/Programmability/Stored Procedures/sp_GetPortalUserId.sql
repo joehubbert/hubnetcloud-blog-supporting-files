@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[getPortalUserId]
+﻿CREATE PROCEDURE [dbo].[sp_GetPortalUserId]
 	@portalUserEmailAddress NVARCHAR(50),
 	@portalUserId INT OUTPUT
 AS

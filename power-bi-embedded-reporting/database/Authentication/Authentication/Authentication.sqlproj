@@ -68,6 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\portalUser.sql" />
-    <Build Include="dbo\Programmability\Stored Procedures\getPortalUserId.sql" />
+    <Build Include="dbo\Programmability\Stored Procedures\sp_GetPortalUserId.sql" />
   </ItemGroup>
 </Project>

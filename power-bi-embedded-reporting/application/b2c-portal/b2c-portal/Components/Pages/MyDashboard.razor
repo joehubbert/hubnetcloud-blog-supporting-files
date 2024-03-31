@@ -47,7 +47,7 @@
     //Gets the configuration settings from appsettings
     public List<string> GetAppConfiguration()
     {
-        authenticationDBConnectionString = _configuration.GetConnectionString("b2bAuthenticationDBConnectionString");
+        authenticationDBConnectionString = _configuration.GetConnectionString("authenticationDBConnectionString");
         b2bClientId = _configuration["b2bClientId"];
         b2bClientSecret = _configuration["b2bClientSecret"];
         b2bTenantId = _configuration["b2bTenantId"];

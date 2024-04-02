@@ -1,0 +1,172 @@
+﻿@page "/OneDashboard"
+
+@using b2c_portal.Components.Classes
+@using Azure.Identity
+@using Azure.Security.KeyVault.Secrets
+@using Microsoft.AspNetCore.Components.Authorization
+@using Microsoft.Data.SqlClient
+@using Microsoft.Extensions.Configuration
+@using Microsoft.Identity.Client
+@using Microsoft.PowerBI.Api
+@using Microsoft.PowerBI.Api.Models
+@using Microsoft.Rest
+@using System.Data
+@using System.Security.Claims
+@using System.Web
+
+@inject AuthenticationStateProvider AuthenticationStateProvider
+@inject IJSRuntime JSRuntime
+
+<h3>OneDashboard</h3>
+<PageTitle>OneDashboard</PageTitle>
+
+<p>Row Level security is being applied to the underlying dataset based upon the identity of the logged in user.</p>
+<div @ref="@powerBIElement" style="width:100%;height:1500px;" />
+
+@code {
+    [CascadingParameter]
+    private Task<AuthenticationState>? authState { get; set; }
+    [Inject]
+    private IConfiguration _configuration { get; set; }
+    [Inject]
+    private IHttpContextAccessor httpContextAccessor { get; set; }
+    private string? authenticationDBConnectionString;
+    private const string authorityFormat = "https://login.microsoftonline.com/{0}/v2.0";
+    private List<string>? b2bAuthenticationCredentials;
+    private string? b2bClientId;
+    private string? b2bClientSecret;
+    private string? b2bTenantId;
+    private const string msGraphScope = "https://analysis.windows.net/powerbi/api/.default";
+    private int? portalUserId;
+    ElementReference powerBIElement;
+    private List<Guid>? powerBIConfiguration;
+    private string? powerBIReportId;
+    private string? powerBIWorkspaceId;
+
+    //Gets the configuration settings from appsettings
+    public List<string> GetAppConfiguration()
+    {
+        authenticationDBConnectionString = _configuration.GetConnectionString("authenticationDBConnectionString");
+        b2bClientId = _configuration["b2bClientId"];
+        b2bClientSecret = _configuration["b2bClientSecret"];
+        b2bTenantId = _configuration["b2bTenantId"];
+        powerBIReportId = _configuration["b2bPowerBIReportId"];
+        powerBIWorkspaceId = _configuration["b2bPowerBIWorkspaceId"];
+
+        powerBIConfiguration.Add(Guid.Parse(powerBIWorkspaceId));
+        powerBIConfiguration.Add(Guid.Parse(powerBIReportId));
+
+        string[] credentials = { b2bTenantId, b2bClientId, b2bClientSecret };
+
+        b2bAuthenticationCredentials = new List<string>(credentials);
+
+        return b2bAuthenticationCredentials;
+    }
+
+    //Performs lookup to Authentication Database Lookup to get the int portalUserId id which matches the e-mail address of the logged in user
+    private int? GetPortalUserId()
+    {
+        var currentUser = httpContextAccessor?.HttpContext?.User;
+
+        if (currentUser == null)
+        {
+            throw new Exception("Could not access current user.");
+        }
+
+        string? currentUserEmail = currentUser.Claims?.FirstOrDefault(c => c.Type == "emails")?.Value?.ToString();
+
+        if (currentUserEmail == null)
+        {
+            throw new Exception("Could not find current user in the supplied claims.");
+        }
+
+        string queryString = "EXECUTE sp_GetPortalUserId @portalUserEmailAddress = '" + currentUserEmail + "'";
+
+        try
+        {
+            using (SqlConnection connection = new SqlConnection(authenticationDBConnectionString))
+            {
+                try
+                {
+                    using (SqlCommand command = new SqlCommand(queryString, connection))
+                    {
+                        connection.Open();
+                        portalUserId = (int)command.ExecuteScalar();
+                        connection.Close();
+                    }
+                }
+
+                catch (Exception e)
+                {
+                    throw new Exception(e.ToString());
+                }
+            }
+        }
+
+        catch (Exception e)
+        {
+            throw new Exception(e.ToString());
+        }
+
+        return portalUserId;
+    }
+
+    //Renders the Power BI Embedded solution whilst calling the methods defined above to populate required class/razor level variables
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+        if (firstRender)
+        {
+            GetAppConfiguration();
+            GetPortalUserId();
+            var pbiEmbeddedConfig = new PowerBIEmbedConfig();
+            // Authenticate using created credentials
+            AuthenticationResult authenticationResult = null;
+            authenticationResult = await DoAuthentication();
+            var tokenCredentials =
+                new TokenCredentials(authenticationResult.AccessToken, "Bearer");
+            using (var client = new PowerBIClient(
+                new Uri("https://api.powerbi.com/"), tokenCredentials))
+            {
+                var report =
+                    await client.Reports.GetReportInGroupAsync(
+                        powerBIConfiguration[0],
+                        powerBIConfiguration[1]);
+                var datasetId = report.DatasetId;
+                var generateTokenRequestParameters =
+                    new GenerateTokenRequest("View", null, identities: new List<EffectiveIdentity> {new EffectiveIdentity (
+                    username: portalUserId.ToString(),
+                    roles: new List<string> {"PortalUserView"},
+                    datasets: new List<string> {datasetId })});
+                var tokenResponse =
+                    await client.Reports.GenerateTokenAsync(
+                        powerBIConfiguration[0],
+                        powerBIConfiguration[1],
+                        generateTokenRequestParameters);
+                pbiEmbeddedConfig.EmbedToken = tokenResponse;
+                pbiEmbeddedConfig.EmbedUrl = (report.EmbedUrl);
+                pbiEmbeddedConfig.Id = report.Id.ToString();
+                await PBIServiceInterop.CreateReport(
+                    JSRuntime,
+                    powerBIElement,
+                    tokenResponse.Token,
+                    report.EmbedUrl,
+                    report.Id.ToString());
+            }
+        }
+    }
+
+    //Sets up required authentication to Entra ID (B2B) to render the Power BI report using the variables defined by GetAppConfiguration()
+    private async Task<AuthenticationResult> DoAuthentication()
+    {
+        IConfidentialClientApplication daemonClient;
+        daemonClient = ConfidentialClientApplicationBuilder.Create(b2bAuthenticationCredentials[1])
+            .WithAuthority(string.Format(authorityFormat, b2bAuthenticationCredentials[0]))
+            .WithClientSecret(b2bAuthenticationCredentials[2])
+            .Build();
+        AuthenticationResult authResult =
+            await daemonClient.AcquireTokenForClient(new[] { msGraphScope }).ExecuteAsync();
+        return authResult;
+    }
+
+}

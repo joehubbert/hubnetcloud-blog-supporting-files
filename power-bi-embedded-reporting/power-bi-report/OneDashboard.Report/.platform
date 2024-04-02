@@ -1,11 +1,11 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
   "metadata": {
-    "type": "SemanticModel",
-    "displayName": "myDashboard"
+    "type": "Report",
+    "displayName": "OneDashboard"
   },
   "config": {
     "version": "2.0",
-    "logicalId": "be90e5c1-185b-4422-b8ce-63a5d5fa31f6"
+    "logicalId": "e8eca6ed-cad5-40ee-a41c-4c2e622cbe20"
   }
 }

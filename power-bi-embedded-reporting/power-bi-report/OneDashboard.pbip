@@ -3,7 +3,7 @@
   "artifacts": [
     {
       "report": {
-        "path": "myDashboard.Report"
+        "path": "OneDashboard.Report"
       }
     }
   ],

@@ -10,8 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddAuthentication(OpenIdConnectDefaults.AuthenticationScheme)
-    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("b2cConfiguration"))
-.AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("AzureAd"));
+    .AddMicrosoftIdentityWebApp(builder.Configuration.GetSection("b2cConfiguration"));
 builder.Services.AddControllersWithViews(options =>
 {
     var policy = new AuthorizationPolicyBuilder()
@@ -34,7 +33,6 @@ builder.Services.AddServerSideBlazor()
    .AddMicrosoftIdentityConsentHandler();
 
 builder.Services.AddHttpContextAccessor();
-
 
 var app = builder.Build();
 

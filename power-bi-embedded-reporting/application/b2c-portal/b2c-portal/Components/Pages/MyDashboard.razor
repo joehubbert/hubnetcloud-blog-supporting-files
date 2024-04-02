@@ -25,14 +25,13 @@
 
 @code {
     [CascadingParameter]
+    private Task<AuthenticationState>? authState { get; set; }
     [Inject]
     private IConfiguration _configuration { get; set; }
     [Inject]
     private IHttpContextAccessor httpContextAccessor { get; set; }
-
     private string? authenticationDBConnectionString;
     private const string authorityFormat = "https://login.microsoftonline.com/{0}/v2.0";
-    private Task<AuthenticationState>? authState { get; set; }
     private List<string>? b2bAuthenticationCredentials;
     private string? b2bClientId;
     private string? b2bClientSecret;

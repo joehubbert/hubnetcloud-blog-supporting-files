@@ -10,9 +10,11 @@
 
     <main>
         <div class="top-row px-4 auth">
+            <CascadingAuthenticationState>
             <AuthorizeView>
                 <p>Hello, @context.User.Identity?.Name!</p>
             </AuthorizeView>
+            </CascadingAuthenticationState>
         </div>
 
         <article class="content px-4">

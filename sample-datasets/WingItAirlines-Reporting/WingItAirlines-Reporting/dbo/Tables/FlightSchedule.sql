@@ -3,8 +3,8 @@
 	[Flight_Schedule_Id] BIGINT IDENTITY(1,1) NOT NULL PRIMARY KEY,
 	[Route_Id] INT NOT NULL,
 	[Airplane_Id] INT NOT NULL,
-	[Scheduled_Date_Time_Of_Departure_UTC] DATETIME2 NOT NULL,
-	[Scheduled_Date_Time_Of_Arrival_UTC] DATETIME2 NOT NULL,
+	[Scheduled_DateTime_Departure_UTC] DATETIME2 NOT NULL,
+	[Scheduled_DateTime_Arrival_UTC] DATETIME2 NOT NULL,
 	[Scheduled_Flight_Duration] TIME NOT NULL,
 )
 GO

@@ -10,7 +10,7 @@ SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 SET LOCK_TIMEOUT 10000;
 
 DECLARE @flightToBook INT
-SET @flightToBook = (SELECT [Flight_Schedule_Id] FROM [dbo].[FlightSchedule] WHERE [Route_Id] = @routeId AND [Scheduled_Date_Time_Of_Departure_UTC] = @travelDateTime)
+SET @flightToBook = (SELECT [Flight_Schedule_Id] FROM [dbo].[FlightSchedule] WHERE [Route_Id] = @routeId AND [Scheduled_DateTime_Departure_UTC] = @travelDateTime)
 
 DECLARE @availabilityCheck BIT
 SET @availabilityCheck = [dbo].[CheckAirplaneCapacity] (@flightToBook, @ticketTypeId)

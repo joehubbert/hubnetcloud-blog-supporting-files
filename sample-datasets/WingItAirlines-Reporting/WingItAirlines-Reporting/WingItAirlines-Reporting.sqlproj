@@ -81,5 +81,15 @@
     <Build Include="dbo\Tables\TicketStatus.sql" />
     <Build Include="dbo\Tables\TicketType.sql" />
     <Build Include="dbo\Views\vwRoute.sql" />
+    <Build Include="dbo\Views\vwFlightSchedule.sql" />
+    <Build Include="dbo\Views\vwAgency.sql" />
+    <Build Include="dbo\Views\vwAgencyCommission.sql" />
+    <Build Include="dbo\Views\vwAgencyUser.sql" />
+    <Build Include="dbo\Views\vwAirplane.sql" />
+    <Build Include="dbo\Views\vwAirport.sql" />
+    <Build Include="dbo\Views\vwPassengerFare.sql" />
+    <Build Include="dbo\Views\vwTicketSale.sql" />
+    <Build Include="dbo\Views\vwTicketStatus.sql" />
+    <Build Include="dbo\Views\vwTicketType.sql" />
   </ItemGroup>
 </Project>

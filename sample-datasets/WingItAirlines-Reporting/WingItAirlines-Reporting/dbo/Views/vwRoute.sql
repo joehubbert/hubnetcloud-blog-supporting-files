@@ -1,11 +1,13 @@
 ﻿CREATE VIEW [dbo].[vwRoute]
 AS 
 SELECT 
-R.[Route_Id],
-R.[Route_Number],
-R.[Departure_Airport_Id],
-R.[Destination_Airport_Id],
-CONCAT(DEPA.[Airport_Name],' - ',DESA.[Airport_Name]) AS [Route_Name],
+R.[Route_Id] AS [Route Id],
+R.[Route_Number] AS [Route Number],
+R.[Departure_Airport_Id] AS [Departure Airport Id],
+DEPA.[Airport_Name] AS [Departure Airport Name],
+R.[Destination_Airport_Id] AS [Destination Airport Id],
+DESA.[Airport_Name] AS [Destination Airport Name],
+CONCAT(DEPA.[Airport_Name],' - ',DESA.[Airport_Name]) AS [Route Name],
 R.[Route_Distance_Nautical_Miles],
 CASE WHEN R.[Route_Distance_Nautical_Miles] < 700 THEN 'Short-Haul' 
 WHEN R.[Route_Distance_Nautical_Miles] >= 700 AND [Route_Distance_Nautical_Miles] < 3000 THEN 'Medium Haul' 

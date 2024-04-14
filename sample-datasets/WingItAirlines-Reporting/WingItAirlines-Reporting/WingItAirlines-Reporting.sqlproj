@@ -91,5 +91,6 @@
     <Build Include="dbo\Views\vwTicketSale.sql" />
     <Build Include="dbo\Views\vwTicketStatus.sql" />
     <Build Include="dbo\Views\vwTicketType.sql" />
+    <Build Include="dbo\Views\vwFlightCapacity.sql" />
   </ItemGroup>
 </Project>

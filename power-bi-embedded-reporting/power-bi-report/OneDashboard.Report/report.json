@@ -1,7 +1,22 @@
 {
-  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.52\",\"type\":2}},\"activeSectionIndex\":0,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":0,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}]}}",
-  "layoutOptimization": 0,
+  "config": "{\"version\":\"5.51\",\"themeCollection\":{\"baseTheme\":{\"name\":\"CY24SU02\",\"version\":\"5.52\",\"type\":2}},\"activeSectionIndex\":1,\"defaultDrillFilterOtherVisuals\":true,\"linguisticSchemaSyncVersion\":2,\"settings\":{\"useNewFilterPaneExperience\":true,\"allowChangeFilterTypes\":true,\"useStylableVisualContainerHeader\":true,\"queryLimitOption\":6,\"useEnhancedTooltips\":true,\"exportDataMode\":1,\"useDefaultAggregateDisplayName\":true},\"objects\":{\"section\":[{\"properties\":{\"verticalAlignment\":{\"expr\":{\"Literal\":{\"Value\":\"'Top'\"}}}}}],\"outspacePane\":[{\"properties\":{\"expanded\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]}}",
+  "layoutOptimization": 1,
+  "publicCustomVisuals": [],
   "resourcePackages": [
+    {
+      "resourcePackage": {
+        "disabled": false,
+        "items": [
+          {
+            "name": "Airplanes_-_Taxiway2563176858902445.jpg",
+            "path": "Airplanes_-_Taxiway2563176858902445.jpg",
+            "type": 100
+          }
+        ],
+        "name": "RegisteredResources",
+        "type": 1
+      }
+    },
     {
       "resourcePackage": {
         "disabled": false,
@@ -19,46 +34,263 @@
   ],
   "sections": [
     {
-      "config": "{}",
+      "config": "{\"objects\":{\"outspace\":[{\"properties\":{\"image\":{\"image\":{\"name\":{\"expr\":{\"Literal\":{\"Value\":\"'Airplanes - Taxiway.jpg'\"}}},\"url\":{\"expr\":{\"ResourcePackageItem\":{\"PackageName\":\"RegisteredResources\",\"PackageType\":1,\"ItemName\":\"Airplanes_-_Taxiway2563176858902445.jpg\"}}},\"scaling\":{\"expr\":{\"Literal\":{\"Value\":\"'Normal'\"}}}}}}}]}}",
       "displayName": "Home",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
       "name": "ReportSection",
-      "visualContainers": [],
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"9caa6f7bcf0e5fb783a7\",\"layouts\":[{\"id\":0,\"position\":{\"x\":82.46823956442832,\"y\":20.907441016333937,\"z\":2000,\"width\":623.7386569872958,\"height\":88.27586206896551,\"tabOrder\":2000}},{\"id\":1,\"position\":{\"x\":0,\"y\":83,\"z\":3,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Agency User.Current User\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"a\",\"Entity\":\"Agency User\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"a\"}},\"Property\":\"Current User Welcome\"},\"Name\":\"Agency User.Current User\",\"NativeReferenceName\":\"Current User\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}},\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"21D\"}}}}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 88.28,
+          "width": 623.74,
+          "x": 82.47,
+          "y": 20.91,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"9f9243976b09c654dba6\",\"layouts\":[{\"id\":0,\"position\":{\"x\":724.4776119402985,\"y\":13.432835820895521,\"z\":0,\"width\":555.223880597015,\"height\":103.88059701492537,\"tabOrder\":0}},{\"id\":1,\"position\":{\"x\":11,\"y\":13,\"z\":2,\"width\":313,\"height\":83}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"OneDashboard\",\"textStyle\":{\"fontSize\":\"42pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 103.88,
+          "width": 555.22,
+          "x": 724.48,
+          "y": 13.43,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"b2c16f26d12cecd787a5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":831.044776119403,\"y\":102.08955223880596,\"z\":1000,\"width\":342.08955223880594,\"height\":275.82089552238807,\"tabOrder\":1000}},{\"id\":1,\"position\":{\"x\":29,\"y\":228,\"z\":1,\"width\":266,\"height\":240}}],\"singleVisual\":{\"visualType\":\"pageNavigator\",\"drillFilterOtherVisuals\":true,\"objects\":{\"layout\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"fill\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}},{\"properties\":{\"fillColor\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F2C811'\"}}}}}},\"selector\":{\"id\":\"default\"}}],\"shape\":[{\"properties\":{\"tileShape\":{\"expr\":{\"Literal\":{\"Value\":\"'rectangle'\"}}}},\"selector\":{\"id\":\"default\"}}],\"text\":[{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}},\"selector\":{\"id\":\"default\"}},{\"properties\":{\"fontSize\":{\"expr\":{\"Literal\":{\"Value\":\"12D\"}}}},\"selector\":{\"id\":\"selected\"}}],\"glow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]},\"vcObjects\":{\"dropShadow\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"background\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"visualHeader\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}},\"howCreated\":\"InsertVisualButton\"}",
+          "filters": "[]",
+          "height": 275.82,
+          "width": 342.09,
+          "x": 831.04,
+          "y": 102.09,
+          "z": 1000.00
+        }
+      ],
       "width": 1280.00
     },
     {
       "config": "{}",
-      "displayName": "Airports",
+      "displayName": "Flight Capacity",
       "displayOption": 1,
       "filters": "[]",
       "height": 720.00,
-      "name": "ReportSection048628232b3b43119edb",
-      "ordinal": 1,
-      "visualContainers": [],
+      "name": "ReportSection2e5bf6390c0e19b45b0c",
+      "ordinal": 2,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"19febe654ccd3d9c7b48\",\"layouts\":[{\"id\":0,\"position\":{\"x\":895.535390199637,\"y\":515.7168784029038,\"z\":8000,\"width\":384.46460980036295,\"height\":150.99818511796732,\"tabOrder\":8000}},{\"id\":1,\"position\":{\"x\":0,\"y\":827,\"z\":4,\"width\":324,\"height\":133}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"Y\":[{\"queryRef\":\"Sum(Flight Capacity.Business Class Tickets Sold)\"}],\"MaxValue\":[{\"queryRef\":\"Sum(Flight Capacity.Business Class Seat Capacity)\"}],\"TargetValue\":[{\"queryRef\":\"Sum(Flight Capacity.Business Class Minimum Sales Target)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Business Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Business Class Tickets Sold\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Business Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Business Class Seat Capacity\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Minimum Sales Target\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Business Class Minimum Sales Target)\",\"NativeReferenceName\":\"Sum of Business Class Minimum Sales Target\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2CAA2A'\"}}}}},\"target\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Business Class Performance'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 151.00,
+          "width": 384.46,
+          "x": 895.54,
+          "y": 515.72,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"1f0581632a68ba134c6d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":620.984637133014,\"y\":321.225584182145,\"z\":4000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":4000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1394,\"z\":11,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Premium Ecomomy Class Seat Capacity)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Ecomomy Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Premium Ecomomy Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Premium Ecomomy Class Seat Capacity\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Ecomomy Class Seat Capacity\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Premium Economy Class Seat Capacity'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 620.98,
+          "y": 321.23,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"2ae4881c200d5e563e39\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.292196007259529,\"y\":125.44464609800363,\"z\":1000,\"width\":274.1197822141561,\"height\":85.95281306715063,\"tabOrder\":1000}},{\"id\":1,\"position\":{\"x\":13,\"y\":175,\"z\":5,\"width\":297,\"height\":84}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Calendar.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Calendar.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2014-04-04T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2015-10-03T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"datetime'2014-04-05T00:00:00'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter30861770498b0a1100ee\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Calendar\"}},\"Property\":\"Date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 85.95,
+          "width": 274.12,
+          "x": 9.29,
+          "y": 125.44,
+          "z": 1000.00
+        },
+        {
+          "config": "{\"name\":\"3a4fb31049d8675d4003\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.850746268656716,\"y\":0,\"z\":0,\"width\":1269.8507462686566,\"height\":98.50746268656717,\"tabOrder\":0}},{\"id\":1,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"width\":324,\"height\":148}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Flight Capacity\",\"textStyle\":{\"fontFamily\":\"Segoe UI Light\",\"fontSize\":\"36pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F2C811'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.51,
+          "width": 1269.85,
+          "x": 9.85,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"3ac2eda00ee05321b510\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.292196007259529,\"y\":297.3502722323049,\"z\":12000,\"width\":274.1197822141561,\"height\":85.95281306715063,\"tabOrder\":12000}},{\"id\":1,\"position\":{\"x\":13,\"y\":380,\"z\":7,\"width\":297,\"height\":84}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Route.Destination Airport Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Destination Airport Name\"},\"Name\":\"Route.Destination Airport Name\",\"NativeReferenceName\":\"Destination Airport Name\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2014-04-04T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2015-10-03T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Destination Airport Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Seattle-Tacoma International Airport'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter30861770498b0a1100ee\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Calendar\"}},\"Property\":\"Date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 85.95,
+          "width": 274.12,
+          "x": 9.29,
+          "y": 297.35,
+          "z": 12000.00
+        },
+        {
+          "config": "{\"name\":\"60c5700770263856b1c9\",\"layouts\":[{\"id\":0,\"position\":{\"x\":316.7405632115039,\"y\":125.77591372079088,\"z\":3000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":3000}},{\"id\":1,\"position\":{\"x\":0,\"y\":979,\"z\":8,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Economy Class Tickets Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Economy Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Economy Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Economy Class Tickets Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Economy Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Economy Class Tickets Sold'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 316.74,
+          "y": 125.78,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"6bc5db1c414424c00403\",\"layouts\":[{\"id\":0,\"position\":{\"x\":895.535390199637,\"y\":321.7422867513612,\"z\":9000,\"width\":384.46460980036295,\"height\":150.99818511796732,\"tabOrder\":9000}},{\"id\":1,\"position\":{\"x\":0,\"y\":661,\"z\":3,\"width\":324,\"height\":133}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"TargetValue\":[{\"queryRef\":\"Sum(Flight Capacity.Premium Ecomomy Class Minimum Sales Target)\"}],\"MaxValue\":[{\"queryRef\":\"Sum(Flight Capacity.Premium Ecomomy Class Seat Capacity)\"}],\"Y\":[{\"queryRef\":\"Sum(Flight Capacity.Premium Economy Class Tickets Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Ecomomy Class Minimum Sales Target\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Premium Ecomomy Class Minimum Sales Target)\",\"NativeReferenceName\":\"Sum of Premium Ecomomy Class Minimum Sales Target\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Ecomomy Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Premium Ecomomy Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Premium Ecomomy Class Seat Capacity\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Economy Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Premium Economy Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Premium Economy Class Tickets Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Economy Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2CAA2A'\"}}}}},\"target\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Premium Economy Class Performance'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 151.00,
+          "width": 384.46,
+          "x": 895.54,
+          "y": 321.74,
+          "z": 9000.00
+        },
+        {
+          "config": "{\"name\":\"6ff356d605867d3073ce\",\"layouts\":[{\"id\":0,\"position\":{\"x\":316.5148947723189,\"y\":321.225584182145,\"z\":5000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":5000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1255,\"z\":10,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Premium Economy Class Tickets Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Economy Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Premium Economy Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Premium Economy Class Tickets Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Premium Economy Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Premium Economy Class Tickets Sold'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 316.51,
+          "y": 321.23,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"735ef2e0ad36e28eab31\",\"layouts\":[{\"id\":0,\"position\":{\"x\":621.2103055721989,\"y\":516.6752546434991,\"z\":6000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":6000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1680,\"z\":12,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Business Class Seat Capacity)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Business Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Business Class Seat Capacity\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Seat Capacity\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Business Class Seat Capacity'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 621.21,
+          "y": 516.68,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"751d5321e390a6cbb134\",\"layouts\":[{\"id\":0,\"position\":{\"x\":621.2103055721989,\"y\":125.77591372079088,\"z\":2000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":2000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1115,\"z\":9,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Ecomomy Class Seat Capacity)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Ecomomy Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Ecomomy Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Ecomomy Class Seat Capacity\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Ecomomy Class Seat Capacity\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Economy Class Seat Capacity'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 621.21,
+          "y": 125.78,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"b46f05b40808e225ec95\",\"layouts\":[{\"id\":0,\"position\":{\"x\":315.97363690832833,\"y\":516.6752546434991,\"z\":7000,\"width\":273.79269023367283,\"height\":150.31755542240862,\"tabOrder\":7000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1536,\"z\":13,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Flight Capacity.Business Class Tickets Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Business Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Business Class Tickets Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Business Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"categoryLabels\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"labels\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI Light'', wf_segoe-ui_light, helvetica, arial, sans-serif'\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}},\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Business Class Tickets Sold'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 150.32,
+          "width": 273.79,
+          "x": 315.97,
+          "y": 516.68,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"bbdd9de406ce5930119a\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.292196007259529,\"y\":211.39745916515426,\"z\":11000,\"width\":274.1197822141561,\"height\":85.95281306715063,\"tabOrder\":11000}},{\"id\":1,\"position\":{\"x\":13,\"y\":275,\"z\":6,\"width\":297,\"height\":84}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Route.Departure Airport Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Departure Airport Name\"},\"Name\":\"Route.Departure Airport Name\",\"NativeReferenceName\":\"Departure Airport Name\"}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"startDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2014-04-04T00:00:00'\"}}},\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2015-10-03T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Dropdown'\"}}}}}],\"general\":[{\"properties\":{\"filter\":{\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Where\":[{\"Condition\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Departure Airport Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"'Amsterdam Airport Schiphol'\"}}]]}}}]}}}}],\"selection\":[{\"properties\":{\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"header\":[{\"properties\":{\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filter30861770498b0a1100ee\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Calendar\"}},\"Property\":\"Date\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":1,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 85.95,
+          "width": 274.12,
+          "x": 9.29,
+          "y": 211.40,
+          "z": 11000.00
+        },
+        {
+          "config": "{\"name\":\"dc7557010a8a3c21c848\",\"layouts\":[{\"id\":0,\"position\":{\"x\":895.535390199637,\"y\":125.44464609800363,\"z\":10000,\"width\":384.46460980036295,\"height\":150.99818511796732,\"tabOrder\":10000}},{\"id\":1,\"position\":{\"x\":0,\"y\":485,\"z\":2,\"width\":324,\"height\":133}}],\"singleVisual\":{\"visualType\":\"gauge\",\"projections\":{\"TargetValue\":[{\"queryRef\":\"Sum(Flight Capacity.Ecomomy Class Minimum Sales Target)\"}],\"MaxValue\":[{\"queryRef\":\"Sum(Flight Capacity.Ecomomy Class Seat Capacity)\"}],\"Y\":[{\"queryRef\":\"Sum(Flight Capacity.Economy Class Tickets Sold)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"f\",\"Entity\":\"Flight Capacity\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Ecomomy Class Minimum Sales Target\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Ecomomy Class Minimum Sales Target)\",\"NativeReferenceName\":\"Sum of Ecomomy Class Minimum Sales Target\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Ecomomy Class Seat Capacity\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Ecomomy Class Seat Capacity)\",\"NativeReferenceName\":\"Sum of Ecomomy Class Seat Capacity\"},{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Economy Class Tickets Sold\"}},\"Function\":0},\"Name\":\"Sum(Flight Capacity.Economy Class Tickets Sold)\",\"NativeReferenceName\":\"Sum of Economy Class Tickets Sold\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"f\"}},\"Property\":\"Economy Class Tickets Sold\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"dataPoint\":[{\"properties\":{\"fill\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#2CAA2A'\"}}}}},\"target\":{\"solid\":{\"color\":{\"expr\":{\"ThemeDataColor\":{\"ColorId\":1,\"Percent\":0}}}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Economy Class Performance'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 151.00,
+          "width": 384.46,
+          "x": 895.54,
+          "y": 125.44,
+          "z": 10000.00
+        }
+      ],
       "width": 1280.00
     },
     {
-      "config": "{}",
-      "displayName": "Fleet Maintainance",
-      "displayOption": 1,
-      "filters": "[]",
-      "height": 720.00,
-      "name": "ReportSection0e78fbf0c7e701a30b00",
-      "ordinal": 3,
-      "visualContainers": [],
-      "width": 1280.00
-    },
-    {
-      "config": "{}",
+      "config": "{\"type\":0}",
       "displayName": "Ticket Sales",
       "displayOption": 1,
       "filters": "[]",
-      "height": 720.00,
+      "height": 1350.00,
       "name": "ReportSectionfe0c2a40bd9a4904da39",
-      "ordinal": 2,
-      "visualContainers": [],
+      "ordinal": 1,
+      "visualContainers": [
+        {
+          "config": "{\"name\":\"00f65b051a360b065091\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":798.5074626865671,\"z\":5000,\"width\":1279.8507462686566,\"height\":535.4477611940298,\"tabOrder\":5000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1194,\"z\":9,\"width\":324,\"height\":319}}],\"singleVisual\":{\"visualType\":\"clusteredColumnChart\",\"projections\":{\"Series\":[{\"queryRef\":\"Route.Route Number\"}],\"Y\":[{\"queryRef\":\"Ticket Sale.Total Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Sale\",\"Type\":0},{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Route Number\"},\"Name\":\"Route.Route Number\",\"NativeReferenceName\":\"Route Number\"},{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Total Revenue\"},\"Name\":\"Ticket Sale.Total Revenue\",\"NativeReferenceName\":\"Total Revenue\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Total Revenue\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 535.45,
+          "width": 1279.85,
+          "x": 0.00,
+          "y": 798.51,
+          "z": 5000.00
+        },
+        {
+          "config": "{\"name\":\"0632fd2bee47718b7807\",\"layouts\":[{\"id\":0,\"position\":{\"x\":0,\"y\":419.60879014730745,\"z\":2000,\"width\":396.4259840618208,\"height\":150.6882395556629,\"tabOrder\":2000}},{\"id\":1,\"position\":{\"x\":0,\"y\":767,\"z\":2,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Ticket Sale.Agency Commission)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Sale\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Agency Commission\"}},\"Function\":0},\"Name\":\"Sum(Ticket Sale.Agency Commission)\",\"NativeReferenceName\":\"Sum of Agency Commission\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Agency Commission\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 150.69,
+          "width": 396.43,
+          "x": 0.00,
+          "y": 419.61,
+          "z": 2000.00
+        },
+        {
+          "config": "{\"name\":\"2267363eb7b0b68b6d58\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.850746268656716,\"y\":0,\"z\":0,\"width\":1269.8507462686566,\"height\":98.50746268656717,\"tabOrder\":0}},{\"id\":1,\"position\":{\"x\":0,\"y\":0,\"z\":1,\"width\":324,\"height\":148}}],\"singleVisual\":{\"visualType\":\"textbox\",\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"paragraphs\":[{\"textRuns\":[{\"value\":\"Ticket Sales\",\"textStyle\":{\"fontFamily\":\"Segoe UI Light\",\"fontSize\":\"36pt\"}}],\"horizontalTextAlignment\":\"center\"}]}}]},\"vcObjects\":{\"background\":[{\"properties\":{\"color\":{\"solid\":{\"color\":{\"expr\":{\"Literal\":{\"Value\":\"'#F2C811'\"}}}}}}}]}}}",
+          "filters": "[]",
+          "height": 98.51,
+          "width": 1269.85,
+          "x": 9.85,
+          "y": 0.00,
+          "z": 0.00
+        },
+        {
+          "config": "{\"name\":\"29aefa29cb006cc0798d\",\"layouts\":[{\"id\":0,\"position\":{\"x\":884.4240521613137,\"y\":419.60879014730745,\"z\":4000,\"width\":395.2668437575465,\"height\":150.6882395556629,\"tabOrder\":3000}},{\"id\":1,\"position\":{\"x\":0,\"y\":1050,\"z\":4,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"TicketSale.Total_Revenue\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Sale\",\"Type\":0}],\"Select\":[{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Total Revenue\"},\"Name\":\"TicketSale.Total_Revenue\",\"NativeReferenceName\":\"Total Revenue\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Measure\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Total Revenue\"}}}]},\"columnProperties\":{\"TicketSale.Total_Revenue\":{\"displayName\":\"Total Revenue\"}},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 150.69,
+          "width": 395.27,
+          "x": 884.42,
+          "y": 419.61,
+          "z": 4000.00
+        },
+        {
+          "config": "{\"name\":\"2f5ab67edbd4707e34b5\",\"layouts\":[{\"id\":0,\"position\":{\"x\":442.5678752544244,\"y\":420,\"z\":3000,\"width\":395.7142857142857,\"height\":150,\"tabOrder\":4000}},{\"id\":1,\"position\":{\"x\":0,\"y\":910,\"z\":3,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"card\",\"projections\":{\"Values\":[{\"queryRef\":\"Sum(Ticket Sale.Customer Price Paid)\"}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Sale\",\"Type\":0}],\"Select\":[{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Customer Price Paid\"}},\"Function\":0},\"Name\":\"Sum(Ticket Sale.Customer Price Paid)\",\"NativeReferenceName\":\"Sum of Customer Price Paid\"}],\"OrderBy\":[{\"Direction\":2,\"Expression\":{\"Aggregation\":{\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Customer Price Paid\"}},\"Function\":0}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true}}",
+          "filters": "[]",
+          "height": 150.00,
+          "width": 395.71,
+          "x": 442.57,
+          "y": 420.00,
+          "z": 3000.00
+        },
+        {
+          "config": "{\"name\":\"5b2920fa3d1b98250ebe\",\"layouts\":[{\"id\":0,\"position\":{\"x\":179.1044776119403,\"y\":598.8805970149253,\"z\":7000,\"width\":395.5223880597015,\"height\":151.11940298507463,\"tabOrder\":7000}},{\"id\":1,\"position\":{\"x\":0,\"y\":301,\"z\":6,\"width\":324,\"height\":140}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Route.Departure Airport Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Departure Airport Name\"},\"Name\":\"Route.Departure Airport Name\",\"NativeReferenceName\":\"Departure Airport Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[{\"name\":\"Filterf58780cab96018646e50\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Route\"}},\"Property\":\"Departure Airport Name\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Departure Airport Name\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 151.12,
+          "width": 395.52,
+          "x": 179.10,
+          "y": 598.88,
+          "z": 7000.00
+        },
+        {
+          "config": "{\"name\":\"8e062319c873d0c80a00\",\"layouts\":[{\"id\":0,\"position\":{\"x\":3.731343283582089,\"y\":113.80597014925372,\"z\":6000,\"width\":1270.5223880597014,\"height\":149.25373134328356,\"tabOrder\":6000}},{\"id\":1,\"position\":{\"x\":0,\"y\":161,\"z\":5,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Calendar.Date\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"c\",\"Entity\":\"Calendar\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"},\"Name\":\"Calendar.Date\",\"NativeReferenceName\":\"Date\"}],\"OrderBy\":[{\"Direction\":1,\"Expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"c\"}},\"Property\":\"Date\"}}}]},\"drillFilterOtherVisuals\":true,\"hasDefaultSort\":true,\"objects\":{\"data\":[{\"properties\":{\"endDate\":{\"expr\":{\"Literal\":{\"Value\":\"datetime'2015-10-03T00:00:00'\"}}},\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Between'\"}}}}}],\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"0D\"}}}}}]}}}",
+          "filters": "[]",
+          "height": 149.25,
+          "width": 1270.52,
+          "x": 3.73,
+          "y": 113.81,
+          "z": 6000.00
+        },
+        {
+          "config": "{\"name\":\"8e3e1c8f95d7e2b04b40\",\"layouts\":[{\"id\":0,\"position\":{\"x\":699.6268656716418,\"y\":600.7462686567164,\"z\":8000,\"width\":395.5223880597015,\"height\":149.25373134328356,\"tabOrder\":8000}},{\"id\":1,\"position\":{\"x\":0,\"y\":461,\"z\":7,\"width\":324,\"height\":148}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Route.Destination Airport Name\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"r\",\"Entity\":\"Route\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"r\"}},\"Property\":\"Destination Airport Name\"},\"Name\":\"Route.Destination Airport Name\",\"NativeReferenceName\":\"Destination Airport Name\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"general\":[{\"properties\":{}}]}}}",
+          "filters": "[]",
+          "height": 149.25,
+          "width": 395.52,
+          "x": 699.63,
+          "y": 600.75,
+          "z": 8000.00
+        },
+        {
+          "config": "{\"name\":\"c6eea69373d183453501\",\"layouts\":[{\"id\":0,\"position\":{\"x\":9.27312243419464,\"y\":290.94421637285683,\"z\":1000,\"width\":1264.622071963294,\"height\":128.66457377445062,\"tabOrder\":1000}},{\"id\":1,\"position\":{\"x\":0,\"y\":625,\"z\":8,\"width\":324,\"height\":120}}],\"singleVisual\":{\"visualType\":\"slicer\",\"projections\":{\"Values\":[{\"queryRef\":\"Ticket Type.Ticket Type\",\"active\":true}]},\"prototypeQuery\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Type\",\"Type\":0}],\"Select\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Ticket Type\"},\"Name\":\"Ticket Type.Ticket Type\",\"NativeReferenceName\":\"Ticket Type1\"}]},\"drillFilterOtherVisuals\":true,\"objects\":{\"general\":[{\"properties\":{\"orientation\":{\"expr\":{\"Literal\":{\"Value\":\"1D\"}}}}}],\"selection\":[{\"properties\":{\"singleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}},\"strictSingleSelect\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"data\":[{\"properties\":{\"mode\":{\"expr\":{\"Literal\":{\"Value\":\"'Basic'\"}}}}}],\"header\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}],\"items\":[{\"properties\":{\"textSize\":{\"expr\":{\"Literal\":{\"Value\":\"11D\"}}}}}]},\"vcObjects\":{\"title\":[{\"properties\":{\"text\":{\"expr\":{\"Literal\":{\"Value\":\"'Ticket Type'\"}}},\"fontFamily\":{\"expr\":{\"Literal\":{\"Value\":\"'''Segoe UI'', wf_segoe-ui_normal, helvetica, arial, sans-serif'\"}}},\"show\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}],\"divider\":[{\"properties\":{\"show\":{\"expr\":{\"Literal\":{\"Value\":\"false\"}}}}}]}}}",
+          "filters": "[{\"name\":\"Filterdb38e896162455b09005\",\"expression\":{\"Column\":{\"Expression\":{\"SourceRef\":{\"Entity\":\"Ticket Type\"}},\"Property\":\"Ticket Type\"}},\"filter\":{\"Version\":2,\"From\":[{\"Name\":\"t\",\"Entity\":\"Ticket Type\",\"Type\":0}],\"Where\":[{\"Condition\":{\"Not\":{\"Expression\":{\"In\":{\"Expressions\":[{\"Column\":{\"Expression\":{\"SourceRef\":{\"Source\":\"t\"}},\"Property\":\"Ticket Type\"}}],\"Values\":[[{\"Literal\":{\"Value\":\"null\"}}]]}}}}}]},\"type\":\"Categorical\",\"howCreated\":0,\"objects\":{\"general\":[{\"properties\":{\"isInvertedSelectionMode\":{\"expr\":{\"Literal\":{\"Value\":\"true\"}}}}}]},\"isHiddenInViewMode\":false}]",
+          "height": 128.66,
+          "width": 1264.62,
+          "x": 9.27,
+          "y": 290.94,
+          "z": 1000.00
+        }
+      ],
       "width": 1280.00
     }
   ]

@@ -1,0 +1,94 @@
+table 'Agency User'
+	lineageTag: 96ca59a8-93dc-44e9-a76a-ea1d11fe21b1
+
+	measure 'Current User Welcome' =
+			
+			VAR hour = HOUR(NOW())
+			VAR minute = MINUTE(NOW())
+			VAR prefix = SWITCH(
+			                    TRUE(),
+			                    hour<12,"Good morning, ",
+			                    hour>=12 && hour<17,"Good afternoon, ",
+			                    "Good evening, "
+			             )
+			RETURN CONCATENATE(prefix,SELECTEDVALUE('Agency User'[Agency User First Name]))
+		lineageTag: a8e6be68-5163-463f-bfc6-3901b2d9610f
+
+	measure 'Current User' = VALUE(USERNAME())
+		lineageTag: 139d3af9-de43-4bce-a533-23a240f60e3a
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Current User Agency' = LOOKUPVALUE('Agency User'[Agency Id],'Agency User'[Agency User Id],'Agency User'[Current User])
+		formatString: 0
+		lineageTag: a65a12e7-f318-45a4-8f99-54846826a11a
+
+	column 'Agency User Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 87d71e63-5ea1-47df-aa6c-aa342d35e251
+		summarizeBy: none
+		sourceColumn: Agency User Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Id'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 959bf5fd-e2c8-4a04-bcdf-f23b2000fd43
+		summarizeBy: none
+		sourceColumn: Agency Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency User Email'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 2a5537f8-9843-447f-acff-06e285a3e308
+		summarizeBy: none
+		sourceColumn: Agency User Email
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency User First Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 1a61cf4e-9ef7-42f9-8ef0-1bbc00c798d1
+		summarizeBy: none
+		sourceColumn: Agency User First Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency User Last Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 5bf79414-1c97-40b4-ba10-95ddcee4324f
+		summarizeBy: none
+		sourceColumn: Agency User Last Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Agency User' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_AgencyUser = #"pbiedemo-reporting"{[Schema="dbo",Item="vwAgencyUser"]}[Data]
+				in
+				    dbo_AgencyUser
+
+	annotation PBI_ResultType = Table
+

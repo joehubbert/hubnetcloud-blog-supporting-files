@@ -1,0 +1,25 @@
+table Calendar
+	lineageTag: 2ecc4c68-97a9-45f4-98cb-3352e801e498
+
+	column Date
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 461541b5-e64a-42ff-8c57-054dbd885876
+		summarizeBy: none
+		isNameInferred
+		isDataTypeInferred
+		sourceColumn: [Date]
+
+		variation Variation
+			isDefault
+			relationship: eafaa08f-80ad-4751-b90a-54930b7b7f89
+			defaultHierarchy: LocalDateTable_6507cfea-4668-4c79-9f4d-33e2e203d69e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendar = calculated
+		mode: import
+		source = CALENDAR(MIN('Ticket Sale'[Ticket Sale Date]),MAX('Ticket Sale'[Ticket Sale Date]))
+
+	annotation PBI_Id = 5c8473856bcc48dab8a22b41cc02c184
+

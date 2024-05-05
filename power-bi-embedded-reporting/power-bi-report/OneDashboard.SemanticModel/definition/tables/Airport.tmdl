@@ -1,0 +1,139 @@
+table Airport
+	lineageTag: 7a1f8619-e11a-4a52-90cd-9f9c0cd1fcc3
+
+	column 'Airport Id'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b8adc350-0014-4cd8-8e1a-4ff5d2ac62ae
+		summarizeBy: count
+		sourceColumn: Airport Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Code'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nchar
+		lineageTag: a324e565-bc80-4f06-bb81-7c91b40615c8
+		summarizeBy: none
+		sourceColumn: Airport Code
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(100)
+		lineageTag: b405deae-96ff-476c-8692-34a6fa6c8718
+		summarizeBy: none
+		sourceColumn: Airport Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport City'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: ace565a3-7e58-4571-af88-5ca614ecca49
+		summarizeBy: none
+		sourceColumn: Airport City
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Region'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 494c326a-0508-4a01-90f0-24167566ebc0
+		summarizeBy: none
+		sourceColumn: Airport Region
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Country'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: cf2ebe29-c4f9-4474-8a4a-f0e9fd4c05a5
+		summarizeBy: none
+		sourceColumn: Airport Country
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Continent'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 238937ae-2a31-43d6-909d-85cfb510f1e6
+		summarizeBy: none
+		sourceColumn: Airport Continent
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airport Geographic Location'
+		dataType: string
+		sourceProviderType: nvarchar(max)
+		lineageTag: 92d3386d-6ad6-4fa7-932e-72c5292bccef
+		summarizeBy: none
+		sourceColumn: Airport Geographic Location
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Primary Hub'
+		dataType: boolean
+		isNullable: false
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 1e8f22e4-b29a-4e56-bc79-3e771862bc96
+		summarizeBy: none
+		sourceColumn: Primary Hub
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Short Haul Route Service'
+		dataType: boolean
+		isNullable: false
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 436106fc-d687-445a-a604-be37eb1bb733
+		summarizeBy: none
+		sourceColumn: Short Haul Route Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Medium Haul Route Service'
+		dataType: boolean
+		isNullable: false
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 621978f5-ec97-4b8f-a4e7-de7ca559392e
+		summarizeBy: none
+		sourceColumn: Medium Haul Route Service
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Long Haul Route Service'
+		dataType: boolean
+		isNullable: false
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		sourceProviderType: bit
+		lineageTag: 503e086b-9921-4eaa-acc0-2e5abe39d34c
+		summarizeBy: none
+		sourceColumn: Long Haul Route Service
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Airport = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_Airport = #"pbiedemo-reporting"{[Schema="dbo",Item="vwAirport"]}[Data]
+				in
+				    dbo_Airport
+
+	annotation PBI_ResultType = Table
+

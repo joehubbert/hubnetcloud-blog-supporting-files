@@ -1,0 +1,39 @@
+table 'Ticket Status'
+	lineageTag: b50fc4f5-343b-4a90-a80d-0b649342187e
+
+	column 'Ticket Status Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 01e2df13-bca1-4c4b-ab92-821c57d6078d
+		summarizeBy: none
+		sourceColumn: Ticket Status Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Status'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(25)
+		lineageTag: 37a9ca91-21d8-4ab8-a3a3-65c79bff3aa8
+		summarizeBy: none
+		sourceColumn: Ticket Status
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ticket Status' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_TicketStatus = #"pbiedemo-reporting"{[Schema="dbo",Item="vwTicketStatus"]}[Data]
+				in
+				    dbo_TicketStatus
+
+	annotation PBI_ResultType = Table
+

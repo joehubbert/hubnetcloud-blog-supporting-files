@@ -1,0 +1,76 @@
+relationship d91d5cb8-3e90-45f9-9534-ad4a1cd44c25
+	fromColumn: 'Ticket Sale'.'Ticket Status Id'
+	toColumn: 'Ticket Status'.'Ticket Status Id'
+
+relationship 2b5f60fa-6758-4431-b825-e803bd71cd57
+	fromColumn: 'Ticket Sale'.'Ticket Type Id'
+	toColumn: 'Ticket Type'.'Ticket Type Id'
+
+relationship bd2847f5-591c-4920-bab8-5f021081fba4
+	fromColumn: 'Agency Commission'.'Agency Id'
+	toColumn: Agency.'Agency Id'
+
+relationship 48f26ada-cc17-4f95-8277-b94679a3e212
+	fromColumn: 'Ticket Sale'.'Flight Schedule Id'
+	toColumn: 'Flight Schedule'.'Flight Schedule Id'
+
+relationship 8b7b7d6c-019b-4350-a6df-1382b7f76b1b
+	fromColumn: 'Ticket Sale'.'Agency User Id'
+	toColumn: 'Agency User'.'Agency User Id'
+
+relationship 1796ffd8-c103-4ade-acc7-7ec4623ec2c9
+	fromColumn: 'Flight Schedule'.'Route Id'
+	toColumn: Route.'Route Id'
+
+relationship 4ccecbc8-5147-4f6e-a4e2-7ac81e935039
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Agency Commission'.'Valid From'
+	toColumn: LocalDateTable_f6a82d22-d847-4cfc-9b1e-b570746e45e6.Date
+
+relationship 15f1348b-e656-4409-9fb0-ec62b4ba3575
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Agency Commission'.'Valid To'
+	toColumn: LocalDateTable_66f61588-5679-425d-ad3d-8fd8ce384316.Date
+
+relationship bf89d3fa-1d20-4d25-ae7a-98d65abd53ae
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Flight Schedule'.'Schedule DateTime of Departure (UTC)'
+	toColumn: LocalDateTable_252f97c3-97d8-4ed0-a23a-27fc8366fd2e.Date
+
+relationship 8ed80ff7-4994-4027-b725-6c725e06fbbf
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Flight Schedule'.'Schedule DateTime of Arrival (UTC)'
+	toColumn: LocalDateTable_b43d6c97-6814-47d9-9e8f-166cb51bee9c.Date
+
+relationship 9b31683f-2c30-4f4b-a1be-4c66e7bee692
+	joinOnDateBehavior: datePartOnly
+	fromColumn: 'Ticket Sale'.'Ticket Sale Timestamp'
+	toColumn: LocalDateTable_ccf26e16-ea8a-4363-9185-120543695eb3.Date
+
+relationship eafaa08f-80ad-4751-b90a-54930b7b7f89
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_6507cfea-4668-4c79-9f4d-33e2e203d69e.Date
+
+relationship 3af0d60c-5363-4311-9f50-7f513a4d7550
+	fromColumn: 'Flight Schedule'.'Scheduled Date of Departure'
+	toColumn: Calendar.Date
+
+relationship de00cb2c-9150-4a9e-b7cc-24db39f15be2
+	isActive: false
+	fromColumn: 'Ticket Sale'.'Ticket Sale Date'
+	toColumn: Calendar.Date
+
+relationship 89bb9f8d-933c-4038-a2de-f4cde68b5273
+	fromColumn: 'Flight Capacity'.'Route Number'
+	toColumn: Route.'Route Number'
+
+relationship 2a1121f9-b565-4462-b96d-19325aeec1c0
+	fromColumn: 'Flight Capacity'.'Ticket Sale Date'
+	toColumn: Calendar.Date
+
+relationship d3a85d65-9f22-4b7f-a948-96568298eac3
+	crossFilteringBehavior: bothDirections
+	fromColumn: 'Agency User'.'Agency Id'
+	toColumn: Agency.'Agency Id'
+

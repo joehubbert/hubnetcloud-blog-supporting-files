@@ -1,9 +1,35 @@
 model Model
 	culture: en-GB
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: en-GB
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
 
 annotation PBI_ProTooling = ["DevMode"]
 
-annotation PBIDesktopVersion = 2.127.1327.0 (24.03)
+annotation PBIDesktopVersion = 2.128.1177.0 (24.04)
 
 annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Route","Agency","Agency Commission","Agency User","Airport","Flight Schedule","Ticket Sale","Ticket Status","Ticket Type","Flight Capacity"]
+
+ref table Route
+ref table Agency
+ref table 'Agency Commission'
+ref table 'Agency User'
+ref table Airport
+ref table 'Flight Schedule'
+ref table 'Ticket Sale'
+ref table 'Ticket Status'
+ref table 'Ticket Type'
+ref table Calendar
+ref table DateTableTemplate_6d109f53-55b9-45cf-a1dd-0450270a41e3
+ref table LocalDateTable_f6a82d22-d847-4cfc-9b1e-b570746e45e6
+ref table LocalDateTable_66f61588-5679-425d-ad3d-8fd8ce384316
+ref table LocalDateTable_252f97c3-97d8-4ed0-a23a-27fc8366fd2e
+ref table LocalDateTable_b43d6c97-6814-47d9-9e8f-166cb51bee9c
+ref table LocalDateTable_ccf26e16-ea8a-4363-9185-120543695eb3
+ref table LocalDateTable_6507cfea-4668-4c79-9f4d-33e2e203d69e
+ref table 'Flight Capacity'
 

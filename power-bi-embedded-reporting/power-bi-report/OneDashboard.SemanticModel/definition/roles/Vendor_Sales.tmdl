@@ -1,0 +1,9 @@
+role Vendor_Sales
+	modelPermission: read
+
+	tablePermission 'Agency User' = [Agency User Id] == VALUE(USERNAME())
+
+	tablePermission 'Ticket Sale' = [Agency User Id] == VALUE(USERNAME())
+
+	annotation PBI_Id = 12ebcfbfedff4fb3a78b74a40453a6ba
+

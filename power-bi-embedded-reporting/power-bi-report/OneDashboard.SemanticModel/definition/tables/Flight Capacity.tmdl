@@ -1,0 +1,121 @@
+table 'Flight Capacity'
+	lineageTag: 2df5908f-4683-49d7-afca-29e6a1188bcb
+
+	column 'Ticket Sale Date'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 41b56b36-3686-4903-af08-ae3507fbf061
+		summarizeBy: none
+		sourceColumn: Ticket Sale Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Route Number'
+		dataType: string
+		isHidden
+		lineageTag: e869a210-530f-4729-9f4b-99f296e9b485
+		summarizeBy: none
+		sourceColumn: Route Number
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Economy Class Tickets Sold'
+		dataType: int64
+		formatString: 0
+		lineageTag: 51f49f70-a231-4c36-acb0-6c3ac4da3384
+		summarizeBy: sum
+		sourceColumn: Economy Class Tickets Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ecomomy Class Seat Capacity'
+		dataType: int64
+		formatString: 0
+		lineageTag: b12f2a44-9274-4ff2-8343-b6b340785abc
+		summarizeBy: sum
+		sourceColumn: Ecomomy Class Seat Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Premium Economy Class Tickets Sold'
+		dataType: int64
+		formatString: 0
+		lineageTag: 160edf12-1eec-414e-8555-e19f6e92e71f
+		summarizeBy: sum
+		sourceColumn: Premium Economy Class Tickets Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Premium Ecomomy Class Seat Capacity'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2fed3d9a-050c-4f06-81e4-073effe1bc93
+		summarizeBy: sum
+		sourceColumn: Premium Ecomomy Class Seat Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Class Tickets Sold'
+		dataType: int64
+		formatString: 0
+		lineageTag: f9e439bb-9737-4882-acca-5fff021c4176
+		summarizeBy: sum
+		sourceColumn: Business Class Tickets Sold
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Business Class Seat Capacity'
+		dataType: int64
+		formatString: 0
+		lineageTag: cc050a5c-f333-4c3a-9608-2c534fa03352
+		summarizeBy: sum
+		sourceColumn: Business Class Seat Capacity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ecomomy Class Minimum Sales Target'
+		dataType: double
+		lineageTag: 114f2a89-0c9f-434a-899b-4760576c149a
+		summarizeBy: sum
+		sourceColumn: Ecomomy Class Minimum Sales Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Premium Ecomomy Class Minimum Sales Target'
+		dataType: double
+		lineageTag: 1191fbba-b46b-4421-a255-c85e4f0c3143
+		summarizeBy: sum
+		sourceColumn: Premium Ecomomy Class Minimum Sales Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Business Class Minimum Sales Target'
+		dataType: double
+		lineageTag: 03d66766-bf84-4a07-93bb-371e63a43792
+		summarizeBy: sum
+		sourceColumn: Business Class Minimum Sales Target
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition 'Flight Capacity' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_vwFlightCapacity = #"pbiedemo-reporting"{[Schema="dbo",Item="vwFlightCapacity"]}[Data]
+				in
+				    dbo_vwFlightCapacity
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,91 @@
+table 'Agency Commission'
+	lineageTag: 5a67faf0-1bd0-43c7-9396-9b1463f7e97c
+
+	column 'Agency Commission Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: f58602fc-f82c-461a-94d6-403567f15058
+		summarizeBy: count
+		sourceColumn: Agency Commission Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: d26f2410-9dea-452c-b6e9-c7ae02ac9f71
+		summarizeBy: none
+		sourceColumn: Agency Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Commission Rate'
+		dataType: double
+		isNullable: false
+		sourceProviderType: float
+		lineageTag: d808e88a-ac70-44c0-aa98-7d5785fdaf1b
+		summarizeBy: sum
+		sourceColumn: Agency Commission Rate
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Valid From'
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 8a775dbd-a49a-4d38-9eb0-67b7650c6210
+		summarizeBy: none
+		sourceColumn: Valid From
+
+		variation Variation
+			isDefault
+			relationship: 4ccecbc8-5147-4f6e-a4e2-7ac81e935039
+			defaultHierarchy: LocalDateTable_f6a82d22-d847-4cfc-9b1e-b570746e45e6.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Valid To'
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: 2e9a459e-079a-46b9-b504-dec8ce83d92a
+		summarizeBy: none
+		sourceColumn: Valid To
+
+		variation Variation
+			isDefault
+			relationship: 15f1348b-e656-4409-9fb0-ec62b4ba3575
+			defaultHierarchy: LocalDateTable_66f61588-5679-425d-ad3d-8fd8ce384316.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Agency Commission' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_AgencyCommission = #"pbiedemo-reporting"{[Schema="dbo",Item="vwAgencyCommission"]}[Data]
+				in
+				    dbo_AgencyCommission
+
+	annotation PBI_ResultType = Table
+

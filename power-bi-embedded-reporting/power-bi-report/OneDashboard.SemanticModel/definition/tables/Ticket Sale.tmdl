@@ -1,0 +1,167 @@
+table 'Ticket Sale'
+	lineageTag: a23f5937-5eff-4a38-9b3d-3b5bb36a9fcc
+
+	measure 'Total Revenue' = SUM('Ticket Sale'[Customer Price Paid])-SUM('Ticket Sale'[Agency Commission])
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ecc65fb8-81b2-4474-8b42-c7e40847fb45
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	measure 'Filtered Current User' = IF(SELECTEDVALUE('Ticket Sale'[Agency User Id])=[Current User],1,0)
+		formatString: 0
+		lineageTag: cd696f0a-fbc1-40ad-98dd-b42eac3352bd
+
+	measure 'Total Commission For Current User' = ```
+			
+			CALCULATE(
+			    SUM('Ticket Sale'[Agency Commission]),
+			    USERELATIONSHIP('Agency User'[Agency User Id], 'Ticket Sale'[Agency User Id])
+			)
+			
+			```
+		formatString: "£"#,0.###############;-"£"#,0.###############;"£"#,0.###############
+		lineageTag: 042801f4-12b2-4295-b827-ad9e028da604
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-GB"}
+
+	column 'Ticket Sale Id'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: a02b73a6-ecaf-4d8a-9e33-4f540006f92b
+		summarizeBy: count
+		sourceColumn: Ticket Sale Id
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Flight Schedule Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: c7bff398-ed6b-4fe1-bf3f-daa7c179bed5
+		summarizeBy: none
+		sourceColumn: Flight Schedule Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Type Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 25ffc4d5-a399-4c30-91b3-8bcc631d673c
+		summarizeBy: none
+		sourceColumn: Ticket Type Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Status Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: b56d7d08-0eab-4f8d-b164-24afea937fde
+		summarizeBy: none
+		sourceColumn: Ticket Status Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Sale Timestamp'
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: f9d8668f-a567-44b3-8afd-f3658715fd44
+		summarizeBy: none
+		sourceColumn: Ticket Sale Timestamp
+
+		variation Variation
+			isDefault
+			relationship: 9b31683f-2c30-4f4b-a1be-4c66e7bee692
+			defaultHierarchy: LocalDateTable_ccf26e16-ea8a-4363-9185-120543695eb3.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Sale Date'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: b14d7d85-3a6d-4020-a9b5-c582a4f3344c
+		summarizeBy: none
+		sourceColumn: Ticket Sale Date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Customer Price Paid'
+		dataType: decimal
+		isNullable: false
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		sourceProviderType: money
+		lineageTag: a2a528e1-7077-4d9e-ad08-de19058815de
+		summarizeBy: sum
+		sourceColumn: Customer Price Paid
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"currencyCulture":"en-US"}
+
+	column 'Agency User Id'
+		dataType: int64
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 9b22f97a-e307-40d8-ac8d-1a42cbe1bd1f
+		summarizeBy: none
+		sourceColumn: Agency User Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Commission'
+		dataType: decimal
+		isNullable: false
+		formatString: \$#,0.###############;(\$#,0.###############);\$#,0.###############
+		sourceProviderType: money
+		lineageTag: d16775be-0010-424e-a1b5-218f698811c9
+		summarizeBy: sum
+		sourceColumn: Agency Commission
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Id'
+		dataType: int64
+		formatString: 0
+		lineageTag: 75a00792-214e-4c7b-8657-3ea0ff961a34
+		summarizeBy: count
+		sourceColumn: Agency Id
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ticket Sale' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_TicketSale = #"pbiedemo-reporting"{[Schema="dbo",Item="vwTicketSale"]}[Data]
+				in
+				    dbo_TicketSale
+
+	annotation PBI_ResultType = Table
+
+	annotation PBI_NavigationStepName = Navigation
+

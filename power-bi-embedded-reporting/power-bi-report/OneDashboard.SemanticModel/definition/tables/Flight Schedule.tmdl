@@ -1,0 +1,114 @@
+table 'Flight Schedule'
+	lineageTag: 4094422b-5bcd-4032-b528-1aa938e26c60
+
+	column 'Flight Schedule Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: bigint
+		lineageTag: 40d12567-bc7f-443b-8bb4-1ffafc48255a
+		summarizeBy: none
+		sourceColumn: Flight Schedule Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Route Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 912298d2-5561-487a-9ed2-010313b7b878
+		summarizeBy: none
+		sourceColumn: Route Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Airplane Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 41485686-6e5b-4b6c-b2d3-57610061cdbf
+		summarizeBy: count
+		sourceColumn: Airplane Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule DateTime of Departure (UTC)'
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: a3b2db90-582f-4f9c-aaf2-f3ea30f18863
+		summarizeBy: none
+		sourceColumn: Schedule DateTime of Departure (UTC)
+
+		variation Variation
+			isDefault
+			relationship: bf89d3fa-1d20-4d25-ae7a-98d65abd53ae
+			defaultHierarchy: LocalDateTable_252f97c3-97d8-4ed0-a23a-27fc8366fd2e.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Schedule DateTime of Arrival (UTC)'
+		dataType: dateTime
+		isNullable: false
+		formatString: General Date
+		sourceProviderType: datetime2
+		lineageTag: 2886e5b7-6528-4b5c-8494-cc4874a918ff
+		summarizeBy: none
+		sourceColumn: Schedule DateTime of Arrival (UTC)
+
+		variation Variation
+			isDefault
+			relationship: 8ed80ff7-4994-4027-b725-6c725e06fbbf
+			defaultHierarchy: LocalDateTable_b43d6c97-6814-47d9-9e8f-166cb51bee9c.'Date Hierarchy'
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Scheduled Flight Duration'
+		dataType: dateTime
+		isNullable: false
+		formatString: Long Time
+		sourceProviderType: time
+		lineageTag: 8a3c49fb-52f5-477a-a25e-31f5072d28d5
+		summarizeBy: none
+		sourceColumn: Scheduled Flight Duration
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Time
+
+	column 'Scheduled Date of Departure'
+		dataType: dateTime
+		formatString: Long Date
+		sourceProviderType: date
+		lineageTag: c3a4b695-229a-48ee-9a65-b239d7332f4b
+		summarizeBy: none
+		sourceColumn: Scheduled Date of Departure
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition 'Flight Schedule' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_FlightSchedule = #"pbiedemo-reporting"{[Schema="dbo",Item="vwFlightSchedule"]}[Data]
+				in
+				    dbo_FlightSchedule
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,91 @@
+table Route
+	lineageTag: 384bf147-f720-4c48-aa92-b252c779eea1
+
+	column 'Route Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: 50c9472e-d77e-4a04-996e-5ceaa04e0447
+		summarizeBy: none
+		sourceColumn: Route Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Route Number'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(16)
+		lineageTag: 1308ca3b-1c90-4d37-80ea-1282e063477e
+		summarizeBy: none
+		sourceColumn: Route Number
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Departure Airport Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(100)
+		lineageTag: 7d57643c-4b57-4cc0-b84e-5acc798565f2
+		summarizeBy: none
+		sourceColumn: Departure Airport Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Destination Airport Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(100)
+		lineageTag: 3f1d96f5-72a7-4c4c-9845-4b753b0448d1
+		summarizeBy: none
+		sourceColumn: Destination Airport Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Route Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(203)
+		lineageTag: 2de2a648-e62f-47f2-9561-222cf7fa5268
+		summarizeBy: none
+		sourceColumn: Route Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Route Distance Nautical Miles'
+		dataType: double
+		sourceProviderType: float
+		lineageTag: 6ed5333d-2508-45e1-a9e5-e28287c281dd
+		summarizeBy: sum
+		sourceColumn: Route Distance Nautical Miles
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Route Type'
+		dataType: string
+		isNullable: false
+		sourceProviderType: varchar(11)
+		lineageTag: 6afecc17-257d-479f-ab21-bc492112ebe7
+		summarizeBy: none
+		sourceColumn: Route Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Route = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_vwRoute = #"pbiedemo-reporting"{[Schema="dbo",Item="vwRoute"]}[Data],
+				    #"Removed Columns" = Table.RemoveColumns(dbo_vwRoute,{"Departure Airport Id", "Destination Airport Id"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Exception
+

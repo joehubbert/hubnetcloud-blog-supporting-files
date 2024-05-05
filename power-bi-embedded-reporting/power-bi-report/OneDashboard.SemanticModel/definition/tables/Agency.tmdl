@@ -1,0 +1,39 @@
+table Agency
+	lineageTag: c2231c14-9e28-416b-8ae9-8718c05169df
+
+	column 'Agency Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: ee9dd804-fb5c-4dfd-af0b-f6df1a2f1107
+		summarizeBy: none
+		sourceColumn: Agency Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Agency Name'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(50)
+		lineageTag: 3f08cb1c-9a85-482d-b8cf-19e004aa1f05
+		summarizeBy: none
+		sourceColumn: Agency Name
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Agency = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_Agency = #"pbiedemo-reporting"{[Schema="dbo",Item="vwAgency"]}[Data]
+				in
+				    dbo_Agency
+
+	annotation PBI_ResultType = Table
+

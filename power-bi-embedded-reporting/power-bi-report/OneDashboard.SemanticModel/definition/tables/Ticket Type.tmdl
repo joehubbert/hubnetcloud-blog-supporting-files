@@ -1,0 +1,39 @@
+table 'Ticket Type'
+	lineageTag: cde8acac-4dad-480b-909a-e6eee4a4fbe8
+
+	column 'Ticket Type Id'
+		dataType: int64
+		isHidden
+		isNullable: false
+		formatString: 0
+		sourceProviderType: int
+		lineageTag: fd2e5c27-abb2-445f-996f-d92a92ab9217
+		summarizeBy: none
+		sourceColumn: Ticket Type Id
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ticket Type'
+		dataType: string
+		isNullable: false
+		sourceProviderType: nvarchar(25)
+		lineageTag: 28ceb86d-def7-47af-925d-01db14a169d4
+		summarizeBy: none
+		sourceColumn: Ticket Type
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Ticket Type' = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("pbiedemo-johubb-weu-db.database.windows.net"),
+				    #"pbiedemo-reporting" = Source{[Name="pbiedemo-reporting"]}[Data],
+				    dbo_TicketType = #"pbiedemo-reporting"{[Schema="dbo",Item="vwTicketType"]}[Data]
+				in
+				    dbo_TicketType
+
+	annotation PBI_ResultType = Table
+

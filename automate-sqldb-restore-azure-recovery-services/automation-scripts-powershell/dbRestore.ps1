@@ -40,7 +40,7 @@ function AddOperationLog
     try
     {
         $AddOperationLogQuery = "EXEC [dbo].[AddOperationLogMessage] @correlationId = '$correlationId', @databaseName = '$databaseName', @jobCadence = '$global:jobCadence', @jobId = '$global:jobId', @jobType = '$global:jobType', @operationType = '$global:operationType', @operationMessage = '$operationMessage', @operationOutcome = '$operationOutcome'"
-        Write-Host $AddOperationLogQuery
+        Write-Output $AddOperationLogQuery
         Invoke-DbaQuery `
         -Database $dbmsManagementDatabase `
         -Query $AddOperationLogQuery `
@@ -53,7 +53,7 @@ function AddOperationLog
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $outputText = "An error occured with the OperationLog function with the following exception: '$exception $exceptionMessage $exceptionMessageDetail"
-        Write-Host $outputText
+        Write-Output $outputText
     }
 }
 
@@ -107,7 +107,7 @@ foreach($database in $databaseScope)
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
         AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Failure importing DBATools PowerShell module on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
-        
+
     #Set Az Recovery Services Restore Target Backup Container
     try
     {
@@ -291,7 +291,7 @@ try
 {
     $correlationId = New-Guid
     $RemoveHistoricLogsQuery = "EXEC [dbo].[RemoveStaleOperationLogMessage] @historyToKeep = $logHistoryToKeepInDays, @operationType = '$operationType'"
-    Write-Host $RemoveHistoricLogsQuery
+    Write-Output $RemoveHistoricLogsQuery
     Invoke-DbaQuery `
     -Database $dbmsManagementDatabase `
     -Query $RemoveHistoricLogsQuery `

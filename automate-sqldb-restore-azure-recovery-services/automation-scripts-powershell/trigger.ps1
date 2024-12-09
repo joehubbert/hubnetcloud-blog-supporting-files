@@ -1,6 +1,6 @@
 param
 (
-    [Parameter(Mandatory)][ValidateSet('AdHoc','Daily','Monthly')][string]$triggerType
+    [Parameter(Mandatory)][ValidateSet('AdHoc','Daily','Weekly','Monthly')][string]$triggerType
 )
 
 #Retrieve Required Secrets
@@ -13,7 +13,7 @@ $monthlyDatabases = @('WingItAirlinesReporting')
 if($triggerType -eq 'AdHoc')
 {
     $wshell = New-Object -ComObject wscript.shell
-    do 
+    do
     {
         $adHocDatabases += Read-Host "Database Name"
         $response = $wshell.popup("Do you want to add more databases to be restored?",0,"More Databases?",4)
@@ -52,6 +52,6 @@ switch ($triggerType) {
         -configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
         -databaseScope $monthlyDatabases `
         -triggerType 'Monthly' `
-        -sqlServiceCredential $sqlServiceCredential        
+        -sqlServiceCredential $sqlServiceCredential 
     }
 }

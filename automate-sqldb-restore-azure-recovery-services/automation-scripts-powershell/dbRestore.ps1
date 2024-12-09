@@ -17,20 +17,17 @@ $azureUserManagedIdentityId = $configurationSettings.azureUserManagedIdentityId
 $azureRecoveryServicesVaultName = $configurationSettings.azureRecoveryServicesVaultName
 $azureRecoveryServicesVaultResourceGroupName = $configurationSettings.azureRecoveryServicesVaultResourceGroupName
 $databaseRestoreDirectory = $configurationSettings.databaseRestoreDirectory
+$dbmsManagementDatabase = $configurationSettings.dbmsManagementDatabase
 $jobId = New-Guid
 $jobType = 'PowerShell Script'
-$logDirectory = ('C:\Process\DB-Restore\Log')
-$logTimeFilter = (Get-Date).AddDays(-45)
 $operationType = 'Database Restore'
-$scriptLogFileName = ('dbrestore-'+ (Get-Date -Format "yyyy-MM-dd-HH-mm") + "-$triggerType-Log.txt")
-$scriptLogPath = "$logDirectory\$scriptLogFileName"
 $sourceInstance = $configurationSettings.sourceInstance
 $sourceInstanceCode = $configurationSettings.sourceInstanceCode
 $targetInstance = $configurationSettings.targetInstance
 $targetSQLInstanceNameLocalIdentity = $configurationSettings.targetSQLInstanceNameLocalIdentity
 
 #Create Logging Function
-function RestoreLog
+function AddOperationLog
 {
     param
     (
@@ -42,11 +39,11 @@ function RestoreLog
 
     try
     {
-        $query = "EXEC [dbo].[AddRestoreLogMessage] @correlationId = '$correlationId', @databaseName = '$databaseName', @jobId = '$global:jobId', @jobType = '$global:jobType', @operationType = '$global:operationType', @operationMessage = '$operationMessage', @operationOutcome = '$operationOutcome'"
-        Write-Host $query
+        $AddOperationLogQuery = "EXEC [dbo].[AddOperationLogMessage] @correlationId = '$correlationId', @databaseName = '$databaseName', @jobCadence = '$global:jobCadence', @jobId = '$global:jobId', @jobType = '$global:jobType', @operationType = '$global:operationType', @operationMessage = '$operationMessage', @operationOutcome = '$operationOutcome'"
+        Write-Host $AddOperationLogQuery
         Invoke-DbaQuery `
-        -Database 'EngineManagementSystem' `
-        -Query $query `
+        -Database $dbmsManagementDatabase `
+        -Query $AddOperationLogQuery `
         -SqlCredential $sqlServiceCredential `
         -SqlInstance $targetSQLInstanceNameLocalIdentity
     }
@@ -55,7 +52,7 @@ function RestoreLog
         $exception = $_.Exception
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
-        $outputText = "An error occured with the following message: '$exception $exceptionMessage $exceptionMessageDetail"
+        $outputText = "An error occured with the OperationLog function with the following exception: '$exception $exceptionMessage $exceptionMessageDetail"
         Write-Host $outputText
     }
 }
@@ -76,8 +73,6 @@ foreach($database in $databaseScope)
     $database = $using:database
     $databaseRestoreDirectory = $using:databaseRestoreDirectory
     $jobId = $using:jobId
-    $logDirectory = $using:logDirectory
-    $scriptLogPath = $using:scriptLogPath
     $sourceInstance = $using:sourceInstance
     $sourceInstanceCode = $using:sourceInstanceCode
     $sqlServiceCredential = $using:sqlServiceCredential
@@ -87,7 +82,7 @@ foreach($database in $databaseScope)
     #Create Restore Trace Log
     try
     {
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage 'Restore trace log created' -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage 'Restore trace log created' -operationOutcome 'Success'
     }
     catch
     {
@@ -95,14 +90,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "Failure creating restore trace log on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Failure creating restore trace log on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Import DBATools Module
     try
     {
         Import-Module DBATools
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage 'DBATools PowerShell module imported' -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage 'DBATools PowerShell module imported' -operationOutcome 'Success'
     }
     catch
     {
@@ -110,14 +105,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "Failure importing DBATools PowerShell module on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Failure importing DBATools PowerShell module on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
         
     #Set Az Recovery Services Restore Target Backup Container
     try
     {
         $targetContainer = Get-AzRecoveryServicesBackupContainer -ContainerType 'AzureVMAppContainer' -VaultId $azureRecoveryServicesVault -FriendlyName $targetInstance
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage 'Restore Az Recovery Services Backup target container set' -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage 'Restore Az Recovery Services Backup target container set' -operationOutcome 'Success'
     }
     catch
     {
@@ -125,14 +120,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "Failure setting target Az Recovery Services Backup target container on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Failure setting target Az Recovery Services Backup target container on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Get backup item from Azure Recovery Services Target Container
     try
     {
         $databaseBackupItem = Get-AzRecoveryServicesBackupItem -BackupManagementType 'AzureWorkload' -WorkloadType 'MSSQL' -VaultId $azureRecoveryServicesVault | Where-Object {$_.ServerName -eq $sourceInstance} | Where-Object {$_.Name -eq ("SQLDataBase;$sourceInstanceCode;$database")}
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "Backup item '$sourceInstance;$database' was successfully retrieved from Azure Recovery Services" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Backup item '$sourceInstance;$database' was successfully retrieved from Azure Recovery Services" -operationOutcome 'Success'
     }
     catch
     {
@@ -140,14 +135,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the backup item '$sourceInstance;$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the backup item '$sourceInstance;$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Get a list of recovery points for the database where the recovery point type is Full
     try
     {
         $databaseRecoveryPointHistory = Get-AzRecoveryServicesBackupRecoveryPoint -Item $databaseBackupItem -VaultId $azureRecoveryServicesVault | Where-Object {$_.RecoveryPointType -eq 'Full'}
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "Backup item recovery point (Full Backup) for '$sourceInstance;$database' was successfully retrieved from Azure Recovery Services" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "Backup item recovery point (Full Backup) for '$sourceInstance;$database' was successfully retrieved from Azure Recovery Services" -operationOutcome 'Success'
     }
     catch
     {
@@ -155,14 +150,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the backup item recovery point history (Full Backup) for '$sourceInstance;$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the backup item recovery point history (Full Backup) for '$sourceInstance;$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Filter $databaseRecoveryPointHistory to get the most recent recovery point
     try
     {
         $databaseRecoveryPoint = $databaseRecoveryPointHistory | Group-Object -Property 'ItemName' | ForEach-Object {$_.Group | Sort-Object 'RecoveryPointTime' -Descending | Select-Object -First 1}
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The most recent backup item recovery point (Full Backup) for '$sourceInstance;$database' was successfully retrieved" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The most recent backup item recovery point (Full Backup) for '$sourceInstance;$database' was successfully retrieved" -operationOutcome 'Success'
     }
     catch
     {
@@ -170,14 +165,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the most recent backup item recovery point (Full Backup) for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when retrieving the most recent backup item recovery point (Full Backup) for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Create recovery point filter
     try
     {
         $databaseRecoveryPointIdFilter = ('*' + $databaseRecoveryPoint.RecoveryPointId + '*')
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The recovery point filter for '$sourceInstance;$database' was successfully created as $databaseRecoveryPointIdFilter" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The recovery point filter for '$sourceInstance;$database' was successfully created as $databaseRecoveryPointIdFilter" -operationOutcome 'Success'
     }
     catch
     {
@@ -185,14 +180,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when creating the recovery point filter for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when creating the recovery point filter for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Create recovery configuration for the database restore instance
     try
     {
         $databaseRestore = Get-AzRecoveryServicesBackupWorkloadRecoveryConfig -RecoveryPoint $databaseRecoveryPoint -RestoreAsFiles -FilePath $databaseRestoreDirectory -VaultId $azureRecoveryServicesVault -TargetContainer $targetContainer
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The recovery configuration for '$sourceInstance;$database' was successfully created" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The recovery configuration for '$sourceInstance;$database' was successfully created" -operationOutcome 'Success'
     }
     catch
     {
@@ -200,7 +195,7 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when creating the recovery configuration for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when creating the recovery configuration for '$sourceInstance;$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Download backup file from Azure Recovery Services
@@ -210,7 +205,7 @@ foreach($database in $databaseScope)
         $backupItemJobId = ($backupItemOperation).JobId
         $backupItemJobArray = Get-AzRecoveryServicesBackupJob -Status InProgress -VaultId $azureRecoveryServicesVault | Where-Object {$_.JobId -eq $backupItemJobId}
         Wait-AzRecoveryServicesBackupJob -Job $backupItemJobArray -VaultId $azureRecoveryServicesVault -Timeout 10800
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup file was successfully downloaded to '$databaseRestoreDirectory' from Azure Recovery Services" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup file was successfully downloaded to '$databaseRestoreDirectory' from Azure Recovery Services" -operationOutcome 'Success'
     }
     catch
     {
@@ -218,14 +213,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when downloading the backup file for '$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when downloading the backup file for '$database' from Azure Recovery Services on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Get the name of the .BAK file to restore
     try
     {
         $databaseBackupFileToRestore = (Get-ChildItem -Path $databaseRestoreDirectory | Where-Object {$_.Name -like $databaseRecoveryPointIdFilter} | Where-Object {$_.Name -like '*.bak'}).Name
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup file is '$databaseBackupFileToRestore'" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup file is '$databaseBackupFileToRestore'" -operationOutcome 'Success'
     }
     catch
     {
@@ -233,14 +228,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when selecting the backup file for '$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when selecting the backup file for '$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Compute full file path for the backup file
     try
     {
         $databaseBackupFullPath = ($databaseRestoreDirectory + '\' + $databaseBackupFileToRestore)
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup filepath is '$databaseBackupFullPath'" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' backup filepath is '$databaseBackupFullPath'" -operationOutcome 'Success'
     }
     catch
     {
@@ -248,7 +243,7 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when computing the full path for the backup file for '$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when computing the full path for the backup file for '$database' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Restore the database
@@ -261,7 +256,7 @@ foreach($database in $databaseScope)
         -SqlInstance $targetSQLInstanceNameLocalIdentity `
         -UseDestinationDefaultDirectories `
         -WithReplace $true
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' has been successfully restored to '$targetSQLInstanceNameLocalIdentity'" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The database '$database' has been successfully restored to '$targetSQLInstanceNameLocalIdentity'" -operationOutcome 'Success'
     }
     catch
     {
@@ -269,14 +264,14 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when restoring the database '$database' to '$targetSQLInstanceNameLocalIdentity' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when restoring the database '$database' to '$targetSQLInstanceNameLocalIdentity' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
 
     #Remove backup files
     try
     {
         Get-ChildItem -Path $databaseRestoreDirectory | Where-Object {$_.Name -like $databaseRecoveryPointIdFilter} | Remove-Item
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "The backup files for '$database' have been successfully removed from '$databaseRestoreDirectory'" -operationOutcome 'Success'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "The backup files for '$database' have been successfully removed from '$databaseRestoreDirectory'" -operationOutcome 'Success'
     }
     catch
     {
@@ -284,21 +279,25 @@ foreach($database in $databaseScope)
         $exceptionMessage = $_.Exception.Message
         $exceptionMessageDetail = $_.Exception.InnerException.Message
         $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-        RestoreLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when removing the backup files for '$database' from '$databaseRestoreDirectory' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
+        AddOperationLog -correlationId $correlationId -databaseName $database -operationMessage "An error occured when removing the backup files for '$database' from '$databaseRestoreDirectory' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
     }
   }
 }
 
 Get-Job | Wait-job | Remove-Job
 
-#Cleardown historic logs older than defined in $logTimeFilter
+#Remove historic logs
 try
 {
-    Get-ChildItem -Path $logDirectory -Force | Where-Object {$_.LastWriteTime -lt $logTimeFilter} | Remove-Item
-    $currentTimestamp = Get-Date
-    $outputText = "Historic logs have been successfully removed from '$logDirectory' on $env:computername at $currentTimestamp."
-    Write-Host $outputText
-    Add-Content -Path $scriptLogPath "`n$outputText"
+    $correlationId = New-Guid
+    $RemoveHistoricLogsQuery = "EXEC [dbo].[RemoveStaleOperationLogMessage] @historyToKeep = $logHistoryToKeepInDays, @operationType = '$operationType'"
+    Write-Host $RemoveHistoricLogsQuery
+    Invoke-DbaQuery `
+    -Database $dbmsManagementDatabase `
+    -Query $RemoveHistoricLogsQuery `
+    -SqlCredential $sqlServiceCredential `
+    -SqlInstance $targetSQLInstanceNameLocalIdentity
+    AddOperationLog -correlationId $correlationId -databaseName $dbmsManagementDatabase -operationMessage "Operational Logs for $operationType successfully purged for logs older than $logHistoryToKeepInDays days" -operationOutcome 'Success'
 }
 catch
 {
@@ -306,13 +305,9 @@ catch
     $exceptionMessage = $_.Exception.Message
     $exceptionMessageDetail = $_.Exception.InnerException.Message
     $fullException = $exception + $exceptionMessage + $exceptionMessageDetail
-    $currentTimestamp = Get-Date
-    $outputText = "An error occured when removing historic logs from '$logDirectory' on $env:computername at $currentTimestamp with the following error '$errorMessage'."
-    Write-Host $outputText
-    Add-Content -Path $scriptLogPath "`n$outputText"
+    AddOperationLog -correlationId $correlationId -databaseName $dbmsManagementDatabase -operationMessage "An error occured when removing the backup files for '$database' from '$databaseRestoreDirectory' on $env:computername with the following exception: $fullException" -operationOutcome 'Failure'
 }
 
-$currentTimestamp = Get-Date
-$outputText = "Execution of dbRestore.ps1 using the '$triggerType' configuration successfully completed on $env:computername at $currentTimestamp."
-Write-Host $outputText
-Add-Content -Path $scriptLogPath "`n$outputText"
+#Complete trace log
+$correlationId = New-Guid
+AddOperationLog -correlationId $correlationId -databaseName $dbmsManagementDatabase -operationMessage "Execution of dbRestore.ps1 using the '$triggerType' configuration completed on $env:computername." -operationOutcome 'Information'

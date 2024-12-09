@@ -9,6 +9,10 @@ $sqlServiceCredential = Import-CliXml -Path 'C:\Process\DB-Restore\Credential\sq
 #Databases To Restore
 $dailyDatabases = @('AdventureWorks2022', 'WideWorldImporters')
 $monthlyDatabases = @('WingItAirlinesReporting')
+$weeklyDatabases = @('AccountingDB', 'SalesDB')
+
+#Define Log History to Keep
+$logHistoryToKeepInDays = -45
 
 if($triggerType -eq 'AdHoc')
 {
@@ -35,23 +39,35 @@ switch ($triggerType) {
         C:\Process\DB-Restore\Script\dbRestore.ps1 `
         -configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
         -databaseScope $adHocDatabases `
-        -triggerType 'AdHoc' `
-        -sqlServiceCredential $sqlServiceCredential
+        -logHistoryToKeepInDays $logHistoryToKeepInDays `
+        -sqlServiceCredential $sqlServiceCredential `
+        -triggerType 'AdHoc'
     }
     'Daily'
     {
         C:\Process\DB-Restore\Script\dbRestore.ps1 `
         -configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
         -databaseScope $dailyDatabases `
-        -triggerType 'Daily' `
-        -sqlServiceCredential $sqlServiceCredential
+        -logHistoryToKeepInDays $logHistoryToKeepInDays `
+        -sqlServiceCredential $sqlServiceCredential `
+        -triggerType 'Daily'
     }
     'Monthly'
     {
         C:\Process\DB-Restore\Script\dbRestore.ps1 `
         -configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
         -databaseScope $monthlyDatabases `
-        -triggerType 'Monthly' `
-        -sqlServiceCredential $sqlServiceCredential 
+        -logHistoryToKeepInDays $logHistoryToKeepInDays `
+        -sqlServiceCredential $sqlServiceCredential `
+        -triggerType 'Monthly'
+    }
+    'Weekly'
+    {
+        C:\Process\DB-Restore\Script\dbRestore.ps1 `
+        -configFilePath 'C:\Process\DB-Restore\Configuration\processConfig.json' `
+        -databaseScope $weeklyDatabases `
+        -logHistoryToKeepInDays $logHistoryToKeepInDays `
+        -sqlServiceCredential $sqlServiceCredential `
+        -triggerType 'Weekly'
     }
 }

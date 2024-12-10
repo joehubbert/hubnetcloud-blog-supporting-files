@@ -72,7 +72,6 @@ foreach($database in $databaseScope)
     $correlationId = New-Guid
     $database = $using:database
     $databaseRestoreDirectory = $using:databaseRestoreDirectory
-    $jobId = $using:jobId
     $sourceInstance = $using:sourceInstance
     $sourceInstanceCode = $using:sourceInstanceCode
     $sqlServiceCredential = $using:sqlServiceCredential

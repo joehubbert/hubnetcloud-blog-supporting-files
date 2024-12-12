@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[AddAccountManager]
+﻿CREATE PROCEDURE [dbo].[CreateAccountManager]
    @activeStatus BIT,
    @emailAddress NVARCHAR(50),
    @firstName NVARCHAR(50),

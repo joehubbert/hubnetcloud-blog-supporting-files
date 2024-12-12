@@ -60,6 +60,7 @@
     <Folder Include="dbo" />
     <Folder Include="dbo\Tables" />
     <Folder Include="dbo\Stored Procedures" />
+    <Folder Include="dbo\Views" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountManager.sql" />
@@ -77,6 +78,14 @@
     <Build Include="dbo\Tables\CustomerTier.sql" />
     <Build Include="dbo\Tables\PaymentMethod.sql" />
     <Build Include="dbo\Tables\CustomerType.sql" />
-    <Build Include="dbo\Stored Procedures\AddAccountManager.sql" />
+    <Build Include="dbo\Stored Procedures\CreateAccountManager.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllAccountManager.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateAccountManager.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteAccountManager.sql" />
+    <Build Include="dbo\Tables\CustomerNote.sql" />
+    <Build Include="dbo\Stored Procedures\GetAccountManager.sql" />
+    <Build Include="dbo\Stored Procedures\GetAssociatedCustomerToAccountManager.sql" />
+    <Build Include="dbo\Views\vwAssociatedCustomerToAccountManager.sql" />
+    <Build Include="dbo\Views\vwOrderValue.sql" />
   </ItemGroup>
 </Project>

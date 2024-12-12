@@ -31,6 +31,7 @@
     [CreditLimit] MONEY NULL,
     [PaymentDays] INT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
+    [CustomerSince] DATE NOT NULL,
     CONSTRAINT [FK_Customer_GlobalParentId] FOREIGN KEY ([GlobalCustomerParentId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),

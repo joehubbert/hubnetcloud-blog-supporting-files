@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[OrderStatus]
+(
+	[OrderStatusId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[OrderStatus] NVARCHAR(50) NOT NULL
+)

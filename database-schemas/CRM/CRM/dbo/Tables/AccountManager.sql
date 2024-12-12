@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[AccountManager]
+(
+	[AccountManagerId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY,
+	[FirstName] NVARCHAR(50) NOT NULL,
+	[LastName] NVARCHAR(50) NOT NULL,
+	[EmailAddress] NVARCHAR(50) NOT NULL,
+	[TelehoneNumber] NVARCHAR(50) NOT NULL
+)

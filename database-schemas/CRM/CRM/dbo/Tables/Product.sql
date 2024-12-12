@@ -8,5 +8,6 @@
     [UnitPrice] MONEY NOT NULL, 
     [VolumeDiscountEnabled] BIT NOT NULL,
     [VolumeDiscountThreshold] INT NOT NULL,
+    [ActiveStatus] BIT NOT NULL,
     CONSTRAINT [FK_Product_ProductCategoryId] FOREIGN KEY ([ProductCategoryId]) REFERENCES [dbo].[ProductCategory]([ProductCategoryId])
 )

@@ -4,5 +4,6 @@
 	[FirstName] NVARCHAR(50) NOT NULL,
 	[LastName] NVARCHAR(50) NOT NULL,
 	[EmailAddress] NVARCHAR(50) NOT NULL,
-	[TelephoneNumber] NVARCHAR(13) NOT NULL
+	[TelephoneNumber] NVARCHAR(13) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )

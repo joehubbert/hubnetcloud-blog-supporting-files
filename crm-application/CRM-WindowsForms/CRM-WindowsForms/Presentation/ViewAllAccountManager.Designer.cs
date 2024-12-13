@@ -80,6 +80,7 @@
             viewAllAccountManagerRefreshDataButton.TabIndex = 9;
             viewAllAccountManagerRefreshDataButton.Text = "Refresh Data";
             viewAllAccountManagerRefreshDataButton.UseVisualStyleBackColor = true;
+            viewAllAccountManagerRefreshDataButton.Click += viewAllAccountManagerRefreshDataButton_Click;
             // 
             // ViewAllAccountManager
             // 

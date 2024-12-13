@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
@@ -14,6 +15,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
+            viewAllAccountManagersDataGridView.CellContentClick += viewAllAccountManagersDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -21,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewAllAccountManager_Load(object sender, EventArgs e)
+        private async Task ViewAllAccountManager_Load()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -43,11 +45,16 @@ namespace CRM_WindowsForms.Presentation
                     viewAllAccountManagersDataGridView.AutoGenerateColumns = true;
                     viewAllAccountManagersDataGridView.DataSource = dataTable;
                     viewAllAccountManagersDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (viewAllAccountManagersDataGridView.Columns.Contains("Details"))
+                    {
+                        viewAllAccountManagersDataGridView.Columns.Remove("Details");
+                    }
                     DataGridViewLinkColumn accountManagerDetailLink = new DataGridViewLinkColumn
                     {
                         HeaderText = "Details",
                         Text = "View Account Manager Details",
-                        UseColumnTextForLinkValue = true
+                        UseColumnTextForLinkValue = true,
+                        Name = "Details"
                     };
                     viewAllAccountManagersDataGridView.Columns.Add(accountManagerDetailLink);
                 }
@@ -62,23 +69,36 @@ namespace CRM_WindowsForms.Presentation
         {
             if (e.ColumnIndex == viewAllAccountManagersDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
-                int accountManagerId = Convert.ToInt32(viewAllAccountManagersDataGridView.Rows[e.RowIndex].Cells["AccountManagerId"].Value);
-                AccountManagerDetail accountManagerDetailForm = new AccountManagerDetail(accountManagerId);
-                accountManagerDetailForm.Show();
+                try
+                {
+                    if (viewAllAccountManagersDataGridView.Columns.Contains("Account Manager Id"))
+                    {
+                        Guid accountManagerId = (Guid)viewAllAccountManagersDataGridView.Rows[e.RowIndex].Cells["Account Manager Id"].Value;
+                        AccountManagerDetail accountManagerDetailForm = new AccountManagerDetail(accountManagerId);
+                        accountManagerDetailForm.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Account Manager Id column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to open account manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
-        private async void viewAllAccountManagersRefreshButton_Click(object sender, EventArgs e)
+        private async void viewAllAccountManagerRefreshDataButton_Click(object sender, EventArgs e)
         {
-            await LoadDatabaseConnectionSettingsAsync();
-            ViewAllAccountManager_Load(this, EventArgs.Empty);
+            await ViewAllAccountManager_Load();
         }
 
         protected override async void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewAllAccountManager_Load(this, EventArgs.Empty);
+            await ViewAllAccountManager_Load();
         }
     }
 }

@@ -19,6 +19,7 @@ INNER JOIN [dbo].[OrderStatus] OS ON O.[OrderStatusId] = OS.[OrderStatusId]
 INNER JOIN [dbo].[PaymentMethod] PM ON O.[PaymentMethodId] = PM.[PaymentMethodId]
 INNER JOIN [dbo].[vwOrderValue] VOV ON O.[OrderId] = VOV.[OrderId] AND C.[CustomerId] = VOV.[CustomerId]
 GROUP BY
+C.[AccountManagerId],
 C.[CustomerId],
 C.[BillingFirstName],
 C.[BillingLastName],

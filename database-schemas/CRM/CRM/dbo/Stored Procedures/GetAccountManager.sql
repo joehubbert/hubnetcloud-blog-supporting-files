@@ -2,6 +2,11 @@
 	@accountManagerId UNIQUEIDENTIFIER
 AS
 
-SELECT *
+SELECT
+[FirstName],
+[LastName],
+[EmailAddress],
+[TelephoneNumber],
+[ActiveStatus]
 FROM [dbo].[AccountManager]
 WHERE [AccountManagerId] = @accountManagerId

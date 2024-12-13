@@ -87,5 +87,20 @@
     <Build Include="dbo\Stored Procedures\GetAssociatedCustomerToAccountManager.sql" />
     <Build Include="dbo\Views\vwAssociatedCustomerToAccountManager.sql" />
     <Build Include="dbo\Views\vwOrderValue.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\GetCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCustomerNote.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCustomerNote.sql" />
+    <Build Include="dbo\Stored Procedures\GetCustomerNote.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllNoteForCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCustomerNote.sql" />
+    <Build Include="dbo\Stored Procedures\CreateCustomerType.sql" />
+    <Build Include="dbo\Stored Procedures\DeleteCustomerType.sql" />
+    <Build Include="dbo\Stored Procedures\GetCustomerType.sql" />
+    <Build Include="dbo\Stored Procedures\GetAllCustomerType.sql" />
+    <Build Include="dbo\Stored Procedures\UpdateCustomerType.sql" />
   </ItemGroup>
 </Project>

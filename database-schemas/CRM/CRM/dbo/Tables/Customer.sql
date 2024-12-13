@@ -32,9 +32,32 @@
     [PaymentDays] INT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
     [CustomerSince] DATE NOT NULL,
+    [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
+	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_Customer_GlobalParentId] FOREIGN KEY ([GlobalCustomerParentId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
     CONSTRAINT [FK_Customer_SalesRegion] FOREIGN KEY ([SalesRegionId]) REFERENCES [dbo].[SalesRegion]([SalesRegionId])
 )
+GO
+
+CREATE TRIGGER [TRG_UpdateCustomer]
+ON [dbo].[Customer]
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    UPDATE [dbo].[Customer]
+    SET 
+        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedBy] = SUSER_SNAME()
+    FROM 
+        [dbo].[Customer] c
+    INNER JOIN 
+        inserted i ON c.[CustomerId] = i.[CustomerId];
+END
+GO

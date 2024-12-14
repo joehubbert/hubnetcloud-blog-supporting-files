@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteProductCategory]
-	@param1 int = 0,
-	@param2 int
+	@productCategoryId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[ProductCategory]
+WHERE [ProductCategoryId] = @productCategoryId

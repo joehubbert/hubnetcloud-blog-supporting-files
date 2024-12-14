@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteSalesRegionMember]
-	@param1 int = 0,
-	@param2 int
+	@salesRegionMemberId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[SalesRegionMember]
+WHERE [SalesRegionMemberId] = @salesRegionMemberId

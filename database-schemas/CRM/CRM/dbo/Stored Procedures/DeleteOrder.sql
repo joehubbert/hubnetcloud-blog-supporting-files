@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteOrder]
-	@param1 int = 0,
-	@param2 int
+	@orderId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[Order]
+WHERE [OrderId] = @orderId

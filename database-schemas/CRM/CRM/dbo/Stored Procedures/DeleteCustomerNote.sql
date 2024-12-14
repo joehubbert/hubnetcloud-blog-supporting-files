@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteCustomerNote]
-	@param1 int = 0,
-	@param2 int
+	@customerNoteId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[CustomerNote]
+WHERE [CustomerNoteId] = @customerNoteId

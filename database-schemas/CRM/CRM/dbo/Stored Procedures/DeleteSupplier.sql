@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteSupplier]
-	@param1 int = 0,
-	@param2 int
+	@supplierId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[Supplier]
+WHERE [SupplierId] = @supplierId

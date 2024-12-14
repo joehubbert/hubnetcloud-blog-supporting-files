@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteOrderLineItem]
-	@param1 int = 0,
-	@param2 int
+	@orderLineItemId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[OrderLineItem]
+WHERE [OrderLineItemId] = @orderLineItemId

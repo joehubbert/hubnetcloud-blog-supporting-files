@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteCustomerTier]
-	@param1 int = 0,
-	@param2 int
+	@customerTierId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[CustomerTier]
+WHERE [CustomerTierId] = @customerTierId

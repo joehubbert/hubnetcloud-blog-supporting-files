@@ -1,6 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[DeleteTaxProfile]
-	@param1 int = 0,
-	@param2 int
+	@taxProfileId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+DELETE FROM [dbo].[TaxProfile]
+WHERE [TaxProfileId] = @taxProfileId

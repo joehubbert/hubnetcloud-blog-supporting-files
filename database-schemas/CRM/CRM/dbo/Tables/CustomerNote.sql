@@ -2,12 +2,15 @@
 (
 	[CustomerNoteId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[CustomerId] UNIQUEIDENTIFIER NOT NULL,
-	[Note] NVARCHAR(MAX) NOT NULL,
+    [CustomerNoteTitle] NVARCHAR(50) NOT NULL,
+    [CustomerNoteTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CustomerNote] NVARCHAR(MAX) NOT NULL,
 	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestamp] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL
-	CONSTRAINT [FK_CustomerNote_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId])
+	CONSTRAINT [FK_CustomerNote_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
+    CONSTRAINT [FK_CustomerNote_CustomerNoteTypeId] FOREIGN KEY ([CustomerNoteTypeId]) REFERENCES [dbo].[CustomerNoteType]([CustomerNoteTypeId])
 )
 GO
 

@@ -1,17 +1,21 @@
 ﻿CREATE TABLE [dbo].[Product]
 (
-	[ProductId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(), 
-    [ProductCategoryId] UNIQUEIDENTIFIER NOT NULL, 
+	[ProductId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    [ProductCategoryId] UNIQUEIDENTIFIER NOT NULL,
     [SupplierId] UNIQUEIDENTIFIER NOT NULL,
-    [ProductName] NVARCHAR(50) NOT NULL, 
-    [PurchasePricePerUnit] MONEY NOT NULL, 
-    [UnitPrice] MONEY NOT NULL, 
+    [ProductName] NVARCHAR(50) NOT NULL,
+    [WholesalePricePerUnit] MONEY NOT NULL,
+    [WholesaleUnitQuantityPerCarton] INT NOT NULL,
+    [WholesaleReorderFlag] BIT NOT NULL,
+    [UnitPrice] MONEY NOT NULL,
+    [UnitStockQuantityHeld] INT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
     [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestamp] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
-    CONSTRAINT [FK_Product_ProductCategoryId] FOREIGN KEY ([ProductCategoryId]) REFERENCES [dbo].[ProductCategory]([ProductCategoryId])
+    CONSTRAINT [FK_Product_ProductCategoryId] FOREIGN KEY ([ProductCategoryId]) REFERENCES [dbo].[ProductCategory]([ProductCategoryId]),
+    CONSTRAINT [CC_Product_UnitStockQuantityHeld] CHECK ([UnitStockQuantityHeld] >= 0)
 )
 GO
 

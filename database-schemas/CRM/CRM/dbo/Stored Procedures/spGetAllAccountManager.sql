@@ -2,10 +2,10 @@
 AS
 
 SELECT
-[AccountManagerId] AS [Account Manager Id],
-[FirstName] AS [First Name],
-[LastName] AS [Last Name],
-[EmailAddress] AS [Email Address],
-[TelephoneNumber] AS [Telephone Number],
-[ActiveStatus] AS [Active Status]
-FROM [dbo].[AccountManager]
+[Account Manager Id],
+[First Name],
+[Last Name],
+[Email Address],
+[Telephone Number],
+[Active Status]
+FROM [dbo].[vwAccountManager]

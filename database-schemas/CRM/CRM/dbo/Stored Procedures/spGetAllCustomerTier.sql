@@ -2,7 +2,7 @@
 AS
 
 SELECT
-[CustomerTierId] AS [Customer Tier Id],
-[CustomerTierCode] AS [Customer Tier Code],
-[CustomerTierDescription] AS [Customer Tier Description]
-FROM [dbo].[CustomerTier]
+[Customer Tier Id],
+[Customer Tier Code],
+[Customer Tier Description]
+FROM [dbo].[vwCustomerTier]

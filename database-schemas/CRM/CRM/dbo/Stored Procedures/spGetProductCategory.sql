@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[ProductCategoryId] AS [Product Category Id],
-[ProductCategory] AS [Product Category]
-FROM [dbo].[ProductCategory]
-WHERE [ProductCategoryId] = @productCategoryId
+[Product Category Id],
+[Product Category]
+FROM [dbo].[vwProductCategory]
+WHERE [Product Category Id] = @productCategoryId

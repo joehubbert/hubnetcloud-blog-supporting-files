@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[CustomerNoteTypeId] AS [Customer Note Type Id],
-[CustomerNoteType] AS [Customer Note Type]
-FROM [dbo].[CustomerNoteType]
-WHERE [CustomerNoteTypeId] = @customerNoteTypeId
+[Customer Note Type Id],
+[Customer Note Type]
+FROM [dbo].[vwCustomerNoteType]
+WHERE [Customer Note Type Id] = @customerNoteTypeId

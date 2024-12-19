@@ -3,8 +3,8 @@
 AS
 
 SELECT
-[TaxProfileId] AS [Tax Profile Id],
-[TaxProfile] AS [Tax Profile],
-[TaxRate] AS [Tax Rate]
-FROM [dbo].[TaxProfile]
-WHERE [TaxProfileId] = @taxProfileId
+[Tax Profile Id],
+[Tax Profile],
+[Tax Rate]
+FROM [dbo].[vwTaxProfile]
+WHERE [Tax Profile Id] = @taxProfileId

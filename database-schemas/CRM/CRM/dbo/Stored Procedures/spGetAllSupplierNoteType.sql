@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[SupplierNoteTypeId] AS [Supplier Note Type ID],
-[SupplierNoteType] AS [Supplier Note Type]
-FROM [dbo].[SupplierNoteType]
+[Supplier Note Type Id],
+[Supplier Note Type]
+FROM [dbo].[vwSupplierNoteType]

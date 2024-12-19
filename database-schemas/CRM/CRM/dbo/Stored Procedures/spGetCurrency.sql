@@ -3,9 +3,9 @@
 AS
 
 SELECT
-[CurrencyId] AS [Currency Id],
-[CurrencyCode] AS [Currency Code],
-[CurrencyName] AS [Currency Name],
-[ActiveStatus] AS [Active Status]
-FROM [dbo].[Currency]
-WHERE [CurrencyId] = @currencyId
+[Currency Id],
+[Currency Code],
+[Currency Name],
+[Active Status]
+FROM [dbo].[vwCurrency]
+WHERE [Currency Id] = @currencyId

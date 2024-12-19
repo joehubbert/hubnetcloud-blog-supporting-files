@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[OrderStatusId] AS [Order Status Id],
-[OrderStatus] AS [Order Status]
-FROM [dbo].[OrderStatus]
+[Order Status Id],
+[Order Status]
+FROM [dbo].[vwOrderStatus]

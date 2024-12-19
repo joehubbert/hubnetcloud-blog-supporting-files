@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[PaymentMethodId] AS [Payment Method Id],
-[PaymentMethod] AS [Payment Method]
-FROM [dbo].[PaymentMethod]
+[Payment Method Id],
+[Payment Method]
+FROM [dbo].[vwPaymentMethod]

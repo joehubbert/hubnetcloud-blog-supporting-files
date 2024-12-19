@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[ProductNoteTypeId] AS [Product Note Type Id],
-[ProductNoteType] AS [Product Note Type]
-FROM [dbo].[ProductNoteType]
-WHERE [ProductNoteTypeId] = @productNoteTypeId
+[Product Note Type Id],
+[Product Note Type]
+FROM [dbo].[vwProductNoteType]
+WHERE [Product Note Type Id] = @productNoteTypeId

@@ -3,8 +3,8 @@
 AS
 
 SELECT
-[CustomerTierId] AS [Customer Tier Id],
-[CustomerTierCode] AS [Customer Tier Code],
-[CustomerTierDescription] AS [Customer Tier Description]
-FROM [dbo].[CustomerTier]
-WHERE [CustomerTierId] = @customerTierId
+[Customer Tier Id],
+[Customer Tier Code],
+[Customer Tier Description]
+FROM [dbo].[vwCustomerTier]
+WHERE [Customer Tier Id] = @customerTierId

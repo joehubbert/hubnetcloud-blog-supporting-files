@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[OrderStatusId]	AS [Order Status Id],
-[OrderStatus] AS [Order Status]
-FROM [dbo].[OrderStatus]
-WHERE [OrderStatusId] = @orderStatusId
+[Order Status Id],
+[Order Status]
+FROM [dbo].[vwOrderStatus]
+WHERE [Order Status Id] = @orderStatusId

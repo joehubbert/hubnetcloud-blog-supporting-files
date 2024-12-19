@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[SalesRegionId] AS [Sales Region Id],
-[SalesRegion] AS [Sales Region]
-FROM [dbo].[SalesRegion]
+[Sales Region Id],
+[Sales Region]
+FROM [dbo].[vwSalesRegion]

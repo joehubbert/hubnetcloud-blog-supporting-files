@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[ProductCategoryId] AS [Product Category Id],
-[ProductCategory] AS [Product Category]
-FROM [dbo].[ProductCategory]
+[Product Category Id],
+[Product Category]
+FROM [dbo].[vwProductCategory]

@@ -2,7 +2,7 @@
 AS
 
 SELECT
-[TaxProfileId] AS [Tax Profile Id],
-[TaxProfile] AS [Tax Profile],
-[TaxRate] AS [Tax Rate]
-FROM [dbo].[TaxProfile]
+[Tax Profile Id],
+[Tax Profile],
+[Tax Rate]
+FROM [dbo].[vwTaxProfile]

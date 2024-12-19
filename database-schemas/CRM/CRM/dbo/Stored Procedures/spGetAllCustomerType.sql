@@ -2,6 +2,6 @@
 AS
 
 SELECT
-[CustomerTypeId] AS [Customer Type Id],
-[CustomerType] AS [Customer Type]
-FROM [dbo].[CustomerType]
+[Customer Type Id],
+[Customer Type]
+FROM [dbo].[vwCustomerType]

@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[SalesRegionId]	AS [Sales Region Id],
-[SalesRegion] AS [Sales Region]
-FROM [dbo].[SalesRegion]
-WHERE [SalesRegionId] = @salesRegionId
+[Sales Region Id],
+[Sales Region]
+FROM [dbo].[vwSalesRegion]
+WHERE [Sales Region Id] = @salesRegionId

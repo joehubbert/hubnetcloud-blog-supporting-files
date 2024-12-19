@@ -13,6 +13,10 @@ SELECT
 [Telephone Number],
 [Email Address],
 [Payment Days],
-[Payment Currency]
+[Payment Currency],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwSupplier]
 WHERE [Supplier Id] = @supplierId

@@ -4,6 +4,10 @@ AS
 
 SELECT
 [Customer Note Type Id],
-[Customer Note Type]
+[Customer Note Type],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwCustomerNoteType]
 WHERE [Customer Note Type Id] = @customerNoteTypeId

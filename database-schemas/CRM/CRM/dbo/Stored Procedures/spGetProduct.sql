@@ -13,6 +13,10 @@ SELECT
 [Wholesale Reorder Flag],
 [Unit Selling Price],
 [Unit Stock Quantity Held],
-[Active Status]
+[Active Status],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwProduct]
 WHERE [Product Id] = @productId

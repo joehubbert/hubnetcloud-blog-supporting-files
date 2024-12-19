@@ -8,6 +8,10 @@ SELECT
 [Last Name],
 [Email Address],
 [Telephone Number],
-[Active Status]
+[Active Status],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwAccountManager]
 WHERE [Account Manager Id] = @accountManagerId

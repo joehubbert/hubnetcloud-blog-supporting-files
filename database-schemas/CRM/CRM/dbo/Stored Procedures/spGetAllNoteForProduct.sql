@@ -7,7 +7,9 @@ SELECT
 [Product Note Title],
 [Product Note Type],
 [Product Note],
-[Date Logged],
-[Logged By]
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwProductNoteSummary]
 WHERE [Product Id] = @productId

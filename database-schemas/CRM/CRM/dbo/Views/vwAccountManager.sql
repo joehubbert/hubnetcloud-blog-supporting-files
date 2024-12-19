@@ -7,5 +7,9 @@ SELECT
 [LastName] AS [Last Name],
 [EmailAddress] AS [Email Address],
 [TelephoneNumber] AS [Telephone Number],
-[ActiveStatus] AS [Active Status]
+[ActiveStatus] AS [Active Status],
+[CreatedTimestamp] AS [Created Timestamp],
+[CreatedBy] AS [Created By],
+[ModifiedTimestamp] AS [Modified Timestamp],
+[ModifiedBy] AS [Modified By]
 FROM [dbo].[AccountManager]

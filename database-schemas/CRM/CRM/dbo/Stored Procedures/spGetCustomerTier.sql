@@ -5,6 +5,10 @@ AS
 SELECT
 [Customer Tier Id],
 [Customer Tier Code],
-[Customer Tier Description]
+[Customer Tier Description],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwCustomerTier]
 WHERE [Customer Tier Id] = @customerTierId

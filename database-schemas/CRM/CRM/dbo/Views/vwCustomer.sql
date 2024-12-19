@@ -39,7 +39,11 @@ C.[CreditLimit] AS [Credit Limit],
 (SUM(CASE WHEN OS.[OrderStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN C.[CreditLimit] - VOV.[TotalOrderValue] ELSE 0 END)) AS [Remaining Credit Limit],
 C.[PaymentDays] AS [Payment Days],
 C.[ActiveStatus] AS [Active Status],
-C.[CustomerSince] AS [Customer Since]
+C.[CustomerSince] AS [Customer Since],
+C.[CreatedTimestamp] AS [Created Timestamp],
+C.[CreatedBy] AS [Created By],
+C.[ModifiedTimestamp] AS [Modified Timestamp],
+C.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Customer] C
 INNER JOIN [dbo].[AccountManager] AM ON C.[AccountManagerId] = AM.[AccountManagerId]
 INNER JOIN [dbo].[CustomerTier] CTI ON C.[CustomerTierId] = CTI.[CustomerTierId]

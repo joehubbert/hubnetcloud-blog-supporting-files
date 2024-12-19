@@ -40,6 +40,10 @@ SELECT
 [Remaining Credit Limit],
 [Payment Days],
 [Active Status],
-[Customer Since]
+[Customer Since],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwCustomer]
 WHERE [Customer Id] = @customerId

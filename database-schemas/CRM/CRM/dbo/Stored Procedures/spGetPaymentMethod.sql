@@ -4,6 +4,10 @@ AS
 
 SELECT
 [Payment Method Id],
-[Payment Method]
+[Payment Method],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwPaymentMethod]
 WHERE [Payment Method Id] = @paymentMethodId

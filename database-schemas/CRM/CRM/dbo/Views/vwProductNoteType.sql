@@ -3,5 +3,9 @@ AS
 
 SELECT
 [ProductNoteTypeId] AS [Product Note Type Id],
-[ProductNoteType] AS [Product Note Type]
+[ProductNoteType] AS [Product Note Type],
+[CreatedTimestamp] AS [Created Timestamp],
+[CreatedBy] AS [Created By],
+[ModifiedTimestamp] AS [Modified Timestamp],
+[ModifiedBy] AS [Modified By]
 FROM [dbo].[ProductNoteType]

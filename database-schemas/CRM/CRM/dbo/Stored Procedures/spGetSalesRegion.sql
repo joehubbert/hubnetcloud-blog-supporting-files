@@ -4,6 +4,10 @@ AS
 
 SELECT
 [Sales Region Id],
-[Sales Region]
+[Sales Region],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwSalesRegion]
 WHERE [Sales Region Id] = @salesRegionId

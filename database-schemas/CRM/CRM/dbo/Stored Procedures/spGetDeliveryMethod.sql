@@ -8,6 +8,10 @@ SELECT
 [Delivery Cost],
 [Delivery Time Days],
 [Tax Profile],
-[Tax Rate]
+[Tax Rate],
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwDeliveryMethod]
 WHERE [Delivery Method Id] = @deliveryMethodId

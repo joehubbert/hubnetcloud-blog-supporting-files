@@ -7,7 +7,9 @@ SELECT
 [Customer Note Title],
 [Customer Note Type],
 [Customer Note],
-[Date Logged],
-[Logged By]
+[Created Timestamp],
+[Created By],
+[Modified Timestamp],
+[Modified By]
 FROM [dbo].[vwCustomerNoteSummary]
 WHERE [Customer Id] = @customerId

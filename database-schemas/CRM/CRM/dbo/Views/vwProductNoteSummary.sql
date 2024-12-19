@@ -7,7 +7,9 @@ PN.[ProductNoteId] AS [Product Note Id],
 PN.[ProductNoteTitle] AS [Product Note Title],
 PNT.[ProductNoteType] AS [Product Note Type],
 LEFT(PN.[ProductNote],50) AS [Product Note],
-CAST(PN.[CreatedTimestamp] AS DATE) AS [Date Logged],
-PN.[CreatedBy] AS [Logged By]
+PN.[CreatedTimestamp] AS [Created Timestamp],
+PN.[CreatedBy] AS [Created By],
+PN.[ModifiedTimestamp] AS [Modified Timestamp],
+PN.[ModifiedBy] AS [Modified By]
 FROM [dbo].[ProductNote] PN
 INNER JOIN [dbo].[ProductNoteType] PNT ON PN.[ProductNoteTypeId] = PNT.[ProductNoteTypeId]

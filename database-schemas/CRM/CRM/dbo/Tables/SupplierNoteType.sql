@@ -5,7 +5,8 @@
 	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestamp] DATETIME2 NULL,
-	[ModifiedBy] NVARCHAR(50) NULL
+	[ModifiedBy] NVARCHAR(50) NULL,
+	CONSTRAINT [UC_SupplierNoteType] UNIQUE ([SupplierNoteType])
 )
 GO
 

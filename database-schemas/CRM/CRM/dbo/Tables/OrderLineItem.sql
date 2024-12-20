@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[OrderLineItem]
 (
 	[OrderLineItemId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[OrderLineItemStatusId] UNIQUEIDENTIFIER NOT NULL,
 	[OrderId] UNIQUEIDENTIFIER NOT NULL,
 	[ProductId] UNIQUEIDENTIFIER NOT NULL,
 	[Quantity] INT NOT NULL,
@@ -18,6 +19,7 @@
 	[ModifiedTimestamp] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_OrderLineItem_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [dbo].[Order]([OrderId]),
+	CONSTRAINT [FK_OrderLineItem_OrderLineItemStatusId] FOREIGN KEY ([OrderLineItemStatusId]) REFERENCES [dbo].[OrderLineItemStatus]([OrderLineItemStatusId]),
 	CONSTRAINT [FK_OrderLineItem_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
 	CONSTRAINT [FK_OrderLineItem_TaxProfileId] FOREIGN KEY ([TaxProfileId]) REFERENCES [dbo].[TaxProfile]([TaxProfileId])
 )

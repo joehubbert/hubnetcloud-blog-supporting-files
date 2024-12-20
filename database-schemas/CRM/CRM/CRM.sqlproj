@@ -63,6 +63,8 @@
     <Folder Include="dbo\Stored Procedures" />
     <Folder Include="dbo\Views" />
     <Folder Include="dbo\Functions" />
+    <Folder Include="Post Deployment Scripts" />
+    <Folder Include="Post Deployment Scripts\Data Population" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountManager.sql" />
@@ -185,7 +187,6 @@
     <Build Include="dbo\Stored Procedures\spGetAllOrderForProduct.sql" />
     <Build Include="dbo\Tables\OrderDelivery.sql" />
     <Build Include="dbo\Stored Procedures\spCreateOrderDelivery.sql" />
-    <Build Include="dbo\Stored Procedures\spGetOrderDelivery.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateOrderDelivery.sql" />
     <Build Include="dbo\Functions\fnCalculateShippingDate.sql" />
     <Build Include="dbo\Views\vwCustomer.sql" />
@@ -212,6 +213,17 @@
     <Build Include="dbo\Views\vwCustomerNoteSummary.sql" />
     <Build Include="dbo\Views\vwProductNoteSummary.sql" />
     <Build Include="dbo\Views\vwSupplierNoteSummary.sql" />
+    <Build Include="dbo\Views\vwOrder.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderDelivery.sql" />
+    <Build Include="dbo\Views\vwOrderProduct.sql" />
+    <Build Include="dbo\Views\vwOrderLineItem.sql" />
+    <Build Include="dbo\Views\vwOrderDelivery.sql" />
+    <Build Include="dbo\Tables\OrderLineItemStatus.sql" />
+    <Build Include="dbo\Views\vwOrderLineItemStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateOrderLineItemStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderLineItemStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderLineItemStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderLineItemStatus.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -219,5 +231,18 @@
       <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
       <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
     </ArtifactReference>
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Post Deployment Scripts\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Post Deployment Scripts\Data Population\OrderStatus.sql" />
+    <None Include="Post Deployment Scripts\Data Population\OrderLineItemStatus.sql" />
+    <None Include="Post Deployment Scripts\Data Population\PaymentMethod.sql" />
+    <None Include="Post Deployment Scripts\Data Population\Currency.sql" />
+    <None Include="Post Deployment Scripts\Data Population\CustomerNoteType.sql" />
+    <None Include="Post Deployment Scripts\Data Population\CustomerType.sql" />
+    <None Include="Post Deployment Scripts\Data Population\ProductNoteType.sql" />
+    <None Include="Post Deployment Scripts\Data Population\SupplierNoteType.sql" />
   </ItemGroup>
 </Project>

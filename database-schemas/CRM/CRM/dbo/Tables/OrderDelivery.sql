@@ -15,6 +15,10 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_OrderDelivery_DeliveryDate]
+ON [dbo].[OrderDelivery] ([DeliveryDate])
+GO
+
 CREATE TRIGGER [TRG_UpdateOrderDelivery]
 ON [dbo].[OrderDelivery]
 AFTER UPDATE

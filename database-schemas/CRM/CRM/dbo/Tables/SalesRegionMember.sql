@@ -11,6 +11,10 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_SalesRegionMember_SalesRegionId]
+ON [dbo].[SalesRegionMember] ([SalesRegionId])
+GO
+
 CREATE TRIGGER [TRG_UpdateSalesRegionMember]
 ON [dbo].[SalesRegionMember]
 AFTER UPDATE

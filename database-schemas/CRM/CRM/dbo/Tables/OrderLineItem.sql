@@ -25,6 +25,10 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_OrderLineItem_OrderId_ProductId]
+ON [dbo].[OrderLineItem] ([OrderId], [ProductId])
+GO
+
 CREATE TRIGGER [TRG_UpdateOrderLineItem]
 ON [dbo].[OrderLineItem]
 AFTER UPDATE

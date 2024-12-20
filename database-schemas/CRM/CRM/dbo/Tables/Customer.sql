@@ -44,6 +44,14 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_Customer_AccountManager_CustomerTier]
+ON [dbo].[Customer] ([AccountManagerId], [CustomerTierId])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Customer_CreditEnabled]
+ON [dbo].[Customer] ([CreditEnabled])
+GO
+
 CREATE TRIGGER [TRG_UpdateCustomer]
 ON [dbo].[Customer]
 AFTER UPDATE

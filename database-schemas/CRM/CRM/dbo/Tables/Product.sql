@@ -19,6 +19,10 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_Product_ProductCategoryId_SupplierId]
+ON [dbo].[Product] ([ProductCategoryId], [SupplierId])
+GO
+
 CREATE TRIGGER [TRG_UpdateProduct]
 ON [dbo].[Product]
 AFTER UPDATE

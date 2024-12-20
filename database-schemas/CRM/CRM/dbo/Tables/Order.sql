@@ -16,6 +16,14 @@
 )
 GO
 
+CREATE NONCLUSTERED INDEX [IX_Order_CustomerId_OrderStatusId]
+ON [dbo].[Order] ([CustomerId], [OrderStatusId])
+GO
+
+CREATE NONCLUSTERED INDEX [IX_Order_PaymentMethodId_CurrencyId]
+ON [dbo].[Order] ([PaymentMethodId], [CurrencyId])
+GO
+
 CREATE TRIGGER [TRG_UpdateOrder]
 ON [dbo].[Order]
 AFTER UPDATE

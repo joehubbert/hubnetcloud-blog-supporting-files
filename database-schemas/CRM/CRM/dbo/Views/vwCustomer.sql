@@ -90,4 +90,8 @@ C.[CreditEnabled],
 C.[CreditLimit],
 C.[PaymentDays],
 C.[ActiveStatus],
-C.[CustomerSince]
+C.[CustomerSince],
+C.[CreatedTimestamp],
+C.[CreatedBy],
+C.[ModifiedTimestamp],
+C.[ModifiedBy]

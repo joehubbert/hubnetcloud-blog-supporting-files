@@ -20,6 +20,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             _accountManagerId = accountManagerId;
+            accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += accountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
             LoadDatabaseConnectionSettingsAsync();
         }
 
@@ -44,23 +45,23 @@ namespace CRM_WindowsForms.Presentation
                     new SqlParameter("@accountManagerId", _accountManagerId)
                 };
 
-                DataTable accountManagerDataTable = await executor.ExecuteAsync("[dbo].[GetAccountManager]", parameters);
+                DataTable accountManagerDataTable = await executor.ExecuteAsync("[dbo].[spGetAccountManager]", parameters);
 
                 if (accountManagerDataTable != null)
                 {
                     DataRow accountManagerDataRow = accountManagerDataTable.Rows[0];
-                    accountManagerDetailFirstNameTextbox.Text = accountManagerDataRow["FirstName"].ToString();
-                    accountManagerDetailLastNameTextbox.Text = accountManagerDataRow["LastName"].ToString();
-                    accountManagerDetailEmailAddressTextbox.Text = accountManagerDataRow["EmailAddress"].ToString();
-                    accountManagerDetailTelephoneNumberTextbox.Text = accountManagerDataRow["TelephoneNumber"].ToString();
-                    accountManagerDetailAccountManagerIdTextbox.Text = accountManagerDataRow["AccountManagerId"].ToString();
-                    accountManagerDetailActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["ActiveStatus"];
+                    accountManagerDetailFirstNameTextbox.Text = accountManagerDataRow["First Name"].ToString();
+                    accountManagerDetailLastNameTextbox.Text = accountManagerDataRow["Last Name"].ToString();
+                    accountManagerDetailEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
+                    accountManagerDetailTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
+                    accountManagerDetailAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
+                    accountManagerDetailActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
 
-                    accountManagerDetailFirstNameOriginalValue = accountManagerDataRow["FirstName"].ToString();
-                    accountManagerDetailLastNameOriginalValue = accountManagerDataRow["LastName"].ToString();
-                    accountManagerDetailEmailAddressOriginalValue = accountManagerDataRow["EmailAddress"].ToString();
-                    accountManagerDetailTelephoneNumberOriginalValue = accountManagerDataRow["TelephoneNumber"].ToString();
-                    accountManagerDetailActiveStatusOriginalValue = (bool)accountManagerDataRow["ActiveStatus"];
+                    accountManagerDetailFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
+                    accountManagerDetailLastNameOriginalValue = accountManagerDataRow["Last Name"].ToString();
+                    accountManagerDetailEmailAddressOriginalValue = accountManagerDataRow["Email Address"].ToString();
+                    accountManagerDetailTelephoneNumberOriginalValue = accountManagerDataRow["Telephone Number"].ToString();
+                    accountManagerDetailActiveStatusOriginalValue = (bool)accountManagerDataRow["Active Status"];
                 }
                 else
                 {
@@ -89,7 +90,7 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new SqlParameter("@accountManagerId", _accountManagerId)
                 };
-                DataTable dataTable = await executor.ExecuteAsync("[dbo].[GetAssociatedCustomerToAccountManager]", parameters);
+                DataTable dataTable = await executor.ExecuteAsync("[dbo].[spGetAssociatedCustomerToAccountManager]", parameters);
 
                 if (dataTable.Rows.Count == 0)
                 {
@@ -108,8 +109,6 @@ namespace CRM_WindowsForms.Presentation
                         Name = "Details"
                     };
                     accountManagerDetailAssociatedCustomerDataGridView.Columns.Add(customerDetailLink);
-
-                    accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += accountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
                 }
             }
             catch (Exception ex)
@@ -168,14 +167,15 @@ namespace CRM_WindowsForms.Presentation
                     {
                         new SqlParameter("@accountManagerId", _accountManagerId),
                         new SqlParameter("@firstName", accountManagerDetailFirstNameTextbox.Text),
-                        new SqlParameter("@lastName", accountManagerDetailLastNameTextbox.Text),
                         new SqlParameter("@emailAddress", accountManagerDetailEmailAddressTextbox.Text),
                         new SqlParameter("@telephoneNumber", accountManagerDetailTelephoneNumberTextbox.Text),
+                        new SqlParameter("@lastName", accountManagerDetailLastNameTextbox.Text),
                         new SqlParameter("@activeStatus", accountManagerDetailActiveStatusCheckbox.Checked)
                     };
 
-                    await executor.ExecuteAsync("[dbo].[UpdateAccountManager]", parameters);
+                    await executor.ExecuteAsync("[dbo].[spUpdateAccountManager]", parameters);
                     MessageBox.Show("Account manager details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 catch (Exception ex)
                 {
@@ -185,6 +185,7 @@ namespace CRM_WindowsForms.Presentation
             else
             {
                 MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
         }
 
@@ -196,6 +197,14 @@ namespace CRM_WindowsForms.Presentation
             ViewAccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
         }
 
-
+        private void accountManagerDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        {
+            accountManagerDetailFirstNameTextbox.Enabled = !accountManagerDetailFirstNameTextbox.Enabled;
+            accountManagerDetailLastNameTextbox.Enabled = !accountManagerDetailLastNameTextbox.Enabled;
+            accountManagerDetailEmailAddressTextbox.Enabled = !accountManagerDetailEmailAddressTextbox.Enabled;
+            accountManagerDetailTelephoneNumberTextbox.Enabled = !accountManagerDetailTelephoneNumberTextbox.Enabled;
+            accountManagerDetailActiveStatusCheckbox.Enabled = !accountManagerDetailActiveStatusCheckbox.Enabled;
+            accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
+        }
     }
 }

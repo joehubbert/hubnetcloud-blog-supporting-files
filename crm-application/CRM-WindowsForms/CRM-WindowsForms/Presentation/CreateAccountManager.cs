@@ -72,7 +72,7 @@ namespace CRM_WindowsForms.Presentation
 
         private bool ContainsSqlInjectionRisk(string input)
         {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@", "@" };
+            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
             foreach (var riskChar in sqlInjectionRiskCharacters)
             {
                 if (input.Contains(riskChar))
@@ -114,9 +114,11 @@ namespace CRM_WindowsForms.Presentation
                     };
 
                 ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[CreateAccountManager]", parameters);
+                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateAccountManager]", parameters);
 
                 MessageBox.Show("New account manager added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
             }
             catch (Exception ex)
             {

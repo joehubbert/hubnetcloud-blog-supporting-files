@@ -34,7 +34,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable dataTable = await executor.ExecuteAsync("[dbo].[GetAllAccountManager]");
+                DataTable dataTable = await executor.ExecuteAsync("[dbo].[spGetAllAccountManager]");
 
                 if (dataTable.Rows.Count == 0)
                 {

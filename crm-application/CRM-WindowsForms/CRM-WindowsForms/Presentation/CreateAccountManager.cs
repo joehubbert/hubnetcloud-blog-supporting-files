@@ -25,38 +25,43 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            if (addNewAccountManagerFirstNameTextbox.Text.Length > 50)
+            string firstName = createAccountManagerFirstNameTextbox.Text.Trim();
+            string lastName = createAccountManagerLastNameTextbox.Text.Trim();
+            string emailAddress = createAccountManagerEmailAddressTextbox.Text.Trim();
+            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.Trim();
+
+            if (firstName.Length > 50)
             {
-                validationErrors.AppendLine($"First Name cannot be longer than 50 characters. Submitted length is {addNewAccountManagerFirstNameTextbox.Text.Length} characters.");
+                validationErrors.AppendLine($"First Name cannot be longer than 50 characters. Submitted length is {firstName.Length} characters.");
             }
 
-            if (addNewAccountManagerLastNameTextbox.Text.Length > 50)
+            if (lastName.Length > 50)
             {
-                validationErrors.AppendLine($"Last Name cannot be longer than 50 characters. Submitted length is {addNewAccountManagerLastNameTextbox.Text.Length} characters.");
+                validationErrors.AppendLine($"Last Name cannot be longer than 50 characters. Submitted length is {lastName.Length} characters.");
             }
 
-            if (addNewAccountManagerEmailAddressTextbox.Text.Length > 50)
+            if (emailAddress.Length > 50)
             {
-                validationErrors.AppendLine($"Email Address cannot be longer than 50 characters. Submitted length is {addNewAccountManagerEmailAddressTextbox.Text.Length} characters.");
+                validationErrors.AppendLine($"Email Address cannot be longer than 50 characters. Submitted length is {emailAddress.Length} characters.");
             }
-            else if (!addNewAccountManagerEmailAddressTextbox.Text.Contains("@"))
+            else if (!emailAddress.Contains("@"))
             {
                 validationErrors.AppendLine("Email Address must contain an '@' symbol.");
             }
 
-            if (addNewAccountManagerTelephoneNumberTextbox.Text.Length > 13)
+            if (telephoneNumber.Length > 13)
             {
-                validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {addNewAccountManagerTelephoneNumberTextbox.Text.Length} characters.");
+                validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {telephoneNumber.Length} characters.");
             }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(addNewAccountManagerTelephoneNumberTextbox.Text, @"^\+\d{12}$"))
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(telephoneNumber, @"^\+\d{12}$"))
             {
                 validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
             }
 
-            if (ContainsSqlInjectionRisk(addNewAccountManagerFirstNameTextbox.Text) ||
-                ContainsSqlInjectionRisk(addNewAccountManagerLastNameTextbox.Text) ||
-                ContainsSqlInjectionRisk(addNewAccountManagerEmailAddressTextbox.Text) ||
-                ContainsSqlInjectionRisk(addNewAccountManagerTelephoneNumberTextbox.Text))
+            if (ContainsSqlInjectionRisk(firstName) ||
+                ContainsSqlInjectionRisk(lastName) ||
+                ContainsSqlInjectionRisk(emailAddress) ||
+                ContainsSqlInjectionRisk(telephoneNumber))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -98,11 +103,11 @@ namespace CRM_WindowsForms.Presentation
 
             try
             {
-                bool activeStatus = addNewAccountManagerActiveStatusCheckbox.Checked;
-                string emailAddress = addNewAccountManagerEmailAddressTextbox.Text;
-                string firstName = addNewAccountManagerFirstNameTextbox.Text;
-                string lastName = addNewAccountManagerLastNameTextbox.Text;
-                string telephoneNumber = addNewAccountManagerTelephoneNumberTextbox.Text;
+                bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
+                string emailAddress = createAccountManagerEmailAddressTextbox.Text.Trim();
+                string firstName = createAccountManagerFirstNameTextbox.Text.Trim();
+                string lastName = createAccountManagerLastNameTextbox.Text.Trim();
+                string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.Trim();
 
                 var parameters = new[]
                 {

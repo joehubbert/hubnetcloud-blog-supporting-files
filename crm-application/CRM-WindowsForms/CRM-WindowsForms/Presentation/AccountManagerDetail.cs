@@ -2,6 +2,7 @@
 using Microsoft.Data.SqlClient;
 using System;
 using System.Data;
+using System.Text;
 using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
@@ -141,19 +142,97 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
+        private bool ValidateInput()
+        {
+            StringBuilder validationErrors = new StringBuilder();
+
+            string firstName = accountManagerDetailFirstNameTextbox.Text.Trim();
+            string lastName = accountManagerDetailLastNameTextbox.Text.Trim();
+            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.Trim();
+            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.Trim();
+
+            if (firstName.Length > 50)
+            {
+                validationErrors.AppendLine($"First Name cannot be longer than 50 characters. Submitted length is {firstName.Length} characters.");
+            }
+
+            if (lastName.Length > 50)
+            {
+                validationErrors.AppendLine($"Last Name cannot be longer than 50 characters. Submitted length is {lastName.Length} characters.");
+            }
+
+            if (emailAddress.Length > 50)
+            {
+                validationErrors.AppendLine($"Email Address cannot be longer than 50 characters. Submitted length is {emailAddress.Length} characters.");
+            }
+            else if (!emailAddress.Contains("@"))
+            {
+                validationErrors.AppendLine("Email Address must contain an '@' symbol.");
+            }
+
+            if (telephoneNumber.Length > 13)
+            {
+                validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {telephoneNumber.Length} characters.");
+            }
+            else if (!System.Text.RegularExpressions.Regex.IsMatch(telephoneNumber, @"^\+\d{12}$"))
+            {
+                validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
+            }
+
+            if (ContainsSqlInjectionRisk(firstName) ||
+                ContainsSqlInjectionRisk(lastName) ||
+                ContainsSqlInjectionRisk(emailAddress) ||
+                ContainsSqlInjectionRisk(telephoneNumber))
+            {
+                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
+            }
+
+            if (validationErrors.Length > 0)
+            {
+                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
+        }
+
+        private bool ContainsSqlInjectionRisk(string input)
+        {
+            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
+            foreach (var riskChar in sqlInjectionRiskCharacters)
+            {
+                if (input.Contains(riskChar))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+
         private async void accountManagerDetailUpdateAccountManagerButton_Click(object sender, EventArgs e)
         {
+            string firstName = accountManagerDetailFirstNameTextbox.Text.Trim();
+            string lastName = accountManagerDetailLastNameTextbox.Text.Trim();
+            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.Trim();
+            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.Trim();
+
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            if (!ValidateInput())
+            {
+                return;
+            }
+
             var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"First Name Original Value: {accountManagerDetailFirstNameOriginalValue}" + $"\nFirst Name New Value: {accountManagerDetailFirstNameTextbox.Text}\n" +
-                $"Last Name Original Value: {accountManagerDetailLastNameOriginalValue}" + $"\nLast Name New Value: {accountManagerDetailLastNameTextbox.Text}\n" +
-                $"Email Address Original Value: {accountManagerDetailEmailAddressOriginalValue}" + $"\nEmail Address New Value: {accountManagerDetailEmailAddressTextbox.Text}\n" +
-                $"Telephone Number Original Value: {accountManagerDetailTelephoneNumberOriginalValue}" + $"\nTelephone Number New Value: {accountManagerDetailTelephoneNumberTextbox.Text}\n" +
+                $"First Name Original Value: {accountManagerDetailFirstNameOriginalValue}" + $"\nFirst Name New Value: {firstName}\n" +
+                $"Last Name Original Value: {accountManagerDetailLastNameOriginalValue}" + $"\nLast Name New Value: {lastName}\n" +
+                $"Email Address Original Value: {accountManagerDetailEmailAddressOriginalValue}" + $"\nEmail Address New Value: {emailAddress}\n" +
+                $"Telephone Number Original Value: {accountManagerDetailTelephoneNumberOriginalValue}" + $"\nTelephone Number New Value: {telephoneNumber}\n" +
                 $"Active Status Original Value: {accountManagerDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {accountManagerDetailActiveStatusCheckbox.Checked}\n\n" +
                 "This action cannot be undone.", "Update Account Manager Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
@@ -166,10 +245,10 @@ namespace CRM_WindowsForms.Presentation
                     var parameters = new SqlParameter[]
                     {
                         new SqlParameter("@accountManagerId", _accountManagerId),
-                        new SqlParameter("@firstName", accountManagerDetailFirstNameTextbox.Text),
-                        new SqlParameter("@emailAddress", accountManagerDetailEmailAddressTextbox.Text),
-                        new SqlParameter("@telephoneNumber", accountManagerDetailTelephoneNumberTextbox.Text),
-                        new SqlParameter("@lastName", accountManagerDetailLastNameTextbox.Text),
+                        new SqlParameter("@firstName", firstName),
+                        new SqlParameter("@emailAddress", emailAddress),
+                        new SqlParameter("@telephoneNumber", telephoneNumber),
+                        new SqlParameter("@lastName", lastName),
                         new SqlParameter("@activeStatus", accountManagerDetailActiveStatusCheckbox.Checked)
                     };
 

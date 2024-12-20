@@ -28,22 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            createCustomerTitleLabel = new Label();
             SuspendLayout();
+            // 
+            // createCustomerTitleLabel
+            // 
+            createCustomerTitleLabel.AutoSize = true;
+            createCustomerTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createCustomerTitleLabel.Location = new Point(13, 9);
+            createCustomerTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            createCustomerTitleLabel.Name = "createCustomerTitleLabel";
+            createCustomerTitleLabel.Size = new Size(204, 32);
+            createCustomerTitleLabel.TabIndex = 6;
+            createCustomerTitleLabel.Text = "Create Customer";
             // 
             // CreateCustomer
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
             ClientSize = new Size(960, 540);
+            Controls.Add(createCustomerTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "CreateCustomer";
             Text = "CRM - Create Customer";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label createCustomerTitleLabel;
     }
 }

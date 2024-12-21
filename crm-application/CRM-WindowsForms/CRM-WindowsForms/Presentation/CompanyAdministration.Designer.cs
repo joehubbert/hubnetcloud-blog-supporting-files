@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             companyAdministrationAccountManagementGroupBox = new GroupBox();
+            companyAdministrationViewAllAccountManagersButton = new Button();
             companyAdministrationAddNewAccountManagerButton = new Button();
             companyAdministrationTitleLabel = new Label();
-            companyAdministrationViewAllAccountManagersButton = new Button();
             companyAdministrationAccountManagementGroupBox.SuspendLayout();
             SuspendLayout();
             // 
@@ -46,10 +46,23 @@
             companyAdministrationAccountManagementGroupBox.Margin = new Padding(4);
             companyAdministrationAccountManagementGroupBox.Name = "companyAdministrationAccountManagementGroupBox";
             companyAdministrationAccountManagementGroupBox.Padding = new Padding(4);
-            companyAdministrationAccountManagementGroupBox.Size = new Size(581, 496);
+            companyAdministrationAccountManagementGroupBox.Size = new Size(393, 316);
             companyAdministrationAccountManagementGroupBox.TabIndex = 0;
             companyAdministrationAccountManagementGroupBox.TabStop = false;
             companyAdministrationAccountManagementGroupBox.Text = "Account Management";
+            // 
+            // companyAdministrationViewAllAccountManagersButton
+            // 
+            companyAdministrationViewAllAccountManagersButton.FlatStyle = FlatStyle.Flat;
+            companyAdministrationViewAllAccountManagersButton.Font = new Font("Segoe UI", 11F);
+            companyAdministrationViewAllAccountManagersButton.Location = new Point(62, 173);
+            companyAdministrationViewAllAccountManagersButton.Margin = new Padding(4);
+            companyAdministrationViewAllAccountManagersButton.Name = "companyAdministrationViewAllAccountManagersButton";
+            companyAdministrationViewAllAccountManagersButton.Size = new Size(265, 87);
+            companyAdministrationViewAllAccountManagersButton.TabIndex = 7;
+            companyAdministrationViewAllAccountManagersButton.Text = "View All Account Managers";
+            companyAdministrationViewAllAccountManagersButton.UseVisualStyleBackColor = true;
+            companyAdministrationViewAllAccountManagersButton.Click += companyAdministrationViewAllAccountManagersButton_Click;
             // 
             // companyAdministrationAddNewAccountManagerButton
             // 
@@ -58,7 +71,7 @@
             companyAdministrationAddNewAccountManagerButton.Location = new Point(62, 61);
             companyAdministrationAddNewAccountManagerButton.Margin = new Padding(4);
             companyAdministrationAddNewAccountManagerButton.Name = "companyAdministrationAddNewAccountManagerButton";
-            companyAdministrationAddNewAccountManagerButton.Size = new Size(439, 124);
+            companyAdministrationAddNewAccountManagerButton.Size = new Size(265, 84);
             companyAdministrationAddNewAccountManagerButton.TabIndex = 1;
             companyAdministrationAddNewAccountManagerButton.Text = "Create Account Manager";
             companyAdministrationAddNewAccountManagerButton.UseVisualStyleBackColor = true;
@@ -71,29 +84,16 @@
             companyAdministrationTitleLabel.Location = new Point(40, 24);
             companyAdministrationTitleLabel.Margin = new Padding(4, 0, 4, 0);
             companyAdministrationTitleLabel.Name = "companyAdministrationTitleLabel";
-            companyAdministrationTitleLabel.Size = new Size(442, 48);
+            companyAdministrationTitleLabel.Size = new Size(301, 32);
             companyAdministrationTitleLabel.TabIndex = 6;
             companyAdministrationTitleLabel.Text = "Company Administration";
             // 
-            // companyAdministrationViewAllAccountManagersButton
-            // 
-            companyAdministrationViewAllAccountManagersButton.FlatStyle = FlatStyle.Flat;
-            companyAdministrationViewAllAccountManagersButton.Font = new Font("Segoe UI", 11F);
-            companyAdministrationViewAllAccountManagersButton.Location = new Point(62, 241);
-            companyAdministrationViewAllAccountManagersButton.Margin = new Padding(4);
-            companyAdministrationViewAllAccountManagersButton.Name = "companyAdministrationViewAllAccountManagersButton";
-            companyAdministrationViewAllAccountManagersButton.Size = new Size(439, 124);
-            companyAdministrationViewAllAccountManagersButton.TabIndex = 7;
-            companyAdministrationViewAllAccountManagersButton.Text = "View All Account Managers";
-            companyAdministrationViewAllAccountManagersButton.UseVisualStyleBackColor = true;
-            companyAdministrationViewAllAccountManagersButton.Click += companyAdministrationViewAllAccountManagersButton_Click;
-            // 
             // CompanyAdministration
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Khaki;
-            ClientSize = new Size(1712, 1212);
+            ClientSize = new Size(1712, 1057);
             Controls.Add(companyAdministrationTitleLabel);
             Controls.Add(companyAdministrationAccountManagementGroupBox);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);

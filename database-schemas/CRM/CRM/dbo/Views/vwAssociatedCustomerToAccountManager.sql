@@ -3,9 +3,9 @@ AS
 SELECT
 C.[CustomerId] AS [Customer Id],
 C.[AccountManagerId] AS [Account Manager Id],
-C.[BillingFirstName] AS [Customer Billing First Name],
-C.[BillingLastName] AS [Customer Billing Last Name],
-C.[BillingCompanyName] AS [Customer Billing Company Name],
+C.[FirstName] AS [First Name],
+C.[LastName] AS [Last Name],
+C.[CompanyName] AS [Company Name],
 CTIER.[CustomerTierDescription] AS [Customer Tier],
 CTYPE.[CustomerType] AS [Customer Type],
 C.[CustomerSince] AS [Customer Since],

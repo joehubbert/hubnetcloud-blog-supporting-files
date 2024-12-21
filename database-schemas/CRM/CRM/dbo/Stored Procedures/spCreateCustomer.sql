@@ -1,16 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomer]
     @accountManagerId UNIQUEIDENTIFIER,
     @activeStatus BIT,
-    @creditEnabled BIT,
-    @creditLimit MONEY = NULL,
-    @customerSince DATE,
-    @customerTierId UNIQUEIDENTIFIER,
-    @customerTypeId UNIQUEIDENTIFIER,
-    @globalCustomerParentId UNIQUEIDENTIFIER = NULL,
-    @salesRegionId UNIQUEIDENTIFIER,
     @billingFirstName NVARCHAR(20),
     @billingLastName NVARCHAR(30),
-    @billingCompanyName NVARCHAR(50),
+    @billingCompanyName NVARCHAR(50) = NULL,
     @billingAddressLine1 NVARCHAR(50),
     @billingAddressLine2 NVARCHAR(50) = NULL,
     @billingAddressLine3 NVARCHAR(50),
@@ -18,10 +11,20 @@
     @billingAddressLine5 NVARCHAR(50),
     @billingTelephoneNumber NVARCHAR(50),
     @billingEmailAddress NVARCHAR(50),
+    @companyName NVARCHAR(50) = NULL,
+    @creditEnabled BIT,
+    @creditLimit MONEY = NULL,
+    @customerSince DATE,
+    @customerTierId UNIQUEIDENTIFIER,
+    @customerTypeId UNIQUEIDENTIFIER,
+    @firstName NVARCHAR(30),
+    @globalCustomerParentId UNIQUEIDENTIFIER = NULL,
+    @lastName NVARCHAR(30),
     @paymentDays INT,
+    @salesRegionId UNIQUEIDENTIFIER,
     @shippingFirstName NVARCHAR(20),
     @shippingLastName NVARCHAR(30),
-    @shippingCompanyName NVARCHAR(50),
+    @shippingCompanyName NVARCHAR(50) = NULL,
     @shippingAddressLine1 NVARCHAR(50),
     @shippingAddressLine2 NVARCHAR(50) = NULL,
     @shippingAddressLine3 NVARCHAR(50),
@@ -40,9 +43,12 @@ CREATE TABLE #CustomerTemp
     [CustomerTierId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTypeId] UNIQUEIDENTIFIER NOT NULL,
     [SalesRegionId] UNIQUEIDENTIFIER NOT NULL,
+    [FirstName] NVARCHAR(30) NOT NULL,
+    [LastName] NVARCHAR(30) NOT NULL,
+    [CompanyName] NVARCHAR(50) NULL,
     [BillingFirstName] NVARCHAR(20) NOT NULL,
     [BillingLastName] NVARCHAR(30) NOT NULL,
-    [BillingCompanyName] NVARCHAR(50) NOT NULL,
+    [BillingCompanyName] NVARCHAR(50) NULL,
     [BillingAddressLine1] NVARCHAR(50) NOT NULL,
     [BillingAddressLine2] NVARCHAR(50) NULL,
     [BillingAddressLine3] NVARCHAR(50) NOT NULL,
@@ -52,7 +58,7 @@ CREATE TABLE #CustomerTemp
     [BillingEmailAddress] NVARCHAR(50) NOT NULL,
     [ShippingFirstName] NVARCHAR(20) NOT NULL,
     [ShippingLastName] NVARCHAR(30) NOT NULL,
-    [ShippingCompanyName] NVARCHAR(50) NOT NULL,
+    [ShippingCompanyName] NVARCHAR(50) NULL,
     [ShippingAddressLine1] NVARCHAR(50) NOT NULL,
     [ShippingAddressLine2] NVARCHAR(50) NULL,
     [ShippingAddressLine3] NVARCHAR(50) NOT NULL,
@@ -80,6 +86,9 @@ INSERT INTO #CustomerTemp
     [CustomerTierId],
     [CustomerTypeId],
     [SalesRegionId],
+    [FirstName],
+    [LastName],
+    [CompanyName],
     [BillingFirstName],
     [BillingLastName],
     [BillingCompanyName],
@@ -114,6 +123,9 @@ VALUES
     @customerTierId,
     @customerTypeId,
     @salesRegionId,
+    @firstName,
+    @lastName,
+    @companyName,
     @billingFirstName,
     @billingLastName,
     @billingCompanyName,
@@ -151,6 +163,9 @@ AND C.[AccountManagerId] = CT.[AccountManagerId]
 AND C.[CustomerTierId] = CT.[CustomerTierId]
 AND C.[CustomerTypeId] = CT.[CustomerTypeId]
 AND C.[SalesRegionId] = CT.[SalesRegionId]
+AND C.[FirstName] = CT.[FirstName]
+AND C.[LastName] = CT.[LastName]
+AND C.[CompanyName] = CT.[CompanyName]
 AND C.[BillingFirstName] = CT.[BillingFirstName]
 AND C.[BillingLastName] = CT.[BillingLastName]
 AND C.[BillingCompanyName] = CT.[BillingCompanyName]
@@ -171,7 +186,10 @@ AND C.[ShippingAddressLine4] = CT.[ShippingAddressLine4]
 AND C.[ShippingAddressLine5] = CT.[ShippingAddressLine5]
 AND C.[ShippingTelephoneNumber] = CT.[ShippingTelephoneNumber]
 AND C.[ShippingEmailAddress] = CT.[ShippingEmailAddress]
-WHERE C.[BillingFirstName] = CT.[BillingFirstName]
+WHERE C.[FirstName] = CT.[FirstName]
+AND C.[LastName] = CT.[LastName]
+AND C.[CompanyName] = CT.[CompanyName]
+AND C.[BillingFirstName] = CT.[BillingFirstName]
 AND C.[BillingLastName] = CT.[BillingLastName]
 AND C.[BillingCompanyName] = CT.[BillingCompanyName]
 AND C.[BillingAddressLine1] = CT.[BillingAddressLine1]
@@ -202,6 +220,9 @@ AND target.[AccountManagerId] = source.[AccountManagerId]
 AND target.[CustomerTierId] = source.[CustomerTierId]
 AND target.[CustomerTypeId] = source.[CustomerTypeId]
 AND target.[SalesRegionId] = source.[SalesRegionId]
+AND target.[FirstName] = source.[FirstName]
+AND target.[LastName] = source.[LastName]
+AND target.[CompanyName] = source.[CompanyName]
 AND target.[BillingFirstName] = source.[BillingFirstName]
 AND target.[BillingLastName] = source.[BillingLastName]
 AND target.[BillingCompanyName] = source.[BillingCompanyName]
@@ -236,6 +257,9 @@ INSERT
     [CustomerTierId],
     [CustomerTypeId],
     [SalesRegionId],
+    [FirstName],
+    [LastName],
+    [CompanyName],
     [BillingFirstName],
     [BillingLastName],
     [BillingCompanyName],
@@ -270,6 +294,9 @@ VALUES
     source.[CustomerTierId],
     source.[CustomerTypeId],
     source.[SalesRegionId],
+    source.[FirstName],
+    source.[LastName],
+    source.[CompanyName],
     source.[BillingFirstName],
     source.[BillingLastName],
     source.[BillingCompanyName],

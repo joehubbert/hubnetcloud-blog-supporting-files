@@ -92,7 +92,7 @@
             // 
             createAccountManagerSubmitButton.FlatStyle = FlatStyle.Flat;
             createAccountManagerSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createAccountManagerSubmitButton.Location = new Point(488, 348);
+            createAccountManagerSubmitButton.Location = new Point(500, 350);
             createAccountManagerSubmitButton.Margin = new Padding(4);
             createAccountManagerSubmitButton.Name = "createAccountManagerSubmitButton";
             createAccountManagerSubmitButton.Size = new Size(198, 66);

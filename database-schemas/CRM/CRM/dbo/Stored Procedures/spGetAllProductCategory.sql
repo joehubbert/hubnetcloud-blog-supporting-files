@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Product Category Id],
-[Product Category]
+[Product Category],
+[Active Status]
 FROM [dbo].[vwProductCategory]

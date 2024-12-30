@@ -2,7 +2,7 @@
 (
 	[CurrencyCode] NCHAR(3) NOT NULL,
 	[CurrencyName] NVARCHAR(50) NOT NULL,
-	[ActiveStatus] BIT NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('USD', 'United States Dollar', 1)
@@ -17,7 +17,6 @@ INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUE
 MERGE INTO [dbo].[Currency] AS target
 USING #CurrencyTemp AS source
 ON target.[CurrencyCode] = source.[CurrencyCode]
-AND target.[CurrencyName] = source.[CurrencyName]
 WHEN NOT MATCHED THEN
 INSERT
 (
@@ -32,4 +31,4 @@ VALUES
 	source.[ActiveStatus]
 );
 
-DROP TABLE #CurrencyTemp;
+DROP TABLE #CurrencyTemp

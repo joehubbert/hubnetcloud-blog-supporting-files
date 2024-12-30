@@ -5,6 +5,7 @@ AS
 SELECT
 [Sales Region Id],
 [Sales Region],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Payment Method Id],
-[Payment Method]
+[Payment Method],
+[Active Status]
 FROM [dbo].[vwPaymentMethod]

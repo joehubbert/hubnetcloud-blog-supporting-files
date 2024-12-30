@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Customer Note Type Id],
-[Customer Note Type]
+[Customer Note Type],
+[Active Status]
 FROM [dbo].[vwCustomerNoteType]

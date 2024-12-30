@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Order Status Id],
-[Order Status]
+[Order Status],
+[Active Status]
 FROM [dbo].[vwOrderStatus]

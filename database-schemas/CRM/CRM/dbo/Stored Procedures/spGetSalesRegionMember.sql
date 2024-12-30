@@ -6,6 +6,7 @@ SELECT
 [Sales Region Member Id],
 [Sales Region],
 [Sales Region Member],
+[Sales Region Member Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

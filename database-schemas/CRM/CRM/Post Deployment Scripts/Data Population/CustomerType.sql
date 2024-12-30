@@ -1,13 +1,14 @@
 ﻿CREATE TABLE #CustomerTypeTemp
 (
-	[CustomerType] NVARCHAR(50) NOT NULL
+	[CustomerType] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #CustomerTypeTemp ([CustomerType]) VALUES ('Personal')
-INSERT INTO #CustomerTypeTemp ([CustomerType]) VALUES ('Business - Small')
-INSERT INTO #CustomerTypeTemp ([CustomerType]) VALUES ('Business - Medium')
-INSERT INTO #CustomerTypeTemp ([CustomerType]) VALUES ('Business - Large')
-INSERT INTO #CustomerTypeTemp ([CustomerType]) VALUES ('Business - Multinational')
+INSERT INTO #CustomerTypeTemp ([CustomerType], [ActiveStatus]) VALUES ('Personal', 1)
+INSERT INTO #CustomerTypeTemp ([CustomerType], [ActiveStatus]) VALUES ('Business - Small', 1)
+INSERT INTO #CustomerTypeTemp ([CustomerType], [ActiveStatus]) VALUES ('Business - Medium', 1)
+INSERT INTO #CustomerTypeTemp ([CustomerType], [ActiveStatus]) VALUES ('Business - Large', 1)
+INSERT INTO #CustomerTypeTemp ([CustomerType], [ActiveStatus]) VALUES ('Business - Multinational', 1)
 
 MERGE INTO [dbo].[CustomerType] AS target
 USING #CustomerTypeTemp AS source
@@ -15,11 +16,13 @@ ON target.[CustomerType] = source.[CustomerType]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[CustomerType]
+	[CustomerType],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[CustomerType]
+	source.[CustomerType],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #CustomerTypeTemp;

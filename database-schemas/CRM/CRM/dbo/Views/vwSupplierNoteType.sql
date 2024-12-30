@@ -4,6 +4,7 @@ AS
 SELECT
 [SupplierNoteTypeId] AS [Supplier Note Type Id],
 [SupplierNoteType] AS [Supplier Note Type],
+[ActiveStatus] AS [Active Status],
 [CreatedTimestamp] AS [Created Timestamp],
 [CreatedBy] AS [Created By],
 [ModifiedTimestamp] AS [Modified Timestamp],

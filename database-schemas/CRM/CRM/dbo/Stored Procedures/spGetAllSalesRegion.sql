@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Sales Region Id],
-[Sales Region]
+[Sales Region],
+[Active Status]
 FROM [dbo].[vwSalesRegion]

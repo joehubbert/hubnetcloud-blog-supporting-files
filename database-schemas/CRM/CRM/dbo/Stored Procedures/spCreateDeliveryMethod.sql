@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateDeliveryMethod]
+	@activeStatus BIT,
 	@deliveryCost MONEY,
 	@deliveryMethod NVARCHAR(50),	
 	@deliveryTimeDays INT,
@@ -10,7 +11,8 @@ CREATE TABLE #DeliveryMethodTemp
 	[TaxProfileId] UNIQUEIDENTIFIER NOT NULL,
 	[DeliveryMethod] NVARCHAR(50) NOT NULL,
 	[DeliveryCost] MONEY NOT NULL,
-	[DeliveryTimeDays] INT NOT NULL
+	[DeliveryTimeDays] INT NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #DeliveryMethodTemp
@@ -18,14 +20,16 @@ INSERT INTO #DeliveryMethodTemp
 	[TaxProfileId],
 	[DeliveryMethod],
 	[DeliveryCost],
-	[DeliveryTimeDays]
+	[DeliveryTimeDays],
+	[ActiveStatus]
 )
 VALUES
 (
 	@taxProfileId,
 	@deliveryMethod,
 	@deliveryCost,
-	@deliveryTimeDays
+	@deliveryTimeDays,
+	@activeStatus
 )
 
 IF EXISTS
@@ -55,14 +59,16 @@ INSERT
 	[TaxProfileId],
 	[DeliveryMethod],
 	[DeliveryCost],
-	[DeliveryTimeDays]
+	[DeliveryTimeDays],
+	[ActiveStatus]
 )
 VALUES
 (
 	source.[TaxProfileId],
 	source.[DeliveryMethod],
 	source.[DeliveryCost],
-	source.[DeliveryTimeDays]
+	source.[DeliveryTimeDays],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #DeliveryMethodTemp;

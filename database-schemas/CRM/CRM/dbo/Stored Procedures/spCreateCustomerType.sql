@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomerType]
+	@activeStatus BIT,
 	@customerType NVARCHAR(50)
 AS
 
 CREATE TABLE #CustomerTypeTemp
 (
-	[CustomerType] NVARCHAR(50) NOT NULL
+	[CustomerType] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #CustomerTypeTemp
 (
-	[CustomerType]
+	[CustomerType],
+	[ActiveStatus]
 )
 VALUES
 (
-	@customerType
+	@customerType,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[CustomerType] = source.[CustomerType]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[CustomerType]
+	[CustomerType],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[CustomerType]
+	source.[CustomerType],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #CustomerTypeTemp;

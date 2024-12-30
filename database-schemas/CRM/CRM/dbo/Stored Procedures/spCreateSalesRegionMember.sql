@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateSalesRegionMember]
+	@activeStatus BIT,
 	@salesRegionId UNIQUEIDENTIFIER,
 	@salwsRegionMember NVARCHAR(50)
 AS
@@ -6,18 +7,21 @@ AS
 CREATE TABLE #SalesRegionMemberTemp
 (
 	[SalesRegionId] UNIQUEIDENTIFIER NOT NULL,
-	[SalesRegionMember] NVARCHAR(50) NOT NULL
+	[SalesRegionMember] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #SalesRegionMemberTemp
 (
 	[SalesRegionId],
-	[SalesRegionMember]
+	[SalesRegionMember],
+	[ActiveStatus]
 )
 VALUES
 (
 	@salesRegionId,
-	@salwsRegionMember
+	@salwsRegionMember,
+	@activeStatus
 )
 
 IF EXISTS
@@ -39,12 +43,14 @@ WHEN NOT MATCHED THEN
 INSERT
 (
 	[SalesRegionId],
-	[SalesRegionMember]
+	[SalesRegionMember],
+	[ActiveStatus]
 )
 VALUES
 (
 	source.[SalesRegionId],
-	source.[SalesRegionMember]
+	source.[SalesRegionMember],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #SalesRegionMemberTemp;

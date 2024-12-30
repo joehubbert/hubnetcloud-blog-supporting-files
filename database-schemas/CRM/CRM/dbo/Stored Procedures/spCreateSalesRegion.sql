@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateSalesRegion]
+	@activeStatus BIT,
 	@salesRegion NVARCHAR(50)
 AS
 
 CREATE TABLE #SalesRegionTemp
 (
-	[SalesRegion] NVARCHAR(50) NOT NULL
+	[SalesRegion] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #SalesRegionTemp
 (
-	[SalesRegion]
+	[SalesRegion],
+	[ActiveStatus]
 )
 VALUES
 (
-	@salesRegion
+	@salesRegion,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[SalesRegion] = source.[SalesRegion]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[SalesRegion]
+	[SalesRegion],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[SalesRegion]
+	source.[SalesRegion],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #SalesRegionTemp;

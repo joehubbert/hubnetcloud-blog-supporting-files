@@ -7,5 +7,6 @@ SELECT
 [Delivery Cost],
 [Delivery Time Days],
 [Tax Profile],
-[Tax Rate]
+[Tax Rate],
+[Delivery Method Active Status]
 FROM [dbo].[vwDeliveryMethod]

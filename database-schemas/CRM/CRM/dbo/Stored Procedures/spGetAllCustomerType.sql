@@ -3,5 +3,6 @@ AS
 
 SELECT
 [Customer Type Id],
-[Customer Type]
+[Customer Type],
+[Active Status]
 FROM [dbo].[vwCustomerType]

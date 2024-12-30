@@ -5,6 +5,7 @@
 	[DeliveryMethod] NVARCHAR(50) NOT NULL,
 	[DeliveryCost] MONEY NOT NULL,
 	[DeliveryTimeDays] INT NOT NULL,
+	[ActiveStatus] BIT NOT NULL,
 	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestamp] DATETIME2 NULL,

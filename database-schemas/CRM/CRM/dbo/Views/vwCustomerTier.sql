@@ -5,6 +5,7 @@ SELECT
 [CustomerTierId] AS [Customer Tier Id],
 [CustomerTierCode] AS [Customer Tier Code],
 [CustomerTierDescription] AS [Customer Tier Description],
+[ActiveStatus] AS [Active Status],
 [CreatedTimestamp] AS [Created Timestamp],
 [CreatedBy] AS [Created By],
 [ModifiedTimestamp] AS [Modified Timestamp],

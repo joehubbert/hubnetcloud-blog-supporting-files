@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateOrderStatus]
+	@activeStatus BIT,
 	@orderStatus NVARCHAR(50)
 AS
 
 CREATE TABLE #OrderStatusTemp
 (
-	[OrderStatus] NVARCHAR(50) NOT NULL
+	[OrderStatus] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #OrderStatusTemp
 (
-	[OrderStatus]
+	[OrderStatus],
+	[ActiveStatus]
 )
 VALUES
 (
-	@orderStatus
+	@orderStatus,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[OrderStatus] = source.[OrderStatus]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[OrderStatus]
+	[OrderStatus],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[OrderStatus]
+	source.[OrderStatus],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #OrderStatusTemp;

@@ -4,6 +4,7 @@ AS
 SELECT
 [ProductNoteTypeId] AS [Product Note Type Id],
 [ProductNoteType] AS [Product Note Type],
+[ActiveStatus] AS [Active Status],
 [CreatedTimestamp] AS [Created Timestamp],
 [CreatedBy] AS [Created By],
 [ModifiedTimestamp] AS [Modified Timestamp],

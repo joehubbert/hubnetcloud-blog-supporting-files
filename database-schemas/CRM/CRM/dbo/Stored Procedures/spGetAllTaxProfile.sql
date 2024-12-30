@@ -4,5 +4,6 @@ AS
 SELECT
 [Tax Profile Id],
 [Tax Profile],
-[Tax Rate]
+[Tax Rate],
+[Active Status]
 FROM [dbo].[vwTaxProfile]

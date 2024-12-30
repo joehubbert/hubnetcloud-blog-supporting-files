@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomerNoteType]
+	@activeStatus BIT,
 	@customerNoteType NVARCHAR(50)
 AS
 
 CREATE TABLE #CustomerNoteTypeTemp
 (
-	[CustomerNoteType] NVARCHAR(50) NOT NULL
+	[CustomerNoteType] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #CustomerNoteTypeTemp
 (
-	[CustomerNoteType]
+	[CustomerNoteType],
+	[ActiveStatus]
 )
 VALUES
 (
-	@customerNoteType
+	@customerNoteType,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[CustomerNoteType] = source.[CustomerNoteType]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[CustomerNoteType]
+	[CustomerNoteType],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[CustomerNoteType]
+	source.[CustomerNoteType],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #CustomerNoteTypeTemp;

@@ -6,6 +6,7 @@ SELECT
 [Tax Profile Id],
 [Tax Profile],
 [Tax Rate],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

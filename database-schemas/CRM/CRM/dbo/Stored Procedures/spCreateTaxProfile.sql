@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateTaxProfile]
+	@activeStatus BIT,
 	@taxProfile NVARCHAR(50),
 	@taxRate DECIMAL(5, 2)
 AS
@@ -6,18 +7,21 @@ AS
 CREATE TABLE #TazProfileTemp
 (
 	[TaxProfile] NVARCHAR(50) NOT NULL,
-	[TaxRate] DECIMAL(5, 2) NOT NULL
+	[TaxRate] DECIMAL(5, 2) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #TazProfileTemp
 (
 	[TaxProfile],
-	[TaxRate]
+	[TaxRate],
+	[ActiveStatus]
 )
 VALUES
 (
 	@taxProfile,
-	@taxRate
+	@taxRate,
+	@activeStatus
 )
 
 IF EXISTS
@@ -39,12 +43,14 @@ WHEN NOT MATCHED THEN
 INSERT
 (
 	[TaxProfile],
-	[TaxRate]
+	[TaxRate],
+	[ActiveStatus]
 )
 VALUES
 (
 	source.[TaxProfile],
-	source.[TaxRate]
+	source.[TaxRate],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #TazProfileTemp;

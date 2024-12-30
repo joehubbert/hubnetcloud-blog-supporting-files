@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomerTier]
+	@activeStatus BIT,
 	@customerTierCode NCHAR(1),
 	@customerTierDescription NVARCHAR(50)
 AS
@@ -6,18 +7,21 @@ AS
 CREATE TABLE #CustomerTierTemp
 (
 	[CustomerTierCode] NCHAR(1) NOT NULL,
-	[CustomerTierDescription] NVARCHAR(50) NOT NULL
+	[CustomerTierDescription] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #CustomerTierTemp
 (
 	[CustomerTierCode],
-	[CustomerTierDescription]
+	[CustomerTierDescription],
+	[ActiveStatus]
 )
 VALUES
 (
 	@customerTierCode,
-	@customerTierDescription
+	@customerTierDescription,
+	@activeStatus
 )
 
 IF EXISTS
@@ -39,12 +43,14 @@ WHEN NOT MATCHED THEN
 INSERT
 (
 	[CustomerTierCode],
-	[CustomerTierDescription]
+	[CustomerTierDescription],
+	[ActiveStatus]
 )
 VALUES
 (
 	source.[CustomerTierCode],
-	source.[CustomerTierDescription]
+	source.[CustomerTierDescription],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #CustomerTierTemp;

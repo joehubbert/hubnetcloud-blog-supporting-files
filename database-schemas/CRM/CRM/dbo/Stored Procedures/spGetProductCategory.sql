@@ -5,6 +5,7 @@ AS
 SELECT
 [Product Category Id],
 [Product Category],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

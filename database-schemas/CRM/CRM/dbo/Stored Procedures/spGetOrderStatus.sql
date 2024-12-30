@@ -5,6 +5,7 @@ AS
 SELECT
 [Order Status Id],
 [Order Status],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

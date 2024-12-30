@@ -1,14 +1,15 @@
 ﻿CREATE TABLE #PaymentMethodTemp
 (
-	[PaymentMethod] NVARCHAR(50) NOT NULL
+	[PaymentMethod] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Cash')
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Debit Card')
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Credit Card')
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Invoice')
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Account Credit')
-INSERT INTO #PaymentMethodTemp ([PaymentMethod]) VALUES ('Bank Transfer')
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Cash', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Debit Card', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Credit Card', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Invoice', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Account Credit', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Bank Transfer', 1)
 
 MERGE INTO [dbo].[PaymentMethod] AS target
 USING #PaymentMethodTemp AS source
@@ -16,11 +17,13 @@ ON target.[PaymentMethod] = source.[PaymentMethod]
 WHEN NOT MATCHED THEN
 INSERT 
 (
-	[PaymentMethod]
+	[PaymentMethod],
+	[ActiveStatus]
 ) 
 VALUES 
 (
-	source.[PaymentMethod]
+	source.[PaymentMethod],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #PaymentMethodTemp;

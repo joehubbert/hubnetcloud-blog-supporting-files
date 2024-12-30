@@ -6,6 +6,7 @@ SELECT
 [Customer Tier Id],
 [Customer Tier Code],
 [Customer Tier Description],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

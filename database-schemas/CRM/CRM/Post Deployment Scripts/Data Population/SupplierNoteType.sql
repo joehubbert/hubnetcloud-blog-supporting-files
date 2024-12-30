@@ -1,14 +1,15 @@
 ﻿CREATE TABLE #SupplierNoteTypeTemp
 (
-	[SupplierNoteType] NVARCHAR(50) NOT NULL
+	[SupplierNoteType] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('General')
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('Product')
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('Service')
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('Logistics')
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('Finance')
-INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType]) VALUES ('Product Offering')
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('General', 1)
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('Product', 1)
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('Service', 1)
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('Logistics', 1)
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('Finance', 1)
+INSERT INTO #SupplierNoteTypeTemp ([SupplierNoteType], [ActiveStatus]) VALUES ('Product Offering', 1)
 
 MERGE INTO [dbo].[SupplierNoteType] AS target
 USING #SupplierNoteTypeTemp AS source
@@ -16,11 +17,13 @@ ON target.[SupplierNoteType] = source.[SupplierNoteType]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[SupplierNoteType]
+	[SupplierNoteType],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[SupplierNoteType]
+	source.[SupplierNoteType],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #SupplierNoteTypeTemp;

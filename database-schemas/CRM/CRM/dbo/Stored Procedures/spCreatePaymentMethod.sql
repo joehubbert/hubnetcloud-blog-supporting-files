@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreatePaymentMethod]
+	@activeStatus BIT,
 	@paymentMethod NVARCHAR(50)
 AS
 
 CREATE TABLE #PaymentMethodTemp
 (
-	[PaymentMethod] NVARCHAR(50) NOT NULL
+	[PaymentMethod] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #PaymentMethodTemp
 (
-	[PaymentMethod]
+	[PaymentMethod],
+	[ActiveStatus]
 )
 VALUES
 (
-	@paymentMethod
+	@paymentMethod,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[PaymentMethod] = source.[PaymentMethod]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[PaymentMethod]
+	[PaymentMethod],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[PaymentMethod]
+	source.[PaymentMethod],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #PaymentMethodTemp;

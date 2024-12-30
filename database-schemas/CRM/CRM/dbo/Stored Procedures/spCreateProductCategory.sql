@@ -1,15 +1,18 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateProductCategory]
+	@activeStatus BIT,
 	@productCategory NVARCHAR(50)
 AS
 
 CREATE TABLE #ProductCategoryTemp
 (
-	[ProductCategory] NVARCHAR(50) NOT NULL
+	[ProductCategory] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #ProductCategoryTemp
 (
-	[ProductCategory]
+	[ProductCategory],
+	[ActiveStatus]
 )
 VALUES
 (
@@ -31,11 +34,13 @@ ON target.[ProductCategory] = source.[ProductCategory]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[ProductCategory]
+	[ProductCategory],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[ProductCategory]
+	source.[ProductCategory],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #ProductCategoryTemp;

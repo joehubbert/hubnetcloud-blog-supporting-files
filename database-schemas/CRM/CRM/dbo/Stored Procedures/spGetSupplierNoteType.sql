@@ -5,6 +5,7 @@ AS
 SELECT
 [Supplier Note Type Id],
 [Supplier Note Type],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

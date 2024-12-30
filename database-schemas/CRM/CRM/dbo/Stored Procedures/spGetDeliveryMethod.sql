@@ -9,6 +9,7 @@ SELECT
 [Delivery Time Days],
 [Tax Profile],
 [Tax Rate],
+[Delivery Method Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

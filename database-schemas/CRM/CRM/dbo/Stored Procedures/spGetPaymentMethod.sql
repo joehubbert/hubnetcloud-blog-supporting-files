@@ -5,6 +5,7 @@ AS
 SELECT
 [Payment Method Id],
 [Payment Method],
+[Active Status],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],

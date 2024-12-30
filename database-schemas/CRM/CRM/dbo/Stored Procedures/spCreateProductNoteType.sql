@@ -1,19 +1,23 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateProductNoteType]
+	@activeStatus BIT,
 	@productNoteType NVARCHAR(50)
 AS
 
 CREATE TABLE #ProductNoteTypeTemp
 (
-	[ProductNoteType] NVARCHAR(50) NOT NULL
+	[ProductNoteType] NVARCHAR(50) NOT NULL,
+	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #ProductNoteTypeTemp
 (
-	[ProductNoteType]
+	[ProductNoteType],
+	[ActiveStatus]
 )
 VALUES
 (
-	@productNoteType
+	@productNoteType,
+	@activeStatus
 )
 
 IF EXISTS
@@ -31,11 +35,13 @@ ON target.[ProductNoteType] = source.[ProductNoteType]
 WHEN NOT MATCHED THEN
 INSERT
 (
-	[ProductNoteType]
+	[ProductNoteType],
+	[ActiveStatus]
 )
 VALUES
 (
-	source.[ProductNoteType]
+	source.[ProductNoteType],
+	source.[ActiveStatus]
 );
 
 DROP TABLE #ProductNoteTypeTemp;

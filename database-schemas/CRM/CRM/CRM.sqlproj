@@ -226,6 +226,16 @@
     <Build Include="dbo\Stored Procedures\spUpdateOrderLineItemStatus.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllGlobalParentCustomer.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllTopParentCustomer.sql" />
+    <Build Include="dbo\Tables\OrderStatusHistory.sql" />
+    <Build Include="dbo\Tables\OrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateOrderStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateOrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Views\vwOrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Views\vwOrderStatusHistory.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

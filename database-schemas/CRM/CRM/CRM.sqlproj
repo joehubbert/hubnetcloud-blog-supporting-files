@@ -224,6 +224,8 @@
     <Build Include="dbo\Stored Procedures\spGetAllOrderLineItemStatus.sql" />
     <Build Include="dbo\Stored Procedures\spGetOrderLineItemStatus.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateOrderLineItemStatus.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllGlobalParentCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllTopParentCustomer.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

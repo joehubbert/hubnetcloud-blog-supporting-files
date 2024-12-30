@@ -21,9 +21,9 @@ INNER JOIN [dbo].[vwOrderValue] VOV ON O.[OrderId] = VOV.[OrderId] AND C.[Custom
 GROUP BY
 C.[AccountManagerId],
 C.[CustomerId],
-C.[BillingFirstName],
-C.[BillingLastName],
-C.[BillingCompanyName],
+C.[FirstName],
+C.[LastName],
+C.[CompanyName],
 CTIER.[CustomerTierDescription],
 CTYPE.[CustomerType],
 C.[CustomerSince],

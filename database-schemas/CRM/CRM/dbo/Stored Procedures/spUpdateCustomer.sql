@@ -7,7 +7,8 @@
     @customerSince DATE,
     @customerTierId UNIQUEIDENTIFIER,
     @customerTypeId UNIQUEIDENTIFIER,
-    @globalCustomerParentId UNIQUEIDENTIFIER = NULL,
+    @globalParentCustomer BIT,
+    @globalParentCustomerId UNIQUEIDENTIFIER = NULL,
     @salesRegionId UNIQUEIDENTIFIER,
     @billingFirstName NVARCHAR(20),
     @billingLastName NVARCHAR(30),
@@ -30,6 +31,7 @@
     @shippingAddressLine5 NVARCHAR(50),
     @shippingTelephoneNumber NVARCHAR(50),
     @shippingEmailAddress NVARCHAR(50),
+    @topParentCustomer BIT,
     @topParentCustomerId UNIQUEIDENTIFIER = NULL
 AS
 
@@ -42,7 +44,8 @@ SET
     [CustomerSince] = @customerSince,
     [CustomerTierId] = @customerTierId,
     [CustomerTypeId] = @customerTypeId,
-    [GlobalCustomerParentId] = @globalCustomerParentId,
+    [GlobalParentCustomer] = @globalParentCustomer,
+    [GlobalParentCustomerId] = @globalParentCustomerId,
     [SalesRegionId] = @salesRegionId,
     [BillingFirstName] = @billingFirstName,
     [BillingLastName] = @billingLastName,
@@ -65,5 +68,6 @@ SET
     [ShippingAddressLine5] = @shippingAddressLine5,
     [ShippingTelephoneNumber] = @shippingTelephoneNumber,
     [ShippingEmailAddress] = @shippingEmailAddress,
+    [TopParentCustomer] = @topParentCustomer,
     [TopParentCustomerId] = @topParentCustomerId
 WHERE [CustomerId] = @customerId

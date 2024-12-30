@@ -18,7 +18,8 @@
     @customerTierId UNIQUEIDENTIFIER,
     @customerTypeId UNIQUEIDENTIFIER,
     @firstName NVARCHAR(30),
-    @globalCustomerParentId UNIQUEIDENTIFIER = NULL,
+    @globalParentCustomer BIT,
+    @globalParentCustomerId UNIQUEIDENTIFIER = NULL,
     @lastName NVARCHAR(30),
     @paymentDays INT,
     @salesRegionId UNIQUEIDENTIFIER,
@@ -32,6 +33,7 @@
     @shippingAddressLine5 NVARCHAR(50),
     @shippingTelephoneNumber NVARCHAR(50),
     @shippingEmailAddress NVARCHAR(50),
+    @topParentCustomer BIT,
     @topParentCustomerId UNIQUEIDENTIFIER = NULL
     
 AS
@@ -69,8 +71,11 @@ CREATE TABLE #CustomerTemp
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NULL,
     [PaymentDays] INT NOT NULL,
+    [GlobalParentCustomer] BIT NOT NULL,
+    [TopParentCustomer] BIT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
     [CustomerSince] DATE NOT NULL,
+    CONSTRAINT [CC_Customer_GlobalParent_TopParent] CHECK (NOT ([GlobalParentCustomer] = 1 AND [TopParentCustomer] = 1)),
     CONSTRAINT [FK_Customer_GlobalParentId] FOREIGN KEY ([GlobalCustomerParentId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
@@ -112,12 +117,14 @@ INSERT INTO #CustomerTemp
     [CreditEnabled],
     [CreditLimit],
     [PaymentDays],
+    [GlobalParentCustomer],
+    [TopParentCustomer],
     [ActiveStatus],
     [CustomerSince]
 )
 VALUES
 (
-    @globalCustomerParentId,
+    @globalParentCustomerId,
     @topParentCustomerId,
     @accountManagerId,
     @customerTierId,
@@ -149,6 +156,8 @@ VALUES
     @creditEnabled,
     @creditLimit,
     @paymentDays,
+    @globalParentCustomer,
+    @topParentCustomer,
     @activeStatus,
     @customerSince
 )
@@ -157,13 +166,8 @@ IF EXISTS
 (
 SELECT *
 FROM [dbo].[Customer] C
-INNER JOIN #CustomerTemp CT ON C.[GlobalCustomerParentId] = CT.[GlobalCustomerParentId]
-AND C.[TopParentCustomerId] = CT.[TopParentCustomerId]
-AND C.[AccountManagerId] = CT.[AccountManagerId]
-AND C.[CustomerTierId] = CT.[CustomerTierId]
-AND C.[CustomerTypeId] = CT.[CustomerTypeId]
-AND C.[SalesRegionId] = CT.[SalesRegionId]
-AND C.[FirstName] = CT.[FirstName]
+INNER JOIN #CustomerTemp CT ON 
+C.[FirstName] = CT.[FirstName]
 AND C.[LastName] = CT.[LastName]
 AND C.[CompanyName] = CT.[CompanyName]
 AND C.[BillingFirstName] = CT.[BillingFirstName]
@@ -214,7 +218,7 @@ THROW 50000, 'Customer already exists, please update the existing record.', 1;
 ELSE
 MERGE INTO [dbo].[Customer] AS target
 USING #CustomerTemp AS source
-ON target.[GlobalCustomerParentId] = source.[GlobalCustomerParentId]
+ON target.[GlobalParentCustomerId] = source.[GlobalParentCustomerId]
 AND target.[TopParentCustomerId] = source.[TopParentCustomerId]
 AND target.[AccountManagerId] = source.[AccountManagerId]
 AND target.[CustomerTierId] = source.[CustomerTierId]
@@ -246,12 +250,14 @@ AND target.[ShippingEmailAddress] = source.[ShippingEmailAddress]
 AND target.[CreditEnabled] = source.[CreditEnabled]
 AND target.[CreditLimit] = source.[CreditLimit]
 AND target.[PaymentDays] = source.[PaymentDays]
+AND target.[GlobalParentCustomer] = source.[GlobalParentCustomer]
+AND target.[TopParentCustomer] = source.[TopParentCustomer]
 AND target.[ActiveStatus] = source.[ActiveStatus]
 AND target.[CustomerSince] = source.[CustomerSince]
 WHEN NOT MATCHED THEN
 INSERT
 (
-    [GlobalCustomerParentId],
+    [GlobalParentCustomerId],
     [TopParentCustomerId],
     [AccountManagerId],
     [CustomerTierId],
@@ -283,12 +289,14 @@ INSERT
     [CreditEnabled],
     [CreditLimit],
     [PaymentDays],
+    [GlobalParentCustomer],
+    [TopParentCustomer],
     [ActiveStatus],
     [CustomerSince]
 )
 VALUES
 (
-    source.[GlobalCustomerParentId],
+    source.[GlobalParentCustomerId],
     source.[TopParentCustomerId],
     source.[AccountManagerId],
     source.[CustomerTierId],
@@ -320,6 +328,8 @@ VALUES
     source.[CreditEnabled],
     source.[CreditLimit],
     source.[PaymentDays],
+    source.[GlobalParentCustomer],
+    source.[TopParentCustomer],
     source.[ActiveStatus],
     source.[CustomerSince]
 );

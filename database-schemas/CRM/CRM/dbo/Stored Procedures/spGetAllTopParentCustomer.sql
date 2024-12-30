@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllCustomer]
+﻿CREATE PROCEDURE [dbo].[spGetAllTopParentCustomer]
 AS
 
 SELECT
@@ -20,3 +20,4 @@ SELECT
 [Active Status],
 [Customer Since]
 FROM [dbo].[vwCustomer]
+WHERE [Top Parent Customer] = 1

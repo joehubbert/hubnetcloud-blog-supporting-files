@@ -4,9 +4,9 @@ AS
 
 SELECT
 [Customer Id],
-[Customer Billing First Name],
-[Customer Billing Last Name],
-[Customer Billing Company Name],
+[First Name],
+[Last Name],
+[Company Name],
 [Customer Tier],
 [Customer Type],
 [Customer Since],

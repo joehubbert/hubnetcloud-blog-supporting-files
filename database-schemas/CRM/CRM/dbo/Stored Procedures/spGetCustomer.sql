@@ -3,7 +3,7 @@
 AS
 
 SELECT
-[Global Customer Parent Id],
+[Global Parent Customer Id],
 [Top Parent Customer Id],
 [Customer Id],
 [Account Manager],
@@ -42,6 +42,8 @@ SELECT
 [Credit Limit Used Percentage],
 [Remaining Credit Limit],
 [Payment Days],
+[Global Parent Customer],
+[Top Parent Customer],
 [Active Status],
 [Customer Since],
 [Created Timestamp],

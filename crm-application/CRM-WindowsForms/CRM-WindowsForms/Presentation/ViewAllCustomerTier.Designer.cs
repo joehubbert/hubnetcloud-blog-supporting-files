@@ -43,7 +43,7 @@
             viewAllCustomerTierDataGridView.AllowUserToDeleteRows = false;
             viewAllCustomerTierDataGridView.AllowUserToOrderColumns = true;
             viewAllCustomerTierDataGridView.AllowUserToResizeRows = false;
-            viewAllCustomerTierDataGridView.BackgroundColor = Color.Khaki;
+            viewAllCustomerTierDataGridView.BackgroundColor = Color.LemonChiffon;
             viewAllCustomerTierDataGridView.BorderStyle = BorderStyle.Fixed3D;
             viewAllCustomerTierDataGridView.ColumnHeadersHeight = 34;
             viewAllCustomerTierDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
@@ -86,7 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
+            BackColor = Color.LemonChiffon;
             ClientSize = new Size(1060, 401);
             Controls.Add(viewAllCustomerTierDataGridView);
             Controls.Add(viewAllCustomerTierTitleLabel);

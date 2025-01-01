@@ -141,7 +141,7 @@ namespace CRM_WindowsForms.Presentation
                     ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
                     var parameters = new SqlParameter[]
                     {
-                        new SqlParameter("@customerTypeDescription", customerType),
+                        new SqlParameter("@customerType", customerType),
                         new SqlParameter("@customerTypeId", _customerTypeId),
                         new SqlParameter("@activeStatus", customerTypeDetailActiveStatusCheckbox.Checked)
                     };

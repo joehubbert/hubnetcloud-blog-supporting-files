@@ -95,7 +95,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
+            BackColor = Color.LemonChiffon;
             ClientSize = new Size(467, 313);
             Controls.Add(createCustomerTypeCustomerTypeTextbox);
             Controls.Add(createCustomerTypeCustomerTypeLabel);

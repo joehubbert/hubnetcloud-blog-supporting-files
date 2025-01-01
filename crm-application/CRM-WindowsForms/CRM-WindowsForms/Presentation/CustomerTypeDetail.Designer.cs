@@ -207,7 +207,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
+            BackColor = Color.LemonChiffon;
             ClientSize = new Size(1244, 438);
             Controls.Add(customerTypeDetailUpdateCustomerTypeButton);
             Controls.Add(customerTypeDetailActiveStatusCheckbox);

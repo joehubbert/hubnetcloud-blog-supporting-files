@@ -30,10 +30,10 @@
         {
             components = new System.ComponentModel.Container();
             viewAllAccountManagerTitleLabel = new Label();
-            viewAllAccountManagersDataGridView = new DataGridView();
+            viewAllAccountManagerDataGridView = new DataGridView();
             databaseConnectionSettingsBindingSource = new BindingSource(components);
             viewAllAccountManagerRefreshDataButton = new Button();
-            ((System.ComponentModel.ISupportInitialize)viewAllAccountManagersDataGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)viewAllAccountManagerDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)databaseConnectionSettingsBindingSource).BeginInit();
             SuspendLayout();
             // 
@@ -41,30 +41,30 @@
             // 
             viewAllAccountManagerTitleLabel.AutoSize = true;
             viewAllAccountManagerTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            viewAllAccountManagerTitleLabel.Location = new Point(22, 33);
-            viewAllAccountManagerTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            viewAllAccountManagerTitleLabel.Location = new Point(15, 20);
             viewAllAccountManagerTitleLabel.Name = "viewAllAccountManagerTitleLabel";
-            viewAllAccountManagerTitleLabel.Size = new Size(481, 48);
+            viewAllAccountManagerTitleLabel.Size = new Size(329, 32);
             viewAllAccountManagerTitleLabel.TabIndex = 7;
             viewAllAccountManagerTitleLabel.Text = "View All Account Managers";
             // 
-            // viewAllAccountManagersDataGridView
+            // viewAllAccountManagerDataGridView
             // 
-            viewAllAccountManagersDataGridView.AllowUserToAddRows = false;
-            viewAllAccountManagersDataGridView.AllowUserToDeleteRows = false;
-            viewAllAccountManagersDataGridView.AllowUserToOrderColumns = true;
-            viewAllAccountManagersDataGridView.AllowUserToResizeRows = false;
-            viewAllAccountManagersDataGridView.BackgroundColor = Color.Khaki;
-            viewAllAccountManagersDataGridView.BorderStyle = BorderStyle.Fixed3D;
-            viewAllAccountManagersDataGridView.ColumnHeadersHeight = 34;
-            viewAllAccountManagersDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            viewAllAccountManagersDataGridView.Location = new Point(22, 115);
-            viewAllAccountManagersDataGridView.Name = "viewAllAccountManagersDataGridView";
-            viewAllAccountManagersDataGridView.ReadOnly = true;
-            viewAllAccountManagersDataGridView.RowHeadersWidth = 62;
-            viewAllAccountManagersDataGridView.ShowEditingIcon = false;
-            viewAllAccountManagersDataGridView.Size = new Size(1839, 1147);
-            viewAllAccountManagersDataGridView.TabIndex = 8;
+            viewAllAccountManagerDataGridView.AllowUserToAddRows = false;
+            viewAllAccountManagerDataGridView.AllowUserToDeleteRows = false;
+            viewAllAccountManagerDataGridView.AllowUserToOrderColumns = true;
+            viewAllAccountManagerDataGridView.AllowUserToResizeRows = false;
+            viewAllAccountManagerDataGridView.BackgroundColor = Color.LemonChiffon;
+            viewAllAccountManagerDataGridView.BorderStyle = BorderStyle.Fixed3D;
+            viewAllAccountManagerDataGridView.ColumnHeadersHeight = 34;
+            viewAllAccountManagerDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            viewAllAccountManagerDataGridView.Location = new Point(15, 69);
+            viewAllAccountManagerDataGridView.Margin = new Padding(2, 2, 2, 2);
+            viewAllAccountManagerDataGridView.Name = "viewAllAccountManagerDataGridView";
+            viewAllAccountManagerDataGridView.ReadOnly = true;
+            viewAllAccountManagerDataGridView.RowHeadersWidth = 62;
+            viewAllAccountManagerDataGridView.ShowEditingIcon = false;
+            viewAllAccountManagerDataGridView.Size = new Size(1287, 688);
+            viewAllAccountManagerDataGridView.TabIndex = 8;
             // 
             // databaseConnectionSettingsBindingSource
             // 
@@ -74,9 +74,10 @@
             // 
             viewAllAccountManagerRefreshDataButton.FlatStyle = FlatStyle.Flat;
             viewAllAccountManagerRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            viewAllAccountManagerRefreshDataButton.Location = new Point(544, 28);
+            viewAllAccountManagerRefreshDataButton.Location = new Point(381, 17);
+            viewAllAccountManagerRefreshDataButton.Margin = new Padding(2, 2, 2, 2);
             viewAllAccountManagerRefreshDataButton.Name = "viewAllAccountManagerRefreshDataButton";
-            viewAllAccountManagerRefreshDataButton.Size = new Size(287, 72);
+            viewAllAccountManagerRefreshDataButton.Size = new Size(201, 43);
             viewAllAccountManagerRefreshDataButton.TabIndex = 9;
             viewAllAccountManagerRefreshDataButton.Text = "Refresh Data";
             viewAllAccountManagerRefreshDataButton.UseVisualStyleBackColor = true;
@@ -84,19 +85,20 @@
             // 
             // ViewAllAccountManager
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
-            ClientSize = new Size(1891, 1285);
+            BackColor = Color.LemonChiffon;
+            ClientSize = new Size(1324, 634);
             Controls.Add(viewAllAccountManagerRefreshDataButton);
-            Controls.Add(viewAllAccountManagersDataGridView);
+            Controls.Add(viewAllAccountManagerDataGridView);
             Controls.Add(viewAllAccountManagerTitleLabel);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(2, 2, 2, 2);
             MaximizeBox = false;
             Name = "ViewAllAccountManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - View All Account Managers";
-            ((System.ComponentModel.ISupportInitialize)viewAllAccountManagersDataGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)viewAllAccountManagerDataGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)databaseConnectionSettingsBindingSource).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -105,7 +107,7 @@
         #endregion
 
         private Label viewAllAccountManagerTitleLabel;
-        private DataGridView viewAllAccountManagersDataGridView;
+        private DataGridView viewAllAccountManagerDataGridView;
         private BindingSource databaseConnectionSettingsBindingSource;
         private Button viewAllAccountManagerRefreshDataButton;
     }

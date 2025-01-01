@@ -1,9 +1,7 @@
 ﻿using CRM_WindowsForms.Model;
 using Microsoft.Data.SqlClient;
-using System;
 using System.Data;
 using System.Text;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -56,6 +54,10 @@ namespace CRM_WindowsForms.Presentation
                     accountManagerDetailEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
                     accountManagerDetailTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
                     accountManagerDetailAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
+                    accountManagerDetailCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
+                    accountManagerDetailCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp"].ToString();
+                    accountManagerDetailLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
+                    accountManagerDetailLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp"].ToString();
                     accountManagerDetailActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
 
                     accountManagerDetailFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
@@ -253,12 +255,12 @@ namespace CRM_WindowsForms.Presentation
                     };
 
                     await executor.ExecuteAsync("[dbo].[spUpdateAccountManager]", parameters);
-                    MessageBox.Show("Account manager details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Account Manager details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to update account manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show($"Failed to update Account Manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

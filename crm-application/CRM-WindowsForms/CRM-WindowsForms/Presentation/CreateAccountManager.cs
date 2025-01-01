@@ -1,8 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using Microsoft.Data.SqlClient;
-using System;
 using System.Text;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -88,7 +86,7 @@ namespace CRM_WindowsForms.Presentation
             return false;
         }
 
-        private async void addNewAccountManagerSubmitButton_Click(object sender, EventArgs e)
+        private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {

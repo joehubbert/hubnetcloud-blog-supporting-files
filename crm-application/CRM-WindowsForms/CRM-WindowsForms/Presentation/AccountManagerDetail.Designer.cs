@@ -31,6 +31,14 @@
             accountManagerDetailTitleLabel = new Label();
             accountManagerDetailTabControl = new TabControl();
             accountManagerInformation = new TabPage();
+            accountManagerDetailLastUpdatedTimestampLabel = new Label();
+            accountManagerDetailCreatedTimestampLabel = new Label();
+            accountManagerDetailLastUpdatedByLabel = new Label();
+            accountManagerDetailCreatedByLabel = new Label();
+            accountManagerDetailLastUpdatedByTextbox = new TextBox();
+            accountManagerDetailCreatedTimestampTextbox = new TextBox();
+            accountManagerDetailLastUpdatedTimestampTextbox = new TextBox();
+            accountManagerDetailCreatedByTextbox = new TextBox();
             accountManagerDetailToggleEditModeButton = new Button();
             accountManagerDetailAccountManagerIdLabel = new Label();
             accountManagerDetailAccountManagerIdTextbox = new TextBox();
@@ -56,7 +64,7 @@
             // 
             accountManagerDetailTitleLabel.AutoSize = true;
             accountManagerDetailTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            accountManagerDetailTitleLabel.Location = new Point(36, 36);
+            accountManagerDetailTitleLabel.Location = new Point(13, 9);
             accountManagerDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailTitleLabel.Name = "accountManagerDetailTitleLabel";
             accountManagerDetailTitleLabel.Size = new Size(292, 32);
@@ -68,7 +76,7 @@
             accountManagerDetailTabControl.Appearance = TabAppearance.FlatButtons;
             accountManagerDetailTabControl.Controls.Add(accountManagerInformation);
             accountManagerDetailTabControl.Controls.Add(associatedCustomers);
-            accountManagerDetailTabControl.Location = new Point(36, 104);
+            accountManagerDetailTabControl.Location = new Point(13, 56);
             accountManagerDetailTabControl.Multiline = true;
             accountManagerDetailTabControl.Name = "accountManagerDetailTabControl";
             accountManagerDetailTabControl.SelectedIndex = 0;
@@ -77,7 +85,15 @@
             // 
             // accountManagerInformation
             // 
-            accountManagerInformation.BackColor = Color.Khaki;
+            accountManagerInformation.BackColor = Color.LemonChiffon;
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedTimestampLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedTimestampLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedByLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedByLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedByTextbox);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedTimestampTextbox);
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedTimestampTextbox);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedByTextbox);
             accountManagerInformation.Controls.Add(accountManagerDetailToggleEditModeButton);
             accountManagerInformation.Controls.Add(accountManagerDetailAccountManagerIdLabel);
             accountManagerInformation.Controls.Add(accountManagerDetailAccountManagerIdTextbox);
@@ -98,6 +114,98 @@
             accountManagerInformation.TabIndex = 0;
             accountManagerInformation.Text = "Account Manager Information";
             // 
+            // accountManagerDetailLastUpdatedTimestampLabel
+            // 
+            accountManagerDetailLastUpdatedTimestampLabel.AutoSize = true;
+            accountManagerDetailLastUpdatedTimestampLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedTimestampLabel.Location = new Point(700, 180);
+            accountManagerDetailLastUpdatedTimestampLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailLastUpdatedTimestampLabel.Name = "accountManagerDetailLastUpdatedTimestampLabel";
+            accountManagerDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
+            accountManagerDetailLastUpdatedTimestampLabel.TabIndex = 32;
+            accountManagerDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            // 
+            // accountManagerDetailCreatedTimestampLabel
+            // 
+            accountManagerDetailCreatedTimestampLabel.AutoSize = true;
+            accountManagerDetailCreatedTimestampLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedTimestampLabel.Location = new Point(735, 106);
+            accountManagerDetailCreatedTimestampLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailCreatedTimestampLabel.Name = "accountManagerDetailCreatedTimestampLabel";
+            accountManagerDetailCreatedTimestampLabel.Size = new Size(139, 20);
+            accountManagerDetailCreatedTimestampLabel.TabIndex = 31;
+            accountManagerDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            // 
+            // accountManagerDetailLastUpdatedByLabel
+            // 
+            accountManagerDetailLastUpdatedByLabel.AutoSize = true;
+            accountManagerDetailLastUpdatedByLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedByLabel.Location = new Point(757, 143);
+            accountManagerDetailLastUpdatedByLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailLastUpdatedByLabel.Name = "accountManagerDetailLastUpdatedByLabel";
+            accountManagerDetailLastUpdatedByLabel.Size = new Size(117, 20);
+            accountManagerDetailLastUpdatedByLabel.TabIndex = 30;
+            accountManagerDetailLastUpdatedByLabel.Text = "Last Updated By";
+            // 
+            // accountManagerDetailCreatedByLabel
+            // 
+            accountManagerDetailCreatedByLabel.AutoSize = true;
+            accountManagerDetailCreatedByLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedByLabel.Location = new Point(794, 69);
+            accountManagerDetailCreatedByLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailCreatedByLabel.Name = "accountManagerDetailCreatedByLabel";
+            accountManagerDetailCreatedByLabel.Size = new Size(81, 20);
+            accountManagerDetailCreatedByLabel.TabIndex = 29;
+            accountManagerDetailCreatedByLabel.Text = "Created By";
+            // 
+            // accountManagerDetailLastUpdatedByTextbox
+            // 
+            accountManagerDetailLastUpdatedByTextbox.Enabled = false;
+            accountManagerDetailLastUpdatedByTextbox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedByTextbox.Location = new Point(894, 140);
+            accountManagerDetailLastUpdatedByTextbox.Margin = new Padding(4);
+            accountManagerDetailLastUpdatedByTextbox.MaxLength = 50;
+            accountManagerDetailLastUpdatedByTextbox.Name = "accountManagerDetailLastUpdatedByTextbox";
+            accountManagerDetailLastUpdatedByTextbox.ReadOnly = true;
+            accountManagerDetailLastUpdatedByTextbox.Size = new Size(340, 27);
+            accountManagerDetailLastUpdatedByTextbox.TabIndex = 26;
+            // 
+            // accountManagerDetailCreatedTimestampTextbox
+            // 
+            accountManagerDetailCreatedTimestampTextbox.Enabled = false;
+            accountManagerDetailCreatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedTimestampTextbox.Location = new Point(894, 103);
+            accountManagerDetailCreatedTimestampTextbox.Margin = new Padding(4);
+            accountManagerDetailCreatedTimestampTextbox.MaxLength = 50;
+            accountManagerDetailCreatedTimestampTextbox.Name = "accountManagerDetailCreatedTimestampTextbox";
+            accountManagerDetailCreatedTimestampTextbox.ReadOnly = true;
+            accountManagerDetailCreatedTimestampTextbox.Size = new Size(340, 27);
+            accountManagerDetailCreatedTimestampTextbox.TabIndex = 27;
+            // 
+            // accountManagerDetailLastUpdatedTimestampTextbox
+            // 
+            accountManagerDetailLastUpdatedTimestampTextbox.Enabled = false;
+            accountManagerDetailLastUpdatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedTimestampTextbox.Location = new Point(894, 177);
+            accountManagerDetailLastUpdatedTimestampTextbox.Margin = new Padding(4);
+            accountManagerDetailLastUpdatedTimestampTextbox.MaxLength = 13;
+            accountManagerDetailLastUpdatedTimestampTextbox.Name = "accountManagerDetailLastUpdatedTimestampTextbox";
+            accountManagerDetailLastUpdatedTimestampTextbox.ReadOnly = true;
+            accountManagerDetailLastUpdatedTimestampTextbox.Size = new Size(340, 27);
+            accountManagerDetailLastUpdatedTimestampTextbox.TabIndex = 28;
+            // 
+            // accountManagerDetailCreatedByTextbox
+            // 
+            accountManagerDetailCreatedByTextbox.Enabled = false;
+            accountManagerDetailCreatedByTextbox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedByTextbox.Location = new Point(894, 66);
+            accountManagerDetailCreatedByTextbox.Margin = new Padding(4);
+            accountManagerDetailCreatedByTextbox.MaxLength = 50;
+            accountManagerDetailCreatedByTextbox.Name = "accountManagerDetailCreatedByTextbox";
+            accountManagerDetailCreatedByTextbox.ReadOnly = true;
+            accountManagerDetailCreatedByTextbox.Size = new Size(340, 27);
+            accountManagerDetailCreatedByTextbox.TabIndex = 25;
+            // 
             // accountManagerDetailToggleEditModeButton
             // 
             accountManagerDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
@@ -115,7 +223,7 @@
             // 
             accountManagerDetailAccountManagerIdLabel.AutoSize = true;
             accountManagerDetailAccountManagerIdLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailAccountManagerIdLabel.Location = new Point(61, 194);
+            accountManagerDetailAccountManagerIdLabel.Location = new Point(24, 25);
             accountManagerDetailAccountManagerIdLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailAccountManagerIdLabel.Name = "accountManagerDetailAccountManagerIdLabel";
             accountManagerDetailAccountManagerIdLabel.Size = new Size(143, 20);
@@ -125,11 +233,12 @@
             // accountManagerDetailAccountManagerIdTextbox
             // 
             accountManagerDetailAccountManagerIdTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailAccountManagerIdTextbox.Location = new Point(249, 191);
+            accountManagerDetailAccountManagerIdTextbox.Location = new Point(184, 22);
             accountManagerDetailAccountManagerIdTextbox.Margin = new Padding(4);
+            accountManagerDetailAccountManagerIdTextbox.MaxLength = 36;
             accountManagerDetailAccountManagerIdTextbox.Name = "accountManagerDetailAccountManagerIdTextbox";
             accountManagerDetailAccountManagerIdTextbox.ReadOnly = true;
-            accountManagerDetailAccountManagerIdTextbox.Size = new Size(524, 27);
+            accountManagerDetailAccountManagerIdTextbox.Size = new Size(340, 27);
             accountManagerDetailAccountManagerIdTextbox.TabIndex = 5;
             // 
             // accountManagerDetailUpdateAccountManagerButton
@@ -140,7 +249,7 @@
             accountManagerDetailUpdateAccountManagerButton.Location = new Point(630, 395);
             accountManagerDetailUpdateAccountManagerButton.Margin = new Padding(4);
             accountManagerDetailUpdateAccountManagerButton.Name = "accountManagerDetailUpdateAccountManagerButton";
-            accountManagerDetailUpdateAccountManagerButton.Size = new Size(258, 92);
+            accountManagerDetailUpdateAccountManagerButton.Size = new Size(214, 67);
             accountManagerDetailUpdateAccountManagerButton.TabIndex = 20;
             accountManagerDetailUpdateAccountManagerButton.Text = "Update Account Manager";
             accountManagerDetailUpdateAccountManagerButton.UseVisualStyleBackColor = true;
@@ -151,19 +260,19 @@
             accountManagerDetailActiveStatusCheckbox.AutoSize = true;
             accountManagerDetailActiveStatusCheckbox.Enabled = false;
             accountManagerDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            accountManagerDetailActiveStatusCheckbox.Location = new Point(945, 190);
+            accountManagerDetailActiveStatusCheckbox.Location = new Point(265, 265);
             accountManagerDetailActiveStatusCheckbox.Margin = new Padding(4);
             accountManagerDetailActiveStatusCheckbox.Name = "accountManagerDetailActiveStatusCheckbox";
-            accountManagerDetailActiveStatusCheckbox.Size = new Size(69, 24);
+            accountManagerDetailActiveStatusCheckbox.Size = new Size(190, 24);
             accountManagerDetailActiveStatusCheckbox.TabIndex = 19;
-            accountManagerDetailActiveStatusCheckbox.Text = "Active";
+            accountManagerDetailActiveStatusCheckbox.Text = "Active Account Manager";
             accountManagerDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // accountManagerDetailTelephoneNumberLabel
             // 
             accountManagerDetailTelephoneNumberLabel.AutoSize = true;
             accountManagerDetailTelephoneNumberLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTelephoneNumberLabel.Location = new Point(666, 130);
+            accountManagerDetailTelephoneNumberLabel.Location = new Point(31, 180);
             accountManagerDetailTelephoneNumberLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailTelephoneNumberLabel.Name = "accountManagerDetailTelephoneNumberLabel";
             accountManagerDetailTelephoneNumberLabel.Size = new Size(136, 20);
@@ -174,7 +283,7 @@
             // 
             accountManagerDetailEmailAddressLabel.AutoSize = true;
             accountManagerDetailEmailAddressLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailEmailAddressLabel.Location = new Point(101, 130);
+            accountManagerDetailEmailAddressLabel.Location = new Point(64, 106);
             accountManagerDetailEmailAddressLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailEmailAddressLabel.Name = "accountManagerDetailEmailAddressLabel";
             accountManagerDetailEmailAddressLabel.Size = new Size(103, 20);
@@ -185,7 +294,7 @@
             // 
             accountManagerDetailLastNameLabel.AutoSize = true;
             accountManagerDetailLastNameLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailLastNameLabel.Location = new Point(666, 69);
+            accountManagerDetailLastNameLabel.Location = new Point(88, 143);
             accountManagerDetailLastNameLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailLastNameLabel.Name = "accountManagerDetailLastNameLabel";
             accountManagerDetailLastNameLabel.Size = new Size(79, 20);
@@ -196,7 +305,7 @@
             // 
             accountManagerDetailFirstNameLabel.AutoSize = true;
             accountManagerDetailFirstNameLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailFirstNameLabel.Location = new Point(124, 69);
+            accountManagerDetailFirstNameLabel.Location = new Point(87, 69);
             accountManagerDetailFirstNameLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailFirstNameLabel.Name = "accountManagerDetailFirstNameLabel";
             accountManagerDetailFirstNameLabel.Size = new Size(80, 20);
@@ -207,8 +316,9 @@
             // 
             accountManagerDetailLastNameTextbox.Enabled = false;
             accountManagerDetailLastNameTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailLastNameTextbox.Location = new Point(837, 66);
+            accountManagerDetailLastNameTextbox.Location = new Point(184, 140);
             accountManagerDetailLastNameTextbox.Margin = new Padding(4);
+            accountManagerDetailLastNameTextbox.MaxLength = 50;
             accountManagerDetailLastNameTextbox.Name = "accountManagerDetailLastNameTextbox";
             accountManagerDetailLastNameTextbox.Size = new Size(340, 27);
             accountManagerDetailLastNameTextbox.TabIndex = 2;
@@ -217,8 +327,9 @@
             // 
             accountManagerDetailEmailAddressTextbox.Enabled = false;
             accountManagerDetailEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailEmailAddressTextbox.Location = new Point(249, 127);
+            accountManagerDetailEmailAddressTextbox.Location = new Point(184, 103);
             accountManagerDetailEmailAddressTextbox.Margin = new Padding(4);
+            accountManagerDetailEmailAddressTextbox.MaxLength = 50;
             accountManagerDetailEmailAddressTextbox.Name = "accountManagerDetailEmailAddressTextbox";
             accountManagerDetailEmailAddressTextbox.Size = new Size(340, 27);
             accountManagerDetailEmailAddressTextbox.TabIndex = 3;
@@ -227,8 +338,9 @@
             // 
             accountManagerDetailTelephoneNumberTextbox.Enabled = false;
             accountManagerDetailTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTelephoneNumberTextbox.Location = new Point(837, 127);
+            accountManagerDetailTelephoneNumberTextbox.Location = new Point(184, 177);
             accountManagerDetailTelephoneNumberTextbox.Margin = new Padding(4);
+            accountManagerDetailTelephoneNumberTextbox.MaxLength = 13;
             accountManagerDetailTelephoneNumberTextbox.Name = "accountManagerDetailTelephoneNumberTextbox";
             accountManagerDetailTelephoneNumberTextbox.Size = new Size(340, 27);
             accountManagerDetailTelephoneNumberTextbox.TabIndex = 4;
@@ -237,15 +349,16 @@
             // 
             accountManagerDetailFirstNameTextbox.Enabled = false;
             accountManagerDetailFirstNameTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailFirstNameTextbox.Location = new Point(249, 66);
+            accountManagerDetailFirstNameTextbox.Location = new Point(184, 66);
             accountManagerDetailFirstNameTextbox.Margin = new Padding(4);
+            accountManagerDetailFirstNameTextbox.MaxLength = 50;
             accountManagerDetailFirstNameTextbox.Name = "accountManagerDetailFirstNameTextbox";
             accountManagerDetailFirstNameTextbox.Size = new Size(340, 27);
             accountManagerDetailFirstNameTextbox.TabIndex = 0;
             // 
             // associatedCustomers
             // 
-            associatedCustomers.BackColor = Color.Khaki;
+            associatedCustomers.BackColor = Color.LemonChiffon;
             associatedCustomers.Controls.Add(accountManagerDetailAssociatedCustomerDataGridView);
             associatedCustomers.Location = new Point(4, 27);
             associatedCustomers.Name = "associatedCustomers";
@@ -271,11 +384,12 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
-            ClientSize = new Size(1619, 775);
+            BackColor = Color.LemonChiffon;
+            ClientSize = new Size(1579, 679);
             Controls.Add(accountManagerDetailTabControl);
             Controls.Add(accountManagerDetailTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "AccountManagerDetail";
@@ -310,5 +424,13 @@
         private Label accountManagerDetailAccountManagerIdLabel;
         private TextBox accountManagerDetailAccountManagerIdTextbox;
         private Button accountManagerDetailToggleEditModeButton;
+        private Label accountManagerDetailLastUpdatedTimestampLabel;
+        private Label accountManagerDetailCreatedTimestampLabel;
+        private Label accountManagerDetailLastUpdatedByLabel;
+        private Label accountManagerDetailCreatedByLabel;
+        private TextBox accountManagerDetailLastUpdatedByTextbox;
+        private TextBox accountManagerDetailCreatedTimestampTextbox;
+        private TextBox accountManagerDetailLastUpdatedTimestampTextbox;
+        private TextBox accountManagerDetailCreatedByTextbox;
     }
 }

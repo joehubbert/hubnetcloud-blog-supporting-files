@@ -45,7 +45,7 @@
             // 
             createAccountManagerTitleLabel.AutoSize = true;
             createAccountManagerTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createAccountManagerTitleLabel.Location = new Point(28, 23);
+            createAccountManagerTitleLabel.Location = new Point(13, 9);
             createAccountManagerTitleLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerTitleLabel.Name = "createAccountManagerTitleLabel";
             createAccountManagerTitleLabel.Size = new Size(298, 32);
@@ -55,8 +55,9 @@
             // createAccountManagerFirstNameTextbox
             // 
             createAccountManagerFirstNameTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerFirstNameTextbox.Location = new Point(199, 130);
+            createAccountManagerFirstNameTextbox.Location = new Point(165, 61);
             createAccountManagerFirstNameTextbox.Margin = new Padding(4);
+            createAccountManagerFirstNameTextbox.MaxLength = 50;
             createAccountManagerFirstNameTextbox.Name = "createAccountManagerFirstNameTextbox";
             createAccountManagerFirstNameTextbox.Size = new Size(340, 27);
             createAccountManagerFirstNameTextbox.TabIndex = 0;
@@ -64,8 +65,9 @@
             // createAccountManagerTelephoneNumberTextbox
             // 
             createAccountManagerTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerTelephoneNumberTextbox.Location = new Point(768, 196);
+            createAccountManagerTelephoneNumberTextbox.Location = new Point(165, 181);
             createAccountManagerTelephoneNumberTextbox.Margin = new Padding(4);
+            createAccountManagerTelephoneNumberTextbox.MaxLength = 13;
             createAccountManagerTelephoneNumberTextbox.Name = "createAccountManagerTelephoneNumberTextbox";
             createAccountManagerTelephoneNumberTextbox.Size = new Size(340, 27);
             createAccountManagerTelephoneNumberTextbox.TabIndex = 3;
@@ -73,8 +75,9 @@
             // createAccountManagerEmailAddressTextbox
             // 
             createAccountManagerEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerEmailAddressTextbox.Location = new Point(199, 196);
+            createAccountManagerEmailAddressTextbox.Location = new Point(165, 141);
             createAccountManagerEmailAddressTextbox.Margin = new Padding(4);
+            createAccountManagerEmailAddressTextbox.MaxLength = 50;
             createAccountManagerEmailAddressTextbox.Name = "createAccountManagerEmailAddressTextbox";
             createAccountManagerEmailAddressTextbox.Size = new Size(340, 27);
             createAccountManagerEmailAddressTextbox.TabIndex = 2;
@@ -82,8 +85,9 @@
             // createAccountManagerLastNameTextbox
             // 
             createAccountManagerLastNameTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerLastNameTextbox.Location = new Point(768, 130);
+            createAccountManagerLastNameTextbox.Location = new Point(165, 101);
             createAccountManagerLastNameTextbox.Margin = new Padding(4);
+            createAccountManagerLastNameTextbox.MaxLength = 50;
             createAccountManagerLastNameTextbox.Name = "createAccountManagerLastNameTextbox";
             createAccountManagerLastNameTextbox.Size = new Size(340, 27);
             createAccountManagerLastNameTextbox.TabIndex = 1;
@@ -92,20 +96,20 @@
             // 
             createAccountManagerSubmitButton.FlatStyle = FlatStyle.Flat;
             createAccountManagerSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createAccountManagerSubmitButton.Location = new Point(500, 350);
+            createAccountManagerSubmitButton.Location = new Point(175, 294);
             createAccountManagerSubmitButton.Margin = new Padding(4);
             createAccountManagerSubmitButton.Name = "createAccountManagerSubmitButton";
             createAccountManagerSubmitButton.Size = new Size(198, 66);
             createAccountManagerSubmitButton.TabIndex = 4;
             createAccountManagerSubmitButton.Text = "Submit";
             createAccountManagerSubmitButton.UseVisualStyleBackColor = true;
-            createAccountManagerSubmitButton.Click += addNewAccountManagerSubmitButton_Click;
+            createAccountManagerSubmitButton.Click += createAccountManagerSubmitButton_Click;
             // 
             // createAccountManagerFirstNameLabel
             // 
             createAccountManagerFirstNameLabel.AutoSize = true;
             createAccountManagerFirstNameLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerFirstNameLabel.Location = new Point(74, 133);
+            createAccountManagerFirstNameLabel.Location = new Point(73, 64);
             createAccountManagerFirstNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerFirstNameLabel.Name = "createAccountManagerFirstNameLabel";
             createAccountManagerFirstNameLabel.Size = new Size(80, 20);
@@ -116,7 +120,7 @@
             // 
             createAccountManagerLastNameLabel.AutoSize = true;
             createAccountManagerLastNameLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerLastNameLabel.Location = new Point(664, 137);
+            createAccountManagerLastNameLabel.Location = new Point(73, 106);
             createAccountManagerLastNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerLastNameLabel.Name = "createAccountManagerLastNameLabel";
             createAccountManagerLastNameLabel.Size = new Size(79, 20);
@@ -127,7 +131,7 @@
             // 
             createAccountManagerEmailAddressLabel.AutoSize = true;
             createAccountManagerEmailAddressLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerEmailAddressLabel.Location = new Point(51, 199);
+            createAccountManagerEmailAddressLabel.Location = new Point(49, 145);
             createAccountManagerEmailAddressLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerEmailAddressLabel.Name = "createAccountManagerEmailAddressLabel";
             createAccountManagerEmailAddressLabel.Size = new Size(103, 20);
@@ -138,7 +142,7 @@
             // 
             createAccountManagerTelephoneNumberLabel.AutoSize = true;
             createAccountManagerTelephoneNumberLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerTelephoneNumberLabel.Location = new Point(607, 203);
+            createAccountManagerTelephoneNumberLabel.Location = new Point(17, 183);
             createAccountManagerTelephoneNumberLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerTelephoneNumberLabel.Name = "createAccountManagerTelephoneNumberLabel";
             createAccountManagerTelephoneNumberLabel.Size = new Size(136, 20);
@@ -151,20 +155,20 @@
             createAccountManagerActiveStatusCheckbox.Checked = true;
             createAccountManagerActiveStatusCheckbox.CheckState = CheckState.Checked;
             createAccountManagerActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createAccountManagerActiveStatusCheckbox.Location = new Point(894, 267);
+            createAccountManagerActiveStatusCheckbox.Location = new Point(183, 245);
             createAccountManagerActiveStatusCheckbox.Margin = new Padding(4);
             createAccountManagerActiveStatusCheckbox.Name = "createAccountManagerActiveStatusCheckbox";
-            createAccountManagerActiveStatusCheckbox.Size = new Size(69, 24);
+            createAccountManagerActiveStatusCheckbox.Size = new Size(190, 24);
             createAccountManagerActiveStatusCheckbox.TabIndex = 10;
-            createAccountManagerActiveStatusCheckbox.Text = "Active";
+            createAccountManagerActiveStatusCheckbox.Text = "Active Account Manager";
             createAccountManagerActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // CreateAccountManager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.Khaki;
-            ClientSize = new Size(1206, 451);
+            BackColor = Color.LemonChiffon;
+            ClientSize = new Size(551, 389);
             Controls.Add(createAccountManagerActiveStatusCheckbox);
             Controls.Add(createAccountManagerTelephoneNumberLabel);
             Controls.Add(createAccountManagerEmailAddressLabel);

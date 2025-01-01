@@ -1,9 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
-using Microsoft.Data.SqlClient;
-using System;
 using System.Data;
-using System.Diagnostics;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -15,7 +11,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllAccountManagersDataGridView.CellContentClick += viewAllAccountManagersDataGridView_CellContentClick;
+            viewAllAccountManagerDataGridView.CellContentClick += viewAllAccountManagerDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -42,12 +38,13 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    viewAllAccountManagersDataGridView.AutoGenerateColumns = true;
-                    viewAllAccountManagersDataGridView.DataSource = dataTable;
-                    viewAllAccountManagersDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    if (viewAllAccountManagersDataGridView.Columns.Contains("Details"))
+                    dataTable.DefaultView.Sort = "Last Name ASC";
+                    viewAllAccountManagerDataGridView.AutoGenerateColumns = true;
+                    viewAllAccountManagerDataGridView.DataSource = dataTable;
+                    viewAllAccountManagerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (viewAllAccountManagerDataGridView.Columns.Contains("Details"))
                     {
-                        viewAllAccountManagersDataGridView.Columns.Remove("Details");
+                        viewAllAccountManagerDataGridView.Columns.Remove("Details");
                     }
                     DataGridViewLinkColumn accountManagerDetailLink = new DataGridViewLinkColumn
                     {
@@ -56,7 +53,7 @@ namespace CRM_WindowsForms.Presentation
                         UseColumnTextForLinkValue = true,
                         Name = "Details"
                     };
-                    viewAllAccountManagersDataGridView.Columns.Add(accountManagerDetailLink);
+                    viewAllAccountManagerDataGridView.Columns.Add(accountManagerDetailLink);
                 }
             }
             catch (Exception ex)
@@ -65,15 +62,15 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllAccountManagersDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllAccountManagerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == viewAllAccountManagersDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == viewAllAccountManagerDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
                 try
                 {
-                    if (viewAllAccountManagersDataGridView.Columns.Contains("Account Manager Id"))
+                    if (viewAllAccountManagerDataGridView.Columns.Contains("Account Manager Id"))
                     {
-                        Guid accountManagerId = (Guid)viewAllAccountManagersDataGridView.Rows[e.RowIndex].Cells["Account Manager Id"].Value;
+                        Guid accountManagerId = (Guid)viewAllAccountManagerDataGridView.Rows[e.RowIndex].Cells["Account Manager Id"].Value;
                         AccountManagerDetail accountManagerDetailForm = new AccountManagerDetail(accountManagerId);
                         accountManagerDetailForm.Show();
                     }

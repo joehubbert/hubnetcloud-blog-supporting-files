@@ -83,7 +83,7 @@
             createCustomerNoteTypeActiveStatusCheckbox.Checked = true;
             createCustomerNoteTypeActiveStatusCheckbox.CheckState = CheckState.Checked;
             createCustomerNoteTypeActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCustomerNoteTypeActiveStatusCheckbox.Location = new Point(181, 147);
+            createCustomerNoteTypeActiveStatusCheckbox.Location = new Point(193, 146);
             createCustomerNoteTypeActiveStatusCheckbox.Margin = new Padding(5);
             createCustomerNoteTypeActiveStatusCheckbox.Name = "createCustomerNoteTypeActiveStatusCheckbox";
             createCustomerNoteTypeActiveStatusCheckbox.Size = new Size(208, 24);

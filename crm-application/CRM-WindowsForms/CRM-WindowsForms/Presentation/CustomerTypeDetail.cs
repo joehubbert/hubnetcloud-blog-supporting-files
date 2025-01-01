@@ -1,14 +1,7 @@
 ﻿using CRM_WindowsForms.Model;
 using Microsoft.Data.SqlClient;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {

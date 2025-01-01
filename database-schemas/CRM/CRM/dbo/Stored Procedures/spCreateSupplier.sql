@@ -9,7 +9,8 @@
     @emailAddress NVARCHAR(50),
     @paymentCurrencyId UNIQUEIDENTIFIER,
     @paymentDays INT,
-    @telephoneNumber NVARCHAR(50)
+    @telephoneNumber NVARCHAR(50),
+    @vatNumber NVARCHAR(50) = NULL
 AS
 
 CREATE TABLE #SupplierTemp
@@ -24,6 +25,7 @@ CREATE TABLE #SupplierTemp
     [EmailAddress] NVARCHAR(50) NOT NULL,
     [PaymentDays] INT NOT NULL,
     [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
+    [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL
     CONSTRAINT [FK_Supplier_Currency] FOREIGN KEY ([PaymentCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId])
 )
@@ -40,6 +42,7 @@ INSERT INTO #SupplierTemp
     [EmailAddress],
     [PaymentDays],
     [PaymentCurrencyId],
+    [VATNumber],
     [ActiveStatus]
 )
 VALUES
@@ -54,6 +57,7 @@ VALUES
     @emailAddress,
     @paymentDays,
     @paymentCurrencyId,
+    @vatNumber,
     @activeStatus
 )
 
@@ -72,6 +76,7 @@ AND S.[EmailAddress] = ST.[EmailAddress]
 AND S.[PaymentCurrencyId] = ST.[PaymentCurrencyId]
 AND S.[PaymentDays] = ST.[PaymentDays]
 AND S.[TelephoneNumber] = ST.[TelephoneNumber]
+AND S.[VATNumber] = ST.[VATNumber]
 WHERE S.[ActiveStatus] = ST.[ActiveStatus]
 AND S.[AddressLine1] = ST.[AddressLine1]
 AND S.[AddressLine2] = ST.[AddressLine2]
@@ -83,6 +88,7 @@ AND S.[EmailAddress] = ST.[EmailAddress]
 AND S.[PaymentCurrencyId] = ST.[PaymentCurrencyId]
 AND S.[PaymentDays] = ST.[PaymentDays]
 AND S.[TelephoneNumber] = ST.[TelephoneNumber]
+AND S.[VATNumber] = ST.[VATNumber]
 )
 THROW 50000, 'Supplier already exists, please update the existing record.', 1;
 ELSE
@@ -94,6 +100,7 @@ AND target.[AddressLine3] = source.[AddressLine3]
 AND target.[AddressLine4] = source.[AddressLine4]
 AND target.[AddressLine5] = source.[AddressLine5]
 AND target.[CompanyName] = source.[CompanyName]
+AND target.[VATNumber] = source.[VATNumber]
 WHEN NOT MATCHED THEN
 INSERT
 (
@@ -107,6 +114,7 @@ INSERT
     [EmailAddress],
     [PaymentDays],
     [PaymentCurrencyId],
+    [VATNumber],
     [ActiveStatus]
 )
 VALUES
@@ -121,6 +129,7 @@ VALUES
     source.[EmailAddress],
     source.[PaymentDays],
     source.[PaymentCurrencyId],
+    source.[VATNumber],
     source.[ActiveStatus]
 );
 

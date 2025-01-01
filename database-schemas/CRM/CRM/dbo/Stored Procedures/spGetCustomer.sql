@@ -42,6 +42,7 @@ SELECT
 [Credit Limit Used Percentage],
 [Remaining Credit Limit],
 [Payment Days],
+[VAT Number],
 [Global Parent Customer],
 [Top Parent Customer],
 [Active Status],

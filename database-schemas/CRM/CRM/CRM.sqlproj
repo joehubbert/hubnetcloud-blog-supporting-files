@@ -236,6 +236,10 @@
     <Build Include="dbo\Stored Procedures\spGetAllOrderLineItemStatusHistory.sql" />
     <Build Include="dbo\Views\vwOrderLineItemStatusHistory.sql" />
     <Build Include="dbo\Views\vwOrderStatusHistory.sql" />
+    <Build Include="dbo\Tables\CompanyConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\spGetCompanyConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateCompanyConfiguration.sql" />
+    <Build Include="dbo\Views\vwCompanyConfiguration.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

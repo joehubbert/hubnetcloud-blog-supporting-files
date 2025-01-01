@@ -1,9 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spGetSupplier]
-	@supplierId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetCompanyConfiguration]
+	@companyId UNIQUEIDENTIFIER
 AS
 
 SELECT
-[Supplier Id],
+[Company Id],
 [Company Name],
 [Address Line 1],
 [Address Line 2],
@@ -12,12 +12,10 @@ SELECT
 [Address Line 5],
 [Telephone Number],
 [Email Address],
-[Payment Days],
-[Payment Currency],
 [VAT Number],
 [Created Timestamp],
 [Created By],
 [Modified Timestamp],
 [Modified By]
-FROM [dbo].[vwSupplier]
-WHERE [Supplier Id] = @supplierId
+FROM [dbo].[vwCompanyConfiguration]
+WHERE [Company Id] = @companyId

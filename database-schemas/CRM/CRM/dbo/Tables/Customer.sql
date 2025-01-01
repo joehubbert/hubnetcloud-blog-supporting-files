@@ -33,6 +33,7 @@
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NULL,
     [PaymentDays] INT NOT NULL,
+    [VATNumber] NVARCHAR(50) NULL,
     [GlobalParentCustomer] BIT NOT NULL,
     [TopParentCustomer] BIT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
@@ -46,6 +47,7 @@
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
+    CONSTRAINT [FK_Customer_CustomerType] FOREIGN KEY ([CustomerTypeId]) REFERENCES [dbo].[CustomerType]([CustomerTypeId]),
     CONSTRAINT [FK_Customer_SalesRegion] FOREIGN KEY ([SalesRegionId]) REFERENCES [dbo].[SalesRegion]([SalesRegionId])
 )
 GO

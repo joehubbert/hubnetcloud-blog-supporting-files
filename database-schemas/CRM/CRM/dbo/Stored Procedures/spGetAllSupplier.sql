@@ -12,5 +12,6 @@ SELECT
 [Telephone Number],
 [Email Address],
 [Payment Days],
-[Payment Currency]
+[Payment Currency],
+[VAT Number]
 FROM [dbo].[vwSupplier]

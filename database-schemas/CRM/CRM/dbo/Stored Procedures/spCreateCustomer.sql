@@ -34,7 +34,8 @@
     @shippingTelephoneNumber NVARCHAR(50),
     @shippingEmailAddress NVARCHAR(50),
     @topParentCustomer BIT,
-    @topParentCustomerId UNIQUEIDENTIFIER = NULL
+    @topParentCustomerId UNIQUEIDENTIFIER = NULL,
+    @vatNumber NVARCHAR(50) = NULL
     
 AS
 CREATE TABLE #CustomerTemp
@@ -71,6 +72,7 @@ CREATE TABLE #CustomerTemp
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NULL,
     [PaymentDays] INT NOT NULL,
+    [VATNumber] NVARCHAR(50) NOT NULL,
     [GlobalParentCustomer] BIT NOT NULL,
     [TopParentCustomer] BIT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
@@ -117,6 +119,7 @@ INSERT INTO #CustomerTemp
     [CreditEnabled],
     [CreditLimit],
     [PaymentDays],
+    [VATNumber],
     [GlobalParentCustomer],
     [TopParentCustomer],
     [ActiveStatus],
@@ -156,6 +159,7 @@ VALUES
     @creditEnabled,
     @creditLimit,
     @paymentDays,
+    @vatNumber,
     @globalParentCustomer,
     @topParentCustomer,
     @activeStatus,
@@ -190,6 +194,7 @@ AND C.[ShippingAddressLine4] = CT.[ShippingAddressLine4]
 AND C.[ShippingAddressLine5] = CT.[ShippingAddressLine5]
 AND C.[ShippingTelephoneNumber] = CT.[ShippingTelephoneNumber]
 AND C.[ShippingEmailAddress] = CT.[ShippingEmailAddress]
+AND C.[VATNumber] = CT.[VATNumber]
 WHERE C.[FirstName] = CT.[FirstName]
 AND C.[LastName] = CT.[LastName]
 AND C.[CompanyName] = CT.[CompanyName]
@@ -213,6 +218,7 @@ AND C.[ShippingAddressLine4] = CT.[ShippingAddressLine4]
 AND C.[ShippingAddressLine5] = CT.[ShippingAddressLine5]
 AND C.[ShippingTelephoneNumber] = CT.[ShippingTelephoneNumber]
 AND C.[ShippingEmailAddress] = CT.[ShippingEmailAddress]
+AND C.[VATNumber] = CT.[VATNumber]
 )
 THROW 50000, 'Customer already exists, please update the existing record.', 1;
 ELSE
@@ -250,6 +256,7 @@ AND target.[ShippingEmailAddress] = source.[ShippingEmailAddress]
 AND target.[CreditEnabled] = source.[CreditEnabled]
 AND target.[CreditLimit] = source.[CreditLimit]
 AND target.[PaymentDays] = source.[PaymentDays]
+AND target.[VATNumber] = source.[VATNumber]
 AND target.[GlobalParentCustomer] = source.[GlobalParentCustomer]
 AND target.[TopParentCustomer] = source.[TopParentCustomer]
 AND target.[ActiveStatus] = source.[ActiveStatus]
@@ -289,6 +296,7 @@ INSERT
     [CreditEnabled],
     [CreditLimit],
     [PaymentDays],
+    [VATNumber],
     [GlobalParentCustomer],
     [TopParentCustomer],
     [ActiveStatus],
@@ -328,6 +336,7 @@ VALUES
     source.[CreditEnabled],
     source.[CreditLimit],
     source.[PaymentDays],
+    source.[VATNumber],
     source.[GlobalParentCustomer],
     source.[TopParentCustomer],
     source.[ActiveStatus],

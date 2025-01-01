@@ -32,7 +32,8 @@
     @shippingTelephoneNumber NVARCHAR(50),
     @shippingEmailAddress NVARCHAR(50),
     @topParentCustomer BIT,
-    @topParentCustomerId UNIQUEIDENTIFIER = NULL
+    @topParentCustomerId UNIQUEIDENTIFIER = NULL,
+    @vatNumber NVARCHAR(50) = NULL
 AS
 
 UPDATE [dbo].[Customer]
@@ -69,5 +70,6 @@ SET
     [ShippingTelephoneNumber] = @shippingTelephoneNumber,
     [ShippingEmailAddress] = @shippingEmailAddress,
     [TopParentCustomer] = @topParentCustomer,
-    [TopParentCustomerId] = @topParentCustomerId
+    [TopParentCustomerId] = @topParentCustomerId,
+    [VATNumber] = @vatNumber
 WHERE [CustomerId] = @customerId

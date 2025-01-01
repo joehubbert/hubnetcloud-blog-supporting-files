@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
-    public partial class CustomerManagement : Form
+    public partial class SupplierManagement : Form
     {
-        public CustomerManagement()
+        public SupplierManagement()
         {
             InitializeComponent();
-        }
-
-        private void customerManagementCreateCustomerButton_Click(object sender, EventArgs e)
-        {
-            CreateCustomer createCustomer = new CreateCustomer();
-            createCustomer.Show();
         }
     }
 }

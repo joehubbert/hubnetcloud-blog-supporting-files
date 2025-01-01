@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms.Presentation
 {
-    partial class OrderManagement
+    partial class TaxProfileDetail
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            SuspendLayout();
-            // 
-            // OrderManagement
-            // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 540);
-            Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(4);
-            MaximizeBox = false;
-            Name = "OrderManagement";
-            StartPosition = FormStartPosition.CenterScreen;
-            Text = "CRM - Order Management";
-            ResumeLayout(false);
+            this.components = new System.ComponentModel.Container();
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Text = "TaxProfileDetail";
         }
 
         #endregion

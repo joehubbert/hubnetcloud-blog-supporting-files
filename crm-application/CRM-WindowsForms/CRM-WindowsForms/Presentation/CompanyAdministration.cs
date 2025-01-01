@@ -28,5 +28,29 @@ namespace CRM_WindowsForms.Presentation
             ViewAllAccountManager viewAllAccountManager = new ViewAllAccountManager();
             viewAllAccountManager.Show();
         }
+
+        private void companyAdministrationCreateCustomerTierButton_Click(object sender, EventArgs e)
+        {
+            CreateCustomerTier createCustomerTier = new CreateCustomerTier();
+            createCustomerTier.Show();
+        }
+
+        private void companyAdministrationViewAllCustomerTierButton_Click(object sender, EventArgs e)
+        {
+            ViewAllCustomerTier viewAllCustomerTier = new ViewAllCustomerTier();
+            viewAllCustomerTier.Show();
+        }
+
+        private void companyAdministrationCreateCustomerTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateCustomerType createCustomerType = new CreateCustomerType();
+            createCustomerType.Show();
+        }
+
+        private void companyAdministrationViewAllCustomerTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllCustomerType viewAllCustomerType = new ViewAllCustomerType();
+            viewAllCustomerType.Show();
+        }
     }
 }

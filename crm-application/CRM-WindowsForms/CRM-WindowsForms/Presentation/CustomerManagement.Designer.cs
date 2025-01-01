@@ -28,20 +28,56 @@
         /// </summary>
         private void InitializeComponent()
         {
+            customerManagementTitleLabel = new Label();
+            customerManagementCreateCustomerButton = new Button();
             SuspendLayout();
+            // 
+            // customerManagementTitleLabel
+            // 
+            customerManagementTitleLabel.AutoSize = true;
+            customerManagementTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerManagementTitleLabel.Location = new Point(13, 9);
+            customerManagementTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            customerManagementTitleLabel.Name = "customerManagementTitleLabel";
+            customerManagementTitleLabel.Size = new Size(282, 32);
+            customerManagementTitleLabel.TabIndex = 7;
+            customerManagementTitleLabel.Text = "Customer Management";
+            // 
+            // customerManagementCreateCustomerButton
+            // 
+            customerManagementCreateCustomerButton.FlatStyle = FlatStyle.Flat;
+            customerManagementCreateCustomerButton.Font = new Font("Segoe UI", 11F);
+            customerManagementCreateCustomerButton.Location = new Point(31, 76);
+            customerManagementCreateCustomerButton.Margin = new Padding(4);
+            customerManagementCreateCustomerButton.Name = "customerManagementCreateCustomerButton";
+            customerManagementCreateCustomerButton.Size = new Size(212, 72);
+            customerManagementCreateCustomerButton.TabIndex = 8;
+            customerManagementCreateCustomerButton.Text = "Create Customer";
+            customerManagementCreateCustomerButton.UseVisualStyleBackColor = true;
+            customerManagementCreateCustomerButton.Click += customerManagementCreateCustomerButton_Click;
             // 
             // CustomerManagement
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGreen;
             ClientSize = new Size(960, 540);
+            Controls.Add(customerManagementCreateCustomerButton);
+            Controls.Add(customerManagementTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "CustomerManagement";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Customer Management";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label customerManagementTitleLabel;
+        private Button customerManagementCreateCustomerButton;
     }
 }

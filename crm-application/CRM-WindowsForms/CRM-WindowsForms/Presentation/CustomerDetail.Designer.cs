@@ -28,10 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "CustomerDetail";
+            SuspendLayout();
+            // 
+            // CustomerDetail
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LightGreen;
+            ClientSize = new Size(914, 600);
+            Font = new Font("Segoe UI", 11F);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "CustomerDetail";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CRM - Customer Detail";
+            ResumeLayout(false);
         }
 
         #endregion

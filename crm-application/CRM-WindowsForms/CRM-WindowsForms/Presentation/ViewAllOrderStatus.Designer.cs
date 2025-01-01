@@ -62,7 +62,7 @@
             viewAllOrderStatusTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             viewAllOrderStatusTitleLabel.Location = new Point(12, 9);
             viewAllOrderStatusTitleLabel.Name = "viewAllOrderStatusTitleLabel";
-            viewAllOrderStatusTitleLabel.Size = new Size(296, 32);
+            viewAllOrderStatusTitleLabel.Size = new Size(280, 32);
             viewAllOrderStatusTitleLabel.TabIndex = 13;
             viewAllOrderStatusTitleLabel.Text = "View All Order Statuses";
             // 
@@ -74,7 +74,7 @@
             // 
             viewAllOrderStatusRefreshDataButton.FlatStyle = FlatStyle.Flat;
             viewAllOrderStatusRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            viewAllOrderStatusRefreshDataButton.Location = new Point(326, 7);
+            viewAllOrderStatusRefreshDataButton.Location = new Point(297, 7);
             viewAllOrderStatusRefreshDataButton.Margin = new Padding(2);
             viewAllOrderStatusRefreshDataButton.Name = "viewAllOrderStatusRefreshDataButton";
             viewAllOrderStatusRefreshDataButton.Size = new Size(201, 44);

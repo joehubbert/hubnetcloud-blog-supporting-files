@@ -31,10 +31,20 @@
             createCustomerTitleLabel = new Label();
             createCustomerTabControl = new TabControl();
             createCustomerTabControlOverviewPage = new TabPage();
+            createCustomerOverviewWillBeParentRadioButtonPanel = new Panel();
+            createCustomerOverviewWillBeGlobalParentRadioButton = new RadioButton();
+            createCustomerOverviewWillBeTopParentRadioButton = new RadioButton();
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel = new Panel();
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton = new RadioButton();
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton = new RadioButton();
+            createCustomerOverviewExistingParentCompanyPanel = new Panel();
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton = new RadioButton();
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton = new RadioButton();
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel = new Label();
             createCustomerOverviewSalesRegionComboBoxLabel = new Label();
             createCustomerOverviewSalesRegionComboBox = new ComboBox();
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel = new Label();
-            createCustomerOverviewTopParentComboBoxLabel = new Label();
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel = new Label();
+            createCustomerOverviewTopParentCustomerComboBoxLabel = new Label();
             createCustomerOverviewAccountManagerComboBoxLabel = new Label();
             createCustomerOverviewAccountManagerComboBox = new ComboBox();
             createCustomerOverviewFirstNameTextboxLabel = new Label();
@@ -48,12 +58,10 @@
             createCustomerOverviewCustomerSinceDatePickerLabel = new Label();
             createCustomerOverviewExistingParentCompanyLabel = new Label();
             createCustomerOverviewCustomerTierComboBox = new ComboBox();
-            createCustomerOverviewGlobalCustomerParentComboBox = new ComboBox();
-            createCustomerOverviewTopParentComboBox = new ComboBox();
+            createCustomerOverviewGlobalParentCustomerComboBox = new ComboBox();
+            createCustomerOverviewTopParentCustomerComboBox = new ComboBox();
             createCustomerOverviewCustomerTypeComboBox = new ComboBox();
             createCustomerOverviewCustomerSinceDatePicker = new DateTimePicker();
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton = new RadioButton();
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton = new RadioButton();
             createCustomerOverviewActiveStatusCheckbox = new CheckBox();
             createCustomerTabControlBillingPage = new TabPage();
             createCustomerBillingInformationEmailAddressLabel = new Label();
@@ -110,6 +118,9 @@
             createCustomerSubmitButton = new Button();
             createCustomerTabControl.SuspendLayout();
             createCustomerTabControlOverviewPage.SuspendLayout();
+            createCustomerOverviewWillBeParentRadioButtonPanel.SuspendLayout();
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.SuspendLayout();
+            createCustomerOverviewExistingParentCompanyPanel.SuspendLayout();
             createCustomerTabControlBillingPage.SuspendLayout();
             createCustomerTabControlShippingPage.SuspendLayout();
             createCustomerTabControlFinancePage.SuspendLayout();
@@ -136,16 +147,20 @@
             createCustomerTabControl.Location = new Point(13, 53);
             createCustomerTabControl.Name = "createCustomerTabControl";
             createCustomerTabControl.SelectedIndex = 0;
-            createCustomerTabControl.Size = new Size(1075, 596);
+            createCustomerTabControl.Size = new Size(1075, 530);
             createCustomerTabControl.TabIndex = 7;
             // 
             // createCustomerTabControlOverviewPage
             // 
             createCustomerTabControlOverviewPage.BackColor = Color.LightGreen;
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentRadioButtonPanel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyPanel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyPanel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesRegionComboBoxLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesRegionComboBox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalCustomerParentComboBoxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentComboBoxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalParentCustomerComboBoxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentCustomerComboBoxLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewAccountManagerComboBoxLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewAccountManagerComboBox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewFirstNameTextboxLabel);
@@ -159,19 +174,119 @@
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerSinceDatePickerLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTierComboBox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalCustomerParentComboBox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentComboBox);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalParentCustomerComboBox);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentCustomerComboBox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTypeComboBox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerSinceDatePicker);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingCustomerIsParentNoRadioButton);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingCustomerIsParentYesRadioButton);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewActiveStatusCheckbox);
             createCustomerTabControlOverviewPage.Location = new Point(4, 32);
             createCustomerTabControlOverviewPage.Name = "createCustomerTabControlOverviewPage";
             createCustomerTabControlOverviewPage.Padding = new Padding(3);
-            createCustomerTabControlOverviewPage.Size = new Size(1067, 560);
+            createCustomerTabControlOverviewPage.Size = new Size(1067, 494);
             createCustomerTabControlOverviewPage.TabIndex = 0;
             createCustomerTabControlOverviewPage.Text = "Overview";
+            // 
+            // createCustomerOverviewWillBeParentRadioButtonPanel
+            // 
+            createCustomerOverviewWillBeParentRadioButtonPanel.Controls.Add(createCustomerOverviewWillBeGlobalParentRadioButton);
+            createCustomerOverviewWillBeParentRadioButtonPanel.Controls.Add(createCustomerOverviewWillBeTopParentRadioButton);
+            createCustomerOverviewWillBeParentRadioButtonPanel.Location = new Point(499, 382);
+            createCustomerOverviewWillBeParentRadioButtonPanel.Name = "createCustomerOverviewWillBeParentRadioButtonPanel";
+            createCustomerOverviewWillBeParentRadioButtonPanel.Size = new Size(278, 33);
+            createCustomerOverviewWillBeParentRadioButtonPanel.TabIndex = 44;
+            // 
+            // createCustomerOverviewWillBeGlobalParentRadioButton
+            // 
+            createCustomerOverviewWillBeGlobalParentRadioButton.AutoSize = true;
+            createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+            createCustomerOverviewWillBeGlobalParentRadioButton.Location = new Point(10, 3);
+            createCustomerOverviewWillBeGlobalParentRadioButton.Name = "createCustomerOverviewWillBeGlobalParentRadioButton";
+            createCustomerOverviewWillBeGlobalParentRadioButton.Size = new Size(116, 24);
+            createCustomerOverviewWillBeGlobalParentRadioButton.TabIndex = 40;
+            createCustomerOverviewWillBeGlobalParentRadioButton.Text = "Global Parent";
+            createCustomerOverviewWillBeGlobalParentRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewWillBeTopParentRadioButton
+            // 
+            createCustomerOverviewWillBeTopParentRadioButton.AutoSize = true;
+            createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+            createCustomerOverviewWillBeTopParentRadioButton.Location = new Point(158, 3);
+            createCustomerOverviewWillBeTopParentRadioButton.Name = "createCustomerOverviewWillBeTopParentRadioButton";
+            createCustomerOverviewWillBeTopParentRadioButton.Size = new Size(97, 24);
+            createCustomerOverviewWillBeTopParentRadioButton.TabIndex = 41;
+            createCustomerOverviewWillBeTopParentRadioButton.Text = "Top Parent";
+            createCustomerOverviewWillBeTopParentRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewWillBeParentInCustomerHierarchyPanel
+            // 
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton);
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton);
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.Location = new Point(499, 341);
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.Name = "createCustomerOverviewWillBeParentInCustomerHierarchyPanel";
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.Size = new Size(146, 35);
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.TabIndex = 43;
+            // 
+            // createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton
+            // 
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.AutoSize = true;
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Location = new Point(3, 3);
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Name = "createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton";
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Size = new Size(48, 24);
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.TabIndex = 37;
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Text = "Yes";
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton
+            // 
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.AutoSize = true;
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked = true;
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Location = new Point(79, 3);
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Name = "createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton";
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Size = new Size(47, 24);
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.TabIndex = 38;
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.TabStop = true;
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Text = "No";
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewExistingParentCompanyPanel
+            // 
+            createCustomerOverviewExistingParentCompanyPanel.Controls.Add(createCustomerOverviewExistingCustomerIsParentYesRadioButton);
+            createCustomerOverviewExistingParentCompanyPanel.Controls.Add(createCustomerOverviewExistingCustomerIsParentNoRadioButton);
+            createCustomerOverviewExistingParentCompanyPanel.Location = new Point(499, 152);
+            createCustomerOverviewExistingParentCompanyPanel.Name = "createCustomerOverviewExistingParentCompanyPanel";
+            createCustomerOverviewExistingParentCompanyPanel.Size = new Size(146, 36);
+            createCustomerOverviewExistingParentCompanyPanel.TabIndex = 42;
+            // 
+            // createCustomerOverviewExistingCustomerIsParentYesRadioButton
+            // 
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.AutoSize = true;
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Location = new Point(3, 3);
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Name = "createCustomerOverviewExistingCustomerIsParentYesRadioButton";
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Size = new Size(48, 24);
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.TabIndex = 12;
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Text = "Yes";
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewExistingCustomerIsParentNoRadioButton
+            // 
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.AutoSize = true;
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked = true;
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Location = new Point(79, 3);
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Name = "createCustomerOverviewExistingCustomerIsParentNoRadioButton";
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Size = new Size(47, 24);
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.TabIndex = 13;
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.TabStop = true;
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Text = "No";
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerOverviewWillBeParentInCustomerHierarchyLabel
+            // 
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.AutoSize = true;
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Location = new Point(499, 318);
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Name = "createCustomerOverviewWillBeParentInCustomerHierarchyLabel";
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Size = new Size(371, 20);
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.TabIndex = 39;
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Text = "Will this customer be a parent in a customer hierarchy?";
             // 
             // createCustomerOverviewSalesRegionComboBoxLabel
             // 
@@ -184,29 +299,30 @@
             // 
             // createCustomerOverviewSalesRegionComboBox
             // 
+            createCustomerOverviewSalesRegionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerOverviewSalesRegionComboBox.FormattingEnabled = true;
-            createCustomerOverviewSalesRegionComboBox.Location = new Point(722, 28);
+            createCustomerOverviewSalesRegionComboBox.Location = new Point(677, 28);
             createCustomerOverviewSalesRegionComboBox.Name = "createCustomerOverviewSalesRegionComboBox";
-            createCustomerOverviewSalesRegionComboBox.Size = new Size(234, 28);
+            createCustomerOverviewSalesRegionComboBox.Size = new Size(370, 28);
             createCustomerOverviewSalesRegionComboBox.TabIndex = 33;
             // 
-            // createCustomerOverviewGlobalCustomerParentComboBoxLabel
+            // createCustomerOverviewGlobalParentCustomerComboBoxLabel
             // 
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.AutoSize = true;
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.Location = new Point(499, 253);
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.Name = "createCustomerOverviewGlobalCustomerParentComboBoxLabel";
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.Size = new Size(165, 20);
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.TabIndex = 32;
-            createCustomerOverviewGlobalCustomerParentComboBoxLabel.Text = "Global Parent Customer";
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.AutoSize = true;
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Location = new Point(499, 205);
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Name = "createCustomerOverviewGlobalParentCustomerComboBoxLabel";
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Size = new Size(165, 20);
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.TabIndex = 32;
+            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Text = "Global Parent Customer";
             // 
-            // createCustomerOverviewTopParentComboBoxLabel
+            // createCustomerOverviewTopParentCustomerComboBoxLabel
             // 
-            createCustomerOverviewTopParentComboBoxLabel.AutoSize = true;
-            createCustomerOverviewTopParentComboBoxLabel.Location = new Point(499, 302);
-            createCustomerOverviewTopParentComboBoxLabel.Name = "createCustomerOverviewTopParentComboBoxLabel";
-            createCustomerOverviewTopParentComboBoxLabel.Size = new Size(146, 20);
-            createCustomerOverviewTopParentComboBoxLabel.TabIndex = 31;
-            createCustomerOverviewTopParentComboBoxLabel.Text = "Top Parent Customer";
+            createCustomerOverviewTopParentCustomerComboBoxLabel.AutoSize = true;
+            createCustomerOverviewTopParentCustomerComboBoxLabel.Location = new Point(499, 254);
+            createCustomerOverviewTopParentCustomerComboBoxLabel.Name = "createCustomerOverviewTopParentCustomerComboBoxLabel";
+            createCustomerOverviewTopParentCustomerComboBoxLabel.Size = new Size(146, 20);
+            createCustomerOverviewTopParentCustomerComboBoxLabel.TabIndex = 31;
+            createCustomerOverviewTopParentCustomerComboBoxLabel.Text = "Top Parent Customer";
             // 
             // createCustomerOverviewAccountManagerComboBoxLabel
             // 
@@ -219,10 +335,11 @@
             // 
             // createCustomerOverviewAccountManagerComboBox
             // 
+            createCustomerOverviewAccountManagerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerOverviewAccountManagerComboBox.FormattingEnabled = true;
-            createCustomerOverviewAccountManagerComboBox.Location = new Point(722, 73);
+            createCustomerOverviewAccountManagerComboBox.Location = new Point(677, 73);
             createCustomerOverviewAccountManagerComboBox.Name = "createCustomerOverviewAccountManagerComboBox";
-            createCustomerOverviewAccountManagerComboBox.Size = new Size(234, 28);
+            createCustomerOverviewAccountManagerComboBox.Size = new Size(370, 28);
             createCustomerOverviewAccountManagerComboBox.TabIndex = 29;
             // 
             // createCustomerOverviewFirstNameTextboxLabel
@@ -311,30 +428,36 @@
             // 
             // createCustomerOverviewCustomerTierComboBox
             // 
+            createCustomerOverviewCustomerTierComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerOverviewCustomerTierComboBox.FormattingEnabled = true;
             createCustomerOverviewCustomerTierComboBox.Location = new Point(168, 296);
             createCustomerOverviewCustomerTierComboBox.Name = "createCustomerOverviewCustomerTierComboBox";
             createCustomerOverviewCustomerTierComboBox.Size = new Size(234, 28);
             createCustomerOverviewCustomerTierComboBox.TabIndex = 18;
             // 
-            // createCustomerOverviewGlobalCustomerParentComboBox
+            // createCustomerOverviewGlobalParentCustomerComboBox
             // 
-            createCustomerOverviewGlobalCustomerParentComboBox.FormattingEnabled = true;
-            createCustomerOverviewGlobalCustomerParentComboBox.Location = new Point(722, 250);
-            createCustomerOverviewGlobalCustomerParentComboBox.Name = "createCustomerOverviewGlobalCustomerParentComboBox";
-            createCustomerOverviewGlobalCustomerParentComboBox.Size = new Size(234, 28);
-            createCustomerOverviewGlobalCustomerParentComboBox.TabIndex = 17;
+            createCustomerOverviewGlobalParentCustomerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerOverviewGlobalParentCustomerComboBox.Enabled = false;
+            createCustomerOverviewGlobalParentCustomerComboBox.FormattingEnabled = true;
+            createCustomerOverviewGlobalParentCustomerComboBox.Location = new Point(677, 202);
+            createCustomerOverviewGlobalParentCustomerComboBox.Name = "createCustomerOverviewGlobalParentCustomerComboBox";
+            createCustomerOverviewGlobalParentCustomerComboBox.Size = new Size(370, 28);
+            createCustomerOverviewGlobalParentCustomerComboBox.TabIndex = 17;
             // 
-            // createCustomerOverviewTopParentComboBox
+            // createCustomerOverviewTopParentCustomerComboBox
             // 
-            createCustomerOverviewTopParentComboBox.FormattingEnabled = true;
-            createCustomerOverviewTopParentComboBox.Location = new Point(722, 294);
-            createCustomerOverviewTopParentComboBox.Name = "createCustomerOverviewTopParentComboBox";
-            createCustomerOverviewTopParentComboBox.Size = new Size(234, 28);
-            createCustomerOverviewTopParentComboBox.TabIndex = 16;
+            createCustomerOverviewTopParentCustomerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerOverviewTopParentCustomerComboBox.Enabled = false;
+            createCustomerOverviewTopParentCustomerComboBox.FormattingEnabled = true;
+            createCustomerOverviewTopParentCustomerComboBox.Location = new Point(677, 246);
+            createCustomerOverviewTopParentCustomerComboBox.Name = "createCustomerOverviewTopParentCustomerComboBox";
+            createCustomerOverviewTopParentCustomerComboBox.Size = new Size(370, 28);
+            createCustomerOverviewTopParentCustomerComboBox.TabIndex = 16;
             // 
             // createCustomerOverviewCustomerTypeComboBox
             // 
+            createCustomerOverviewCustomerTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerOverviewCustomerTypeComboBox.FormattingEnabled = true;
             createCustomerOverviewCustomerTypeComboBox.Location = new Point(168, 250);
             createCustomerOverviewCustomerTypeComboBox.Name = "createCustomerOverviewCustomerTypeComboBox";
@@ -348,40 +471,18 @@
             createCustomerOverviewCustomerSinceDatePicker.Size = new Size(234, 27);
             createCustomerOverviewCustomerSinceDatePicker.TabIndex = 14;
             // 
-            // createCustomerOverviewExistingCustomerIsParentNoRadioButton
-            // 
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.AutoSize = true;
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Location = new Point(499, 189);
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Name = "createCustomerOverviewExistingCustomerIsParentNoRadioButton";
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Size = new Size(47, 24);
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.TabIndex = 13;
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.TabStop = true;
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.Text = "No";
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // createCustomerOverviewExistingCustomerIsParentYesRadioButton
-            // 
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.AutoSize = true;
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Location = new Point(499, 159);
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Name = "createCustomerOverviewExistingCustomerIsParentYesRadioButton";
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Size = new Size(48, 24);
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.TabIndex = 12;
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.TabStop = true;
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.Text = "Yes";
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.UseVisualStyleBackColor = true;
-            // 
             // createCustomerOverviewActiveStatusCheckbox
             // 
             createCustomerOverviewActiveStatusCheckbox.AutoSize = true;
             createCustomerOverviewActiveStatusCheckbox.Checked = true;
             createCustomerOverviewActiveStatusCheckbox.CheckState = CheckState.Checked;
             createCustomerOverviewActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCustomerOverviewActiveStatusCheckbox.Location = new Point(961, 503);
+            createCustomerOverviewActiveStatusCheckbox.Location = new Point(168, 391);
             createCustomerOverviewActiveStatusCheckbox.Margin = new Padding(4);
             createCustomerOverviewActiveStatusCheckbox.Name = "createCustomerOverviewActiveStatusCheckbox";
-            createCustomerOverviewActiveStatusCheckbox.Size = new Size(69, 24);
+            createCustomerOverviewActiveStatusCheckbox.Size = new Size(136, 24);
             createCustomerOverviewActiveStatusCheckbox.TabIndex = 11;
-            createCustomerOverviewActiveStatusCheckbox.Text = "Active";
+            createCustomerOverviewActiveStatusCheckbox.Text = "Active Customer";
             createCustomerOverviewActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCustomerTabControlBillingPage
@@ -410,7 +511,7 @@
             createCustomerTabControlBillingPage.Location = new Point(4, 27);
             createCustomerTabControlBillingPage.Name = "createCustomerTabControlBillingPage";
             createCustomerTabControlBillingPage.Padding = new Padding(3);
-            createCustomerTabControlBillingPage.Size = new Size(1067, 565);
+            createCustomerTabControlBillingPage.Size = new Size(1067, 499);
             createCustomerTabControlBillingPage.TabIndex = 1;
             createCustomerTabControlBillingPage.Text = "Billing Information";
             // 
@@ -597,9 +698,9 @@
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationCompanyNameTextbox);
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationLastNameTextbox);
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationFIrstNameTextbox);
-            createCustomerTabControlShippingPage.Location = new Point(4, 32);
+            createCustomerTabControlShippingPage.Location = new Point(4, 27);
             createCustomerTabControlShippingPage.Name = "createCustomerTabControlShippingPage";
-            createCustomerTabControlShippingPage.Size = new Size(1067, 560);
+            createCustomerTabControlShippingPage.Size = new Size(1067, 499);
             createCustomerTabControlShippingPage.TabIndex = 2;
             createCustomerTabControlShippingPage.Text = "Shipping Information";
             // 
@@ -775,9 +876,9 @@
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxB);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxA);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditEnabledCheckbox);
-            createCustomerTabControlFinancePage.Location = new Point(4, 32);
+            createCustomerTabControlFinancePage.Location = new Point(4, 27);
             createCustomerTabControlFinancePage.Name = "createCustomerTabControlFinancePage";
-            createCustomerTabControlFinancePage.Size = new Size(1067, 560);
+            createCustomerTabControlFinancePage.Size = new Size(1067, 499);
             createCustomerTabControlFinancePage.TabIndex = 3;
             createCustomerTabControlFinancePage.Text = "Finance";
             // 
@@ -817,6 +918,7 @@
             // 
             // createCustomerFinancePaymentCurrencyComboBox
             // 
+            createCustomerFinancePaymentCurrencyComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerFinancePaymentCurrencyComboBox.FormattingEnabled = true;
             createCustomerFinancePaymentCurrencyComboBox.Location = new Point(172, 107);
             createCustomerFinancePaymentCurrencyComboBox.Name = "createCustomerFinancePaymentCurrencyComboBox";
@@ -864,7 +966,7 @@
             // 
             createCustomerSubmitButton.FlatStyle = FlatStyle.Flat;
             createCustomerSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createCustomerSubmitButton.Location = new Point(449, 666);
+            createCustomerSubmitButton.Location = new Point(449, 607);
             createCustomerSubmitButton.Margin = new Padding(4);
             createCustomerSubmitButton.Name = "createCustomerSubmitButton";
             createCustomerSubmitButton.Size = new Size(198, 66);
@@ -877,11 +979,12 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1106, 755);
+            ClientSize = new Size(1106, 689);
             Controls.Add(createCustomerSubmitButton);
             Controls.Add(createCustomerTabControl);
             Controls.Add(createCustomerTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
             MaximizeBox = false;
             Name = "CreateCustomer";
@@ -890,6 +993,12 @@
             createCustomerTabControl.ResumeLayout(false);
             createCustomerTabControlOverviewPage.ResumeLayout(false);
             createCustomerTabControlOverviewPage.PerformLayout();
+            createCustomerOverviewWillBeParentRadioButtonPanel.ResumeLayout(false);
+            createCustomerOverviewWillBeParentRadioButtonPanel.PerformLayout();
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.ResumeLayout(false);
+            createCustomerOverviewWillBeParentInCustomerHierarchyPanel.PerformLayout();
+            createCustomerOverviewExistingParentCompanyPanel.ResumeLayout(false);
+            createCustomerOverviewExistingParentCompanyPanel.PerformLayout();
             createCustomerTabControlBillingPage.ResumeLayout(false);
             createCustomerTabControlBillingPage.PerformLayout();
             createCustomerTabControlShippingPage.ResumeLayout(false);
@@ -930,8 +1039,8 @@
         private TextBox createCustomerBillingInformationLastNameTextbox;
         private TextBox createCustomerBillingInformationFIrstNameTextbox;
         private ComboBox createCustomerOverviewCustomerTierComboBox;
-        private ComboBox createCustomerOverviewGlobalCustomerParentComboBox;
-        private ComboBox createCustomerOverviewTopParentComboBox;
+        private ComboBox createCustomerOverviewGlobalParentCustomerComboBox;
+        private ComboBox createCustomerOverviewTopParentCustomerComboBox;
         private ComboBox createCustomerOverviewCustomerTypeComboBox;
         private DateTimePicker createCustomerOverviewCustomerSinceDatePicker;
         private RadioButton createCustomerOverviewExistingCustomerIsParentNoRadioButton;
@@ -946,8 +1055,8 @@
         private Label createCustomerOverviewFirstNameTextboxLabel;
         private Label createCustomerOverviewLastNameTextboxLabel;
         private Label createCustomerOverviewCompanyNameTextboxLabel;
-        private Label createCustomerOverviewGlobalCustomerParentComboBoxLabel;
-        private Label createCustomerOverviewTopParentComboBoxLabel;
+        private Label createCustomerOverviewGlobalParentCustomerComboBoxLabel;
+        private Label createCustomerOverviewTopParentCustomerComboBoxLabel;
         private Label createCustomerOverviewAccountManagerComboBoxLabel;
         private ComboBox createCustomerOverviewAccountManagerComboBox;
         private ComboBox createCustomerOverviewSalesRegionComboBox;
@@ -982,5 +1091,13 @@
         private TextBox createCustomerShippingInformationCompanyNameTextbox;
         private TextBox createCustomerShippingInformationLastNameTextbox;
         private TextBox createCustomerShippingInformationFIrstNameTextbox;
+        private Label createCustomerOverviewWillBeParentInCustomerHierarchyLabel;
+        private RadioButton createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton;
+        private RadioButton createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton;
+        private RadioButton createCustomerOverviewWillBeTopParentRadioButton;
+        private RadioButton createCustomerOverviewWillBeGlobalParentRadioButton;
+        private Panel createCustomerOverviewExistingParentCompanyPanel;
+        private Panel createCustomerOverviewWillBeParentRadioButtonPanel;
+        private Panel createCustomerOverviewWillBeParentInCustomerHierarchyPanel;
     }
 }

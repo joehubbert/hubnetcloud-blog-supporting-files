@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms.Presentation
 {
-    partial class OrderManagement
+    partial class ViewAllDeliveryMethod
     {
         /// <summary>
         /// Required designer variable.
@@ -30,18 +30,19 @@
         {
             SuspendLayout();
             // 
-            // OrderManagement
+            // ViewAllDeliveryMethod
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(960, 540);
-            Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            BackColor = Color.LemonChiffon;
+            ClientSize = new Size(914, 600);
+            Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
-            Margin = new Padding(4);
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
-            Name = "OrderManagement";
+            Name = "ViewAllDeliveryMethod";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CRM - Order Management";
+            Text = "CRM - View All Delivery Methods";
             ResumeLayout(false);
         }
 

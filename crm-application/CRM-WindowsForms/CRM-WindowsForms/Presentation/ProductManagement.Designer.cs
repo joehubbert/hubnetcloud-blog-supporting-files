@@ -32,12 +32,16 @@
             // 
             // ProductManagement
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.SkyBlue;
             ClientSize = new Size(960, 540);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            Margin = new Padding(4, 4, 4, 4);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "ProductManagement";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Product Management";
             ResumeLayout(false);
         }

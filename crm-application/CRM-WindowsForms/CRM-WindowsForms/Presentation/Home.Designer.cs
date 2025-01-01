@@ -34,6 +34,7 @@
             homeNavCompanyAdministration = new Button();
             homeNavCustomerManagement = new Button();
             homeTitleLabel = new Label();
+            homeNavSupplierManagementButton = new Button();
             SuspendLayout();
             // 
             // homeNavOrderManagement
@@ -83,7 +84,7 @@
             // 
             // homeNavCompanyAdministration
             // 
-            homeNavCompanyAdministration.BackColor = Color.Khaki;
+            homeNavCompanyAdministration.BackColor = Color.LemonChiffon;
             homeNavCompanyAdministration.FlatStyle = FlatStyle.Flat;
             homeNavCompanyAdministration.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavCompanyAdministration.ForeColor = Color.Black;
@@ -118,16 +119,32 @@
             homeTitleLabel.Location = new Point(13, 9);
             homeTitleLabel.Margin = new Padding(4, 0, 4, 0);
             homeTitleLabel.Name = "homeTitleLabel";
-            homeTitleLabel.Size = new Size(171, 41);
+            homeTitleLabel.Size = new Size(248, 60);
             homeTitleLabel.TabIndex = 6;
             homeTitleLabel.Text = "CRM Home";
             // 
+            // homeNavSupplierManagementButton
+            // 
+            homeNavSupplierManagementButton.BackColor = Color.MediumAquamarine;
+            homeNavSupplierManagementButton.FlatStyle = FlatStyle.Flat;
+            homeNavSupplierManagementButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            homeNavSupplierManagementButton.ForeColor = Color.Black;
+            homeNavSupplierManagementButton.Location = new Point(249, 339);
+            homeNavSupplierManagementButton.Margin = new Padding(4);
+            homeNavSupplierManagementButton.Name = "homeNavSupplierManagementButton";
+            homeNavSupplierManagementButton.Size = new Size(208, 73);
+            homeNavSupplierManagementButton.TabIndex = 7;
+            homeNavSupplierManagementButton.Text = "Supplier Management";
+            homeNavSupplierManagementButton.UseVisualStyleBackColor = false;
+            homeNavSupplierManagementButton.Click += homeNavSupplierManagementButton_Click;
+            // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(12F, 30F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(925, 343);
+            ClientSize = new Size(925, 452);
+            Controls.Add(homeNavSupplierManagementButton);
             Controls.Add(homeTitleLabel);
             Controls.Add(homeNavCustomerManagement);
             Controls.Add(homeNavCompanyAdministration);
@@ -154,5 +171,6 @@
         private Button homeNavCompanyAdministration;
         private Button homeNavCustomerManagement;
         private Label homeTitleLabel;
+        private Button homeNavSupplierManagementButton;
     }
 }

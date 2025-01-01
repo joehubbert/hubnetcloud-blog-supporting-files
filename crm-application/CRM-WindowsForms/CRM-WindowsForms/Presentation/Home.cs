@@ -41,6 +41,12 @@ namespace CRM_WindowsForms.Presentation
             companyAdministration.Show();
         }
 
+        private void homeNavSupplierManagementButton_Click(object sender, EventArgs e)
+        {
+            SupplierManagement supplierManagement = new SupplierManagement();
+            supplierManagement.Show();
+        }
+
         private void homeNavAppConfiguration_Click(object sender, EventArgs e)
         {
             AppConfiguration appConfiguration = new AppConfiguration();

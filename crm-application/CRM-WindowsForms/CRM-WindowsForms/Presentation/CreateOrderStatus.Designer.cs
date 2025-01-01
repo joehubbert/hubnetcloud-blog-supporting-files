@@ -42,7 +42,7 @@
             createOrderStatusTitleLabel.Location = new Point(15, 12);
             createOrderStatusTitleLabel.Margin = new Padding(5, 0, 5, 0);
             createOrderStatusTitleLabel.Name = "createOrderStatusTitleLabel";
-            createOrderStatusTitleLabel.Size = new Size(265, 32);
+            createOrderStatusTitleLabel.Size = new Size(236, 32);
             createOrderStatusTitleLabel.TabIndex = 7;
             createOrderStatusTitleLabel.Text = "Create Order Status";
             // 
@@ -61,7 +61,7 @@
             createOrderStatusOrderStatusLabel.Font = new Font("Segoe UI", 11F);
             createOrderStatusOrderStatusLabel.Location = new Point(25, 77);
             createOrderStatusOrderStatusLabel.Name = "createOrderStatusOrderStatusLabel";
-            createOrderStatusOrderStatusLabel.Size = new Size(107, 20);
+            createOrderStatusOrderStatusLabel.Size = new Size(91, 20);
             createOrderStatusOrderStatusLabel.TabIndex = 19;
             createOrderStatusOrderStatusLabel.Text = "Order Status";
             // 
@@ -86,7 +86,7 @@
             createOrderStatusActiveStatusCheckbox.Location = new Point(144, 151);
             createOrderStatusActiveStatusCheckbox.Margin = new Padding(5);
             createOrderStatusActiveStatusCheckbox.Name = "createOrderStatusActiveStatusCheckbox";
-            createOrderStatusActiveStatusCheckbox.Size = new Size(171, 24);
+            createOrderStatusActiveStatusCheckbox.Size = new Size(155, 24);
             createOrderStatusActiveStatusCheckbox.TabIndex = 17;
             createOrderStatusActiveStatusCheckbox.Text = "Active Order Status";
             createOrderStatusActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(467, 313);
+            ClientSize = new Size(467, 279);
             Controls.Add(createOrderStatusOrderStatusTextbox);
             Controls.Add(createOrderStatusOrderStatusLabel);
             Controls.Add(createOrderStatusSubmitButton);

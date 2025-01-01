@@ -117,7 +117,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(543, 332);
+            ClientSize = new Size(543, 296);
             Controls.Add(createCustomerTierCustomerTierDescriptionTextbox);
             Controls.Add(createCustomerTierCustomerTierDescriptionLabel);
             Controls.Add(createCustomerTierSubmitButton);

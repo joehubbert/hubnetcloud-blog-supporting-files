@@ -42,7 +42,7 @@
             createProductNoteTypeTitleLabel.Location = new Point(15, 12);
             createProductNoteTypeTitleLabel.Margin = new Padding(5, 0, 5, 0);
             createProductNoteTypeTitleLabel.Name = "createProductNoteTypeTitleLabel";
-            createProductNoteTypeTitleLabel.Size = new Size(328, 32);
+            createProductNoteTypeTitleLabel.Size = new Size(309, 32);
             createProductNoteTypeTitleLabel.TabIndex = 7;
             createProductNoteTypeTitleLabel.Text = "Create Product Note Type";
             // 
@@ -61,7 +61,7 @@
             createProductNoteTypeProductNoteTypeLabel.Font = new Font("Segoe UI", 11F);
             createProductNoteTypeProductNoteTypeLabel.Location = new Point(25, 77);
             createProductNoteTypeProductNoteTypeLabel.Name = "createProductNoteTypeProductNoteTypeLabel";
-            createProductNoteTypeProductNoteTypeLabel.Size = new Size(144, 20);
+            createProductNoteTypeProductNoteTypeLabel.Size = new Size(132, 20);
             createProductNoteTypeProductNoteTypeLabel.TabIndex = 19;
             createProductNoteTypeProductNoteTypeLabel.Text = "Product Note Type";
             // 
@@ -83,10 +83,10 @@
             createProductNoteTypeActiveStatusCheckbox.Checked = true;
             createProductNoteTypeActiveStatusCheckbox.CheckState = CheckState.Checked;
             createProductNoteTypeActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createProductNoteTypeActiveStatusCheckbox.Location = new Point(181, 147);
+            createProductNoteTypeActiveStatusCheckbox.Location = new Point(193, 146);
             createProductNoteTypeActiveStatusCheckbox.Margin = new Padding(5);
             createProductNoteTypeActiveStatusCheckbox.Name = "createProductNoteTypeActiveStatusCheckbox";
-            createProductNoteTypeActiveStatusCheckbox.Size = new Size(208, 24);
+            createProductNoteTypeActiveStatusCheckbox.Size = new Size(196, 24);
             createProductNoteTypeActiveStatusCheckbox.TabIndex = 17;
             createProductNoteTypeActiveStatusCheckbox.Text = "Active Product Note Type";
             createProductNoteTypeActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(559, 281);
+            ClientSize = new Size(559, 266);
             Controls.Add(createProductNoteTypeProductNoteTypeTextbox);
             Controls.Add(createProductNoteTypeProductNoteTypeLabel);
             Controls.Add(createProductNoteTypeSubmitButton);

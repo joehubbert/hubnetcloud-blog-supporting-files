@@ -240,6 +240,8 @@
     <Build Include="dbo\Stored Procedures\spGetCompanyConfiguration.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateCompanyConfiguration.sql" />
     <Build Include="dbo\Views\vwCompanyConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateCompanyConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllCompanyConfiguration.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

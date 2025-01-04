@@ -176,7 +176,7 @@ namespace CRM_WindowsForms.Presentation
                         AccountManagerFirstName = row.Field<string>("First Name"),
                         AccountManagerLastName = row.Field<string>("Last Name"),
                         AccountManagerEmailAddress = row.Field<string>("Email Address"),
-                        DisplayText = $"{row.Field<Guid>("Account Manager Id")} | {row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}"
+                        DisplayText = $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}"
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();

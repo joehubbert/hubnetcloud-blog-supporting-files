@@ -32,7 +32,7 @@
     [ShippingEmailAddress] NVARCHAR(50) NOT NULL,
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NULL,
-    [PaymentDays] INT NOT NULL,
+    [PaymentDays] TINYINT NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [GlobalParentCustomer] BIT NOT NULL,
     [TopParentCustomer] BIT NOT NULL,

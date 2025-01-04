@@ -8,7 +8,7 @@
     @companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @paymentCurrencyId UNIQUEIDENTIFIER,
-    @paymentDays INT,
+    @paymentDays TINYINT,
     @supplierId UNIQUEIDENTIFIER,
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL

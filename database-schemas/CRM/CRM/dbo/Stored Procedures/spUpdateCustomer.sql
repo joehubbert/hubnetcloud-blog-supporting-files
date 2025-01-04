@@ -20,7 +20,7 @@
     @billingAddressLine5 NVARCHAR(50),
     @billingTelephoneNumber NVARCHAR(50),
     @billingEmailAddress NVARCHAR(50),
-    @paymentDays INT,
+    @paymentDays TINYINT,
     @shippingFirstName NVARCHAR(20),
     @shippingLastName NVARCHAR(30),
     @shippingCompanyName NVARCHAR(50),

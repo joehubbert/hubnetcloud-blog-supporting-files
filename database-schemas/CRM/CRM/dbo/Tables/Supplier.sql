@@ -9,7 +9,7 @@
     [AddressLine5] NVARCHAR(50) NOT NULL, 
     [TelephoneNumber] NVARCHAR(50) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
-    [PaymentDays] INT NOT NULL,
+    [PaymentDays] TINYINT NOT NULL,
     [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL,

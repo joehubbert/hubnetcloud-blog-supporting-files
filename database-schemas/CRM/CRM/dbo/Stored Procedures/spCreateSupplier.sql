@@ -8,7 +8,7 @@
     @companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @paymentCurrencyId UNIQUEIDENTIFIER,
-    @paymentDays INT,
+    @paymentDays TINYINT,
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL
 AS
@@ -23,7 +23,7 @@ CREATE TABLE #SupplierTemp
     [AddressLine5] NVARCHAR(50) NOT NULL, 
     [TelephoneNumber] NVARCHAR(50) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
-    [PaymentDays] INT NOT NULL,
+    [PaymentDays] TINYINT NOT NULL,
     [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL

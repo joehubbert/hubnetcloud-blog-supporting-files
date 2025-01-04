@@ -53,7 +53,7 @@
             salesRegionDetailTitleLabel.Location = new Point(13, 9);
             salesRegionDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             salesRegionDetailTitleLabel.Name = "salesRegionDetailTitleLabel";
-            salesRegionDetailTitleLabel.Size = new Size(290, 32);
+            salesRegionDetailTitleLabel.Size = new Size(232, 32);
             salesRegionDetailTitleLabel.TabIndex = 8;
             salesRegionDetailTitleLabel.Text = "Sales Region Detail";
             // 
@@ -75,10 +75,10 @@
             salesRegionDetailActiveStatusCheckbox.AutoSize = true;
             salesRegionDetailActiveStatusCheckbox.Enabled = false;
             salesRegionDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            salesRegionDetailActiveStatusCheckbox.Location = new Point(224, 308);
+            salesRegionDetailActiveStatusCheckbox.Location = new Point(224, 305);
             salesRegionDetailActiveStatusCheckbox.Margin = new Padding(4);
             salesRegionDetailActiveStatusCheckbox.Name = "salesRegionDetailActiveStatusCheckbox";
-            salesRegionDetailActiveStatusCheckbox.Size = new Size(188, 24);
+            salesRegionDetailActiveStatusCheckbox.Size = new Size(158, 24);
             salesRegionDetailActiveStatusCheckbox.TabIndex = 43;
             salesRegionDetailActiveStatusCheckbox.Text = "Active Sales Region";
             salesRegionDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             salesRegionDetailSalesRegionLabel.AutoSize = true;
             salesRegionDetailSalesRegionLabel.Location = new Point(94, 180);
             salesRegionDetailSalesRegionLabel.Name = "salesRegionDetailSalesRegionLabel";
-            salesRegionDetailSalesRegionLabel.Size = new Size(124, 20);
+            salesRegionDetailSalesRegionLabel.Size = new Size(94, 20);
             salesRegionDetailSalesRegionLabel.TabIndex = 30;
             salesRegionDetailSalesRegionLabel.Text = "Sales Region";
             // 
@@ -199,7 +199,7 @@
             salesRegionDetailSalesRegionIdLabel.AutoSize = true;
             salesRegionDetailSalesRegionIdLabel.Location = new Point(77, 141);
             salesRegionDetailSalesRegionIdLabel.Name = "salesRegionDetailSalesRegionIdLabel";
-            salesRegionDetailSalesRegionIdLabel.Size = new Size(141, 20);
+            salesRegionDetailSalesRegionIdLabel.Size = new Size(111, 20);
             salesRegionDetailSalesRegionIdLabel.TabIndex = 28;
             salesRegionDetailSalesRegionIdLabel.Text = "Sales Region Id";
             // 

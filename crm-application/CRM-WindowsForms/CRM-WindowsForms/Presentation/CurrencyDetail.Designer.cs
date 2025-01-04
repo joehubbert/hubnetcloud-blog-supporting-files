@@ -202,7 +202,7 @@
             currencyDetailActiveStatusCheckbox.AutoSize = true;
             currencyDetailActiveStatusCheckbox.Enabled = false;
             currencyDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currencyDetailActiveStatusCheckbox.Location = new Point(235, 308);
+            currencyDetailActiveStatusCheckbox.Location = new Point(201, 305);
             currencyDetailActiveStatusCheckbox.Margin = new Padding(4);
             currencyDetailActiveStatusCheckbox.Name = "currencyDetailActiveStatusCheckbox";
             currencyDetailActiveStatusCheckbox.Size = new Size(130, 24);

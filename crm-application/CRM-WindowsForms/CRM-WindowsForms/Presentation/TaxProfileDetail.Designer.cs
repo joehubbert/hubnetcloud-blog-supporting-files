@@ -204,7 +204,7 @@
             taxProfileDetailActiveStatusCheckbox.AutoSize = true;
             taxProfileDetailActiveStatusCheckbox.Enabled = false;
             taxProfileDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            taxProfileDetailActiveStatusCheckbox.Location = new Point(235, 308);
+            taxProfileDetailActiveStatusCheckbox.Location = new Point(212, 292);
             taxProfileDetailActiveStatusCheckbox.Margin = new Padding(4);
             taxProfileDetailActiveStatusCheckbox.Name = "taxProfileDetailActiveStatusCheckbox";
             taxProfileDetailActiveStatusCheckbox.Size = new Size(141, 24);

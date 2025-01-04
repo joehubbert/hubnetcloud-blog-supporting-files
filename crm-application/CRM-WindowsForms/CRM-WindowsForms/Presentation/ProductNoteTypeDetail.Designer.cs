@@ -53,7 +53,7 @@
             productNoteTypeDetailTitleLabel.Location = new Point(13, 9);
             productNoteTypeDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             productNoteTypeDetailTitleLabel.Name = "productNoteTypeDetailTitleLabel";
-            productNoteTypeDetailTitleLabel.Size = new Size(322, 32);
+            productNoteTypeDetailTitleLabel.Size = new Size(303, 32);
             productNoteTypeDetailTitleLabel.TabIndex = 8;
             productNoteTypeDetailTitleLabel.Text = "Product Note Type Detail";
             // 
@@ -78,7 +78,7 @@
             productNoteTypeDetailActiveStatusCheckbox.Location = new Point(224, 308);
             productNoteTypeDetailActiveStatusCheckbox.Margin = new Padding(4);
             productNoteTypeDetailActiveStatusCheckbox.Name = "productNoteTypeDetailActiveStatusCheckbox";
-            productNoteTypeDetailActiveStatusCheckbox.Size = new Size(208, 24);
+            productNoteTypeDetailActiveStatusCheckbox.Size = new Size(196, 24);
             productNoteTypeDetailActiveStatusCheckbox.TabIndex = 43;
             productNoteTypeDetailActiveStatusCheckbox.Text = "Active Product Note Type";
             productNoteTypeDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -190,7 +190,7 @@
             productNoteTypeDetailProductTypeLabel.AutoSize = true;
             productNoteTypeDetailProductTypeLabel.Location = new Point(74, 181);
             productNoteTypeDetailProductTypeLabel.Name = "productNoteTypeDetailProductTypeLabel";
-            productNoteTypeDetailProductTypeLabel.Size = new Size(144, 20);
+            productNoteTypeDetailProductTypeLabel.Size = new Size(132, 20);
             productNoteTypeDetailProductTypeLabel.TabIndex = 30;
             productNoteTypeDetailProductTypeLabel.Text = "Product Note Type";
             // 
@@ -199,7 +199,7 @@
             productNoteTypeDetailProductTypeIdLabel.AutoSize = true;
             productNoteTypeDetailProductTypeIdLabel.Location = new Point(57, 141);
             productNoteTypeDetailProductTypeIdLabel.Name = "productNoteTypeDetailProductTypeIdLabel";
-            productNoteTypeDetailProductTypeIdLabel.Size = new Size(161, 20);
+            productNoteTypeDetailProductTypeIdLabel.Size = new Size(149, 20);
             productNoteTypeDetailProductTypeIdLabel.TabIndex = 28;
             productNoteTypeDetailProductTypeIdLabel.Text = "Product Note Type Id";
             // 

@@ -260,7 +260,7 @@
             accountManagerDetailActiveStatusCheckbox.AutoSize = true;
             accountManagerDetailActiveStatusCheckbox.Enabled = false;
             accountManagerDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            accountManagerDetailActiveStatusCheckbox.Location = new Point(265, 265);
+            accountManagerDetailActiveStatusCheckbox.Location = new Point(184, 253);
             accountManagerDetailActiveStatusCheckbox.Margin = new Padding(4);
             accountManagerDetailActiveStatusCheckbox.Name = "accountManagerDetailActiveStatusCheckbox";
             accountManagerDetailActiveStatusCheckbox.Size = new Size(190, 24);

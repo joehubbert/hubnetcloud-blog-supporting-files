@@ -10,9 +10,9 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _taxProfileId;
+        private bool taxProfileDetailActiveStatusOriginalValue;
         private string taxProfileDetailTaxProfileOriginalValue;
         private decimal taxProfileDetailTaxRateOriginalValue;
-        private bool taxProfileDetailActiveStatusOriginalValue;
 
         public TaxProfileDetail(Guid taxProfileId)
         {

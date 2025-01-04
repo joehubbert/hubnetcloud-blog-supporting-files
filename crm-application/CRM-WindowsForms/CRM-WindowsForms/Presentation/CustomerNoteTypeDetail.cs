@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerNoteTypeId;
-        private string customerNoteTypeDetailCustomerTypeOriginalValue;
         private bool customerNoteTypeDetailActiveStatusOriginalValue;
+        private string customerNoteTypeDetailCustomerTypeOriginalValue;
 
         public CustomerNoteTypeDetail(Guid customerNoteTypeId)
         {

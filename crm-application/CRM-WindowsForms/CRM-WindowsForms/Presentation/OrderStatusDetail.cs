@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _orderStatusId;
-        private string orderStatusDetailOrderStatusOriginalValue;
         private bool orderStatusDetailActiveStatusOriginalValue;
+        private string orderStatusDetailOrderStatusOriginalValue;
 
         public OrderStatusDetail(Guid orderStatusId)
         {

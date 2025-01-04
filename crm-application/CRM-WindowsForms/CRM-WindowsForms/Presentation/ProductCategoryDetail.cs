@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _productCategoryId;
-        private string productCategoryDetailProductCategoryOriginalValue;
         private bool productCategoryDetailActiveStatusOriginalValue;
+        private string productCategoryDetailProductCategoryOriginalValue;
 
         public ProductCategoryDetail(Guid productCategoryId)
         {

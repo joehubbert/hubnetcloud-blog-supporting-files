@@ -116,6 +116,9 @@
             createCustomerFinanceCreditLimitTextboxA = new TextBox();
             createCustomerFinanceCreditEnabledCheckbox = new CheckBox();
             createCustomerSubmitButton = new Button();
+            createCustomerFinanceVATRegisteredCheckbox = new CheckBox();
+            createCustomerFinanceVATNumberTextbox = new TextBox();
+            createCustomerFinanceVATNumberTextboxLabel = new Label();
             createCustomerTabControl.SuspendLayout();
             createCustomerTabControlOverviewPage.SuspendLayout();
             createCustomerOverviewWillBeParentRadioButtonPanel.SuspendLayout();
@@ -867,6 +870,9 @@
             // createCustomerTabControlFinancePage
             // 
             createCustomerTabControlFinancePage.BackColor = Color.LightGreen;
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATNumberTextboxLabel);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATNumberTextbox);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATRegisteredCheckbox);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentDaysTextboxLabel);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentCurrencyComboBoxLabel);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxLabel);
@@ -876,9 +882,9 @@
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxB);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxA);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditEnabledCheckbox);
-            createCustomerTabControlFinancePage.Location = new Point(4, 27);
+            createCustomerTabControlFinancePage.Location = new Point(4, 32);
             createCustomerTabControlFinancePage.Name = "createCustomerTabControlFinancePage";
-            createCustomerTabControlFinancePage.Size = new Size(1067, 499);
+            createCustomerTabControlFinancePage.Size = new Size(1067, 494);
             createCustomerTabControlFinancePage.TabIndex = 3;
             createCustomerTabControlFinancePage.Text = "Finance";
             // 
@@ -912,6 +918,7 @@
             // createCustomerFinancePaymentDaysTextbox
             // 
             createCustomerFinancePaymentDaysTextbox.Location = new Point(172, 151);
+            createCustomerFinancePaymentDaysTextbox.MaxLength = 3;
             createCustomerFinancePaymentDaysTextbox.Name = "createCustomerFinancePaymentDaysTextbox";
             createCustomerFinancePaymentDaysTextbox.Size = new Size(103, 27);
             createCustomerFinancePaymentDaysTextbox.TabIndex = 17;
@@ -973,6 +980,37 @@
             createCustomerSubmitButton.TabIndex = 8;
             createCustomerSubmitButton.Text = "Submit";
             createCustomerSubmitButton.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerFinanceVATRegisteredCheckbox
+            // 
+            createCustomerFinanceVATRegisteredCheckbox.AutoSize = true;
+            createCustomerFinanceVATRegisteredCheckbox.Checked = true;
+            createCustomerFinanceVATRegisteredCheckbox.CheckState = CheckState.Checked;
+            createCustomerFinanceVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCustomerFinanceVATRegisteredCheckbox.Location = new Point(30, 192);
+            createCustomerFinanceVATRegisteredCheckbox.Margin = new Padding(4);
+            createCustomerFinanceVATRegisteredCheckbox.Name = "createCustomerFinanceVATRegisteredCheckbox";
+            createCustomerFinanceVATRegisteredCheckbox.Size = new Size(128, 24);
+            createCustomerFinanceVATRegisteredCheckbox.TabIndex = 21;
+            createCustomerFinanceVATRegisteredCheckbox.Text = "VAT Registered";
+            createCustomerFinanceVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerFinanceVATNumberTextbox
+            // 
+            createCustomerFinanceVATNumberTextbox.Location = new Point(172, 220);
+            createCustomerFinanceVATNumberTextbox.MaxLength = 50;
+            createCustomerFinanceVATNumberTextbox.Name = "createCustomerFinanceVATNumberTextbox";
+            createCustomerFinanceVATNumberTextbox.Size = new Size(208, 27);
+            createCustomerFinanceVATNumberTextbox.TabIndex = 22;
+            // 
+            // createCustomerFinanceVATNumberTextboxLabel
+            // 
+            createCustomerFinanceVATNumberTextboxLabel.AutoSize = true;
+            createCustomerFinanceVATNumberTextboxLabel.Location = new Point(30, 223);
+            createCustomerFinanceVATNumberTextboxLabel.Name = "createCustomerFinanceVATNumberTextboxLabel";
+            createCustomerFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
+            createCustomerFinanceVATNumberTextboxLabel.TabIndex = 23;
+            createCustomerFinanceVATNumberTextboxLabel.Text = "VAT Number";
             // 
             // CreateCustomer
             // 
@@ -1099,5 +1137,8 @@
         private Panel createCustomerOverviewExistingParentCompanyPanel;
         private Panel createCustomerOverviewWillBeParentRadioButtonPanel;
         private Panel createCustomerOverviewWillBeParentInCustomerHierarchyPanel;
+        private CheckBox createCustomerFinanceVATRegisteredCheckbox;
+        private Label createCustomerFinanceVATNumberTextboxLabel;
+        private TextBox createCustomerFinanceVATNumberTextbox;
     }
 }

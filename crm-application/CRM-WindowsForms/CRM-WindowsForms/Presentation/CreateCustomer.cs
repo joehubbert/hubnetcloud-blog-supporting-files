@@ -38,6 +38,7 @@ namespace CRM_WindowsForms.Presentation
             createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
             createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
+            createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
         }
 
         private void AdjustComboBoxDropDownWidth(ComboBox comboBox)
@@ -304,6 +305,19 @@ namespace CRM_WindowsForms.Presentation
             {
                 createCustomerFinanceCreditLimitTextboxA.Enabled = false;
                 createCustomerFinanceCreditLimitTextboxB.Enabled = false;
+            }
+        }
+
+        private void CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (createCustomerFinanceVATRegisteredCheckbox.Checked)
+            {
+                createCustomerFinanceVATNumberTextbox.Enabled = true;
+            }
+            else
+            {
+                createCustomerFinanceVATNumberTextbox.Enabled = false;
+                createCustomerFinanceVATNumberTextbox.Text = string.Empty;
             }
         }
 

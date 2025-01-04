@@ -119,7 +119,7 @@
             homeTitleLabel.Location = new Point(13, 9);
             homeTitleLabel.Margin = new Padding(4, 0, 4, 0);
             homeTitleLabel.Name = "homeTitleLabel";
-            homeTitleLabel.Size = new Size(248, 60);
+            homeTitleLabel.Size = new Size(171, 41);
             homeTitleLabel.TabIndex = 6;
             homeTitleLabel.Text = "CRM Home";
             // 
@@ -140,7 +140,7 @@
             // 
             // Home
             // 
-            AutoScaleDimensions = new SizeF(12F, 30F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(925, 452);

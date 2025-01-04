@@ -134,9 +134,9 @@ namespace CRM_WindowsForms.Presentation
                     ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
                     var parameters = new SqlParameter[]
                     {
+                        new SqlParameter("@activeStatus", customerTypeDetailActiveStatusCheckbox.Checked),
                         new SqlParameter("@customerType", customerType),
-                        new SqlParameter("@customerTypeId", _customerTypeId),
-                        new SqlParameter("@activeStatus", customerTypeDetailActiveStatusCheckbox.Checked)
+                        new SqlParameter("@customerTypeId", _customerTypeId)
                     };
 
                     await executor.ExecuteAsync("[dbo].[spUpdateCustomerType]", parameters);

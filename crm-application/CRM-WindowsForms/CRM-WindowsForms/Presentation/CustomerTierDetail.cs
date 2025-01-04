@@ -147,10 +147,10 @@ namespace CRM_WindowsForms.Presentation
                     ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
                     var parameters = new SqlParameter[]
                     {
+                        new SqlParameter("@activeStatus", customerTierDetailActiveStatusCheckbox.Checked),
                         new SqlParameter("@customerTierCode", customerTierCode),
                         new SqlParameter("@customerTierDescription", customerTierDescription),
                         new SqlParameter("@customerTierId", _customerTierId),
-                        new SqlParameter("@activeStatus", customerTierDetailActiveStatusCheckbox.Checked)
                     };
 
                     await executor.ExecuteAsync("[dbo].[spUpdateCustomerTier]", parameters);

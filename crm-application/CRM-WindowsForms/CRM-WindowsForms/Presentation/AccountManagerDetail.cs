@@ -247,11 +247,11 @@ namespace CRM_WindowsForms.Presentation
                     var parameters = new SqlParameter[]
                     {
                         new SqlParameter("@accountManagerId", _accountManagerId),
+                        new SqlParameter("@activeStatus", accountManagerDetailActiveStatusCheckbox.Checked),
                         new SqlParameter("@firstName", firstName),
                         new SqlParameter("@emailAddress", emailAddress),
                         new SqlParameter("@telephoneNumber", telephoneNumber),
-                        new SqlParameter("@lastName", lastName),
-                        new SqlParameter("@activeStatus", accountManagerDetailActiveStatusCheckbox.Checked)
+                        new SqlParameter("@lastName", lastName)
                     };
 
                     await executor.ExecuteAsync("[dbo].[spUpdateAccountManager]", parameters);

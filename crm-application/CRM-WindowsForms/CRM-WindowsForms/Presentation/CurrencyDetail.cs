@@ -147,10 +147,10 @@ namespace CRM_WindowsForms.Presentation
                     ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
                     var parameters = new SqlParameter[]
                     {
+                        new SqlParameter("@activeStatus", currencyDetailActiveStatusCheckbox.Checked),
                         new SqlParameter("@currencyCode", currencyCode),
                         new SqlParameter("@currencyName", currencyName),
-                        new SqlParameter("@currencyId", _currencyId),
-                        new SqlParameter("@activeStatus", currencyDetailActiveStatusCheckbox.Checked)
+                        new SqlParameter("@currencyId", _currencyId) 
                     };
 
                     await executor.ExecuteAsync("[dbo].[spUpdateCurrency]", parameters);

@@ -10,9 +10,9 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _taxProfileId;
-        private bool taxProfileDetailActiveStatusOriginalValue;
-        private string taxProfileDetailTaxProfileOriginalValue;
-        private decimal taxProfileDetailTaxRateOriginalValue;
+        private bool ?taxProfileDetailActiveStatusOriginalValue;
+        private string ?taxProfileDetailTaxProfileOriginalValue;
+        private decimal ?taxProfileDetailTaxRateOriginalValue;
 
         public TaxProfileDetail(Guid taxProfileId)
         {
@@ -208,7 +208,7 @@ namespace CRM_WindowsForms.Presentation
             ViewTaxProfileDetailTaxProfileInformation_Load(this, EventArgs.Empty);
         }
 
-        private void taxProfileDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             taxProfileDetailTaxProfileTextbox.Enabled = !taxProfileDetailTaxProfileTextbox.Enabled;
             taxProfileDetailTaxRateTextboxA.Enabled = !taxProfileDetailTaxRateTextboxA.Enabled;

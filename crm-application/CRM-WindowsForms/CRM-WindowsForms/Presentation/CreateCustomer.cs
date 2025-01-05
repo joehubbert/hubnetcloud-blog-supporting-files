@@ -89,7 +89,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewCustomerTypeComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewCustomerTypeComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -122,7 +122,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewCustomerTierComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewCustomerTierComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -155,7 +155,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewSalesRegionComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -191,12 +191,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewAccountManagerComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewAccountManagerComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private void CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
             {
@@ -210,7 +210,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void CreateCustomerOverviewLoadGlobalParentCustomerDataAsync()
+        private async Task CreateCustomerOverviewLoadGlobalParentCustomerDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -239,12 +239,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewGlobalParentCustomerComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewGlobalParentCustomerComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void CreateCustomerOverviewLoadTopParentCustomerDataAsync()
+        private async Task CreateCustomerOverviewLoadTopParentCustomerDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -273,12 +273,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewTopParentCustomerComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerOverviewTopParentCustomerComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private void CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked)
             {
@@ -294,7 +294,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerFinanceCreditEnabledCheckbox.Checked)
             {
@@ -308,7 +308,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged(object sender, EventArgs e)
+        private void CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerFinanceVATRegisteredCheckbox.Checked)
             {
@@ -354,7 +354,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerFinancePaymentCurrencyComboBox_DropDown(object sender, EventArgs e)
+        private void CreateCustomerFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
         {
             AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

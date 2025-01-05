@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllPaymentMethodDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllPaymentMethodDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllPaymentMethodDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {

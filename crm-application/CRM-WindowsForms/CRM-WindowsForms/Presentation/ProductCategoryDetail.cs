@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _productCategoryId;
-        private bool productCategoryDetailActiveStatusOriginalValue;
-        private string productCategoryDetailProductCategoryOriginalValue;
+        private bool ?productCategoryDetailActiveStatusOriginalValue;
+        private string ?productCategoryDetailProductCategoryOriginalValue;
 
         public ProductCategoryDetail(Guid productCategoryId)
         {
@@ -162,7 +162,7 @@ namespace CRM_WindowsForms.Presentation
             ViewProductCategoryDetailProductCategoryInformation_Load(this, EventArgs.Empty);
         }
 
-        private void productCategoryDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void productCategoryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             productCategoryDetailProductCategoryTextbox.Enabled = !productCategoryDetailProductCategoryTextbox.Enabled;
             productCategoryDetailActiveStatusCheckbox.Enabled = !productCategoryDetailActiveStatusCheckbox.Enabled;

@@ -9,9 +9,9 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerTierId;
-        private bool customerTierDetailActiveStatusOriginalValue;
-        private string customerTierDetailCustomerTierCodeOriginalValue;
-        private string customerTierDetailCustomerTierDescriptionOriginalValue;
+        private bool ?customerTierDetailActiveStatusOriginalValue;
+        private string ?customerTierDetailCustomerTierCodeOriginalValue;
+        private string ?customerTierDetailCustomerTierDescriptionOriginalValue;
 
         public CustomerTierDetail(Guid customerTierId)
         {
@@ -176,7 +176,7 @@ namespace CRM_WindowsForms.Presentation
             ViewCustomerTierDetailCustomerTierInformation_Load(this, EventArgs.Empty);
         }
 
-        private void customerTierDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             customerTierDetailCustomerTierCodeTextbox.Enabled = !customerTierDetailCustomerTierCodeTextbox.Enabled;
             customerTierDetailCustomerTierDescriptionTextbox.Enabled = !customerTierDetailCustomerTierDescriptionTextbox.Enabled;

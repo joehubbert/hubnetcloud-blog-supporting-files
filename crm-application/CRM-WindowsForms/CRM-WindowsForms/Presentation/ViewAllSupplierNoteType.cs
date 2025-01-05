@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllSupplierNoteTypeDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllSupplierNoteTypeDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllSupplierNoteTypeDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {

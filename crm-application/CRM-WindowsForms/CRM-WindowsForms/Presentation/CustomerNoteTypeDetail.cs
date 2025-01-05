@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerNoteTypeId;
-        private bool customerNoteTypeDetailActiveStatusOriginalValue;
-        private string customerNoteTypeDetailCustomerTypeOriginalValue;
+        private bool ?customerNoteTypeDetailActiveStatusOriginalValue;
+        private string ?customerNoteTypeDetailCustomerTypeOriginalValue;
 
         public CustomerNoteTypeDetail(Guid customerNoteTypeId)
         {
@@ -162,7 +162,7 @@ namespace CRM_WindowsForms.Presentation
             ViewCustomerTypeDetailCustomerTypeInformation_Load(this, EventArgs.Empty);
         }
 
-        private void customerNoteTypeDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void customerNoteTypeDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             customerNoteTypeDetailCustomerTypeTextbox.Enabled = !customerNoteTypeDetailCustomerTypeTextbox.Enabled;
             customerNoteTypeDetailActiveStatusCheckbox.Enabled = !customerNoteTypeDetailActiveStatusCheckbox.Enabled;

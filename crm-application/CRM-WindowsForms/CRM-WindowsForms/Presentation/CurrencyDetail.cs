@@ -9,9 +9,9 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _currencyId;
-        private string currencyDetailCurrencyCodeOriginalValue;
-        private string currencyDetailCurrencyNameOriginalValue;
-        private bool currencyDetailActiveStatusOriginalValue;
+        private string ?currencyDetailCurrencyCodeOriginalValue;
+        private string ?currencyDetailCurrencyNameOriginalValue;
+        private bool ?currencyDetailActiveStatusOriginalValue;
 
         public CurrencyDetail(Guid currencyId)
         {
@@ -176,7 +176,7 @@ namespace CRM_WindowsForms.Presentation
             ViewCurrencyDetailCurrencyInformation_Load(this, EventArgs.Empty);
         }
 
-        private void currencyDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             currencyDetailCurrencyCodeTextbox.Enabled = !currencyDetailCurrencyCodeTextbox.Enabled;
             currencyDetailCurrencyNameTextbox.Enabled = !currencyDetailCurrencyNameTextbox.Enabled;

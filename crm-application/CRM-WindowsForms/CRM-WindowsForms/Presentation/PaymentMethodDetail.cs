@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _paymentMethodId;
-        private bool paymentMethodDetailActiveStatusOriginalValue;
-        private string paymentMethodDetailSupplierTypeOriginalValue;
+        private bool ?paymentMethodDetailActiveStatusOriginalValue;
+        private string ?paymentMethodDetailSupplierTypeOriginalValue;
 
         public PaymentMethodDetail(Guid paymentMethodId)
         {
@@ -162,7 +162,7 @@ namespace CRM_WindowsForms.Presentation
             ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
-        private void paymentMethodDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void paymentMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             paymentMethodDetailSupplierTypeTextbox.Enabled = !paymentMethodDetailSupplierTypeTextbox.Enabled;
             paymentMethodDetailActiveStatusCheckbox.Enabled = !paymentMethodDetailActiveStatusCheckbox.Enabled;

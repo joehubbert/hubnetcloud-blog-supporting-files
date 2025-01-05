@@ -10,11 +10,11 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _deliveryMethodId;
-        private bool deliveryMethodDetailActiveStatusOriginalValue;
-        private decimal deliveryMethodDetailDeliveryCostOriginalValue;
-        private string deliveryMethodDetailDeliveryMethodOriginalValue;
-        private int deliveryMethodDetailDeliveryTimeOriginalValue;
-        private Guid deliveryMethodDetailTaxProfileOriginalValue;
+        private bool ?deliveryMethodDetailActiveStatusOriginalValue;
+        private decimal ?deliveryMethodDetailDeliveryCostOriginalValue;
+        private string ?deliveryMethodDetailDeliveryMethodOriginalValue;
+        private int ?deliveryMethodDetailDeliveryTimeOriginalValue;
+        private Guid ?deliveryMethodDetailTaxProfileOriginalValue;
 
         public DeliveryMethodDetail(Guid deliveryMethodId)
         {
@@ -295,7 +295,7 @@ namespace CRM_WindowsForms.Presentation
             ViewDeliveryMethodDetailDeliveryMethodInformation_Load(this, EventArgs.Empty);
         }
 
-        private void deliveryMethodDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             deliveryMethodDetailDeliveryMethodTextbox.Enabled = !deliveryMethodDetailDeliveryMethodTextbox.Enabled;
             deliveryMethodDetailDeliveryCostTextboxA.Enabled = !deliveryMethodDetailDeliveryCostTextboxA.Enabled;

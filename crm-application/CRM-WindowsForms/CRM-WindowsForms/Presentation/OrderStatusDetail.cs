@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _orderStatusId;
-        private bool orderStatusDetailActiveStatusOriginalValue;
-        private string orderStatusDetailOrderStatusOriginalValue;
+        private bool ?orderStatusDetailActiveStatusOriginalValue;
+        private string ?orderStatusDetailOrderStatusOriginalValue;
 
         public OrderStatusDetail(Guid orderStatusId)
         {
@@ -162,7 +162,7 @@ namespace CRM_WindowsForms.Presentation
             ViewOrderStatusDetailOrderStatusInformation_Load(this, EventArgs.Empty);
         }
 
-        private void orderStatusDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void orderStatusDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             orderStatusDetailOrderStatusTextbox.Enabled = !orderStatusDetailOrderStatusTextbox.Enabled;
             orderStatusDetailActiveStatusCheckbox.Enabled = !orderStatusDetailActiveStatusCheckbox.Enabled;

@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllTaxProfileDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllTaxProfileDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllTaxProfileDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {

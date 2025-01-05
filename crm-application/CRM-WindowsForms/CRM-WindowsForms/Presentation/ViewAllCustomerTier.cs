@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllCustomerTierDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllCustomerTierDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllCustomerTierDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {

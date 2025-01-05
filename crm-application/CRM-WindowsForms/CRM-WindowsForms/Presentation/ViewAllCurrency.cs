@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllCurrencyDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void viewAllCurrencyDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllCurrencyDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {

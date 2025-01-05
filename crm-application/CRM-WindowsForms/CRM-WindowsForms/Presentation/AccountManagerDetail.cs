@@ -9,11 +9,11 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _accountManagerId;
-        private string accountManagerDetailFirstNameOriginalValue;
-        private string accountManagerDetailLastNameOriginalValue;
-        private string accountManagerDetailEmailAddressOriginalValue;
-        private string accountManagerDetailTelephoneNumberOriginalValue;
-        private bool accountManagerDetailActiveStatusOriginalValue;
+        private string ?accountManagerDetailFirstNameOriginalValue;
+        private string ?accountManagerDetailLastNameOriginalValue;
+        private string ?accountManagerDetailEmailAddressOriginalValue;
+        private string ?accountManagerDetailTelephoneNumberOriginalValue;
+        private bool ?accountManagerDetailActiveStatusOriginalValue;
 
         public AccountManagerDetail(Guid accountManagerId)
         {
@@ -120,7 +120,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void accountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void accountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == accountManagerDetailAssociatedCustomerDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -278,7 +278,7 @@ namespace CRM_WindowsForms.Presentation
             ViewAccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
         }
 
-        private void accountManagerDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             accountManagerDetailFirstNameTextbox.Enabled = !accountManagerDetailFirstNameTextbox.Enabled;
             accountManagerDetailLastNameTextbox.Enabled = !accountManagerDetailLastNameTextbox.Enabled;

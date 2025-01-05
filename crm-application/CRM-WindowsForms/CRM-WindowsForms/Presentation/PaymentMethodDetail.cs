@@ -41,7 +41,7 @@ namespace CRM_WindowsForms.Presentation
                     new SqlParameter("@paymentMethodId", _paymentMethodId)
                 };
 
-                DataTable paymentMethodDataTable = await executor.ExecuteAsync("[dbo].[spGetSupplierType]", parameters);
+                DataTable paymentMethodDataTable = await executor.ExecuteAsync("[dbo].[spGetPaymentMethod]", parameters);
 
                 if (paymentMethodDataTable != null)
                 {

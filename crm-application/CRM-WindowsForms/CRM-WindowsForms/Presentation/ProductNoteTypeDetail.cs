@@ -41,7 +41,7 @@ namespace CRM_WindowsForms.Presentation
                     new SqlParameter("@productNoteTypeId", _productNoteTypeId)
                 };
 
-                DataTable productNoteTypeDataTable = await executor.ExecuteAsync("[dbo].[spGetProductType]", parameters);
+                DataTable productNoteTypeDataTable = await executor.ExecuteAsync("[dbo].[spGetProductNoteType]", parameters);
 
                 if (productNoteTypeDataTable != null)
                 {

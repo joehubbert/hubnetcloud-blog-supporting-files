@@ -94,6 +94,7 @@
             createTaxProfileSubmitButton.TabIndex = 12;
             createTaxProfileSubmitButton.Text = "Submit";
             createTaxProfileSubmitButton.UseVisualStyleBackColor = true;
+            createTaxProfileSubmitButton.Click += new System.EventHandler(createTaxProfileSubmitButton_Click);
             // 
             // createTaxProfileTaxRateLabel
             // 

@@ -92,6 +92,7 @@
             createCurrencySubmitButton.TabIndex = 12;
             createCurrencySubmitButton.Text = "Submit";
             createCurrencySubmitButton.UseVisualStyleBackColor = true;
+            createCurrencySubmitButton.Click += new EventHandler(createCurrencySubmitButton_Click);
             // 
             // createCurrencyCurrencyNameLabel
             // 

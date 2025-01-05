@@ -76,6 +76,7 @@
             createProductCategorySubmitButton.TabIndex = 18;
             createProductCategorySubmitButton.Text = "Submit";
             createProductCategorySubmitButton.UseVisualStyleBackColor = true;
+            createProductCategorySubmitButton.Click += new EventHandler(createProductCategorySubmitButton_Click);
             // 
             // createProductCategoryActiveStatusCheckbox
             // 

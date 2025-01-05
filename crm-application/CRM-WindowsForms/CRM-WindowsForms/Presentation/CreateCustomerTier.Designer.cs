@@ -92,6 +92,7 @@
             createCustomerTierSubmitButton.TabIndex = 12;
             createCustomerTierSubmitButton.Text = "Submit";
             createCustomerTierSubmitButton.UseVisualStyleBackColor = true;
+            createCustomerTierSubmitButton.Click += new EventHandler(createCustomerTierSubmitButton_Click);
             // 
             // createCustomerTierCustomerTierDescriptionLabel
             // 

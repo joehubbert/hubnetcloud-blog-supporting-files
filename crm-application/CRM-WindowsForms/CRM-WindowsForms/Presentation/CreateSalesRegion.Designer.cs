@@ -76,6 +76,7 @@
             createSalesRegionSubmitButton.TabIndex = 18;
             createSalesRegionSubmitButton.Text = "Submit";
             createSalesRegionSubmitButton.UseVisualStyleBackColor = true;
+            createSalesRegionSubmitButton.Click += new EventHandler(createSalesRegionSubmitButton_Click);
             // 
             // createSalesRegionActiveStatusCheckbox
             // 

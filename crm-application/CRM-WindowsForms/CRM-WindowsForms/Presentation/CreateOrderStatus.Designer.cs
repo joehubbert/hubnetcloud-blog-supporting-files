@@ -76,6 +76,7 @@
             createOrderStatusSubmitButton.TabIndex = 18;
             createOrderStatusSubmitButton.Text = "Submit";
             createOrderStatusSubmitButton.UseVisualStyleBackColor = true;
+            createOrderStatusSubmitButton.Click += new EventHandler(createOrderStatusSubmitButton_Click);
             // 
             // createOrderStatusActiveStatusCheckbox
             // 

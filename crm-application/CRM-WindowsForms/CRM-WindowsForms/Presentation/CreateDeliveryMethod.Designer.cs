@@ -98,6 +98,7 @@
             createDeliveryMethodSubmitButton.TabIndex = 12;
             createDeliveryMethodSubmitButton.Text = "Submit";
             createDeliveryMethodSubmitButton.UseVisualStyleBackColor = true;
+            createDeliveryMethodSubmitButton.Click += new EventHandler(createDeliveryMethodSubmitButton_Click);
             // 
             // createDeliveryMethodDeliveryCostLabel
             // 

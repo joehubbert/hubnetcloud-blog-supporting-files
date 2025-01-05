@@ -76,6 +76,7 @@
             createSupplierNoteTypeSubmitButton.TabIndex = 18;
             createSupplierNoteTypeSubmitButton.Text = "Submit";
             createSupplierNoteTypeSubmitButton.UseVisualStyleBackColor = true;
+            createSupplierNoteTypeSubmitButton.Click += new EventHandler(createSupplierNoteTypeSubmitButton_Click);
             // 
             // createSupplierNoteTypeActiveStatusCheckbox
             // 

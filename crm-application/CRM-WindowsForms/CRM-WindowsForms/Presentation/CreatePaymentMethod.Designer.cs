@@ -76,6 +76,7 @@
             createPaymentMethodSubmitButton.TabIndex = 18;
             createPaymentMethodSubmitButton.Text = "Submit";
             createPaymentMethodSubmitButton.UseVisualStyleBackColor = true;
+            createPaymentMethodSubmitButton.Click += new EventHandler(createPaymentMethodSubmitButton_Click);
             // 
             // createPaymentMethodActiveStatusCheckbox
             // 

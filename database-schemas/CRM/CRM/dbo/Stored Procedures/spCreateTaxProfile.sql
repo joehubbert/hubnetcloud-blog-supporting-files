@@ -38,7 +38,7 @@ ELSE
 MERGE INTO [dbo].[TaxProfile] AS target
 USING #TazProfileTemp AS source
 ON target.[TaxProfile] = source.[TaxProfile]
-AND TP.[TaxRate] = TPP.[TaxRate]
+AND target.[TaxRate] = source.[TaxRate]
 WHEN NOT MATCHED THEN
 INSERT
 (

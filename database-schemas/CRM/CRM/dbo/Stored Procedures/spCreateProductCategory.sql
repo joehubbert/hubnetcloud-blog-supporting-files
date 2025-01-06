@@ -16,7 +16,8 @@ INSERT INTO #ProductCategoryTemp
 )
 VALUES
 (
-	@productCategory
+	@productCategory,
+	@activeStatus
 )
 
 IF EXISTS

@@ -35,26 +35,6 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void AdjustComboBoxDropDownWidth(ComboBox comboBox)
-        {
-            int comboBoxWidth = comboBox.DropDownWidth;
-            Graphics comboBoxGraphics = comboBox.CreateGraphics();
-            Font comboBoxFont = comboBox.Font;
-
-            int verticalScrollBarWidth = (comboBox.Items.Count > comboBox.MaxDropDownItems) ? SystemInformation.VerticalScrollBarWidth : 0;
-            int dynamicComboBoxWidth;
-
-            foreach (var item in comboBox.Items)
-            {
-                dynamicComboBoxWidth = (int)comboBoxGraphics.MeasureString(comboBox.GetItemText(item), comboBoxFont).Width + verticalScrollBarWidth;
-                if (comboBoxWidth < dynamicComboBoxWidth)
-                {
-                    comboBoxWidth = dynamicComboBoxWidth;
-                }
-            }
-            comboBox.DropDownWidth = comboBoxWidth;
-        }
-
         private void SplitDecimal(decimal decimalValue, out string partA, out string partB)
         {
             string[] parts = decimalValue.ToString().Split('.');
@@ -95,7 +75,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void DeliveryMethodDetailTaxProfileComboBox_DropDown(object sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void ViewDeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)

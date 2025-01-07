@@ -5,5 +5,5 @@ SELECT
 [Sales Sub Region Id],
 [Sales Region],
 [Sales Sub Region],
-[Sales Sub Region Active Status]
+[Active Status]
 FROM [dbo].[vwSalesSubRegion]

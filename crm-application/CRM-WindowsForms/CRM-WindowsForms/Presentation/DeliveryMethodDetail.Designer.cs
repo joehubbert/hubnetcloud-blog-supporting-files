@@ -261,6 +261,7 @@
             // deliveryMethodDetailTaxProfileComboBox
             // 
             deliveryMethodDetailTaxProfileComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            deliveryMethodDetailTaxProfileComboBox.Enabled = false;
             deliveryMethodDetailTaxProfileComboBox.FormattingEnabled = true;
             deliveryMethodDetailTaxProfileComboBox.Location = new Point(243, 298);
             deliveryMethodDetailTaxProfileComboBox.Name = "deliveryMethodDetailTaxProfileComboBox";

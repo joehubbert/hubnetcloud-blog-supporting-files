@@ -127,6 +127,18 @@
             viewAllSalesRegion.Show();
         }
 
+        private void companyAdministrationMasterDataManagementCreateSalesSubRegionButton_Click(object sender, EventArgs e)
+        {
+            CreateSalesSubRegion createSalesSubRegion = new CreateSalesSubRegion();
+            createSalesSubRegion.Show();
+        }
+
+        private void companyAdministrationMasterDataManagementViewAllSalesSubRegionButton_Click(object sender, EventArgs e)
+        {
+            ViewAllSalesSubRegion viewAllSalesSubRegion = new ViewAllSalesSubRegion();
+            viewAllSalesSubRegion.Show();
+        }
+
         private void companyAdministrationMasterDataManagementCreateSupplierNoteTypeButton_Click(object sender, EventArgs e)
         {
             CreateSupplierNoteType createSupplierNoteType = new CreateSupplierNoteType();

@@ -3,9 +3,10 @@ AS
 
 SELECT
 SSR.[SalesSubRegionId] AS [Sales Sub Region Id],
+SR.[SalesRegionId] AS [Sales Region Id],
 SR.[SalesRegion] AS [Sales Region],
 SSR.[SalesSubRegion] AS [Sales Sub Region],
-SSR.ActiveStatus AS [Sales Sub Region Active Status],
+SSR.ActiveStatus AS [Active Status],
 SSR.[CreatedTimestamp] AS [Created Timestamp],
 SSR.[CreatedBy] AS [Created By],
 SSR.[ModifiedTimestamp] AS [Modified Timestamp],

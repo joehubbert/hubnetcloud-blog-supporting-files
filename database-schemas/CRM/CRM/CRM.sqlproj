@@ -78,7 +78,7 @@
     <Build Include="dbo\Tables\SalesRegion.sql" />
     <Build Include="dbo\Tables\Supplier.sql" />
     <Build Include="dbo\Tables\TaxProfile.sql" />
-    <Build Include="dbo\Tables\SalesRegionMember.sql" />
+    <Build Include="dbo\Tables\SalesSubRegion.sql" />
     <Build Include="dbo\Tables\CustomerTier.sql" />
     <Build Include="dbo\Tables\PaymentMethod.sql" />
     <Build Include="dbo\Tables\CustomerType.sql" />
@@ -118,10 +118,10 @@
     <Build Include="dbo\Stored Procedures\spGetSupplier.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllSupplier.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateSupplier.sql" />
-    <Build Include="dbo\Stored Procedures\spCreateSalesRegionMember.sql" />
-    <Build Include="dbo\Stored Procedures\spGetSalesRegionMember.sql" />
-    <Build Include="dbo\Stored Procedures\spGetAllSalesRegionMember.sql" />
-    <Build Include="dbo\Stored Procedures\spUpdateSalesRegionMember.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateSalesSubRegion.sql" />
+    <Build Include="dbo\Stored Procedures\spGetSalesSubRegion.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllSalesSubRegion.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateSalesSubRegion.sql" />
     <Build Include="dbo\Stored Procedures\spCreateSalesRegion.sql" />
     <Build Include="dbo\Stored Procedures\spGetSalesRegion.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllSalesRegion.sql" />
@@ -204,7 +204,7 @@
     <Build Include="dbo\Views\vwProductNoteType.sql" />
     <Build Include="dbo\Views\vwProductSalesRegion.sql" />
     <Build Include="dbo\Views\vwSalesRegion.sql" />
-    <Build Include="dbo\Views\vwSalesRegionMember.sql" />
+    <Build Include="dbo\Views\vwSalesSubRegion.sql" />
     <Build Include="dbo\Views\vwSupplier.sql" />
     <Build Include="dbo\Views\vwSupplierNote.sql" />
     <Build Include="dbo\Views\vwSupplierNoteType.sql" />

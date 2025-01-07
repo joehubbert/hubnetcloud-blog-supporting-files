@@ -41,26 +41,6 @@ namespace CRM_WindowsForms.Presentation
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
         }
 
-        private void AdjustComboBoxDropDownWidth(ComboBox comboBox)
-        {
-            int comboBoxWidth = comboBox.DropDownWidth;
-            Graphics comboBoxGraphics = comboBox.CreateGraphics();
-            Font comboBoxFont = comboBox.Font;
-
-            int verticalScrollBarWidth = (comboBox.Items.Count > comboBox.MaxDropDownItems) ? SystemInformation.VerticalScrollBarWidth : 0;
-            int dynamicComboBoxWidth;
-
-            foreach (var item in comboBox.Items)
-            {
-                dynamicComboBoxWidth = (int)comboBoxGraphics.MeasureString(comboBox.GetItemText(item), comboBoxFont).Width + verticalScrollBarWidth;
-                if (comboBoxWidth < dynamicComboBoxWidth)
-                {
-                    comboBoxWidth = dynamicComboBoxWidth;
-                }
-            }
-            comboBox.DropDownWidth = comboBoxWidth;
-        }
-
         private async void CreateCustomerOverviewLoadCustomerTypeAsync()
         {
             if (_databaseConnectionSettings == null)
@@ -91,7 +71,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewCustomerTypeComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CreateCustomerOverviewLoadCustomerTierDataAsync()
@@ -124,7 +104,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewCustomerTierComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CreateCustomerOverviewLoadSalesRegionDataAsync()
@@ -157,7 +137,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CreateCustomerOverviewLoadAccountManagerDataAsync()
@@ -193,7 +173,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewAccountManagerComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
@@ -241,7 +221,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewGlobalParentCustomerComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async Task CreateCustomerOverviewLoadTopParentCustomerDataAsync()
@@ -275,7 +255,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerOverviewTopParentCustomerComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged(object? sender, EventArgs e)
@@ -356,7 +336,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CreateCustomerFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
         {
-            AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
     }
 }

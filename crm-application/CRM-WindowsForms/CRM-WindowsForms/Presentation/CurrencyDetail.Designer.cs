@@ -129,7 +129,7 @@
             currencyDetailLastUpdatedByTextbox.Name = "currencyDetailLastUpdatedByTextbox";
             currencyDetailLastUpdatedByTextbox.ReadOnly = true;
             currencyDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            currencyDetailLastUpdatedByTextbox.TabIndex = 15;
+            currencyDetailLastUpdatedByTextbox.TabIndex = 6;
             // 
             // currencyDetailCreatedByTextbox
             // 
@@ -138,7 +138,7 @@
             currencyDetailCreatedByTextbox.Name = "currencyDetailCreatedByTextbox";
             currencyDetailCreatedByTextbox.ReadOnly = true;
             currencyDetailCreatedByTextbox.Size = new Size(370, 27);
-            currencyDetailCreatedByTextbox.TabIndex = 16;
+            currencyDetailCreatedByTextbox.TabIndex = 4;
             // 
             // currencyDetailLastUpdatedTimestampTextbox
             // 
@@ -147,7 +147,7 @@
             currencyDetailLastUpdatedTimestampTextbox.Name = "currencyDetailLastUpdatedTimestampTextbox";
             currencyDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             currencyDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            currencyDetailLastUpdatedTimestampTextbox.TabIndex = 17;
+            currencyDetailLastUpdatedTimestampTextbox.TabIndex = 7;
             // 
             // currencyDetailCreatedTimestampTextbox
             // 
@@ -156,7 +156,7 @@
             currencyDetailCreatedTimestampTextbox.Name = "currencyDetailCreatedTimestampTextbox";
             currencyDetailCreatedTimestampTextbox.ReadOnly = true;
             currencyDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            currencyDetailCreatedTimestampTextbox.TabIndex = 18;
+            currencyDetailCreatedTimestampTextbox.TabIndex = 5;
             // 
             // currencyDetailCurrencyNameTextbox
             // 
@@ -165,7 +165,7 @@
             currencyDetailCurrencyNameTextbox.MaxLength = 50;
             currencyDetailCurrencyNameTextbox.Name = "currencyDetailCurrencyNameTextbox";
             currencyDetailCurrencyNameTextbox.Size = new Size(370, 27);
-            currencyDetailCurrencyNameTextbox.TabIndex = 19;
+            currencyDetailCurrencyNameTextbox.TabIndex = 2;
             // 
             // currencyDetailCurrencyIdTextbox
             // 
@@ -174,7 +174,7 @@
             currencyDetailCurrencyIdTextbox.Name = "currencyDetailCurrencyIdTextbox";
             currencyDetailCurrencyIdTextbox.ReadOnly = true;
             currencyDetailCurrencyIdTextbox.Size = new Size(370, 27);
-            currencyDetailCurrencyIdTextbox.TabIndex = 20;
+            currencyDetailCurrencyIdTextbox.TabIndex = 0;
             // 
             // currencyDetailCurrencyCodeTextbox
             // 
@@ -183,7 +183,7 @@
             currencyDetailCurrencyCodeTextbox.MaxLength = 1;
             currencyDetailCurrencyCodeTextbox.Name = "currencyDetailCurrencyCodeTextbox";
             currencyDetailCurrencyCodeTextbox.Size = new Size(64, 27);
-            currencyDetailCurrencyCodeTextbox.TabIndex = 21;
+            currencyDetailCurrencyCodeTextbox.TabIndex = 1;
             // 
             // currencyDetailToggleEditModeButton
             // 
@@ -193,7 +193,7 @@
             currencyDetailToggleEditModeButton.Margin = new Padding(4);
             currencyDetailToggleEditModeButton.Name = "currencyDetailToggleEditModeButton";
             currencyDetailToggleEditModeButton.Size = new Size(108, 92);
-            currencyDetailToggleEditModeButton.TabIndex = 25;
+            currencyDetailToggleEditModeButton.TabIndex = 8;
             currencyDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             currencyDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -206,7 +206,7 @@
             currencyDetailActiveStatusCheckbox.Margin = new Padding(4);
             currencyDetailActiveStatusCheckbox.Name = "currencyDetailActiveStatusCheckbox";
             currencyDetailActiveStatusCheckbox.Size = new Size(130, 24);
-            currencyDetailActiveStatusCheckbox.TabIndex = 26;
+            currencyDetailActiveStatusCheckbox.TabIndex = 3;
             currencyDetailActiveStatusCheckbox.Text = "Active Currency";
             currencyDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -219,9 +219,10 @@
             currencyDetailUpdateCurrencyButton.Margin = new Padding(4);
             currencyDetailUpdateCurrencyButton.Name = "currencyDetailUpdateCurrencyButton";
             currencyDetailUpdateCurrencyButton.Size = new Size(185, 70);
-            currencyDetailUpdateCurrencyButton.TabIndex = 27;
+            currencyDetailUpdateCurrencyButton.TabIndex = 9;
             currencyDetailUpdateCurrencyButton.Text = "Update Currency";
             currencyDetailUpdateCurrencyButton.UseVisualStyleBackColor = true;
+            currencyDetailUpdateCurrencyButton.Click += currencyDetailUpdateCurrencyButton_Click;
             // 
             // CurrencyDetail
             // 

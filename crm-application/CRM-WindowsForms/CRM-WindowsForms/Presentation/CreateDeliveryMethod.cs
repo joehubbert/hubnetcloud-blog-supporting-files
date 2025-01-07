@@ -87,10 +87,10 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string deliveryCostA = createDeliveryMethodDeliveryCostTextboxA.Text.Trim();
-            string deliveryCostB = createDeliveryMethodDeliveryCostTextboxB.Text.Trim();
-            string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.Trim();
-            string deliveryTime = createDeliveryMethodDeliveryTimeTextbox.Text.Trim();
+            string deliveryCostA = createDeliveryMethodDeliveryCostTextboxA.Text.TrimEnd();
+            string deliveryCostB = createDeliveryMethodDeliveryCostTextboxB.Text.TrimEnd();
+            string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.TrimEnd();
+            string deliveryTime = createDeliveryMethodDeliveryTimeTextbox.Text.TrimEnd();
 
             if (deliveryCostA.Length > 10)
             {
@@ -173,9 +173,9 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createDeliveryMethodActiveStatusCheckbox.Checked;        
-                decimal deliveryCost = decimal.Parse(createDeliveryMethodDeliveryCostTextboxA.Text.Trim()) + (decimal.Parse(createDeliveryMethodDeliveryCostTextboxB.Text.Trim()) / 100);
-                string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.Trim();
-                int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextbox.Text.Trim());
+                decimal deliveryCost = decimal.Parse(createDeliveryMethodDeliveryCostTextboxA.Text.TrimEnd()) + (decimal.Parse(createDeliveryMethodDeliveryCostTextboxB.Text.TrimEnd()) / 100);
+                string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.TrimEnd();
+                int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextbox.Text.TrimEnd());
                 Guid taxProfileId = Guid.Parse(createDeliveryMethodTaxProfileComboBox.SelectedValue.ToString());
 
                 var parameters = new[]

@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string productCategory = createProductCategoryProductCategoryTextbox.Text.Trim();
+            string productCategory = createProductCategoryProductCategoryTextbox.Text.TrimEnd();
 
             if (productCategory.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createProductCategoryActiveStatusCheckbox.Checked;
-                string productCategory = createProductCategoryProductCategoryTextbox.Text.Trim();
+                string productCategory = createProductCategoryProductCategoryTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

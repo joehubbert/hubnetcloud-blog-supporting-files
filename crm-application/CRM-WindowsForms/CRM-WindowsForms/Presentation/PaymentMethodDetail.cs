@@ -9,8 +9,8 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _paymentMethodId;
-        private bool ?paymentMethodDetailActiveStatusOriginalValue;
-        private string ?paymentMethodDetailSupplierTypeOriginalValue;
+        private bool? paymentMethodDetailActiveStatusOriginalValue;
+        private string? paymentMethodDetailSupplierTypeOriginalValue;
 
         public PaymentMethodDetail(Guid paymentMethodId)
         {
@@ -72,7 +72,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.Trim();
+            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.TrimEnd();
 
             if (paymentMethod.Length > 50)
             {
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms.Presentation
 
         private async void paymentMethodDetailUpdateSupplierTypeButton_Click(object sender, EventArgs e)
         {
-            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.Trim();
+            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

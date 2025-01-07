@@ -67,7 +67,7 @@
             createTaxProfileTaxProfileTextbox.MaxLength = 50;
             createTaxProfileTaxProfileTextbox.Name = "createTaxProfileTaxProfileTextbox";
             createTaxProfileTaxProfileTextbox.Size = new Size(284, 27);
-            createTaxProfileTaxProfileTextbox.TabIndex = 8;
+            createTaxProfileTaxProfileTextbox.TabIndex = 0;
             // 
             // createTaxProfileActiveStatusCheckbox
             // 
@@ -79,7 +79,7 @@
             createTaxProfileActiveStatusCheckbox.Margin = new Padding(5);
             createTaxProfileActiveStatusCheckbox.Name = "createTaxProfileActiveStatusCheckbox";
             createTaxProfileActiveStatusCheckbox.Size = new Size(141, 24);
-            createTaxProfileActiveStatusCheckbox.TabIndex = 11;
+            createTaxProfileActiveStatusCheckbox.TabIndex = 3;
             createTaxProfileActiveStatusCheckbox.Text = "Active Tax Profile";
             createTaxProfileActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -87,14 +87,14 @@
             // 
             createTaxProfileSubmitButton.FlatStyle = FlatStyle.Flat;
             createTaxProfileSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createTaxProfileSubmitButton.Location = new Point(140, 217);
+            createTaxProfileSubmitButton.Location = new Point(140, 199);
             createTaxProfileSubmitButton.Margin = new Padding(4);
             createTaxProfileSubmitButton.Name = "createTaxProfileSubmitButton";
             createTaxProfileSubmitButton.Size = new Size(198, 66);
-            createTaxProfileSubmitButton.TabIndex = 12;
+            createTaxProfileSubmitButton.TabIndex = 4;
             createTaxProfileSubmitButton.Text = "Submit";
             createTaxProfileSubmitButton.UseVisualStyleBackColor = true;
-            createTaxProfileSubmitButton.Click += new System.EventHandler(createTaxProfileSubmitButton_Click);
+            createTaxProfileSubmitButton.Click += createTaxProfileSubmitButton_Click;
             // 
             // createTaxProfileTaxRateLabel
             // 
@@ -113,7 +113,7 @@
             createTaxProfileTaxRateTextboxA.MaxLength = 5;
             createTaxProfileTaxRateTextboxA.Name = "createTaxProfileTaxRateTextboxA";
             createTaxProfileTaxRateTextboxA.Size = new Size(87, 27);
-            createTaxProfileTaxRateTextboxA.TabIndex = 14;
+            createTaxProfileTaxRateTextboxA.TabIndex = 1;
             // 
             // createTaxProfileTaxRateTextboxB
             // 
@@ -122,7 +122,7 @@
             createTaxProfileTaxRateTextboxB.MaxLength = 2;
             createTaxProfileTaxRateTextboxB.Name = "createTaxProfileTaxRateTextboxB";
             createTaxProfileTaxRateTextboxB.Size = new Size(38, 27);
-            createTaxProfileTaxRateTextboxB.TabIndex = 15;
+            createTaxProfileTaxRateTextboxB.TabIndex = 2;
             // 
             // createTaxProfileTaxRateTextboxSeparatorLabel
             // 
@@ -138,7 +138,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(464, 296);
+            ClientSize = new Size(464, 277);
             Controls.Add(createTaxProfileTaxRateTextboxSeparatorLabel);
             Controls.Add(createTaxProfileTaxRateTextboxB);
             Controls.Add(createTaxProfileTaxRateTextboxA);

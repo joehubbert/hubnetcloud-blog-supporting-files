@@ -66,9 +66,10 @@
             salesRegionDetailUpdateSalesRegionButton.Margin = new Padding(4);
             salesRegionDetailUpdateSalesRegionButton.Name = "salesRegionDetailUpdateSalesRegionButton";
             salesRegionDetailUpdateSalesRegionButton.Size = new Size(185, 70);
-            salesRegionDetailUpdateSalesRegionButton.TabIndex = 44;
+            salesRegionDetailUpdateSalesRegionButton.TabIndex = 8;
             salesRegionDetailUpdateSalesRegionButton.Text = "Update Sales Region";
             salesRegionDetailUpdateSalesRegionButton.UseVisualStyleBackColor = true;
+            salesRegionDetailUpdateSalesRegionButton.Click += salesRegionDetailUpdateSalesRegionButton_Click;
             // 
             // salesRegionDetailActiveStatusCheckbox
             // 
@@ -79,7 +80,7 @@
             salesRegionDetailActiveStatusCheckbox.Margin = new Padding(4);
             salesRegionDetailActiveStatusCheckbox.Name = "salesRegionDetailActiveStatusCheckbox";
             salesRegionDetailActiveStatusCheckbox.Size = new Size(158, 24);
-            salesRegionDetailActiveStatusCheckbox.TabIndex = 43;
+            salesRegionDetailActiveStatusCheckbox.TabIndex = 2;
             salesRegionDetailActiveStatusCheckbox.Text = "Active Sales Region";
             salesRegionDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             salesRegionDetailToggleEditModeButton.Margin = new Padding(4);
             salesRegionDetailToggleEditModeButton.Name = "salesRegionDetailToggleEditModeButton";
             salesRegionDetailToggleEditModeButton.Size = new Size(108, 92);
-            salesRegionDetailToggleEditModeButton.TabIndex = 42;
+            salesRegionDetailToggleEditModeButton.TabIndex = 7;
             salesRegionDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             salesRegionDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             salesRegionDetailSalesRegionIdTextbox.Name = "salesRegionDetailSalesRegionIdTextbox";
             salesRegionDetailSalesRegionIdTextbox.ReadOnly = true;
             salesRegionDetailSalesRegionIdTextbox.Size = new Size(370, 27);
-            salesRegionDetailSalesRegionIdTextbox.TabIndex = 40;
+            salesRegionDetailSalesRegionIdTextbox.TabIndex = 0;
             // 
             // salesRegionDetailSalesRegionTextbox
             // 
@@ -111,7 +112,7 @@
             salesRegionDetailSalesRegionTextbox.MaxLength = 50;
             salesRegionDetailSalesRegionTextbox.Name = "salesRegionDetailSalesRegionTextbox";
             salesRegionDetailSalesRegionTextbox.Size = new Size(370, 27);
-            salesRegionDetailSalesRegionTextbox.TabIndex = 39;
+            salesRegionDetailSalesRegionTextbox.TabIndex = 1;
             // 
             // salesRegionDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             salesRegionDetailCreatedTimestampTextbox.Name = "salesRegionDetailCreatedTimestampTextbox";
             salesRegionDetailCreatedTimestampTextbox.ReadOnly = true;
             salesRegionDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            salesRegionDetailCreatedTimestampTextbox.TabIndex = 38;
+            salesRegionDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // salesRegionDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             salesRegionDetailLastUpdatedTimestampTextbox.Name = "salesRegionDetailLastUpdatedTimestampTextbox";
             salesRegionDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             salesRegionDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            salesRegionDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            salesRegionDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // salesRegionDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             salesRegionDetailCreatedByTextbox.Name = "salesRegionDetailCreatedByTextbox";
             salesRegionDetailCreatedByTextbox.ReadOnly = true;
             salesRegionDetailCreatedByTextbox.Size = new Size(370, 27);
-            salesRegionDetailCreatedByTextbox.TabIndex = 36;
+            salesRegionDetailCreatedByTextbox.TabIndex = 3;
             // 
             // salesRegionDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             salesRegionDetailLastUpdatedByTextbox.Name = "salesRegionDetailLastUpdatedByTextbox";
             salesRegionDetailLastUpdatedByTextbox.ReadOnly = true;
             salesRegionDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            salesRegionDetailLastUpdatedByTextbox.TabIndex = 35;
+            salesRegionDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // salesRegionDetailLastUpdatedTimestampLabel
             // 

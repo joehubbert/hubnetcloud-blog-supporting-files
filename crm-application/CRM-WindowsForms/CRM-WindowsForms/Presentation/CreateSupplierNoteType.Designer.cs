@@ -53,7 +53,7 @@
             createSupplierNoteTypeSupplierNoteTypeTextbox.MaxLength = 50;
             createSupplierNoteTypeSupplierNoteTypeTextbox.Name = "createSupplierNoteTypeSupplierNoteTypeTextbox";
             createSupplierNoteTypeSupplierNoteTypeTextbox.Size = new Size(343, 27);
-            createSupplierNoteTypeSupplierNoteTypeTextbox.TabIndex = 20;
+            createSupplierNoteTypeSupplierNoteTypeTextbox.TabIndex = 0;
             // 
             // createSupplierNoteTypeSupplierNoteTypeLabel
             // 
@@ -73,10 +73,10 @@
             createSupplierNoteTypeSubmitButton.Margin = new Padding(4);
             createSupplierNoteTypeSubmitButton.Name = "createSupplierNoteTypeSubmitButton";
             createSupplierNoteTypeSubmitButton.Size = new Size(198, 66);
-            createSupplierNoteTypeSubmitButton.TabIndex = 18;
+            createSupplierNoteTypeSubmitButton.TabIndex = 2;
             createSupplierNoteTypeSubmitButton.Text = "Submit";
             createSupplierNoteTypeSubmitButton.UseVisualStyleBackColor = true;
-            createSupplierNoteTypeSubmitButton.Click += new EventHandler(createSupplierNoteTypeSubmitButton_Click);
+            createSupplierNoteTypeSubmitButton.Click += createSupplierNoteTypeSubmitButton_Click;
             // 
             // createSupplierNoteTypeActiveStatusCheckbox
             // 
@@ -88,7 +88,7 @@
             createSupplierNoteTypeActiveStatusCheckbox.Margin = new Padding(5);
             createSupplierNoteTypeActiveStatusCheckbox.Name = "createSupplierNoteTypeActiveStatusCheckbox";
             createSupplierNoteTypeActiveStatusCheckbox.Size = new Size(200, 24);
-            createSupplierNoteTypeActiveStatusCheckbox.TabIndex = 17;
+            createSupplierNoteTypeActiveStatusCheckbox.TabIndex = 1;
             createSupplierNoteTypeActiveStatusCheckbox.Text = "Active Supplier Note Type";
             createSupplierNoteTypeActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

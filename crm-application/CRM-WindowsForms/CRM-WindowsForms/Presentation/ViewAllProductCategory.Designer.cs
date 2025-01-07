@@ -81,6 +81,7 @@
             viewAllProductCategoryRefreshDataButton.TabIndex = 15;
             viewAllProductCategoryRefreshDataButton.Text = "Refresh Data";
             viewAllProductCategoryRefreshDataButton.UseVisualStyleBackColor = true;
+            viewAllProductCategoryRefreshDataButton.Click += new EventHandler(viewAllProductCategoryRefreshDataButton_Click);
             // 
             // ViewAllProductCategory
             // 

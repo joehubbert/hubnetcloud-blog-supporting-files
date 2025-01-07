@@ -53,7 +53,7 @@
             orderStatusDetailTitleLabel.Location = new Point(13, 9);
             orderStatusDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             orderStatusDetailTitleLabel.Name = "orderStatusDetailTitleLabel";
-            orderStatusDetailTitleLabel.Size = new Size(259, 32);
+            orderStatusDetailTitleLabel.Size = new Size(230, 32);
             orderStatusDetailTitleLabel.TabIndex = 8;
             orderStatusDetailTitleLabel.Text = "Order Status Detail";
             // 
@@ -66,9 +66,10 @@
             orderStatusDetailUpdateOrderStatusButton.Margin = new Padding(4);
             orderStatusDetailUpdateOrderStatusButton.Name = "orderStatusDetailUpdateOrderStatusButton";
             orderStatusDetailUpdateOrderStatusButton.Size = new Size(185, 70);
-            orderStatusDetailUpdateOrderStatusButton.TabIndex = 44;
+            orderStatusDetailUpdateOrderStatusButton.TabIndex = 8;
             orderStatusDetailUpdateOrderStatusButton.Text = "Update Order Status";
             orderStatusDetailUpdateOrderStatusButton.UseVisualStyleBackColor = true;
+            orderStatusDetailUpdateOrderStatusButton.Click += orderStatusDetailUpdateOrderStatusButton_Click;
             // 
             // orderStatusDetailActiveStatusCheckbox
             // 
@@ -78,8 +79,8 @@
             orderStatusDetailActiveStatusCheckbox.Location = new Point(224, 308);
             orderStatusDetailActiveStatusCheckbox.Margin = new Padding(4);
             orderStatusDetailActiveStatusCheckbox.Name = "orderStatusDetailActiveStatusCheckbox";
-            orderStatusDetailActiveStatusCheckbox.Size = new Size(171, 24);
-            orderStatusDetailActiveStatusCheckbox.TabIndex = 43;
+            orderStatusDetailActiveStatusCheckbox.Size = new Size(155, 24);
+            orderStatusDetailActiveStatusCheckbox.TabIndex = 2;
             orderStatusDetailActiveStatusCheckbox.Text = "Active Order Status";
             orderStatusDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             orderStatusDetailToggleEditModeButton.Margin = new Padding(4);
             orderStatusDetailToggleEditModeButton.Name = "orderStatusDetailToggleEditModeButton";
             orderStatusDetailToggleEditModeButton.Size = new Size(108, 92);
-            orderStatusDetailToggleEditModeButton.TabIndex = 42;
+            orderStatusDetailToggleEditModeButton.TabIndex = 7;
             orderStatusDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             orderStatusDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             orderStatusDetailOrderStatusIdTextbox.Name = "orderStatusDetailOrderStatusIdTextbox";
             orderStatusDetailOrderStatusIdTextbox.ReadOnly = true;
             orderStatusDetailOrderStatusIdTextbox.Size = new Size(370, 27);
-            orderStatusDetailOrderStatusIdTextbox.TabIndex = 40;
+            orderStatusDetailOrderStatusIdTextbox.TabIndex = 0;
             // 
             // orderStatusDetailOrderStatusTextbox
             // 
@@ -111,7 +112,7 @@
             orderStatusDetailOrderStatusTextbox.MaxLength = 50;
             orderStatusDetailOrderStatusTextbox.Name = "orderStatusDetailOrderStatusTextbox";
             orderStatusDetailOrderStatusTextbox.Size = new Size(370, 27);
-            orderStatusDetailOrderStatusTextbox.TabIndex = 39;
+            orderStatusDetailOrderStatusTextbox.TabIndex = 1;
             // 
             // orderStatusDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             orderStatusDetailCreatedTimestampTextbox.Name = "orderStatusDetailCreatedTimestampTextbox";
             orderStatusDetailCreatedTimestampTextbox.ReadOnly = true;
             orderStatusDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            orderStatusDetailCreatedTimestampTextbox.TabIndex = 38;
+            orderStatusDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // orderStatusDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             orderStatusDetailLastUpdatedTimestampTextbox.Name = "orderStatusDetailLastUpdatedTimestampTextbox";
             orderStatusDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             orderStatusDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            orderStatusDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            orderStatusDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // orderStatusDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             orderStatusDetailCreatedByTextbox.Name = "orderStatusDetailCreatedByTextbox";
             orderStatusDetailCreatedByTextbox.ReadOnly = true;
             orderStatusDetailCreatedByTextbox.Size = new Size(370, 27);
-            orderStatusDetailCreatedByTextbox.TabIndex = 36;
+            orderStatusDetailCreatedByTextbox.TabIndex = 3;
             // 
             // orderStatusDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             orderStatusDetailLastUpdatedByTextbox.Name = "orderStatusDetailLastUpdatedByTextbox";
             orderStatusDetailLastUpdatedByTextbox.ReadOnly = true;
             orderStatusDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            orderStatusDetailLastUpdatedByTextbox.TabIndex = 35;
+            orderStatusDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // orderStatusDetailLastUpdatedTimestampLabel
             // 
@@ -190,7 +191,7 @@
             orderStatusDetailOrderStatusLabel.AutoSize = true;
             orderStatusDetailOrderStatusLabel.Location = new Point(107, 180);
             orderStatusDetailOrderStatusLabel.Name = "orderStatusDetailOrderStatusLabel";
-            orderStatusDetailOrderStatusLabel.Size = new Size(107, 20);
+            orderStatusDetailOrderStatusLabel.Size = new Size(91, 20);
             orderStatusDetailOrderStatusLabel.TabIndex = 30;
             orderStatusDetailOrderStatusLabel.Text = "Order Status";
             // 
@@ -199,7 +200,7 @@
             orderStatusDetailOrderStatusIdLabel.AutoSize = true;
             orderStatusDetailOrderStatusIdLabel.Location = new Point(90, 141);
             orderStatusDetailOrderStatusIdLabel.Name = "orderStatusDetailOrderStatusIdLabel";
-            orderStatusDetailOrderStatusIdLabel.Size = new Size(124, 20);
+            orderStatusDetailOrderStatusIdLabel.Size = new Size(108, 20);
             orderStatusDetailOrderStatusIdLabel.TabIndex = 28;
             orderStatusDetailOrderStatusIdLabel.Text = "Order Status Id";
             // 

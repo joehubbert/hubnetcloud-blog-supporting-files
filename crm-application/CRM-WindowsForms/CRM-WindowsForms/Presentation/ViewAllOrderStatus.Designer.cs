@@ -81,6 +81,7 @@
             viewAllOrderStatusRefreshDataButton.TabIndex = 15;
             viewAllOrderStatusRefreshDataButton.Text = "Refresh Data";
             viewAllOrderStatusRefreshDataButton.UseVisualStyleBackColor = true;
+            viewAllOrderStatusRefreshDataButton.Click += new EventHandler(viewAllOrderStatusRefreshDataButton_Click);
             // 
             // ViewAllOrderStatus
             // 

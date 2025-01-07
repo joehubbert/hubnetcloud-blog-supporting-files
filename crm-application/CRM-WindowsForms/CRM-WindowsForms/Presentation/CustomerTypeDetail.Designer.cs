@@ -66,9 +66,10 @@
             customerTypeDetailUpdateCustomerTypeButton.Margin = new Padding(4);
             customerTypeDetailUpdateCustomerTypeButton.Name = "customerTypeDetailUpdateCustomerTypeButton";
             customerTypeDetailUpdateCustomerTypeButton.Size = new Size(185, 70);
-            customerTypeDetailUpdateCustomerTypeButton.TabIndex = 44;
+            customerTypeDetailUpdateCustomerTypeButton.TabIndex = 8;
             customerTypeDetailUpdateCustomerTypeButton.Text = "Update Customer Type";
             customerTypeDetailUpdateCustomerTypeButton.UseVisualStyleBackColor = true;
+            customerTypeDetailUpdateCustomerTypeButton.Click += customerTypeDetailUpdateCustomerTypeButton_Click;
             // 
             // customerTypeDetailActiveStatusCheckbox
             // 
@@ -79,7 +80,7 @@
             customerTypeDetailActiveStatusCheckbox.Margin = new Padding(4);
             customerTypeDetailActiveStatusCheckbox.Name = "customerTypeDetailActiveStatusCheckbox";
             customerTypeDetailActiveStatusCheckbox.Size = new Size(171, 24);
-            customerTypeDetailActiveStatusCheckbox.TabIndex = 43;
+            customerTypeDetailActiveStatusCheckbox.TabIndex = 2;
             customerTypeDetailActiveStatusCheckbox.Text = "Active Customer Type";
             customerTypeDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             customerTypeDetailToggleEditModeButton.Margin = new Padding(4);
             customerTypeDetailToggleEditModeButton.Name = "customerTypeDetailToggleEditModeButton";
             customerTypeDetailToggleEditModeButton.Size = new Size(108, 92);
-            customerTypeDetailToggleEditModeButton.TabIndex = 42;
+            customerTypeDetailToggleEditModeButton.TabIndex = 7;
             customerTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             customerTypeDetailCustomerTypeIdTextbox.Name = "customerTypeDetailCustomerTypeIdTextbox";
             customerTypeDetailCustomerTypeIdTextbox.ReadOnly = true;
             customerTypeDetailCustomerTypeIdTextbox.Size = new Size(370, 27);
-            customerTypeDetailCustomerTypeIdTextbox.TabIndex = 40;
+            customerTypeDetailCustomerTypeIdTextbox.TabIndex = 0;
             // 
             // customerTypeDetailCustomerTypeTextbox
             // 
@@ -111,7 +112,7 @@
             customerTypeDetailCustomerTypeTextbox.MaxLength = 50;
             customerTypeDetailCustomerTypeTextbox.Name = "customerTypeDetailCustomerTypeTextbox";
             customerTypeDetailCustomerTypeTextbox.Size = new Size(370, 27);
-            customerTypeDetailCustomerTypeTextbox.TabIndex = 39;
+            customerTypeDetailCustomerTypeTextbox.TabIndex = 1;
             // 
             // customerTypeDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             customerTypeDetailCreatedTimestampTextbox.Name = "customerTypeDetailCreatedTimestampTextbox";
             customerTypeDetailCreatedTimestampTextbox.ReadOnly = true;
             customerTypeDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerTypeDetailCreatedTimestampTextbox.TabIndex = 38;
+            customerTypeDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // customerTypeDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             customerTypeDetailLastUpdatedTimestampTextbox.Name = "customerTypeDetailLastUpdatedTimestampTextbox";
             customerTypeDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             customerTypeDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerTypeDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            customerTypeDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // customerTypeDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             customerTypeDetailCreatedByTextbox.Name = "customerTypeDetailCreatedByTextbox";
             customerTypeDetailCreatedByTextbox.ReadOnly = true;
             customerTypeDetailCreatedByTextbox.Size = new Size(370, 27);
-            customerTypeDetailCreatedByTextbox.TabIndex = 36;
+            customerTypeDetailCreatedByTextbox.TabIndex = 3;
             // 
             // customerTypeDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             customerTypeDetailLastUpdatedByTextbox.Name = "customerTypeDetailLastUpdatedByTextbox";
             customerTypeDetailLastUpdatedByTextbox.ReadOnly = true;
             customerTypeDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerTypeDetailLastUpdatedByTextbox.TabIndex = 35;
+            customerTypeDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // customerTypeDetailLastUpdatedTimestampLabel
             // 

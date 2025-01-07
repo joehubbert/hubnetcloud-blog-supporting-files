@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerType = createCustomerTypeCustomerTypeTextbox.Text.Trim();
+            string customerType = createCustomerTypeCustomerTypeTextbox.Text.TrimEnd();
 
             if (customerType.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createCustomerTypeActiveStatusCheckbox.Checked;
-                string customerType = createCustomerTypeCustomerTypeTextbox.Text.Trim();
+                string customerType = createCustomerTypeCustomerTypeTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

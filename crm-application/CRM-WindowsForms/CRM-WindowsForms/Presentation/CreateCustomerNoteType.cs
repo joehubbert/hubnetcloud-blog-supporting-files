@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerNoteType = createCustomerNoteTypeCustomerNoteTypeTextbox.Text.Trim();
+            string customerNoteType = createCustomerNoteTypeCustomerNoteTypeTextbox.Text.TrimEnd();
 
             if (customerNoteType.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createCustomerNoteTypeActiveStatusCheckbox.Checked;
-                string customerNoteType = createCustomerNoteTypeCustomerNoteTypeTextbox.Text.Trim();
+                string customerNoteType = createCustomerNoteTypeCustomerNoteTypeTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

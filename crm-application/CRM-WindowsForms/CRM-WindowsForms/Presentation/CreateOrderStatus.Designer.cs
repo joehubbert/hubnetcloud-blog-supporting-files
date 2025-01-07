@@ -53,7 +53,7 @@
             createOrderStatusOrderStatusTextbox.MaxLength = 50;
             createOrderStatusOrderStatusTextbox.Name = "createOrderStatusOrderStatusTextbox";
             createOrderStatusOrderStatusTextbox.Size = new Size(284, 27);
-            createOrderStatusOrderStatusTextbox.TabIndex = 20;
+            createOrderStatusOrderStatusTextbox.TabIndex = 0;
             // 
             // createOrderStatusOrderStatusLabel
             // 
@@ -73,10 +73,10 @@
             createOrderStatusSubmitButton.Margin = new Padding(4);
             createOrderStatusSubmitButton.Name = "createOrderStatusSubmitButton";
             createOrderStatusSubmitButton.Size = new Size(198, 66);
-            createOrderStatusSubmitButton.TabIndex = 18;
+            createOrderStatusSubmitButton.TabIndex = 2;
             createOrderStatusSubmitButton.Text = "Submit";
             createOrderStatusSubmitButton.UseVisualStyleBackColor = true;
-            createOrderStatusSubmitButton.Click += new EventHandler(createOrderStatusSubmitButton_Click);
+            createOrderStatusSubmitButton.Click += createOrderStatusSubmitButton_Click;
             // 
             // createOrderStatusActiveStatusCheckbox
             // 
@@ -84,11 +84,11 @@
             createOrderStatusActiveStatusCheckbox.Checked = true;
             createOrderStatusActiveStatusCheckbox.CheckState = CheckState.Checked;
             createOrderStatusActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createOrderStatusActiveStatusCheckbox.Location = new Point(144, 151);
+            createOrderStatusActiveStatusCheckbox.Location = new Point(147, 151);
             createOrderStatusActiveStatusCheckbox.Margin = new Padding(5);
             createOrderStatusActiveStatusCheckbox.Name = "createOrderStatusActiveStatusCheckbox";
             createOrderStatusActiveStatusCheckbox.Size = new Size(155, 24);
-            createOrderStatusActiveStatusCheckbox.TabIndex = 17;
+            createOrderStatusActiveStatusCheckbox.TabIndex = 1;
             createOrderStatusActiveStatusCheckbox.Text = "Active Order Status";
             createOrderStatusActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

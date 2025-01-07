@@ -53,7 +53,7 @@
             createSalesRegionSalesRegionTextbox.MaxLength = 50;
             createSalesRegionSalesRegionTextbox.Name = "createSalesRegionSalesRegionTextbox";
             createSalesRegionSalesRegionTextbox.Size = new Size(284, 27);
-            createSalesRegionSalesRegionTextbox.TabIndex = 20;
+            createSalesRegionSalesRegionTextbox.TabIndex = 0;
             // 
             // createSalesRegionSalesRegionLabel
             // 
@@ -69,14 +69,14 @@
             // 
             createSalesRegionSubmitButton.FlatStyle = FlatStyle.Flat;
             createSalesRegionSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createSalesRegionSubmitButton.Location = new Point(131, 199);
+            createSalesRegionSubmitButton.Location = new Point(131, 171);
             createSalesRegionSubmitButton.Margin = new Padding(4);
             createSalesRegionSubmitButton.Name = "createSalesRegionSubmitButton";
             createSalesRegionSubmitButton.Size = new Size(198, 66);
-            createSalesRegionSubmitButton.TabIndex = 18;
+            createSalesRegionSubmitButton.TabIndex = 2;
             createSalesRegionSubmitButton.Text = "Submit";
             createSalesRegionSubmitButton.UseVisualStyleBackColor = true;
-            createSalesRegionSubmitButton.Click += new EventHandler(createSalesRegionSubmitButton_Click);
+            createSalesRegionSubmitButton.Click += createSalesRegionSubmitButton_Click;
             // 
             // createSalesRegionActiveStatusCheckbox
             // 
@@ -88,7 +88,7 @@
             createSalesRegionActiveStatusCheckbox.Margin = new Padding(5);
             createSalesRegionActiveStatusCheckbox.Name = "createSalesRegionActiveStatusCheckbox";
             createSalesRegionActiveStatusCheckbox.Size = new Size(158, 24);
-            createSalesRegionActiveStatusCheckbox.TabIndex = 17;
+            createSalesRegionActiveStatusCheckbox.TabIndex = 1;
             createSalesRegionActiveStatusCheckbox.Text = "Active Sales Region";
             createSalesRegionActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -97,7 +97,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(467, 279);
+            ClientSize = new Size(467, 249);
             Controls.Add(createSalesRegionSalesRegionTextbox);
             Controls.Add(createSalesRegionSalesRegionLabel);
             Controls.Add(createSalesRegionSubmitButton);

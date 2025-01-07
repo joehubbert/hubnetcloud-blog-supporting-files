@@ -42,7 +42,7 @@
             createPaymentMethodTitleLabel.Location = new Point(15, 12);
             createPaymentMethodTitleLabel.Margin = new Padding(5, 0, 5, 0);
             createPaymentMethodTitleLabel.Name = "createPaymentMethodTitleLabel";
-            createPaymentMethodTitleLabel.Size = new Size(313, 32);
+            createPaymentMethodTitleLabel.Size = new Size(289, 32);
             createPaymentMethodTitleLabel.TabIndex = 7;
             createPaymentMethodTitleLabel.Text = "Create Payment Method";
             // 
@@ -53,7 +53,7 @@
             createPaymentMethodPaymentMethodTextbox.MaxLength = 50;
             createPaymentMethodPaymentMethodTextbox.Name = "createPaymentMethodPaymentMethodTextbox";
             createPaymentMethodPaymentMethodTextbox.Size = new Size(343, 27);
-            createPaymentMethodPaymentMethodTextbox.TabIndex = 20;
+            createPaymentMethodPaymentMethodTextbox.TabIndex = 0;
             // 
             // createPaymentMethodPaymentMethodLabel
             // 
@@ -61,7 +61,7 @@
             createPaymentMethodPaymentMethodLabel.Font = new Font("Segoe UI", 11F);
             createPaymentMethodPaymentMethodLabel.Location = new Point(25, 77);
             createPaymentMethodPaymentMethodLabel.Name = "createPaymentMethodPaymentMethodLabel";
-            createPaymentMethodPaymentMethodLabel.Size = new Size(136, 20);
+            createPaymentMethodPaymentMethodLabel.Size = new Size(121, 20);
             createPaymentMethodPaymentMethodLabel.TabIndex = 19;
             createPaymentMethodPaymentMethodLabel.Text = "Payment Method";
             // 
@@ -73,10 +73,10 @@
             createPaymentMethodSubmitButton.Margin = new Padding(4);
             createPaymentMethodSubmitButton.Name = "createPaymentMethodSubmitButton";
             createPaymentMethodSubmitButton.Size = new Size(198, 66);
-            createPaymentMethodSubmitButton.TabIndex = 18;
+            createPaymentMethodSubmitButton.TabIndex = 2;
             createPaymentMethodSubmitButton.Text = "Submit";
             createPaymentMethodSubmitButton.UseVisualStyleBackColor = true;
-            createPaymentMethodSubmitButton.Click += new EventHandler(createPaymentMethodSubmitButton_Click);
+            createPaymentMethodSubmitButton.Click += createPaymentMethodSubmitButton_Click;
             // 
             // createPaymentMethodActiveStatusCheckbox
             // 
@@ -84,11 +84,11 @@
             createPaymentMethodActiveStatusCheckbox.Checked = true;
             createPaymentMethodActiveStatusCheckbox.CheckState = CheckState.Checked;
             createPaymentMethodActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createPaymentMethodActiveStatusCheckbox.Location = new Point(193, 146);
+            createPaymentMethodActiveStatusCheckbox.Location = new Point(196, 146);
             createPaymentMethodActiveStatusCheckbox.Margin = new Padding(5);
             createPaymentMethodActiveStatusCheckbox.Name = "createPaymentMethodActiveStatusCheckbox";
-            createPaymentMethodActiveStatusCheckbox.Size = new Size(200, 24);
-            createPaymentMethodActiveStatusCheckbox.TabIndex = 17;
+            createPaymentMethodActiveStatusCheckbox.Size = new Size(185, 24);
+            createPaymentMethodActiveStatusCheckbox.TabIndex = 1;
             createPaymentMethodActiveStatusCheckbox.Text = "Active Payment Method";
             createPaymentMethodActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

@@ -135,7 +135,7 @@
             deliveryMethodDetailLastUpdatedByTextbox.Name = "deliveryMethodDetailLastUpdatedByTextbox";
             deliveryMethodDetailLastUpdatedByTextbox.ReadOnly = true;
             deliveryMethodDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailLastUpdatedByTextbox.TabIndex = 15;
+            deliveryMethodDetailLastUpdatedByTextbox.TabIndex = 9;
             // 
             // deliveryMethodDetailCreatedByTextbox
             // 
@@ -144,7 +144,7 @@
             deliveryMethodDetailCreatedByTextbox.Name = "deliveryMethodDetailCreatedByTextbox";
             deliveryMethodDetailCreatedByTextbox.ReadOnly = true;
             deliveryMethodDetailCreatedByTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailCreatedByTextbox.TabIndex = 16;
+            deliveryMethodDetailCreatedByTextbox.TabIndex = 7;
             // 
             // deliveryMethodDetailLastUpdatedTimestampTextbox
             // 
@@ -153,7 +153,7 @@
             deliveryMethodDetailLastUpdatedTimestampTextbox.Name = "deliveryMethodDetailLastUpdatedTimestampTextbox";
             deliveryMethodDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailLastUpdatedTimestampTextbox.TabIndex = 17;
+            deliveryMethodDetailLastUpdatedTimestampTextbox.TabIndex = 10;
             // 
             // deliveryMethodDetailCreatedTimestampTextbox
             // 
@@ -162,7 +162,7 @@
             deliveryMethodDetailCreatedTimestampTextbox.Name = "deliveryMethodDetailCreatedTimestampTextbox";
             deliveryMethodDetailCreatedTimestampTextbox.ReadOnly = true;
             deliveryMethodDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailCreatedTimestampTextbox.TabIndex = 18;
+            deliveryMethodDetailCreatedTimestampTextbox.TabIndex = 8;
             // 
             // deliveryMethodDetailDeliveryCostTextboxA
             // 
@@ -171,7 +171,7 @@
             deliveryMethodDetailDeliveryCostTextboxA.MaxLength = 10;
             deliveryMethodDetailDeliveryCostTextboxA.Name = "deliveryMethodDetailDeliveryCostTextboxA";
             deliveryMethodDetailDeliveryCostTextboxA.Size = new Size(142, 27);
-            deliveryMethodDetailDeliveryCostTextboxA.TabIndex = 19;
+            deliveryMethodDetailDeliveryCostTextboxA.TabIndex = 2;
             // 
             // deliveryMethodDetailDeliveryMethodIdTextbox
             // 
@@ -180,7 +180,7 @@
             deliveryMethodDetailDeliveryMethodIdTextbox.Name = "deliveryMethodDetailDeliveryMethodIdTextbox";
             deliveryMethodDetailDeliveryMethodIdTextbox.ReadOnly = true;
             deliveryMethodDetailDeliveryMethodIdTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailDeliveryMethodIdTextbox.TabIndex = 20;
+            deliveryMethodDetailDeliveryMethodIdTextbox.TabIndex = 0;
             // 
             // deliveryMethodDetailDeliveryMethodTextbox
             // 
@@ -189,7 +189,7 @@
             deliveryMethodDetailDeliveryMethodTextbox.MaxLength = 50;
             deliveryMethodDetailDeliveryMethodTextbox.Name = "deliveryMethodDetailDeliveryMethodTextbox";
             deliveryMethodDetailDeliveryMethodTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailDeliveryMethodTextbox.TabIndex = 21;
+            deliveryMethodDetailDeliveryMethodTextbox.TabIndex = 1;
             // 
             // deliveryMethodDetailToggleEditModeButton
             // 
@@ -199,7 +199,7 @@
             deliveryMethodDetailToggleEditModeButton.Margin = new Padding(4);
             deliveryMethodDetailToggleEditModeButton.Name = "deliveryMethodDetailToggleEditModeButton";
             deliveryMethodDetailToggleEditModeButton.Size = new Size(108, 92);
-            deliveryMethodDetailToggleEditModeButton.TabIndex = 25;
+            deliveryMethodDetailToggleEditModeButton.TabIndex = 11;
             deliveryMethodDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             deliveryMethodDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -212,7 +212,7 @@
             deliveryMethodDetailActiveStatusCheckbox.Margin = new Padding(4);
             deliveryMethodDetailActiveStatusCheckbox.Name = "deliveryMethodDetailActiveStatusCheckbox";
             deliveryMethodDetailActiveStatusCheckbox.Size = new Size(183, 24);
-            deliveryMethodDetailActiveStatusCheckbox.TabIndex = 26;
+            deliveryMethodDetailActiveStatusCheckbox.TabIndex = 6;
             deliveryMethodDetailActiveStatusCheckbox.Text = "Active Delivery Method";
             deliveryMethodDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -225,9 +225,10 @@
             deliveryMethodDetailUpdateDeliveryMethodButton.Margin = new Padding(4);
             deliveryMethodDetailUpdateDeliveryMethodButton.Name = "deliveryMethodDetailUpdateDeliveryMethodButton";
             deliveryMethodDetailUpdateDeliveryMethodButton.Size = new Size(185, 70);
-            deliveryMethodDetailUpdateDeliveryMethodButton.TabIndex = 27;
+            deliveryMethodDetailUpdateDeliveryMethodButton.TabIndex = 12;
             deliveryMethodDetailUpdateDeliveryMethodButton.Text = "Update Delivery Method";
             deliveryMethodDetailUpdateDeliveryMethodButton.UseVisualStyleBackColor = true;
+            deliveryMethodDetailUpdateDeliveryMethodButton.Click += deliveryMethodDetailUpdateDeliveryMethodButton_Click;
             // 
             // deliveryMethodDetailDeliveryCostTextboxB
             // 
@@ -236,7 +237,7 @@
             deliveryMethodDetailDeliveryCostTextboxB.MaxLength = 4;
             deliveryMethodDetailDeliveryCostTextboxB.Name = "deliveryMethodDetailDeliveryCostTextboxB";
             deliveryMethodDetailDeliveryCostTextboxB.Size = new Size(62, 27);
-            deliveryMethodDetailDeliveryCostTextboxB.TabIndex = 28;
+            deliveryMethodDetailDeliveryCostTextboxB.TabIndex = 3;
             // 
             // deliveryMethodDetailDeliveryCostTextboxSeparatorLabel
             // 
@@ -264,7 +265,7 @@
             deliveryMethodDetailTaxProfileComboBox.Location = new Point(243, 298);
             deliveryMethodDetailTaxProfileComboBox.Name = "deliveryMethodDetailTaxProfileComboBox";
             deliveryMethodDetailTaxProfileComboBox.Size = new Size(370, 28);
-            deliveryMethodDetailTaxProfileComboBox.TabIndex = 32;
+            deliveryMethodDetailTaxProfileComboBox.TabIndex = 5;
             // 
             // deliveryMethodDetailDeliveryTimeTextbox
             // 
@@ -273,7 +274,7 @@
             deliveryMethodDetailDeliveryTimeTextbox.MaxLength = 3;
             deliveryMethodDetailDeliveryTimeTextbox.Name = "deliveryMethodDetailDeliveryTimeTextbox";
             deliveryMethodDetailDeliveryTimeTextbox.Size = new Size(41, 27);
-            deliveryMethodDetailDeliveryTimeTextbox.TabIndex = 31;
+            deliveryMethodDetailDeliveryTimeTextbox.TabIndex = 4;
             // 
             // deliveryMethodDetailDeliveryTimeLabel
             // 

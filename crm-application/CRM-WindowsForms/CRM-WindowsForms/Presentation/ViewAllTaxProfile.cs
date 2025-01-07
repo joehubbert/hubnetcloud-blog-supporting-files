@@ -38,7 +38,7 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    dataTable.DefaultView.Sort = "Tax Profile Code ASC";
+                    dataTable.DefaultView.Sort = "Tax Profile ASC";
                     viewAllTaxProfileDataGridView.AutoGenerateColumns = true;
                     viewAllTaxProfileDataGridView.DataSource = dataTable;
                     viewAllTaxProfileDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

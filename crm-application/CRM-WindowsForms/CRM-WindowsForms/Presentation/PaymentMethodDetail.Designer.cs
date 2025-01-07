@@ -66,9 +66,10 @@
             paymentMethodDetailUpdateSupplierTypeButton.Margin = new Padding(4);
             paymentMethodDetailUpdateSupplierTypeButton.Name = "paymentMethodDetailUpdateSupplierTypeButton";
             paymentMethodDetailUpdateSupplierTypeButton.Size = new Size(237, 70);
-            paymentMethodDetailUpdateSupplierTypeButton.TabIndex = 44;
+            paymentMethodDetailUpdateSupplierTypeButton.TabIndex = 8;
             paymentMethodDetailUpdateSupplierTypeButton.Text = "Update Payment Method";
             paymentMethodDetailUpdateSupplierTypeButton.UseVisualStyleBackColor = true;
+            paymentMethodDetailUpdateSupplierTypeButton.Click += paymentMethodDetailUpdateSupplierTypeButton_Click;
             // 
             // paymentMethodDetailActiveStatusCheckbox
             // 
@@ -79,7 +80,7 @@
             paymentMethodDetailActiveStatusCheckbox.Margin = new Padding(4);
             paymentMethodDetailActiveStatusCheckbox.Name = "paymentMethodDetailActiveStatusCheckbox";
             paymentMethodDetailActiveStatusCheckbox.Size = new Size(185, 24);
-            paymentMethodDetailActiveStatusCheckbox.TabIndex = 43;
+            paymentMethodDetailActiveStatusCheckbox.TabIndex = 2;
             paymentMethodDetailActiveStatusCheckbox.Text = "Active Payment Method";
             paymentMethodDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             paymentMethodDetailToggleEditModeButton.Margin = new Padding(4);
             paymentMethodDetailToggleEditModeButton.Name = "paymentMethodDetailToggleEditModeButton";
             paymentMethodDetailToggleEditModeButton.Size = new Size(108, 92);
-            paymentMethodDetailToggleEditModeButton.TabIndex = 42;
+            paymentMethodDetailToggleEditModeButton.TabIndex = 7;
             paymentMethodDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             paymentMethodDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             paymentMethodDetailSupplierTypeIdTextbox.Name = "paymentMethodDetailSupplierTypeIdTextbox";
             paymentMethodDetailSupplierTypeIdTextbox.ReadOnly = true;
             paymentMethodDetailSupplierTypeIdTextbox.Size = new Size(370, 27);
-            paymentMethodDetailSupplierTypeIdTextbox.TabIndex = 40;
+            paymentMethodDetailSupplierTypeIdTextbox.TabIndex = 0;
             // 
             // paymentMethodDetailSupplierTypeTextbox
             // 
@@ -111,7 +112,7 @@
             paymentMethodDetailSupplierTypeTextbox.MaxLength = 50;
             paymentMethodDetailSupplierTypeTextbox.Name = "paymentMethodDetailSupplierTypeTextbox";
             paymentMethodDetailSupplierTypeTextbox.Size = new Size(370, 27);
-            paymentMethodDetailSupplierTypeTextbox.TabIndex = 39;
+            paymentMethodDetailSupplierTypeTextbox.TabIndex = 1;
             // 
             // paymentMethodDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             paymentMethodDetailCreatedTimestampTextbox.Name = "paymentMethodDetailCreatedTimestampTextbox";
             paymentMethodDetailCreatedTimestampTextbox.ReadOnly = true;
             paymentMethodDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            paymentMethodDetailCreatedTimestampTextbox.TabIndex = 38;
+            paymentMethodDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // paymentMethodDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             paymentMethodDetailLastUpdatedTimestampTextbox.Name = "paymentMethodDetailLastUpdatedTimestampTextbox";
             paymentMethodDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             paymentMethodDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            paymentMethodDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            paymentMethodDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // paymentMethodDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             paymentMethodDetailCreatedByTextbox.Name = "paymentMethodDetailCreatedByTextbox";
             paymentMethodDetailCreatedByTextbox.ReadOnly = true;
             paymentMethodDetailCreatedByTextbox.Size = new Size(370, 27);
-            paymentMethodDetailCreatedByTextbox.TabIndex = 36;
+            paymentMethodDetailCreatedByTextbox.TabIndex = 3;
             // 
             // paymentMethodDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             paymentMethodDetailLastUpdatedByTextbox.Name = "paymentMethodDetailLastUpdatedByTextbox";
             paymentMethodDetailLastUpdatedByTextbox.ReadOnly = true;
             paymentMethodDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            paymentMethodDetailLastUpdatedByTextbox.TabIndex = 35;
+            paymentMethodDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // paymentMethodDetailLastUpdatedTimestampLabel
             // 

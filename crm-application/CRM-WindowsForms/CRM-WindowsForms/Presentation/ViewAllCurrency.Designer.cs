@@ -81,6 +81,7 @@
             viewAllCurrencyRefreshDataButton.TabIndex = 12;
             viewAllCurrencyRefreshDataButton.Text = "Refresh Data";
             viewAllCurrencyRefreshDataButton.UseVisualStyleBackColor = true;
+            viewAllCurrencyRefreshDataButton.Click += new EventHandler(viewAllCurrencyRefreshDataButton_Click);
             // 
             // ViewAllCurrency
             // 

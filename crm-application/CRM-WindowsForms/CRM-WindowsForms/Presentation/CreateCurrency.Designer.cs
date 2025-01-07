@@ -65,7 +65,7 @@
             createCurrencyCurrencyCodeTextbox.MaxLength = 3;
             createCurrencyCurrencyCodeTextbox.Name = "createCurrencyCurrencyCodeTextbox";
             createCurrencyCurrencyCodeTextbox.Size = new Size(48, 27);
-            createCurrencyCurrencyCodeTextbox.TabIndex = 8;
+            createCurrencyCurrencyCodeTextbox.TabIndex = 0;
             // 
             // createCurrencyActiveStatusCheckbox
             // 
@@ -77,7 +77,7 @@
             createCurrencyActiveStatusCheckbox.Margin = new Padding(5);
             createCurrencyActiveStatusCheckbox.Name = "createCurrencyActiveStatusCheckbox";
             createCurrencyActiveStatusCheckbox.Size = new Size(130, 24);
-            createCurrencyActiveStatusCheckbox.TabIndex = 11;
+            createCurrencyActiveStatusCheckbox.TabIndex = 3;
             createCurrencyActiveStatusCheckbox.Text = "Active Currency";
             createCurrencyActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -89,16 +89,16 @@
             createCurrencySubmitButton.Margin = new Padding(4);
             createCurrencySubmitButton.Name = "createCurrencySubmitButton";
             createCurrencySubmitButton.Size = new Size(198, 66);
-            createCurrencySubmitButton.TabIndex = 12;
+            createCurrencySubmitButton.TabIndex = 4;
             createCurrencySubmitButton.Text = "Submit";
             createCurrencySubmitButton.UseVisualStyleBackColor = true;
-            createCurrencySubmitButton.Click += new EventHandler(createCurrencySubmitButton_Click);
+            createCurrencySubmitButton.Click += createCurrencySubmitButton_Click;
             // 
             // createCurrencyCurrencyNameLabel
             // 
             createCurrencyCurrencyNameLabel.AutoSize = true;
             createCurrencyCurrencyNameLabel.Font = new Font("Segoe UI", 11F);
-            createCurrencyCurrencyNameLabel.Location = new Point(70, 120);
+            createCurrencyCurrencyNameLabel.Location = new Point(70, 109);
             createCurrencyCurrencyNameLabel.Name = "createCurrencyCurrencyNameLabel";
             createCurrencyCurrencyNameLabel.Size = new Size(110, 20);
             createCurrencyCurrencyNameLabel.TabIndex = 50;
@@ -106,12 +106,12 @@
             // 
             // createCurrencyCurrencyNameTextbox
             // 
-            createCurrencyCurrencyNameTextbox.Location = new Point(202, 117);
+            createCurrencyCurrencyNameTextbox.Location = new Point(202, 106);
             createCurrencyCurrencyNameTextbox.Margin = new Padding(3, 4, 3, 4);
             createCurrencyCurrencyNameTextbox.MaxLength = 50;
             createCurrencyCurrencyNameTextbox.Name = "createCurrencyCurrencyNameTextbox";
             createCurrencyCurrencyNameTextbox.Size = new Size(284, 27);
-            createCurrencyCurrencyNameTextbox.TabIndex = 14;
+            createCurrencyCurrencyNameTextbox.TabIndex = 1;
             // 
             // CreateCurrency
             // 

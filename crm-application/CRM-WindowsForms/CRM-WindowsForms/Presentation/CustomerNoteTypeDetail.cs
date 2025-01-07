@@ -72,7 +72,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.Trim();
+            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.TrimEnd();
 
             if (customerNoteType.Length > 50)
             {
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms.Presentation
 
         private async void customerNoteTypeDetailUpdateCustomerTypeButton_Click(object sender, EventArgs e)
         {
-            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.Trim();
+            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

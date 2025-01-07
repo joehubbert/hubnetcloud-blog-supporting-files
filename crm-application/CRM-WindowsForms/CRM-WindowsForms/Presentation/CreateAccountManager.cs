@@ -23,10 +23,10 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string firstName = createAccountManagerFirstNameTextbox.Text.Trim();
-            string lastName = createAccountManagerLastNameTextbox.Text.Trim();
-            string emailAddress = createAccountManagerEmailAddressTextbox.Text.Trim();
-            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.Trim();
+            string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
+            string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
+            string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
+            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
 
             if (firstName.Length > 50)
             {
@@ -102,10 +102,10 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
-                string emailAddress = createAccountManagerEmailAddressTextbox.Text.Trim();
-                string firstName = createAccountManagerFirstNameTextbox.Text.Trim();
-                string lastName = createAccountManagerLastNameTextbox.Text.Trim();
-                string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.Trim();
+                string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
+                string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
+                string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
+                string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

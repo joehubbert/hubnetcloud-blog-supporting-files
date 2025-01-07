@@ -23,8 +23,8 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string currencyCode = createCurrencyCurrencyCodeTextbox.Text.Trim();
-            string currencyName = createCurrencyCurrencyNameTextbox.Text.Trim();
+            string currencyCode = createCurrencyCurrencyCodeTextbox.Text.TrimEnd();
+            string currencyName = createCurrencyCurrencyNameTextbox.Text.TrimEnd();
 
             if (currencyCode.Length > 3)
             {
@@ -80,8 +80,8 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createCurrencyActiveStatusCheckbox.Checked;
-                string currencyCode = createCurrencyCurrencyCodeTextbox.Text.Trim();
-                string currencyName = createCurrencyCurrencyNameTextbox.Text.Trim();
+                string currencyCode = createCurrencyCurrencyCodeTextbox.Text.TrimEnd();
+                string currencyName = createCurrencyCurrencyNameTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

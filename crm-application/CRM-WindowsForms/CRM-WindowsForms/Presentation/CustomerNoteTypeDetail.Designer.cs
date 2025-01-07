@@ -66,9 +66,10 @@
             customerNoteTypeDetailUpdateCustomerTypeButton.Margin = new Padding(4);
             customerNoteTypeDetailUpdateCustomerTypeButton.Name = "customerNoteTypeDetailUpdateCustomerTypeButton";
             customerNoteTypeDetailUpdateCustomerTypeButton.Size = new Size(237, 70);
-            customerNoteTypeDetailUpdateCustomerTypeButton.TabIndex = 44;
+            customerNoteTypeDetailUpdateCustomerTypeButton.TabIndex = 8;
             customerNoteTypeDetailUpdateCustomerTypeButton.Text = "Update Customer Note Type";
             customerNoteTypeDetailUpdateCustomerTypeButton.UseVisualStyleBackColor = true;
+            customerNoteTypeDetailUpdateCustomerTypeButton.Click += customerNoteTypeDetailUpdateCustomerTypeButton_Click;
             // 
             // customerNoteTypeDetailActiveStatusCheckbox
             // 
@@ -79,7 +80,7 @@
             customerNoteTypeDetailActiveStatusCheckbox.Margin = new Padding(4);
             customerNoteTypeDetailActiveStatusCheckbox.Name = "customerNoteTypeDetailActiveStatusCheckbox";
             customerNoteTypeDetailActiveStatusCheckbox.Size = new Size(208, 24);
-            customerNoteTypeDetailActiveStatusCheckbox.TabIndex = 43;
+            customerNoteTypeDetailActiveStatusCheckbox.TabIndex = 2;
             customerNoteTypeDetailActiveStatusCheckbox.Text = "Active Customer Note Type";
             customerNoteTypeDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,14 +92,14 @@
             customerNoteTypeDetailToggleEditModeButton.Margin = new Padding(4);
             customerNoteTypeDetailToggleEditModeButton.Name = "customerNoteTypeDetailToggleEditModeButton";
             customerNoteTypeDetailToggleEditModeButton.Size = new Size(108, 92);
-            customerNoteTypeDetailToggleEditModeButton.TabIndex = 42;
+            customerNoteTypeDetailToggleEditModeButton.TabIndex = 7;
             customerNoteTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerNoteTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
             // customerNoteTypeDetailCustomerTypeIdTextbox
             // 
             customerNoteTypeDetailCustomerTypeIdTextbox.Location = new Point(224, 138);
-            customerNoteTypeDetailCustomerTypeIdTextbox.MaxLength = 36;
+            customerNoteTypeDetailCustomerTypeIdTextbox.MaxLength = 0;
             customerNoteTypeDetailCustomerTypeIdTextbox.Name = "customerNoteTypeDetailCustomerTypeIdTextbox";
             customerNoteTypeDetailCustomerTypeIdTextbox.ReadOnly = true;
             customerNoteTypeDetailCustomerTypeIdTextbox.Size = new Size(370, 27);
@@ -108,7 +109,7 @@
             // 
             customerNoteTypeDetailCustomerTypeTextbox.Enabled = false;
             customerNoteTypeDetailCustomerTypeTextbox.Location = new Point(224, 178);
-            customerNoteTypeDetailCustomerTypeTextbox.MaxLength = 50;
+            customerNoteTypeDetailCustomerTypeTextbox.MaxLength = 1;
             customerNoteTypeDetailCustomerTypeTextbox.Name = "customerNoteTypeDetailCustomerTypeTextbox";
             customerNoteTypeDetailCustomerTypeTextbox.Size = new Size(370, 27);
             customerNoteTypeDetailCustomerTypeTextbox.TabIndex = 39;
@@ -120,7 +121,7 @@
             customerNoteTypeDetailCreatedTimestampTextbox.Name = "customerNoteTypeDetailCreatedTimestampTextbox";
             customerNoteTypeDetailCreatedTimestampTextbox.ReadOnly = true;
             customerNoteTypeDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailCreatedTimestampTextbox.TabIndex = 38;
+            customerNoteTypeDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // customerNoteTypeDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             customerNoteTypeDetailLastUpdatedTimestampTextbox.Name = "customerNoteTypeDetailLastUpdatedTimestampTextbox";
             customerNoteTypeDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             customerNoteTypeDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            customerNoteTypeDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // customerNoteTypeDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             customerNoteTypeDetailCreatedByTextbox.Name = "customerNoteTypeDetailCreatedByTextbox";
             customerNoteTypeDetailCreatedByTextbox.ReadOnly = true;
             customerNoteTypeDetailCreatedByTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailCreatedByTextbox.TabIndex = 36;
+            customerNoteTypeDetailCreatedByTextbox.TabIndex = 3;
             // 
             // customerNoteTypeDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             customerNoteTypeDetailLastUpdatedByTextbox.Name = "customerNoteTypeDetailLastUpdatedByTextbox";
             customerNoteTypeDetailLastUpdatedByTextbox.ReadOnly = true;
             customerNoteTypeDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailLastUpdatedByTextbox.TabIndex = 35;
+            customerNoteTypeDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // customerNoteTypeDetailLastUpdatedTimestampLabel
             // 

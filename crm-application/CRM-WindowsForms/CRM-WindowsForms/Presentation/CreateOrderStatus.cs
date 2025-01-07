@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string orderStatus = createOrderStatusOrderStatusTextbox.Text.Trim();
+            string orderStatus = createOrderStatusOrderStatusTextbox.Text.TrimEnd();
 
             if (orderStatus.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createOrderStatusActiveStatusCheckbox.Checked;
-                string orderStatus = createOrderStatusOrderStatusTextbox.Text.Trim();
+                string orderStatus = createOrderStatusOrderStatusTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

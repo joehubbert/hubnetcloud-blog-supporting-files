@@ -131,7 +131,7 @@
             taxProfileDetailLastUpdatedByTextbox.Name = "taxProfileDetailLastUpdatedByTextbox";
             taxProfileDetailLastUpdatedByTextbox.ReadOnly = true;
             taxProfileDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            taxProfileDetailLastUpdatedByTextbox.TabIndex = 15;
+            taxProfileDetailLastUpdatedByTextbox.TabIndex = 7;
             // 
             // taxProfileDetailCreatedByTextbox
             // 
@@ -140,7 +140,7 @@
             taxProfileDetailCreatedByTextbox.Name = "taxProfileDetailCreatedByTextbox";
             taxProfileDetailCreatedByTextbox.ReadOnly = true;
             taxProfileDetailCreatedByTextbox.Size = new Size(370, 27);
-            taxProfileDetailCreatedByTextbox.TabIndex = 16;
+            taxProfileDetailCreatedByTextbox.TabIndex = 5;
             // 
             // taxProfileDetailLastUpdatedTimestampTextbox
             // 
@@ -149,7 +149,7 @@
             taxProfileDetailLastUpdatedTimestampTextbox.Name = "taxProfileDetailLastUpdatedTimestampTextbox";
             taxProfileDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             taxProfileDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            taxProfileDetailLastUpdatedTimestampTextbox.TabIndex = 17;
+            taxProfileDetailLastUpdatedTimestampTextbox.TabIndex = 8;
             // 
             // taxProfileDetailCreatedTimestampTextbox
             // 
@@ -158,7 +158,7 @@
             taxProfileDetailCreatedTimestampTextbox.Name = "taxProfileDetailCreatedTimestampTextbox";
             taxProfileDetailCreatedTimestampTextbox.ReadOnly = true;
             taxProfileDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            taxProfileDetailCreatedTimestampTextbox.TabIndex = 18;
+            taxProfileDetailCreatedTimestampTextbox.TabIndex = 6;
             // 
             // taxProfileDetailTaxRateTextboxA
             // 
@@ -167,7 +167,7 @@
             taxProfileDetailTaxRateTextboxA.MaxLength = 5;
             taxProfileDetailTaxRateTextboxA.Name = "taxProfileDetailTaxRateTextboxA";
             taxProfileDetailTaxRateTextboxA.Size = new Size(88, 27);
-            taxProfileDetailTaxRateTextboxA.TabIndex = 19;
+            taxProfileDetailTaxRateTextboxA.TabIndex = 2;
             // 
             // taxProfileDetailTaxProfileIdTextbox
             // 
@@ -176,7 +176,7 @@
             taxProfileDetailTaxProfileIdTextbox.Name = "taxProfileDetailTaxProfileIdTextbox";
             taxProfileDetailTaxProfileIdTextbox.ReadOnly = true;
             taxProfileDetailTaxProfileIdTextbox.Size = new Size(370, 27);
-            taxProfileDetailTaxProfileIdTextbox.TabIndex = 20;
+            taxProfileDetailTaxProfileIdTextbox.TabIndex = 0;
             // 
             // taxProfileDetailTaxProfileTextbox
             // 
@@ -185,7 +185,7 @@
             taxProfileDetailTaxProfileTextbox.MaxLength = 50;
             taxProfileDetailTaxProfileTextbox.Name = "taxProfileDetailTaxProfileTextbox";
             taxProfileDetailTaxProfileTextbox.Size = new Size(370, 27);
-            taxProfileDetailTaxProfileTextbox.TabIndex = 21;
+            taxProfileDetailTaxProfileTextbox.TabIndex = 1;
             // 
             // taxProfileDetailToggleEditModeButton
             // 
@@ -195,7 +195,7 @@
             taxProfileDetailToggleEditModeButton.Margin = new Padding(4);
             taxProfileDetailToggleEditModeButton.Name = "taxProfileDetailToggleEditModeButton";
             taxProfileDetailToggleEditModeButton.Size = new Size(108, 92);
-            taxProfileDetailToggleEditModeButton.TabIndex = 25;
+            taxProfileDetailToggleEditModeButton.TabIndex = 9;
             taxProfileDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             taxProfileDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -208,7 +208,7 @@
             taxProfileDetailActiveStatusCheckbox.Margin = new Padding(4);
             taxProfileDetailActiveStatusCheckbox.Name = "taxProfileDetailActiveStatusCheckbox";
             taxProfileDetailActiveStatusCheckbox.Size = new Size(141, 24);
-            taxProfileDetailActiveStatusCheckbox.TabIndex = 26;
+            taxProfileDetailActiveStatusCheckbox.TabIndex = 4;
             taxProfileDetailActiveStatusCheckbox.Text = "Active Tax Profile";
             taxProfileDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -221,9 +221,10 @@
             taxProfileDetailUpdateTaxProfileButton.Margin = new Padding(4);
             taxProfileDetailUpdateTaxProfileButton.Name = "taxProfileDetailUpdateTaxProfileButton";
             taxProfileDetailUpdateTaxProfileButton.Size = new Size(185, 70);
-            taxProfileDetailUpdateTaxProfileButton.TabIndex = 27;
+            taxProfileDetailUpdateTaxProfileButton.TabIndex = 10;
             taxProfileDetailUpdateTaxProfileButton.Text = "Update Tax Profile";
             taxProfileDetailUpdateTaxProfileButton.UseVisualStyleBackColor = true;
+            taxProfileDetailUpdateTaxProfileButton.Click += taxProfileDetailUpdateTaxProfileButton_Click;
             // 
             // taxProfileDetailTaxRateTextboxB
             // 
@@ -232,7 +233,7 @@
             taxProfileDetailTaxRateTextboxB.MaxLength = 5;
             taxProfileDetailTaxRateTextboxB.Name = "taxProfileDetailTaxRateTextboxB";
             taxProfileDetailTaxRateTextboxB.Size = new Size(38, 27);
-            taxProfileDetailTaxRateTextboxB.TabIndex = 28;
+            taxProfileDetailTaxRateTextboxB.TabIndex = 3;
             // 
             // taxProfileDetailTaxRateTextboxSeparatorLabel
             // 

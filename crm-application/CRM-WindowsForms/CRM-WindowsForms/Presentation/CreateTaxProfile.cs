@@ -24,9 +24,9 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string taxProfile = createTaxProfileTaxProfileTextbox.Text.Trim();
-            string taxRateA = createTaxProfileTaxRateTextboxA.Text.Trim();
-            string taxRateB = createTaxProfileTaxRateTextboxB.Text.Trim();
+            string taxProfile = createTaxProfileTaxProfileTextbox.Text.TrimEnd();
+            string taxRateA = createTaxProfileTaxRateTextboxA.Text.TrimEnd();
+            string taxRateB = createTaxProfileTaxRateTextboxB.Text.TrimEnd();
 
             if (taxProfile.Length > 50)
             {
@@ -98,8 +98,8 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createTaxProfileActiveStatusCheckbox.Checked;
-                string taxProfile = createTaxProfileTaxProfileTextbox.Text.Trim();
-                decimal taxRate = decimal.Parse(createTaxProfileTaxRateTextboxA.Text.Trim()) + (decimal.Parse(createTaxProfileTaxRateTextboxB.Text.Trim()) / 100);
+                string taxProfile = createTaxProfileTaxProfileTextbox.Text.TrimEnd();
+                decimal taxRate = decimal.Parse(createTaxProfileTaxRateTextboxA.Text.TrimEnd()) + (decimal.Parse(createTaxProfileTaxRateTextboxB.Text.TrimEnd()) / 100);
 
                 var parameters = new[]
                 {

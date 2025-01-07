@@ -53,7 +53,7 @@
             createProductCategoryProductCategoryTextbox.MaxLength = 50;
             createProductCategoryProductCategoryTextbox.Name = "createProductCategoryProductCategoryTextbox";
             createProductCategoryProductCategoryTextbox.Size = new Size(284, 27);
-            createProductCategoryProductCategoryTextbox.TabIndex = 20;
+            createProductCategoryProductCategoryTextbox.TabIndex = 0;
             // 
             // createProductCategoryProductCategoryLabel
             // 
@@ -73,10 +73,10 @@
             createProductCategorySubmitButton.Margin = new Padding(4);
             createProductCategorySubmitButton.Name = "createProductCategorySubmitButton";
             createProductCategorySubmitButton.Size = new Size(198, 66);
-            createProductCategorySubmitButton.TabIndex = 18;
+            createProductCategorySubmitButton.TabIndex = 2;
             createProductCategorySubmitButton.Text = "Submit";
             createProductCategorySubmitButton.UseVisualStyleBackColor = true;
-            createProductCategorySubmitButton.Click += new EventHandler(createProductCategorySubmitButton_Click);
+            createProductCategorySubmitButton.Click += createProductCategorySubmitButton_Click;
             // 
             // createProductCategoryActiveStatusCheckbox
             // 
@@ -84,11 +84,11 @@
             createProductCategoryActiveStatusCheckbox.Checked = true;
             createProductCategoryActiveStatusCheckbox.CheckState = CheckState.Checked;
             createProductCategoryActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createProductCategoryActiveStatusCheckbox.Location = new Point(144, 151);
+            createProductCategoryActiveStatusCheckbox.Location = new Point(135, 151);
             createProductCategoryActiveStatusCheckbox.Margin = new Padding(5);
             createProductCategoryActiveStatusCheckbox.Name = "createProductCategoryActiveStatusCheckbox";
             createProductCategoryActiveStatusCheckbox.Size = new Size(188, 24);
-            createProductCategoryActiveStatusCheckbox.TabIndex = 17;
+            createProductCategoryActiveStatusCheckbox.TabIndex = 1;
             createProductCategoryActiveStatusCheckbox.Text = "Active Product Category";
             createProductCategoryActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

@@ -75,8 +75,8 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.Trim();
-            string currencyName = currencyDetailCurrencyNameTextbox.Text.Trim();
+            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.TrimEnd();
+            string currencyName = currencyDetailCurrencyNameTextbox.Text.TrimEnd();
 
             if (currencyCode.Length > 3)
             {
@@ -119,8 +119,8 @@ namespace CRM_WindowsForms.Presentation
 
         private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
         {
-            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.Trim();
-            string currencyName = currencyDetailCurrencyNameTextbox.Text.Trim();
+            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.TrimEnd();
+            string currencyName = currencyDetailCurrencyNameTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

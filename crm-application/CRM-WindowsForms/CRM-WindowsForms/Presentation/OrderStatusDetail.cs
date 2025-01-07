@@ -72,7 +72,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string orderStatus = orderStatusDetailOrderStatusTextbox.Text.Trim();
+            string orderStatus = orderStatusDetailOrderStatusTextbox.Text.TrimEnd();
 
             if (orderStatus.Length > 50)
             {
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms.Presentation
 
         private async void orderStatusDetailUpdateOrderStatusButton_Click(object sender, EventArgs e)
         {
-            string orderStatus = orderStatusDetailOrderStatusTextbox.Text.Trim();
+            string orderStatus = orderStatusDetailOrderStatusTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string salesRegion = createSalesRegionSalesRegionTextbox.Text.Trim();
+            string salesRegion = createSalesRegionSalesRegionTextbox.Text.TrimEnd();
 
             if (salesRegion.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createSalesRegionActiveStatusCheckbox.Checked;
-                string salesRegion = createSalesRegionSalesRegionTextbox.Text.Trim();
+                string salesRegion = createSalesRegionSalesRegionTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

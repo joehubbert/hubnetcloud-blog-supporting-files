@@ -158,10 +158,10 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string deliveryCostA = deliveryMethodDetailDeliveryCostTextboxA.Text.Trim();
-            string deliveryCostB = deliveryMethodDetailDeliveryCostTextboxB.Text.Trim();
-            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.Trim();
-            string deliveryTime = deliveryMethodDetailDeliveryTimeTextbox.Text.Trim();
+            string deliveryCostA = deliveryMethodDetailDeliveryCostTextboxA.Text.TrimEnd();
+            string deliveryCostB = deliveryMethodDetailDeliveryCostTextboxB.Text.TrimEnd();
+            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
+            string deliveryTime = deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd();
 
             if (deliveryCostA.Length > 10)
             {
@@ -232,9 +232,9 @@ namespace CRM_WindowsForms.Presentation
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = deliveryMethodDetailActiveStatusCheckbox.Checked;
-            decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextboxA.Text.Trim()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextboxB.Text.Trim()) / 100);
-            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.Trim();
-            int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextbox.Text.Trim());
+            decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextboxA.Text.TrimEnd()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextboxB.Text.TrimEnd()) / 100);
+            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
+            int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(deliveryMethodDetailTaxProfileComboBox.SelectedValue.ToString());
 
             if (_databaseConnectionSettings == null)

@@ -23,7 +23,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string paymentMethod = createPaymentMethodPaymentMethodTextbox.Text.Trim();
+            string paymentMethod = createPaymentMethodPaymentMethodTextbox.Text.TrimEnd();
 
             if (paymentMethod.Length > 50)
             {
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createPaymentMethodActiveStatusCheckbox.Checked;
-                string paymentMethod = createPaymentMethodPaymentMethodTextbox.Text.Trim();
+                string paymentMethod = createPaymentMethodPaymentMethodTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

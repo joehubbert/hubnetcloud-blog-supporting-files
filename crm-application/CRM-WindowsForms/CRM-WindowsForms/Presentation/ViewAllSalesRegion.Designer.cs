@@ -81,6 +81,7 @@
             viewAllSalesRegionRefreshDataButton.TabIndex = 15;
             viewAllSalesRegionRefreshDataButton.Text = "Refresh Data";
             viewAllSalesRegionRefreshDataButton.UseVisualStyleBackColor = true;
+            viewAllSalesRegionRefreshDataButton.Click += new EventHandler(viewAllSalesRegionRefreshDataButton_Click);
             // 
             // ViewAllSalesRegion
             // 

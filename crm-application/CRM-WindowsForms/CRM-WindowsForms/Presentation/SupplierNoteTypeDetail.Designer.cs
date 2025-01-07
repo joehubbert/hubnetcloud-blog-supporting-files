@@ -53,7 +53,7 @@
             supplierNoteTypeDetailTitleLabel.Location = new Point(13, 9);
             supplierNoteTypeDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             supplierNoteTypeDetailTitleLabel.Name = "supplierNoteTypeDetailTitleLabel";
-            supplierNoteTypeDetailTitleLabel.Size = new Size(322, 32);
+            supplierNoteTypeDetailTitleLabel.Size = new Size(307, 32);
             supplierNoteTypeDetailTitleLabel.TabIndex = 8;
             supplierNoteTypeDetailTitleLabel.Text = "Supplier Note Type Detail";
             // 
@@ -66,9 +66,10 @@
             supplierNoteTypeDetailUpdateSupplierTypeButton.Margin = new Padding(4);
             supplierNoteTypeDetailUpdateSupplierTypeButton.Name = "supplierNoteTypeDetailUpdateSupplierTypeButton";
             supplierNoteTypeDetailUpdateSupplierTypeButton.Size = new Size(237, 70);
-            supplierNoteTypeDetailUpdateSupplierTypeButton.TabIndex = 44;
+            supplierNoteTypeDetailUpdateSupplierTypeButton.TabIndex = 8;
             supplierNoteTypeDetailUpdateSupplierTypeButton.Text = "Update Supplier Note Type";
             supplierNoteTypeDetailUpdateSupplierTypeButton.UseVisualStyleBackColor = true;
+            supplierNoteTypeDetailUpdateSupplierTypeButton.Click += supplierNoteTypeDetailUpdateSupplierTypeButton_Click;
             // 
             // supplierNoteTypeDetailActiveStatusCheckbox
             // 
@@ -78,8 +79,8 @@
             supplierNoteTypeDetailActiveStatusCheckbox.Location = new Point(224, 308);
             supplierNoteTypeDetailActiveStatusCheckbox.Margin = new Padding(4);
             supplierNoteTypeDetailActiveStatusCheckbox.Name = "supplierNoteTypeDetailActiveStatusCheckbox";
-            supplierNoteTypeDetailActiveStatusCheckbox.Size = new Size(208, 24);
-            supplierNoteTypeDetailActiveStatusCheckbox.TabIndex = 43;
+            supplierNoteTypeDetailActiveStatusCheckbox.Size = new Size(200, 24);
+            supplierNoteTypeDetailActiveStatusCheckbox.TabIndex = 2;
             supplierNoteTypeDetailActiveStatusCheckbox.Text = "Active Supplier Note Type";
             supplierNoteTypeDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             supplierNoteTypeDetailToggleEditModeButton.Margin = new Padding(4);
             supplierNoteTypeDetailToggleEditModeButton.Name = "supplierNoteTypeDetailToggleEditModeButton";
             supplierNoteTypeDetailToggleEditModeButton.Size = new Size(108, 92);
-            supplierNoteTypeDetailToggleEditModeButton.TabIndex = 42;
+            supplierNoteTypeDetailToggleEditModeButton.TabIndex = 7;
             supplierNoteTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             supplierNoteTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             supplierNoteTypeDetailSupplierTypeIdTextbox.Name = "supplierNoteTypeDetailSupplierTypeIdTextbox";
             supplierNoteTypeDetailSupplierTypeIdTextbox.ReadOnly = true;
             supplierNoteTypeDetailSupplierTypeIdTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailSupplierTypeIdTextbox.TabIndex = 40;
+            supplierNoteTypeDetailSupplierTypeIdTextbox.TabIndex = 0;
             // 
             // supplierNoteTypeDetailSupplierTypeTextbox
             // 
@@ -111,7 +112,7 @@
             supplierNoteTypeDetailSupplierTypeTextbox.MaxLength = 50;
             supplierNoteTypeDetailSupplierTypeTextbox.Name = "supplierNoteTypeDetailSupplierTypeTextbox";
             supplierNoteTypeDetailSupplierTypeTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailSupplierTypeTextbox.TabIndex = 39;
+            supplierNoteTypeDetailSupplierTypeTextbox.TabIndex = 1;
             // 
             // supplierNoteTypeDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             supplierNoteTypeDetailCreatedTimestampTextbox.Name = "supplierNoteTypeDetailCreatedTimestampTextbox";
             supplierNoteTypeDetailCreatedTimestampTextbox.ReadOnly = true;
             supplierNoteTypeDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailCreatedTimestampTextbox.TabIndex = 38;
+            supplierNoteTypeDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // supplierNoteTypeDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.Name = "supplierNoteTypeDetailLastUpdatedTimestampTextbox";
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            supplierNoteTypeDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // supplierNoteTypeDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             supplierNoteTypeDetailCreatedByTextbox.Name = "supplierNoteTypeDetailCreatedByTextbox";
             supplierNoteTypeDetailCreatedByTextbox.ReadOnly = true;
             supplierNoteTypeDetailCreatedByTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailCreatedByTextbox.TabIndex = 36;
+            supplierNoteTypeDetailCreatedByTextbox.TabIndex = 3;
             // 
             // supplierNoteTypeDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             supplierNoteTypeDetailLastUpdatedByTextbox.Name = "supplierNoteTypeDetailLastUpdatedByTextbox";
             supplierNoteTypeDetailLastUpdatedByTextbox.ReadOnly = true;
             supplierNoteTypeDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailLastUpdatedByTextbox.TabIndex = 35;
+            supplierNoteTypeDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // supplierNoteTypeDetailLastUpdatedTimestampLabel
             // 
@@ -190,7 +191,7 @@
             supplierNoteTypeDetailSupplierTypeLabel.AutoSize = true;
             supplierNoteTypeDetailSupplierTypeLabel.Location = new Point(74, 181);
             supplierNoteTypeDetailSupplierTypeLabel.Name = "supplierNoteTypeDetailSupplierTypeLabel";
-            supplierNoteTypeDetailSupplierTypeLabel.Size = new Size(144, 20);
+            supplierNoteTypeDetailSupplierTypeLabel.Size = new Size(136, 20);
             supplierNoteTypeDetailSupplierTypeLabel.TabIndex = 30;
             supplierNoteTypeDetailSupplierTypeLabel.Text = "Supplier Note Type";
             // 
@@ -199,7 +200,7 @@
             supplierNoteTypeDetailSupplierTypeIdLabel.AutoSize = true;
             supplierNoteTypeDetailSupplierTypeIdLabel.Location = new Point(57, 141);
             supplierNoteTypeDetailSupplierTypeIdLabel.Name = "supplierNoteTypeDetailSupplierTypeIdLabel";
-            supplierNoteTypeDetailSupplierTypeIdLabel.Size = new Size(161, 20);
+            supplierNoteTypeDetailSupplierTypeIdLabel.Size = new Size(153, 20);
             supplierNoteTypeDetailSupplierTypeIdLabel.TabIndex = 28;
             supplierNoteTypeDetailSupplierTypeIdLabel.Text = "Supplier Note Type Id";
             // 

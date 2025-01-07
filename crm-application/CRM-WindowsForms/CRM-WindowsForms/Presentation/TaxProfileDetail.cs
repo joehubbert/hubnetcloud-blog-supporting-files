@@ -89,9 +89,9 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.Trim();
-            string taxRateA = taxProfileDetailTaxRateTextboxA.Text.Trim();
-            string taxRateB = taxProfileDetailTaxRateTextboxB.Text.Trim();
+            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.TrimEnd();
+            string taxRateA = taxProfileDetailTaxRateTextboxA.Text.TrimEnd();
+            string taxRateB = taxProfileDetailTaxRateTextboxB.Text.TrimEnd();
 
             if (taxProfile.Length > 50)
             {
@@ -151,8 +151,8 @@ namespace CRM_WindowsForms.Presentation
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = taxProfileDetailActiveStatusCheckbox.Checked;
-            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.Trim();
-            decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextboxA.Text.Trim()) + (decimal.Parse(taxProfileDetailTaxRateTextboxB.Text.Trim()) / 100);
+            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.TrimEnd();
+            decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextboxA.Text.TrimEnd()) + (decimal.Parse(taxProfileDetailTaxRateTextboxB.Text.TrimEnd()) / 100);
 
             if (_databaseConnectionSettings == null)
             {

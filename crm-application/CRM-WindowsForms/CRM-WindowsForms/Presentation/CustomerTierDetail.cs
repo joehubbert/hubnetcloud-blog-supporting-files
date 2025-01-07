@@ -75,8 +75,8 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.Trim();
-            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.Trim();
+            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
+            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
 
             if (customerTierCode.Length > 1)
             {
@@ -119,8 +119,8 @@ namespace CRM_WindowsForms.Presentation
 
         private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
         {
-            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.Trim();
-            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.Trim();
+            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
+            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

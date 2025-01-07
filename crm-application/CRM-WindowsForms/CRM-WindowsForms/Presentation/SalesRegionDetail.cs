@@ -72,7 +72,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string salesRegion = salesRegionDetailSalesRegionTextbox.Text.Trim();
+            string salesRegion = salesRegionDetailSalesRegionTextbox.Text.TrimEnd();
 
             if (salesRegion.Length > 50)
             {
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms.Presentation
 
         private async void salesRegionDetailUpdateSalesRegionButton_Click(object sender, EventArgs e)
         {
-            string salesRegion = salesRegionDetailSalesRegionTextbox.Text.Trim();
+            string salesRegion = salesRegionDetailSalesRegionTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

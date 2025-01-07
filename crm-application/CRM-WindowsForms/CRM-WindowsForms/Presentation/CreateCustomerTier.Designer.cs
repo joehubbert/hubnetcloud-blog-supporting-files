@@ -65,7 +65,7 @@
             createCustomerTierCustomerTierCodeTextbox.MaxLength = 1;
             createCustomerTierCustomerTierCodeTextbox.Name = "createCustomerTierCustomerTierCodeTextbox";
             createCustomerTierCustomerTierCodeTextbox.Size = new Size(34, 27);
-            createCustomerTierCustomerTierCodeTextbox.TabIndex = 8;
+            createCustomerTierCustomerTierCodeTextbox.TabIndex = 0;
             // 
             // createCustomerTierActiveStatusCheckbox
             // 
@@ -77,7 +77,7 @@
             createCustomerTierActiveStatusCheckbox.Margin = new Padding(5);
             createCustomerTierActiveStatusCheckbox.Name = "createCustomerTierActiveStatusCheckbox";
             createCustomerTierActiveStatusCheckbox.Size = new Size(165, 24);
-            createCustomerTierActiveStatusCheckbox.TabIndex = 11;
+            createCustomerTierActiveStatusCheckbox.TabIndex = 2;
             createCustomerTierActiveStatusCheckbox.Text = "Active Customer Tier";
             createCustomerTierActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -89,10 +89,10 @@
             createCustomerTierSubmitButton.Margin = new Padding(4);
             createCustomerTierSubmitButton.Name = "createCustomerTierSubmitButton";
             createCustomerTierSubmitButton.Size = new Size(198, 66);
-            createCustomerTierSubmitButton.TabIndex = 12;
+            createCustomerTierSubmitButton.TabIndex = 3;
             createCustomerTierSubmitButton.Text = "Submit";
             createCustomerTierSubmitButton.UseVisualStyleBackColor = true;
-            createCustomerTierSubmitButton.Click += new EventHandler(createCustomerTierSubmitButton_Click);
+            createCustomerTierSubmitButton.Click += createCustomerTierSubmitButton_Click;
             // 
             // createCustomerTierCustomerTierDescriptionLabel
             // 
@@ -111,7 +111,7 @@
             createCustomerTierCustomerTierDescriptionTextbox.MaxLength = 50;
             createCustomerTierCustomerTierDescriptionTextbox.Name = "createCustomerTierCustomerTierDescriptionTextbox";
             createCustomerTierCustomerTierDescriptionTextbox.Size = new Size(284, 27);
-            createCustomerTierCustomerTierDescriptionTextbox.TabIndex = 14;
+            createCustomerTierCustomerTierDescriptionTextbox.TabIndex = 1;
             // 
             // CreateCustomerTier
             // 

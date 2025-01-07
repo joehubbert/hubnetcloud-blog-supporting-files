@@ -23,8 +23,8 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.Trim();
-            string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.Trim();
+            string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.TrimEnd();
+            string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.TrimEnd();
 
             if (customerTierCode.Length > 1)
             {
@@ -80,8 +80,8 @@ namespace CRM_WindowsForms.Presentation
             try
             {
                 bool activeStatus = createCustomerTierActiveStatusCheckbox.Checked;
-                string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.Trim();
-                string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.Trim();
+                string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.TrimEnd();
+                string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.TrimEnd();
 
                 var parameters = new[]
                 {

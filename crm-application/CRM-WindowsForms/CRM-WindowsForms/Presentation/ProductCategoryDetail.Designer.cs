@@ -66,9 +66,10 @@
             productCategoryDetailUpdateProductCategoryButton.Margin = new Padding(4);
             productCategoryDetailUpdateProductCategoryButton.Name = "productCategoryDetailUpdateProductCategoryButton";
             productCategoryDetailUpdateProductCategoryButton.Size = new Size(185, 70);
-            productCategoryDetailUpdateProductCategoryButton.TabIndex = 44;
+            productCategoryDetailUpdateProductCategoryButton.TabIndex = 8;
             productCategoryDetailUpdateProductCategoryButton.Text = "Update Product Category";
             productCategoryDetailUpdateProductCategoryButton.UseVisualStyleBackColor = true;
+            productCategoryDetailUpdateProductCategoryButton.Click += productCategoryDetailUpdateProductCategoryButton_Click;
             // 
             // productCategoryDetailActiveStatusCheckbox
             // 
@@ -79,7 +80,7 @@
             productCategoryDetailActiveStatusCheckbox.Margin = new Padding(4);
             productCategoryDetailActiveStatusCheckbox.Name = "productCategoryDetailActiveStatusCheckbox";
             productCategoryDetailActiveStatusCheckbox.Size = new Size(188, 24);
-            productCategoryDetailActiveStatusCheckbox.TabIndex = 43;
+            productCategoryDetailActiveStatusCheckbox.TabIndex = 2;
             productCategoryDetailActiveStatusCheckbox.Text = "Active Product Category";
             productCategoryDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -91,7 +92,7 @@
             productCategoryDetailToggleEditModeButton.Margin = new Padding(4);
             productCategoryDetailToggleEditModeButton.Name = "productCategoryDetailToggleEditModeButton";
             productCategoryDetailToggleEditModeButton.Size = new Size(108, 92);
-            productCategoryDetailToggleEditModeButton.TabIndex = 42;
+            productCategoryDetailToggleEditModeButton.TabIndex = 7;
             productCategoryDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             productCategoryDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -102,7 +103,7 @@
             productCategoryDetailProductCategoryIdTextbox.Name = "productCategoryDetailProductCategoryIdTextbox";
             productCategoryDetailProductCategoryIdTextbox.ReadOnly = true;
             productCategoryDetailProductCategoryIdTextbox.Size = new Size(370, 27);
-            productCategoryDetailProductCategoryIdTextbox.TabIndex = 40;
+            productCategoryDetailProductCategoryIdTextbox.TabIndex = 0;
             // 
             // productCategoryDetailProductCategoryTextbox
             // 
@@ -111,7 +112,7 @@
             productCategoryDetailProductCategoryTextbox.MaxLength = 50;
             productCategoryDetailProductCategoryTextbox.Name = "productCategoryDetailProductCategoryTextbox";
             productCategoryDetailProductCategoryTextbox.Size = new Size(370, 27);
-            productCategoryDetailProductCategoryTextbox.TabIndex = 39;
+            productCategoryDetailProductCategoryTextbox.TabIndex = 1;
             // 
             // productCategoryDetailCreatedTimestampTextbox
             // 
@@ -120,7 +121,7 @@
             productCategoryDetailCreatedTimestampTextbox.Name = "productCategoryDetailCreatedTimestampTextbox";
             productCategoryDetailCreatedTimestampTextbox.ReadOnly = true;
             productCategoryDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            productCategoryDetailCreatedTimestampTextbox.TabIndex = 38;
+            productCategoryDetailCreatedTimestampTextbox.TabIndex = 4;
             // 
             // productCategoryDetailLastUpdatedTimestampTextbox
             // 
@@ -129,7 +130,7 @@
             productCategoryDetailLastUpdatedTimestampTextbox.Name = "productCategoryDetailLastUpdatedTimestampTextbox";
             productCategoryDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             productCategoryDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            productCategoryDetailLastUpdatedTimestampTextbox.TabIndex = 37;
+            productCategoryDetailLastUpdatedTimestampTextbox.TabIndex = 6;
             // 
             // productCategoryDetailCreatedByTextbox
             // 
@@ -138,7 +139,7 @@
             productCategoryDetailCreatedByTextbox.Name = "productCategoryDetailCreatedByTextbox";
             productCategoryDetailCreatedByTextbox.ReadOnly = true;
             productCategoryDetailCreatedByTextbox.Size = new Size(370, 27);
-            productCategoryDetailCreatedByTextbox.TabIndex = 36;
+            productCategoryDetailCreatedByTextbox.TabIndex = 3;
             // 
             // productCategoryDetailLastUpdatedByTextbox
             // 
@@ -147,7 +148,7 @@
             productCategoryDetailLastUpdatedByTextbox.Name = "productCategoryDetailLastUpdatedByTextbox";
             productCategoryDetailLastUpdatedByTextbox.ReadOnly = true;
             productCategoryDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            productCategoryDetailLastUpdatedByTextbox.TabIndex = 35;
+            productCategoryDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
             // productCategoryDetailLastUpdatedTimestampLabel
             // 

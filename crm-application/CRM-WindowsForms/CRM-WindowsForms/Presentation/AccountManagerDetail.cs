@@ -148,10 +148,10 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string firstName = accountManagerDetailFirstNameTextbox.Text.Trim();
-            string lastName = accountManagerDetailLastNameTextbox.Text.Trim();
-            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.Trim();
-            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.Trim();
+            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
+            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
+            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
+            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
 
             if (firstName.Length > 50)
             {
@@ -214,10 +214,10 @@ namespace CRM_WindowsForms.Presentation
 
         private async void accountManagerDetailUpdateAccountManagerButton_Click(object sender, EventArgs e)
         {
-            string firstName = accountManagerDetailFirstNameTextbox.Text.Trim();
-            string lastName = accountManagerDetailLastNameTextbox.Text.Trim();
-            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.Trim();
-            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.Trim();
+            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
+            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
+            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
+            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

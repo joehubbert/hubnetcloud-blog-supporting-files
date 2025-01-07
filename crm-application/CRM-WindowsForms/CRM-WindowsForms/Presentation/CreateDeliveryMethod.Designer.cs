@@ -71,7 +71,7 @@
             createDeliveryMethodDeliveryMethodTextbox.MaxLength = 50;
             createDeliveryMethodDeliveryMethodTextbox.Name = "createDeliveryMethodDeliveryMethodTextbox";
             createDeliveryMethodDeliveryMethodTextbox.Size = new Size(284, 27);
-            createDeliveryMethodDeliveryMethodTextbox.TabIndex = 8;
+            createDeliveryMethodDeliveryMethodTextbox.TabIndex = 0;
             // 
             // createDeliveryMethodActiveStatusCheckbox
             // 
@@ -83,7 +83,7 @@
             createDeliveryMethodActiveStatusCheckbox.Margin = new Padding(5);
             createDeliveryMethodActiveStatusCheckbox.Name = "createDeliveryMethodActiveStatusCheckbox";
             createDeliveryMethodActiveStatusCheckbox.Size = new Size(183, 24);
-            createDeliveryMethodActiveStatusCheckbox.TabIndex = 11;
+            createDeliveryMethodActiveStatusCheckbox.TabIndex = 5;
             createDeliveryMethodActiveStatusCheckbox.Text = "Active Delivery Method";
             createDeliveryMethodActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -95,10 +95,10 @@
             createDeliveryMethodSubmitButton.Margin = new Padding(4);
             createDeliveryMethodSubmitButton.Name = "createDeliveryMethodSubmitButton";
             createDeliveryMethodSubmitButton.Size = new Size(198, 66);
-            createDeliveryMethodSubmitButton.TabIndex = 12;
+            createDeliveryMethodSubmitButton.TabIndex = 6;
             createDeliveryMethodSubmitButton.Text = "Submit";
             createDeliveryMethodSubmitButton.UseVisualStyleBackColor = true;
-            createDeliveryMethodSubmitButton.Click += new EventHandler(createDeliveryMethodSubmitButton_Click);
+            createDeliveryMethodSubmitButton.Click += createDeliveryMethodSubmitButton_Click;
             // 
             // createDeliveryMethodDeliveryCostLabel
             // 
@@ -117,7 +117,7 @@
             createDeliveryMethodDeliveryCostTextboxA.MaxLength = 10;
             createDeliveryMethodDeliveryCostTextboxA.Name = "createDeliveryMethodDeliveryCostTextboxA";
             createDeliveryMethodDeliveryCostTextboxA.Size = new Size(118, 27);
-            createDeliveryMethodDeliveryCostTextboxA.TabIndex = 14;
+            createDeliveryMethodDeliveryCostTextboxA.TabIndex = 1;
             // 
             // createDeliveryMethodDeliveryCostTextboxSeparatorLabel
             // 
@@ -135,7 +135,7 @@
             createDeliveryMethodDeliveryCostTextboxB.MaxLength = 4;
             createDeliveryMethodDeliveryCostTextboxB.Name = "createDeliveryMethodDeliveryCostTextboxB";
             createDeliveryMethodDeliveryCostTextboxB.Size = new Size(59, 27);
-            createDeliveryMethodDeliveryCostTextboxB.TabIndex = 15;
+            createDeliveryMethodDeliveryCostTextboxB.TabIndex = 2;
             // 
             // createDeliveryMethodDeliveryTimeLabel
             // 
@@ -154,7 +154,7 @@
             createDeliveryMethodDeliveryTimeTextbox.MaxLength = 3;
             createDeliveryMethodDeliveryTimeTextbox.Name = "createDeliveryMethodDeliveryTimeTextbox";
             createDeliveryMethodDeliveryTimeTextbox.Size = new Size(41, 27);
-            createDeliveryMethodDeliveryTimeTextbox.TabIndex = 18;
+            createDeliveryMethodDeliveryTimeTextbox.TabIndex = 3;
             // 
             // createDeliveryMethodTaxProfileComboBox
             // 
@@ -163,7 +163,7 @@
             createDeliveryMethodTaxProfileComboBox.Location = new Point(182, 169);
             createDeliveryMethodTaxProfileComboBox.Name = "createDeliveryMethodTaxProfileComboBox";
             createDeliveryMethodTaxProfileComboBox.Size = new Size(284, 28);
-            createDeliveryMethodTaxProfileComboBox.TabIndex = 19;
+            createDeliveryMethodTaxProfileComboBox.TabIndex = 4;
             // 
             // createDeliveryMethodTaxProfileLabel
             // 

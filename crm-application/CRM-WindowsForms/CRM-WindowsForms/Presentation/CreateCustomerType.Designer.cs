@@ -53,7 +53,7 @@
             createCustomerTypeCustomerTypeTextbox.MaxLength = 50;
             createCustomerTypeCustomerTypeTextbox.Name = "createCustomerTypeCustomerTypeTextbox";
             createCustomerTypeCustomerTypeTextbox.Size = new Size(284, 27);
-            createCustomerTypeCustomerTypeTextbox.TabIndex = 20;
+            createCustomerTypeCustomerTypeTextbox.TabIndex = 0;
             // 
             // createCustomerTypeCustomerTypeLabel
             // 
@@ -73,10 +73,10 @@
             createCustomerTypeSubmitButton.Margin = new Padding(4);
             createCustomerTypeSubmitButton.Name = "createCustomerTypeSubmitButton";
             createCustomerTypeSubmitButton.Size = new Size(198, 66);
-            createCustomerTypeSubmitButton.TabIndex = 18;
+            createCustomerTypeSubmitButton.TabIndex = 2;
             createCustomerTypeSubmitButton.Text = "Submit";
             createCustomerTypeSubmitButton.UseVisualStyleBackColor = true;
-            createCustomerTypeSubmitButton.Click += new EventHandler(createCustomerTypeSubmitButton_Click);
+            createCustomerTypeSubmitButton.Click += createCustomerTypeSubmitButton_Click;
             // 
             // createCustomerTypeActiveStatusCheckbox
             // 
@@ -88,7 +88,7 @@
             createCustomerTypeActiveStatusCheckbox.Margin = new Padding(5);
             createCustomerTypeActiveStatusCheckbox.Name = "createCustomerTypeActiveStatusCheckbox";
             createCustomerTypeActiveStatusCheckbox.Size = new Size(171, 24);
-            createCustomerTypeActiveStatusCheckbox.TabIndex = 17;
+            createCustomerTypeActiveStatusCheckbox.TabIndex = 1;
             createCustomerTypeActiveStatusCheckbox.Text = "Active Customer Type";
             createCustomerTypeActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

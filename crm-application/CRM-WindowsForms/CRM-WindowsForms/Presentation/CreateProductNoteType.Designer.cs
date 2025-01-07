@@ -53,7 +53,7 @@
             createProductNoteTypeProductNoteTypeTextbox.MaxLength = 50;
             createProductNoteTypeProductNoteTypeTextbox.Name = "createProductNoteTypeProductNoteTypeTextbox";
             createProductNoteTypeProductNoteTypeTextbox.Size = new Size(343, 27);
-            createProductNoteTypeProductNoteTypeTextbox.TabIndex = 20;
+            createProductNoteTypeProductNoteTypeTextbox.TabIndex = 0;
             // 
             // createProductNoteTypeProductNoteTypeLabel
             // 
@@ -73,10 +73,10 @@
             createProductNoteTypeSubmitButton.Margin = new Padding(4);
             createProductNoteTypeSubmitButton.Name = "createProductNoteTypeSubmitButton";
             createProductNoteTypeSubmitButton.Size = new Size(198, 66);
-            createProductNoteTypeSubmitButton.TabIndex = 18;
+            createProductNoteTypeSubmitButton.TabIndex = 2;
             createProductNoteTypeSubmitButton.Text = "Submit";
             createProductNoteTypeSubmitButton.UseVisualStyleBackColor = true;
-            createProductNoteTypeSubmitButton.Click += new EventHandler(createProductNoteTypeSubmitButton_Click);
+            createProductNoteTypeSubmitButton.Click += createProductNoteTypeSubmitButton_Click;
             // 
             // createProductNoteTypeActiveStatusCheckbox
             // 
@@ -88,7 +88,7 @@
             createProductNoteTypeActiveStatusCheckbox.Margin = new Padding(5);
             createProductNoteTypeActiveStatusCheckbox.Name = "createProductNoteTypeActiveStatusCheckbox";
             createProductNoteTypeActiveStatusCheckbox.Size = new Size(196, 24);
-            createProductNoteTypeActiveStatusCheckbox.TabIndex = 17;
+            createProductNoteTypeActiveStatusCheckbox.TabIndex = 1;
             createProductNoteTypeActiveStatusCheckbox.Text = "Active Product Note Type";
             createProductNoteTypeActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 

@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -53,9 +54,9 @@ namespace CRM_WindowsForms.Presentation
                 validationErrors.AppendLine("Tax Rate Part B must contain only numbers.");
             }
 
-            if (ContainsSqlInjectionRisk(taxProfile) ||
-                ContainsSqlInjectionRisk(taxRateA) ||
-                ContainsSqlInjectionRisk(taxRateB))
+            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxProfile) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateA) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateB))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -67,19 +68,6 @@ namespace CRM_WindowsForms.Presentation
             }
 
             return true;
-        }
-
-        private bool ContainsSqlInjectionRisk(string input)
-        {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
-            foreach (var riskChar in sqlInjectionRiskCharacters)
-            {
-                if (input.Contains(riskChar))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private async void createTaxProfileSubmitButton_Click(object sender, EventArgs e)

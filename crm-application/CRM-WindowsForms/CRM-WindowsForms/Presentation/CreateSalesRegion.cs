@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Text;
 
@@ -30,7 +31,7 @@ namespace CRM_WindowsForms.Presentation
                 validationErrors.AppendLine($"Sales Region cannot be longer than 50 characters. Submitted length is {salesRegion.Length} characters.");
             }
 
-            if (ContainsSqlInjectionRisk(salesRegion))
+            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(salesRegion))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -42,19 +43,6 @@ namespace CRM_WindowsForms.Presentation
             }
 
             return true;
-        }
-
-        private bool ContainsSqlInjectionRisk(string input)
-        {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
-            foreach (var riskChar in sqlInjectionRiskCharacters)
-            {
-                if (input.Contains(riskChar))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private async void createSalesRegionSubmitButton_Click(object sender, EventArgs e)

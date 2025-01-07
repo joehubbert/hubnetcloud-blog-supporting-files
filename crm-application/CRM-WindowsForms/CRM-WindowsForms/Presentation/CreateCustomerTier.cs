@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Text;
 
@@ -36,8 +37,8 @@ namespace CRM_WindowsForms.Presentation
                 validationErrors.AppendLine($"Customer Tier Description cannot be longer than 50 characters. Submitted length is {customerTierDescription.Length} characters.");
             }
 
-            if (ContainsSqlInjectionRisk(customerTierCode) ||
-                ContainsSqlInjectionRisk(customerTierDescription))
+            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierCode) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierDescription))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -49,19 +50,6 @@ namespace CRM_WindowsForms.Presentation
             }
 
             return true;
-        }
-
-        private bool ContainsSqlInjectionRisk(string input)
-        {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
-            foreach (var riskChar in sqlInjectionRiskCharacters)
-            {
-                if (input.Contains(riskChar))
-                {
-                    return true;
-                }
-            }
-            return false;
         }
 
         private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)

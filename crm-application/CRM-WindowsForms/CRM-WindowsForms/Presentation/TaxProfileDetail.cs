@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Text;
@@ -27,13 +28,6 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SplitDecimal(decimal decimalValue, out string partA, out string partB)
-        {
-            string[] parts = decimalValue.ToString().Split('.');
-            partA = parts[0];
-            partB = parts.Length > 1 ? parts[1] : "0";
-        }
-
         private async void ViewTaxProfileDetailTaxProfileInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
@@ -58,7 +52,7 @@ namespace CRM_WindowsForms.Presentation
                     string taxRatePartA;
                     string taxRatePartB;
 
-                    SplitDecimal((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
+                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
 
                     taxProfileDetailTaxProfileIdTextbox.Text = taxProfileDataRow["Tax Profile ID"].ToString();
                     taxProfileDetailTaxProfileTextbox.Text = taxProfileDataRow["Tax Profile"].ToString();
@@ -118,9 +112,9 @@ namespace CRM_WindowsForms.Presentation
                 validationErrors.AppendLine("Tax Rate Part B must contain only numbers.");
             }
 
-            if (ContainsSqlInjectionRisk(taxProfile) ||
-                ContainsSqlInjectionRisk(taxRateA) ||
-                ContainsSqlInjectionRisk(taxRateB))
+            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxProfile) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateA) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateB))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -133,20 +127,6 @@ namespace CRM_WindowsForms.Presentation
 
             return true;
         }
-
-        private bool ContainsSqlInjectionRisk(string input)
-        {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
-            foreach (var riskChar in sqlInjectionRiskCharacters)
-            {
-                if (input.Contains(riskChar))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
 
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {

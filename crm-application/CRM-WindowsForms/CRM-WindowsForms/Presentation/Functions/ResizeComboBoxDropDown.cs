@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation.Functions
 {
     public static class ResizeComboBoxDropDown
     {
@@ -8,7 +8,7 @@
             Graphics comboBoxGraphics = comboBox.CreateGraphics();
             Font comboBoxFont = comboBox.Font;
 
-            int verticalScrollBarWidth = (comboBox.Items.Count > comboBox.MaxDropDownItems) ? SystemInformation.VerticalScrollBarWidth : 0;
+            int verticalScrollBarWidth = comboBox.Items.Count > comboBox.MaxDropDownItems ? SystemInformation.VerticalScrollBarWidth : 0;
             int dynamicComboBoxWidth;
 
             foreach (var item in comboBox.Items)

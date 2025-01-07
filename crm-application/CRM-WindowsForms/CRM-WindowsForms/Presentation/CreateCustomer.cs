@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using System.Data;
 
 namespace CRM_WindowsForms.Presentation
@@ -21,11 +22,6 @@ namespace CRM_WindowsForms.Presentation
             CreateCustomerFinanceLoadCurrencyDataAsync();
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
         private void InitializeCustomComponents()
         {
             createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTypeComboBox_DropDown);
@@ -39,6 +35,11 @@ namespace CRM_WindowsForms.Presentation
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
             createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
+        }
+
+        private async Task LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private async void CreateCustomerOverviewLoadCustomerTypeAsync()

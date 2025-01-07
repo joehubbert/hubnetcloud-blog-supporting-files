@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
 using System.Text;
@@ -14,7 +15,7 @@ namespace CRM_WindowsForms.Presentation
         private decimal ?deliveryMethodDetailDeliveryCostOriginalValue;
         private string ?deliveryMethodDetailDeliveryMethodOriginalValue;
         private int ?deliveryMethodDetailDeliveryTimeOriginalValue;
-        private Guid ?deliveryMethodDetailTaxProfileOriginalValue;
+        private Guid ?deliveryMethodDetailTaxProfileIdOriginalValue;
 
         public DeliveryMethodDetail(Guid deliveryMethodId)
         {
@@ -33,13 +34,6 @@ namespace CRM_WindowsForms.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private void SplitDecimal(decimal decimalValue, out string partA, out string partB)
-        {
-            string[] parts = decimalValue.ToString().Split('.');
-            partA = parts[0];
-            partB = parts.Length > 1 ? parts[1] : "0";
         }
 
         private async Task DeliveryMethodDetailLoadTaxProfileAsync(Guid taxProfileId)
@@ -102,7 +96,7 @@ namespace CRM_WindowsForms.Presentation
                     string deliveryCostPartA;
                     string deliveryCostPartB;
 
-                    SplitDecimal((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
+                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
 
                     deliveryMethodDetailDeliveryMethodIdTextbox.Text = deliveryMethodDataRow["Delivery Method ID"].ToString();
                     deliveryMethodDetailDeliveryMethodTextbox.Text = deliveryMethodDataRow["Delivery Method"].ToString();
@@ -120,7 +114,7 @@ namespace CRM_WindowsForms.Presentation
                     deliveryMethodDetailDeliveryMethodOriginalValue = deliveryMethodDataRow["Delivery Method"].ToString();
                     deliveryMethodDetailDeliveryCostOriginalValue = (decimal)deliveryMethodDataRow["Delivery Cost"];
                     deliveryMethodDetailDeliveryTimeOriginalValue = (int)deliveryMethodDataRow["Delivery Time"];
-                    deliveryMethodDetailTaxProfileOriginalValue = (Guid)deliveryMethodDataRow["Tax Profile Id"];
+                    deliveryMethodDetailTaxProfileIdOriginalValue = (Guid)deliveryMethodDataRow["Tax Profile Id"];
                     deliveryMethodDetailActiveStatusOriginalValue = (bool)deliveryMethodDataRow["Active Status"];
                 }
                 else
@@ -178,10 +172,10 @@ namespace CRM_WindowsForms.Presentation
                 validationErrors.AppendLine("Delivery Time must contain only numbers.");
             }
 
-            if (ContainsSqlInjectionRisk(deliveryCostA) ||
-                ContainsSqlInjectionRisk(deliveryCostB) ||
-                ContainsSqlInjectionRisk(deliveryMethod) ||
-                ContainsSqlInjectionRisk(deliveryTime))
+            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryCostA) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryCostB) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryMethod) ||
+                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryTime))
             {
                 validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
             }
@@ -194,20 +188,6 @@ namespace CRM_WindowsForms.Presentation
 
             return true;
         }
-
-        private bool ContainsSqlInjectionRisk(string input)
-        {
-            string[] sqlInjectionRiskCharacters = { "--", ";--", ";", "/*", "*/", "@@" };
-            foreach (var riskChar in sqlInjectionRiskCharacters)
-            {
-                if (input.Contains(riskChar))
-                {
-                    return true;
-                }
-            }
-            return false;
-        }
-
 
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
@@ -232,7 +212,7 @@ namespace CRM_WindowsForms.Presentation
                 $"Delivery Method Original Value: {deliveryMethodDetailDeliveryMethodOriginalValue}" + $"\nDelivery Method New Value: {deliveryMethod}\n" +
                 $"Delivery Cost Original Value: {deliveryMethodDetailDeliveryCostOriginalValue.ToString()}" + $"\nDelivery Cost New Value: {deliveryCost.ToString()}\n" +
                 $"Delivery Time Original Value: {deliveryMethodDetailDeliveryTimeOriginalValue.ToString()}" + $"\nDelivery Time New Value: {deliveryTime.ToString()}\n" +
-                $"Tax Profile Original Value: {deliveryMethodDetailTaxProfileOriginalValue.ToString()}" + $"\nTax Profile New Value: {taxProfileId.ToString()}\n" +
+                $"Tax Profile Original Value: {deliveryMethodDetailTaxProfileIdOriginalValue.ToString()}" + $"\nTax Profile New Value: {taxProfileId.ToString()}\n" +
                 $"Active Status Original Value: {deliveryMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {deliveryMethodDetailActiveStatusCheckbox.Checked}\n\n" +
                 "This action cannot be undone.", "Update Delivery Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 

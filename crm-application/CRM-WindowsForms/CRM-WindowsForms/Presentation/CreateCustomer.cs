@@ -20,6 +20,7 @@ namespace CRM_WindowsForms.Presentation
             CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
             CreateCustomerOverviewLoadTopParentCustomerDataAsync();
             CreateCustomerFinanceLoadCurrencyDataAsync();
+            LoadSalesRegionAndSubRegionDataAsync();
         }
 
         private void InitializeCustomComponents()
@@ -28,10 +29,12 @@ namespace CRM_WindowsForms.Presentation
             createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTierComboBox_DropDown);
             createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(CreateCustomerOverviewAccountManagerComboBox_DropDown);
             createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_DropDown);
+            createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
             createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
             createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
+            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeGlobalParentRadioButton_CheckedChanged);
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
             createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
@@ -89,12 +92,14 @@ namespace CRM_WindowsForms.Presentation
                     .Select(row => new
                     {
                         CustomerTierId = row.Field<Guid>("Customer Tier Id"),
-                        CustomerTier = row.Field<string>("Customer Tier")
+                        CustomerTierCode = row.Field<string>("Customer Tier Code"),
+                        CustomerTierDescription = row.Field<string>("Customer Tier Description"),
+                        DisplayText = $"{row.Field<string>("Customer Tier Code")} - {row.Field<string>("Customer Tier Description")}"
                     })
-                    .OrderBy(item => item.CustomerTier)
+                    .OrderBy(item => item.DisplayText)
                     .ToList();
                 createCustomerOverviewCustomerTierComboBox.DataSource = customerTierList;
-                createCustomerOverviewCustomerTierComboBox.DisplayMember = "CustomerTier";
+                createCustomerOverviewCustomerTierComboBox.DisplayMember = "DisplayText";
                 createCustomerOverviewCustomerTierComboBox.ValueMember = "CustomerTierId";
             }
             catch (Exception ex)
@@ -108,7 +113,7 @@ namespace CRM_WindowsForms.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void CreateCustomerOverviewLoadSalesRegionDataAsync()
+        private async Task CreateCustomerOverviewLoadSalesRegionDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -136,9 +141,57 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
+        private async void CreateCustomerOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            await CreateCustomernLoadSalesSubRegionAsync((Guid)createCustomerOverviewSalesRegionComboBox.SelectedValue);
+        }
+
+        private async Task CreateCustomernLoadSalesSubRegionAsync(Guid salesRegionId)
+        {
+            if (_databaseConnectionSettings == null)
+            {
+                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            }
+            try
+            {
+                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
+                DataTable salesSubRegionData = await executor.ExecuteAsync("[dbo].[spGetAllSalesSubRegion]");
+                var salesSubRegionList = salesSubRegionData.AsEnumerable()
+                    .Where(row => row.Field<Guid>("Sales Region Id") == salesRegionId)
+                    .Select(row => new
+                    {
+                        SalesRegionId = row.Field<Guid>("Sales Region Id"),
+                        SalesSubRegionId = row.Field<Guid>("Sales Sub Region Id"),
+                        SalesSubRegion = row.Field<string>("Sales Sub Region")
+                    })
+                    .OrderBy(item => item.SalesSubRegion)
+                    .ToList();
+                createCustomerOverviewSalesSubRegionComboBox.DataSource = salesSubRegionList;
+                createCustomerOverviewSalesSubRegionComboBox.DisplayMember = "SalesSubRegion";
+                createCustomerOverviewSalesSubRegionComboBox.ValueMember = "SalesSubRegionId";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to load Sales Sub Region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void LoadSalesRegionAndSubRegionDataAsync()
+        {
+            await CreateCustomerOverviewLoadSalesRegionDataAsync();
+            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            {
+                await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
+            }
+        }
+
+        private async void CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            {
+                await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
+            }
         }
 
         private async void CreateCustomerOverviewLoadAccountManagerDataAsync()
@@ -272,6 +325,19 @@ namespace CRM_WindowsForms.Presentation
             {
                 createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = true;
                 createCustomerOverviewWillBeTopParentRadioButton.Enabled = true;
+            }
+        }
+
+        private void CreateCustomerOverviewWillBeGlobalParentRadioButton_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
+            {
+                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                if (selectedCustomerType != "Business - Multinational")
+                {
+                    MessageBox.Show("The 'Global Parent' option can only be selected if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                }
             }
         }
 

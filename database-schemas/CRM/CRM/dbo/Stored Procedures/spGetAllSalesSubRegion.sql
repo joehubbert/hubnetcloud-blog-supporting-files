@@ -3,6 +3,7 @@ AS
 
 SELECT
 [Sales Sub Region Id],
+[Sales Region Id],
 [Sales Region],
 [Sales Sub Region],
 [Active Status]

@@ -13,14 +13,7 @@ namespace CRM_WindowsForms.Presentation
             InitializeComponent();
             InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
-            CreateCustomerOverviewLoadCustomerTypeAsync();
-            CreateCustomerOverviewLoadCustomerTierDataAsync();
-            CreateCustomerOverviewLoadSalesRegionDataAsync();
-            CreateCustomerOverviewLoadAccountManagerDataAsync();
-            CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
-            CreateCustomerOverviewLoadTopParentCustomerDataAsync();
-            CreateCustomerFinanceLoadCurrencyDataAsync();
-            LoadSalesRegionAndSubRegionDataAsync();
+            LoadInitialDataAsync();
         }
 
         private void InitializeCustomComponents()
@@ -45,7 +38,28 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void CreateCustomerOverviewLoadCustomerTypeAsync()
+        private async Task LoadInitialDataAsync()
+        {
+            await LoadDatabaseConnectionSettingsAsync();
+
+            var loadCustomerTypeTask = CreateCustomerOverviewLoadCustomerTypeAsync();
+            var loadCustomerTierTask = CreateCustomerOverviewLoadCustomerTierDataAsync();
+            var loadSalesRegionTask = CreateCustomerOverviewLoadSalesRegionDataAsync();
+            var loadSalesSubRegionTask = LoadSalesRegionAndSubRegionDataAsync();
+            var loadAccountManagerTask = CreateCustomerOverviewLoadAccountManagerDataAsync();
+            var loadGlobalParentCustomerTask = CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
+            var loadTopParentCustomerTask = CreateCustomerOverviewLoadTopParentCustomerDataAsync();
+            var loadCurrencyTask = CreateCustomerFinanceLoadCurrencyDataAsync();
+
+            await Task.WhenAll(loadCustomerTypeTask, loadCustomerTierTask, loadSalesRegionTask, loadAccountManagerTask, loadGlobalParentCustomerTask, loadTopParentCustomerTask, loadCurrencyTask);
+
+            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            {
+                await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
+            }
+        }
+
+        private async Task CreateCustomerOverviewLoadCustomerTypeAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -78,7 +92,7 @@ namespace CRM_WindowsForms.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void CreateCustomerOverviewLoadCustomerTierDataAsync()
+        private async Task CreateCustomerOverviewLoadCustomerTierDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -177,7 +191,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void LoadSalesRegionAndSubRegionDataAsync()
+        private async Task LoadSalesRegionAndSubRegionDataAsync()
         {
             await CreateCustomerOverviewLoadSalesRegionDataAsync();
             if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
@@ -194,7 +208,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void CreateCustomerOverviewLoadAccountManagerDataAsync()
+        private async Task CreateCustomerOverviewLoadAccountManagerDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -368,7 +382,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void CreateCustomerFinanceLoadCurrencyDataAsync()
+        private async Task CreateCustomerFinanceLoadCurrencyDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {

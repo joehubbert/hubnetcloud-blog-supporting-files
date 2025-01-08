@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -11,7 +12,7 @@ namespace CRM_WindowsForms.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _paymentMethodId;
         private bool? paymentMethodDetailActiveStatusOriginalValue;
-        private string? paymentMethodDetailSupplierTypeOriginalValue;
+        private string? paymentMethodDetailPaymentMethodOriginalValue;
 
         public PaymentMethodDetail(Guid paymentMethodId)
         {
@@ -26,7 +27,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
+        private async void ViewPaymentMethodDetailPaymentMethodInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -47,15 +48,15 @@ namespace CRM_WindowsForms.Presentation
                 if (paymentMethodDataTable != null)
                 {
                     DataRow paymentMethodDataRow = paymentMethodDataTable.Rows[0];
-                    paymentMethodDetailSupplierTypeIdTextbox.Text = paymentMethodDataRow["Payment Method ID"].ToString();
-                    paymentMethodDetailSupplierTypeTextbox.Text = paymentMethodDataRow["Payment Method"].ToString();
+                    paymentMethodDetailPaymentMethodIdTextbox.Text = paymentMethodDataRow["Payment Method ID"].ToString();
+                    paymentMethodDetailPaymentMethodTextbox.Text = paymentMethodDataRow["Payment Method"].ToString();
                     paymentMethodDetailCreatedByTextbox.Text = paymentMethodDataRow["Created By"].ToString();
                     paymentMethodDetailCreatedTimestampTextbox.Text = paymentMethodDataRow["Created Timestamp"].ToString();
                     paymentMethodDetailLastUpdatedByTextbox.Text = paymentMethodDataRow["Modified By"].ToString();
                     paymentMethodDetailLastUpdatedTimestampTextbox.Text = paymentMethodDataRow["Modified Timestamp"].ToString();
                     paymentMethodDetailActiveStatusCheckbox.Checked = (bool)paymentMethodDataRow["Active Status"];
 
-                    paymentMethodDetailSupplierTypeOriginalValue = paymentMethodDataRow["Payment Method"].ToString();
+                    paymentMethodDetailPaymentMethodOriginalValue = paymentMethodDataRow["Payment Method"].ToString();
                     paymentMethodDetailActiveStatusOriginalValue = (bool)paymentMethodDataRow["Active Status"];
                 }
                 else
@@ -73,7 +74,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.TrimEnd();
+            string paymentMethod = paymentMethodDetailPaymentMethodTextbox.Text.TrimEnd();
 
             if (paymentMethod.Length > 50)
             {
@@ -94,9 +95,9 @@ namespace CRM_WindowsForms.Presentation
             return true;
         }
 
-        private async void paymentMethodDetailUpdateSupplierTypeButton_Click(object sender, EventArgs e)
+        private async void paymentMethodDetailUpdatePaymentMethodButton_Click(object sender, EventArgs e)
         {
-            string paymentMethod = paymentMethodDetailSupplierTypeTextbox.Text.TrimEnd();
+            string paymentMethod = paymentMethodDetailPaymentMethodTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -109,10 +110,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Payment Method Original Value: {paymentMethodDetailSupplierTypeOriginalValue}" + $"\nPayment Method New Value: {paymentMethod}\n" +
-                $"Active Status Original Value: {paymentMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {paymentMethodDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Payment Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (paymentMethodDetailPaymentMethodOriginalValue != paymentMethod)
+            {
+                changes.AppendLine($"Payment Method Original Value: {paymentMethodDetailPaymentMethodOriginalValue}" + $"\nPayment Method New Value: {paymentMethod}\n");
+            }
+
+            if (paymentMethodDetailActiveStatusOriginalValue != paymentMethodDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {paymentMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {paymentMethodDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Payment Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -127,7 +139,7 @@ namespace CRM_WindowsForms.Presentation
                         new SqlParameter("@paymentMethodId", _paymentMethodId)
                     };
 
-                    await executor.ExecuteAsync("[dbo].[spUpdateSupplierType]", parameters);
+                    await executor.ExecuteAsync("[dbo].[spUpdatePaymentMethod]", parameters);
                     MessageBox.Show("Payment Method details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -147,14 +159,14 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
+            ViewPaymentMethodDetailPaymentMethodInformation_Load(this, EventArgs.Empty);
         }
 
         private void paymentMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            paymentMethodDetailSupplierTypeTextbox.Enabled = !paymentMethodDetailSupplierTypeTextbox.Enabled;
+            paymentMethodDetailPaymentMethodTextbox.Enabled = !paymentMethodDetailPaymentMethodTextbox.Enabled;
             paymentMethodDetailActiveStatusCheckbox.Enabled = !paymentMethodDetailActiveStatusCheckbox.Enabled;
-            paymentMethodDetailUpdateSupplierTypeButton.Enabled = !paymentMethodDetailUpdateSupplierTypeButton.Enabled;
+            paymentMethodDetailUpdatePaymentMethodButton.Enabled = !paymentMethodDetailUpdatePaymentMethodButton.Enabled;
         }
     }
 }

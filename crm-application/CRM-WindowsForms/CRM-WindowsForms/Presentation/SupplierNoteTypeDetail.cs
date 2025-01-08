@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -109,10 +110,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Supplier Note Type Original Value: {supplierNoteTypeDetailSupplierTypeOriginalValue}" + $"\nSupplier Note Type New Value: {supplierNoteType}\n" +
-                $"Active Status Original Value: {supplierNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {supplierNoteTypeDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Supplier Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (supplierNoteTypeDetailSupplierTypeOriginalValue != supplierNoteType)
+            {
+                changes.AppendLine($"Supplier Note Type Original Value: {supplierNoteTypeDetailSupplierTypeOriginalValue}" + $"\nSupplier Note Type New Value: {supplierNoteType}\n");
+            }
+
+            if (supplierNoteTypeDetailActiveStatusOriginalValue != supplierNoteTypeDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {supplierNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {supplierNoteTypeDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Supplier Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

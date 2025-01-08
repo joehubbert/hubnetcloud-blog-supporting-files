@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -109,10 +110,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Product Category Original Value: {productCategoryDetailProductCategoryOriginalValue}" + $"\nProduct Category New Value: {productCategory}\n" +
-                $"Active Status Original Value: {productCategoryDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {productCategoryDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Product Category Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (productCategoryDetailProductCategoryOriginalValue != productCategory)
+            {
+                changes.AppendLine($"Product Category Original Value: {productCategoryDetailProductCategoryOriginalValue}" + $"\nProduct Category New Value: {productCategory}\n");
+            }
+
+            if (productCategoryDetailActiveStatusOriginalValue != productCategoryDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {productCategoryDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {productCategoryDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Product Category Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

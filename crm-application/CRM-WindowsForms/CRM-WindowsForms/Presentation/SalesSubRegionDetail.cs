@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -153,11 +154,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Sales Sub Region Original Value: {salesSubRegionDetailSalesSubRegionOriginalValue}" + $"\nSales Sub Region New Value: {salesSubRegion}\n" +
-                $"Sales Region Original Value: {salesSubRegionDetailSalesRegionIdOriginalValue}" + $"\nSales Region New Value: {salesRegionId.ToString()}\n" +
-                $"Active Status Original Value: {salesSubRegionDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {salesSubRegionDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Sales Sub Region Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (salesSubRegionDetailSalesSubRegionOriginalValue != salesSubRegion)
+            {
+                changes.AppendLine($"Sales Sub Region Original Value: {salesSubRegionDetailSalesSubRegionOriginalValue}" + $"\nSales Sub Region New Value: {salesSubRegion}\n");
+            }
+
+            if (salesSubRegionDetailSalesRegionIdOriginalValue.ToString() != salesRegionId.ToString())
+            {
+                changes.AppendLine($"Sales Region Original Value: {salesSubRegionDetailSalesRegionIdOriginalValue}" + $"\nSales Region New Value: {salesRegionId.ToString()}\n");
+            }
+
+            if (salesSubRegionDetailActiveStatusOriginalValue != salesSubRegionDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {salesSubRegionDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {salesSubRegionDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Sales Sub Region Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

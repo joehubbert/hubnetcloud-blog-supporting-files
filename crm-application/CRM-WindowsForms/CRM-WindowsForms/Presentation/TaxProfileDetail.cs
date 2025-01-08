@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -145,11 +146,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Tax Profile Original Value: {taxProfileDetailTaxProfileOriginalValue}" + $"\nTax Profile New Value: {taxProfile}\n" +
-                $"Tax Rate Original Value: {taxProfileDetailTaxRateOriginalValue.ToString()}" + $"\nTax Rate New Value: {taxRate.ToString()}\n" +
-                $"Active Status Original Value: {taxProfileDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {taxProfileDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Tax Profile Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (taxProfileDetailTaxProfileOriginalValue != taxProfile)
+            {
+                changes.AppendLine($"Tax Profile Original Value: {taxProfileDetailTaxProfileOriginalValue}" + $"\nTax Profile New Value: {taxProfile}\n");
+            }
+
+            if (taxProfileDetailTaxRateOriginalValue.ToString() != taxRate.ToString())
+            {
+                changes.AppendLine($"Tax Rate Original Value: {taxProfileDetailTaxRateOriginalValue.ToString()}" + $"\nTax Rate New Value: {taxRate.ToString()}\n");
+            }
+
+            if (taxProfileDetailActiveStatusOriginalValue != taxProfileDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {taxProfileDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {taxProfileDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Tax Profile Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

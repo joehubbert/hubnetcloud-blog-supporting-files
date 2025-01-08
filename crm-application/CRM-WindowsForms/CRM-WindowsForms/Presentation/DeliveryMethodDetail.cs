@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -208,13 +209,36 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Delivery Method Original Value: {deliveryMethodDetailDeliveryMethodOriginalValue}" + $"\nDelivery Method New Value: {deliveryMethod}\n" +
-                $"Delivery Cost Original Value: {deliveryMethodDetailDeliveryCostOriginalValue.ToString()}" + $"\nDelivery Cost New Value: {deliveryCost.ToString()}\n" +
-                $"Delivery Time Original Value: {deliveryMethodDetailDeliveryTimeOriginalValue.ToString()}" + $"\nDelivery Time New Value: {deliveryTime.ToString()}\n" +
-                $"Tax Profile Original Value: {deliveryMethodDetailTaxProfileIdOriginalValue.ToString()}" + $"\nTax Profile New Value: {taxProfileId.ToString()}\n" +
-                $"Active Status Original Value: {deliveryMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {deliveryMethodDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Delivery Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (deliveryMethodDetailDeliveryMethodOriginalValue != deliveryMethod)
+            {
+                changes.AppendLine($"Delivery Method Original Value: {deliveryMethodDetailDeliveryMethodOriginalValue}" + $"\nDelivery Method New Value: {deliveryMethod}\n");
+            }
+
+            if (deliveryMethodDetailDeliveryCostOriginalValue != deliveryCost)
+            {
+                changes.AppendLine($"Delivery Cost Original Value: {deliveryMethodDetailDeliveryCostOriginalValue.ToString()}" + $"\nDelivery Cost New Value: {deliveryCost.ToString()}\n");
+            }
+
+            if (deliveryMethodDetailDeliveryTimeOriginalValue != deliveryTime)
+            {
+                changes.AppendLine($"Delivery Time Original Value: {deliveryMethodDetailDeliveryTimeOriginalValue.ToString()}" + $"\nDelivery Time New Value: {deliveryTime.ToString()}\n");
+            }
+
+            if (deliveryMethodDetailTaxProfileIdOriginalValue != taxProfileId)
+            {
+                changes.AppendLine($"Tax Profile Original Value: {deliveryMethodDetailTaxProfileIdOriginalValue.ToString()}" + $"\nTax Profile New Value: {taxProfileId.ToString()}\n");
+            }
+
+            if (deliveryMethodDetailActiveStatusOriginalValue != deliveryMethodDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {deliveryMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {deliveryMethodDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Delivery Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

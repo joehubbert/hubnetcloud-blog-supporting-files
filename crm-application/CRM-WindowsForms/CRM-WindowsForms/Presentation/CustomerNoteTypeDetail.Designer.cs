@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             customerNoteTypeDetailTitleLabel = new Label();
-            customerNoteTypeDetailUpdateCustomerTypeButton = new Button();
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton = new Button();
             customerNoteTypeDetailActiveStatusCheckbox = new CheckBox();
             customerNoteTypeDetailToggleEditModeButton = new Button();
-            customerNoteTypeDetailCustomerTypeIdTextbox = new TextBox();
-            customerNoteTypeDetailCustomerTypeTextbox = new TextBox();
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox = new TextBox();
+            customerNoteTypeDetailCustomerNoteTypeTextbox = new TextBox();
             customerNoteTypeDetailCreatedTimestampTextbox = new TextBox();
             customerNoteTypeDetailLastUpdatedTimestampTextbox = new TextBox();
             customerNoteTypeDetailCreatedByTextbox = new TextBox();
@@ -42,8 +42,8 @@
             customerNoteTypeDetailLastUpdatedByLabel = new Label();
             customerNoteTypeDetailCreatedTimestampLabel = new Label();
             customerNoteTypeDetailCreatedByLabel = new Label();
-            customerNoteTypeDetailCustomerTypeLabel = new Label();
-            customerNoteTypeDetailCustomerTypeIdLabel = new Label();
+            customerNoteTypeDetailCustomerNoteTypeLabel = new Label();
+            customerNoteTypeDetailCustomerNoteTypeIdLabel = new Label();
             SuspendLayout();
             // 
             // customerNoteTypeDetailTitleLabel
@@ -57,19 +57,19 @@
             customerNoteTypeDetailTitleLabel.TabIndex = 8;
             customerNoteTypeDetailTitleLabel.Text = "Customer Note Type Detail";
             // 
-            // customerNoteTypeDetailUpdateCustomerTypeButton
+            // customerNoteTypeDetailUpdateCustomerNoteTypeButton
             // 
-            customerNoteTypeDetailUpdateCustomerTypeButton.Enabled = false;
-            customerNoteTypeDetailUpdateCustomerTypeButton.FlatStyle = FlatStyle.Flat;
-            customerNoteTypeDetailUpdateCustomerTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customerNoteTypeDetailUpdateCustomerTypeButton.Location = new Point(525, 339);
-            customerNoteTypeDetailUpdateCustomerTypeButton.Margin = new Padding(4);
-            customerNoteTypeDetailUpdateCustomerTypeButton.Name = "customerNoteTypeDetailUpdateCustomerTypeButton";
-            customerNoteTypeDetailUpdateCustomerTypeButton.Size = new Size(237, 70);
-            customerNoteTypeDetailUpdateCustomerTypeButton.TabIndex = 8;
-            customerNoteTypeDetailUpdateCustomerTypeButton.Text = "Update Customer Note Type";
-            customerNoteTypeDetailUpdateCustomerTypeButton.UseVisualStyleBackColor = true;
-            customerNoteTypeDetailUpdateCustomerTypeButton.Click += customerNoteTypeDetailUpdateCustomerTypeButton_Click;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Enabled = false;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.FlatStyle = FlatStyle.Flat;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Location = new Point(525, 339);
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Margin = new Padding(4);
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Name = "customerNoteTypeDetailUpdateCustomerNoteTypeButton";
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Size = new Size(237, 70);
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.TabIndex = 8;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Text = "Update Customer Note Type";
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.UseVisualStyleBackColor = true;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Click += customerNoteTypeDetailUpdateCustomerNoteTypeButton_Click;
             // 
             // customerNoteTypeDetailActiveStatusCheckbox
             // 
@@ -96,23 +96,23 @@
             customerNoteTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerNoteTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // customerNoteTypeDetailCustomerTypeIdTextbox
+            // customerNoteTypeDetailCustomerNoteTypeIdTextbox
             // 
-            customerNoteTypeDetailCustomerTypeIdTextbox.Location = new Point(224, 138);
-            customerNoteTypeDetailCustomerTypeIdTextbox.MaxLength = 0;
-            customerNoteTypeDetailCustomerTypeIdTextbox.Name = "customerNoteTypeDetailCustomerTypeIdTextbox";
-            customerNoteTypeDetailCustomerTypeIdTextbox.ReadOnly = true;
-            customerNoteTypeDetailCustomerTypeIdTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailCustomerTypeIdTextbox.TabIndex = 40;
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.Location = new Point(224, 138);
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.MaxLength = 0;
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.Name = "customerNoteTypeDetailCustomerNoteTypeIdTextbox";
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.ReadOnly = true;
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.Size = new Size(370, 27);
+            customerNoteTypeDetailCustomerNoteTypeIdTextbox.TabIndex = 40;
             // 
-            // customerNoteTypeDetailCustomerTypeTextbox
+            // customerNoteTypeDetailCustomerNoteTypeTextbox
             // 
-            customerNoteTypeDetailCustomerTypeTextbox.Enabled = false;
-            customerNoteTypeDetailCustomerTypeTextbox.Location = new Point(224, 178);
-            customerNoteTypeDetailCustomerTypeTextbox.MaxLength = 1;
-            customerNoteTypeDetailCustomerTypeTextbox.Name = "customerNoteTypeDetailCustomerTypeTextbox";
-            customerNoteTypeDetailCustomerTypeTextbox.Size = new Size(370, 27);
-            customerNoteTypeDetailCustomerTypeTextbox.TabIndex = 39;
+            customerNoteTypeDetailCustomerNoteTypeTextbox.Enabled = false;
+            customerNoteTypeDetailCustomerNoteTypeTextbox.Location = new Point(224, 178);
+            customerNoteTypeDetailCustomerNoteTypeTextbox.MaxLength = 1;
+            customerNoteTypeDetailCustomerNoteTypeTextbox.Name = "customerNoteTypeDetailCustomerNoteTypeTextbox";
+            customerNoteTypeDetailCustomerNoteTypeTextbox.Size = new Size(370, 27);
+            customerNoteTypeDetailCustomerNoteTypeTextbox.TabIndex = 39;
             // 
             // customerNoteTypeDetailCreatedTimestampTextbox
             // 
@@ -186,23 +186,23 @@
             customerNoteTypeDetailCreatedByLabel.TabIndex = 31;
             customerNoteTypeDetailCreatedByLabel.Text = "Created By";
             // 
-            // customerNoteTypeDetailCustomerTypeLabel
+            // customerNoteTypeDetailCustomerNoteTypeLabel
             // 
-            customerNoteTypeDetailCustomerTypeLabel.AutoSize = true;
-            customerNoteTypeDetailCustomerTypeLabel.Location = new Point(74, 181);
-            customerNoteTypeDetailCustomerTypeLabel.Name = "customerNoteTypeDetailCustomerTypeLabel";
-            customerNoteTypeDetailCustomerTypeLabel.Size = new Size(144, 20);
-            customerNoteTypeDetailCustomerTypeLabel.TabIndex = 30;
-            customerNoteTypeDetailCustomerTypeLabel.Text = "Customer Note Type";
+            customerNoteTypeDetailCustomerNoteTypeLabel.AutoSize = true;
+            customerNoteTypeDetailCustomerNoteTypeLabel.Location = new Point(74, 181);
+            customerNoteTypeDetailCustomerNoteTypeLabel.Name = "customerNoteTypeDetailCustomerNoteTypeLabel";
+            customerNoteTypeDetailCustomerNoteTypeLabel.Size = new Size(144, 20);
+            customerNoteTypeDetailCustomerNoteTypeLabel.TabIndex = 30;
+            customerNoteTypeDetailCustomerNoteTypeLabel.Text = "Customer Note Type";
             // 
-            // customerNoteTypeDetailCustomerTypeIdLabel
+            // customerNoteTypeDetailCustomerNoteTypeIdLabel
             // 
-            customerNoteTypeDetailCustomerTypeIdLabel.AutoSize = true;
-            customerNoteTypeDetailCustomerTypeIdLabel.Location = new Point(57, 141);
-            customerNoteTypeDetailCustomerTypeIdLabel.Name = "customerNoteTypeDetailCustomerTypeIdLabel";
-            customerNoteTypeDetailCustomerTypeIdLabel.Size = new Size(161, 20);
-            customerNoteTypeDetailCustomerTypeIdLabel.TabIndex = 28;
-            customerNoteTypeDetailCustomerTypeIdLabel.Text = "Customer Note Type Id";
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.AutoSize = true;
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.Location = new Point(57, 141);
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.Name = "customerNoteTypeDetailCustomerNoteTypeIdLabel";
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.Size = new Size(161, 20);
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.TabIndex = 28;
+            customerNoteTypeDetailCustomerNoteTypeIdLabel.Text = "Customer Note Type Id";
             // 
             // CustomerNoteTypeDetail
             // 
@@ -210,11 +210,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1244, 438);
-            Controls.Add(customerNoteTypeDetailUpdateCustomerTypeButton);
+            Controls.Add(customerNoteTypeDetailUpdateCustomerNoteTypeButton);
             Controls.Add(customerNoteTypeDetailActiveStatusCheckbox);
             Controls.Add(customerNoteTypeDetailToggleEditModeButton);
-            Controls.Add(customerNoteTypeDetailCustomerTypeIdTextbox);
-            Controls.Add(customerNoteTypeDetailCustomerTypeTextbox);
+            Controls.Add(customerNoteTypeDetailCustomerNoteTypeIdTextbox);
+            Controls.Add(customerNoteTypeDetailCustomerNoteTypeTextbox);
             Controls.Add(customerNoteTypeDetailCreatedTimestampTextbox);
             Controls.Add(customerNoteTypeDetailLastUpdatedTimestampTextbox);
             Controls.Add(customerNoteTypeDetailCreatedByTextbox);
@@ -223,8 +223,8 @@
             Controls.Add(customerNoteTypeDetailLastUpdatedByLabel);
             Controls.Add(customerNoteTypeDetailCreatedTimestampLabel);
             Controls.Add(customerNoteTypeDetailCreatedByLabel);
-            Controls.Add(customerNoteTypeDetailCustomerTypeLabel);
-            Controls.Add(customerNoteTypeDetailCustomerTypeIdLabel);
+            Controls.Add(customerNoteTypeDetailCustomerNoteTypeLabel);
+            Controls.Add(customerNoteTypeDetailCustomerNoteTypeIdLabel);
             Controls.Add(customerNoteTypeDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -240,11 +240,11 @@
         #endregion
 
         private Label customerNoteTypeDetailTitleLabel;
-        private Button customerNoteTypeDetailUpdateCustomerTypeButton;
+        private Button customerNoteTypeDetailUpdateCustomerNoteTypeButton;
         private CheckBox customerNoteTypeDetailActiveStatusCheckbox;
         private Button customerNoteTypeDetailToggleEditModeButton;
-        private TextBox customerNoteTypeDetailCustomerTypeIdTextbox;
-        private TextBox customerNoteTypeDetailCustomerTypeTextbox;
+        private TextBox customerNoteTypeDetailCustomerNoteTypeIdTextbox;
+        private TextBox customerNoteTypeDetailCustomerNoteTypeTextbox;
         private TextBox customerNoteTypeDetailCreatedTimestampTextbox;
         private TextBox customerNoteTypeDetailLastUpdatedTimestampTextbox;
         private TextBox customerNoteTypeDetailCreatedByTextbox;
@@ -253,7 +253,7 @@
         private Label customerNoteTypeDetailLastUpdatedByLabel;
         private Label customerNoteTypeDetailCreatedTimestampLabel;
         private Label customerNoteTypeDetailCreatedByLabel;
-        private Label customerNoteTypeDetailCustomerTypeLabel;
-        private Label customerNoteTypeDetailCustomerTypeIdLabel;
+        private Label customerNoteTypeDetailCustomerNoteTypeLabel;
+        private Label customerNoteTypeDetailCustomerNoteTypeIdLabel;
     }
 }

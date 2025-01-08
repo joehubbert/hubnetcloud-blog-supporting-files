@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -11,7 +12,7 @@ namespace CRM_WindowsForms.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerNoteTypeId;
         private bool ?customerNoteTypeDetailActiveStatusOriginalValue;
-        private string ?customerNoteTypeDetailCustomerTypeOriginalValue;
+        private string ?customerNoteTypeDetailCustomerNoteTypeOriginalValue;
 
         public CustomerNoteTypeDetail(Guid customerNoteTypeId)
         {
@@ -26,7 +27,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewCustomerTypeDetailCustomerTypeInformation_Load(object sender, EventArgs e)
+        private async void ViewCustomerNoteTypeDetailCustomerNoteTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -47,15 +48,15 @@ namespace CRM_WindowsForms.Presentation
                 if (customerNoteTypeDataTable != null)
                 {
                     DataRow customerNoteTypeDataRow = customerNoteTypeDataTable.Rows[0];
-                    customerNoteTypeDetailCustomerTypeIdTextbox.Text = customerNoteTypeDataRow["Customer Note Type ID"].ToString();
-                    customerNoteTypeDetailCustomerTypeTextbox.Text = customerNoteTypeDataRow["Customer Note Type"].ToString();
+                    customerNoteTypeDetailCustomerNoteTypeIdTextbox.Text = customerNoteTypeDataRow["Customer Note Type ID"].ToString();
+                    customerNoteTypeDetailCustomerNoteTypeTextbox.Text = customerNoteTypeDataRow["Customer Note Type"].ToString();
                     customerNoteTypeDetailCreatedByTextbox.Text = customerNoteTypeDataRow["Created By"].ToString();
                     customerNoteTypeDetailCreatedTimestampTextbox.Text = customerNoteTypeDataRow["Created Timestamp"].ToString();
                     customerNoteTypeDetailLastUpdatedByTextbox.Text = customerNoteTypeDataRow["Modified By"].ToString();
                     customerNoteTypeDetailLastUpdatedTimestampTextbox.Text = customerNoteTypeDataRow["Modified Timestamp"].ToString();
                     customerNoteTypeDetailActiveStatusCheckbox.Checked = (bool)customerNoteTypeDataRow["Active Status"];
 
-                    customerNoteTypeDetailCustomerTypeOriginalValue = customerNoteTypeDataRow["Customer Note Type"].ToString();
+                    customerNoteTypeDetailCustomerNoteTypeOriginalValue = customerNoteTypeDataRow["Customer Note Type"].ToString();
                     customerNoteTypeDetailActiveStatusOriginalValue = (bool)customerNoteTypeDataRow["Active Status"];
                 }
                 else
@@ -73,7 +74,7 @@ namespace CRM_WindowsForms.Presentation
         {
             StringBuilder validationErrors = new StringBuilder();
 
-            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.TrimEnd();
+            string customerNoteType = customerNoteTypeDetailCustomerNoteTypeTextbox.Text.TrimEnd();
 
             if (customerNoteType.Length > 50)
             {
@@ -94,9 +95,9 @@ namespace CRM_WindowsForms.Presentation
             return true;
         }
 
-        private async void customerNoteTypeDetailUpdateCustomerTypeButton_Click(object sender, EventArgs e)
+        private async void customerNoteTypeDetailUpdateCustomerNoteTypeButton_Click(object sender, EventArgs e)
         {
-            string customerNoteType = customerNoteTypeDetailCustomerTypeTextbox.Text.TrimEnd();
+            string customerNoteType = customerNoteTypeDetailCustomerNoteTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -109,10 +110,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Customer Note Type Original Value: {customerNoteTypeDetailCustomerTypeOriginalValue}" + $"\nCustomer Note Type New Value: {customerNoteType}\n" +
-                $"Active Status Original Value: {customerNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerNoteTypeDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Customer Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (customerNoteTypeDetailCustomerNoteTypeOriginalValue != customerNoteType)
+            {
+                changes.AppendLine($"Customer Note Type Original Value: {customerNoteTypeDetailCustomerNoteTypeOriginalValue}" + $"\nCustomer Note Type New Value: {customerNoteType}\n");
+            }
+
+            if (customerNoteTypeDetailActiveStatusOriginalValue != customerNoteTypeDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {customerNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerNoteTypeDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Customer Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {
@@ -127,7 +139,7 @@ namespace CRM_WindowsForms.Presentation
                         new SqlParameter("@customerNoteTypeId", _customerNoteTypeId)
                     };
 
-                    await executor.ExecuteAsync("[dbo].[spUpdateCustomerType]", parameters);
+                    await executor.ExecuteAsync("[dbo].[spUpdateCustomerNoteType]", parameters);
                     MessageBox.Show("Customer Note Type details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
@@ -147,14 +159,14 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCustomerTypeDetailCustomerTypeInformation_Load(this, EventArgs.Empty);
+            ViewCustomerNoteTypeDetailCustomerNoteTypeInformation_Load(this, EventArgs.Empty);
         }
 
         private void customerNoteTypeDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            customerNoteTypeDetailCustomerTypeTextbox.Enabled = !customerNoteTypeDetailCustomerTypeTextbox.Enabled;
+            customerNoteTypeDetailCustomerNoteTypeTextbox.Enabled = !customerNoteTypeDetailCustomerNoteTypeTextbox.Enabled;
             customerNoteTypeDetailActiveStatusCheckbox.Enabled = !customerNoteTypeDetailActiveStatusCheckbox.Enabled;
-            customerNoteTypeDetailUpdateCustomerTypeButton.Enabled = !customerNoteTypeDetailUpdateCustomerTypeButton.Enabled;
+            customerNoteTypeDetailUpdateCustomerNoteTypeButton.Enabled = !customerNoteTypeDetailUpdateCustomerNoteTypeButton.Enabled;
         }
     }
 }

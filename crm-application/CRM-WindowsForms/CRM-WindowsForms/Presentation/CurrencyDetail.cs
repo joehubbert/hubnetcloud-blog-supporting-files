@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -120,11 +121,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Currency Code Original Value: {currencyDetailCurrencyCodeOriginalValue}" + $"\nCurrency Code New Value: {currencyCode}\n" +
-                $"Currency Name Original Value: {currencyDetailCurrencyNameOriginalValue}" + $"\nCurrency Name New Value: {currencyName}\n" +
-                $"Active Status Original Value: {currencyDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {currencyDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Currency Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (currencyDetailCurrencyCodeOriginalValue != currencyCode)
+            {
+                changes.AppendLine($"Currency Code Original Value: {currencyDetailCurrencyCodeOriginalValue}" + $"\nCurrency Code New Value: {currencyCode}\n");
+            }
+
+            if (currencyDetailCurrencyNameOriginalValue != currencyName)
+            {
+                changes.AppendLine($"Currency Name Original Value: {currencyDetailCurrencyNameOriginalValue}" + $"\nCurrency Name New Value: {currencyName}\n");
+            }
+
+            if (currencyDetailActiveStatusOriginalValue != currencyDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {currencyDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {currencyDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Currency Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

@@ -217,13 +217,36 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"First Name Original Value: {accountManagerDetailFirstNameOriginalValue}" + $"\nFirst Name New Value: {firstName}\n" +
-                $"Last Name Original Value: {accountManagerDetailLastNameOriginalValue}" + $"\nLast Name New Value: {lastName}\n" +
-                $"Email Address Original Value: {accountManagerDetailEmailAddressOriginalValue}" + $"\nEmail Address New Value: {emailAddress}\n" +
-                $"Telephone Number Original Value: {accountManagerDetailTelephoneNumberOriginalValue}" + $"\nTelephone Number New Value: {telephoneNumber}\n" +
-                $"Active Status Original Value: {accountManagerDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {accountManagerDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Account Manager Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (accountManagerDetailFirstNameOriginalValue != firstName)
+            {
+                changes.AppendLine($"First Name Original Value: {accountManagerDetailFirstNameOriginalValue}\nFirst Name New Value: {firstName}\n");
+            }
+
+            if (accountManagerDetailLastNameOriginalValue != lastName)
+            {
+                changes.AppendLine($"Last Name Original Value: {accountManagerDetailLastNameOriginalValue}\nLast Name New Value: {lastName}\n");
+            }
+
+            if (accountManagerDetailEmailAddressOriginalValue != emailAddress)
+            {
+                changes.AppendLine($"Email Address Original Value: {accountManagerDetailEmailAddressOriginalValue}\nEmail Address New Value: {emailAddress}\n");
+            }
+
+            if (accountManagerDetailTelephoneNumberOriginalValue != telephoneNumber)
+            {
+                changes.AppendLine($"Telephone Number Original Value: {accountManagerDetailTelephoneNumberOriginalValue}\nTelephone Number New Value: {telephoneNumber}\n");
+            }
+
+            if (accountManagerDetailActiveStatusOriginalValue != accountManagerDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {accountManagerDetailActiveStatusOriginalValue}\nActive Status New Value: {accountManagerDetailActiveStatusCheckbox.Checked}\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Account Manager Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

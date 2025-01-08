@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             paymentMethodDetailTitleLabel = new Label();
-            paymentMethodDetailUpdateSupplierTypeButton = new Button();
+            paymentMethodDetailUpdatePaymentMethodButton = new Button();
             paymentMethodDetailActiveStatusCheckbox = new CheckBox();
             paymentMethodDetailToggleEditModeButton = new Button();
-            paymentMethodDetailSupplierTypeIdTextbox = new TextBox();
-            paymentMethodDetailSupplierTypeTextbox = new TextBox();
+            paymentMethodDetailPaymentMethodIdTextbox = new TextBox();
+            paymentMethodDetailPaymentMethodTextbox = new TextBox();
             paymentMethodDetailCreatedTimestampTextbox = new TextBox();
             paymentMethodDetailLastUpdatedTimestampTextbox = new TextBox();
             paymentMethodDetailCreatedByTextbox = new TextBox();
@@ -42,8 +42,8 @@
             paymentMethodDetailLastUpdatedByLabel = new Label();
             paymentMethodDetailCreatedTimestampLabel = new Label();
             paymentMethodDetailCreatedByLabel = new Label();
-            paymentMethodDetailSupplierTypeLabel = new Label();
-            paymentMethodDetailSupplierTypeIdLabel = new Label();
+            paymentMethodDetailPaymentMethodLabel = new Label();
+            paymentMethodDetailPaymentMethodIdLabel = new Label();
             SuspendLayout();
             // 
             // paymentMethodDetailTitleLabel
@@ -57,19 +57,19 @@
             paymentMethodDetailTitleLabel.TabIndex = 8;
             paymentMethodDetailTitleLabel.Text = "Payment Method Detail";
             // 
-            // paymentMethodDetailUpdateSupplierTypeButton
+            // paymentMethodDetailUpdatePaymentMethodButton
             // 
-            paymentMethodDetailUpdateSupplierTypeButton.Enabled = false;
-            paymentMethodDetailUpdateSupplierTypeButton.FlatStyle = FlatStyle.Flat;
-            paymentMethodDetailUpdateSupplierTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            paymentMethodDetailUpdateSupplierTypeButton.Location = new Point(525, 339);
-            paymentMethodDetailUpdateSupplierTypeButton.Margin = new Padding(4);
-            paymentMethodDetailUpdateSupplierTypeButton.Name = "paymentMethodDetailUpdateSupplierTypeButton";
-            paymentMethodDetailUpdateSupplierTypeButton.Size = new Size(237, 70);
-            paymentMethodDetailUpdateSupplierTypeButton.TabIndex = 8;
-            paymentMethodDetailUpdateSupplierTypeButton.Text = "Update Payment Method";
-            paymentMethodDetailUpdateSupplierTypeButton.UseVisualStyleBackColor = true;
-            paymentMethodDetailUpdateSupplierTypeButton.Click += paymentMethodDetailUpdateSupplierTypeButton_Click;
+            paymentMethodDetailUpdatePaymentMethodButton.Enabled = false;
+            paymentMethodDetailUpdatePaymentMethodButton.FlatStyle = FlatStyle.Flat;
+            paymentMethodDetailUpdatePaymentMethodButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            paymentMethodDetailUpdatePaymentMethodButton.Location = new Point(525, 339);
+            paymentMethodDetailUpdatePaymentMethodButton.Margin = new Padding(4);
+            paymentMethodDetailUpdatePaymentMethodButton.Name = "paymentMethodDetailUpdatePaymentMethodButton";
+            paymentMethodDetailUpdatePaymentMethodButton.Size = new Size(237, 70);
+            paymentMethodDetailUpdatePaymentMethodButton.TabIndex = 8;
+            paymentMethodDetailUpdatePaymentMethodButton.Text = "Update Payment Method";
+            paymentMethodDetailUpdatePaymentMethodButton.UseVisualStyleBackColor = true;
+            paymentMethodDetailUpdatePaymentMethodButton.Click += paymentMethodDetailUpdatePaymentMethodButton_Click;
             // 
             // paymentMethodDetailActiveStatusCheckbox
             // 
@@ -96,23 +96,23 @@
             paymentMethodDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             paymentMethodDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // paymentMethodDetailSupplierTypeIdTextbox
+            // paymentMethodDetailPaymentMethodIdTextbox
             // 
-            paymentMethodDetailSupplierTypeIdTextbox.Location = new Point(201, 138);
-            paymentMethodDetailSupplierTypeIdTextbox.MaxLength = 36;
-            paymentMethodDetailSupplierTypeIdTextbox.Name = "paymentMethodDetailSupplierTypeIdTextbox";
-            paymentMethodDetailSupplierTypeIdTextbox.ReadOnly = true;
-            paymentMethodDetailSupplierTypeIdTextbox.Size = new Size(370, 27);
-            paymentMethodDetailSupplierTypeIdTextbox.TabIndex = 0;
+            paymentMethodDetailPaymentMethodIdTextbox.Location = new Point(201, 138);
+            paymentMethodDetailPaymentMethodIdTextbox.MaxLength = 36;
+            paymentMethodDetailPaymentMethodIdTextbox.Name = "paymentMethodDetailPaymentMethodIdTextbox";
+            paymentMethodDetailPaymentMethodIdTextbox.ReadOnly = true;
+            paymentMethodDetailPaymentMethodIdTextbox.Size = new Size(370, 27);
+            paymentMethodDetailPaymentMethodIdTextbox.TabIndex = 0;
             // 
-            // paymentMethodDetailSupplierTypeTextbox
+            // paymentMethodDetailPaymentMethodTextbox
             // 
-            paymentMethodDetailSupplierTypeTextbox.Enabled = false;
-            paymentMethodDetailSupplierTypeTextbox.Location = new Point(201, 178);
-            paymentMethodDetailSupplierTypeTextbox.MaxLength = 50;
-            paymentMethodDetailSupplierTypeTextbox.Name = "paymentMethodDetailSupplierTypeTextbox";
-            paymentMethodDetailSupplierTypeTextbox.Size = new Size(370, 27);
-            paymentMethodDetailSupplierTypeTextbox.TabIndex = 1;
+            paymentMethodDetailPaymentMethodTextbox.Enabled = false;
+            paymentMethodDetailPaymentMethodTextbox.Location = new Point(201, 178);
+            paymentMethodDetailPaymentMethodTextbox.MaxLength = 50;
+            paymentMethodDetailPaymentMethodTextbox.Name = "paymentMethodDetailPaymentMethodTextbox";
+            paymentMethodDetailPaymentMethodTextbox.Size = new Size(370, 27);
+            paymentMethodDetailPaymentMethodTextbox.TabIndex = 1;
             // 
             // paymentMethodDetailCreatedTimestampTextbox
             // 
@@ -186,23 +186,23 @@
             paymentMethodDetailCreatedByLabel.TabIndex = 31;
             paymentMethodDetailCreatedByLabel.Text = "Created By";
             // 
-            // paymentMethodDetailSupplierTypeLabel
+            // paymentMethodDetailPaymentMethodLabel
             // 
-            paymentMethodDetailSupplierTypeLabel.AutoSize = true;
-            paymentMethodDetailSupplierTypeLabel.Location = new Point(74, 181);
-            paymentMethodDetailSupplierTypeLabel.Name = "paymentMethodDetailSupplierTypeLabel";
-            paymentMethodDetailSupplierTypeLabel.Size = new Size(121, 20);
-            paymentMethodDetailSupplierTypeLabel.TabIndex = 30;
-            paymentMethodDetailSupplierTypeLabel.Text = "Payment Method";
+            paymentMethodDetailPaymentMethodLabel.AutoSize = true;
+            paymentMethodDetailPaymentMethodLabel.Location = new Point(74, 181);
+            paymentMethodDetailPaymentMethodLabel.Name = "paymentMethodDetailPaymentMethodLabel";
+            paymentMethodDetailPaymentMethodLabel.Size = new Size(121, 20);
+            paymentMethodDetailPaymentMethodLabel.TabIndex = 30;
+            paymentMethodDetailPaymentMethodLabel.Text = "Payment Method";
             // 
-            // paymentMethodDetailSupplierTypeIdLabel
+            // paymentMethodDetailPaymentMethodIdLabel
             // 
-            paymentMethodDetailSupplierTypeIdLabel.AutoSize = true;
-            paymentMethodDetailSupplierTypeIdLabel.Location = new Point(57, 141);
-            paymentMethodDetailSupplierTypeIdLabel.Name = "paymentMethodDetailSupplierTypeIdLabel";
-            paymentMethodDetailSupplierTypeIdLabel.Size = new Size(138, 20);
-            paymentMethodDetailSupplierTypeIdLabel.TabIndex = 28;
-            paymentMethodDetailSupplierTypeIdLabel.Text = "Payment Method Id";
+            paymentMethodDetailPaymentMethodIdLabel.AutoSize = true;
+            paymentMethodDetailPaymentMethodIdLabel.Location = new Point(57, 141);
+            paymentMethodDetailPaymentMethodIdLabel.Name = "paymentMethodDetailPaymentMethodIdLabel";
+            paymentMethodDetailPaymentMethodIdLabel.Size = new Size(138, 20);
+            paymentMethodDetailPaymentMethodIdLabel.TabIndex = 28;
+            paymentMethodDetailPaymentMethodIdLabel.Text = "Payment Method Id";
             // 
             // PaymentMethodDetail
             // 
@@ -210,11 +210,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1244, 438);
-            Controls.Add(paymentMethodDetailUpdateSupplierTypeButton);
+            Controls.Add(paymentMethodDetailUpdatePaymentMethodButton);
             Controls.Add(paymentMethodDetailActiveStatusCheckbox);
             Controls.Add(paymentMethodDetailToggleEditModeButton);
-            Controls.Add(paymentMethodDetailSupplierTypeIdTextbox);
-            Controls.Add(paymentMethodDetailSupplierTypeTextbox);
+            Controls.Add(paymentMethodDetailPaymentMethodIdTextbox);
+            Controls.Add(paymentMethodDetailPaymentMethodTextbox);
             Controls.Add(paymentMethodDetailCreatedTimestampTextbox);
             Controls.Add(paymentMethodDetailLastUpdatedTimestampTextbox);
             Controls.Add(paymentMethodDetailCreatedByTextbox);
@@ -223,8 +223,8 @@
             Controls.Add(paymentMethodDetailLastUpdatedByLabel);
             Controls.Add(paymentMethodDetailCreatedTimestampLabel);
             Controls.Add(paymentMethodDetailCreatedByLabel);
-            Controls.Add(paymentMethodDetailSupplierTypeLabel);
-            Controls.Add(paymentMethodDetailSupplierTypeIdLabel);
+            Controls.Add(paymentMethodDetailPaymentMethodLabel);
+            Controls.Add(paymentMethodDetailPaymentMethodIdLabel);
             Controls.Add(paymentMethodDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -240,11 +240,11 @@
         #endregion
 
         private Label paymentMethodDetailTitleLabel;
-        private Button paymentMethodDetailUpdateSupplierTypeButton;
+        private Button paymentMethodDetailUpdatePaymentMethodButton;
         private CheckBox paymentMethodDetailActiveStatusCheckbox;
         private Button paymentMethodDetailToggleEditModeButton;
-        private TextBox paymentMethodDetailSupplierTypeIdTextbox;
-        private TextBox paymentMethodDetailSupplierTypeTextbox;
+        private TextBox paymentMethodDetailPaymentMethodIdTextbox;
+        private TextBox paymentMethodDetailPaymentMethodTextbox;
         private TextBox paymentMethodDetailCreatedTimestampTextbox;
         private TextBox paymentMethodDetailLastUpdatedTimestampTextbox;
         private TextBox paymentMethodDetailCreatedByTextbox;
@@ -253,7 +253,7 @@
         private Label paymentMethodDetailLastUpdatedByLabel;
         private Label paymentMethodDetailCreatedTimestampLabel;
         private Label paymentMethodDetailCreatedByLabel;
-        private Label paymentMethodDetailSupplierTypeLabel;
-        private Label paymentMethodDetailSupplierTypeIdLabel;
+        private Label paymentMethodDetailPaymentMethodLabel;
+        private Label paymentMethodDetailPaymentMethodIdLabel;
     }
 }

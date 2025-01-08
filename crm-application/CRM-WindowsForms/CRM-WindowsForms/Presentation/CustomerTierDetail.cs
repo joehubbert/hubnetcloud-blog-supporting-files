@@ -2,6 +2,7 @@
 using CRM_WindowsForms.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using System.Net.Mail;
 using System.Text;
 
 namespace CRM_WindowsForms.Presentation
@@ -120,11 +121,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var result = MessageBox.Show("Are you sure that you want to update the following values?\n\n" +
-                $"Customer Tier Code Original Value: {customerTierDetailCustomerTierCodeOriginalValue}" + $"\nCustomer Tier Code New Value: {customerTierCode}\n" +
-                $"Customer Tier Description Original Value: {customerTierDetailCustomerTierDescriptionOriginalValue}" + $"\nCustomer Tier Description New Value: {customerTierDescription}\n" +
-                $"Active Status Original Value: {customerTierDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerTierDetailActiveStatusCheckbox.Checked}\n\n" +
-                "This action cannot be undone.", "Update Customer Tier Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
+
+            if (customerTierDetailCustomerTierCodeOriginalValue != customerTierCode)
+            {
+                changes.AppendLine($"Customer Tier Code Original Value: {customerTierDetailCustomerTierCodeOriginalValue}" + $"\nCustomer Tier Code New Value: {customerTierCode}\n");
+            }
+
+            if (customerTierDetailCustomerTierDescriptionOriginalValue != customerTierDescription)
+            {
+                changes.AppendLine($"Customer Tier Description Original Value: {customerTierDetailCustomerTierDescriptionOriginalValue}" + $"\nCustomer Tier Description New Value: {customerTierDescription}\n");
+            }
+
+            if (customerTierDetailActiveStatusOriginalValue != customerTierDetailActiveStatusCheckbox.Checked)
+            {
+                changes.AppendLine($"Active Status Original Value: {customerTierDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerTierDetailActiveStatusCheckbox.Checked}\n\n");
+            }
+
+            changes.AppendLine("This action cannot be undone.");
+
+            var result = MessageBox.Show(changes.ToString(), "Update Customer Tier Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if (result == DialogResult.Yes)
             {

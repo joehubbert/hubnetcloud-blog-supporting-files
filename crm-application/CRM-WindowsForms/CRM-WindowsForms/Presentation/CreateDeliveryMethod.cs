@@ -45,7 +45,7 @@ namespace CRM_WindowsForms.Presentation
                         TaxProfileId = row.Field<Guid>("Tax Profile Id"),
                         TaxProfile = row.Field<string>("Tax Profile"),
                         TaxRate = row.Field<decimal>("Tax Rate"),
-                        DisplayText = $"{row.Field<string>("Tax Profile")} | {row.Field<string>("Tax Rate")}"
+                        DisplayText = $"{row.Field<string>("Tax Profile")} | {row.Field<decimal>("Tax Rate")}"
                     })
                     .OrderBy(item => item.TaxProfile)
                     .ToList();

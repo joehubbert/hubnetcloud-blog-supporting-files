@@ -71,7 +71,7 @@
             // 
             createSalesSubRegionSubmitButton.FlatStyle = FlatStyle.Flat;
             createSalesSubRegionSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createSalesSubRegionSubmitButton.Location = new Point(175, 204);
+            createSalesSubRegionSubmitButton.Location = new Point(154, 206);
             createSalesSubRegionSubmitButton.Margin = new Padding(4);
             createSalesSubRegionSubmitButton.Name = "createSalesSubRegionSubmitButton";
             createSalesSubRegionSubmitButton.Size = new Size(198, 66);
@@ -86,7 +86,7 @@
             createSalesSubRegionActiveStatusCheckbox.Checked = true;
             createSalesSubRegionActiveStatusCheckbox.CheckState = CheckState.Checked;
             createSalesSubRegionActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createSalesSubRegionActiveStatusCheckbox.Location = new Point(181, 171);
+            createSalesSubRegionActiveStatusCheckbox.Location = new Point(159, 173);
             createSalesSubRegionActiveStatusCheckbox.Margin = new Padding(5);
             createSalesSubRegionActiveStatusCheckbox.Name = "createSalesSubRegionActiveStatusCheckbox";
             createSalesSubRegionActiveStatusCheckbox.Size = new Size(187, 24);

@@ -46,6 +46,7 @@ namespace CRM_WindowsForms.Presentation
                     {
                         viewAllSalesSubRegionDataGridView.Columns.Remove("Details");
                     }
+                    viewAllSalesSubRegionDataGridView.Columns.Remove("Sales Region Id");
                     DataGridViewLinkColumn salesRegionDetailLink = new DataGridViewLinkColumn
                     {
                         HeaderText = "Details",

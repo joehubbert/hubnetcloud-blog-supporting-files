@@ -30,9 +30,16 @@ namespace CRM_WindowsForms.Presentation.Functions
                     validationErrors.AppendLine($"{property.Name} cannot be longer than {property.MaxLength} characters. Submitted length is {value.Length} characters.");
                 }
 
-                if (property.Name == "EmailAddress" && !value.Contains("@"))
+                if (property.Name == "EmailAddress")
                 {
-                    validationErrors.AppendLine("Email Address must contain an '@' symbol.");
+                    if (!value.Contains("@"))
+                    {
+                        validationErrors.AppendLine("Email Address must contain an '@' symbol.");
+                    }
+                    if (value.Length > 50)
+                    {
+                        validationErrors.AppendLine("Email Address cannot be longer than 50 characters.");
+                    }
                 }
 
                 if (property.Name == "TelephoneNumber")

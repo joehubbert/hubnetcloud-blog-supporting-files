@@ -12,9 +12,12 @@ namespace CRM_WindowsForms.Presentation
 {
     public partial class SupplierDetail : Form
     {
-        public SupplierDetail()
+        private readonly Guid _supplierId;
+
+        public SupplierDetail(Guid supplierId)
         {
             InitializeComponent();
+            _supplierId = supplierId;
         }
     }
 }

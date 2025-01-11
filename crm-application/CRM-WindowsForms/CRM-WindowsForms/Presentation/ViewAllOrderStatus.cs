@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms.Model;
+using CRM_WindowsForms.Presentation.Functions;
 using System.Data;
 
 namespace CRM_WindowsForms.Presentation
@@ -6,6 +7,7 @@ namespace CRM_WindowsForms.Presentation
     public partial class ViewAllOrderStatus : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Order Statuses";
 
         public ViewAllOrderStatus()
         {
@@ -29,8 +31,8 @@ namespace CRM_WindowsForms.Presentation
 
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable dataTable = await executor.ExecuteAsync("[dbo].[spGetAllOrderStatus]");
+                string storedProcedureName = "[dbo].[spGetAllOrderStatus]";
+                DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (dataTable.Rows.Count == 0)
                 {

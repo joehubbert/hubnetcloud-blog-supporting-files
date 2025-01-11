@@ -1,18 +1,16 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class CustomerTypeDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Customer Type";
         private readonly Guid _customerTypeId;
-        private bool ?customerTypeDetailActiveStatusOriginalValue;
-        private string ?customerTypeDetailCustomerTypeOriginalValue;
+        private bool? customerTypeDetailActiveStatusOriginalValue;
+        private string? customerTypeDetailCustomerTypeOriginalValue;
 
         public CustomerTypeDetail(Guid customerTypeId)
         {
@@ -27,7 +25,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewCustomerTypeDetailCustomerTypeInformation_Load(object sender, EventArgs e)
+        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetCustomerType]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@customerTypeId",
+                    ParameterValue = _customerTypeId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@customerTypeId", _customerTypeId)
-                };
-
-                DataTable customerTypeDataTable = await executor.ExecuteAsync("[dbo].[spGetCustomerType]", parameters);
+                DataTable? customerTypeDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (customerTypeDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string customerType = customerTypeDetailCustomerTypeTextbox.Text.TrimEnd();
-
-            if (customerType.Length > 50)
-            {
-                validationErrors.AppendLine($"Customer Type cannot be longer than 50 characters. Submitted length is {customerType.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerType))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void customerTypeDetailUpdateCustomerTypeButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = customerTypeDetailActiveStatusCheckbox.Checked;
             string customerType = customerTypeDetailCustomerTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerType",
+                    Value = customerType,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (customerTypeDetailCustomerTypeOriginalValue != customerType)
-            {
-                changes.AppendLine($"Customer Type Original Value: {customerTypeDetailCustomerTypeOriginalValue}" + $"\nCustomer Type New Value: {customerType}\n");
-            }
-
-            if (customerTypeDetailActiveStatusOriginalValue != customerTypeDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {customerTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerTypeDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Customer Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", customerTypeDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@customerType", customerType),
-                        new SqlParameter("@customerTypeId", _customerTypeId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateCustomerType]", parameters);
-                    MessageBox.Show("Customer Type details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Customer Type details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Customer Type",
+                        VariableType = "string",
+                        OriginalValue = customerTypeDetailCustomerTypeOriginalValue,
+                        NewValue = customerType
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = customerTypeDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerType",
+                            ParameterValue = customerType
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTypeId",
+                            ParameterValue = _customerTypeId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateCustomerType]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -159,7 +160,7 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCustomerTypeDetailCustomerTypeInformation_Load(this, EventArgs.Empty);
+            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
         private void customerTypeDetailToggleEditModeButton_Click(object? sender, EventArgs e)

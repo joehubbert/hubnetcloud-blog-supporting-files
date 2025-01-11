@@ -1,13 +1,12 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class CreateProductCategory : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Product Category";
 
         public CreateProductCategory()
         {
@@ -20,65 +19,53 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string productCategory = createProductCategoryProductCategoryTextbox.Text.TrimEnd();
-
-            if (productCategory.Length > 50)
-            {
-                validationErrors.AppendLine($"Product Category cannot be longer than 50 characters. Submitted length is {productCategory.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(productCategory))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void createProductCategorySubmitButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = createProductCategoryActiveStatusCheckbox.Checked;
+            string productCategory = createProductCategoryProductCategoryTextbox.Text.TrimEnd();
+
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "ProductCategory",
+                    Value = productCategory,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            try
+            else
             {
-                bool activeStatus = createProductCategoryActiveStatusCheckbox.Checked;
-                string productCategory = createProductCategoryProductCategoryTextbox.Text.TrimEnd();
-
                 var parameters = new[]
                 {
-                        new SqlParameter("@activeStatus", activeStatus),
-                        new SqlParameter("@productCategory", productCategory)
-                    };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@productCategory",
+                            ParameterValue = productCategory
+                        }
+                };
+                string storedProcedureName = "[dbo].[spCreateProductCategory]";
+                string operationType = "create";
 
-                ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateProductCategory]", parameters);
-
-                MessageBox.Show("New Product Category added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add new Product Category: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

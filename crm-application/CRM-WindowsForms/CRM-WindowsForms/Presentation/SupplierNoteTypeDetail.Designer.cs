@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             supplierNoteTypeDetailTitleLabel = new Label();
-            supplierNoteTypeDetailUpdateSupplierTypeButton = new Button();
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton = new Button();
             supplierNoteTypeDetailActiveStatusCheckbox = new CheckBox();
             supplierNoteTypeDetailToggleEditModeButton = new Button();
-            supplierNoteTypeDetailSupplierTypeIdTextbox = new TextBox();
-            supplierNoteTypeDetailSupplierTypeTextbox = new TextBox();
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox = new TextBox();
+            supplierNoteTypeDetailSupplierNoteTypeTextbox = new TextBox();
             supplierNoteTypeDetailCreatedTimestampTextbox = new TextBox();
             supplierNoteTypeDetailLastUpdatedTimestampTextbox = new TextBox();
             supplierNoteTypeDetailCreatedByTextbox = new TextBox();
@@ -42,8 +42,8 @@
             supplierNoteTypeDetailLastUpdatedByLabel = new Label();
             supplierNoteTypeDetailCreatedTimestampLabel = new Label();
             supplierNoteTypeDetailCreatedByLabel = new Label();
-            supplierNoteTypeDetailSupplierTypeLabel = new Label();
-            supplierNoteTypeDetailSupplierTypeIdLabel = new Label();
+            supplierNoteTypeDetailSupplierNoteTypeLabel = new Label();
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel = new Label();
             SuspendLayout();
             // 
             // supplierNoteTypeDetailTitleLabel
@@ -57,19 +57,19 @@
             supplierNoteTypeDetailTitleLabel.TabIndex = 8;
             supplierNoteTypeDetailTitleLabel.Text = "Supplier Note Type Detail";
             // 
-            // supplierNoteTypeDetailUpdateSupplierTypeButton
+            // supplierNoteTypeDetailUpdateSupplierNoteTypeButton
             // 
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Enabled = false;
-            supplierNoteTypeDetailUpdateSupplierTypeButton.FlatStyle = FlatStyle.Flat;
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Location = new Point(525, 339);
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Margin = new Padding(4);
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Name = "supplierNoteTypeDetailUpdateSupplierTypeButton";
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Size = new Size(237, 70);
-            supplierNoteTypeDetailUpdateSupplierTypeButton.TabIndex = 8;
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Text = "Update Supplier Note Type";
-            supplierNoteTypeDetailUpdateSupplierTypeButton.UseVisualStyleBackColor = true;
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Click += supplierNoteTypeDetailUpdateSupplierTypeButton_Click;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Enabled = false;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.FlatStyle = FlatStyle.Flat;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Location = new Point(525, 339);
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Margin = new Padding(4);
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Name = "supplierNoteTypeDetailUpdateSupplierNoteTypeButton";
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Size = new Size(237, 70);
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.TabIndex = 8;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Text = "Update Supplier Note Type";
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.UseVisualStyleBackColor = true;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Click += supplierNoteTypeDetailUpdateSupplierNoteTypeButton_Click;
             // 
             // supplierNoteTypeDetailActiveStatusCheckbox
             // 
@@ -96,23 +96,23 @@
             supplierNoteTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             supplierNoteTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // supplierNoteTypeDetailSupplierTypeIdTextbox
+            // supplierNoteTypeDetailSupplierNoteTypeIdTextbox
             // 
-            supplierNoteTypeDetailSupplierTypeIdTextbox.Location = new Point(224, 138);
-            supplierNoteTypeDetailSupplierTypeIdTextbox.MaxLength = 36;
-            supplierNoteTypeDetailSupplierTypeIdTextbox.Name = "supplierNoteTypeDetailSupplierTypeIdTextbox";
-            supplierNoteTypeDetailSupplierTypeIdTextbox.ReadOnly = true;
-            supplierNoteTypeDetailSupplierTypeIdTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailSupplierTypeIdTextbox.TabIndex = 0;
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.Location = new Point(224, 138);
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.MaxLength = 36;
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.Name = "supplierNoteTypeDetailSupplierNoteTypeIdTextbox";
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.ReadOnly = true;
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.Size = new Size(370, 27);
+            supplierNoteTypeDetailSupplierNoteTypeIdTextbox.TabIndex = 0;
             // 
-            // supplierNoteTypeDetailSupplierTypeTextbox
+            // supplierNoteTypeDetailSupplierNoteTypeTextbox
             // 
-            supplierNoteTypeDetailSupplierTypeTextbox.Enabled = false;
-            supplierNoteTypeDetailSupplierTypeTextbox.Location = new Point(224, 178);
-            supplierNoteTypeDetailSupplierTypeTextbox.MaxLength = 50;
-            supplierNoteTypeDetailSupplierTypeTextbox.Name = "supplierNoteTypeDetailSupplierTypeTextbox";
-            supplierNoteTypeDetailSupplierTypeTextbox.Size = new Size(370, 27);
-            supplierNoteTypeDetailSupplierTypeTextbox.TabIndex = 1;
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled = false;
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.Location = new Point(224, 178);
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.MaxLength = 50;
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.Name = "supplierNoteTypeDetailSupplierNoteTypeTextbox";
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.Size = new Size(370, 27);
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.TabIndex = 1;
             // 
             // supplierNoteTypeDetailCreatedTimestampTextbox
             // 
@@ -186,23 +186,23 @@
             supplierNoteTypeDetailCreatedByLabel.TabIndex = 31;
             supplierNoteTypeDetailCreatedByLabel.Text = "Created By";
             // 
-            // supplierNoteTypeDetailSupplierTypeLabel
+            // supplierNoteTypeDetailSupplierNoteTypeLabel
             // 
-            supplierNoteTypeDetailSupplierTypeLabel.AutoSize = true;
-            supplierNoteTypeDetailSupplierTypeLabel.Location = new Point(74, 181);
-            supplierNoteTypeDetailSupplierTypeLabel.Name = "supplierNoteTypeDetailSupplierTypeLabel";
-            supplierNoteTypeDetailSupplierTypeLabel.Size = new Size(136, 20);
-            supplierNoteTypeDetailSupplierTypeLabel.TabIndex = 30;
-            supplierNoteTypeDetailSupplierTypeLabel.Text = "Supplier Note Type";
+            supplierNoteTypeDetailSupplierNoteTypeLabel.AutoSize = true;
+            supplierNoteTypeDetailSupplierNoteTypeLabel.Location = new Point(74, 181);
+            supplierNoteTypeDetailSupplierNoteTypeLabel.Name = "supplierNoteTypeDetailSupplierNoteTypeLabel";
+            supplierNoteTypeDetailSupplierNoteTypeLabel.Size = new Size(136, 20);
+            supplierNoteTypeDetailSupplierNoteTypeLabel.TabIndex = 30;
+            supplierNoteTypeDetailSupplierNoteTypeLabel.Text = "Supplier Note Type";
             // 
-            // supplierNoteTypeDetailSupplierTypeIdLabel
+            // supplierNoteTypeDetailSupplierNoteTypeIdLabel
             // 
-            supplierNoteTypeDetailSupplierTypeIdLabel.AutoSize = true;
-            supplierNoteTypeDetailSupplierTypeIdLabel.Location = new Point(57, 141);
-            supplierNoteTypeDetailSupplierTypeIdLabel.Name = "supplierNoteTypeDetailSupplierTypeIdLabel";
-            supplierNoteTypeDetailSupplierTypeIdLabel.Size = new Size(153, 20);
-            supplierNoteTypeDetailSupplierTypeIdLabel.TabIndex = 28;
-            supplierNoteTypeDetailSupplierTypeIdLabel.Text = "Supplier Note Type Id";
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.AutoSize = true;
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.Location = new Point(57, 141);
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.Name = "supplierNoteTypeDetailSupplierNoteTypeIdLabel";
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.Size = new Size(153, 20);
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.TabIndex = 28;
+            supplierNoteTypeDetailSupplierNoteTypeIdLabel.Text = "Supplier Note Type Id";
             // 
             // SupplierNoteTypeDetail
             // 
@@ -210,11 +210,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1244, 438);
-            Controls.Add(supplierNoteTypeDetailUpdateSupplierTypeButton);
+            Controls.Add(supplierNoteTypeDetailUpdateSupplierNoteTypeButton);
             Controls.Add(supplierNoteTypeDetailActiveStatusCheckbox);
             Controls.Add(supplierNoteTypeDetailToggleEditModeButton);
-            Controls.Add(supplierNoteTypeDetailSupplierTypeIdTextbox);
-            Controls.Add(supplierNoteTypeDetailSupplierTypeTextbox);
+            Controls.Add(supplierNoteTypeDetailSupplierNoteTypeIdTextbox);
+            Controls.Add(supplierNoteTypeDetailSupplierNoteTypeTextbox);
             Controls.Add(supplierNoteTypeDetailCreatedTimestampTextbox);
             Controls.Add(supplierNoteTypeDetailLastUpdatedTimestampTextbox);
             Controls.Add(supplierNoteTypeDetailCreatedByTextbox);
@@ -223,8 +223,8 @@
             Controls.Add(supplierNoteTypeDetailLastUpdatedByLabel);
             Controls.Add(supplierNoteTypeDetailCreatedTimestampLabel);
             Controls.Add(supplierNoteTypeDetailCreatedByLabel);
-            Controls.Add(supplierNoteTypeDetailSupplierTypeLabel);
-            Controls.Add(supplierNoteTypeDetailSupplierTypeIdLabel);
+            Controls.Add(supplierNoteTypeDetailSupplierNoteTypeLabel);
+            Controls.Add(supplierNoteTypeDetailSupplierNoteTypeIdLabel);
             Controls.Add(supplierNoteTypeDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -240,11 +240,11 @@
         #endregion
 
         private Label supplierNoteTypeDetailTitleLabel;
-        private Button supplierNoteTypeDetailUpdateSupplierTypeButton;
+        private Button supplierNoteTypeDetailUpdateSupplierNoteTypeButton;
         private CheckBox supplierNoteTypeDetailActiveStatusCheckbox;
         private Button supplierNoteTypeDetailToggleEditModeButton;
-        private TextBox supplierNoteTypeDetailSupplierTypeIdTextbox;
-        private TextBox supplierNoteTypeDetailSupplierTypeTextbox;
+        private TextBox supplierNoteTypeDetailSupplierNoteTypeIdTextbox;
+        private TextBox supplierNoteTypeDetailSupplierNoteTypeTextbox;
         private TextBox supplierNoteTypeDetailCreatedTimestampTextbox;
         private TextBox supplierNoteTypeDetailLastUpdatedTimestampTextbox;
         private TextBox supplierNoteTypeDetailCreatedByTextbox;
@@ -253,7 +253,7 @@
         private Label supplierNoteTypeDetailLastUpdatedByLabel;
         private Label supplierNoteTypeDetailCreatedTimestampLabel;
         private Label supplierNoteTypeDetailCreatedByLabel;
-        private Label supplierNoteTypeDetailSupplierTypeLabel;
-        private Label supplierNoteTypeDetailSupplierTypeIdLabel;
+        private Label supplierNoteTypeDetailSupplierNoteTypeLabel;
+        private Label supplierNoteTypeDetailSupplierNoteTypeIdLabel;
     }
 }

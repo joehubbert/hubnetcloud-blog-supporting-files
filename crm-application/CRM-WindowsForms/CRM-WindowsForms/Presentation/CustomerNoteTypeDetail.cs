@@ -1,9 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -13,6 +10,7 @@ namespace CRM_WindowsForms.Presentation
         private readonly Guid _customerNoteTypeId;
         private bool ?customerNoteTypeDetailActiveStatusOriginalValue;
         private string ?customerNoteTypeDetailCustomerNoteTypeOriginalValue;
+        private readonly string dataSubject = "Customer Note Type";
 
         public CustomerNoteTypeDetail(Guid customerNoteTypeId)
         {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetCustomerNoteType]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@customerNoteTypeId",
+                    ParameterValue = _customerNoteTypeId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@customerNoteTypeId", _customerNoteTypeId)
-                };
-
-                DataTable customerNoteTypeDataTable = await executor.ExecuteAsync("[dbo].[spGetCustomerNoteType]", parameters);
+                DataTable? customerNoteTypeDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (customerNoteTypeDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string customerNoteType = customerNoteTypeDetailCustomerNoteTypeTextbox.Text.TrimEnd();
-
-            if (customerNoteType.Length > 50)
-            {
-                validationErrors.AppendLine($"Customer Note Type cannot be longer than 50 characters. Submitted length is {customerNoteType.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerNoteType))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void customerNoteTypeDetailUpdateCustomerNoteTypeButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = customerNoteTypeDetailActiveStatusCheckbox.Checked;
             string customerNoteType = customerNoteTypeDetailCustomerNoteTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerNoteType",
+                    Value = customerNoteType,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (customerNoteTypeDetailCustomerNoteTypeOriginalValue != customerNoteType)
-            {
-                changes.AppendLine($"Customer Note Type Original Value: {customerNoteTypeDetailCustomerNoteTypeOriginalValue}" + $"\nCustomer Note Type New Value: {customerNoteType}\n");
-            }
-
-            if (customerNoteTypeDetailActiveStatusOriginalValue != customerNoteTypeDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {customerNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerNoteTypeDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Customer Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", customerNoteTypeDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@customerNoteType", customerNoteType),
-                        new SqlParameter("@customerNoteTypeId", _customerNoteTypeId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateCustomerNoteType]", parameters);
-                    MessageBox.Show("Customer Note Type details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Customer Note Type details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Customer Note Type",
+                        VariableType = "string",
+                        OriginalValue = customerNoteTypeDetailCustomerNoteTypeOriginalValue,
+                        NewValue = customerNoteType
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = customerNoteTypeDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerNoteType",
+                            ParameterValue = customerNoteType
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerNoteTypeId",
+                            ParameterValue = _customerNoteTypeId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateCustomerNoteType]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

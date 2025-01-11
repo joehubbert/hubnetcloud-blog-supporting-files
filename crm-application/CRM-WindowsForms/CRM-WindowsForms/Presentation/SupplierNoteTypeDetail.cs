@@ -1,18 +1,16 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class SupplierNoteTypeDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Supplier Note Type";
         private readonly Guid _supplierNoteTypeId;
         private bool ?supplierNoteTypeDetailActiveStatusOriginalValue;
-        private string ?supplierNoteTypeDetailSupplierTypeOriginalValue;
+        private string ?supplierNoteTypeDetailSupplierNoteTypeOriginalValue;
         
         public SupplierNoteTypeDetail(Guid supplierNoteTypeId)
         {
@@ -35,28 +33,33 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetSupplierNoteType]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@supplierNoteTypeId",
+                    ParameterValue = _supplierNoteTypeId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@supplierNoteTypeId", _supplierNoteTypeId)
-                };
-
-                DataTable supplierNoteTypeDataTable = await executor.ExecuteAsync("[dbo].[spGetSupplierNoteType]", parameters);
+                DataTable? supplierNoteTypeDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (supplierNoteTypeDataTable != null)
                 {
                     DataRow supplierNoteTypeDataRow = supplierNoteTypeDataTable.Rows[0];
-                    supplierNoteTypeDetailSupplierTypeIdTextbox.Text = supplierNoteTypeDataRow["Supplier Note Type ID"].ToString();
-                    supplierNoteTypeDetailSupplierTypeTextbox.Text = supplierNoteTypeDataRow["Supplier Note Type"].ToString();
+                    supplierNoteTypeDetailSupplierNoteTypeIdTextbox.Text = supplierNoteTypeDataRow["Supplier Note Type ID"].ToString();
+                    supplierNoteTypeDetailSupplierNoteTypeTextbox.Text = supplierNoteTypeDataRow["Supplier Note Type"].ToString();
                     supplierNoteTypeDetailCreatedByTextbox.Text = supplierNoteTypeDataRow["Created By"].ToString();
                     supplierNoteTypeDetailCreatedTimestampTextbox.Text = supplierNoteTypeDataRow["Created Timestamp"].ToString();
                     supplierNoteTypeDetailLastUpdatedByTextbox.Text = supplierNoteTypeDataRow["Modified By"].ToString();
                     supplierNoteTypeDetailLastUpdatedTimestampTextbox.Text = supplierNoteTypeDataRow["Modified Timestamp"].ToString();
                     supplierNoteTypeDetailActiveStatusCheckbox.Checked = (bool)supplierNoteTypeDataRow["Active Status"];
 
-                    supplierNoteTypeDetailSupplierTypeOriginalValue = supplierNoteTypeDataRow["Supplier Note Type"].ToString();
+                    supplierNoteTypeDetailSupplierNoteTypeOriginalValue = supplierNoteTypeDataRow["Supplier Note Type"].ToString();
                     supplierNoteTypeDetailActiveStatusOriginalValue = (bool)supplierNoteTypeDataRow["Active Status"];
                 }
                 else
@@ -70,34 +73,10 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
+        private async void supplierNoteTypeDetailUpdateSupplierNoteTypeButton_Click(object sender, EventArgs e)
         {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string supplierNoteType = supplierNoteTypeDetailSupplierTypeTextbox.Text.TrimEnd();
-
-            if (supplierNoteType.Length > 50)
-            {
-                validationErrors.AppendLine($"Supplier Note Type cannot be longer than 50 characters. Submitted length is {supplierNoteType.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(supplierNoteType))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
-        private async void supplierNoteTypeDetailUpdateSupplierTypeButton_Click(object sender, EventArgs e)
-        {
-            string supplierNoteType = supplierNoteTypeDetailSupplierTypeTextbox.Text.TrimEnd();
+            bool activeStatus = supplierNoteTypeDetailActiveStatusCheckbox.Checked;
+            string supplierNoteType = supplierNoteTypeDetailSupplierNoteTypeTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "SupplierNoteType",
+                    Value = supplierNoteType,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (supplierNoteTypeDetailSupplierTypeOriginalValue != supplierNoteType)
-            {
-                changes.AppendLine($"Supplier Note Type Original Value: {supplierNoteTypeDetailSupplierTypeOriginalValue}" + $"\nSupplier Note Type New Value: {supplierNoteType}\n");
-            }
-
-            if (supplierNoteTypeDetailActiveStatusOriginalValue != supplierNoteTypeDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {supplierNoteTypeDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {supplierNoteTypeDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Supplier Note Type Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the supplier type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", supplierNoteTypeDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@supplierNoteType", supplierNoteType),
-                        new SqlParameter("@supplierNoteTypeId", _supplierNoteTypeId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateSupplierType]", parameters);
-                    MessageBox.Show("Supplier Note Type details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Supplier Note Type details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Supplier Note Type",
+                        VariableType = "string",
+                        OriginalValue = supplierNoteTypeDetailSupplierNoteTypeOriginalValue,
+                        NewValue = supplierNoteType
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = supplierNoteTypeDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@supplierNoteType",
+                            ParameterValue = supplierNoteType
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@supplierNoteTypeId",
+                            ParameterValue = _supplierNoteTypeId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateSupplierNoteType]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -164,9 +165,9 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierNoteTypeDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            supplierNoteTypeDetailSupplierTypeTextbox.Enabled = !supplierNoteTypeDetailSupplierTypeTextbox.Enabled;
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled = !supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled;
             supplierNoteTypeDetailActiveStatusCheckbox.Enabled = !supplierNoteTypeDetailActiveStatusCheckbox.Enabled;
-            supplierNoteTypeDetailUpdateSupplierTypeButton.Enabled = !supplierNoteTypeDetailUpdateSupplierTypeButton.Enabled;
+            supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Enabled = !supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Enabled;
         }
     }
 }

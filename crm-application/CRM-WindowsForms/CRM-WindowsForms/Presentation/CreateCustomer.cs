@@ -67,8 +67,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable customerTypeData = await executor.ExecuteAsync("[dbo].[spGetAllCustomerType]");
+                string storedProcedureName = "[dbo].[spGetAllCustomerType]";
+                string dataSubject = "Customer Type";
+                DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var customerTypeList = customerTypeData.AsEnumerable()
                     .Select(row => new
                     {
@@ -100,8 +102,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable customerTierData = await executor.ExecuteAsync("[dbo].[spGetAllCustomerTier]");
+                string storedProcedureName = "[dbo].[spGetAllCustomerTier]";
+                string dataSubject = "CustomerTier";
+                DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var customerTierList = customerTierData.AsEnumerable()
                     .Select(row => new
                     {
@@ -135,8 +139,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable salesRegionData = await executor.ExecuteAsync("[dbo].[spGetAllSalesRegion]");
+                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";
+                string dataSubject = "Sales Region";
+                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var salesRegionList = salesRegionData.AsEnumerable()
                     .Select(row => new
                     {
@@ -169,8 +175,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable salesSubRegionData = await executor.ExecuteAsync("[dbo].[spGetAllSalesSubRegion]");
+                string storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";
+                string dataSubject = "Sales Sub Region";
+                DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var salesSubRegionList = salesSubRegionData.AsEnumerable()
                     .Where(row => row.Field<Guid>("Sales Region Id") == salesRegionId)
                     .Select(row => new
@@ -216,8 +224,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable accountManagerData = await executor.ExecuteAsync("[dbo].[spGetAllAccountManager]");
+                string storedProcedureName = "[dbo].[spGetAllAccountManager]";
+                string dataSubject = "Account Manager";
+                DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var accountManagerList = accountManagerData.AsEnumerable()
                     .Select(row => new
                     {
@@ -266,8 +276,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable globalParentCustomerData = await executor.ExecuteAsync("[dbo].[spGetAllGlobalParentCustomer]");
+                string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";
+                string dataSubject = "Global Parent Customer";
+                DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
                     .Select(row => new
                     {
@@ -300,8 +312,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable topParentCustomerData = await executor.ExecuteAsync("[dbo].[spGetAllTopParentCustomer]");
+                string storedProcedureName = "[dbo].[spGetAllTopParentCustomer]";
+                string dataSubject = "Top Parent Customer";
+                DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var topParentCustomerList = topParentCustomerData.AsEnumerable()
                     .Select(row => new
                     {
@@ -391,8 +405,9 @@ namespace CRM_WindowsForms.Presentation
 
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable currencyData = await executor.ExecuteAsync("[dbo].[spGetAllCurrency]");
+                string storedProcedureName = "[dbo].[spGetAllCurrency]";
+                string dataSubject = "Currency";
+                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new

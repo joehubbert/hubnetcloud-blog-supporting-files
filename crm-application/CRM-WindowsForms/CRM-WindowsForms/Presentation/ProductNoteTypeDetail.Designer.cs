@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             productNoteTypeDetailTitleLabel = new Label();
-            productNoteTypeDetailUpdateProductTypeButton = new Button();
+            productNoteTypeDetailUpdateProductNoteTypeButton = new Button();
             productNoteTypeDetailActiveStatusCheckbox = new CheckBox();
             productNoteTypeDetailToggleEditModeButton = new Button();
-            productNoteTypeDetailProductTypeIdTextbox = new TextBox();
-            productNoteTypeDetailProductTypeTextbox = new TextBox();
+            productNoteTypeDetailProductNoteTypeIdTextbox = new TextBox();
+            productNoteTypeDetailProductNoteTypeTextbox = new TextBox();
             productNoteTypeDetailCreatedTimestampTextbox = new TextBox();
             productNoteTypeDetailLastUpdatedTimestampTextbox = new TextBox();
             productNoteTypeDetailCreatedByTextbox = new TextBox();
@@ -42,8 +42,8 @@
             productNoteTypeDetailLastUpdatedByLabel = new Label();
             productNoteTypeDetailCreatedTimestampLabel = new Label();
             productNoteTypeDetailCreatedByLabel = new Label();
-            productNoteTypeDetailProductTypeLabel = new Label();
-            productNoteTypeDetailProductTypeIdLabel = new Label();
+            productNoteTypeDetailProductNoteTypeLabel = new Label();
+            productNoteTypeDetailProductNoteTypeIdLabel = new Label();
             SuspendLayout();
             // 
             // productNoteTypeDetailTitleLabel
@@ -57,19 +57,19 @@
             productNoteTypeDetailTitleLabel.TabIndex = 8;
             productNoteTypeDetailTitleLabel.Text = "Product Note Type Detail";
             // 
-            // productNoteTypeDetailUpdateProductTypeButton
+            // productNoteTypeDetailUpdateProductNoteTypeButton
             // 
-            productNoteTypeDetailUpdateProductTypeButton.Enabled = false;
-            productNoteTypeDetailUpdateProductTypeButton.FlatStyle = FlatStyle.Flat;
-            productNoteTypeDetailUpdateProductTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            productNoteTypeDetailUpdateProductTypeButton.Location = new Point(525, 339);
-            productNoteTypeDetailUpdateProductTypeButton.Margin = new Padding(4);
-            productNoteTypeDetailUpdateProductTypeButton.Name = "productNoteTypeDetailUpdateProductTypeButton";
-            productNoteTypeDetailUpdateProductTypeButton.Size = new Size(237, 70);
-            productNoteTypeDetailUpdateProductTypeButton.TabIndex = 8;
-            productNoteTypeDetailUpdateProductTypeButton.Text = "Update Product Note Type";
-            productNoteTypeDetailUpdateProductTypeButton.UseVisualStyleBackColor = true;
-            productNoteTypeDetailUpdateProductTypeButton.Click += productNoteTypeDetailUpdateProductTypeButton_Click;
+            productNoteTypeDetailUpdateProductNoteTypeButton.Enabled = false;
+            productNoteTypeDetailUpdateProductNoteTypeButton.FlatStyle = FlatStyle.Flat;
+            productNoteTypeDetailUpdateProductNoteTypeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            productNoteTypeDetailUpdateProductNoteTypeButton.Location = new Point(525, 339);
+            productNoteTypeDetailUpdateProductNoteTypeButton.Margin = new Padding(4);
+            productNoteTypeDetailUpdateProductNoteTypeButton.Name = "productNoteTypeDetailUpdateProductNoteTypeButton";
+            productNoteTypeDetailUpdateProductNoteTypeButton.Size = new Size(237, 70);
+            productNoteTypeDetailUpdateProductNoteTypeButton.TabIndex = 8;
+            productNoteTypeDetailUpdateProductNoteTypeButton.Text = "Update Product Note Type";
+            productNoteTypeDetailUpdateProductNoteTypeButton.UseVisualStyleBackColor = true;
+            productNoteTypeDetailUpdateProductNoteTypeButton.Click += productNoteTypeDetailUpdateProductNoteTypeButton_Click;
             // 
             // productNoteTypeDetailActiveStatusCheckbox
             // 
@@ -96,23 +96,23 @@
             productNoteTypeDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             productNoteTypeDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // productNoteTypeDetailProductTypeIdTextbox
+            // productNoteTypeDetailProductNoteTypeIdTextbox
             // 
-            productNoteTypeDetailProductTypeIdTextbox.Location = new Point(224, 138);
-            productNoteTypeDetailProductTypeIdTextbox.MaxLength = 36;
-            productNoteTypeDetailProductTypeIdTextbox.Name = "productNoteTypeDetailProductTypeIdTextbox";
-            productNoteTypeDetailProductTypeIdTextbox.ReadOnly = true;
-            productNoteTypeDetailProductTypeIdTextbox.Size = new Size(370, 27);
-            productNoteTypeDetailProductTypeIdTextbox.TabIndex = 0;
+            productNoteTypeDetailProductNoteTypeIdTextbox.Location = new Point(224, 138);
+            productNoteTypeDetailProductNoteTypeIdTextbox.MaxLength = 36;
+            productNoteTypeDetailProductNoteTypeIdTextbox.Name = "productNoteTypeDetailProductNoteTypeIdTextbox";
+            productNoteTypeDetailProductNoteTypeIdTextbox.ReadOnly = true;
+            productNoteTypeDetailProductNoteTypeIdTextbox.Size = new Size(370, 27);
+            productNoteTypeDetailProductNoteTypeIdTextbox.TabIndex = 0;
             // 
-            // productNoteTypeDetailProductTypeTextbox
+            // productNoteTypeDetailProductNoteTypeTextbox
             // 
-            productNoteTypeDetailProductTypeTextbox.Enabled = false;
-            productNoteTypeDetailProductTypeTextbox.Location = new Point(224, 178);
-            productNoteTypeDetailProductTypeTextbox.MaxLength = 50;
-            productNoteTypeDetailProductTypeTextbox.Name = "productNoteTypeDetailProductTypeTextbox";
-            productNoteTypeDetailProductTypeTextbox.Size = new Size(370, 27);
-            productNoteTypeDetailProductTypeTextbox.TabIndex = 1;
+            productNoteTypeDetailProductNoteTypeTextbox.Enabled = false;
+            productNoteTypeDetailProductNoteTypeTextbox.Location = new Point(224, 178);
+            productNoteTypeDetailProductNoteTypeTextbox.MaxLength = 50;
+            productNoteTypeDetailProductNoteTypeTextbox.Name = "productNoteTypeDetailProductNoteTypeTextbox";
+            productNoteTypeDetailProductNoteTypeTextbox.Size = new Size(370, 27);
+            productNoteTypeDetailProductNoteTypeTextbox.TabIndex = 1;
             // 
             // productNoteTypeDetailCreatedTimestampTextbox
             // 
@@ -186,23 +186,23 @@
             productNoteTypeDetailCreatedByLabel.TabIndex = 31;
             productNoteTypeDetailCreatedByLabel.Text = "Created By";
             // 
-            // productNoteTypeDetailProductTypeLabel
+            // productNoteTypeDetailProductNoteTypeLabel
             // 
-            productNoteTypeDetailProductTypeLabel.AutoSize = true;
-            productNoteTypeDetailProductTypeLabel.Location = new Point(74, 181);
-            productNoteTypeDetailProductTypeLabel.Name = "productNoteTypeDetailProductTypeLabel";
-            productNoteTypeDetailProductTypeLabel.Size = new Size(132, 20);
-            productNoteTypeDetailProductTypeLabel.TabIndex = 30;
-            productNoteTypeDetailProductTypeLabel.Text = "Product Note Type";
+            productNoteTypeDetailProductNoteTypeLabel.AutoSize = true;
+            productNoteTypeDetailProductNoteTypeLabel.Location = new Point(74, 181);
+            productNoteTypeDetailProductNoteTypeLabel.Name = "productNoteTypeDetailProductNoteTypeLabel";
+            productNoteTypeDetailProductNoteTypeLabel.Size = new Size(132, 20);
+            productNoteTypeDetailProductNoteTypeLabel.TabIndex = 30;
+            productNoteTypeDetailProductNoteTypeLabel.Text = "Product Note Type";
             // 
-            // productNoteTypeDetailProductTypeIdLabel
+            // productNoteTypeDetailProductNoteTypeIdLabel
             // 
-            productNoteTypeDetailProductTypeIdLabel.AutoSize = true;
-            productNoteTypeDetailProductTypeIdLabel.Location = new Point(57, 141);
-            productNoteTypeDetailProductTypeIdLabel.Name = "productNoteTypeDetailProductTypeIdLabel";
-            productNoteTypeDetailProductTypeIdLabel.Size = new Size(149, 20);
-            productNoteTypeDetailProductTypeIdLabel.TabIndex = 28;
-            productNoteTypeDetailProductTypeIdLabel.Text = "Product Note Type Id";
+            productNoteTypeDetailProductNoteTypeIdLabel.AutoSize = true;
+            productNoteTypeDetailProductNoteTypeIdLabel.Location = new Point(57, 141);
+            productNoteTypeDetailProductNoteTypeIdLabel.Name = "productNoteTypeDetailProductNoteTypeIdLabel";
+            productNoteTypeDetailProductNoteTypeIdLabel.Size = new Size(149, 20);
+            productNoteTypeDetailProductNoteTypeIdLabel.TabIndex = 28;
+            productNoteTypeDetailProductNoteTypeIdLabel.Text = "Product Note Type Id";
             // 
             // ProductNoteTypeDetail
             // 
@@ -210,11 +210,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1244, 438);
-            Controls.Add(productNoteTypeDetailUpdateProductTypeButton);
+            Controls.Add(productNoteTypeDetailUpdateProductNoteTypeButton);
             Controls.Add(productNoteTypeDetailActiveStatusCheckbox);
             Controls.Add(productNoteTypeDetailToggleEditModeButton);
-            Controls.Add(productNoteTypeDetailProductTypeIdTextbox);
-            Controls.Add(productNoteTypeDetailProductTypeTextbox);
+            Controls.Add(productNoteTypeDetailProductNoteTypeIdTextbox);
+            Controls.Add(productNoteTypeDetailProductNoteTypeTextbox);
             Controls.Add(productNoteTypeDetailCreatedTimestampTextbox);
             Controls.Add(productNoteTypeDetailLastUpdatedTimestampTextbox);
             Controls.Add(productNoteTypeDetailCreatedByTextbox);
@@ -223,8 +223,8 @@
             Controls.Add(productNoteTypeDetailLastUpdatedByLabel);
             Controls.Add(productNoteTypeDetailCreatedTimestampLabel);
             Controls.Add(productNoteTypeDetailCreatedByLabel);
-            Controls.Add(productNoteTypeDetailProductTypeLabel);
-            Controls.Add(productNoteTypeDetailProductTypeIdLabel);
+            Controls.Add(productNoteTypeDetailProductNoteTypeLabel);
+            Controls.Add(productNoteTypeDetailProductNoteTypeIdLabel);
             Controls.Add(productNoteTypeDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -240,11 +240,11 @@
         #endregion
 
         private Label productNoteTypeDetailTitleLabel;
-        private Button productNoteTypeDetailUpdateProductTypeButton;
+        private Button productNoteTypeDetailUpdateProductNoteTypeButton;
         private CheckBox productNoteTypeDetailActiveStatusCheckbox;
         private Button productNoteTypeDetailToggleEditModeButton;
-        private TextBox productNoteTypeDetailProductTypeIdTextbox;
-        private TextBox productNoteTypeDetailProductTypeTextbox;
+        private TextBox productNoteTypeDetailProductNoteTypeIdTextbox;
+        private TextBox productNoteTypeDetailProductNoteTypeTextbox;
         private TextBox productNoteTypeDetailCreatedTimestampTextbox;
         private TextBox productNoteTypeDetailLastUpdatedTimestampTextbox;
         private TextBox productNoteTypeDetailCreatedByTextbox;
@@ -253,7 +253,7 @@
         private Label productNoteTypeDetailLastUpdatedByLabel;
         private Label productNoteTypeDetailCreatedTimestampLabel;
         private Label productNoteTypeDetailCreatedByLabel;
-        private Label productNoteTypeDetailProductTypeLabel;
-        private Label productNoteTypeDetailProductTypeIdLabel;
+        private Label productNoteTypeDetailProductNoteTypeLabel;
+        private Label productNoteTypeDetailProductNoteTypeIdLabel;
     }
 }

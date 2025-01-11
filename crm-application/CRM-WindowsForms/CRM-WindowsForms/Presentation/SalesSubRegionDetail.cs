@@ -1,9 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -42,8 +39,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable salesRegionData = await executor.ExecuteAsync("[dbo].[spGetAllSalesRegion]");
+                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";
+                string dataSubject = "Sales Region";
+                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var salesRegionList = salesRegionData.AsEnumerable()
                     .Select(row => new
                     {
@@ -76,15 +75,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetSalesSubRegion]";
+            string dataSubject = "Sales Sub Region";
+
+            var parameters = new[]
+            {
+                    new Parameter
+                    {
+                        ParameterName = "@salesSubRegionId",
+                        ParameterValue = _salesSubRegionId
+                    }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@salesSubRegionId", _salesSubRegionId)
-                };
-
-                DataTable salesSubRegionDataTable = await executor.ExecuteAsync("[dbo].[spGetSalesSubRegion]", parameters);
+                DataTable? salesSubRegionDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (salesSubRegionDataTable != null)
                 {
@@ -113,35 +118,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string salesSubRegion = salesSubRegionDetailSalesSubRegionTextbox.Text.TrimEnd();
-
-            if (salesSubRegion.Length > 50)
-            {
-                validationErrors.AppendLine($"Sales Sub Region cannot be longer than 50 characters. Submitted length is {salesSubRegion.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(salesSubRegion))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void salesSubRegionDetailUpdateSalesSubRegionButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = salesSubRegionDetailActiveStatusCheckbox.Checked;
             Guid salesRegionId = (Guid)salesSubRegionDetailSalesRegionComboBox.SelectedValue;
             string salesSubRegion = salesSubRegionDetailSalesSubRegionTextbox.Text.TrimEnd();
+            string dataSubject = "Sales Sub Region";
 
             if (_databaseConnectionSettings == null)
             {
@@ -149,59 +131,87 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "SalesSubRegion",
+                    Value = salesSubRegion,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (salesSubRegionDetailSalesSubRegionOriginalValue != salesSubRegion)
-            {
-                changes.AppendLine($"Sales Sub Region Original Value: {salesSubRegionDetailSalesSubRegionOriginalValue}" + $"\nSales Sub Region New Value: {salesSubRegion}\n");
-            }
-
-            if (salesSubRegionDetailSalesRegionIdOriginalValue.ToString() != salesRegionId.ToString())
-            {
-                changes.AppendLine($"Sales Region Original Value: {salesSubRegionDetailSalesRegionIdOriginalValue}" + $"\nSales Region New Value: {salesRegionId.ToString()}\n");
-            }
-
-            if (salesSubRegionDetailActiveStatusOriginalValue != salesSubRegionDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {salesSubRegionDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {salesSubRegionDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Sales Sub Region Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", salesSubRegionDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@salesRegionId", salesSubRegionDetailSalesRegionComboBox.SelectedValue),
-                        new SqlParameter("@salesSubRegion", salesSubRegion),
-                        new SqlParameter("@salesSubRegionId", _salesSubRegionId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateSalesSubRegion]", parameters);
-                    MessageBox.Show("Sales Sub Region details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Sales Sub Region details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Sales Region Id",
+                        VariableType = "Guid",
+                        OriginalValue = salesSubRegionDetailSalesRegionIdOriginalValue,
+                        NewValue = salesRegionId
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Sales Sub Region",
+                        VariableType = "string",
+                        OriginalValue = salesSubRegionDetailSalesSubRegionOriginalValue,
+                        NewValue = salesSubRegion
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = salesSubRegionDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesSubRegion",
+                            ParameterValue = salesSubRegion
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesSubRegionId",
+                            ParameterValue = _salesSubRegionId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesRegionId",
+                            ParameterValue = salesRegionId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateSalesSubRegion]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

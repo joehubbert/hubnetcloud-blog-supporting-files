@@ -1,9 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -14,6 +11,7 @@ namespace CRM_WindowsForms.Presentation
         private string ?currencyDetailCurrencyCodeOriginalValue;
         private string ?currencyDetailCurrencyNameOriginalValue;
         private bool ?currencyDetailActiveStatusOriginalValue;
+        private readonly string dataSubject = "Currency";
 
         public CurrencyDetail(Guid currencyId)
         {
@@ -36,15 +34,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetCurrency]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@currencyId",
+                    ParameterValue = _currencyId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@currencyId", _currencyId)
-                };
-
-                DataTable currencyDataTable = await executor.ExecuteAsync("[dbo].[spGetCurrency]", parameters);
+                DataTable? currencyDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (currencyDataTable != null)
                 {
@@ -73,40 +76,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.TrimEnd();
-            string currencyName = currencyDetailCurrencyNameTextbox.Text.TrimEnd();
-
-            if (currencyCode.Length > 3)
-            {
-                validationErrors.AppendLine($"Currency Code cannot be longer than 3 characters. Submitted length is {currencyCode.Length} characters.");
-            }
-
-            if (currencyName.Length > 50)
-            {
-                validationErrors.AppendLine($"Currency Name cannot be longer than 50 characters. Submitted length is {currencyName.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(currencyCode) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(currencyName))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = currencyDetailActiveStatusCheckbox.Checked;
             string currencyCode = currencyDetailCurrencyCodeTextbox.Text.TrimEnd();
             string currencyName = currencyDetailCurrencyNameTextbox.Text.TrimEnd();
 
@@ -116,59 +88,93 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CurrencyCode",
+                    Value = currencyCode,
+                    MaxLength = 3
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CurrencyName",
+                    Value = currencyName,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (currencyDetailCurrencyCodeOriginalValue != currencyCode)
-            {
-                changes.AppendLine($"Currency Code Original Value: {currencyDetailCurrencyCodeOriginalValue}" + $"\nCurrency Code New Value: {currencyCode}\n");
-            }
-
-            if (currencyDetailCurrencyNameOriginalValue != currencyName)
-            {
-                changes.AppendLine($"Currency Name Original Value: {currencyDetailCurrencyNameOriginalValue}" + $"\nCurrency Name New Value: {currencyName}\n");
-            }
-
-            if (currencyDetailActiveStatusOriginalValue != currencyDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {currencyDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {currencyDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Currency Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer tier details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", currencyDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@currencyCode", currencyCode),
-                        new SqlParameter("@currencyName", currencyName),
-                        new SqlParameter("@currencyId", _currencyId) 
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateCurrency]", parameters);
-                    MessageBox.Show("Currency details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Currency details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail 
+                    { 
+                        VariableName = "Currency Code",
+                        VariableType = "string",
+                        OriginalValue = currencyDetailCurrencyCodeOriginalValue,
+                        NewValue = currencyCode 
+                    },
+                    new ChangeDetail
+                    { 
+                        VariableName = "Currency Name",
+                        VariableType = "string",
+                        OriginalValue = currencyDetailCurrencyNameOriginalValue,
+                        NewValue = currencyName
+                    },
+                    new ChangeDetail
+                    { 
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = currencyDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@currencyCode",
+                            ParameterValue = currencyCode
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@currencyName",
+                            ParameterValue = currencyName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@currencyId",
+                            ParameterValue = _currencyId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateCurrency]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

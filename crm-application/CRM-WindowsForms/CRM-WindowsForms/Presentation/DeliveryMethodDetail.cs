@@ -1,16 +1,13 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class DeliveryMethodDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        
         private readonly Guid _deliveryMethodId;
         private bool ?deliveryMethodDetailActiveStatusOriginalValue;
         private decimal ?deliveryMethodDetailDeliveryCostOriginalValue;
@@ -45,8 +42,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable taxProfileData = await executor.ExecuteAsync("[dbo].[spGetAllTaxProfile]");
+                string storedProcedureName = "[dbo].[spGetAllTaxProfile]";
+                string dataSubject = "Tax Profile";
+                DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var taxProfileList = taxProfileData.AsEnumerable()
                     .Select(row => new
                     {
@@ -81,15 +80,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetDeliveryMethod]";
+            string dataSubject = "Delivery Method";
+
+        var parameters = new[]
+            {
+                    new Parameter
+                    {
+                        ParameterName = "@deliveryMethodId",
+                        ParameterValue = _deliveryMethodId
+                    }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@deliveryMethodId", _deliveryMethodId)
-                };
-
-                DataTable deliveryMethodDataTable = await executor.ExecuteAsync("[dbo].[spGetDeliveryMethod]", parameters);
+                DataTable? deliveryMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (deliveryMethodDataTable != null)
                 {
@@ -129,67 +134,6 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string deliveryCostA = deliveryMethodDetailDeliveryCostTextboxA.Text.TrimEnd();
-            string deliveryCostB = deliveryMethodDetailDeliveryCostTextboxB.Text.TrimEnd();
-            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
-            string deliveryTime = deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd();
-
-            if (deliveryCostA.Length > 10)
-            {
-                validationErrors.AppendLine($"Delivery Cost Part A cannot be longer than 10 characters. Submitted length is {deliveryCostA.Length} characters.");
-            }
-
-            if (deliveryCostB.Length > 4)
-            {
-                validationErrors.AppendLine($"Delivery Cost Part B cannot be longer than 4 characters. Submitted length is {deliveryCostB.Length} characters.");
-            }
-
-            if (deliveryMethod.Length > 50)
-            {
-                validationErrors.AppendLine($"Delivery Method cannot be longer than 50 characters. Submitted length is {deliveryMethod.Length} characters.");
-            }
-
-            if (deliveryTime.Length > 3)
-            {
-                validationErrors.AppendLine($"Delivery Time cannot be longer than 3 characters. Submitted length is {deliveryTime.Length} characters.");
-            }
-
-            if (!Regex.IsMatch(deliveryCostA, @"^\d+$"))
-            {
-                validationErrors.AppendLine("Delivery Cost Part A must contain only numbers.");
-            }
-
-            if (!Regex.IsMatch(deliveryCostB, @"^\d+$"))
-            {
-                validationErrors.AppendLine("Delivery Part B must contain only numbers.");
-            }
-
-            if (!Regex.IsMatch(deliveryTime, @"^\d+$"))
-            {
-                validationErrors.AppendLine("Delivery Time must contain only numbers.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryCostA) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryCostB) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryMethod) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(deliveryTime))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = deliveryMethodDetailActiveStatusCheckbox.Checked;
@@ -197,6 +141,7 @@ namespace CRM_WindowsForms.Presentation
             string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
             int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(deliveryMethodDetailTaxProfileComboBox.SelectedValue.ToString());
+            string dataSubject = "Delivery Method";
 
             if (_databaseConnectionSettings == null)
             {
@@ -204,71 +149,112 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "DeliveryMethod",
+                    Value = deliveryMethod,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
 
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (deliveryMethodDetailDeliveryMethodOriginalValue != deliveryMethod)
-            {
-                changes.AppendLine($"Delivery Method Original Value: {deliveryMethodDetailDeliveryMethodOriginalValue}" + $"\nDelivery Method New Value: {deliveryMethod}\n");
-            }
-
-            if (deliveryMethodDetailDeliveryCostOriginalValue != deliveryCost)
-            {
-                changes.AppendLine($"Delivery Cost Original Value: {deliveryMethodDetailDeliveryCostOriginalValue.ToString()}" + $"\nDelivery Cost New Value: {deliveryCost.ToString()}\n");
-            }
-
-            if (deliveryMethodDetailDeliveryTimeOriginalValue != deliveryTime)
-            {
-                changes.AppendLine($"Delivery Time Original Value: {deliveryMethodDetailDeliveryTimeOriginalValue.ToString()}" + $"\nDelivery Time New Value: {deliveryTime.ToString()}\n");
-            }
-
-            if (deliveryMethodDetailTaxProfileIdOriginalValue != taxProfileId)
-            {
-                changes.AppendLine($"Tax Profile Original Value: {deliveryMethodDetailTaxProfileIdOriginalValue.ToString()}" + $"\nTax Profile New Value: {taxProfileId.ToString()}\n");
-            }
-
-            if (deliveryMethodDetailActiveStatusOriginalValue != deliveryMethodDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {deliveryMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {deliveryMethodDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Delivery Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer tier details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", deliveryMethodDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@deliveryMethod", deliveryMethod),
-                        new SqlParameter("@deliveryMethodId", _deliveryMethodId),
-                        new SqlParameter("@deliveryCost", deliveryCost),
-                        new SqlParameter("@deliveryTime", deliveryTime),
-                        new SqlParameter("@taxProfileId", taxProfileId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateDeliveryMethod]", parameters);
-                    MessageBox.Show("Delivery Method details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Delivery Method details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Delivery Method",
+                        VariableType = "string",
+                        OriginalValue = deliveryMethodDetailDeliveryMethodOriginalValue,
+                        NewValue = deliveryMethod
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Delivery Cost",
+                        VariableType = "decimal",
+                        OriginalValue = deliveryMethodDetailDeliveryCostOriginalValue,
+                        NewValue = deliveryCost
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Delivery Time",
+                        VariableType = "int",
+                        OriginalValue = deliveryMethodDetailDeliveryTimeOriginalValue,
+                        NewValue = deliveryTime
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Tax Profile Id",
+                        VariableType = "Guid",
+                        OriginalValue = deliveryMethodDetailTaxProfileIdOriginalValue,
+                        NewValue = taxProfileId
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = deliveryMethodDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@deliveryCost",
+                            ParameterValue = deliveryCost
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@deliveryMethod",
+                            ParameterValue = deliveryMethod
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@deliveryMethodId",
+                            ParameterValue = _deliveryMethodId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@deliveryTime",
+                            ParameterValue = deliveryTime
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@taxProfileId",
+                            ParameterValue = taxProfileId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateDeliveryMethod]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

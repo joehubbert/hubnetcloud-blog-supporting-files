@@ -1,13 +1,12 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class CreateCustomerTier : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Customer Tier";
 
         public CreateCustomerTier()
         {
@@ -20,74 +19,65 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private bool ValidateInput()
+        private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
         {
-            StringBuilder validationErrors = new StringBuilder();
-
+            bool activeStatus = createCustomerTierActiveStatusCheckbox.Checked;
             string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.TrimEnd();
             string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.TrimEnd();
 
-            if (customerTierCode.Length > 1)
-            {
-                validationErrors.AppendLine($"Customer Tier Code cannot be longer than 1 character. Submitted length is {customerTierCode.Length} characters.");
-            }
-
-            if (customerTierDescription.Length > 50)
-            {
-                validationErrors.AppendLine($"Customer Tier Description cannot be longer than 50 characters. Submitted length is {customerTierDescription.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierCode) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierDescription))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
-        private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
-        {
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerTierCode",
+                    Value = customerTierCode,
+                    MaxLength = 1
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerTierDescription",
+                    Value = customerTierDescription,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            try
+            else
             {
-                bool activeStatus = createCustomerTierActiveStatusCheckbox.Checked;
-                string customerTierCode = createCustomerTierCustomerTierCodeTextbox.Text.TrimEnd();
-                string customerTierDescription = createCustomerTierCustomerTierDescriptionTextbox.Text.TrimEnd();
-
                 var parameters = new[]
                 {
-                        new SqlParameter("@activeStatus", activeStatus),
-                        new SqlParameter("@customerTierCode", customerTierCode),
-                        new SqlParameter("@customerTierDescription", customerTierDescription)
-                    };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTier",
+                            ParameterValue = customerTierDescription
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTierCode",
+                            ParameterValue = customerTierCode
+                        }
+                };
+                string storedProcedureName = "[dbo].[spCreateCustomerTier]";
+                string operationType = "create";
 
-                ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateCustomerTier]", parameters);
-
-                MessageBox.Show("New Customer Tier added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add new Customer Tier: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

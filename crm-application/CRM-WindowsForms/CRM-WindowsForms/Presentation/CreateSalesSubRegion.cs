@@ -1,8 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -36,8 +34,10 @@ namespace CRM_WindowsForms.Presentation
             }
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                DataTable salesRegionData = await executor.ExecuteAsync("[dbo].[spGetAllSalesRegion]");
+                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";
+                string dataSubject = "Sales Region";
+                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
                 var salesRegionList = salesRegionData.AsEnumerable()
                     .Select(row => new
                     {
@@ -61,67 +61,60 @@ namespace CRM_WindowsForms.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string salesSubRegion = createSalesSubRegionSalesSubRegionTextbox.Text.TrimEnd();
-
-            if (salesSubRegion.Length > 50)
-            {
-                validationErrors.AppendLine($"Sales Sub Region cannot be longer than 50 characters. Submitted length is {salesSubRegion.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(salesSubRegion))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void createSalesSubRegionSubmitButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = createSalesSubRegionActiveStatusCheckbox.Checked;
+            Guid salesRegionId = Guid.Parse(createSalesSubRegionSalesRegionComboBox.SelectedValue.ToString());
+            string salesSubRegion = createSalesSubRegionSalesSubRegionTextbox.Text.TrimEnd();
+            string dataSubject = "Sales Sub Region";
+
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "SalesSubRegion",
+                    Value = salesSubRegion,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            try
+            else
             {
-                bool activeStatus = createSalesSubRegionActiveStatusCheckbox.Checked;
-                Guid salesRegionId = Guid.Parse(createSalesSubRegionSalesRegionComboBox.SelectedValue.ToString());
-                string salesSubRegion = createSalesSubRegionSalesSubRegionTextbox.Text.TrimEnd();
-
                 var parameters = new[]
                 {
-                        new SqlParameter("@activeStatus", activeStatus),
-                        new SqlParameter("@salesRegionId", salesRegionId),
-                        new SqlParameter("@salesSubRegion", salesSubRegion)
-                    };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesRegionId",
+                            ParameterValue = salesRegionId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesSubRegion",
+                            ParameterValue = salesSubRegion
+                        }
+                };
+                string storedProcedureName = "[dbo].[spCreateSalesSubRegion]";
+                string operationType = "create";
 
-                ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateSalesSubRegion]", parameters);
-
-                MessageBox.Show("New Sales Sub Region added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add new Sales Sub Region: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

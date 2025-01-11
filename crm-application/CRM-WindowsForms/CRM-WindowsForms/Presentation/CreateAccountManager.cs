@@ -1,13 +1,12 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class CreateAccountManager : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Account Manager";
 
         public CreateAccountManager()
         {
@@ -20,100 +19,89 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
-            string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
-            string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
-            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
-
-            if (firstName.Length > 50)
-            {
-                validationErrors.AppendLine($"First Name cannot be longer than 50 characters. Submitted length is {firstName.Length} characters.");
-            }
-
-            if (lastName.Length > 50)
-            {
-                validationErrors.AppendLine($"Last Name cannot be longer than 50 characters. Submitted length is {lastName.Length} characters.");
-            }
-
-            if (emailAddress.Length > 50)
-            {
-                validationErrors.AppendLine($"Email Address cannot be longer than 50 characters. Submitted length is {emailAddress.Length} characters.");
-            }
-            else if (!emailAddress.Contains("@"))
-            {
-                validationErrors.AppendLine("Email Address must contain an '@' symbol.");
-            }
-
-            if (telephoneNumber.Length > 13)
-            {
-                validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {telephoneNumber.Length} characters.");
-            }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(telephoneNumber, @"^\+\d{12}$"))
-            {
-                validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(firstName) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(lastName) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(emailAddress) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(telephoneNumber))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
+            string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
+            string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
+            string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
+            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
+
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "EmailAddress",
+                    Value = emailAddress,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "FirstName",
+                    Value = firstName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "LastName",
+                    Value = lastName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "TelephoneNumber",
+                    Value = telephoneNumber,
+                    MaxLength = 13
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            try
+            else
             {
-                bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
-                string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
-                string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
-                string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
-                string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
-
                 var parameters = new[]
                 {
-                        new SqlParameter("@activeStatus", activeStatus),
-                        new SqlParameter("@emailAddress", emailAddress),
-                        new SqlParameter("@firstName", firstName),
-                        new SqlParameter("@lastName", lastName),
-                        new SqlParameter("@telephoneNumber", telephoneNumber)
-                    };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@emailAddress",
+                            ParameterValue = emailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@firstName",
+                            ParameterValue = firstName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@lastName",
+                            ParameterValue = lastName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@telephoneNumber",
+                            ParameterValue = telephoneNumber
+                        }
+                };
+                string storedProcedureName = "[dbo].[spCreateAccountManager]";
+                string operationType = "create";
 
-                ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateAccountManager]", parameters);
-
-                MessageBox.Show("New account manager added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add new account manager: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -1,8 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -15,6 +13,7 @@ namespace CRM_WindowsForms.Presentation
         private string ?accountManagerDetailEmailAddressOriginalValue;
         private string ?accountManagerDetailTelephoneNumberOriginalValue;
         private bool ?accountManagerDetailActiveStatusOriginalValue;
+        private readonly string dataSubject = "Account Manager";
 
         public AccountManagerDetail(Guid accountManagerId)
         {
@@ -37,15 +36,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetAccountManager]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@accountManagerId",
+                    ParameterValue = _accountManagerId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@accountManagerId", _accountManagerId)
-                };
-
-                DataTable accountManagerDataTable = await executor.ExecuteAsync("[dbo].[spGetAccountManager]", parameters);
+                DataTable? accountManagerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (accountManagerDataTable != null)
                 {
@@ -87,37 +91,37 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            try
-            {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@accountManagerId", _accountManagerId)
-                };
-                DataTable dataTable = await executor.ExecuteAsync("[dbo].[spGetAssociatedCustomerToAccountManager]", parameters);
+            string storedProcedureName = "[dbo].[spGetAssociatedCustomerToAccountManager]";
+            string dataSubject = "Associated Customers to Account Manager";
 
-                if (dataTable.Rows.Count == 0)
-                {
-                    MessageBox.Show("No associated customers found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    accountManagerDetailAssociatedCustomerDataGridView.AutoGenerateColumns = true;
-                    accountManagerDetailAssociatedCustomerDataGridView.DataSource = dataTable;
-                    accountManagerDetailAssociatedCustomerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    DataGridViewLinkColumn customerDetailLink = new DataGridViewLinkColumn
-                    {
-                        HeaderText = "Details",
-                        Text = "View Customer Details",
-                        UseColumnTextForLinkValue = true,
-                        Name = "Details"
-                    };
-                    accountManagerDetailAssociatedCustomerDataGridView.Columns.Add(customerDetailLink);
-                }
-            }
-            catch (Exception ex)
+            var parameters = new[]
             {
-                MessageBox.Show($"Failed to load account managers: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                new Parameter
+                {
+                    ParameterName = "@accountManagerId",
+                    ParameterValue = _accountManagerId
+                }
+            };
+
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No associated customers found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                accountManagerDetailAssociatedCustomerDataGridView.AutoGenerateColumns = true;
+                accountManagerDetailAssociatedCustomerDataGridView.DataSource = dataTable;
+                accountManagerDetailAssociatedCustomerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                DataGridViewLinkColumn customerDetailLink = new DataGridViewLinkColumn
+                {
+                    HeaderText = "Details",
+                    Text = "View Customer Details",
+                    UseColumnTextForLinkValue = true,
+                    Name = "Details"
+                };
+                accountManagerDetailAssociatedCustomerDataGridView.Columns.Add(customerDetailLink);
             }
         }
 
@@ -145,138 +149,144 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
-            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
-            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
-            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
-
-            if (firstName.Length > 50)
-            {
-                validationErrors.AppendLine($"First Name cannot be longer than 50 characters. Submitted length is {firstName.Length} characters.");
-            }
-
-            if (lastName.Length > 50)
-            {
-                validationErrors.AppendLine($"Last Name cannot be longer than 50 characters. Submitted length is {lastName.Length} characters.");
-            }
-
-            if (emailAddress.Length > 50)
-            {
-                validationErrors.AppendLine($"Email Address cannot be longer than 50 characters. Submitted length is {emailAddress.Length} characters.");
-            }
-            else if (!emailAddress.Contains("@"))
-            {
-                validationErrors.AppendLine("Email Address must contain an '@' symbol.");
-            }
-
-            if (telephoneNumber.Length > 13)
-            {
-                validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {telephoneNumber.Length} characters.");
-            }
-            else if (!System.Text.RegularExpressions.Regex.IsMatch(telephoneNumber, @"^\+\d{12}$"))
-            {
-                validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(firstName) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(lastName) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(emailAddress) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(telephoneNumber))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void accountManagerDetailUpdateAccountManagerButton_Click(object sender, EventArgs e)
         {
-            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
-            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
-            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
-            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
-
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            bool activeStatus = accountManagerDetailActiveStatusCheckbox.Checked;
+            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
+            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
+            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
+            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
+
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "FirstName",
+                    Value = firstName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "LastName",
+                    Value = lastName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "EmailAddress",
+                    Value = emailAddress,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "TelephoneNumber",
+                    Value = telephoneNumber,
+                    MaxLength = 13
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (accountManagerDetailFirstNameOriginalValue != firstName)
-            {
-                changes.AppendLine($"First Name Original Value: {accountManagerDetailFirstNameOriginalValue}\nFirst Name New Value: {firstName}\n");
-            }
-
-            if (accountManagerDetailLastNameOriginalValue != lastName)
-            {
-                changes.AppendLine($"Last Name Original Value: {accountManagerDetailLastNameOriginalValue}\nLast Name New Value: {lastName}\n");
-            }
-
-            if (accountManagerDetailEmailAddressOriginalValue != emailAddress)
-            {
-                changes.AppendLine($"Email Address Original Value: {accountManagerDetailEmailAddressOriginalValue}\nEmail Address New Value: {emailAddress}\n");
-            }
-
-            if (accountManagerDetailTelephoneNumberOriginalValue != telephoneNumber)
-            {
-                changes.AppendLine($"Telephone Number Original Value: {accountManagerDetailTelephoneNumberOriginalValue}\nTelephone Number New Value: {telephoneNumber}\n");
-            }
-
-            if (accountManagerDetailActiveStatusOriginalValue != accountManagerDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {accountManagerDetailActiveStatusOriginalValue}\nActive Status New Value: {accountManagerDetailActiveStatusCheckbox.Checked}\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Account Manager Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the account manager details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@accountManagerId", _accountManagerId),
-                        new SqlParameter("@activeStatus", accountManagerDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@firstName", firstName),
-                        new SqlParameter("@emailAddress", emailAddress),
-                        new SqlParameter("@telephoneNumber", telephoneNumber),
-                        new SqlParameter("@lastName", lastName)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateAccountManager]", parameters);
-                    MessageBox.Show("Account Manager details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Account Manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail 
+                    { 
+                        VariableName = "First Name",
+                        VariableType = "string",
+                        OriginalValue = accountManagerDetailFirstNameOriginalValue,
+                        NewValue = firstName
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Last Name",
+                        VariableType = "string",
+                        OriginalValue = accountManagerDetailLastNameOriginalValue,
+                        NewValue = lastName
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Email Address",
+                        VariableType = "string",
+                        OriginalValue = accountManagerDetailEmailAddressOriginalValue,
+                        NewValue = emailAddress
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Telephone Number",
+                        VariableType = "string",
+                        OriginalValue = accountManagerDetailTelephoneNumberOriginalValue,
+                        NewValue = telephoneNumber
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = accountManagerDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new []
+                    {
+                        new Parameter 
+                        { 
+                            ParameterName = "@accountManagerId",
+                            ParameterValue = _accountManagerId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@firstName",
+                            ParameterValue = firstName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@emailAddress",
+                            ParameterValue = emailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@lastName",
+                            ParameterValue = lastName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@telephoneNumber",
+                            ParameterValue = telephoneNumber
+                        }
+                    };
+
+                    string storedProcedureName = "[dbo].[spUpdateAccountManager]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

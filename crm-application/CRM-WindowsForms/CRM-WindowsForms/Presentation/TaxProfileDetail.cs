@@ -1,16 +1,13 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
-using System.Text.RegularExpressions;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class TaxProfileDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Tax Profile";
         private readonly Guid _taxProfileId;
         private bool ?taxProfileDetailActiveStatusOriginalValue;
         private string ?taxProfileDetailTaxProfileOriginalValue;
@@ -37,15 +34,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetTaxProfile]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@taxProfileId",
+                    ParameterValue = _taxProfileId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@taxProfileId", _taxProfileId)
-                };
-
-                DataTable taxProfileDataTable = await executor.ExecuteAsync("[dbo].[spGetTaxProfile]", parameters);
+                DataTable? taxProfileDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (taxProfileDataTable != null)
                 {
@@ -80,55 +82,6 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.TrimEnd();
-            string taxRateA = taxProfileDetailTaxRateTextboxA.Text.TrimEnd();
-            string taxRateB = taxProfileDetailTaxRateTextboxB.Text.TrimEnd();
-
-            if (taxProfile.Length > 50)
-            {
-                validationErrors.AppendLine($"Tax Profile cannot be longer than 50 characters. Submitted length is {taxProfile.Length} characters.");
-            }
-
-            if (taxRateA.Length > 5)
-            {
-                validationErrors.AppendLine($"Tax Rate Part A cannot be longer than 5 characters. Submitted length is {taxRateA.Length} characters.");
-            }
-
-            if (taxRateB.Length > 2)
-            {
-                validationErrors.AppendLine($"Tax Rate Part B cannot be longer than 2 characters. Submitted length is {taxRateB.Length} characters.");
-            }
-
-            if (!Regex.IsMatch(taxRateA, @"^\d+$"))
-            {
-                validationErrors.AppendLine("Tax Rate Part A must contain only numbers.");
-            }
-
-            if (!Regex.IsMatch(taxRateB, @"^\d+$"))
-            {
-                validationErrors.AppendLine("Tax Rate Part B must contain only numbers.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxProfile) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateA) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(taxRateB))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = taxProfileDetailActiveStatusCheckbox.Checked;
@@ -141,59 +94,87 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "TaxProfile",
+                    Value = taxProfile,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (taxProfileDetailTaxProfileOriginalValue != taxProfile)
-            {
-                changes.AppendLine($"Tax Profile Original Value: {taxProfileDetailTaxProfileOriginalValue}" + $"\nTax Profile New Value: {taxProfile}\n");
-            }
-
-            if (taxProfileDetailTaxRateOriginalValue.ToString() != taxRate.ToString())
-            {
-                changes.AppendLine($"Tax Rate Original Value: {taxProfileDetailTaxRateOriginalValue.ToString()}" + $"\nTax Rate New Value: {taxRate.ToString()}\n");
-            }
-
-            if (taxProfileDetailActiveStatusOriginalValue != taxProfileDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {taxProfileDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {taxProfileDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Tax Profile Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer tier details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", taxProfileDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@taxProfile", taxProfile),
-                        new SqlParameter("@taxProfileId", _taxProfileId),
-                        new SqlParameter("@taxRate", taxRate) 
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateTaxProfile]", parameters);
-                    MessageBox.Show("Tax Profile details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Tax Profile details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Tax Profile",
+                        VariableType = "string",
+                        OriginalValue = taxProfileDetailTaxProfileOriginalValue,
+                        NewValue = taxProfile
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Tax Rate",
+                        VariableType = "string",
+                        OriginalValue = taxProfileDetailTaxRateOriginalValue,
+                        NewValue = taxRate
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = taxProfileDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@taxProfile",
+                            ParameterValue = taxProfile
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@taxProfileId",
+                            ParameterValue = _taxProfileId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@taxRate",
+                            ParameterValue = taxRate
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateTaxProfile]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 

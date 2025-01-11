@@ -1,18 +1,16 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class ProductCategoryDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Product Category";
         private readonly Guid _productCategoryId;
-        private bool ?productCategoryDetailActiveStatusOriginalValue;
-        private string ?productCategoryDetailProductCategoryOriginalValue;
+        private bool? productCategoryDetailActiveStatusOriginalValue;
+        private string? productCategoryDetailProductCategoryOriginalValue;
 
         public ProductCategoryDetail(Guid productCategoryId)
         {
@@ -27,7 +25,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewProductCategoryDetailProductCategoryInformation_Load(object sender, EventArgs e)
+        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetProductCategory]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@productCategoryId",
+                    ParameterValue = _productCategoryId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@productCategoryId", _productCategoryId)
-                };
-
-                DataTable productCategoryDataTable = await executor.ExecuteAsync("[dbo].[spGetProductCategory]", parameters);
+                DataTable? productCategoryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (productCategoryDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string productCategory = productCategoryDetailProductCategoryTextbox.Text.TrimEnd();
-
-            if (productCategory.Length > 50)
-            {
-                validationErrors.AppendLine($"Product Category cannot be longer than 50 characters. Submitted length is {productCategory.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(productCategory))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void productCategoryDetailUpdateProductCategoryButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = productCategoryDetailActiveStatusCheckbox.Checked;
             string productCategory = productCategoryDetailProductCategoryTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "ProductCategory",
+                    Value = productCategory,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (productCategoryDetailProductCategoryOriginalValue != productCategory)
-            {
-                changes.AppendLine($"Product Category Original Value: {productCategoryDetailProductCategoryOriginalValue}" + $"\nProduct Category New Value: {productCategory}\n");
-            }
-
-            if (productCategoryDetailActiveStatusOriginalValue != productCategoryDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {productCategoryDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {productCategoryDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Product Category Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", productCategoryDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@productCategory", productCategory),
-                        new SqlParameter("@productCategoryId", _productCategoryId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateProductCategory]", parameters);
-                    MessageBox.Show("Product Category details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Product Category details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Product Category",
+                        VariableType = "string",
+                        OriginalValue = productCategoryDetailProductCategoryOriginalValue,
+                        NewValue = productCategory
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = productCategoryDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@productCategory",
+                            ParameterValue = productCategory
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@productCategoryId",
+                            ParameterValue = _productCategoryId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateProductCategory]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -159,7 +160,7 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewProductCategoryDetailProductCategoryInformation_Load(this, EventArgs.Empty);
+            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
         private void productCategoryDetailToggleEditModeButton_Click(object? sender, EventArgs e)

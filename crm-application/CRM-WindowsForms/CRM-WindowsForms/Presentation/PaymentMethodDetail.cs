@@ -1,15 +1,13 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class PaymentMethodDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Payment Method";
         private readonly Guid _paymentMethodId;
         private bool? paymentMethodDetailActiveStatusOriginalValue;
         private string? paymentMethodDetailPaymentMethodOriginalValue;
@@ -27,7 +25,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewPaymentMethodDetailPaymentMethodInformation_Load(object sender, EventArgs e)
+        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetPaymentMethod]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@paymentMethodId",
+                    ParameterValue = _paymentMethodId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@paymentMethodId", _paymentMethodId)
-                };
-
-                DataTable paymentMethodDataTable = await executor.ExecuteAsync("[dbo].[spGetPaymentMethod]", parameters);
+                DataTable? paymentMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (paymentMethodDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string paymentMethod = paymentMethodDetailPaymentMethodTextbox.Text.TrimEnd();
-
-            if (paymentMethod.Length > 50)
-            {
-                validationErrors.AppendLine($"Payment Method cannot be longer than 50 characters. Submitted length is {paymentMethod.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(paymentMethod))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void paymentMethodDetailUpdatePaymentMethodButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = paymentMethodDetailActiveStatusCheckbox.Checked;
             string paymentMethod = paymentMethodDetailPaymentMethodTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "PaymentMethod",
+                    Value = paymentMethod,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (paymentMethodDetailPaymentMethodOriginalValue != paymentMethod)
-            {
-                changes.AppendLine($"Payment Method Original Value: {paymentMethodDetailPaymentMethodOriginalValue}" + $"\nPayment Method New Value: {paymentMethod}\n");
-            }
-
-            if (paymentMethodDetailActiveStatusOriginalValue != paymentMethodDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {paymentMethodDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {paymentMethodDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Payment Method Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the supplier type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", paymentMethodDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@paymentMethod", paymentMethod),
-                        new SqlParameter("@paymentMethodId", _paymentMethodId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdatePaymentMethod]", parameters);
-                    MessageBox.Show("Payment Method details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Payment Method details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Payment Method",
+                        VariableType = "string",
+                        OriginalValue = paymentMethodDetailPaymentMethodOriginalValue,
+                        NewValue = paymentMethod
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = paymentMethodDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@paymentMethod",
+                            ParameterValue = paymentMethod
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@paymentMethodId",
+                            ParameterValue = _paymentMethodId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdatePaymentMethod]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -159,7 +160,7 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewPaymentMethodDetailPaymentMethodInformation_Load(this, EventArgs.Empty);
+            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
         private void paymentMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)

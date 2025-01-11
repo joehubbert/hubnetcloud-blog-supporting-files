@@ -1,18 +1,16 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class OrderStatusDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Order Status";
         private readonly Guid _orderStatusId;
-        private bool ?orderStatusDetailActiveStatusOriginalValue;
-        private string ?orderStatusDetailOrderStatusOriginalValue;
+        private bool? orderStatusDetailActiveStatusOriginalValue;
+        private string? orderStatusDetailOrderStatusOriginalValue;
 
         public OrderStatusDetail(Guid orderStatusId)
         {
@@ -27,7 +25,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewOrderStatusDetailOrderStatusInformation_Load(object sender, EventArgs e)
+        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetOrderStatus]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@orderStatusId",
+                    ParameterValue = _orderStatusId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@orderStatusId", _orderStatusId)
-                };
-
-                DataTable orderStatusDataTable = await executor.ExecuteAsync("[dbo].[spGetOrderStatus]", parameters);
+                DataTable? orderStatusDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (orderStatusDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string orderStatus = orderStatusDetailOrderStatusTextbox.Text.TrimEnd();
-
-            if (orderStatus.Length > 50)
-            {
-                validationErrors.AppendLine($"Order Status cannot be longer than 50 characters. Submitted length is {orderStatus.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(orderStatus))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void orderStatusDetailUpdateOrderStatusButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = orderStatusDetailActiveStatusCheckbox.Checked;
             string orderStatus = orderStatusDetailOrderStatusTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "OrderStatus",
+                    Value = orderStatus,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (orderStatusDetailOrderStatusOriginalValue != orderStatus)
-            {
-                changes.AppendLine($"Order Status Original Value: {orderStatusDetailOrderStatusOriginalValue}" + $"\nOrder Status New Value: {orderStatus}\n");
-            }
-
-            if (orderStatusDetailActiveStatusOriginalValue != orderStatusDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {orderStatusDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {orderStatusDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Order Status Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", orderStatusDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@orderStatus", orderStatus),
-                        new SqlParameter("@orderStatusId", _orderStatusId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateOrderStatus]", parameters);
-                    MessageBox.Show("Order Status details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Order Status details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Order Status",
+                        VariableType = "string",
+                        OriginalValue = orderStatusDetailOrderStatusOriginalValue,
+                        NewValue = orderStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = orderStatusDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@orderStatus",
+                            ParameterValue = orderStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@orderStatusId",
+                            ParameterValue = _orderStatusId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateOrderStatus]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -159,7 +160,7 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewOrderStatusDetailOrderStatusInformation_Load(this, EventArgs.Empty);
+            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
         private void orderStatusDetailToggleEditModeButton_Click(object? sender, EventArgs e)

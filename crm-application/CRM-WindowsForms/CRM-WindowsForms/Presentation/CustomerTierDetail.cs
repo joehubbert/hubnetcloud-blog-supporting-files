@@ -1,9 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -11,9 +8,10 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerTierId;
-        private bool ?customerTierDetailActiveStatusOriginalValue;
-        private string ?customerTierDetailCustomerTierCodeOriginalValue;
-        private string ?customerTierDetailCustomerTierDescriptionOriginalValue;
+        private bool? customerTierDetailActiveStatusOriginalValue;
+        private string? customerTierDetailCustomerTierCodeOriginalValue;
+        private string? customerTierDetailCustomerTierDescriptionOriginalValue;
+        private readonly string dataSubject = "Customer Tier";
 
         public CustomerTierDetail(Guid customerTierId)
         {
@@ -36,22 +34,27 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetCustomerTier]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@customerTierId",
+                    ParameterValue = _customerTierId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@customerTierId", _customerTierId)
-                };
-
-                DataTable customerTierDataTable = await executor.ExecuteAsync("[dbo].[spGetCustomerTier]", parameters);
+                DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (customerTierDataTable != null)
                 {
                     DataRow customerTierDataRow = customerTierDataTable.Rows[0];
                     customerTierDetailCustomerTierIdTextbox.Text = customerTierDataRow["Customer Tier ID"].ToString();
                     customerTierDetailCustomerTierCodeTextbox.Text = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier Description"].ToString();
+                    customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier"].ToString();
                     customerTierDetailCreatedByTextbox.Text = customerTierDataRow["Created By"].ToString();
                     customerTierDetailCreatedTimestampTextbox.Text = customerTierDataRow["Created Timestamp"].ToString();
                     customerTierDetailLastUpdatedByTextbox.Text = customerTierDataRow["Modified By"].ToString();
@@ -59,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
                     customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
 
                     customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier Description"].ToString();
+                    customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier"].ToString();
                     customerTierDetailActiveStatusOriginalValue = (bool)customerTierDataRow["Active Status"];
                 }
                 else
@@ -73,40 +76,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
-            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
-
-            if (customerTierCode.Length > 1)
-            {
-                validationErrors.AppendLine($"Customer Tier Code cannot be longer than 1 character. Submitted length is {customerTierCode.Length} characters.");
-            }
-
-            if (customerTierDescription.Length > 50)
-            {
-                validationErrors.AppendLine($"Customer Tier Description cannot be longer than 50 characters. Submitted length is {customerTierDescription.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierCode) ||
-                SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerTierDescription))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = customerTierDetailActiveStatusCheckbox.Checked;
             string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
             string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
 
@@ -116,59 +88,93 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerTierCode",
+                    Value = customerTierCode,
+                    MaxLength = 1
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerTierDescription",
+                    Value = customerTierDescription,
+                    MaxLength = 50
+                },
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (customerTierDetailCustomerTierCodeOriginalValue != customerTierCode)
-            {
-                changes.AppendLine($"Customer Tier Code Original Value: {customerTierDetailCustomerTierCodeOriginalValue}" + $"\nCustomer Tier Code New Value: {customerTierCode}\n");
-            }
-
-            if (customerTierDetailCustomerTierDescriptionOriginalValue != customerTierDescription)
-            {
-                changes.AppendLine($"Customer Tier Description Original Value: {customerTierDetailCustomerTierDescriptionOriginalValue}" + $"\nCustomer Tier Description New Value: {customerTierDescription}\n");
-            }
-
-            if (customerTierDetailActiveStatusOriginalValue != customerTierDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {customerTierDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {customerTierDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Customer Tier Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer tier details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", customerTierDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@customerTierCode", customerTierCode),
-                        new SqlParameter("@customerTierDescription", customerTierDescription),
-                        new SqlParameter("@customerTierId", _customerTierId),
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateCustomerTier]", parameters);
-                    MessageBox.Show("Customer Tier details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Customer Tier details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Customer Tier Code",
+                        VariableType = "string",
+                        OriginalValue = customerTierDetailCustomerTierCodeOriginalValue,
+                        NewValue = customerTierCode
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Customer Tier Description",
+                        VariableType = "string",
+                        OriginalValue = customerTierDetailCustomerTierDescriptionOriginalValue,
+                        NewValue = customerTierDescription
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = customerTierDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTier",
+                            ParameterValue = customerTierDescription
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTierCode",
+                            ParameterValue = customerTierCode
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTierId",
+                            ParameterValue = _customerTierId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateCustomerTier]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -181,7 +187,6 @@ namespace CRM_WindowsForms.Presentation
 
         private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            customerTierDetailCustomerTierCodeTextbox.Enabled = !customerTierDetailCustomerTierCodeTextbox.Enabled;
             customerTierDetailCustomerTierDescriptionTextbox.Enabled = !customerTierDetailCustomerTierDescriptionTextbox.Enabled;
             customerTierDetailActiveStatusCheckbox.Enabled = !customerTierDetailActiveStatusCheckbox.Enabled;
             customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;

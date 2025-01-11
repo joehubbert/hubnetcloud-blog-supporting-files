@@ -1,13 +1,12 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class CreateCustomerType : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Customer Type";
 
         public CreateCustomerType()
         {
@@ -20,65 +19,53 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string customerType = createCustomerTypeCustomerTypeTextbox.Text.TrimEnd();
-
-            if (customerType.Length > 50)
-            {
-                validationErrors.AppendLine($"Customer Type cannot be longer than 50 characters. Submitted length is {customerType.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(customerType))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void createCustomerTypeSubmitButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = createCustomerTypeActiveStatusCheckbox.Checked;
+            string customerType = createCustomerTypeCustomerTypeTextbox.Text.TrimEnd();
+
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CustomerType",
+                    Value = customerType,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            try
+            else
             {
-                bool activeStatus = createCustomerTypeActiveStatusCheckbox.Checked;
-                string customerType = createCustomerTypeCustomerTypeTextbox.Text.TrimEnd();
-
                 var parameters = new[]
                 {
-                        new SqlParameter("@activeStatus", activeStatus),
-                        new SqlParameter("@customerType", customerType)
-                    };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerType",
+                            ParameterValue = customerType
+                        }
+                };
+                string storedProcedureName = "[dbo].[spCreateCustomerType]";
+                string operationType = "create";
 
-                ExecuteStoredProcedure executeor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                await executeor.ExecuteNonQueryAsync("[dbo].[spCreateCustomerType]", parameters);
-
-                MessageBox.Show("New Customer Type added successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
                 this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Failed to add new Customer Type: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

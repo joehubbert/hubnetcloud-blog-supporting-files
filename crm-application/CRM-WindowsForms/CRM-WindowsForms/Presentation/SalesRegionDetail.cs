@@ -1,18 +1,16 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using Microsoft.Data.SqlClient;
 using System.Data;
-using System.Net.Mail;
-using System.Text;
 
 namespace CRM_WindowsForms.Presentation
 {
     public partial class SalesRegionDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private readonly string dataSubject = "Sales Region";
         private readonly Guid _salesRegionId;
-        private string salesRegionDetailSalesRegionOriginalValue;
-        private bool salesRegionDetailActiveStatusOriginalValue;
+        private bool? salesRegionDetailActiveStatusOriginalValue;
+        private string? salesRegionDetailSalesRegionOriginalValue;
 
         public SalesRegionDetail(Guid salesRegionId)
         {
@@ -27,7 +25,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewSalesRegionDetailSalesRegionInformation_Load(object sender, EventArgs e)
+        private async void ViewSupplierTypeDetailSupplierTypeInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -35,15 +33,20 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
+            string storedProcedureName = "[dbo].[spGetSalesRegion]";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@salesRegionId",
+                    ParameterValue = _salesRegionId
+                }
+            };
+
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                var parameters = new SqlParameter[]
-                {
-                    new SqlParameter("@salesRegionId", _salesRegionId)
-                };
-
-                DataTable salesRegionDataTable = await executor.ExecuteAsync("[dbo].[spGetSalesRegion]", parameters);
+                DataTable? salesRegionDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (salesRegionDataTable != null)
                 {
@@ -70,33 +73,9 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private bool ValidateInput()
-        {
-            StringBuilder validationErrors = new StringBuilder();
-
-            string salesRegion = salesRegionDetailSalesRegionTextbox.Text.TrimEnd();
-
-            if (salesRegion.Length > 50)
-            {
-                validationErrors.AppendLine($"Sales Region cannot be longer than 50 characters. Submitted length is {salesRegion.Length} characters.");
-            }
-
-            if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(salesRegion))
-            {
-                validationErrors.AppendLine("Input contains potentially dangerous characters that could lead to SQL injection.");
-            }
-
-            if (validationErrors.Length > 0)
-            {
-                MessageBox.Show(validationErrors.ToString(), "Validation Error: ", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-
-            return true;
-        }
-
         private async void salesRegionDetailUpdateSalesRegionButton_Click(object sender, EventArgs e)
         {
+            bool activeStatus = salesRegionDetailActiveStatusCheckbox.Checked;
             string salesRegion = salesRegionDetailSalesRegionTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -105,53 +84,75 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            if (!ValidateInput())
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "SalesRegion",
+                    Value = salesRegion,
+                    MaxLength = 50
+                }
+            };
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
             {
                 return;
             }
-
-            var changes = new StringBuilder("Are you sure that you want to update the following values?\n\n");
-
-            if (salesRegionDetailSalesRegionOriginalValue != salesRegion)
-            {
-                changes.AppendLine($"Sales Region Original Value: {salesRegionDetailSalesRegionOriginalValue}" + $"\nSales Region New Value: {salesRegion}\n");
-            }
-
-            if (salesRegionDetailActiveStatusOriginalValue != salesRegionDetailActiveStatusCheckbox.Checked)
-            {
-                changes.AppendLine($"Active Status Original Value: {salesRegionDetailActiveStatusOriginalValue}" + $"\nActive Status New Value: {salesRegionDetailActiveStatusCheckbox.Checked}\n\n");
-            }
-
-            changes.AppendLine("This action cannot be undone.");
-
-            var result = MessageBox.Show(changes.ToString(), "Update Sales Region Information", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-
-            if (result == DialogResult.Yes)
-            {
-                // Code to update the customer type details
-                try
-                {
-                    ExecuteStoredProcedure executor = new ExecuteStoredProcedure(_databaseConnectionSettings.DatabaseConnectionString);
-                    var parameters = new SqlParameter[]
-                    {
-                        new SqlParameter("@activeStatus", salesRegionDetailActiveStatusCheckbox.Checked),
-                        new SqlParameter("@salesRegion", salesRegion),
-                        new SqlParameter("@salesRegionId", _salesRegionId)
-                    };
-
-                    await executor.ExecuteAsync("[dbo].[spUpdateSalesRegion]", parameters);
-                    MessageBox.Show("Sales Region details updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    this.Close();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Failed to update Sales Region details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
             else
             {
-                MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
+                var changesList = new List<ChangeDetail>
+                {
+                    new ChangeDetail
+                    {
+                        VariableName = "Sales Region",
+                        VariableType = "string",
+                        OriginalValue = salesRegionDetailSalesRegionOriginalValue,
+                        NewValue = salesRegion
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = salesRegionDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    }
+                };
+
+                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+
+                if (confirmed)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesRegion",
+                            ParameterValue = salesRegion
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesRegionId",
+                            ParameterValue = _salesRegionId
+                        }
+                    };
+                    string storedProcedureName = "[dbo].[spUpdateSalesRegion]";
+                    string operationType = "update";
+
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
+                }
             }
         }
 
@@ -159,10 +160,10 @@ namespace CRM_WindowsForms.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewSalesRegionDetailSalesRegionInformation_Load(this, EventArgs.Empty);
+            ViewSupplierTypeDetailSupplierTypeInformation_Load(this, EventArgs.Empty);
         }
 
-        private void salesRegionDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void salesRegionDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             salesRegionDetailSalesRegionTextbox.Enabled = !salesRegionDetailSalesRegionTextbox.Enabled;
             salesRegionDetailActiveStatusCheckbox.Enabled = !salesRegionDetailActiveStatusCheckbox.Enabled;

@@ -30,7 +30,7 @@ namespace CRM_WindowsForms.Presentation.Functions
                     validationErrors.AppendLine($"{property.Name} cannot be longer than {property.MaxLength} characters. Submitted length is {value.Length} characters.");
                 }
 
-                if (property.Name == "EmailAddress")
+                if (property.Name.Contains("EmailAddress"))
                 {
                     if (!value.Contains("@"))
                     {
@@ -42,7 +42,7 @@ namespace CRM_WindowsForms.Presentation.Functions
                     }
                 }
 
-                if (property.Name == "TelephoneNumber")
+                if (property.Name.Contains("TelephoneNumber"))
                 {
                     if (value.Length > 13)
                     {

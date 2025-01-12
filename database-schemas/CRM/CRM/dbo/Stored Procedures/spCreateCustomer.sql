@@ -17,10 +17,12 @@
     @customerSince DATE,
     @customerTierId UNIQUEIDENTIFIER,
     @customerTypeId UNIQUEIDENTIFIER,
+    @emailAddress NVARCHAR(50),
     @firstName NVARCHAR(30),
     @globalParentCustomer BIT,
     @globalParentCustomerId UNIQUEIDENTIFIER = NULL,
     @lastName NVARCHAR(30),
+    @paymentCurrencyId UNIQUEIDENTIFIER,
     @paymentDays TINYINT,
     @salesSubRegionId UNIQUEIDENTIFIER,
     @shippingFirstName NVARCHAR(20),
@@ -33,6 +35,7 @@
     @shippingAddressLine5 NVARCHAR(50),
     @shippingTelephoneNumber NVARCHAR(50),
     @shippingEmailAddress NVARCHAR(50),
+    @telephoneNumber NVARCHAR(13),
     @topParentCustomer BIT,
     @topParentCustomerId UNIQUEIDENTIFIER = NULL,
     @vatNumber NVARCHAR(50) = NULL
@@ -46,9 +49,12 @@ CREATE TABLE #CustomerTemp
     [CustomerTierId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTypeId] UNIQUEIDENTIFIER NOT NULL,
     [SalesSubRegionId] UNIQUEIDENTIFIER NOT NULL,
+    [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
     [FirstName] NVARCHAR(30) NOT NULL,
     [LastName] NVARCHAR(30) NOT NULL,
     [CompanyName] NVARCHAR(50) NULL,
+    [TelephoneNumber] NVARCHAR(13) NOT NULL,
+    [EmailAddress] NVARCHAR(50) NOT NULL,
     [BillingFirstName] NVARCHAR(20) NOT NULL,
     [BillingLastName] NVARCHAR(30) NOT NULL,
     [BillingCompanyName] NVARCHAR(50) NULL,
@@ -82,6 +88,8 @@ CREATE TABLE #CustomerTemp
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
+    CONSTRAINT [FK_Customer_CustomerType] FOREIGN KEY ([CustomerTypeId]) REFERENCES [dbo].[CustomerType]([CustomerTypeId]),
+    CONSTRAINT [FK_Customer_PaymentCurrency] FOREIGN KEY ([PaymentCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
     CONSTRAINT [FK_Customer_SalesSubRegion] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId])
 )
 
@@ -93,9 +101,12 @@ INSERT INTO #CustomerTemp
     [CustomerTierId],
     [CustomerTypeId],
     [SalesSubRegionId],
+    [PaymentCurrencyId],
     [FirstName],
     [LastName],
     [CompanyName],
+    [TelephoneNumber],
+    [EmailAddress],
     [BillingFirstName],
     [BillingLastName],
     [BillingCompanyName],
@@ -133,9 +144,12 @@ VALUES
     @customerTierId,
     @customerTypeId,
     @salesSubRegionId,
+    @paymentCurrencyId,
     @firstName,
     @lastName,
     @companyName,
+    @telephoneNumber,
+    @emailAddress,
     @billingFirstName,
     @billingLastName,
     @billingCompanyName,
@@ -174,6 +188,8 @@ INNER JOIN #CustomerTemp CT ON
 C.[FirstName] = CT.[FirstName]
 AND C.[LastName] = CT.[LastName]
 AND C.[CompanyName] = CT.[CompanyName]
+AND C.[TelephoneNumber] = CT.[TelephoneNumber]
+AND C.[EmailAddress] = CT.[EmailAddress]
 AND C.[BillingFirstName] = CT.[BillingFirstName]
 AND C.[BillingLastName] = CT.[BillingLastName]
 AND C.[BillingCompanyName] = CT.[BillingCompanyName]
@@ -198,6 +214,8 @@ AND C.[VATNumber] = CT.[VATNumber]
 WHERE C.[FirstName] = CT.[FirstName]
 AND C.[LastName] = CT.[LastName]
 AND C.[CompanyName] = CT.[CompanyName]
+AND C.[TelephoneNumber] = CT.[TelephoneNumber]
+AND C.[EmailAddress] = CT.[EmailAddress]
 AND C.[BillingFirstName] = CT.[BillingFirstName]
 AND C.[BillingLastName] = CT.[BillingLastName]
 AND C.[BillingCompanyName] = CT.[BillingCompanyName]
@@ -230,9 +248,12 @@ AND target.[AccountManagerId] = source.[AccountManagerId]
 AND target.[CustomerTierId] = source.[CustomerTierId]
 AND target.[CustomerTypeId] = source.[CustomerTypeId]
 AND target.[SalesSubRegionId] = source.[SalesSubRegionId]
+AND target.[PaymentCurrencyId] = source.[PaymentCurrencyId]
 AND target.[FirstName] = source.[FirstName]
 AND target.[LastName] = source.[LastName]
 AND target.[CompanyName] = source.[CompanyName]
+AND target.[TelephoneNumber] = source.[TelephoneNumber]
+AND target.[EmailAddress] = source.[EmailAddress]
 AND target.[BillingFirstName] = source.[BillingFirstName]
 AND target.[BillingLastName] = source.[BillingLastName]
 AND target.[BillingCompanyName] = source.[BillingCompanyName]
@@ -270,9 +291,12 @@ INSERT
     [CustomerTierId],
     [CustomerTypeId],
     [SalesSubRegionId],
+    [PaymentCurrencyId],
     [FirstName],
     [LastName],
     [CompanyName],
+    [TelephoneNumber],
+    [EmailAddress],
     [BillingFirstName],
     [BillingLastName],
     [BillingCompanyName],
@@ -310,9 +334,12 @@ VALUES
     source.[CustomerTierId],
     source.[CustomerTypeId],
     source.[SalesSubRegionId],
+    source.[PaymentCurrencyId],
     source.[FirstName],
     source.[LastName],
     source.[CompanyName],
+    source.[TelephoneNumber],
+    source.[EmailAddress],
     source.[BillingFirstName],
     source.[BillingLastName],
     source.[BillingCompanyName],

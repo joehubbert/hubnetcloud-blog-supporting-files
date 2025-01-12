@@ -17,6 +17,8 @@ SSR.[SalesSubRegionId] AS [Sales Sub Region Id],
 C.[FirstName] AS [First Name],
 C.[LastName] AS [Last Name],
 C.[CompanyName] AS [Company Name],
+C.[TelephoneNumber] AS [Telephone Number],
+C.[EmailAddress] AS [Email Address],
 C.[BillingFirstName] AS [Billing First Name],
 C.[BillingLastName] AS [Billing Last Name],
 C.[BillingCompanyName] AS [Billing Company Name],
@@ -43,6 +45,8 @@ C.[CreditLimit] AS [Credit Limit],
 (SUM(CASE WHEN OS.[OrderStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN VOV.[TotalOrderValue] ELSE 0 END)) AS [Credit Limit Used],
 (SUM(CASE WHEN OS.[OrderStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN C.[CreditLimit] - VOV.[TotalOrderValue] ELSE 0 END)) AS [Remaining Credit Limit],
 C.[PaymentDays] AS [Payment Days],
+CUR.[CurrencyId] AS [Payment Currency Id],
+CUR.[CurrencyCode] AS [Payment Currency Code],
 C.[VATNumber] AS [VAT Number],
 C.[GlobalParentCustomer] AS [Global Parent Customer],
 C.[TopParentCustomer] AS [Top Parent Customer],
@@ -58,6 +62,7 @@ INNER JOIN [dbo].[CustomerTier] CTI ON C.[CustomerTierId] = CTI.[CustomerTierId]
 INNER JOIN [dbo].[CustomerType] CTY ON C.[CustomerTypeId] = CTY.[CustomerTypeId]
 INNER JOIN [dbo].[Order] O ON C.[CustomerId] = O.[CustomerId]
 INNER JOIN [dbo].[OrderStatus] OS ON O.[OrderStatusId] = OS.[OrderStatusId]
+INNER JOIN [dbo].[Currency] CUR ON C.[PaymentCurrencyId] = CUR.[CurrencyId]
 INNER JOIN [dbo].[PaymentMethod] PM ON O.[PaymentMethodId] = PM.[PaymentMethodId]
 INNER JOIN [dbo].[SalesSubRegion] SSR ON C.[SalesSubRegionId] = SSR.[SalesSubRegionId]
 INNER JOIN [dbo].[SalesRegion] SR ON SSR.[SalesRegionId] = SR.[SalesRegionId]
@@ -80,6 +85,8 @@ SSR.[SalesSubRegionId],
 C.[FirstName],
 C.[LastName],
 C.[CompanyName],
+C.[TelephoneNumber],
+C.[EmailAddress],
 C.[BillingCompanyName],
 C.[BillingFirstName],
 C.[BillingLastName],
@@ -103,6 +110,8 @@ C.[ShippingEmailAddress],
 C.[CreditEnabled],
 C.[CreditLimit],
 C.[PaymentDays],
+CUR.[CurrencyId],
+CUR.[CurrencyCode],
 C.[VATNumber],
 C.[GlobalParentCustomer],
 C.[TopParentCustomer],

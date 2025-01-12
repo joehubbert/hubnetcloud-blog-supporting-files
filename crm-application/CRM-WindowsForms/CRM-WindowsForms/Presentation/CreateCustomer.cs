@@ -25,12 +25,33 @@ namespace CRM_WindowsForms.Presentation
             createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
             createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewGlobalParentValidation_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
             createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
             createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
-            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeGlobalParentRadioButton_CheckedChanged);
+            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewGlobalParentValidation_CheckedChanged);
+            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewTopParentValidation_CheckedChanged);
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
             createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
+
+            createCustomerOverviewFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+
+            createCustomerBillingInformationAddressLine1Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationAddressLine2Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationAddressLine3Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationAddressLine4Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationAddressLine5Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerBillingInformationTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -47,11 +68,9 @@ namespace CRM_WindowsForms.Presentation
             var loadSalesRegionTask = CreateCustomerOverviewLoadSalesRegionDataAsync();
             var loadSalesSubRegionTask = LoadSalesRegionAndSubRegionDataAsync();
             var loadAccountManagerTask = CreateCustomerOverviewLoadAccountManagerDataAsync();
-            var loadGlobalParentCustomerTask = CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
-            var loadTopParentCustomerTask = CreateCustomerOverviewLoadTopParentCustomerDataAsync();
             var loadCurrencyTask = CreateCustomerFinanceLoadCurrencyDataAsync();
 
-            await Task.WhenAll(loadCustomerTypeTask, loadCustomerTierTask, loadSalesRegionTask, loadAccountManagerTask, loadGlobalParentCustomerTask, loadTopParentCustomerTask, loadCurrencyTask);
+            await Task.WhenAll(loadCustomerTypeTask, loadCustomerTierTask, loadSalesRegionTask, loadAccountManagerTask, loadCurrencyTask);
 
             if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
             {
@@ -258,13 +277,42 @@ namespace CRM_WindowsForms.Presentation
         {
             if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
             {
+                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled = false;
+                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled = false;
+                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked = false;
+                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked = false;
                 createCustomerOverviewGlobalParentCustomerComboBox.Enabled = false;
+                createCustomerOverviewGlobalParentCustomerComboBox.DataSource = null;
+                createCustomerOverviewGlobalParentCustomerComboBox.Items.Clear();
                 createCustomerOverviewTopParentCustomerComboBox.Enabled = false;
+                createCustomerOverviewTopParentCustomerComboBox.DataSource = null;
+                createCustomerOverviewTopParentCustomerComboBox.Items.Clear();
             }
             else if (createCustomerOverviewExistingCustomerIsParentYesRadioButton.Checked)
             {
+                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled = true;
+                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled = true;
+            }
+        }
+
+        private async void CreateCustomerOverviewExistingParentCompanyType_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            {
+                await CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
                 createCustomerOverviewGlobalParentCustomerComboBox.Enabled = true;
+                createCustomerOverviewTopParentCustomerComboBox.Enabled = false;
+                createCustomerOverviewTopParentCustomerComboBox.DataSource = null;
+                createCustomerOverviewTopParentCustomerComboBox.Items.Clear();
+
+            }
+            else if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
+            {
+                await CreateCustomerOverviewLoadTopParentCustomerDataAsync();
                 createCustomerOverviewTopParentCustomerComboBox.Enabled = true;
+                createCustomerOverviewGlobalParentCustomerComboBox.Enabled = false;
+                createCustomerOverviewGlobalParentCustomerComboBox.DataSource = null;
+                createCustomerOverviewGlobalParentCustomerComboBox.Items.Clear();
             }
         }
 
@@ -279,7 +327,7 @@ namespace CRM_WindowsForms.Presentation
                 string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";
                 string dataSubject = "Global Parent Customer";
                 DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
-                
+
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
                     .Select(row => new
                     {
@@ -356,17 +404,64 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void CreateCustomerOverviewWillBeGlobalParentRadioButton_CheckedChanged(object? sender, EventArgs e)
+        private void CreateCustomerOverviewGlobalParentValidation_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
             {
                 var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
                 if (selectedCustomerType != "Business - Multinational")
                 {
-                    MessageBox.Show("The 'Global Parent' option can only be selected if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("The 'Global Parent' option can only be selected for a new customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
                 }
             }
+
+            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            {
+                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                if (selectedCustomerType != "Business - Multinational")
+                {
+                    MessageBox.Show("'Business - Multinational' is can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                }
+
+                MessageBox.Show("Cannot select 'Global Parent' as new customer parent tyoe when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+            }
+        }
+
+        private void CreateCustomerOverviewTopParentValidation_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
+            {
+                MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+            }
+        }
+
+        private void AutoPopulateBillingInformation(object? sender, EventArgs e)
+        {
+            createCustomerBillingInformationFirstNameTextbox.Text = createCustomerOverviewFirstNameTextbox.Text;
+            createCustomerBillingInformationLastNameTextbox.Text = createCustomerOverviewLastNameTextbox.Text;
+            createCustomerBillingInformationCompanyNameTextbox.Text = createCustomerOverviewCompanyNameTextbox.Text;
+            createCustomerBillingInformationEmailAddressTextbox.Text = createCustomerOverviewEmailAddressTextbox.Text;
+            createCustomerBillingInformationTelephoneNumberTextbox.Text = createCustomerOverviewTelephoneNumberTextbox.Text;
+        }
+
+        private void AutoPopulateShippingInformation(object? sender, EventArgs e)
+        {
+            createCustomerShippingInformationAddressLine1Textbox.Text = createCustomerBillingInformationAddressLine1Textbox.Text;
+            createCustomerShippingInformationAddressLine2Textbox.Text = createCustomerBillingInformationAddressLine2Textbox.Text;
+            createCustomerShippingInformationAddressLine3Textbox.Text = createCustomerBillingInformationAddressLine3Textbox.Text;
+            createCustomerShippingInformationAddressLine4Textbox.Text = createCustomerBillingInformationAddressLine4Textbox.Text;
+            createCustomerShippingInformationAddressLine5Textbox.Text = createCustomerBillingInformationAddressLine5Textbox.Text;
+            createCustomerShippingInformationCompanyNameTextbox.Text = createCustomerBillingInformationCompanyNameTextbox.Text;
+            createCustomerShippingInformationEmailAddressTextbox.Text = createCustomerBillingInformationEmailAddressTextbox.Text;
+            createCustomerShippingInformationFirstNameTextbox.Text = createCustomerBillingInformationFirstNameTextbox.Text;
+            createCustomerShippingInformationLastNameTextbox.Text = createCustomerBillingInformationLastNameTextbox.Text;
+            createCustomerShippingInformationTelephoneNumberTextbox.Text = createCustomerBillingInformationTelephoneNumberTextbox.Text;
         }
 
         private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -422,7 +517,7 @@ namespace CRM_WindowsForms.Presentation
 
                 createCustomerFinancePaymentCurrencyComboBox.DataSource = currencyList;
                 createCustomerFinancePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                createCustomerFinancePaymentCurrencyComboBox.ValueMember = "CurrencyCode";
+                createCustomerFinancePaymentCurrencyComboBox.ValueMember = "CurrencyId";
             }
             catch (Exception ex)
             {
@@ -433,6 +528,495 @@ namespace CRM_WindowsForms.Presentation
         private void CreateCustomerFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+        }
+
+        private async void createCustomerSubmitButton_Click(object sender, EventArgs e)
+        {
+            Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerOverviewAccountManagerComboBox.SelectedValue.ToString());
+            bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
+            string? customerOverviewCompanyName = createCustomerOverviewCompanyNameTextbox.Text.TrimEnd();
+            DateTime customerOverviewCustomerSince = createCustomerOverviewCustomerSinceDatePicker.Value;
+            Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerOverviewCustomerTierComboBox.SelectedValue.ToString());
+            Guid customerOverviewCustomerTypeId = Guid.Parse(createCustomerOverviewCustomerTypeComboBox.SelectedValue.ToString());
+            string customerOverviewEmailAddress = createCustomerOverviewEmailAddressTextbox.Text.TrimEnd();
+            Guid? customerOverviewExistingGlobalParentCustomerId = null;
+            if (createCustomerOverviewGlobalParentCustomerComboBox.SelectedValue != null)
+            {
+                customerOverviewExistingGlobalParentCustomerId = Guid.Parse(createCustomerOverviewGlobalParentCustomerComboBox.SelectedValue.ToString());
+            }
+            Guid? customerOverviewExistingTopParentCustomerId = null;
+            if (createCustomerOverviewTopParentCustomerComboBox.SelectedValue != null)
+            {
+                customerOverviewExistingTopParentCustomerId = Guid.Parse(createCustomerOverviewTopParentCustomerComboBox.SelectedValue.ToString());
+            }
+            string customerOverviewFirstName = createCustomerOverviewFirstNameTextbox.Text.TrimEnd();
+            string customerOverviewLastName = createCustomerOverviewLastNameTextbox.Text.TrimEnd();
+            Guid customerOverviewSalesSubRegionId = Guid.Parse(createCustomerOverviewSalesSubRegionComboBox.SelectedValue.ToString());
+            string customerOverviewTelephoneNumber = createCustomerOverviewTelephoneNumberTextbox.Text.TrimEnd();
+            bool customerOverviewWillBeGlobalParent = createCustomerOverviewWillBeGlobalParentRadioButton.Checked;
+            bool customerOverviewWillBeTopParent = createCustomerOverviewWillBeTopParentRadioButton.Checked;
+
+            string customerBillingInformationAddressLine1 = createCustomerBillingInformationAddressLine1Textbox.Text.TrimEnd();
+            string? customerBillingInformationAddressLine2 = createCustomerBillingInformationAddressLine2Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine3 = createCustomerBillingInformationAddressLine3Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine4 = createCustomerBillingInformationAddressLine4Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine5 = createCustomerBillingInformationAddressLine5Textbox.Text.TrimEnd();
+            string? customerBillingInformationCompanyName = createCustomerBillingInformationCompanyNameTextbox.Text.TrimEnd();
+            string customerBillingInformationEmailAddress = createCustomerBillingInformationEmailAddressTextbox.Text.TrimEnd();
+            string customerBillingInformationFirstName = createCustomerBillingInformationFirstNameTextbox.Text.TrimEnd();
+            string customerBillingInformationLastName = createCustomerBillingInformationLastNameTextbox.Text.TrimEnd();
+            string customerBillingInformationTelephoneNumber = createCustomerBillingInformationTelephoneNumberTextbox.Text.TrimEnd();
+
+            string customerShippingInformationAddressLine1 = createCustomerShippingInformationAddressLine1Textbox.Text.TrimEnd();
+            string? customerShippingInformationAddressLine2 = createCustomerShippingInformationAddressLine2Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine3 = createCustomerShippingInformationAddressLine3Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine4 = createCustomerShippingInformationAddressLine4Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine5 = createCustomerShippingInformationAddressLine5Textbox.Text.TrimEnd();
+            string? customerShippingInformationCompanyName = createCustomerShippingInformationCompanyNameTextbox.Text.TrimEnd();
+            string customerShippingInformationEmailAddress = createCustomerShippingInformationEmailAddressTextbox.Text.TrimEnd();
+            string customerShippingInformationFirstName = createCustomerShippingInformationFirstNameTextbox.Text.TrimEnd();
+            string customerShippingInformationLastName = createCustomerShippingInformationLastNameTextbox.Text.TrimEnd();
+            string customerShippingInformationTelephoneNumber = createCustomerShippingInformationTelephoneNumberTextbox.Text.TrimEnd();
+
+            bool customerFinanceCreditEnabled = createCustomerFinanceCreditEnabledCheckbox.Checked;
+            decimal customerFinanceCreditLimit = decimal.Parse(createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()) + (decimal.Parse(createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()));
+            Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
+            byte customerFinancePaymentDays = byte.Parse(createCustomerFinancePaymentDaysTextbox.Text.TrimEnd());
+            string? customerFinanceVATNumber = createCustomerFinanceVATNumberTextbox.Text.TrimEnd();
+
+            string dataSubject = "Customer";
+
+            if (_databaseConnectionSettings == null)
+            {
+                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            {
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyOverviewEmailAddress",
+                    Value = customerOverviewEmailAddress,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyOverviewFirstName",
+                    Value = customerOverviewFirstName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyOverviewLastName",
+                    Value = customerOverviewLastName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyOverviewTelephoneNumber",
+                    Value = customerOverviewTelephoneNumber,
+                    MaxLength = 13
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationAddressLine1",
+                    Value = customerBillingInformationAddressLine1,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationAddressLine3",
+                    Value = customerBillingInformationAddressLine3,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationAddressLine4",
+                    Value = customerBillingInformationAddressLine4,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationAddressLine5",
+                    Value = customerBillingInformationAddressLine5,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationEmailAddress",
+                    Value = customerBillingInformationEmailAddress,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationFirstName",
+                    Value = customerBillingInformationFirstName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationLastName",
+                    Value = customerBillingInformationLastName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationTelephoneNumber",
+                    Value = customerBillingInformationTelephoneNumber,
+                    MaxLength = 13
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationAddressLine1",
+                    Value = customerShippingInformationAddressLine1,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationAddressLine3",
+                    Value = customerShippingInformationAddressLine3,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationAddressLine4",
+                    Value = customerShippingInformationAddressLine4,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationAddressLine5",
+                    Value = customerShippingInformationAddressLine5,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationEmailAddress",
+                    Value = customerShippingInformationEmailAddress,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationFirstName",
+                    Value = customerShippingInformationFirstName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationLastName",
+                    Value = customerShippingInformationLastName,
+                    MaxLength = 50
+                },
+                new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationTelephoneNumber",
+                    Value = customerShippingInformationTelephoneNumber,
+                    MaxLength = 13
+                }
+            };
+
+            if (!string.IsNullOrEmpty(customerOverviewCompanyName))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyOverviewCompanyName",
+                    Value = customerOverviewCompanyName,
+                    MaxLength = 50
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationAddressLine2",
+                    Value = customerBillingInformationAddressLine2,
+                    MaxLength = 50
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyBillingInformationCompanyName",
+                    Value = customerBillingInformationCompanyName,
+                    MaxLength = 50
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationAddressLine2",
+                    Value = customerShippingInformationAddressLine2,
+                    MaxLength = 50
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyShippingInformationCompanyName",
+                    Value = customerShippingInformationCompanyName,
+                    MaxLength = 50
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerFinanceVATNumber))
+            {
+                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                {
+                    Name = "CompanyFinanceVATNumber",
+                    Value = customerFinanceVATNumber,
+                    MaxLength = 50
+                });
+            }
+
+            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+
+            if (!validationResult.IsValid)
+            {
+                return;
+            }
+            else
+            {
+                var parameters = new List<Parameter>
+                {
+                        new Parameter
+                        {
+                            ParameterName = "@accountManagerId",
+                            ParameterValue = customerOverviewAccountManagerId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = customerOverviewActiveStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingFirstName",
+                            ParameterValue = customerBillingInformationFirstName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingLastName",
+                            ParameterValue = customerBillingInformationLastName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingAddressLine1",
+                            ParameterValue = customerBillingInformationAddressLine1
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingAddressLine3",
+                            ParameterValue = customerBillingInformationAddressLine3
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingAddressLine4",
+                            ParameterValue = customerBillingInformationAddressLine4
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingAddressLine5",
+                            ParameterValue = customerBillingInformationAddressLine5
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingTelephoneNumber",
+                            ParameterValue = customerBillingInformationTelephoneNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@billingEmailAddress",
+                            ParameterValue = customerBillingInformationEmailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@creditEnabled",
+                            ParameterValue = customerFinanceCreditEnabled
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerSince",
+                            ParameterValue = customerOverviewCustomerSince
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTierId",
+                            ParameterValue = customerOverviewCustomerTierId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@customerTypeId",
+                            ParameterValue = customerOverviewCustomerTypeId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@emailAddress",
+                            ParameterValue = customerOverviewEmailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@firstName",
+                            ParameterValue = customerOverviewFirstName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@globalParentCustomer",
+                            ParameterValue = customerOverviewWillBeGlobalParent
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@lastName",
+                            ParameterValue = customerOverviewLastName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@paymentCurrencyId",
+                            ParameterValue = customerFinancePaymentCurrencyId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@paymentDays",
+                            ParameterValue = customerFinancePaymentDays
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@salesSubRegionId",
+                            ParameterValue = customerOverviewSalesSubRegionId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingFirstName",
+                            ParameterValue = customerShippingInformationFirstName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingLastName",
+                            ParameterValue = customerShippingInformationLastName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingAddressLine1",
+                            ParameterValue = customerShippingInformationAddressLine1
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingAddressLine3",
+                            ParameterValue = customerShippingInformationAddressLine3
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingAddressLine4",
+                            ParameterValue = customerShippingInformationAddressLine4
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingAddressLine5",
+                            ParameterValue = customerShippingInformationAddressLine5
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingTelephoneNumber",
+                            ParameterValue = customerShippingInformationTelephoneNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@shippingEmailAddress",
+                            ParameterValue = customerShippingInformationEmailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@telephoneNumber",
+                            ParameterValue = customerOverviewTelephoneNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@topParentCustomer",
+                            ParameterValue = customerOverviewWillBeTopParent
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@vatNumber",
+                            ParameterValue = customerFinanceVATNumber
+                        },
+                };
+
+                if (!string.IsNullOrEmpty(customerOverviewCompanyName))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@companyName",
+                        ParameterValue = customerOverviewCompanyName
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@billingAddressLine2",
+                        ParameterValue = customerBillingInformationAddressLine2
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@billingCompanyName",
+                        ParameterValue = customerBillingInformationCompanyName
+                    });
+                }
+
+                if (customerOverviewExistingGlobalParentCustomerId != null && customerOverviewExistingGlobalParentCustomerId != Guid.Empty)
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@globalParentCustomerId",
+                        ParameterValue = customerOverviewExistingGlobalParentCustomerId
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@shippingAddressLine2",
+                        ParameterValue = customerShippingInformationAddressLine2
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@shippingCompanyName",
+                        ParameterValue = customerShippingInformationCompanyName
+                    });
+                }
+
+                if (customerOverviewExistingTopParentCustomerId != null && customerOverviewExistingTopParentCustomerId != Guid.Empty)
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@topParentCustomerId",
+                        ParameterValue = customerOverviewExistingTopParentCustomerId
+                    });
+                }
+
+                string storedProcedureName = "[dbo].[spCreateCustomer]";
+                string operationType = "create";
+
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                this.Close();
+            }
         }
     }
 }

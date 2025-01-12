@@ -6,7 +6,7 @@
     [AccountManagerId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTierId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTypeId] UNIQUEIDENTIFIER NOT NULL,
-    [SalesRegionId] UNIQUEIDENTIFIER NOT NULL,
+    [SalesSubRegionId] UNIQUEIDENTIFIER NOT NULL,
     [FirstName] NVARCHAR(30) NOT NULL,
     [LastName] NVARCHAR(30) NOT NULL,
     [CompanyName] NVARCHAR(50) NULL,
@@ -48,7 +48,7 @@
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
     CONSTRAINT [FK_Customer_CustomerType] FOREIGN KEY ([CustomerTypeId]) REFERENCES [dbo].[CustomerType]([CustomerTypeId]),
-    CONSTRAINT [FK_Customer_SalesRegion] FOREIGN KEY ([SalesRegionId]) REFERENCES [dbo].[SalesRegion]([SalesRegionId])
+    CONSTRAINT [FK_Customer_SalesSubRegion] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId])
 )
 GO
 

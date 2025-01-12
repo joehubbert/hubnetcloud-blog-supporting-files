@@ -9,6 +9,7 @@ SELECT
 [Customer Tier],
 [Customer Type],
 [Sales Region],
+[Sales Sub Region],
 [First Name],
 [Last Name],
 [Company Name],

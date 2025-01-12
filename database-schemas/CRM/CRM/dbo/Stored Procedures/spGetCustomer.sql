@@ -13,6 +13,8 @@ SELECT
 [Customer Type],
 [Sales Region],
 [Sales Region Id],
+[Sales Sub Region],
+[Sales Sub Region Id],
 [First Name],
 [Last Name],
 [Company Name],

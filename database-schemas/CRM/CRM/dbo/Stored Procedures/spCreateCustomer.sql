@@ -22,7 +22,7 @@
     @globalParentCustomerId UNIQUEIDENTIFIER = NULL,
     @lastName NVARCHAR(30),
     @paymentDays TINYINT,
-    @salesRegionId UNIQUEIDENTIFIER,
+    @salesSubRegionId UNIQUEIDENTIFIER,
     @shippingFirstName NVARCHAR(20),
     @shippingLastName NVARCHAR(30),
     @shippingCompanyName NVARCHAR(50) = NULL,
@@ -45,7 +45,7 @@ CREATE TABLE #CustomerTemp
     [AccountManagerId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTierId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTypeId] UNIQUEIDENTIFIER NOT NULL,
-    [SalesRegionId] UNIQUEIDENTIFIER NOT NULL,
+    [SalesSubRegionId] UNIQUEIDENTIFIER NOT NULL,
     [FirstName] NVARCHAR(30) NOT NULL,
     [LastName] NVARCHAR(30) NOT NULL,
     [CompanyName] NVARCHAR(50) NULL,
@@ -82,7 +82,7 @@ CREATE TABLE #CustomerTemp
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
-    CONSTRAINT [FK_Customer_SalesRegion] FOREIGN KEY ([SalesRegionId]) REFERENCES [dbo].[SalesRegion]([SalesRegionId])
+    CONSTRAINT [FK_Customer_SalesSubRegion] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId])
 )
 
 INSERT INTO #CustomerTemp
@@ -92,7 +92,7 @@ INSERT INTO #CustomerTemp
     [AccountManagerId],
     [CustomerTierId],
     [CustomerTypeId],
-    [SalesRegionId],
+    [SalesSubRegionId],
     [FirstName],
     [LastName],
     [CompanyName],
@@ -132,7 +132,7 @@ VALUES
     @accountManagerId,
     @customerTierId,
     @customerTypeId,
-    @salesRegionId,
+    @salesSubRegionId,
     @firstName,
     @lastName,
     @companyName,
@@ -229,7 +229,7 @@ AND target.[TopParentCustomerId] = source.[TopParentCustomerId]
 AND target.[AccountManagerId] = source.[AccountManagerId]
 AND target.[CustomerTierId] = source.[CustomerTierId]
 AND target.[CustomerTypeId] = source.[CustomerTypeId]
-AND target.[SalesRegionId] = source.[SalesRegionId]
+AND target.[SalesSubRegionId] = source.[SalesSubRegionId]
 AND target.[FirstName] = source.[FirstName]
 AND target.[LastName] = source.[LastName]
 AND target.[CompanyName] = source.[CompanyName]
@@ -269,7 +269,7 @@ INSERT
     [AccountManagerId],
     [CustomerTierId],
     [CustomerTypeId],
-    [SalesRegionId],
+    [SalesSubRegionId],
     [FirstName],
     [LastName],
     [CompanyName],
@@ -309,7 +309,7 @@ VALUES
     source.[AccountManagerId],
     source.[CustomerTierId],
     source.[CustomerTypeId],
-    source.[SalesRegionId],
+    source.[SalesSubRegionId],
     source.[FirstName],
     source.[LastName],
     source.[CompanyName],

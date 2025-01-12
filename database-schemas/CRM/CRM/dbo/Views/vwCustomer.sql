@@ -12,6 +12,8 @@ CTI.[CustomerTierId] AS [Customer Tier Id],
 CTY.[CustomerType] AS [Customer Type],
 SR.[SalesRegion] AS [Sales Region],
 SR.[SalesRegionId] AS [Sales Region Id],
+SSR.[SalesSubRegion] AS [Sales Sub Region],
+SSR.[SalesSubRegionId] AS [Sales Sub Region Id],
 C.[FirstName] AS [First Name],
 C.[LastName] AS [Last Name],
 C.[CompanyName] AS [Company Name],
@@ -57,7 +59,8 @@ INNER JOIN [dbo].[CustomerType] CTY ON C.[CustomerTypeId] = CTY.[CustomerTypeId]
 INNER JOIN [dbo].[Order] O ON C.[CustomerId] = O.[CustomerId]
 INNER JOIN [dbo].[OrderStatus] OS ON O.[OrderStatusId] = OS.[OrderStatusId]
 INNER JOIN [dbo].[PaymentMethod] PM ON O.[PaymentMethodId] = PM.[PaymentMethodId]
-INNER JOIN [dbo].[SalesRegion] SR ON C.[SalesRegionId] = SR.[SalesRegionId]
+INNER JOIN [dbo].[SalesSubRegion] SSR ON C.[SalesSubRegionId] = SSR.[SalesSubRegionId]
+INNER JOIN [dbo].[SalesRegion] SR ON SSR.[SalesRegionId] = SR.[SalesRegionId]
 INNER JOIN [dbo].[vwOrderValue] VOV ON O.[OrderId] = VOV.[OrderId]
 GROUP BY
 C.[GlobalParentCustomerId],
@@ -72,6 +75,8 @@ CTI.[CustomerTierId],
 CTY.[CustomerType],
 SR.[SalesRegion],
 SR.[SalesRegionId],
+SSR.[SalesSubRegion],
+SSR.[SalesSubRegionId],
 C.[FirstName],
 C.[LastName],
 C.[CompanyName],

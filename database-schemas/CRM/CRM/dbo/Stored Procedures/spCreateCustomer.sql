@@ -43,7 +43,7 @@
 AS
 CREATE TABLE #CustomerTemp
 (
-    [GlobalCustomerParentId] UNIQUEIDENTIFIER NULL,
+    [GlobalParentCustomerId] UNIQUEIDENTIFIER NULL,
     [TopParentCustomerId] UNIQUEIDENTIFIER NULL,
     [AccountManagerId] UNIQUEIDENTIFIER NOT NULL,
     [CustomerTierId] UNIQUEIDENTIFIER NOT NULL,
@@ -95,7 +95,7 @@ CREATE TABLE #CustomerTemp
 
 INSERT INTO #CustomerTemp
 (
-    [GlobalCustomerParentId],
+    [GlobalParentCustomerId],
     [TopParentCustomerId],
     [AccountManagerId],
     [CustomerTierId],

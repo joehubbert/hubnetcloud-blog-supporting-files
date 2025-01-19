@@ -28,14 +28,106 @@
         /// </summary>
         private void InitializeComponent()
         {
+            createCustomerNoteTitleLabel = new Label();
+            createCustomerNoteCustomerNoteTypeComboBox = new ComboBox();
+            createCustomerNoteCustomerNoteTitleTextbox = new TextBox();
+            createCustomerNoteCustomerNoteTextbox = new TextBox();
+            createCustomerNoteCustomerNoteTitleLabel = new Label();
+            createCustomerNoteCustomerNoteTypeLabel = new Label();
+            createCustomerNoteCustomerNoteLabel = new Label();
+            createCustomerSubmitButton = new Button();
             SuspendLayout();
+            // 
+            // createCustomerNoteTitleLabel
+            // 
+            createCustomerNoteTitleLabel.AutoSize = true;
+            createCustomerNoteTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createCustomerNoteTitleLabel.Location = new Point(13, 9);
+            createCustomerNoteTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            createCustomerNoteTitleLabel.Name = "createCustomerNoteTitleLabel";
+            createCustomerNoteTitleLabel.Size = new Size(267, 32);
+            createCustomerNoteTitleLabel.TabIndex = 7;
+            createCustomerNoteTitleLabel.Text = "Create Customer Note";
+            // 
+            // createCustomerNoteCustomerNoteTypeComboBox
+            // 
+            createCustomerNoteCustomerNoteTypeComboBox.FormattingEnabled = true;
+            createCustomerNoteCustomerNoteTypeComboBox.Location = new Point(188, 104);
+            createCustomerNoteCustomerNoteTypeComboBox.Name = "createCustomerNoteCustomerNoteTypeComboBox";
+            createCustomerNoteCustomerNoteTypeComboBox.Size = new Size(524, 28);
+            createCustomerNoteCustomerNoteTypeComboBox.TabIndex = 8;
+            // 
+            // createCustomerNoteCustomerNoteTitleTextbox
+            // 
+            createCustomerNoteCustomerNoteTitleTextbox.Location = new Point(188, 65);
+            createCustomerNoteCustomerNoteTitleTextbox.MaxLength = 50;
+            createCustomerNoteCustomerNoteTitleTextbox.Name = "createCustomerNoteCustomerNoteTitleTextbox";
+            createCustomerNoteCustomerNoteTitleTextbox.Size = new Size(524, 27);
+            createCustomerNoteCustomerNoteTitleTextbox.TabIndex = 9;
+            // 
+            // createCustomerNoteCustomerNoteTextbox
+            // 
+            createCustomerNoteCustomerNoteTextbox.Location = new Point(188, 147);
+            createCustomerNoteCustomerNoteTextbox.MaxLength = 1073741823;
+            createCustomerNoteCustomerNoteTextbox.Multiline = true;
+            createCustomerNoteCustomerNoteTextbox.Name = "createCustomerNoteCustomerNoteTextbox";
+            createCustomerNoteCustomerNoteTextbox.Size = new Size(524, 259);
+            createCustomerNoteCustomerNoteTextbox.TabIndex = 10;
+            // 
+            // createCustomerNoteCustomerNoteTitleLabel
+            // 
+            createCustomerNoteCustomerNoteTitleLabel.AutoSize = true;
+            createCustomerNoteCustomerNoteTitleLabel.Location = new Point(40, 68);
+            createCustomerNoteCustomerNoteTitleLabel.Name = "createCustomerNoteCustomerNoteTitleLabel";
+            createCustomerNoteCustomerNoteTitleLabel.Size = new Size(142, 20);
+            createCustomerNoteCustomerNoteTitleLabel.TabIndex = 11;
+            createCustomerNoteCustomerNoteTitleLabel.Text = "Customer Note Title";
+            // 
+            // createCustomerNoteCustomerNoteTypeLabel
+            // 
+            createCustomerNoteCustomerNoteTypeLabel.AutoSize = true;
+            createCustomerNoteCustomerNoteTypeLabel.Location = new Point(40, 107);
+            createCustomerNoteCustomerNoteTypeLabel.Name = "createCustomerNoteCustomerNoteTypeLabel";
+            createCustomerNoteCustomerNoteTypeLabel.Size = new Size(144, 20);
+            createCustomerNoteCustomerNoteTypeLabel.TabIndex = 12;
+            createCustomerNoteCustomerNoteTypeLabel.Text = "Customer Note Type";
+            // 
+            // createCustomerNoteCustomerNoteLabel
+            // 
+            createCustomerNoteCustomerNoteLabel.AutoSize = true;
+            createCustomerNoteCustomerNoteLabel.Location = new Point(73, 150);
+            createCustomerNoteCustomerNoteLabel.Name = "createCustomerNoteCustomerNoteLabel";
+            createCustomerNoteCustomerNoteLabel.Size = new Size(109, 20);
+            createCustomerNoteCustomerNoteLabel.TabIndex = 13;
+            createCustomerNoteCustomerNoteLabel.Text = "Customer Note";
+            // 
+            // createCustomerSubmitButton
+            // 
+            createCustomerSubmitButton.FlatStyle = FlatStyle.Flat;
+            createCustomerSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createCustomerSubmitButton.Location = new Point(274, 420);
+            createCustomerSubmitButton.Margin = new Padding(4);
+            createCustomerSubmitButton.Name = "createCustomerSubmitButton";
+            createCustomerSubmitButton.Size = new Size(198, 66);
+            createCustomerSubmitButton.TabIndex = 51;
+            createCustomerSubmitButton.Text = "Submit";
+            createCustomerSubmitButton.UseVisualStyleBackColor = true;
+            createCustomerSubmitButton.Click += createCustomerSubmitButton_Click;
             // 
             // CreateCustomerNote
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(737, 499);
+            Controls.Add(createCustomerSubmitButton);
+            Controls.Add(createCustomerNoteCustomerNoteLabel);
+            Controls.Add(createCustomerNoteCustomerNoteTypeLabel);
+            Controls.Add(createCustomerNoteCustomerNoteTitleLabel);
+            Controls.Add(createCustomerNoteCustomerNoteTextbox);
+            Controls.Add(createCustomerNoteCustomerNoteTitleTextbox);
+            Controls.Add(createCustomerNoteCustomerNoteTypeComboBox);
+            Controls.Add(createCustomerNoteTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(3, 4, 3, 4);
@@ -44,8 +136,18 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create Customer Note";
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label createCustomerNoteTitleLabel;
+        private ComboBox createCustomerNoteCustomerNoteTypeComboBox;
+        private TextBox createCustomerNoteCustomerNoteTitleTextbox;
+        private TextBox createCustomerNoteCustomerNoteTextbox;
+        private Label createCustomerNoteCustomerNoteTitleLabel;
+        private Label createCustomerNoteCustomerNoteTypeLabel;
+        private Label createCustomerNoteCustomerNoteLabel;
+        private Button createCustomerSubmitButton;
     }
 }

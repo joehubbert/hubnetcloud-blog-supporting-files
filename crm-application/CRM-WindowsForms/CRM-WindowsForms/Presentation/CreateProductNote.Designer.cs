@@ -45,7 +45,7 @@
             createProductNoteTitleLabel.Location = new Point(13, 9);
             createProductNoteTitleLabel.Margin = new Padding(4, 0, 4, 0);
             createProductNoteTitleLabel.Name = "createProductNoteTitleLabel";
-            createProductNoteTitleLabel.Size = new Size(252, 32);
+            createProductNoteTitleLabel.Size = new Size(248, 32);
             createProductNoteTitleLabel.TabIndex = 7;
             createProductNoteTitleLabel.Text = "Create Product Note";
             // 
@@ -79,7 +79,7 @@
             createProductNoteProductNoteTitleLabel.AutoSize = true;
             createProductNoteProductNoteTitleLabel.Location = new Point(40, 68);
             createProductNoteProductNoteTitleLabel.Name = "createProductNoteProductNoteTitleLabel";
-            createProductNoteProductNoteTitleLabel.Size = new Size(134, 20);
+            createProductNoteProductNoteTitleLabel.Size = new Size(130, 20);
             createProductNoteProductNoteTitleLabel.TabIndex = 11;
             createProductNoteProductNoteTitleLabel.Text = "Product Note Title";
             // 
@@ -88,7 +88,7 @@
             createProductNoteProductNoteTypeLabel.AutoSize = true;
             createProductNoteProductNoteTypeLabel.Location = new Point(40, 107);
             createProductNoteProductNoteTypeLabel.Name = "createProductNoteProductNoteTypeLabel";
-            createProductNoteProductNoteTypeLabel.Size = new Size(136, 20);
+            createProductNoteProductNoteTypeLabel.Size = new Size(132, 20);
             createProductNoteProductNoteTypeLabel.TabIndex = 12;
             createProductNoteProductNoteTypeLabel.Text = "Product Note Type";
             // 
@@ -97,7 +97,7 @@
             createProductNoteProductNoteLabel.AutoSize = true;
             createProductNoteProductNoteLabel.Location = new Point(73, 150);
             createProductNoteProductNoteLabel.Name = "createProductNoteProductNoteLabel";
-            createProductNoteProductNoteLabel.Size = new Size(101, 20);
+            createProductNoteProductNoteLabel.Size = new Size(97, 20);
             createProductNoteProductNoteLabel.TabIndex = 13;
             createProductNoteProductNoteLabel.Text = "Product Note";
             // 
@@ -118,7 +118,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.MediumAquamarine;
+            BackColor = Color.SkyBlue;
             ClientSize = new Size(737, 499);
             Controls.Add(createProductSubmitButton);
             Controls.Add(createProductNoteProductNoteLabel);

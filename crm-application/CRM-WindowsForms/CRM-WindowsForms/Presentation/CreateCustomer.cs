@@ -26,12 +26,13 @@ namespace CRM_WindowsForms.Presentation
             createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewGlobalParentValidation_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
             createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
-            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged);
-            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewGlobalParentValidation_CheckedChanged);
-            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewTopParentValidation_CheckedChanged);
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
             createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
@@ -388,8 +389,57 @@ namespace CRM_WindowsForms.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private void CreateCustomerOverviewWillBeParentInCustomerHierarchyRadioButton_CheckedChanged(object? sender, EventArgs e)
+        private void CreateCustomerOverviewRadioButtonValidation_CheckedChanged(object? sender, EventArgs e)
         {
+            if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
+            {
+                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Enabled = false;
+                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Enabled = false;
+                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Checked = false;
+                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+
+            }
+            else if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked && createCustomerOverviewWillBeTopParentRadioButton.Checked)
+            {
+                MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+            }
+
+
+            if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
+            {
+                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                if (selectedCustomerType != "Business - Multinational")
+                {
+                    MessageBox.Show("The 'Global Parent' option can only be selected for a new customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                }
+            }
+            else if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked && createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            {
+                MessageBox.Show("Cannot select 'Global Parent' as new customer parent tyoe when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+            }
+
+            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            {
+                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                if (selectedCustomerType != "Business - Multinational")
+                {
+                    MessageBox.Show("'Business - Multinational' is can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                    createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked = false;
+                }
+            }
+
             if (createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked)
             {
                 createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
@@ -402,42 +452,11 @@ namespace CRM_WindowsForms.Presentation
                 createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = true;
                 createCustomerOverviewWillBeTopParentRadioButton.Enabled = true;
             }
-        }
 
-        private void CreateCustomerOverviewGlobalParentValidation_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
+            if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
             {
-                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
-                if (selectedCustomerType != "Business - Multinational")
-                {
-                    MessageBox.Show("The 'Global Parent' option can only be selected for a new customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                }
-            }
-
-            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
-            {
-                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
-                if (selectedCustomerType != "Business - Multinational")
-                {
-                    MessageBox.Show("'Business - Multinational' is can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                }
-
-                MessageBox.Show("Cannot select 'Global Parent' as new customer parent tyoe when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
-            }
-        }
-
-        private void CreateCustomerOverviewTopParentValidation_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
-            {
-                MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Enabled = true;
+                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Enabled = true;
             }
         }
 

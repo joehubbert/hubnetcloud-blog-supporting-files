@@ -150,7 +150,7 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Update details were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
             }

@@ -615,121 +615,121 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyOverviewEmailAddress",
+                    Name = "CustomerOverviewEmailAddress",
                     Value = customerOverviewEmailAddress,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyOverviewFirstName",
+                    Name = "CustomerOverviewFirstName",
                     Value = customerOverviewFirstName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyOverviewLastName",
+                    Name = "CustomerOverviewLastName",
                     Value = customerOverviewLastName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyOverviewTelephoneNumber",
+                    Name = "CustomerOverviewTelephoneNumber",
                     Value = customerOverviewTelephoneNumber,
                     MaxLength = 13
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationAddressLine1",
+                    Name = "CustomerBillingInformationAddressLine1",
                     Value = customerBillingInformationAddressLine1,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationAddressLine3",
+                    Name = "CustomerBillingInformationAddressLine3",
                     Value = customerBillingInformationAddressLine3,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationAddressLine4",
+                    Name = "CustomerBillingInformationAddressLine4",
                     Value = customerBillingInformationAddressLine4,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationAddressLine5",
+                    Name = "CustomerBillingInformationAddressLine5",
                     Value = customerBillingInformationAddressLine5,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationEmailAddress",
+                    Name = "CustomerBillingInformationEmailAddress",
                     Value = customerBillingInformationEmailAddress,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationFirstName",
+                    Name = "CustomerBillingInformationFirstName",
                     Value = customerBillingInformationFirstName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationLastName",
+                    Name = "CustomerBillingInformationLastName",
                     Value = customerBillingInformationLastName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationTelephoneNumber",
+                    Name = "CustomerBillingInformationTelephoneNumber",
                     Value = customerBillingInformationTelephoneNumber,
                     MaxLength = 13
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationAddressLine1",
+                    Name = "CustomerShippingInformationAddressLine1",
                     Value = customerShippingInformationAddressLine1,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationAddressLine3",
+                    Name = "CustomerShippingInformationAddressLine3",
                     Value = customerShippingInformationAddressLine3,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationAddressLine4",
+                    Name = "CustomerShippingInformationAddressLine4",
                     Value = customerShippingInformationAddressLine4,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationAddressLine5",
+                    Name = "CustomerShippingInformationAddressLine5",
                     Value = customerShippingInformationAddressLine5,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationEmailAddress",
+                    Name = "CustomerShippingInformationEmailAddress",
                     Value = customerShippingInformationEmailAddress,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationFirstName",
+                    Name = "CustomerShippingInformationFirstName",
                     Value = customerShippingInformationFirstName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationLastName",
+                    Name = "CustomerShippingInformationLastName",
                     Value = customerShippingInformationLastName,
                     MaxLength = 50
                 },
                 new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationTelephoneNumber",
+                    Name = "CustomerShippingInformationTelephoneNumber",
                     Value = customerShippingInformationTelephoneNumber,
                     MaxLength = 13
                 }
@@ -739,7 +739,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 stringsToValidate.Add(new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyOverviewCompanyName",
+                    Name = "CustomerOverviewCompanyName",
                     Value = customerOverviewCompanyName,
                     MaxLength = 50
                 });
@@ -749,7 +749,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 stringsToValidate.Add(new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationAddressLine2",
+                    Name = "CustomerBillingInformationAddressLine2",
                     Value = customerBillingInformationAddressLine2,
                     MaxLength = 50
                 });
@@ -759,7 +759,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 stringsToValidate.Add(new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyBillingInformationCompanyName",
+                    Name = "CustomerBillingInformationCompanyName",
                     Value = customerBillingInformationCompanyName,
                     MaxLength = 50
                 });
@@ -769,7 +769,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 stringsToValidate.Add(new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationAddressLine2",
+                    Name = "CustomerShippingInformationAddressLine2",
                     Value = customerShippingInformationAddressLine2,
                     MaxLength = 50
                 });
@@ -779,7 +779,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 stringsToValidate.Add(new ValidateStringInput.StringProperty
                 {
-                    Name = "CompanyShippingInformationCompanyName",
+                    Name = "CustomerShippingInformationCompanyName",
                     Value = customerShippingInformationCompanyName,
                     MaxLength = 50
                 });

@@ -105,7 +105,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load customer type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Customer Type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -142,7 +142,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load customer tier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Customer Tier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -177,7 +177,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load sales region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Sales Region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -265,7 +265,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load account manager data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Account Manager data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -344,7 +344,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load global parent customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Global Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -380,7 +380,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load top parent customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Top Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -540,7 +540,7 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

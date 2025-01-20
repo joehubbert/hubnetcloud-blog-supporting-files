@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateSupplier]
     @activeStatus BIT,
 	@addressLine1 NVARCHAR(50),
-    @addressLine2 NVARCHAR(50),
+    @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
     @addressLine5 NVARCHAR(50),

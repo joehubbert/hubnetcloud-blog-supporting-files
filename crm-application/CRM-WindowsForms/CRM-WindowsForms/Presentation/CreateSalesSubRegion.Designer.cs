@@ -55,7 +55,7 @@
             createSalesSubRegionSalesSubRegionTextbox.MaxLength = 50;
             createSalesSubRegionSalesSubRegionTextbox.Name = "createSalesSubRegionSalesSubRegionTextbox";
             createSalesSubRegionSalesSubRegionTextbox.Size = new Size(284, 27);
-            createSalesSubRegionSalesSubRegionTextbox.TabIndex = 0;
+            createSalesSubRegionSalesSubRegionTextbox.TabIndex = 1;
             // 
             // createSalesSubRegionSalesSubRegionLabel
             // 
@@ -75,7 +75,7 @@
             createSalesSubRegionSubmitButton.Margin = new Padding(4);
             createSalesSubRegionSubmitButton.Name = "createSalesSubRegionSubmitButton";
             createSalesSubRegionSubmitButton.Size = new Size(198, 66);
-            createSalesSubRegionSubmitButton.TabIndex = 2;
+            createSalesSubRegionSubmitButton.TabIndex = 3;
             createSalesSubRegionSubmitButton.Text = "Submit";
             createSalesSubRegionSubmitButton.UseVisualStyleBackColor = true;
             createSalesSubRegionSubmitButton.Click += createSalesSubRegionSubmitButton_Click;
@@ -90,7 +90,7 @@
             createSalesSubRegionActiveStatusCheckbox.Margin = new Padding(5);
             createSalesSubRegionActiveStatusCheckbox.Name = "createSalesSubRegionActiveStatusCheckbox";
             createSalesSubRegionActiveStatusCheckbox.Size = new Size(187, 24);
-            createSalesSubRegionActiveStatusCheckbox.TabIndex = 1;
+            createSalesSubRegionActiveStatusCheckbox.TabIndex = 2;
             createSalesSubRegionActiveStatusCheckbox.Text = "Active Sales Sub Region";
             createSalesSubRegionActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -111,7 +111,7 @@
             createSalesSubRegionSalesRegionComboBox.Location = new Point(164, 68);
             createSalesSubRegionSalesRegionComboBox.Name = "createSalesSubRegionSalesRegionComboBox";
             createSalesSubRegionSalesRegionComboBox.Size = new Size(284, 28);
-            createSalesSubRegionSalesRegionComboBox.TabIndex = 21;
+            createSalesSubRegionSalesRegionComboBox.TabIndex = 0;
             // 
             // CreateSalesSubRegion
             // 

@@ -126,6 +126,7 @@
             // 
             customerTierDetailLastUpdatedByTextbox.Enabled = false;
             customerTierDetailLastUpdatedByTextbox.Location = new Point(860, 218);
+            customerTierDetailLastUpdatedByTextbox.MaxLength = 50;
             customerTierDetailLastUpdatedByTextbox.Name = "customerTierDetailLastUpdatedByTextbox";
             customerTierDetailLastUpdatedByTextbox.ReadOnly = true;
             customerTierDetailLastUpdatedByTextbox.Size = new Size(370, 27);
@@ -135,6 +136,7 @@
             // 
             customerTierDetailCreatedByTextbox.Enabled = false;
             customerTierDetailCreatedByTextbox.Location = new Point(860, 138);
+            customerTierDetailCreatedByTextbox.MaxLength = 50;
             customerTierDetailCreatedByTextbox.Name = "customerTierDetailCreatedByTextbox";
             customerTierDetailCreatedByTextbox.ReadOnly = true;
             customerTierDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -144,6 +146,7 @@
             // 
             customerTierDetailLastUpdatedTimestampTextbox.Enabled = false;
             customerTierDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
+            customerTierDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             customerTierDetailLastUpdatedTimestampTextbox.Name = "customerTierDetailLastUpdatedTimestampTextbox";
             customerTierDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             customerTierDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -153,6 +156,7 @@
             // 
             customerTierDetailCreatedTimestampTextbox.Enabled = false;
             customerTierDetailCreatedTimestampTextbox.Location = new Point(860, 178);
+            customerTierDetailCreatedTimestampTextbox.MaxLength = 50;
             customerTierDetailCreatedTimestampTextbox.Name = "customerTierDetailCreatedTimestampTextbox";
             customerTierDetailCreatedTimestampTextbox.ReadOnly = true;
             customerTierDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -162,28 +166,28 @@
             // 
             customerTierDetailCustomerTierDescriptionTextbox.Enabled = false;
             customerTierDetailCustomerTierDescriptionTextbox.Location = new Point(235, 217);
-            customerTierDetailCustomerTierDescriptionTextbox.MaxLength = 2;
+            customerTierDetailCustomerTierDescriptionTextbox.MaxLength = 50;
             customerTierDetailCustomerTierDescriptionTextbox.Name = "customerTierDetailCustomerTierDescriptionTextbox";
             customerTierDetailCustomerTierDescriptionTextbox.Size = new Size(370, 27);
-            customerTierDetailCustomerTierDescriptionTextbox.TabIndex = 19;
+            customerTierDetailCustomerTierDescriptionTextbox.TabIndex = 2;
             // 
             // customerTierDetailCustomerTierIdTextbox
             // 
             customerTierDetailCustomerTierIdTextbox.Location = new Point(235, 138);
-            customerTierDetailCustomerTierIdTextbox.MaxLength = 0;
+            customerTierDetailCustomerTierIdTextbox.MaxLength = 36;
             customerTierDetailCustomerTierIdTextbox.Name = "customerTierDetailCustomerTierIdTextbox";
             customerTierDetailCustomerTierIdTextbox.ReadOnly = true;
             customerTierDetailCustomerTierIdTextbox.Size = new Size(370, 27);
-            customerTierDetailCustomerTierIdTextbox.TabIndex = 20;
+            customerTierDetailCustomerTierIdTextbox.TabIndex = 0;
             // 
             // customerTierDetailCustomerTierCodeTextbox
             // 
             customerTierDetailCustomerTierCodeTextbox.Enabled = false;
             customerTierDetailCustomerTierCodeTextbox.Location = new Point(235, 177);
-            customerTierDetailCustomerTierCodeTextbox.MaxLength = 1;
+            customerTierDetailCustomerTierCodeTextbox.MaxLength = 3;
             customerTierDetailCustomerTierCodeTextbox.Name = "customerTierDetailCustomerTierCodeTextbox";
             customerTierDetailCustomerTierCodeTextbox.Size = new Size(64, 27);
-            customerTierDetailCustomerTierCodeTextbox.TabIndex = 21;
+            customerTierDetailCustomerTierCodeTextbox.TabIndex = 1;
             // 
             // customerTierDetailToggleEditModeButton
             // 

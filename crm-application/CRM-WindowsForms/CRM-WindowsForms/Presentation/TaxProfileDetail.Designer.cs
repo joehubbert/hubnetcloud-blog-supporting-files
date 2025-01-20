@@ -128,6 +128,7 @@
             // 
             taxProfileDetailLastUpdatedByTextbox.Enabled = false;
             taxProfileDetailLastUpdatedByTextbox.Location = new Point(860, 218);
+            taxProfileDetailLastUpdatedByTextbox.MaxLength = 50;
             taxProfileDetailLastUpdatedByTextbox.Name = "taxProfileDetailLastUpdatedByTextbox";
             taxProfileDetailLastUpdatedByTextbox.ReadOnly = true;
             taxProfileDetailLastUpdatedByTextbox.Size = new Size(370, 27);
@@ -137,6 +138,7 @@
             // 
             taxProfileDetailCreatedByTextbox.Enabled = false;
             taxProfileDetailCreatedByTextbox.Location = new Point(860, 138);
+            taxProfileDetailCreatedByTextbox.MaxLength = 50;
             taxProfileDetailCreatedByTextbox.Name = "taxProfileDetailCreatedByTextbox";
             taxProfileDetailCreatedByTextbox.ReadOnly = true;
             taxProfileDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -146,6 +148,7 @@
             // 
             taxProfileDetailLastUpdatedTimestampTextbox.Enabled = false;
             taxProfileDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
+            taxProfileDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             taxProfileDetailLastUpdatedTimestampTextbox.Name = "taxProfileDetailLastUpdatedTimestampTextbox";
             taxProfileDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             taxProfileDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -155,6 +158,7 @@
             // 
             taxProfileDetailCreatedTimestampTextbox.Enabled = false;
             taxProfileDetailCreatedTimestampTextbox.Location = new Point(860, 178);
+            taxProfileDetailCreatedTimestampTextbox.MaxLength = 50;
             taxProfileDetailCreatedTimestampTextbox.Name = "taxProfileDetailCreatedTimestampTextbox";
             taxProfileDetailCreatedTimestampTextbox.ReadOnly = true;
             taxProfileDetailCreatedTimestampTextbox.Size = new Size(370, 27);

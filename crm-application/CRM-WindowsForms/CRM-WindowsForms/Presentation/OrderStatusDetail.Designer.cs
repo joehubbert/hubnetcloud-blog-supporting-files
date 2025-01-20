@@ -118,6 +118,7 @@
             // 
             orderStatusDetailCreatedTimestampTextbox.Enabled = false;
             orderStatusDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            orderStatusDetailCreatedTimestampTextbox.MaxLength = 50;
             orderStatusDetailCreatedTimestampTextbox.Name = "orderStatusDetailCreatedTimestampTextbox";
             orderStatusDetailCreatedTimestampTextbox.ReadOnly = true;
             orderStatusDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             orderStatusDetailLastUpdatedTimestampTextbox.Enabled = false;
             orderStatusDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            orderStatusDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             orderStatusDetailLastUpdatedTimestampTextbox.Name = "orderStatusDetailLastUpdatedTimestampTextbox";
             orderStatusDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             orderStatusDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             orderStatusDetailCreatedByTextbox.Enabled = false;
             orderStatusDetailCreatedByTextbox.Location = new Point(849, 138);
+            orderStatusDetailCreatedByTextbox.MaxLength = 50;
             orderStatusDetailCreatedByTextbox.Name = "orderStatusDetailCreatedByTextbox";
             orderStatusDetailCreatedByTextbox.ReadOnly = true;
             orderStatusDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             orderStatusDetailLastUpdatedByTextbox.Enabled = false;
             orderStatusDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            orderStatusDetailLastUpdatedByTextbox.MaxLength = 50;
             orderStatusDetailLastUpdatedByTextbox.Name = "orderStatusDetailLastUpdatedByTextbox";
             orderStatusDetailLastUpdatedByTextbox.ReadOnly = true;
             orderStatusDetailLastUpdatedByTextbox.Size = new Size(370, 27);

@@ -55,7 +55,7 @@
             createProductNoteProductNoteTypeComboBox.Location = new Point(188, 104);
             createProductNoteProductNoteTypeComboBox.Name = "createProductNoteProductNoteTypeComboBox";
             createProductNoteProductNoteTypeComboBox.Size = new Size(524, 28);
-            createProductNoteProductNoteTypeComboBox.TabIndex = 8;
+            createProductNoteProductNoteTypeComboBox.TabIndex = 1;
             // 
             // createProductNoteProductNoteTitleTextbox
             // 
@@ -63,7 +63,7 @@
             createProductNoteProductNoteTitleTextbox.MaxLength = 50;
             createProductNoteProductNoteTitleTextbox.Name = "createProductNoteProductNoteTitleTextbox";
             createProductNoteProductNoteTitleTextbox.Size = new Size(524, 27);
-            createProductNoteProductNoteTitleTextbox.TabIndex = 9;
+            createProductNoteProductNoteTitleTextbox.TabIndex = 0;
             // 
             // createProductNoteProductNoteTextbox
             // 
@@ -72,7 +72,7 @@
             createProductNoteProductNoteTextbox.Multiline = true;
             createProductNoteProductNoteTextbox.Name = "createProductNoteProductNoteTextbox";
             createProductNoteProductNoteTextbox.Size = new Size(524, 259);
-            createProductNoteProductNoteTextbox.TabIndex = 10;
+            createProductNoteProductNoteTextbox.TabIndex = 2;
             // 
             // createProductNoteProductNoteTitleLabel
             // 
@@ -109,7 +109,7 @@
             createProductSubmitButton.Margin = new Padding(4);
             createProductSubmitButton.Name = "createProductSubmitButton";
             createProductSubmitButton.Size = new Size(198, 66);
-            createProductSubmitButton.TabIndex = 51;
+            createProductSubmitButton.TabIndex = 3;
             createProductSubmitButton.Text = "Submit";
             createProductSubmitButton.UseVisualStyleBackColor = true;
             createProductSubmitButton.Click += createProductSubmitButton_Click;

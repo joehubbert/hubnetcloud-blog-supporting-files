@@ -132,6 +132,7 @@
             // 
             deliveryMethodDetailLastUpdatedByTextbox.Enabled = false;
             deliveryMethodDetailLastUpdatedByTextbox.Location = new Point(860, 218);
+            deliveryMethodDetailLastUpdatedByTextbox.MaxLength = 50;
             deliveryMethodDetailLastUpdatedByTextbox.Name = "deliveryMethodDetailLastUpdatedByTextbox";
             deliveryMethodDetailLastUpdatedByTextbox.ReadOnly = true;
             deliveryMethodDetailLastUpdatedByTextbox.Size = new Size(370, 27);
@@ -141,6 +142,7 @@
             // 
             deliveryMethodDetailCreatedByTextbox.Enabled = false;
             deliveryMethodDetailCreatedByTextbox.Location = new Point(860, 138);
+            deliveryMethodDetailCreatedByTextbox.MaxLength = 50;
             deliveryMethodDetailCreatedByTextbox.Name = "deliveryMethodDetailCreatedByTextbox";
             deliveryMethodDetailCreatedByTextbox.ReadOnly = true;
             deliveryMethodDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -150,6 +152,7 @@
             // 
             deliveryMethodDetailLastUpdatedTimestampTextbox.Enabled = false;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
+            deliveryMethodDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Name = "deliveryMethodDetailLastUpdatedTimestampTextbox";
             deliveryMethodDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -159,6 +162,7 @@
             // 
             deliveryMethodDetailCreatedTimestampTextbox.Enabled = false;
             deliveryMethodDetailCreatedTimestampTextbox.Location = new Point(860, 178);
+            deliveryMethodDetailCreatedTimestampTextbox.MaxLength = 50;
             deliveryMethodDetailCreatedTimestampTextbox.Name = "deliveryMethodDetailCreatedTimestampTextbox";
             deliveryMethodDetailCreatedTimestampTextbox.ReadOnly = true;
             deliveryMethodDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -264,6 +268,7 @@
             deliveryMethodDetailTaxProfileComboBox.Enabled = false;
             deliveryMethodDetailTaxProfileComboBox.FormattingEnabled = true;
             deliveryMethodDetailTaxProfileComboBox.Location = new Point(243, 298);
+            deliveryMethodDetailTaxProfileComboBox.MaxLength = 50;
             deliveryMethodDetailTaxProfileComboBox.Name = "deliveryMethodDetailTaxProfileComboBox";
             deliveryMethodDetailTaxProfileComboBox.Size = new Size(370, 28);
             deliveryMethodDetailTaxProfileComboBox.TabIndex = 5;

@@ -126,6 +126,7 @@
             // 
             currencyDetailLastUpdatedByTextbox.Enabled = false;
             currencyDetailLastUpdatedByTextbox.Location = new Point(860, 218);
+            currencyDetailLastUpdatedByTextbox.MaxLength = 50;
             currencyDetailLastUpdatedByTextbox.Name = "currencyDetailLastUpdatedByTextbox";
             currencyDetailLastUpdatedByTextbox.ReadOnly = true;
             currencyDetailLastUpdatedByTextbox.Size = new Size(370, 27);
@@ -135,6 +136,7 @@
             // 
             currencyDetailCreatedByTextbox.Enabled = false;
             currencyDetailCreatedByTextbox.Location = new Point(860, 138);
+            currencyDetailCreatedByTextbox.MaxLength = 50;
             currencyDetailCreatedByTextbox.Name = "currencyDetailCreatedByTextbox";
             currencyDetailCreatedByTextbox.ReadOnly = true;
             currencyDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -144,6 +146,7 @@
             // 
             currencyDetailLastUpdatedTimestampTextbox.Enabled = false;
             currencyDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
+            currencyDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             currencyDetailLastUpdatedTimestampTextbox.Name = "currencyDetailLastUpdatedTimestampTextbox";
             currencyDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             currencyDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -153,6 +156,7 @@
             // 
             currencyDetailCreatedTimestampTextbox.Enabled = false;
             currencyDetailCreatedTimestampTextbox.Location = new Point(860, 178);
+            currencyDetailCreatedTimestampTextbox.MaxLength = 50;
             currencyDetailCreatedTimestampTextbox.Name = "currencyDetailCreatedTimestampTextbox";
             currencyDetailCreatedTimestampTextbox.ReadOnly = true;
             currencyDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -180,7 +184,7 @@
             // 
             currencyDetailCurrencyCodeTextbox.Enabled = false;
             currencyDetailCurrencyCodeTextbox.Location = new Point(201, 178);
-            currencyDetailCurrencyCodeTextbox.MaxLength = 1;
+            currencyDetailCurrencyCodeTextbox.MaxLength = 3;
             currencyDetailCurrencyCodeTextbox.Name = "currencyDetailCurrencyCodeTextbox";
             currencyDetailCurrencyCodeTextbox.Size = new Size(64, 27);
             currencyDetailCurrencyCodeTextbox.TabIndex = 1;

@@ -118,6 +118,7 @@
             // 
             customerTypeDetailCreatedTimestampTextbox.Enabled = false;
             customerTypeDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            customerTypeDetailCreatedTimestampTextbox.MaxLength = 50;
             customerTypeDetailCreatedTimestampTextbox.Name = "customerTypeDetailCreatedTimestampTextbox";
             customerTypeDetailCreatedTimestampTextbox.ReadOnly = true;
             customerTypeDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             customerTypeDetailLastUpdatedTimestampTextbox.Enabled = false;
             customerTypeDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            customerTypeDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             customerTypeDetailLastUpdatedTimestampTextbox.Name = "customerTypeDetailLastUpdatedTimestampTextbox";
             customerTypeDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             customerTypeDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             customerTypeDetailCreatedByTextbox.Enabled = false;
             customerTypeDetailCreatedByTextbox.Location = new Point(849, 138);
+            customerTypeDetailCreatedByTextbox.MaxLength = 50;
             customerTypeDetailCreatedByTextbox.Name = "customerTypeDetailCreatedByTextbox";
             customerTypeDetailCreatedByTextbox.ReadOnly = true;
             customerTypeDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             customerTypeDetailLastUpdatedByTextbox.Enabled = false;
             customerTypeDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            customerTypeDetailLastUpdatedByTextbox.MaxLength = 50;
             customerTypeDetailLastUpdatedByTextbox.Name = "customerTypeDetailLastUpdatedByTextbox";
             customerTypeDetailLastUpdatedByTextbox.ReadOnly = true;
             customerTypeDetailLastUpdatedByTextbox.Size = new Size(370, 27);

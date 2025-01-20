@@ -118,6 +118,7 @@
             // 
             productCategoryDetailCreatedTimestampTextbox.Enabled = false;
             productCategoryDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            productCategoryDetailCreatedTimestampTextbox.MaxLength = 50;
             productCategoryDetailCreatedTimestampTextbox.Name = "productCategoryDetailCreatedTimestampTextbox";
             productCategoryDetailCreatedTimestampTextbox.ReadOnly = true;
             productCategoryDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             productCategoryDetailLastUpdatedTimestampTextbox.Enabled = false;
             productCategoryDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            productCategoryDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             productCategoryDetailLastUpdatedTimestampTextbox.Name = "productCategoryDetailLastUpdatedTimestampTextbox";
             productCategoryDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             productCategoryDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             productCategoryDetailCreatedByTextbox.Enabled = false;
             productCategoryDetailCreatedByTextbox.Location = new Point(849, 138);
+            productCategoryDetailCreatedByTextbox.MaxLength = 50;
             productCategoryDetailCreatedByTextbox.Name = "productCategoryDetailCreatedByTextbox";
             productCategoryDetailCreatedByTextbox.ReadOnly = true;
             productCategoryDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             productCategoryDetailLastUpdatedByTextbox.Enabled = false;
             productCategoryDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            productCategoryDetailLastUpdatedByTextbox.MaxLength = 50;
             productCategoryDetailLastUpdatedByTextbox.Name = "productCategoryDetailLastUpdatedByTextbox";
             productCategoryDetailLastUpdatedByTextbox.ReadOnly = true;
             productCategoryDetailLastUpdatedByTextbox.Size = new Size(370, 27);

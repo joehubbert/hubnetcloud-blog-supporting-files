@@ -118,6 +118,7 @@
             // 
             salesRegionDetailCreatedTimestampTextbox.Enabled = false;
             salesRegionDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            salesRegionDetailCreatedTimestampTextbox.MaxLength = 50;
             salesRegionDetailCreatedTimestampTextbox.Name = "salesRegionDetailCreatedTimestampTextbox";
             salesRegionDetailCreatedTimestampTextbox.ReadOnly = true;
             salesRegionDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             salesRegionDetailLastUpdatedTimestampTextbox.Enabled = false;
             salesRegionDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            salesRegionDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             salesRegionDetailLastUpdatedTimestampTextbox.Name = "salesRegionDetailLastUpdatedTimestampTextbox";
             salesRegionDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             salesRegionDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             salesRegionDetailCreatedByTextbox.Enabled = false;
             salesRegionDetailCreatedByTextbox.Location = new Point(849, 138);
+            salesRegionDetailCreatedByTextbox.MaxLength = 50;
             salesRegionDetailCreatedByTextbox.Name = "salesRegionDetailCreatedByTextbox";
             salesRegionDetailCreatedByTextbox.ReadOnly = true;
             salesRegionDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             salesRegionDetailLastUpdatedByTextbox.Enabled = false;
             salesRegionDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            salesRegionDetailLastUpdatedByTextbox.MaxLength = 50;
             salesRegionDetailLastUpdatedByTextbox.Name = "salesRegionDetailLastUpdatedByTextbox";
             salesRegionDetailLastUpdatedByTextbox.ReadOnly = true;
             salesRegionDetailLastUpdatedByTextbox.Size = new Size(370, 27);

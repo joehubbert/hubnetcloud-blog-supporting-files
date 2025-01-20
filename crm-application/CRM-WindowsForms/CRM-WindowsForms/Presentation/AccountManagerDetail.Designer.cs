@@ -81,7 +81,7 @@
             accountManagerDetailTabControl.Name = "accountManagerDetailTabControl";
             accountManagerDetailTabControl.SelectedIndex = 0;
             accountManagerDetailTabControl.Size = new Size(1541, 600);
-            accountManagerDetailTabControl.TabIndex = 7;
+            accountManagerDetailTabControl.TabIndex = 0;
             // 
             // accountManagerInformation
             // 
@@ -168,7 +168,7 @@
             accountManagerDetailLastUpdatedByTextbox.Name = "accountManagerDetailLastUpdatedByTextbox";
             accountManagerDetailLastUpdatedByTextbox.ReadOnly = true;
             accountManagerDetailLastUpdatedByTextbox.Size = new Size(340, 27);
-            accountManagerDetailLastUpdatedByTextbox.TabIndex = 26;
+            accountManagerDetailLastUpdatedByTextbox.TabIndex = 9;
             // 
             // accountManagerDetailCreatedTimestampTextbox
             // 
@@ -180,7 +180,7 @@
             accountManagerDetailCreatedTimestampTextbox.Name = "accountManagerDetailCreatedTimestampTextbox";
             accountManagerDetailCreatedTimestampTextbox.ReadOnly = true;
             accountManagerDetailCreatedTimestampTextbox.Size = new Size(340, 27);
-            accountManagerDetailCreatedTimestampTextbox.TabIndex = 27;
+            accountManagerDetailCreatedTimestampTextbox.TabIndex = 8;
             // 
             // accountManagerDetailLastUpdatedTimestampTextbox
             // 
@@ -192,7 +192,7 @@
             accountManagerDetailLastUpdatedTimestampTextbox.Name = "accountManagerDetailLastUpdatedTimestampTextbox";
             accountManagerDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             accountManagerDetailLastUpdatedTimestampTextbox.Size = new Size(340, 27);
-            accountManagerDetailLastUpdatedTimestampTextbox.TabIndex = 28;
+            accountManagerDetailLastUpdatedTimestampTextbox.TabIndex = 10;
             // 
             // accountManagerDetailCreatedByTextbox
             // 
@@ -204,7 +204,7 @@
             accountManagerDetailCreatedByTextbox.Name = "accountManagerDetailCreatedByTextbox";
             accountManagerDetailCreatedByTextbox.ReadOnly = true;
             accountManagerDetailCreatedByTextbox.Size = new Size(340, 27);
-            accountManagerDetailCreatedByTextbox.TabIndex = 25;
+            accountManagerDetailCreatedByTextbox.TabIndex = 7;
             // 
             // accountManagerDetailToggleEditModeButton
             // 
@@ -214,7 +214,7 @@
             accountManagerDetailToggleEditModeButton.Margin = new Padding(4);
             accountManagerDetailToggleEditModeButton.Name = "accountManagerDetailToggleEditModeButton";
             accountManagerDetailToggleEditModeButton.Size = new Size(108, 92);
-            accountManagerDetailToggleEditModeButton.TabIndex = 24;
+            accountManagerDetailToggleEditModeButton.TabIndex = 11;
             accountManagerDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             accountManagerDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             accountManagerDetailToggleEditModeButton.Click += accountManagerDetailToggleEditModeButton_Click;
@@ -239,7 +239,7 @@
             accountManagerDetailAccountManagerIdTextbox.Name = "accountManagerDetailAccountManagerIdTextbox";
             accountManagerDetailAccountManagerIdTextbox.ReadOnly = true;
             accountManagerDetailAccountManagerIdTextbox.Size = new Size(340, 27);
-            accountManagerDetailAccountManagerIdTextbox.TabIndex = 5;
+            accountManagerDetailAccountManagerIdTextbox.TabIndex = 1;
             // 
             // accountManagerDetailUpdateAccountManagerButton
             // 
@@ -250,7 +250,7 @@
             accountManagerDetailUpdateAccountManagerButton.Margin = new Padding(4);
             accountManagerDetailUpdateAccountManagerButton.Name = "accountManagerDetailUpdateAccountManagerButton";
             accountManagerDetailUpdateAccountManagerButton.Size = new Size(214, 67);
-            accountManagerDetailUpdateAccountManagerButton.TabIndex = 20;
+            accountManagerDetailUpdateAccountManagerButton.TabIndex = 12;
             accountManagerDetailUpdateAccountManagerButton.Text = "Update Account Manager";
             accountManagerDetailUpdateAccountManagerButton.UseVisualStyleBackColor = true;
             accountManagerDetailUpdateAccountManagerButton.Click += accountManagerDetailUpdateAccountManagerButton_Click;
@@ -264,7 +264,7 @@
             accountManagerDetailActiveStatusCheckbox.Margin = new Padding(4);
             accountManagerDetailActiveStatusCheckbox.Name = "accountManagerDetailActiveStatusCheckbox";
             accountManagerDetailActiveStatusCheckbox.Size = new Size(190, 24);
-            accountManagerDetailActiveStatusCheckbox.TabIndex = 19;
+            accountManagerDetailActiveStatusCheckbox.TabIndex = 6;
             accountManagerDetailActiveStatusCheckbox.Text = "Active Account Manager";
             accountManagerDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -321,7 +321,7 @@
             accountManagerDetailLastNameTextbox.MaxLength = 50;
             accountManagerDetailLastNameTextbox.Name = "accountManagerDetailLastNameTextbox";
             accountManagerDetailLastNameTextbox.Size = new Size(340, 27);
-            accountManagerDetailLastNameTextbox.TabIndex = 2;
+            accountManagerDetailLastNameTextbox.TabIndex = 4;
             // 
             // accountManagerDetailEmailAddressTextbox
             // 
@@ -343,7 +343,7 @@
             accountManagerDetailTelephoneNumberTextbox.MaxLength = 13;
             accountManagerDetailTelephoneNumberTextbox.Name = "accountManagerDetailTelephoneNumberTextbox";
             accountManagerDetailTelephoneNumberTextbox.Size = new Size(340, 27);
-            accountManagerDetailTelephoneNumberTextbox.TabIndex = 4;
+            accountManagerDetailTelephoneNumberTextbox.TabIndex = 5;
             // 
             // accountManagerDetailFirstNameTextbox
             // 
@@ -354,7 +354,7 @@
             accountManagerDetailFirstNameTextbox.MaxLength = 50;
             accountManagerDetailFirstNameTextbox.Name = "accountManagerDetailFirstNameTextbox";
             accountManagerDetailFirstNameTextbox.Size = new Size(340, 27);
-            accountManagerDetailFirstNameTextbox.TabIndex = 0;
+            accountManagerDetailFirstNameTextbox.TabIndex = 2;
             // 
             // associatedCustomers
             // 

@@ -229,6 +229,7 @@
             // createCustomerOverviewEmailAddressTextbox
             // 
             createCustomerOverviewEmailAddressTextbox.Location = new Point(168, 200);
+            createCustomerOverviewEmailAddressTextbox.MaxLength = 50;
             createCustomerOverviewEmailAddressTextbox.Name = "createCustomerOverviewEmailAddressTextbox";
             createCustomerOverviewEmailAddressTextbox.Size = new Size(234, 27);
             createCustomerOverviewEmailAddressTextbox.TabIndex = 5;
@@ -236,6 +237,7 @@
             // createCustomerOverviewTelephoneNumberTextbox
             // 
             createCustomerOverviewTelephoneNumberTextbox.Location = new Point(168, 157);
+            createCustomerOverviewTelephoneNumberTextbox.MaxLength = 50;
             createCustomerOverviewTelephoneNumberTextbox.Name = "createCustomerOverviewTelephoneNumberTextbox";
             createCustomerOverviewTelephoneNumberTextbox.Size = new Size(234, 27);
             createCustomerOverviewTelephoneNumberTextbox.TabIndex = 4;
@@ -484,6 +486,7 @@
             // createCustomerOverviewLastNameTextbox
             // 
             createCustomerOverviewLastNameTextbox.Location = new Point(168, 71);
+            createCustomerOverviewLastNameTextbox.MaxLength = 50;
             createCustomerOverviewLastNameTextbox.Name = "createCustomerOverviewLastNameTextbox";
             createCustomerOverviewLastNameTextbox.Size = new Size(234, 27);
             createCustomerOverviewLastNameTextbox.TabIndex = 2;
@@ -491,6 +494,7 @@
             // createCustomerOverviewCompanyNameTextbox
             // 
             createCustomerOverviewCompanyNameTextbox.Location = new Point(168, 114);
+            createCustomerOverviewCompanyNameTextbox.MaxLength = 50;
             createCustomerOverviewCompanyNameTextbox.Name = "createCustomerOverviewCompanyNameTextbox";
             createCustomerOverviewCompanyNameTextbox.Size = new Size(234, 27);
             createCustomerOverviewCompanyNameTextbox.TabIndex = 3;
@@ -498,6 +502,7 @@
             // createCustomerOverviewFirstNameTextbox
             // 
             createCustomerOverviewFirstNameTextbox.Location = new Point(168, 28);
+            createCustomerOverviewFirstNameTextbox.MaxLength = 50;
             createCustomerOverviewFirstNameTextbox.Name = "createCustomerOverviewFirstNameTextbox";
             createCustomerOverviewFirstNameTextbox.Size = new Size(234, 27);
             createCustomerOverviewFirstNameTextbox.TabIndex = 1;
@@ -620,10 +625,10 @@
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationCompanyNameTextbox);
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationLastNameTextbox);
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationFirstNameTextbox);
-            createCustomerTabControlBillingPage.Location = new Point(4, 27);
+            createCustomerTabControlBillingPage.Location = new Point(4, 32);
             createCustomerTabControlBillingPage.Name = "createCustomerTabControlBillingPage";
             createCustomerTabControlBillingPage.Padding = new Padding(3);
-            createCustomerTabControlBillingPage.Size = new Size(1067, 575);
+            createCustomerTabControlBillingPage.Size = new Size(1067, 570);
             createCustomerTabControlBillingPage.TabIndex = 1;
             createCustomerTabControlBillingPage.Text = "Billing Information";
             // 
@@ -720,6 +725,7 @@
             // createCustomerBillingInformationAddressLine4Textbox
             // 
             createCustomerBillingInformationAddressLine4Textbox.Location = new Point(167, 366);
+            createCustomerBillingInformationAddressLine4Textbox.MaxLength = 50;
             createCustomerBillingInformationAddressLine4Textbox.Name = "createCustomerBillingInformationAddressLine4Textbox";
             createCustomerBillingInformationAddressLine4Textbox.Size = new Size(336, 27);
             createCustomerBillingInformationAddressLine4Textbox.TabIndex = 29;
@@ -727,6 +733,7 @@
             // createCustomerBillingInformationAddressLine5Textbox
             // 
             createCustomerBillingInformationAddressLine5Textbox.Location = new Point(167, 411);
+            createCustomerBillingInformationAddressLine5Textbox.MaxLength = 50;
             createCustomerBillingInformationAddressLine5Textbox.Name = "createCustomerBillingInformationAddressLine5Textbox";
             createCustomerBillingInformationAddressLine5Textbox.Size = new Size(336, 27);
             createCustomerBillingInformationAddressLine5Textbox.TabIndex = 30;
@@ -734,6 +741,7 @@
             // createCustomerBillingInformationEmailAddressTextbox
             // 
             createCustomerBillingInformationEmailAddressTextbox.Location = new Point(706, 92);
+            createCustomerBillingInformationEmailAddressTextbox.MaxLength = 50;
             createCustomerBillingInformationEmailAddressTextbox.Name = "createCustomerBillingInformationEmailAddressTextbox";
             createCustomerBillingInformationEmailAddressTextbox.Size = new Size(336, 27);
             createCustomerBillingInformationEmailAddressTextbox.TabIndex = 32;
@@ -741,6 +749,7 @@
             // createCustomerBillingInformationTelephoneNumberTextbox
             // 
             createCustomerBillingInformationTelephoneNumberTextbox.Location = new Point(706, 49);
+            createCustomerBillingInformationTelephoneNumberTextbox.MaxLength = 50;
             createCustomerBillingInformationTelephoneNumberTextbox.Name = "createCustomerBillingInformationTelephoneNumberTextbox";
             createCustomerBillingInformationTelephoneNumberTextbox.Size = new Size(336, 27);
             createCustomerBillingInformationTelephoneNumberTextbox.TabIndex = 31;
@@ -748,6 +757,7 @@
             // createCustomerBillingInformationAddressLine3Textbox
             // 
             createCustomerBillingInformationAddressLine3Textbox.Location = new Point(167, 321);
+            createCustomerBillingInformationAddressLine3Textbox.MaxLength = 50;
             createCustomerBillingInformationAddressLine3Textbox.Name = "createCustomerBillingInformationAddressLine3Textbox";
             createCustomerBillingInformationAddressLine3Textbox.Size = new Size(336, 27);
             createCustomerBillingInformationAddressLine3Textbox.TabIndex = 28;
@@ -755,6 +765,7 @@
             // createCustomerBillingInformationAddressLine2Textbox
             // 
             createCustomerBillingInformationAddressLine2Textbox.Location = new Point(167, 276);
+            createCustomerBillingInformationAddressLine2Textbox.MaxLength = 50;
             createCustomerBillingInformationAddressLine2Textbox.Name = "createCustomerBillingInformationAddressLine2Textbox";
             createCustomerBillingInformationAddressLine2Textbox.Size = new Size(336, 27);
             createCustomerBillingInformationAddressLine2Textbox.TabIndex = 27;
@@ -762,6 +773,7 @@
             // createCustomerBillingInformationAddressLine1Textbox
             // 
             createCustomerBillingInformationAddressLine1Textbox.Location = new Point(167, 231);
+            createCustomerBillingInformationAddressLine1Textbox.MaxLength = 50;
             createCustomerBillingInformationAddressLine1Textbox.Name = "createCustomerBillingInformationAddressLine1Textbox";
             createCustomerBillingInformationAddressLine1Textbox.Size = new Size(336, 27);
             createCustomerBillingInformationAddressLine1Textbox.TabIndex = 26;
@@ -769,6 +781,7 @@
             // createCustomerBillingInformationCompanyNameTextbox
             // 
             createCustomerBillingInformationCompanyNameTextbox.Location = new Point(167, 135);
+            createCustomerBillingInformationCompanyNameTextbox.MaxLength = 50;
             createCustomerBillingInformationCompanyNameTextbox.Name = "createCustomerBillingInformationCompanyNameTextbox";
             createCustomerBillingInformationCompanyNameTextbox.Size = new Size(336, 27);
             createCustomerBillingInformationCompanyNameTextbox.TabIndex = 25;
@@ -776,6 +789,7 @@
             // createCustomerBillingInformationLastNameTextbox
             // 
             createCustomerBillingInformationLastNameTextbox.Location = new Point(167, 92);
+            createCustomerBillingInformationLastNameTextbox.MaxLength = 50;
             createCustomerBillingInformationLastNameTextbox.Name = "createCustomerBillingInformationLastNameTextbox";
             createCustomerBillingInformationLastNameTextbox.Size = new Size(336, 27);
             createCustomerBillingInformationLastNameTextbox.TabIndex = 24;
@@ -783,6 +797,7 @@
             // createCustomerBillingInformationFirstNameTextbox
             // 
             createCustomerBillingInformationFirstNameTextbox.Location = new Point(167, 49);
+            createCustomerBillingInformationFirstNameTextbox.MaxLength = 50;
             createCustomerBillingInformationFirstNameTextbox.Name = "createCustomerBillingInformationFirstNameTextbox";
             createCustomerBillingInformationFirstNameTextbox.Size = new Size(336, 27);
             createCustomerBillingInformationFirstNameTextbox.TabIndex = 23;
@@ -810,9 +825,9 @@
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationCompanyNameTextbox);
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationLastNameTextbox);
             createCustomerTabControlShippingPage.Controls.Add(createCustomerShippingInformationFirstNameTextbox);
-            createCustomerTabControlShippingPage.Location = new Point(4, 27);
+            createCustomerTabControlShippingPage.Location = new Point(4, 32);
             createCustomerTabControlShippingPage.Name = "createCustomerTabControlShippingPage";
-            createCustomerTabControlShippingPage.Size = new Size(1067, 575);
+            createCustomerTabControlShippingPage.Size = new Size(1067, 570);
             createCustomerTabControlShippingPage.TabIndex = 2;
             createCustomerTabControlShippingPage.Text = "Shipping Information";
             // 
@@ -909,6 +924,7 @@
             // createCustomerShippingInformationAddressLine4Textbox
             // 
             createCustomerShippingInformationAddressLine4Textbox.Location = new Point(167, 366);
+            createCustomerShippingInformationAddressLine4Textbox.MaxLength = 50;
             createCustomerShippingInformationAddressLine4Textbox.Name = "createCustomerShippingInformationAddressLine4Textbox";
             createCustomerShippingInformationAddressLine4Textbox.Size = new Size(336, 27);
             createCustomerShippingInformationAddressLine4Textbox.TabIndex = 39;
@@ -916,6 +932,7 @@
             // createCustomerShippingInformationAddressLine5Textbox
             // 
             createCustomerShippingInformationAddressLine5Textbox.Location = new Point(167, 411);
+            createCustomerShippingInformationAddressLine5Textbox.MaxLength = 50;
             createCustomerShippingInformationAddressLine5Textbox.Name = "createCustomerShippingInformationAddressLine5Textbox";
             createCustomerShippingInformationAddressLine5Textbox.Size = new Size(336, 27);
             createCustomerShippingInformationAddressLine5Textbox.TabIndex = 40;
@@ -923,6 +940,7 @@
             // createCustomerShippingInformationEmailAddressTextbox
             // 
             createCustomerShippingInformationEmailAddressTextbox.Location = new Point(706, 92);
+            createCustomerShippingInformationEmailAddressTextbox.MaxLength = 50;
             createCustomerShippingInformationEmailAddressTextbox.Name = "createCustomerShippingInformationEmailAddressTextbox";
             createCustomerShippingInformationEmailAddressTextbox.Size = new Size(336, 27);
             createCustomerShippingInformationEmailAddressTextbox.TabIndex = 42;
@@ -930,6 +948,7 @@
             // createCustomerShippingInformationTelephoneNumberTextbox
             // 
             createCustomerShippingInformationTelephoneNumberTextbox.Location = new Point(706, 49);
+            createCustomerShippingInformationTelephoneNumberTextbox.MaxLength = 50;
             createCustomerShippingInformationTelephoneNumberTextbox.Name = "createCustomerShippingInformationTelephoneNumberTextbox";
             createCustomerShippingInformationTelephoneNumberTextbox.Size = new Size(336, 27);
             createCustomerShippingInformationTelephoneNumberTextbox.TabIndex = 41;
@@ -937,6 +956,7 @@
             // createCustomerShippingInformationAddressLine3Textbox
             // 
             createCustomerShippingInformationAddressLine3Textbox.Location = new Point(167, 321);
+            createCustomerShippingInformationAddressLine3Textbox.MaxLength = 50;
             createCustomerShippingInformationAddressLine3Textbox.Name = "createCustomerShippingInformationAddressLine3Textbox";
             createCustomerShippingInformationAddressLine3Textbox.Size = new Size(336, 27);
             createCustomerShippingInformationAddressLine3Textbox.TabIndex = 38;
@@ -944,6 +964,7 @@
             // createCustomerShippingInformationAddressLine2Textbox
             // 
             createCustomerShippingInformationAddressLine2Textbox.Location = new Point(167, 276);
+            createCustomerShippingInformationAddressLine2Textbox.MaxLength = 50;
             createCustomerShippingInformationAddressLine2Textbox.Name = "createCustomerShippingInformationAddressLine2Textbox";
             createCustomerShippingInformationAddressLine2Textbox.Size = new Size(336, 27);
             createCustomerShippingInformationAddressLine2Textbox.TabIndex = 37;
@@ -951,6 +972,7 @@
             // createCustomerShippingInformationAddressLine1Textbox
             // 
             createCustomerShippingInformationAddressLine1Textbox.Location = new Point(167, 231);
+            createCustomerShippingInformationAddressLine1Textbox.MaxLength = 50;
             createCustomerShippingInformationAddressLine1Textbox.Name = "createCustomerShippingInformationAddressLine1Textbox";
             createCustomerShippingInformationAddressLine1Textbox.Size = new Size(336, 27);
             createCustomerShippingInformationAddressLine1Textbox.TabIndex = 36;
@@ -958,6 +980,7 @@
             // createCustomerShippingInformationCompanyNameTextbox
             // 
             createCustomerShippingInformationCompanyNameTextbox.Location = new Point(167, 135);
+            createCustomerShippingInformationCompanyNameTextbox.MaxLength = 50;
             createCustomerShippingInformationCompanyNameTextbox.Name = "createCustomerShippingInformationCompanyNameTextbox";
             createCustomerShippingInformationCompanyNameTextbox.Size = new Size(336, 27);
             createCustomerShippingInformationCompanyNameTextbox.TabIndex = 35;
@@ -965,6 +988,7 @@
             // createCustomerShippingInformationLastNameTextbox
             // 
             createCustomerShippingInformationLastNameTextbox.Location = new Point(167, 92);
+            createCustomerShippingInformationLastNameTextbox.MaxLength = 50;
             createCustomerShippingInformationLastNameTextbox.Name = "createCustomerShippingInformationLastNameTextbox";
             createCustomerShippingInformationLastNameTextbox.Size = new Size(336, 27);
             createCustomerShippingInformationLastNameTextbox.TabIndex = 34;
@@ -972,6 +996,7 @@
             // createCustomerShippingInformationFirstNameTextbox
             // 
             createCustomerShippingInformationFirstNameTextbox.Location = new Point(167, 49);
+            createCustomerShippingInformationFirstNameTextbox.MaxLength = 50;
             createCustomerShippingInformationFirstNameTextbox.Name = "createCustomerShippingInformationFirstNameTextbox";
             createCustomerShippingInformationFirstNameTextbox.Size = new Size(336, 27);
             createCustomerShippingInformationFirstNameTextbox.TabIndex = 33;
@@ -991,9 +1016,9 @@
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxB);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxA);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditEnabledCheckbox);
-            createCustomerTabControlFinancePage.Location = new Point(4, 27);
+            createCustomerTabControlFinancePage.Location = new Point(4, 32);
             createCustomerTabControlFinancePage.Name = "createCustomerTabControlFinancePage";
-            createCustomerTabControlFinancePage.Size = new Size(1067, 575);
+            createCustomerTabControlFinancePage.Size = new Size(1067, 570);
             createCustomerTabControlFinancePage.TabIndex = 3;
             createCustomerTabControlFinancePage.Text = "Finance";
             // 

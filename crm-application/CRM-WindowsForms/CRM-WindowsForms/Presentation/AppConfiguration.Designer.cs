@@ -57,7 +57,7 @@
             appConfigurationDatabaseEncryptConnectionCheckbox.Margin = new Padding(2, 3, 2, 3);
             appConfigurationDatabaseEncryptConnectionCheckbox.Name = "appConfigurationDatabaseEncryptConnectionCheckbox";
             appConfigurationDatabaseEncryptConnectionCheckbox.Size = new Size(156, 24);
-            appConfigurationDatabaseEncryptConnectionCheckbox.TabIndex = 1;
+            appConfigurationDatabaseEncryptConnectionCheckbox.TabIndex = 2;
             appConfigurationDatabaseEncryptConnectionCheckbox.Text = "Encrypt Connection";
             appConfigurationDatabaseEncryptConnectionCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -65,17 +65,19 @@
             // 
             appConfigurationDatabaseServernameTextbox.Location = new Point(215, 94);
             appConfigurationDatabaseServernameTextbox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationDatabaseServernameTextbox.MaxLength = 50;
             appConfigurationDatabaseServernameTextbox.Name = "appConfigurationDatabaseServernameTextbox";
             appConfigurationDatabaseServernameTextbox.Size = new Size(249, 27);
-            appConfigurationDatabaseServernameTextbox.TabIndex = 2;
+            appConfigurationDatabaseServernameTextbox.TabIndex = 0;
             // 
             // appConfigurationDatabaseNameTextbox
             // 
             appConfigurationDatabaseNameTextbox.Location = new Point(215, 144);
             appConfigurationDatabaseNameTextbox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationDatabaseNameTextbox.MaxLength = 50;
             appConfigurationDatabaseNameTextbox.Name = "appConfigurationDatabaseNameTextbox";
             appConfigurationDatabaseNameTextbox.Size = new Size(249, 27);
-            appConfigurationDatabaseNameTextbox.TabIndex = 3;
+            appConfigurationDatabaseNameTextbox.TabIndex = 1;
             // 
             // appConfigurationDatabaseServernameLabel
             // 
@@ -107,7 +109,7 @@
             appConfigurationSaveSettingsButton.Margin = new Padding(2, 3, 2, 3);
             appConfigurationSaveSettingsButton.Name = "appConfigurationSaveSettingsButton";
             appConfigurationSaveSettingsButton.Size = new Size(248, 67);
-            appConfigurationSaveSettingsButton.TabIndex = 6;
+            appConfigurationSaveSettingsButton.TabIndex = 4;
             appConfigurationSaveSettingsButton.Text = "Save Settings";
             appConfigurationSaveSettingsButton.UseVisualStyleBackColor = true;
             appConfigurationSaveSettingsButton.Click += appConfigurationSaveSettingsButton_Click;
@@ -120,7 +122,7 @@
             appConfigurationTestConnectionButton.Margin = new Padding(2, 3, 2, 3);
             appConfigurationTestConnectionButton.Name = "appConfigurationTestConnectionButton";
             appConfigurationTestConnectionButton.Size = new Size(248, 67);
-            appConfigurationTestConnectionButton.TabIndex = 7;
+            appConfigurationTestConnectionButton.TabIndex = 3;
             appConfigurationTestConnectionButton.Text = "Test Connection";
             appConfigurationTestConnectionButton.UseVisualStyleBackColor = true;
             appConfigurationTestConnectionButton.Click += appConfigurationTestConnectionButton_Click;

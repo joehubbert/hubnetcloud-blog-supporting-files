@@ -68,7 +68,7 @@
             salesSubRegionDetailUpdateSalesSubRegionButton.Margin = new Padding(4);
             salesSubRegionDetailUpdateSalesSubRegionButton.Name = "salesSubRegionDetailUpdateSalesSubRegionButton";
             salesSubRegionDetailUpdateSalesSubRegionButton.Size = new Size(204, 70);
-            salesSubRegionDetailUpdateSalesSubRegionButton.TabIndex = 8;
+            salesSubRegionDetailUpdateSalesSubRegionButton.TabIndex = 9;
             salesSubRegionDetailUpdateSalesSubRegionButton.Text = "Update Sales Sub Region";
             salesSubRegionDetailUpdateSalesSubRegionButton.UseVisualStyleBackColor = true;
             salesSubRegionDetailUpdateSalesSubRegionButton.Click += salesSubRegionDetailUpdateSalesSubRegionButton_Click;
@@ -82,7 +82,7 @@
             salesSubRegionDetailActiveStatusCheckbox.Margin = new Padding(4);
             salesSubRegionDetailActiveStatusCheckbox.Name = "salesSubRegionDetailActiveStatusCheckbox";
             salesSubRegionDetailActiveStatusCheckbox.Size = new Size(187, 24);
-            salesSubRegionDetailActiveStatusCheckbox.TabIndex = 2;
+            salesSubRegionDetailActiveStatusCheckbox.TabIndex = 3;
             salesSubRegionDetailActiveStatusCheckbox.Text = "Active Sales Sub Region";
             salesSubRegionDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +94,7 @@
             salesSubRegionDetailToggleEditModeButton.Margin = new Padding(4);
             salesSubRegionDetailToggleEditModeButton.Name = "salesSubRegionDetailToggleEditModeButton";
             salesSubRegionDetailToggleEditModeButton.Size = new Size(108, 92);
-            salesSubRegionDetailToggleEditModeButton.TabIndex = 7;
+            salesSubRegionDetailToggleEditModeButton.TabIndex = 8;
             salesSubRegionDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             salesSubRegionDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -120,37 +120,41 @@
             // 
             salesSubRegionDetailCreatedTimestampTextbox.Enabled = false;
             salesSubRegionDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            salesSubRegionDetailCreatedTimestampTextbox.MaxLength = 50;
             salesSubRegionDetailCreatedTimestampTextbox.Name = "salesSubRegionDetailCreatedTimestampTextbox";
             salesSubRegionDetailCreatedTimestampTextbox.ReadOnly = true;
             salesSubRegionDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            salesSubRegionDetailCreatedTimestampTextbox.TabIndex = 4;
+            salesSubRegionDetailCreatedTimestampTextbox.TabIndex = 5;
             // 
             // salesSubRegionDetailLastUpdatedTimestampTextbox
             // 
             salesSubRegionDetailLastUpdatedTimestampTextbox.Enabled = false;
             salesSubRegionDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            salesSubRegionDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             salesSubRegionDetailLastUpdatedTimestampTextbox.Name = "salesSubRegionDetailLastUpdatedTimestampTextbox";
             salesSubRegionDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             salesSubRegionDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            salesSubRegionDetailLastUpdatedTimestampTextbox.TabIndex = 6;
+            salesSubRegionDetailLastUpdatedTimestampTextbox.TabIndex = 7;
             // 
             // salesSubRegionDetailCreatedByTextbox
             // 
             salesSubRegionDetailCreatedByTextbox.Enabled = false;
             salesSubRegionDetailCreatedByTextbox.Location = new Point(849, 138);
+            salesSubRegionDetailCreatedByTextbox.MaxLength = 50;
             salesSubRegionDetailCreatedByTextbox.Name = "salesSubRegionDetailCreatedByTextbox";
             salesSubRegionDetailCreatedByTextbox.ReadOnly = true;
             salesSubRegionDetailCreatedByTextbox.Size = new Size(370, 27);
-            salesSubRegionDetailCreatedByTextbox.TabIndex = 3;
+            salesSubRegionDetailCreatedByTextbox.TabIndex = 4;
             // 
             // salesSubRegionDetailLastUpdatedByTextbox
             // 
             salesSubRegionDetailLastUpdatedByTextbox.Enabled = false;
             salesSubRegionDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            salesSubRegionDetailLastUpdatedByTextbox.MaxLength = 50;
             salesSubRegionDetailLastUpdatedByTextbox.Name = "salesSubRegionDetailLastUpdatedByTextbox";
             salesSubRegionDetailLastUpdatedByTextbox.ReadOnly = true;
             salesSubRegionDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            salesSubRegionDetailLastUpdatedByTextbox.TabIndex = 5;
+            salesSubRegionDetailLastUpdatedByTextbox.TabIndex = 6;
             // 
             // salesSubRegionDetailLastUpdatedTimestampLabel
             // 
@@ -224,7 +228,7 @@
             salesSubRegionDetailSalesRegionComboBox.Location = new Point(224, 216);
             salesSubRegionDetailSalesRegionComboBox.Name = "salesSubRegionDetailSalesRegionComboBox";
             salesSubRegionDetailSalesRegionComboBox.Size = new Size(370, 28);
-            salesSubRegionDetailSalesRegionComboBox.TabIndex = 35;
+            salesSubRegionDetailSalesRegionComboBox.TabIndex = 2;
             // 
             // SalesSubRegionDetail
             // 

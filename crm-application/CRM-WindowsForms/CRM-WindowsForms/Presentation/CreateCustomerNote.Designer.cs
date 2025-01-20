@@ -55,7 +55,7 @@
             createCustomerNoteCustomerNoteTypeComboBox.Location = new Point(188, 104);
             createCustomerNoteCustomerNoteTypeComboBox.Name = "createCustomerNoteCustomerNoteTypeComboBox";
             createCustomerNoteCustomerNoteTypeComboBox.Size = new Size(524, 28);
-            createCustomerNoteCustomerNoteTypeComboBox.TabIndex = 8;
+            createCustomerNoteCustomerNoteTypeComboBox.TabIndex = 1;
             // 
             // createCustomerNoteCustomerNoteTitleTextbox
             // 
@@ -63,7 +63,7 @@
             createCustomerNoteCustomerNoteTitleTextbox.MaxLength = 50;
             createCustomerNoteCustomerNoteTitleTextbox.Name = "createCustomerNoteCustomerNoteTitleTextbox";
             createCustomerNoteCustomerNoteTitleTextbox.Size = new Size(524, 27);
-            createCustomerNoteCustomerNoteTitleTextbox.TabIndex = 9;
+            createCustomerNoteCustomerNoteTitleTextbox.TabIndex = 0;
             // 
             // createCustomerNoteCustomerNoteTextbox
             // 
@@ -72,7 +72,7 @@
             createCustomerNoteCustomerNoteTextbox.Multiline = true;
             createCustomerNoteCustomerNoteTextbox.Name = "createCustomerNoteCustomerNoteTextbox";
             createCustomerNoteCustomerNoteTextbox.Size = new Size(524, 259);
-            createCustomerNoteCustomerNoteTextbox.TabIndex = 10;
+            createCustomerNoteCustomerNoteTextbox.TabIndex = 2;
             // 
             // createCustomerNoteCustomerNoteTitleLabel
             // 
@@ -109,7 +109,7 @@
             createCustomerSubmitButton.Margin = new Padding(4);
             createCustomerSubmitButton.Name = "createCustomerSubmitButton";
             createCustomerSubmitButton.Size = new Size(198, 66);
-            createCustomerSubmitButton.TabIndex = 51;
+            createCustomerSubmitButton.TabIndex = 3;
             createCustomerSubmitButton.Text = "Submit";
             createCustomerSubmitButton.UseVisualStyleBackColor = true;
             createCustomerSubmitButton.Click += createCustomerSubmitButton_Click;

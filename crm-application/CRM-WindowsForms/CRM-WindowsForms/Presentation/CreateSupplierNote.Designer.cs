@@ -55,7 +55,7 @@
             createSupplierNoteSupplierNoteTypeComboBox.Location = new Point(188, 104);
             createSupplierNoteSupplierNoteTypeComboBox.Name = "createSupplierNoteSupplierNoteTypeComboBox";
             createSupplierNoteSupplierNoteTypeComboBox.Size = new Size(524, 28);
-            createSupplierNoteSupplierNoteTypeComboBox.TabIndex = 8;
+            createSupplierNoteSupplierNoteTypeComboBox.TabIndex = 1;
             // 
             // createSupplierNoteSupplierNoteTitleTextbox
             // 
@@ -63,7 +63,7 @@
             createSupplierNoteSupplierNoteTitleTextbox.MaxLength = 50;
             createSupplierNoteSupplierNoteTitleTextbox.Name = "createSupplierNoteSupplierNoteTitleTextbox";
             createSupplierNoteSupplierNoteTitleTextbox.Size = new Size(524, 27);
-            createSupplierNoteSupplierNoteTitleTextbox.TabIndex = 9;
+            createSupplierNoteSupplierNoteTitleTextbox.TabIndex = 0;
             // 
             // createSupplierNoteSupplierNoteTextbox
             // 
@@ -72,7 +72,7 @@
             createSupplierNoteSupplierNoteTextbox.Multiline = true;
             createSupplierNoteSupplierNoteTextbox.Name = "createSupplierNoteSupplierNoteTextbox";
             createSupplierNoteSupplierNoteTextbox.Size = new Size(524, 259);
-            createSupplierNoteSupplierNoteTextbox.TabIndex = 10;
+            createSupplierNoteSupplierNoteTextbox.TabIndex = 2;
             // 
             // createSupplierNoteSupplierNoteTitleLabel
             // 
@@ -109,7 +109,7 @@
             createSupplierSubmitButton.Margin = new Padding(4);
             createSupplierSubmitButton.Name = "createSupplierSubmitButton";
             createSupplierSubmitButton.Size = new Size(198, 66);
-            createSupplierSubmitButton.TabIndex = 51;
+            createSupplierSubmitButton.TabIndex = 3;
             createSupplierSubmitButton.Text = "Submit";
             createSupplierSubmitButton.UseVisualStyleBackColor = true;
             createSupplierSubmitButton.Click += createSupplierSubmitButton_Click;

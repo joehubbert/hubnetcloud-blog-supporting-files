@@ -118,6 +118,7 @@
             // 
             productNoteTypeDetailCreatedTimestampTextbox.Enabled = false;
             productNoteTypeDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            productNoteTypeDetailCreatedTimestampTextbox.MaxLength = 50;
             productNoteTypeDetailCreatedTimestampTextbox.Name = "productNoteTypeDetailCreatedTimestampTextbox";
             productNoteTypeDetailCreatedTimestampTextbox.ReadOnly = true;
             productNoteTypeDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             productNoteTypeDetailLastUpdatedTimestampTextbox.Enabled = false;
             productNoteTypeDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            productNoteTypeDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             productNoteTypeDetailLastUpdatedTimestampTextbox.Name = "productNoteTypeDetailLastUpdatedTimestampTextbox";
             productNoteTypeDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             productNoteTypeDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             productNoteTypeDetailCreatedByTextbox.Enabled = false;
             productNoteTypeDetailCreatedByTextbox.Location = new Point(849, 138);
+            productNoteTypeDetailCreatedByTextbox.MaxLength = 50;
             productNoteTypeDetailCreatedByTextbox.Name = "productNoteTypeDetailCreatedByTextbox";
             productNoteTypeDetailCreatedByTextbox.ReadOnly = true;
             productNoteTypeDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             productNoteTypeDetailLastUpdatedByTextbox.Enabled = false;
             productNoteTypeDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            productNoteTypeDetailLastUpdatedByTextbox.MaxLength = 50;
             productNoteTypeDetailLastUpdatedByTextbox.Name = "productNoteTypeDetailLastUpdatedByTextbox";
             productNoteTypeDetailLastUpdatedByTextbox.ReadOnly = true;
             productNoteTypeDetailLastUpdatedByTextbox.Size = new Size(370, 27);

@@ -118,6 +118,7 @@
             // 
             paymentMethodDetailCreatedTimestampTextbox.Enabled = false;
             paymentMethodDetailCreatedTimestampTextbox.Location = new Point(849, 178);
+            paymentMethodDetailCreatedTimestampTextbox.MaxLength = 50;
             paymentMethodDetailCreatedTimestampTextbox.Name = "paymentMethodDetailCreatedTimestampTextbox";
             paymentMethodDetailCreatedTimestampTextbox.ReadOnly = true;
             paymentMethodDetailCreatedTimestampTextbox.Size = new Size(370, 27);
@@ -127,6 +128,7 @@
             // 
             paymentMethodDetailLastUpdatedTimestampTextbox.Enabled = false;
             paymentMethodDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            paymentMethodDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             paymentMethodDetailLastUpdatedTimestampTextbox.Name = "paymentMethodDetailLastUpdatedTimestampTextbox";
             paymentMethodDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             paymentMethodDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
@@ -136,6 +138,7 @@
             // 
             paymentMethodDetailCreatedByTextbox.Enabled = false;
             paymentMethodDetailCreatedByTextbox.Location = new Point(849, 138);
+            paymentMethodDetailCreatedByTextbox.MaxLength = 50;
             paymentMethodDetailCreatedByTextbox.Name = "paymentMethodDetailCreatedByTextbox";
             paymentMethodDetailCreatedByTextbox.ReadOnly = true;
             paymentMethodDetailCreatedByTextbox.Size = new Size(370, 27);
@@ -145,6 +148,7 @@
             // 
             paymentMethodDetailLastUpdatedByTextbox.Enabled = false;
             paymentMethodDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            paymentMethodDetailLastUpdatedByTextbox.MaxLength = 50;
             paymentMethodDetailLastUpdatedByTextbox.Name = "paymentMethodDetailLastUpdatedByTextbox";
             paymentMethodDetailLastUpdatedByTextbox.ReadOnly = true;
             paymentMethodDetailLastUpdatedByTextbox.Size = new Size(370, 27);

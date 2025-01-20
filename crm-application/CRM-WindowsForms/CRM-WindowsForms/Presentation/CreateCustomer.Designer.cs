@@ -39,7 +39,7 @@
             createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton = new RadioButton();
             createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton = new RadioButton();
             createCustomerOverviewExistingParentCompanyTypeLabel = new Label();
-            createCustomerOverviewSalesSubRegionComboBoxLabel = new Label();
+            createCustomerOverviewSalesSubRegionLabel = new Label();
             createCustomerOverviewSalesSubRegionComboBox = new ComboBox();
             createCustomerOverviewWillBeParentRadioButtonPanel = new Panel();
             createCustomerOverviewWillBeGlobalParentRadioButton = new RadioButton();
@@ -51,21 +51,21 @@
             createCustomerOverviewExistingCustomerIsParentYesRadioButton = new RadioButton();
             createCustomerOverviewExistingCustomerIsParentNoRadioButton = new RadioButton();
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel = new Label();
-            createCustomerOverviewSalesRegionComboBoxLabel = new Label();
+            createCustomerOverviewSalesRegionLabel = new Label();
             createCustomerOverviewSalesRegionComboBox = new ComboBox();
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel = new Label();
-            createCustomerOverviewTopParentCustomerComboBoxLabel = new Label();
-            createCustomerOverviewAccountManagerComboBoxLabel = new Label();
+            createCustomerOverviewGlobalParentCustomerLabel = new Label();
+            createCustomerOverviewTopParentCustomerLabel = new Label();
+            createCustomerOverviewAccountManagerLabel = new Label();
             createCustomerOverviewAccountManagerComboBox = new ComboBox();
-            createCustomerOverviewFirstNameTextboxLabel = new Label();
-            createCustomerOverviewLastNameTextboxLabel = new Label();
-            createCustomerOverviewCompanyNameTextboxLabel = new Label();
+            createCustomerOverviewFirstNameLabel = new Label();
+            createCustomerOverviewLastNameLabel = new Label();
+            createCustomerOverviewCompanyNameLabel = new Label();
             createCustomerOverviewLastNameTextbox = new TextBox();
             createCustomerOverviewCompanyNameTextbox = new TextBox();
             createCustomerOverviewFirstNameTextbox = new TextBox();
-            createCustomerOverviewCustomerTierComboBoxLabel = new Label();
-            createCustomerOverviewCustomerTypeComboBoxLabel = new Label();
-            createCustomerOverviewCustomerSinceDatePickerLabel = new Label();
+            createCustomerOverviewCustomerTierLabel = new Label();
+            createCustomerOverviewCustomerTypeLabel = new Label();
+            createCustomerOverviewCustomerSinceLabel = new Label();
             createCustomerOverviewExistingParentCompanyLabel = new Label();
             createCustomerOverviewCustomerTierComboBox = new ComboBox();
             createCustomerOverviewGlobalParentCustomerComboBox = new ComboBox();
@@ -116,12 +116,12 @@
             createCustomerShippingInformationLastNameTextbox = new TextBox();
             createCustomerShippingInformationFirstNameTextbox = new TextBox();
             createCustomerTabControlFinancePage = new TabPage();
-            createCustomerFinanceVATNumberTextboxLabel = new Label();
+            createCustomerFinanceVATNumberLabel = new Label();
             createCustomerFinanceVATNumberTextbox = new TextBox();
             createCustomerFinanceVATRegisteredCheckbox = new CheckBox();
-            createCustomerFinancePaymentDaysTextboxLabel = new Label();
-            createCustomerFinancePaymentCurrencyComboBoxLabel = new Label();
-            createCustomerFinanceCreditLimitTextboxLabel = new Label();
+            createCustomerFinancePaymentDaysLabel = new Label();
+            createCustomerFinancePaymentCurrencyLabel = new Label();
+            createCustomerFinanceCreditLimitLabel = new Label();
             createCustomerFinancePaymentDaysTextbox = new TextBox();
             createCustomerFinancePaymentCurrencyComboBox = new ComboBox();
             createCustomerFinanceCreditLimitTextboxSeparatorLabel = new Label();
@@ -173,27 +173,27 @@
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTelephoneNumberTextbox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyTypePanel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyTypeLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesSubRegionComboBoxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesSubRegionLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesSubRegionComboBox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentRadioButtonPanel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyPanel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyPanel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewWillBeParentInCustomerHierarchyLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesRegionComboBoxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesRegionLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewSalesRegionComboBox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalParentCustomerComboBoxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentCustomerComboBoxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewAccountManagerComboBoxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalParentCustomerLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewTopParentCustomerLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewAccountManagerLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewAccountManagerComboBox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewFirstNameTextboxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewLastNameTextboxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCompanyNameTextboxLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewFirstNameLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewLastNameLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCompanyNameLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewLastNameTextbox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCompanyNameTextbox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewFirstNameTextbox);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTierComboBoxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTypeComboBoxLabel);
-            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerSinceDatePickerLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTierLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTypeLabel);
+            createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerSinceLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewExistingParentCompanyLabel);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewCustomerTierComboBox);
             createCustomerTabControlOverviewPage.Controls.Add(createCustomerOverviewGlobalParentCustomerComboBox);
@@ -282,14 +282,14 @@
             createCustomerOverviewExistingParentCompanyTypeLabel.TabIndex = 47;
             createCustomerOverviewExistingParentCompanyTypeLabel.Text = "Existing Parent Customer Type";
             // 
-            // createCustomerOverviewSalesSubRegionComboBoxLabel
+            // createCustomerOverviewSalesSubRegionLabel
             // 
-            createCustomerOverviewSalesSubRegionComboBoxLabel.AutoSize = true;
-            createCustomerOverviewSalesSubRegionComboBoxLabel.Location = new Point(541, 72);
-            createCustomerOverviewSalesSubRegionComboBoxLabel.Name = "createCustomerOverviewSalesSubRegionComboBoxLabel";
-            createCustomerOverviewSalesSubRegionComboBoxLabel.Size = new Size(123, 20);
-            createCustomerOverviewSalesSubRegionComboBoxLabel.TabIndex = 46;
-            createCustomerOverviewSalesSubRegionComboBoxLabel.Text = "Sales Sub Region";
+            createCustomerOverviewSalesSubRegionLabel.AutoSize = true;
+            createCustomerOverviewSalesSubRegionLabel.Location = new Point(541, 72);
+            createCustomerOverviewSalesSubRegionLabel.Name = "createCustomerOverviewSalesSubRegionLabel";
+            createCustomerOverviewSalesSubRegionLabel.Size = new Size(123, 20);
+            createCustomerOverviewSalesSubRegionLabel.TabIndex = 46;
+            createCustomerOverviewSalesSubRegionLabel.Text = "Sales Sub Region";
             // 
             // createCustomerOverviewSalesSubRegionComboBox
             // 
@@ -402,14 +402,14 @@
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.TabIndex = 39;
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Text = "Will this customer be a parent in a customer hierarchy?";
             // 
-            // createCustomerOverviewSalesRegionComboBoxLabel
+            // createCustomerOverviewSalesRegionLabel
             // 
-            createCustomerOverviewSalesRegionComboBoxLabel.AutoSize = true;
-            createCustomerOverviewSalesRegionComboBoxLabel.Location = new Point(570, 26);
-            createCustomerOverviewSalesRegionComboBoxLabel.Name = "createCustomerOverviewSalesRegionComboBoxLabel";
-            createCustomerOverviewSalesRegionComboBoxLabel.Size = new Size(94, 20);
-            createCustomerOverviewSalesRegionComboBoxLabel.TabIndex = 34;
-            createCustomerOverviewSalesRegionComboBoxLabel.Text = "Sales Region";
+            createCustomerOverviewSalesRegionLabel.AutoSize = true;
+            createCustomerOverviewSalesRegionLabel.Location = new Point(570, 26);
+            createCustomerOverviewSalesRegionLabel.Name = "createCustomerOverviewSalesRegionLabel";
+            createCustomerOverviewSalesRegionLabel.Size = new Size(94, 20);
+            createCustomerOverviewSalesRegionLabel.TabIndex = 34;
+            createCustomerOverviewSalesRegionLabel.Text = "Sales Region";
             // 
             // createCustomerOverviewSalesRegionComboBox
             // 
@@ -420,32 +420,32 @@
             createCustomerOverviewSalesRegionComboBox.Size = new Size(370, 28);
             createCustomerOverviewSalesRegionComboBox.TabIndex = 10;
             // 
-            // createCustomerOverviewGlobalParentCustomerComboBoxLabel
+            // createCustomerOverviewGlobalParentCustomerLabel
             // 
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.AutoSize = true;
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Location = new Point(499, 323);
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Name = "createCustomerOverviewGlobalParentCustomerComboBoxLabel";
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Size = new Size(165, 20);
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.TabIndex = 32;
-            createCustomerOverviewGlobalParentCustomerComboBoxLabel.Text = "Global Parent Customer";
+            createCustomerOverviewGlobalParentCustomerLabel.AutoSize = true;
+            createCustomerOverviewGlobalParentCustomerLabel.Location = new Point(499, 323);
+            createCustomerOverviewGlobalParentCustomerLabel.Name = "createCustomerOverviewGlobalParentCustomerLabel";
+            createCustomerOverviewGlobalParentCustomerLabel.Size = new Size(165, 20);
+            createCustomerOverviewGlobalParentCustomerLabel.TabIndex = 32;
+            createCustomerOverviewGlobalParentCustomerLabel.Text = "Global Parent Customer";
             // 
-            // createCustomerOverviewTopParentCustomerComboBoxLabel
+            // createCustomerOverviewTopParentCustomerLabel
             // 
-            createCustomerOverviewTopParentCustomerComboBoxLabel.AutoSize = true;
-            createCustomerOverviewTopParentCustomerComboBoxLabel.Location = new Point(518, 367);
-            createCustomerOverviewTopParentCustomerComboBoxLabel.Name = "createCustomerOverviewTopParentCustomerComboBoxLabel";
-            createCustomerOverviewTopParentCustomerComboBoxLabel.Size = new Size(146, 20);
-            createCustomerOverviewTopParentCustomerComboBoxLabel.TabIndex = 31;
-            createCustomerOverviewTopParentCustomerComboBoxLabel.Text = "Top Parent Customer";
+            createCustomerOverviewTopParentCustomerLabel.AutoSize = true;
+            createCustomerOverviewTopParentCustomerLabel.Location = new Point(518, 367);
+            createCustomerOverviewTopParentCustomerLabel.Name = "createCustomerOverviewTopParentCustomerLabel";
+            createCustomerOverviewTopParentCustomerLabel.Size = new Size(146, 20);
+            createCustomerOverviewTopParentCustomerLabel.TabIndex = 31;
+            createCustomerOverviewTopParentCustomerLabel.Text = "Top Parent Customer";
             // 
-            // createCustomerOverviewAccountManagerComboBoxLabel
+            // createCustomerOverviewAccountManagerLabel
             // 
-            createCustomerOverviewAccountManagerComboBoxLabel.AutoSize = true;
-            createCustomerOverviewAccountManagerComboBoxLabel.Location = new Point(538, 120);
-            createCustomerOverviewAccountManagerComboBoxLabel.Name = "createCustomerOverviewAccountManagerComboBoxLabel";
-            createCustomerOverviewAccountManagerComboBoxLabel.Size = new Size(126, 20);
-            createCustomerOverviewAccountManagerComboBoxLabel.TabIndex = 30;
-            createCustomerOverviewAccountManagerComboBoxLabel.Text = "Account Manager";
+            createCustomerOverviewAccountManagerLabel.AutoSize = true;
+            createCustomerOverviewAccountManagerLabel.Location = new Point(538, 120);
+            createCustomerOverviewAccountManagerLabel.Name = "createCustomerOverviewAccountManagerLabel";
+            createCustomerOverviewAccountManagerLabel.Size = new Size(126, 20);
+            createCustomerOverviewAccountManagerLabel.TabIndex = 30;
+            createCustomerOverviewAccountManagerLabel.Text = "Account Manager";
             // 
             // createCustomerOverviewAccountManagerComboBox
             // 
@@ -456,32 +456,32 @@
             createCustomerOverviewAccountManagerComboBox.Size = new Size(370, 28);
             createCustomerOverviewAccountManagerComboBox.TabIndex = 12;
             // 
-            // createCustomerOverviewFirstNameTextboxLabel
+            // createCustomerOverviewFirstNameLabel
             // 
-            createCustomerOverviewFirstNameTextboxLabel.AutoSize = true;
-            createCustomerOverviewFirstNameTextboxLabel.Location = new Point(64, 31);
-            createCustomerOverviewFirstNameTextboxLabel.Name = "createCustomerOverviewFirstNameTextboxLabel";
-            createCustomerOverviewFirstNameTextboxLabel.Size = new Size(80, 20);
-            createCustomerOverviewFirstNameTextboxLabel.TabIndex = 28;
-            createCustomerOverviewFirstNameTextboxLabel.Text = "First Name";
+            createCustomerOverviewFirstNameLabel.AutoSize = true;
+            createCustomerOverviewFirstNameLabel.Location = new Point(64, 31);
+            createCustomerOverviewFirstNameLabel.Name = "createCustomerOverviewFirstNameLabel";
+            createCustomerOverviewFirstNameLabel.Size = new Size(80, 20);
+            createCustomerOverviewFirstNameLabel.TabIndex = 28;
+            createCustomerOverviewFirstNameLabel.Text = "First Name";
             // 
-            // createCustomerOverviewLastNameTextboxLabel
+            // createCustomerOverviewLastNameLabel
             // 
-            createCustomerOverviewLastNameTextboxLabel.AutoSize = true;
-            createCustomerOverviewLastNameTextboxLabel.Location = new Point(64, 77);
-            createCustomerOverviewLastNameTextboxLabel.Name = "createCustomerOverviewLastNameTextboxLabel";
-            createCustomerOverviewLastNameTextboxLabel.Size = new Size(79, 20);
-            createCustomerOverviewLastNameTextboxLabel.TabIndex = 27;
-            createCustomerOverviewLastNameTextboxLabel.Text = "Last Name";
+            createCustomerOverviewLastNameLabel.AutoSize = true;
+            createCustomerOverviewLastNameLabel.Location = new Point(64, 77);
+            createCustomerOverviewLastNameLabel.Name = "createCustomerOverviewLastNameLabel";
+            createCustomerOverviewLastNameLabel.Size = new Size(79, 20);
+            createCustomerOverviewLastNameLabel.TabIndex = 27;
+            createCustomerOverviewLastNameLabel.Text = "Last Name";
             // 
-            // createCustomerOverviewCompanyNameTextboxLabel
+            // createCustomerOverviewCompanyNameLabel
             // 
-            createCustomerOverviewCompanyNameTextboxLabel.AutoSize = true;
-            createCustomerOverviewCompanyNameTextboxLabel.Location = new Point(32, 117);
-            createCustomerOverviewCompanyNameTextboxLabel.Name = "createCustomerOverviewCompanyNameTextboxLabel";
-            createCustomerOverviewCompanyNameTextboxLabel.Size = new Size(116, 20);
-            createCustomerOverviewCompanyNameTextboxLabel.TabIndex = 26;
-            createCustomerOverviewCompanyNameTextboxLabel.Text = "Company Name";
+            createCustomerOverviewCompanyNameLabel.AutoSize = true;
+            createCustomerOverviewCompanyNameLabel.Location = new Point(32, 117);
+            createCustomerOverviewCompanyNameLabel.Name = "createCustomerOverviewCompanyNameLabel";
+            createCustomerOverviewCompanyNameLabel.Size = new Size(116, 20);
+            createCustomerOverviewCompanyNameLabel.TabIndex = 26;
+            createCustomerOverviewCompanyNameLabel.Text = "Company Name";
             // 
             // createCustomerOverviewLastNameTextbox
             // 
@@ -507,32 +507,32 @@
             createCustomerOverviewFirstNameTextbox.Size = new Size(234, 27);
             createCustomerOverviewFirstNameTextbox.TabIndex = 1;
             // 
-            // createCustomerOverviewCustomerTierComboBoxLabel
+            // createCustomerOverviewCustomerTierLabel
             // 
-            createCustomerOverviewCustomerTierComboBoxLabel.AutoSize = true;
-            createCustomerOverviewCustomerTierComboBoxLabel.Location = new Point(47, 371);
-            createCustomerOverviewCustomerTierComboBoxLabel.Name = "createCustomerOverviewCustomerTierComboBoxLabel";
-            createCustomerOverviewCustomerTierComboBoxLabel.Size = new Size(101, 20);
-            createCustomerOverviewCustomerTierComboBoxLabel.TabIndex = 22;
-            createCustomerOverviewCustomerTierComboBoxLabel.Text = "Customer Tier";
+            createCustomerOverviewCustomerTierLabel.AutoSize = true;
+            createCustomerOverviewCustomerTierLabel.Location = new Point(47, 371);
+            createCustomerOverviewCustomerTierLabel.Name = "createCustomerOverviewCustomerTierLabel";
+            createCustomerOverviewCustomerTierLabel.Size = new Size(101, 20);
+            createCustomerOverviewCustomerTierLabel.TabIndex = 22;
+            createCustomerOverviewCustomerTierLabel.Text = "Customer Tier";
             // 
-            // createCustomerOverviewCustomerTypeComboBoxLabel
+            // createCustomerOverviewCustomerTypeLabel
             // 
-            createCustomerOverviewCustomerTypeComboBoxLabel.AutoSize = true;
-            createCustomerOverviewCustomerTypeComboBoxLabel.Location = new Point(41, 327);
-            createCustomerOverviewCustomerTypeComboBoxLabel.Name = "createCustomerOverviewCustomerTypeComboBoxLabel";
-            createCustomerOverviewCustomerTypeComboBoxLabel.Size = new Size(107, 20);
-            createCustomerOverviewCustomerTypeComboBoxLabel.TabIndex = 21;
-            createCustomerOverviewCustomerTypeComboBoxLabel.Text = "Customer Type";
+            createCustomerOverviewCustomerTypeLabel.AutoSize = true;
+            createCustomerOverviewCustomerTypeLabel.Location = new Point(41, 327);
+            createCustomerOverviewCustomerTypeLabel.Name = "createCustomerOverviewCustomerTypeLabel";
+            createCustomerOverviewCustomerTypeLabel.Size = new Size(107, 20);
+            createCustomerOverviewCustomerTypeLabel.TabIndex = 21;
+            createCustomerOverviewCustomerTypeLabel.Text = "Customer Type";
             // 
-            // createCustomerOverviewCustomerSinceDatePickerLabel
+            // createCustomerOverviewCustomerSinceLabel
             // 
-            createCustomerOverviewCustomerSinceDatePickerLabel.AutoSize = true;
-            createCustomerOverviewCustomerSinceDatePickerLabel.Location = new Point(37, 283);
-            createCustomerOverviewCustomerSinceDatePickerLabel.Name = "createCustomerOverviewCustomerSinceDatePickerLabel";
-            createCustomerOverviewCustomerSinceDatePickerLabel.Size = new Size(111, 20);
-            createCustomerOverviewCustomerSinceDatePickerLabel.TabIndex = 20;
-            createCustomerOverviewCustomerSinceDatePickerLabel.Text = "Customer Since";
+            createCustomerOverviewCustomerSinceLabel.AutoSize = true;
+            createCustomerOverviewCustomerSinceLabel.Location = new Point(37, 283);
+            createCustomerOverviewCustomerSinceLabel.Name = "createCustomerOverviewCustomerSinceLabel";
+            createCustomerOverviewCustomerSinceLabel.Size = new Size(111, 20);
+            createCustomerOverviewCustomerSinceLabel.TabIndex = 20;
+            createCustomerOverviewCustomerSinceLabel.Text = "Customer Since";
             // 
             // createCustomerOverviewExistingParentCompanyLabel
             // 
@@ -1004,12 +1004,12 @@
             // createCustomerTabControlFinancePage
             // 
             createCustomerTabControlFinancePage.BackColor = Color.LightGreen;
-            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATNumberTextboxLabel);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATNumberLabel);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATNumberTextbox);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceVATRegisteredCheckbox);
-            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentDaysTextboxLabel);
-            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentCurrencyComboBoxLabel);
-            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxLabel);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentDaysLabel);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentCurrencyLabel);
+            createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitLabel);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentDaysTextbox);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinancePaymentCurrencyComboBox);
             createCustomerTabControlFinancePage.Controls.Add(createCustomerFinanceCreditLimitTextboxSeparatorLabel);
@@ -1022,14 +1022,14 @@
             createCustomerTabControlFinancePage.TabIndex = 3;
             createCustomerTabControlFinancePage.Text = "Finance";
             // 
-            // createCustomerFinanceVATNumberTextboxLabel
+            // createCustomerFinanceVATNumberLabel
             // 
-            createCustomerFinanceVATNumberTextboxLabel.AutoSize = true;
-            createCustomerFinanceVATNumberTextboxLabel.Location = new Point(64, 231);
-            createCustomerFinanceVATNumberTextboxLabel.Name = "createCustomerFinanceVATNumberTextboxLabel";
-            createCustomerFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
-            createCustomerFinanceVATNumberTextboxLabel.TabIndex = 23;
-            createCustomerFinanceVATNumberTextboxLabel.Text = "VAT Number";
+            createCustomerFinanceVATNumberLabel.AutoSize = true;
+            createCustomerFinanceVATNumberLabel.Location = new Point(64, 231);
+            createCustomerFinanceVATNumberLabel.Name = "createCustomerFinanceVATNumberLabel";
+            createCustomerFinanceVATNumberLabel.Size = new Size(92, 20);
+            createCustomerFinanceVATNumberLabel.TabIndex = 23;
+            createCustomerFinanceVATNumberLabel.Text = "VAT Number";
             // 
             // createCustomerFinanceVATNumberTextbox
             // 
@@ -1053,32 +1053,32 @@
             createCustomerFinanceVATRegisteredCheckbox.Text = "VAT Registered";
             createCustomerFinanceVATRegisteredCheckbox.UseVisualStyleBackColor = true;
             // 
-            // createCustomerFinancePaymentDaysTextboxLabel
+            // createCustomerFinancePaymentDaysLabel
             // 
-            createCustomerFinancePaymentDaysTextboxLabel.AutoSize = true;
-            createCustomerFinancePaymentDaysTextboxLabel.Location = new Point(55, 154);
-            createCustomerFinancePaymentDaysTextboxLabel.Name = "createCustomerFinancePaymentDaysTextboxLabel";
-            createCustomerFinancePaymentDaysTextboxLabel.Size = new Size(101, 20);
-            createCustomerFinancePaymentDaysTextboxLabel.TabIndex = 20;
-            createCustomerFinancePaymentDaysTextboxLabel.Text = "Payment Days";
+            createCustomerFinancePaymentDaysLabel.AutoSize = true;
+            createCustomerFinancePaymentDaysLabel.Location = new Point(55, 154);
+            createCustomerFinancePaymentDaysLabel.Name = "createCustomerFinancePaymentDaysLabel";
+            createCustomerFinancePaymentDaysLabel.Size = new Size(101, 20);
+            createCustomerFinancePaymentDaysLabel.TabIndex = 20;
+            createCustomerFinancePaymentDaysLabel.Text = "Payment Days";
             // 
-            // createCustomerFinancePaymentCurrencyComboBoxLabel
+            // createCustomerFinancePaymentCurrencyLabel
             // 
-            createCustomerFinancePaymentCurrencyComboBoxLabel.AutoSize = true;
-            createCustomerFinancePaymentCurrencyComboBoxLabel.Location = new Point(30, 110);
-            createCustomerFinancePaymentCurrencyComboBoxLabel.Name = "createCustomerFinancePaymentCurrencyComboBoxLabel";
-            createCustomerFinancePaymentCurrencyComboBoxLabel.Size = new Size(126, 20);
-            createCustomerFinancePaymentCurrencyComboBoxLabel.TabIndex = 19;
-            createCustomerFinancePaymentCurrencyComboBoxLabel.Text = "Payment Currency";
+            createCustomerFinancePaymentCurrencyLabel.AutoSize = true;
+            createCustomerFinancePaymentCurrencyLabel.Location = new Point(30, 110);
+            createCustomerFinancePaymentCurrencyLabel.Name = "createCustomerFinancePaymentCurrencyLabel";
+            createCustomerFinancePaymentCurrencyLabel.Size = new Size(126, 20);
+            createCustomerFinancePaymentCurrencyLabel.TabIndex = 19;
+            createCustomerFinancePaymentCurrencyLabel.Text = "Payment Currency";
             // 
-            // createCustomerFinanceCreditLimitTextboxLabel
+            // createCustomerFinanceCreditLimitLabel
             // 
-            createCustomerFinanceCreditLimitTextboxLabel.AutoSize = true;
-            createCustomerFinanceCreditLimitTextboxLabel.Location = new Point(70, 67);
-            createCustomerFinanceCreditLimitTextboxLabel.Name = "createCustomerFinanceCreditLimitTextboxLabel";
-            createCustomerFinanceCreditLimitTextboxLabel.Size = new Size(86, 20);
-            createCustomerFinanceCreditLimitTextboxLabel.TabIndex = 18;
-            createCustomerFinanceCreditLimitTextboxLabel.Text = "Credit Limit";
+            createCustomerFinanceCreditLimitLabel.AutoSize = true;
+            createCustomerFinanceCreditLimitLabel.Location = new Point(70, 67);
+            createCustomerFinanceCreditLimitLabel.Name = "createCustomerFinanceCreditLimitLabel";
+            createCustomerFinanceCreditLimitLabel.Size = new Size(86, 20);
+            createCustomerFinanceCreditLimitLabel.TabIndex = 18;
+            createCustomerFinanceCreditLimitLabel.Text = "Credit Limit";
             // 
             // createCustomerFinancePaymentDaysTextbox
             // 
@@ -1198,9 +1198,9 @@
         private Label createCustomerFinanceCreditLimitTextboxSeparatorLabel;
         private TextBox createCustomerFinanceCreditLimitTextboxB;
         private TextBox createCustomerFinanceCreditLimitTextboxA;
-        private Label createCustomerFinancePaymentDaysTextboxLabel;
-        private Label createCustomerFinancePaymentCurrencyComboBoxLabel;
-        private Label createCustomerFinanceCreditLimitTextboxLabel;
+        private Label createCustomerFinancePaymentDaysLabel;
+        private Label createCustomerFinancePaymentCurrencyLabel;
+        private Label createCustomerFinanceCreditLimitLabel;
         private TextBox createCustomerFinancePaymentDaysTextbox;
         private ComboBox createCustomerFinancePaymentCurrencyComboBox;
         private TextBox createCustomerBillingInformationAddressLine4Textbox;
@@ -1221,21 +1221,21 @@
         private RadioButton createCustomerOverviewExistingCustomerIsParentNoRadioButton;
         private RadioButton createCustomerOverviewExistingCustomerIsParentYesRadioButton;
         private Label createCustomerOverviewExistingParentCompanyLabel;
-        private Label createCustomerOverviewCustomerSinceDatePickerLabel;
-        private Label createCustomerOverviewCustomerTypeComboBoxLabel;
-        private Label createCustomerOverviewCustomerTierComboBoxLabel;
+        private Label createCustomerOverviewCustomerSinceLabel;
+        private Label createCustomerOverviewCustomerTypeLabel;
+        private Label createCustomerOverviewCustomerTierLabel;
         private TextBox createCustomerOverviewFirstNameTextbox;
         private TextBox createCustomerOverviewLastNameTextbox;
         private TextBox createCustomerOverviewCompanyNameTextbox;
-        private Label createCustomerOverviewFirstNameTextboxLabel;
-        private Label createCustomerOverviewLastNameTextboxLabel;
-        private Label createCustomerOverviewCompanyNameTextboxLabel;
-        private Label createCustomerOverviewGlobalParentCustomerComboBoxLabel;
-        private Label createCustomerOverviewTopParentCustomerComboBoxLabel;
-        private Label createCustomerOverviewAccountManagerComboBoxLabel;
+        private Label createCustomerOverviewFirstNameLabel;
+        private Label createCustomerOverviewLastNameLabel;
+        private Label createCustomerOverviewCompanyNameLabel;
+        private Label createCustomerOverviewGlobalParentCustomerLabel;
+        private Label createCustomerOverviewTopParentCustomerLabel;
+        private Label createCustomerOverviewAccountManagerLabel;
         private ComboBox createCustomerOverviewAccountManagerComboBox;
         private ComboBox createCustomerOverviewSalesRegionComboBox;
-        private Label createCustomerOverviewSalesRegionComboBoxLabel;
+        private Label createCustomerOverviewSalesRegionLabel;
         private Label createCustomerBillingInformationAddressLine2Label;
         private Label createCustomerBillingInformationAddressLine3Label;
         private Label createCustomerBillingInformationAddressLine4Label;
@@ -1275,9 +1275,9 @@
         private Panel createCustomerOverviewWillBeParentRadioButtonPanel;
         private Panel createCustomerOverviewWillBeParentInCustomerHierarchyPanel;
         private CheckBox createCustomerFinanceVATRegisteredCheckbox;
-        private Label createCustomerFinanceVATNumberTextboxLabel;
+        private Label createCustomerFinanceVATNumberLabel;
         private TextBox createCustomerFinanceVATNumberTextbox;
-        private Label createCustomerOverviewSalesSubRegionComboBoxLabel;
+        private Label createCustomerOverviewSalesSubRegionLabel;
         private ComboBox createCustomerOverviewSalesSubRegionComboBox;
         private Panel createCustomerOverviewExistingParentCompanyTypePanel;
         private RadioButton createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton;

@@ -4,7 +4,7 @@ AS
 
 SELECT
 [Supplier Id],
-[Company Name],
+[Supplier Name],
 [Address Line 1],
 [Address Line 2],
 [Address Line 3],

@@ -5,17 +5,17 @@
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
     @addressLine5 NVARCHAR(50),
-    @companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @paymentCurrencyId UNIQUEIDENTIFIER,
     @paymentDays TINYINT,
+    @supplierName NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL
 AS
 
 CREATE TABLE #SupplierTemp
 (
-	[CompanyName] NVARCHAR(50) NOT NULL, 
+	[SupplierName] NVARCHAR(50) NOT NULL, 
     [AddressLine1] NVARCHAR(50) NOT NULL, 
     [AddressLine2] NVARCHAR(50) NULL, 
     [AddressLine3] NVARCHAR(50) NOT NULL, 
@@ -32,7 +32,7 @@ CREATE TABLE #SupplierTemp
 
 INSERT INTO #SupplierTemp
 (
-    [CompanyName], 
+    [SupplierName], 
     [AddressLine1], 
     [AddressLine2], 
     [AddressLine3], 
@@ -47,7 +47,7 @@ INSERT INTO #SupplierTemp
 )
 VALUES
 (
-    @companyName, 
+    @supplierName, 
     @addressLine1, 
     @addressLine2, 
     @addressLine3, 
@@ -71,7 +71,7 @@ AND S.[AddressLine2] = ST.[AddressLine2]
 AND S.[AddressLine3] = ST.[AddressLine3]
 AND S.[AddressLine4] = ST.[AddressLine4]
 AND S.[AddressLine5] = ST.[AddressLine5]
-AND S.[CompanyName] = ST.[CompanyName]
+AND S.[SupplierName] = ST.[SupplierName]
 AND S.[EmailAddress] = ST.[EmailAddress]
 AND S.[PaymentCurrencyId] = ST.[PaymentCurrencyId]
 AND S.[PaymentDays] = ST.[PaymentDays]
@@ -83,7 +83,7 @@ AND S.[AddressLine2] = ST.[AddressLine2]
 AND S.[AddressLine3] = ST.[AddressLine3]
 AND S.[AddressLine4] = ST.[AddressLine4]
 AND S.[AddressLine5] = ST.[AddressLine5]
-AND S.[CompanyName] = ST.[CompanyName]
+AND S.[SupplierName] = ST.[SupplierName]
 AND S.[EmailAddress] = ST.[EmailAddress]
 AND S.[PaymentCurrencyId] = ST.[PaymentCurrencyId]
 AND S.[PaymentDays] = ST.[PaymentDays]
@@ -99,12 +99,12 @@ AND target.[AddressLine2] = source.[AddressLine2]
 AND target.[AddressLine3] = source.[AddressLine3]
 AND target.[AddressLine4] = source.[AddressLine4]
 AND target.[AddressLine5] = source.[AddressLine5]
-AND target.[CompanyName] = source.[CompanyName]
+AND target.[SupplierName] = source.[SupplierName]
 AND target.[VATNumber] = source.[VATNumber]
 WHEN NOT MATCHED THEN
 INSERT
 (
-    [CompanyName], 
+    [SupplierName], 
     [AddressLine1], 
     [AddressLine2], 
     [AddressLine3], 
@@ -119,7 +119,7 @@ INSERT
 )
 VALUES
 (
-    source.[CompanyName], 
+    source.[SupplierName], 
     source.[AddressLine1], 
     source.[AddressLine2], 
     source.[AddressLine3], 

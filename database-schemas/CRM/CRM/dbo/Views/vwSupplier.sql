@@ -3,7 +3,7 @@ AS
 
 SELECT
 S.[SupplierId] AS [Supplier Id],
-S.[CompanyName] AS [Company Name],
+S.[SupplierName] AS [Supplier Name],
 S.[AddressLine1] AS [Address Line 1],
 S.[AddressLine2] AS [Address Line 2],
 S.[AddressLine3] AS [Address Line 3],

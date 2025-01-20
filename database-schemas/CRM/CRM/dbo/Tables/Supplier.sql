@@ -1,7 +1,7 @@
 ﻿CREATE TABLE [dbo].[Supplier]
 (
 	[SupplierId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
-	[CompanyName] NVARCHAR(50) NOT NULL, 
+	[SupplierName] NVARCHAR(50) NOT NULL, 
     [AddressLine1] NVARCHAR(50) NOT NULL, 
     [AddressLine2] NVARCHAR(50) NULL, 
     [AddressLine3] NVARCHAR(50) NOT NULL, 

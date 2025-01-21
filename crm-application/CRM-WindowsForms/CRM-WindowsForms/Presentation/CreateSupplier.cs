@@ -241,7 +241,7 @@ namespace CRM_WindowsForms.Presentation
                         {
                             ParameterName = "@vatNumber",
                             ParameterValue = supplierFinanceVATNumber
-                        },
+                        }
                 };
 
                 if (!string.IsNullOrEmpty(supplierOverviewAddressLine2))

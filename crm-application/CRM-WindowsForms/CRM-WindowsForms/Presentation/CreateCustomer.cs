@@ -964,7 +964,7 @@ namespace CRM_WindowsForms.Presentation
                         {
                             ParameterName = "@vatNumber",
                             ParameterValue = customerFinanceVATNumber
-                        },
+                        }
                 };
 
                 if (!string.IsNullOrEmpty(customerOverviewCompanyName))

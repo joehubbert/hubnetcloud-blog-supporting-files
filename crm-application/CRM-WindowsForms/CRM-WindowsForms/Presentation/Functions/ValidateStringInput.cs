@@ -1,4 +1,5 @@
 ﻿using System.Text;
+using System.Text.RegularExpressions;
 
 namespace CRM_WindowsForms.Presentation.Functions
 {
@@ -48,9 +49,25 @@ namespace CRM_WindowsForms.Presentation.Functions
                     {
                         validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {value.Length} characters.");
                     }
-                    else if (!System.Text.RegularExpressions.Regex.IsMatch(value, @"^\+\d{12}$"))
+                    else if (!Regex.IsMatch(value, @"^\+\d{12}$"))
                     {
                         validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
+                    }
+                }
+
+                if (property.Name.Contains("Numeric"))
+                {
+                    if (!Regex.IsMatch(value, @"^\d+$"))
+                    {
+                        validationErrors.AppendLine($"{property.Name} must contain only numeric characters.");
+                    }
+                }
+
+                if (property.Name.Contains("Decimal"))
+                {
+                    if (!decimal.TryParse(value, out _))
+                    {
+                        validationErrors.AppendLine($"{property.Name} must be a valid decimal number.");
                     }
                 }
 

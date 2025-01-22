@@ -81,7 +81,7 @@
             viewAllPaymentMethodRefreshDataButton.TabIndex = 15;
             viewAllPaymentMethodRefreshDataButton.Text = "Refresh Data";
             viewAllPaymentMethodRefreshDataButton.UseVisualStyleBackColor = true;
-            viewAllPaymentMethodRefreshDataButton.Click += new EventHandler(viewAllPaymentMethodRefreshDataButton_Click);
+            viewAllPaymentMethodRefreshDataButton.Click += new EventHandler(ViewAllPaymentMethodRefreshDataButton_Click);
             // 
             // ViewAllPaymentMethod
             // 

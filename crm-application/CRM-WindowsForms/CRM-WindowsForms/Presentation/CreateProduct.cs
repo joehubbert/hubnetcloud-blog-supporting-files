@@ -122,22 +122,22 @@ namespace CRM_WindowsForms.Presentation
 
         private async void createProductSubmitButton_Click(object sender, EventArgs e)
         {
-            bool productActiveStatus = createProductActiveStatusCheckbox.Checked;
+            bool activeStatus = createProductActiveStatusCheckbox.Checked;
             Guid productCategoryId = Guid.Parse(createProductProductCategoryComboBox.SelectedValue.ToString());
             string productName = createProductProductNameTextbox.Text.TrimEnd();
-            decimal productUnitPrice = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
-            int productUnitStockQuantityHeld = int.Parse(createProductUnitStockQuantityHeldTextbox.Text.TrimEnd());
-            decimal productWholesalePricePerUnit = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
-            bool productWholesaleReorderFlag;
+            decimal unitPrice = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
+            int unitStockQuantityHeld = int.Parse(createProductUnitStockQuantityHeldTextbox.Text.TrimEnd());
+            decimal wholesalePricePerUnit = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
+            bool wholesaleReorderFlag;
             if (createProductWholesaleReorderFlagYesRadioButton.Checked)
             {
-                productWholesaleReorderFlag = true;
+                wholesaleReorderFlag = true;
             }
             else
             {
-                productWholesaleReorderFlag = false;
+                wholesaleReorderFlag = false;
             }
-            int productWholesaleUnitQuantityPerCarton = int.Parse(createProductWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
+            int wholesaleUnitQuantityPerCarton = int.Parse(createProductWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
             Guid supplierId = Guid.Parse(createProductSupplierComboBox.SelectedValue.ToString());
 
             string dataSubject = "Product";
@@ -148,17 +148,68 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ProductCategory",
+                    Value = productCategoryId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "ProductName",
                     Value = productName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "UnitPrice",
+                    Value = unitPrice,
+                    ValueType = typeof(decimal)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "UnitStockQuantityHeld",
+                    Value = unitStockQuantityHeld,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "WholesalePricePerUnit",
+                    Value = wholesalePricePerUnit,
+                    ValueType = typeof(decimal)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "WholesaleReorderFlag",
+                    Value = wholesaleReorderFlag,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "WholesaleUnitQuantityPerCarton",
+                    Value = wholesaleUnitQuantityPerCarton,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SupplierId",
+                    Value = supplierId,
+                    ValueType = typeof(Guid)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -168,51 +219,51 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new List<Parameter>
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@activeStatus",
-                            ParameterValue = productActiveStatus
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@productCategoryId",
-                            ParameterValue = productCategoryId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@productName",
-                            ParameterValue = productName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@supplierId",
-                            ParameterValue = supplierId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@unitPrice",
-                            ParameterValue = productUnitPrice
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@unitStockQuantityHeld",
-                            ParameterValue = productUnitStockQuantityHeld
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@wholesalePricePerUnit",
-                            ParameterValue = productWholesalePricePerUnit
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@wholesaleReorderFlag",
-                            ParameterValue = productWholesaleReorderFlag
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@wholesaleUnitQuantityPerCarton",
-                            ParameterValue = productWholesaleUnitQuantityPerCarton
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@activeStatus",
+                        ParameterValue = activeStatus
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@productCategoryId",
+                        ParameterValue = productCategoryId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@productName",
+                        ParameterValue = productName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@supplierId",
+                        ParameterValue = supplierId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@unitPrice",
+                        ParameterValue = unitPrice
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@unitStockQuantityHeld",
+                        ParameterValue = unitStockQuantityHeld
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@wholesalePricePerUnit",
+                        ParameterValue = wholesalePricePerUnit
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@wholesaleReorderFlag",
+                        ParameterValue = wholesaleReorderFlag
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@wholesaleUnitQuantityPerCarton",
+                        ParameterValue = wholesaleUnitQuantityPerCarton
+                    }
                 };
 
                 string storedProcedureName = "[dbo].[spCreateProduct]";

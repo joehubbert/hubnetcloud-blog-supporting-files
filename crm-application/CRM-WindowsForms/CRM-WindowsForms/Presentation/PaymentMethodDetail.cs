@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (paymentMethodDataTable != null)
                 {
                     DataRow paymentMethodDataRow = paymentMethodDataTable.Rows[0];
-                    paymentMethodDetailPaymentMethodIdTextbox.Text = paymentMethodDataRow["Payment Method ID"].ToString();
+                    paymentMethodDetailPaymentMethodIdTextbox.Text = paymentMethodDataRow["Payment Method Id"].ToString();
                     paymentMethodDetailPaymentMethodTextbox.Text = paymentMethodDataRow["Payment Method"].ToString();
                     paymentMethodDetailCreatedByTextbox.Text = paymentMethodDataRow["Created By"].ToString();
                     paymentMethodDetailCreatedTimestampTextbox.Text = paymentMethodDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "PaymentMethod",
                     Value = paymentMethod,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,19 +115,21 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Payment Method",
-                        VariableType = "string",
-                        OriginalValue = paymentMethodDetailPaymentMethodOriginalValue,
-                        NewValue = paymentMethod
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = paymentMethodDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Payment Method",
+                        VariableType = "string",
+                        OriginalValue = paymentMethodDetailPaymentMethodOriginalValue,
+                        NewValue = paymentMethod
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

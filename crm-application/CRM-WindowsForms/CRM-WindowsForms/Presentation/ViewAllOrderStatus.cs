@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllOrderStatusDataGridView.CellContentClick += viewAllOrderStatusDataGridView_CellContentClick;
+            viewAllOrderStatusDataGridView.CellContentClick += ViewAllOrderStatusDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllOrderStatusDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllOrderStatusDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllOrderStatusDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllOrderStatusRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllOrderStatusRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllOrderStatus_Load();
         }

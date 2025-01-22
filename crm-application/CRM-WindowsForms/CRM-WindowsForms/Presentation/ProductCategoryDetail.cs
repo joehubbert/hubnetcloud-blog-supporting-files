@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (productCategoryDataTable != null)
                 {
                     DataRow productCategoryDataRow = productCategoryDataTable.Rows[0];
-                    productCategoryDetailProductCategoryIdTextbox.Text = productCategoryDataRow["Product Category ID"].ToString();
+                    productCategoryDetailProductCategoryIdTextbox.Text = productCategoryDataRow["Product Category Id"].ToString();
                     productCategoryDetailProductCategoryTextbox.Text = productCategoryDataRow["Product Category"].ToString();
                     productCategoryDetailCreatedByTextbox.Text = productCategoryDataRow["Created By"].ToString();
                     productCategoryDetailCreatedTimestampTextbox.Text = productCategoryDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "ProductCategory",
                     Value = productCategory,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,19 +115,21 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Product Category",
-                        VariableType = "string",
-                        OriginalValue = productCategoryDetailProductCategoryOriginalValue,
-                        NewValue = productCategory
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = productCategoryDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Product Category",
+                        VariableType = "string",
+                        OriginalValue = productCategoryDetailProductCategoryOriginalValue,
+                        NewValue = productCategory
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

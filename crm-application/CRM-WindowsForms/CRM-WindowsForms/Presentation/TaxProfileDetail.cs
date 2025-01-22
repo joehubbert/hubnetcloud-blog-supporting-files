@@ -57,7 +57,7 @@ namespace CRM_WindowsForms.Presentation
 
                     SplitDecimal.SplitDecimalUsingDelimiter((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
 
-                    taxProfileDetailTaxProfileIdTextbox.Text = taxProfileDataRow["Tax Profile ID"].ToString();
+                    taxProfileDetailTaxProfileIdTextbox.Text = taxProfileDataRow["Tax Profile Id"].ToString();
                     taxProfileDetailTaxProfileTextbox.Text = taxProfileDataRow["Tax Profile"].ToString();
                     taxProfileDetailTaxRateTextboxA.Text = taxRatePartA;
                     taxProfileDetailTaxRateTextboxB.Text = taxRatePartB;
@@ -94,17 +94,32 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "TaxProfile",
                     Value = taxProfile,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "TaxRate",
+                    Value = taxRate,
+                    ValueType = typeof(decimal)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -114,6 +129,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = taxProfileDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail
                     {
                         VariableName = "Tax Profile",
@@ -127,15 +149,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "string",
                         OriginalValue = taxProfileDetailTaxRateOriginalValue,
                         NewValue = taxRate
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Active Status",
-                        VariableType = "string",
-                        OriginalValue = taxProfileDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

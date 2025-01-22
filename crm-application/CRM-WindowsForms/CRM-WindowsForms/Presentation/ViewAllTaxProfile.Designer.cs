@@ -81,7 +81,7 @@
             viewAllTaxProfileRefreshDataButton.TabIndex = 12;
             viewAllTaxProfileRefreshDataButton.Text = "Refresh Data";
             viewAllTaxProfileRefreshDataButton.UseVisualStyleBackColor = true;
-            viewAllTaxProfileRefreshDataButton.Click += new EventHandler(viewAllTaxProfileRefreshDataButton_Click);
+            viewAllTaxProfileRefreshDataButton.Click += new EventHandler(ViewAllTaxProfileRefreshDataButton_Click);
             // 
             // ViewAllTaxProfile
             // 

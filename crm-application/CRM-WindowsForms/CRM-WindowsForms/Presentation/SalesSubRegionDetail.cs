@@ -94,7 +94,7 @@ namespace CRM_WindowsForms.Presentation
                 if (salesSubRegionDataTable != null)
                 {
                     DataRow salesSubRegionDataRow = salesSubRegionDataTable.Rows[0];
-                    salesSubRegionDetailSalesSubRegionIdTextbox.Text = salesSubRegionDataRow["Sales Sub Region ID"].ToString();
+                    salesSubRegionDetailSalesSubRegionIdTextbox.Text = salesSubRegionDataRow["Sales Sub Region Id"].ToString();
                     salesSubRegionDetailSalesSubRegionTextbox.Text = salesSubRegionDataRow["Sales Sub Region"].ToString();
                     await SalesSubRegionDetailLoadSalesRegionAsync((Guid)salesSubRegionDataRow["Sales Region Id"]);
                     salesSubRegionDetailCreatedByTextbox.Text = salesSubRegionDataRow["Created By"].ToString();
@@ -123,6 +123,7 @@ namespace CRM_WindowsForms.Presentation
             bool activeStatus = salesSubRegionDetailActiveStatusCheckbox.Checked;
             Guid salesRegionId = (Guid)salesSubRegionDetailSalesRegionComboBox.SelectedValue;
             string salesSubRegion = salesSubRegionDetailSalesSubRegionTextbox.Text.TrimEnd();
+
             string dataSubject = "Sales Sub Region";
 
             if (_databaseConnectionSettings == null)
@@ -131,9 +132,21 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SalesRegionId",
+                    Value = salesRegionId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SalesSubRegion",
                     Value = salesSubRegion,
@@ -141,7 +154,9 @@ namespace CRM_WindowsForms.Presentation
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -151,6 +166,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "string",
+                        OriginalValue = salesSubRegionDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail
                     {
                         VariableName = "Sales Region Id",
@@ -164,15 +186,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "string",
                         OriginalValue = salesSubRegionDetailSalesSubRegionOriginalValue,
                         NewValue = salesSubRegion
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Active Status",
-                        VariableType = "string",
-                        OriginalValue = salesSubRegionDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

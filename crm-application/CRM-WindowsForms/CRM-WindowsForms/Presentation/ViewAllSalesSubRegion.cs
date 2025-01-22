@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllSalesSubRegionDataGridView.CellContentClick += viewAllSalesSubRegionDataGridView_CellContentClick;
+            viewAllSalesSubRegionDataGridView.CellContentClick += ViewAllSalesSubRegionDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -65,7 +65,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllSalesSubRegionDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllSalesSubRegionDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllSalesSubRegionDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -89,7 +89,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllSalesSubRegionRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllSalesSubRegionRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllSalesSubRegion_Load();
         }

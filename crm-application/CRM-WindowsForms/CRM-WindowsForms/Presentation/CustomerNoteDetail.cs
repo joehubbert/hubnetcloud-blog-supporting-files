@@ -83,7 +83,7 @@ namespace CRM_WindowsForms.Presentation
                 if (customerNoteDataTable != null)
                 {
                     DataRow customerNoteDataRow = customerNoteDataTable.Rows[0];
-                    customerNoteDetailCustomerNoteIdTextbox.Text = customerNoteDataRow["Customer Note ID"].ToString();
+                    customerNoteDetailCustomerNoteIdTextbox.Text = customerNoteDataRow["Customer Note Id"].ToString();
                     customerNoteDetailCustomerNoteTitleTextbox.Text = customerNoteDataRow["Customer Note Title"].ToString();
                     Guid customerNoteTypeId = (Guid)customerNoteDataRow["Customer Note Type"];
                     await CustomerNoteDetailLoadCustomerNoteTypeAsync(customerNoteTypeId);
@@ -113,6 +113,7 @@ namespace CRM_WindowsForms.Presentation
             string customerNote = customerNoteDetailCustomerNoteTextbox.Text.TrimEnd();
             string customerNoteTitle = customerNoteDetailCustomerNoteTitleTextbox.Text.TrimEnd();
             Guid customerNoteTypeId = (Guid)customerNoteDetailCustomerNoteTypeComboBox.SelectedValue;
+
             string dataSubject = "Customer Note";
 
             if (_databaseConnectionSettings == null)
@@ -121,23 +122,33 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerNote",
                     Value = customerNote,
-                    MaxLength = 1073741823
+                    MaxLength = 1073741823,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerNoteTitle",
                     Value = customerNoteTitle,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerNoteTypeId",
+                    Value = customerNoteTypeId,
+                    ValueType = typeof(Guid)
+                }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -169,6 +180,8 @@ namespace CRM_WindowsForms.Presentation
                         NewValue = customerNoteTypeId
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

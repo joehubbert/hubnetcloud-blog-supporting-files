@@ -83,7 +83,7 @@ namespace CRM_WindowsForms.Presentation
                 if (productNoteDataTable != null)
                 {
                     DataRow productNoteDataRow = productNoteDataTable.Rows[0];
-                    productNoteDetailProductNoteIdTextbox.Text = productNoteDataRow["Product Note ID"].ToString();
+                    productNoteDetailProductNoteIdTextbox.Text = productNoteDataRow["Product Note Id"].ToString();
                     productNoteDetailProductNoteTitleTextbox.Text = productNoteDataRow["Product Note Title"].ToString();
                     Guid productNoteTypeId = (Guid)productNoteDataRow["Product Note Type"];
                     await ProductNoteDetailLoadProductNoteTypeAsync(productNoteTypeId);
@@ -113,6 +113,7 @@ namespace CRM_WindowsForms.Presentation
             string productNote = productNoteDetailProductNoteTextbox.Text.TrimEnd();
             string productNoteTitle = productNoteDetailProductNoteTitleTextbox.Text.TrimEnd();
             Guid productNoteTypeId = (Guid)productNoteDetailProductNoteTypeComboBox.SelectedValue;
+
             string dataSubject = "Product Note";
 
             if (_databaseConnectionSettings == null)
@@ -121,23 +122,33 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "ProductNote",
                     Value = productNote,
-                    MaxLength = 1073741823
+                    MaxLength = 1073741823,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "ProductNoteTitle",
                     Value = productNoteTitle,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ProductNoteTypeId",
+                    Value = productNoteTypeId,
+                    ValueType = typeof(Guid)
+                }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -169,6 +180,8 @@ namespace CRM_WindowsForms.Presentation
                         NewValue = productNoteTypeId
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

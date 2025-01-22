@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllTaxProfileDataGridView.CellContentClick += viewAllTaxProfileDataGridView_CellContentClick;
+            viewAllTaxProfileDataGridView.CellContentClick += ViewAllTaxProfileDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllTaxProfileDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllTaxProfileDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllTaxProfileDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllTaxProfileRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllTaxProfileRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllTaxProfile_Load();
         }

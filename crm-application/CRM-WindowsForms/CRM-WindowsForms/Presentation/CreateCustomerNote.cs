@@ -71,23 +71,39 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
-                    Name = "CustomerNoteTitle",
-                    Value = customerNoteTitle,
-                    MaxLength = 50
+                    Name = "CustomerId",
+                    Value = customerId,
+                    ValueType = typeof(Guid)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerNote",
                     Value = customerNote,
-                    MaxLength = 1073741823
+                    MaxLength = 1073741823,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerNoteTitle",
+                    Value = customerNoteTitle,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerNoteTypeId",
+                    Value = customerNoteTypeId,
+                    ValueType = typeof(Guid)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -97,26 +113,26 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new[]
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@customerId",
-                            ParameterValue = customerId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerNote",
-                            ParameterValue = customerNote
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerNoteTitle",
-                            ParameterValue = customerNoteTitle
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerNoteTypeId",
-                            ParameterValue = customerNoteTypeId
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@customerId",
+                        ParameterValue = customerId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerNote",
+                        ParameterValue = customerNote
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerNoteTitle",
+                        ParameterValue = customerNoteTitle
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerNoteTypeId",
+                        ParameterValue = customerNoteTypeId
+                    }
                 };
                 string storedProcedureName = "[dbo].[spCreateCustomerNote]";
                 string operationType = "create";

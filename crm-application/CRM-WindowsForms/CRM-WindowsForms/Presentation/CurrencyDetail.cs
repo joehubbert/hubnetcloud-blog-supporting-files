@@ -52,7 +52,7 @@ namespace CRM_WindowsForms.Presentation
                 if (currencyDataTable != null)
                 {
                     DataRow currencyDataRow = currencyDataTable.Rows[0];
-                    currencyDetailCurrencyIdTextbox.Text = currencyDataRow["Currency ID"].ToString();
+                    currencyDetailCurrencyIdTextbox.Text = currencyDataRow["Currency Id"].ToString();
                     currencyDetailCurrencyCodeTextbox.Text = currencyDataRow["Currency Code"].ToString();
                     currencyDetailCurrencyNameTextbox.Text = currencyDataRow["Currency Name"].ToString();
                     currencyDetailCreatedByTextbox.Text = currencyDataRow["Created By"].ToString();
@@ -88,23 +88,33 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CurrencyCode",
                     Value = currencyCode,
-                    MaxLength = 3
+                    MaxLength = 3,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CurrencyName",
                     Value = currencyName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -114,6 +124,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = currencyDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail 
                     { 
                         VariableName = "Currency Code",
@@ -127,15 +144,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "string",
                         OriginalValue = currencyDetailCurrencyNameOriginalValue,
                         NewValue = currencyName
-                    },
-                    new ChangeDetail
-                    { 
-                        VariableName = "Active Status",
-                        VariableType = "bool",
-                        OriginalValue = currencyDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

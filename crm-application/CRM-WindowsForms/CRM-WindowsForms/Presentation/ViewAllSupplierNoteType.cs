@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllSupplierNoteTypeDataGridView.CellContentClick += viewAllSupplierNoteTypeDataGridView_CellContentClick;
+            viewAllSupplierNoteTypeDataGridView.CellContentClick += ViewAllSupplierNoteTypeDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllSupplierNoteTypeDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllSupplierNoteTypeDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllSupplierNoteTypeDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllSupplierNoteTypeRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllSupplierNoteTypeRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllSupplierNoteType_Load();
         }

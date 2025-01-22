@@ -91,6 +91,10 @@ namespace CRM_WindowsForms.Presentation
 
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)
         {
+            Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierFinancePaymentCurrencyComboBox.SelectedValue.ToString());
+            byte supplierFinancePaymentDays = byte.Parse(createSupplierFinancePaymentDaysTextbox.Text.TrimEnd());
+            string? supplierFinanceVATNumber = createSupplierFinanceVATNumberTextbox.Text.TrimEnd();
+
             bool supplierOverviewActiveStatus = createSupplierOverviewActiveStatusCheckbox.Checked;
             string supplierOverviewAddressLine1 = createSupplierOverviewAddressLine1Textbox.Text.TrimEnd();
             string? supplierOverviewAddressLine2 = createSupplierOverviewAddressLine2Textbox.Text.TrimEnd();
@@ -101,83 +105,114 @@ namespace CRM_WindowsForms.Presentation
             string supplierOverviewEmailAddress = createSupplierOverviewEmailAddressTextbox.Text.TrimEnd();
             string supplierOverviewTelephoneNumber = createSupplierOverviewTelephoneNumberTextbox.Text.TrimEnd();
 
-            Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierFinancePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte supplierFinancePaymentDays = byte.Parse(createSupplierFinancePaymentDaysTextbox.Text.TrimEnd());
-            string? supplierFinanceVATNumber = createSupplierFinanceVATNumberTextbox.Text.TrimEnd();
-
             if (_databaseConnectionSettings == null)
             {
                 MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
-                    Name = "SupplierOverviewEmailAddress",
-                    Value = supplierOverviewEmailAddress,
-                    MaxLength = 50
+                    Name = "SupplierFinancePayemntCurrencyId",
+                    Value = supplierFinancePaymentCurrencyId,
+                    ValueType = typeof(Guid)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
-                    Name = "SupplierOverviewSupplierName",
-                    Value = supplierOverviewSupplierName,
-                    MaxLength = 50
+                    Name = "SupplierFinancePayemntDays",
+                    Value = supplierFinancePaymentDays,
+                    ValueType = typeof(byte)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
-                    Name = "SupplierOverviewTelephoneNumber",
-                    Value = supplierOverviewTelephoneNumber,
-                    MaxLength = 13
+                    Name = "SupplierOverviewActiveStatus",
+                    Value = supplierOverviewActiveStatus,
+                    ValueType = typeof(bool)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SupplierOverviewActiveStatus",
+                    Value = supplierOverviewActiveStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SupplierOverviewAddressLine1",
                     Value = supplierOverviewAddressLine1,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SupplierOverviewAddressLine3",
                     Value = supplierOverviewAddressLine3,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SupplierOverviewAddressLine4",
                     Value = supplierOverviewAddressLine4,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SupplierOverviewAddressLine5",
                     Value = supplierOverviewAddressLine5,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SupplierOverviewEmailAddress",
+                    Value = supplierOverviewEmailAddress,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SupplierOverviewSupplierName",
+                    Value = supplierOverviewSupplierName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SupplierOverviewTelephoneNumber",
+                    Value = supplierOverviewTelephoneNumber,
+                    MaxLength = 13,
+                    ValueType = typeof(string)
                 }
             };
 
             if (!string.IsNullOrEmpty(supplierOverviewAddressLine2))
             {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
                     Name = "SupplierOverviewAddressLine2",
                     Value = supplierOverviewAddressLine2,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 });
             }
 
             if (!string.IsNullOrEmpty(supplierFinanceVATNumber))
             {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
-                    Name = "CompanyFinanceVATNumber",
+                    Name = "SupplierFinanceVATNumber",
                     Value = supplierFinanceVATNumber,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 });
             }
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -187,61 +222,61 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new List<Parameter>
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@activeStatus",
-                            ParameterValue = supplierOverviewActiveStatus
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@addressLine1",
-                            ParameterValue = supplierOverviewAddressLine1
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@addressLine3",
-                            ParameterValue = supplierOverviewAddressLine3
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@addressLine4",
-                            ParameterValue = supplierOverviewAddressLine4
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@addressLine5",
-                            ParameterValue = supplierOverviewAddressLine5
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@emailAddress",
-                            ParameterValue = supplierOverviewEmailAddress
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@paymentCurrencyId",
-                            ParameterValue = supplierFinancePaymentCurrencyId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@paymentDays",
-                            ParameterValue = supplierFinancePaymentDays
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@supplierName",
-                            ParameterValue = supplierOverviewSupplierName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@telephoneNumber",
-                            ParameterValue = supplierOverviewTelephoneNumber
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@vatNumber",
-                            ParameterValue = supplierFinanceVATNumber
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@activeStatus",
+                        ParameterValue = supplierOverviewActiveStatus
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@addressLine1",
+                        ParameterValue = supplierOverviewAddressLine1
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@addressLine3",
+                        ParameterValue = supplierOverviewAddressLine3
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@addressLine4",
+                        ParameterValue = supplierOverviewAddressLine4
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@addressLine5",
+                        ParameterValue = supplierOverviewAddressLine5
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@emailAddress",
+                        ParameterValue = supplierOverviewEmailAddress
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@paymentCurrencyId",
+                        ParameterValue = supplierFinancePaymentCurrencyId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@paymentDays",
+                        ParameterValue = supplierFinancePaymentDays
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@supplierName",
+                        ParameterValue = supplierOverviewSupplierName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@telephoneNumber",
+                        ParameterValue = supplierOverviewTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@vatNumber",
+                        ParameterValue = supplierFinanceVATNumber
+                    }
                 };
 
                 if (!string.IsNullOrEmpty(supplierOverviewAddressLine2))

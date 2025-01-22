@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllAccountManagerDataGridView.CellContentClick += viewAllAccountManagerDataGridView_CellContentClick;
+            viewAllAccountManagerDataGridView.CellContentClick += ViewAllAccountManagerDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllAccountManagerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllAccountManagerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllAccountManagerDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllAccountManagerRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllAccountManagerRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllAccountManager_Load();
         }

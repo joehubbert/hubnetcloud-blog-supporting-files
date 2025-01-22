@@ -81,7 +81,7 @@
             viewAllSupplierRefreshDataButton.TabIndex = 15;
             viewAllSupplierRefreshDataButton.Text = "Refresh Data";
             viewAllSupplierRefreshDataButton.UseVisualStyleBackColor = true;
-            viewAllSupplierRefreshDataButton.Click += viewAllSupplierRefreshDataButton_Click;
+            viewAllSupplierRefreshDataButton.Click += ViewAllSupplierRefreshDataButton_Click;
             // 
             // ViewAllSupplier
             // 

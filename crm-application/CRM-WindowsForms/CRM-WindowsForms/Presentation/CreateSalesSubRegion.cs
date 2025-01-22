@@ -66,6 +66,7 @@ namespace CRM_WindowsForms.Presentation
             bool activeStatus = createSalesSubRegionActiveStatusCheckbox.Checked;
             Guid salesRegionId = Guid.Parse(createSalesSubRegionSalesRegionComboBox.SelectedValue.ToString());
             string salesSubRegion = createSalesSubRegionSalesSubRegionTextbox.Text.TrimEnd();
+
             string dataSubject = "Sales Sub Region";
 
             if (_databaseConnectionSettings == null)
@@ -74,17 +75,32 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "SalesRegionId",
+                    Value = salesRegionId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SalesSubRegion",
                     Value = salesSubRegion,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -94,21 +110,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new[]
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@activeStatus",
-                            ParameterValue = activeStatus
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@salesRegionId",
-                            ParameterValue = salesRegionId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@salesSubRegion",
-                            ParameterValue = salesSubRegion
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@activeStatus",
+                        ParameterValue = activeStatus
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@salesRegionId",
+                        ParameterValue = salesRegionId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@salesSubRegion",
+                        ParameterValue = salesSubRegion
+                    }
                 };
                 string storedProcedureName = "[dbo].[spCreateSalesSubRegion]";
                 string operationType = "create";

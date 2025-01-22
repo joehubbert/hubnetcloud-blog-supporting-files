@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (customerTypeDataTable != null)
                 {
                     DataRow customerTypeDataRow = customerTypeDataTable.Rows[0];
-                    customerTypeDetailCustomerTypeIdTextbox.Text = customerTypeDataRow["Customer Type ID"].ToString();
+                    customerTypeDetailCustomerTypeIdTextbox.Text = customerTypeDataRow["Customer Type Id"].ToString();
                     customerTypeDetailCustomerTypeTextbox.Text = customerTypeDataRow["Customer Type"].ToString();
                     customerTypeDetailCreatedByTextbox.Text = customerTypeDataRow["Created By"].ToString();
                     customerTypeDetailCreatedTimestampTextbox.Text = customerTypeDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerType",
                     Value = customerType,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,19 +115,21 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Customer Type",
-                        VariableType = "string",
-                        OriginalValue = customerTypeDetailCustomerTypeOriginalValue,
-                        NewValue = customerType
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = customerTypeDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Customer Type",
+                        VariableType = "string",
+                        OriginalValue = customerTypeDetailCustomerTypeOriginalValue,
+                        NewValue = customerType
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

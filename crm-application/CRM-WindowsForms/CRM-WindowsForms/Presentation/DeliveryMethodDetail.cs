@@ -52,7 +52,7 @@ namespace CRM_WindowsForms.Presentation
                         TaxProfileId = row.Field<Guid>("Tax Profile Id"),
                         TaxProfile = row.Field<string>("Tax Profile"),
                         TaxRate = row.Field<decimal>("Tax Rate"),
-                        DisplayText = $"{row.Field<string>("Tax Profile")} | {row.Field<string>("Tax Rate")}"
+                        DisplayText = $"{row.Field<string>("Tax Profile")} - {row.Field<string>("Tax Rate")}"
                     })
                     .OrderBy(item => item.TaxProfile)
                     .ToList();
@@ -83,7 +83,7 @@ namespace CRM_WindowsForms.Presentation
             string storedProcedureName = "[dbo].[spGetDeliveryMethod]";
             string dataSubject = "Delivery Method";
 
-        var parameters = new[]
+            var parameters = new[]
             {
                     new Parameter
                     {
@@ -104,7 +104,7 @@ namespace CRM_WindowsForms.Presentation
 
                     SplitDecimal.SplitDecimalUsingDelimiter((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
 
-                    deliveryMethodDetailDeliveryMethodIdTextbox.Text = deliveryMethodDataRow["Delivery Method ID"].ToString();
+                    deliveryMethodDetailDeliveryMethodIdTextbox.Text = deliveryMethodDataRow["Delivery Method Id"].ToString();
                     deliveryMethodDetailDeliveryMethodTextbox.Text = deliveryMethodDataRow["Delivery Method"].ToString();
                     deliveryMethodDetailDeliveryCostTextboxA.Text = deliveryCostPartA;
                     deliveryMethodDetailDeliveryCostTextboxB.Text = deliveryCostPartB;
@@ -141,6 +141,7 @@ namespace CRM_WindowsForms.Presentation
             string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
             int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(deliveryMethodDetailTaxProfileComboBox.SelectedValue.ToString());
+
             string dataSubject = "Delivery Method";
 
             if (_databaseConnectionSettings == null)
@@ -149,17 +150,44 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "DeliveryCost",
+                    Value = deliveryCost,
+                    ValueType = typeof(decimal)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "DeliveryMethod",
                     Value = deliveryMethod,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "DeliveryTime",
+                    Value = deliveryTime,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "TaxProfileId",
+                    Value = taxProfileId,
+                    ValueType = typeof(Guid)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -170,6 +198,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = deliveryMethodDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail
                     {
                         VariableName = "Delivery Method",
@@ -197,15 +232,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "Guid",
                         OriginalValue = deliveryMethodDetailTaxProfileIdOriginalValue,
                         NewValue = taxProfileId
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Active Status",
-                        VariableType = "bool",
-                        OriginalValue = deliveryMethodDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

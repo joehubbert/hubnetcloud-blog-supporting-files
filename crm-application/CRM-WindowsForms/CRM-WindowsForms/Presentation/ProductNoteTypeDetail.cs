@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (productNoteTypeDataTable != null)
                 {
                     DataRow productNoteTypeDataRow = productNoteTypeDataTable.Rows[0];
-                    productNoteTypeDetailProductNoteTypeIdTextbox.Text = productNoteTypeDataRow["Product Note Type ID"].ToString();
+                    productNoteTypeDetailProductNoteTypeIdTextbox.Text = productNoteTypeDataRow["Product Note Type Id"].ToString();
                     productNoteTypeDetailProductNoteTypeTextbox.Text = productNoteTypeDataRow["Product Note Type"].ToString();
                     productNoteTypeDetailCreatedByTextbox.Text = productNoteTypeDataRow["Created By"].ToString();
                     productNoteTypeDetailCreatedTimestampTextbox.Text = productNoteTypeDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "ProductNoteType",
                     Value = productNoteType,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,20 +115,22 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Product Note Type",
-                        VariableType = "string",
-                        OriginalValue = productNoteTypeDetailProductNoteTypeOriginalValue,
-                        NewValue = productNoteType
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = productNoteTypeDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Product Note Type",
+                        VariableType = "string",
+                        OriginalValue = productNoteTypeDetailProductNoteTypeOriginalValue,
+                        NewValue = productNoteType
                     }
                 };
-               
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
+
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)

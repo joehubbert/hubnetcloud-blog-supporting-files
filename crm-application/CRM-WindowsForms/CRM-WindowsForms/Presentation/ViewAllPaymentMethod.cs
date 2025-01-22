@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllPaymentMethodDataGridView.CellContentClick += viewAllPaymentMethodDataGridView_CellContentClick;
+            viewAllPaymentMethodDataGridView.CellContentClick += ViewAllPaymentMethodDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllPaymentMethodDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllPaymentMethodDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllPaymentMethodDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllPaymentMethodRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllPaymentMethodRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllPaymentMethod_Load();
         }

@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllCurrencyDataGridView.CellContentClick += viewAllCurrencyDataGridView_CellContentClick;
+            viewAllCurrencyDataGridView.CellContentClick += ViewAllCurrencyDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllCurrencyDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllCurrencyDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllCurrencyDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllCurrencyRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllCurrencyRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllCurrency_Load();
         }

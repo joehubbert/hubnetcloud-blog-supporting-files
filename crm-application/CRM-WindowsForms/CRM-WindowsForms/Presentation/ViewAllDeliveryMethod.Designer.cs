@@ -81,7 +81,7 @@
             viewAllDeliveryMethodRefreshDataButton.TabIndex = 12;
             viewAllDeliveryMethodRefreshDataButton.Text = "Refresh Data";
             viewAllDeliveryMethodRefreshDataButton.UseVisualStyleBackColor = true;
-            viewAllDeliveryMethodRefreshDataButton.Click += new EventHandler(viewAllDeliveryMethodRefreshDataButton_Click);
+            viewAllDeliveryMethodRefreshDataButton.Click += new EventHandler(ViewAllDeliveryMethodRefreshDataButton_Click);
             // 
             // ViewAllDeliveryMethod
             // 

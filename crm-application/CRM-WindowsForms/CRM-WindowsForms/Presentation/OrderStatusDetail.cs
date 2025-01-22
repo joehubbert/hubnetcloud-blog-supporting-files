@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (orderStatusDataTable != null)
                 {
                     DataRow orderStatusDataRow = orderStatusDataTable.Rows[0];
-                    orderStatusDetailOrderStatusIdTextbox.Text = orderStatusDataRow["Order Status ID"].ToString();
+                    orderStatusDetailOrderStatusIdTextbox.Text = orderStatusDataRow["Order Status Id"].ToString();
                     orderStatusDetailOrderStatusTextbox.Text = orderStatusDataRow["Order Status"].ToString();
                     orderStatusDetailCreatedByTextbox.Text = orderStatusDataRow["Created By"].ToString();
                     orderStatusDetailCreatedTimestampTextbox.Text = orderStatusDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "OrderStatus",
                     Value = orderStatus,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,19 +115,21 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Order Status",
-                        VariableType = "string",
-                        OriginalValue = orderStatusDetailOrderStatusOriginalValue,
-                        NewValue = orderStatus
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = orderStatusDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Order Status",
+                        VariableType = "string",
+                        OriginalValue = orderStatusDetailOrderStatusOriginalValue,
+                        NewValue = orderStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

@@ -13,7 +13,7 @@ namespace CRM_WindowsForms.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
-            viewAllCustomerTypeDataGridView.CellContentClick += viewAllCustomerTypeDataGridView_CellContentClick;
+            viewAllCustomerTypeDataGridView.CellContentClick += ViewAllCustomerTypeDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void viewAllCustomerTypeDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void ViewAllCustomerTypeDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllCustomerTypeDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void viewAllCustomerTypeRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ViewAllCustomerTypeRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewAllCustomerType_Load();
         }

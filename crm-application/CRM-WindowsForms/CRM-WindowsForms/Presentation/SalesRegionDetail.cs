@@ -51,7 +51,7 @@ namespace CRM_WindowsForms.Presentation
                 if (salesRegionDataTable != null)
                 {
                     DataRow salesRegionDataRow = salesRegionDataTable.Rows[0];
-                    salesRegionDetailSalesRegionIdTextbox.Text = salesRegionDataRow["Sales Region ID"].ToString();
+                    salesRegionDetailSalesRegionIdTextbox.Text = salesRegionDataRow["Sales Region Id"].ToString();
                     salesRegionDetailSalesRegionTextbox.Text = salesRegionDataRow["Sales Region"].ToString();
                     salesRegionDetailCreatedByTextbox.Text = salesRegionDataRow["Created By"].ToString();
                     salesRegionDetailCreatedTimestampTextbox.Text = salesRegionDataRow["Created Timestamp"].ToString();
@@ -84,17 +84,26 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "SalesRegion",
                     Value = salesRegion,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -106,19 +115,21 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "Sales Region",
-                        VariableType = "string",
-                        OriginalValue = salesRegionDetailSalesRegionOriginalValue,
-                        NewValue = salesRegion
-                    },
-                    new ChangeDetail
-                    {
                         VariableName = "Active Status",
                         VariableType = "string",
                         OriginalValue = salesRegionDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Sales Region",
+                        VariableType = "string",
+                        OriginalValue = salesRegionDetailSalesRegionOriginalValue,
+                        NewValue = salesRegion
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

@@ -52,7 +52,7 @@ namespace CRM_WindowsForms.Presentation
                 if (customerTierDataTable != null)
                 {
                     DataRow customerTierDataRow = customerTierDataTable.Rows[0];
-                    customerTierDetailCustomerTierIdTextbox.Text = customerTierDataRow["Customer Tier ID"].ToString();
+                    customerTierDetailCustomerTierIdTextbox.Text = customerTierDataRow["Customer Tier Id"].ToString();
                     customerTierDetailCustomerTierCodeTextbox.Text = customerTierDataRow["Customer Tier Code"].ToString();
                     customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier"].ToString();
                     customerTierDetailCreatedByTextbox.Text = customerTierDataRow["Created By"].ToString();
@@ -88,23 +88,33 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "Active Status",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerTierCode",
                     Value = customerTierCode,
-                    MaxLength = 1
+                    MaxLength = 1,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerTierDescription",
                     Value = customerTierDescription,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -114,6 +124,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = customerTierDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail
                     {
                         VariableName = "Customer Tier Code",
@@ -127,15 +144,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "string",
                         OriginalValue = customerTierDetailCustomerTierDescriptionOriginalValue,
                         NewValue = customerTierDescription
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Active Status",
-                        VariableType = "bool",
-                        OriginalValue = customerTierDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

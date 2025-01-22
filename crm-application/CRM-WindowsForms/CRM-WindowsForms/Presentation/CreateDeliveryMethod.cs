@@ -70,6 +70,7 @@ namespace CRM_WindowsForms.Presentation
             string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.TrimEnd();
             int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextbox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(createDeliveryMethodTaxProfileComboBox.SelectedValue.ToString());
+
             string dataSubject = "Delivery Method";
 
             if (_databaseConnectionSettings == null)
@@ -78,17 +79,44 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "DeliveryCost",
+                    Value = deliveryCost,
+                    ValueType = typeof(decimal)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "DeliveryMethod",
                     Value = deliveryMethod,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "DeliveryTime",
+                    Value = deliveryTime,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "TaxProfileId",
+                    Value = taxProfileId,
+                    ValueType = typeof(Guid)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -98,31 +126,31 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new[]
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@activeStatus",
-                            ParameterValue = activeStatus
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@deliveryCost",
-                            ParameterValue = deliveryCost
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@deliveryMethod",
-                            ParameterValue = deliveryMethod
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@deliveryTime",
-                            ParameterValue = deliveryTime
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@taxProfileId",
-                            ParameterValue = taxProfileId
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@activeStatus",
+                        ParameterValue = activeStatus
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@deliveryCost",
+                        ParameterValue = deliveryCost
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@deliveryMethod",
+                        ParameterValue = deliveryMethod
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@deliveryTime",
+                        ParameterValue = deliveryTime
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@taxProfileId",
+                        ParameterValue = taxProfileId
+                    }
                 };
                 string storedProcedureName = "[dbo].[spCreateDeliveryMethod]";
                 string operationType = "create";

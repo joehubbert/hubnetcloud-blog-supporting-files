@@ -551,6 +551,23 @@ namespace CRM_WindowsForms.Presentation
 
         private async void createCustomerSubmitButton_Click(object sender, EventArgs e)
         {
+            string customerBillingInformationAddressLine1 = createCustomerBillingInformationAddressLine1Textbox.Text.TrimEnd();
+            string? customerBillingInformationAddressLine2 = createCustomerBillingInformationAddressLine2Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine3 = createCustomerBillingInformationAddressLine3Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine4 = createCustomerBillingInformationAddressLine4Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine5 = createCustomerBillingInformationAddressLine5Textbox.Text.TrimEnd();
+            string? customerBillingInformationCompanyName = createCustomerBillingInformationCompanyNameTextbox.Text.TrimEnd();
+            string customerBillingInformationEmailAddress = createCustomerBillingInformationEmailAddressTextbox.Text.TrimEnd();
+            string customerBillingInformationFirstName = createCustomerBillingInformationFirstNameTextbox.Text.TrimEnd();
+            string customerBillingInformationLastName = createCustomerBillingInformationLastNameTextbox.Text.TrimEnd();
+            string customerBillingInformationTelephoneNumber = createCustomerBillingInformationTelephoneNumberTextbox.Text.TrimEnd();
+
+            bool customerFinanceCreditEnabled = createCustomerFinanceCreditEnabledCheckbox.Checked;
+            decimal customerFinanceCreditLimit = decimal.Parse(createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()) + (decimal.Parse(createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()));
+            Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
+            byte customerFinancePaymentDays = byte.Parse(createCustomerFinancePaymentDaysTextbox.Text.TrimEnd());
+            string? customerFinanceVATNumber = createCustomerFinanceVATNumberTextbox.Text.TrimEnd();
+
             Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerOverviewAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
             string? customerOverviewCompanyName = createCustomerOverviewCompanyNameTextbox.Text.TrimEnd();
@@ -575,17 +592,6 @@ namespace CRM_WindowsForms.Presentation
             bool customerOverviewWillBeGlobalParent = createCustomerOverviewWillBeGlobalParentRadioButton.Checked;
             bool customerOverviewWillBeTopParent = createCustomerOverviewWillBeTopParentRadioButton.Checked;
 
-            string customerBillingInformationAddressLine1 = createCustomerBillingInformationAddressLine1Textbox.Text.TrimEnd();
-            string? customerBillingInformationAddressLine2 = createCustomerBillingInformationAddressLine2Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine3 = createCustomerBillingInformationAddressLine3Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine4 = createCustomerBillingInformationAddressLine4Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine5 = createCustomerBillingInformationAddressLine5Textbox.Text.TrimEnd();
-            string? customerBillingInformationCompanyName = createCustomerBillingInformationCompanyNameTextbox.Text.TrimEnd();
-            string customerBillingInformationEmailAddress = createCustomerBillingInformationEmailAddressTextbox.Text.TrimEnd();
-            string customerBillingInformationFirstName = createCustomerBillingInformationFirstNameTextbox.Text.TrimEnd();
-            string customerBillingInformationLastName = createCustomerBillingInformationLastNameTextbox.Text.TrimEnd();
-            string customerBillingInformationTelephoneNumber = createCustomerBillingInformationTelephoneNumberTextbox.Text.TrimEnd();
-
             string customerShippingInformationAddressLine1 = createCustomerShippingInformationAddressLine1Textbox.Text.TrimEnd();
             string? customerShippingInformationAddressLine2 = createCustomerShippingInformationAddressLine2Textbox.Text.TrimEnd();
             string customerShippingInformationAddressLine3 = createCustomerShippingInformationAddressLine3Textbox.Text.TrimEnd();
@@ -597,12 +603,6 @@ namespace CRM_WindowsForms.Presentation
             string customerShippingInformationLastName = createCustomerShippingInformationLastNameTextbox.Text.TrimEnd();
             string customerShippingInformationTelephoneNumber = createCustomerShippingInformationTelephoneNumberTextbox.Text.TrimEnd();
 
-            bool customerFinanceCreditEnabled = createCustomerFinanceCreditEnabledCheckbox.Checked;
-            decimal customerFinanceCreditLimit = decimal.Parse(createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()) + (decimal.Parse(createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()));
-            Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte customerFinancePaymentDays = byte.Parse(createCustomerFinancePaymentDaysTextbox.Text.TrimEnd());
-            string? customerFinanceVATNumber = createCustomerFinanceVATNumberTextbox.Text.TrimEnd();
-
             string dataSubject = "Customer";
 
             if (_databaseConnectionSettings == null)
@@ -611,191 +611,319 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerOverviewEmailAddress",
-                    Value = customerOverviewEmailAddress,
-                    MaxLength = 50
-                },
-                new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerOverviewFirstName",
-                    Value = customerOverviewFirstName,
-                    MaxLength = 50
-                },
-                new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerOverviewLastName",
-                    Value = customerOverviewLastName,
-                    MaxLength = 50
-                },
-                new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerOverviewTelephoneNumber",
-                    Value = customerOverviewTelephoneNumber,
-                    MaxLength = 13
-                },
-                new ValidateStringInput.StringProperty
+
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationAddressLine1",
                     Value = customerBillingInformationAddressLine1,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationAddressLine3",
                     Value = customerBillingInformationAddressLine3,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationAddressLine4",
                     Value = customerBillingInformationAddressLine4,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationAddressLine5",
                     Value = customerBillingInformationAddressLine5,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationEmailAddress",
                     Value = customerBillingInformationEmailAddress,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationFirstName",
                     Value = customerBillingInformationFirstName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationLastName",
                     Value = customerBillingInformationLastName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationTelephoneNumber",
                     Value = customerBillingInformationTelephoneNumber,
-                    MaxLength = 13
+                    MaxLength = 13,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerFinanceCreditEnabled",
+                    Value = customerFinanceCreditEnabled,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerFinanceCreditLimit",
+                    Value = customerFinanceCreditLimit,
+                    ValueType = typeof(decimal)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerFinancePaymentCurrencyId",
+                    Value = customerFinancePaymentCurrencyId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerFinancePaymentDays",
+                    Value = customerFinancePaymentDays,
+                    ValueType = typeof(byte)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewAccountManagerId",
+                    Value = customerOverviewAccountManagerId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewActiveStatus",
+                    Value = customerOverviewActiveStatus,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewCustomerSince",
+                    Value = customerOverviewCustomerSince,
+                    ValueType = typeof(DateTime)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewCustomerTierId",
+                    Value = customerOverviewCustomerTierId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewCustomerTypeId",
+                    Value = customerOverviewCustomerTypeId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewEmailAddress",
+                    Value = customerOverviewEmailAddress,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewFirstName",
+                    Value = customerOverviewFirstName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewLastName",
+                    Value = customerOverviewLastName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewSalesSubRegionId",
+                    Value = customerOverviewSalesSubRegionId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewTelephoneNumber",
+                    Value = customerOverviewTelephoneNumber,
+                    MaxLength = 13,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewWillBeGlobalParent",
+                    Value = customerOverviewWillBeGlobalParent,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewWillBeTopParent",
+                    Value = customerOverviewWillBeTopParent,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewTelephoneNumber",
+                    Value = customerOverviewTelephoneNumber,
+                    MaxLength = 13,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationAddressLine1",
                     Value = customerShippingInformationAddressLine1,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationAddressLine3",
                     Value = customerShippingInformationAddressLine3,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationAddressLine4",
                     Value = customerShippingInformationAddressLine4,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationAddressLine5",
                     Value = customerShippingInformationAddressLine5,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationEmailAddress",
                     Value = customerShippingInformationEmailAddress,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationFirstName",
                     Value = customerShippingInformationFirstName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationLastName",
                     Value = customerShippingInformationLastName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerShippingInformationTelephoneNumber",
                     Value = customerShippingInformationTelephoneNumber,
-                    MaxLength = 13
+                    MaxLength = 13,
+                    ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(customerOverviewCompanyName))
-            {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerOverviewCompanyName",
-                    Value = customerOverviewCompanyName,
-                    MaxLength = 50
-                });
-            }
-
             if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
             {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationAddressLine2",
                     Value = customerBillingInformationAddressLine2,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 });
             }
 
             if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
             {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
                     Name = "CustomerBillingInformationCompanyName",
                     Value = customerBillingInformationCompanyName,
-                    MaxLength = 50
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
-            {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerShippingInformationAddressLine2",
-                    Value = customerShippingInformationAddressLine2,
-                    MaxLength = 50
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
-            {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
-                {
-                    Name = "CustomerShippingInformationCompanyName",
-                    Value = customerShippingInformationCompanyName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 });
             }
 
             if (!string.IsNullOrEmpty(customerFinanceVATNumber))
             {
-                stringsToValidate.Add(new ValidateStringInput.StringProperty
+                dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
                     Name = "CompanyFinanceVATNumber",
                     Value = customerFinanceVATNumber,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 });
             }
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            if (!string.IsNullOrEmpty(customerOverviewCompanyName))
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewCompanyName",
+                    Value = customerOverviewCompanyName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                });
+            }
+
+            if (customerOverviewExistingGlobalParentCustomerId != null && customerOverviewExistingGlobalParentCustomerId != Guid.Empty)
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewExistingGlobalParentCustomerId",
+                    Value = customerOverviewExistingGlobalParentCustomerId,
+                    ValueType = typeof(Guid)
+                });
+            }
+
+            if (customerOverviewExistingTopParentCustomerId != null && customerOverviewExistingTopParentCustomerId != Guid.Empty)
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerOverviewExistingTopParentCustomerId",
+                    Value = customerOverviewExistingTopParentCustomerId,
+                    ValueType = typeof(Guid)
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerShippingInformationAddressLine2",
+                    Value = customerShippingInformationAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                });
+            }
+
+            if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "CustomerShippingInformationCompanyName",
+                    Value = customerShippingInformationCompanyName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                });
+            }
+
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -805,166 +933,166 @@ namespace CRM_WindowsForms.Presentation
             {
                 var parameters = new List<Parameter>
                 {
-                        new Parameter
-                        {
-                            ParameterName = "@accountManagerId",
-                            ParameterValue = customerOverviewAccountManagerId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@activeStatus",
-                            ParameterValue = customerOverviewActiveStatus
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingFirstName",
-                            ParameterValue = customerBillingInformationFirstName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingLastName",
-                            ParameterValue = customerBillingInformationLastName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingAddressLine1",
-                            ParameterValue = customerBillingInformationAddressLine1
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingAddressLine3",
-                            ParameterValue = customerBillingInformationAddressLine3
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingAddressLine4",
-                            ParameterValue = customerBillingInformationAddressLine4
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingAddressLine5",
-                            ParameterValue = customerBillingInformationAddressLine5
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingTelephoneNumber",
-                            ParameterValue = customerBillingInformationTelephoneNumber
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@billingEmailAddress",
-                            ParameterValue = customerBillingInformationEmailAddress
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@creditEnabled",
-                            ParameterValue = customerFinanceCreditEnabled
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerSince",
-                            ParameterValue = customerOverviewCustomerSince
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerTierId",
-                            ParameterValue = customerOverviewCustomerTierId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@customerTypeId",
-                            ParameterValue = customerOverviewCustomerTypeId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@emailAddress",
-                            ParameterValue = customerOverviewEmailAddress
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@firstName",
-                            ParameterValue = customerOverviewFirstName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@globalParentCustomer",
-                            ParameterValue = customerOverviewWillBeGlobalParent
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@lastName",
-                            ParameterValue = customerOverviewLastName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@paymentCurrencyId",
-                            ParameterValue = customerFinancePaymentCurrencyId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@paymentDays",
-                            ParameterValue = customerFinancePaymentDays
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@salesSubRegionId",
-                            ParameterValue = customerOverviewSalesSubRegionId
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingFirstName",
-                            ParameterValue = customerShippingInformationFirstName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingLastName",
-                            ParameterValue = customerShippingInformationLastName
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingAddressLine1",
-                            ParameterValue = customerShippingInformationAddressLine1
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingAddressLine3",
-                            ParameterValue = customerShippingInformationAddressLine3
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingAddressLine4",
-                            ParameterValue = customerShippingInformationAddressLine4
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingAddressLine5",
-                            ParameterValue = customerShippingInformationAddressLine5
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingTelephoneNumber",
-                            ParameterValue = customerShippingInformationTelephoneNumber
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@shippingEmailAddress",
-                            ParameterValue = customerShippingInformationEmailAddress
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@telephoneNumber",
-                            ParameterValue = customerOverviewTelephoneNumber
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@topParentCustomer",
-                            ParameterValue = customerOverviewWillBeTopParent
-                        },
-                        new Parameter
-                        {
-                            ParameterName = "@vatNumber",
-                            ParameterValue = customerFinanceVATNumber
-                        }
+                    new Parameter
+                    {
+                        ParameterName = "@accountManagerId",
+                        ParameterValue = customerOverviewAccountManagerId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@activeStatus",
+                        ParameterValue = customerOverviewActiveStatus
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingFirstName",
+                        ParameterValue = customerBillingInformationFirstName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingLastName",
+                        ParameterValue = customerBillingInformationLastName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingAddressLine1",
+                        ParameterValue = customerBillingInformationAddressLine1
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingAddressLine3",
+                        ParameterValue = customerBillingInformationAddressLine3
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingAddressLine4",
+                        ParameterValue = customerBillingInformationAddressLine4
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingAddressLine5",
+                        ParameterValue = customerBillingInformationAddressLine5
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingTelephoneNumber",
+                        ParameterValue = customerBillingInformationTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@billingEmailAddress",
+                        ParameterValue = customerBillingInformationEmailAddress
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@creditEnabled",
+                        ParameterValue = customerFinanceCreditEnabled
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerSince",
+                        ParameterValue = customerOverviewCustomerSince
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerTierId",
+                        ParameterValue = customerOverviewCustomerTierId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@customerTypeId",
+                        ParameterValue = customerOverviewCustomerTypeId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@emailAddress",
+                        ParameterValue = customerOverviewEmailAddress
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@firstName",
+                        ParameterValue = customerOverviewFirstName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@globalParentCustomer",
+                        ParameterValue = customerOverviewWillBeGlobalParent
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@lastName",
+                        ParameterValue = customerOverviewLastName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@paymentCurrencyId",
+                        ParameterValue = customerFinancePaymentCurrencyId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@paymentDays",
+                        ParameterValue = customerFinancePaymentDays
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@salesSubRegionId",
+                        ParameterValue = customerOverviewSalesSubRegionId
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingFirstName",
+                        ParameterValue = customerShippingInformationFirstName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingLastName",
+                        ParameterValue = customerShippingInformationLastName
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingAddressLine1",
+                        ParameterValue = customerShippingInformationAddressLine1
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingAddressLine3",
+                        ParameterValue = customerShippingInformationAddressLine3
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingAddressLine4",
+                        ParameterValue = customerShippingInformationAddressLine4
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingAddressLine5",
+                        ParameterValue = customerShippingInformationAddressLine5
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingTelephoneNumber",
+                        ParameterValue = customerShippingInformationTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@shippingEmailAddress",
+                        ParameterValue = customerShippingInformationEmailAddress
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@telephoneNumber",
+                        ParameterValue = customerOverviewTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@topParentCustomer",
+                        ParameterValue = customerOverviewWillBeTopParent
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@vatNumber",
+                        ParameterValue = customerFinanceVATNumber
+                    }
                 };
 
                 if (!string.IsNullOrEmpty(customerOverviewCompanyName))

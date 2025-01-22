@@ -20,6 +20,7 @@ namespace CRM_WindowsForms.Presentation
             InitializeComponent();
             _accountManagerId = accountManagerId;
             accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += accountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
+            accountManagerDetailTabControl.SelectedIndexChanged += AccountManagerDetailTabControl_SelectedIndexChanged;
             LoadDatabaseConnectionSettingsAsync();
         }
 
@@ -78,12 +79,20 @@ namespace CRM_WindowsForms.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load account manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Failed to load Account Manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }
 
-        private async void ViewAccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
+        private async void AccountManagerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (accountManagerDetailTabControl.SelectedTab == accountManagerDetailTabControl.TabPages["associatedCustomers"])
+            {
+                await ViewAccountManagerDetailAssociatedCustomer_Load(sender, e);
+            }
+        }
+
+        private async Task ViewAccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -107,13 +116,18 @@ namespace CRM_WindowsForms.Presentation
 
             if (dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("No associated customers found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No Associated Customers found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
+                dataTable.DefaultView.Sort = "Company Tier ASC";
                 accountManagerDetailAssociatedCustomerDataGridView.AutoGenerateColumns = true;
                 accountManagerDetailAssociatedCustomerDataGridView.DataSource = dataTable;
                 accountManagerDetailAssociatedCustomerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (accountManagerDetailAssociatedCustomerDataGridView.Columns.Contains("Details"))
+                {
+                    accountManagerDetailAssociatedCustomerDataGridView.Columns.Remove("Details");
+                }
                 DataGridViewLinkColumn customerDetailLink = new DataGridViewLinkColumn
                 {
                     HeaderText = "Details",
@@ -163,35 +177,48 @@ namespace CRM_WindowsForms.Presentation
             string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
             string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
 
-            var stringsToValidate = new List<ValidateStringInput.StringProperty>
+            var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
+                {
+                    Name = "ActiveStatus",
+                    Value = activeStatus,
+                    MaxLength = 50,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
                 {
                     Name = "FirstName",
                     Value = firstName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "LastName",
                     Value = lastName,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "EmailAddress",
                     Value = emailAddress,
-                    MaxLength = 50
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
-                new ValidateStringInput.StringProperty
+                new ValidateDataInput.DataProperty
                 {
                     Name = "TelephoneNumber",
                     Value = telephoneNumber,
-                    MaxLength = 13
+                    MaxLength = 13,
+                    ValueType = typeof(string)
                 }
             };
 
-            var validationResult = ValidateStringInput.ValidateInput(stringsToValidate);
+            dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
+
+            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -201,6 +228,13 @@ namespace CRM_WindowsForms.Presentation
             {
                 var changesList = new List<ChangeDetail>
                 {
+                    new ChangeDetail
+                    {
+                        VariableName = "Active Status",
+                        VariableType = "bool",
+                        OriginalValue = accountManagerDetailActiveStatusOriginalValue,
+                        NewValue = activeStatus
+                    },
                     new ChangeDetail 
                     { 
                         VariableName = "First Name",
@@ -228,15 +262,10 @@ namespace CRM_WindowsForms.Presentation
                         VariableType = "string",
                         OriginalValue = accountManagerDetailTelephoneNumberOriginalValue,
                         NewValue = telephoneNumber
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Active Status",
-                        VariableType = "bool",
-                        OriginalValue = accountManagerDetailActiveStatusOriginalValue,
-                        NewValue = activeStatus
                     }
                 };
+
+                changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
                 bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
 

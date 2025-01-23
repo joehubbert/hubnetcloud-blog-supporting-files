@@ -1,15 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -17,7 +8,6 @@ namespace CRM_WindowsForms.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _supplierId;
-
         private string? supplierDetailFinancePaymentDaysOriginalValue;
         private Guid? supplierDetailFinancePaymentCurrencyIdOriginalValue;
         private string? supplierDetailFinanceVATNumberOriginalValue;
@@ -28,7 +18,6 @@ namespace CRM_WindowsForms.Presentation
         private string? supplierDetailOverviewAddressLine4OriginalValue;
         private string? supplierDetailOverviewAddressLine5OriginalValue;
         private string? supplierDetailOverviewEmailAddressOriginalValue;
-        private string? supplierDetailOverviewSupplierIdOriginalValue;
         private string? supplierDetailOverviewSupplierNameOriginalValue;
         private string? supplierDetailOverviewTelephoneNumberOriginalValue;
 

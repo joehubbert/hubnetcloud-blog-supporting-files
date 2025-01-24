@@ -6,6 +6,7 @@
     @supplierId UNIQUEIDENTIFIER,
     @unitPrice MONEY,
     @unitStockQuantityHeld INT,
+    @wholesaleCartonStockQuantityHeld INT,
     @wholesalePricePerUnit MONEY,
     @wholesaleReorderFlag BIT,
     @wholesaleUnitQuantityPerCarton INT
@@ -19,6 +20,7 @@ SET
     [SupplierId] = @supplierId,
     [UnitPrice] = @unitPrice,
     [UnitStockQuantityHeld] = @unitStockQuantityHeld,
+    [WholesaleCartonStockQuantityHeld] = @wholesaleCartonStockQuantityHeld,
     [WholesalePricePerUnit] = @wholesalePricePerUnit,
     [WholesaleReorderFlag] = @wholesaleReorderFlag,
     [WholesaleUnitQuantityPerCarton] = @wholesaleUnitQuantityPerCarton

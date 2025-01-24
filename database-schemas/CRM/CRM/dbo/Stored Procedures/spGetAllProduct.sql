@@ -9,6 +9,7 @@ SELECT
 [Product Name],
 [Wholesale Price Per Unit],
 [Wholesale Unit Quantity Per Carton],
+[Wholesale Carton Stock Quantity Held],
 [Wholesale Reorder Flag],
 [Unit Selling Price],
 [Unit Stock Quantity Held],

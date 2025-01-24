@@ -6,6 +6,7 @@
     [ProductName] NVARCHAR(50) NOT NULL,
     [WholesalePricePerUnit] MONEY NOT NULL,
     [WholesaleUnitQuantityPerCarton] INT NOT NULL,
+    [WholesaleCartonStockQuantityHeld] INT NOT NULL,
     [WholesaleReorderFlag] BIT NOT NULL,
     [UnitPrice] MONEY NOT NULL,
     [UnitStockQuantityHeld] INT NOT NULL,

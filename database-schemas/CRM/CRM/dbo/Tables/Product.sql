@@ -16,7 +16,8 @@
 	[ModifiedTimestamp] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_Product_ProductCategoryId] FOREIGN KEY ([ProductCategoryId]) REFERENCES [dbo].[ProductCategory]([ProductCategoryId]),
-    CONSTRAINT [CC_Product_UnitStockQuantityHeld] CHECK ([UnitStockQuantityHeld] >= 0)
+    CONSTRAINT [CC_Product_UnitStockQuantityHeld] CHECK ([UnitStockQuantityHeld] >= 0),
+    CONSTRAINT [CC_Product_UnitStock_Limit] CHECK ([UnitStockQuantityHeld] <= [WholesaleUnitQuantityPerCarton] * [WholesaleCartonStockQuantityHeld])
 )
 GO
 

@@ -57,10 +57,10 @@
             createProductWholesalePricePerUnitTextboxSeparator = new Label();
             createProductWholesaleGroupBox = new GroupBox();
             createProductPerUnitGroupBox = new GroupBox();
-            createProductUnitMinimumOrderQuantityTextbox = new TextBox();
-            createProductUnitMinimumOrderQuantityLabel = new Label();
             createProductUnitMinimumStockQuantityTextbox = new TextBox();
             createProductUnitMinimumStockQuantityLabel = new Label();
+            createProductUnitMinimumOrderQuantityTextbox = new TextBox();
+            createProductUnitMinimumOrderQuantityLabel = new Label();
             createProductWholesaleReorderFlagPanel.SuspendLayout();
             createProductWholesaleGroupBox.SuspendLayout();
             createProductPerUnitGroupBox.SuspendLayout();
@@ -373,27 +373,6 @@
             createProductPerUnitGroupBox.TabStop = false;
             createProductPerUnitGroupBox.Text = "Per Unit";
             // 
-            // createProductUnitMinimumOrderQuantityTextbox
-            // 
-            createProductUnitMinimumOrderQuantityTextbox.Enabled = false;
-            createProductUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
-            createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;
-            createProductUnitMinimumOrderQuantityTextbox.Name = "createProductUnitMinimumOrderQuantityTextbox";
-            createProductUnitMinimumOrderQuantityTextbox.ReadOnly = true;
-            createProductUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
-            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 72;
-            // 
-            // createProductUnitMinimumOrderQuantityLabel
-            // 
-            createProductUnitMinimumOrderQuantityLabel.AutoSize = true;
-            createProductUnitMinimumOrderQuantityLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumOrderQuantityLabel.Location = new Point(60, 70);
-            createProductUnitMinimumOrderQuantityLabel.Name = "createProductUnitMinimumOrderQuantityLabel";
-            createProductUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
-            createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
-            createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
-            // 
             // createProductUnitMinimumStockQuantityTextbox
             // 
             createProductUnitMinimumStockQuantityTextbox.Enabled = false;
@@ -414,6 +393,28 @@
             createProductUnitMinimumStockQuantityLabel.Size = new Size(203, 20);
             createProductUnitMinimumStockQuantityLabel.TabIndex = 73;
             createProductUnitMinimumStockQuantityLabel.Text = "Unit Minimum Stock Quantity";
+            // 
+            // createProductUnitMinimumOrderQuantityTextbox
+            // 
+            createProductUnitMinimumOrderQuantityTextbox.Enabled = false;
+            createProductUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
+            createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;
+            createProductUnitMinimumOrderQuantityTextbox.Name = "createProductUnitMinimumOrderQuantityTextbox";
+            createProductUnitMinimumOrderQuantityTextbox.ReadOnly = true;
+            createProductUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
+            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 72;
+            createProductUnitMinimumOrderQuantityTextbox.Text = "1";
+            // 
+            // createProductUnitMinimumOrderQuantityLabel
+            // 
+            createProductUnitMinimumOrderQuantityLabel.AutoSize = true;
+            createProductUnitMinimumOrderQuantityLabel.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumOrderQuantityLabel.Location = new Point(60, 70);
+            createProductUnitMinimumOrderQuantityLabel.Name = "createProductUnitMinimumOrderQuantityLabel";
+            createProductUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
+            createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
+            createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
             // 
             // CreateProduct
             // 

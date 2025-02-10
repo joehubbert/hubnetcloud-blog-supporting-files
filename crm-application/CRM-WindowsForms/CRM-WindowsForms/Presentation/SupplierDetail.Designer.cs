@@ -365,20 +365,20 @@
             // supplierDetailOverviewEmailAddressLabel
             // 
             supplierDetailOverviewEmailAddressLabel.AutoSize = true;
-            supplierDetailOverviewEmailAddressLabel.Location = new Point(47, 161);
+            supplierDetailOverviewEmailAddressLabel.Location = new Point(51, 160);
             supplierDetailOverviewEmailAddressLabel.Name = "supplierDetailOverviewEmailAddressLabel";
-            supplierDetailOverviewEmailAddressLabel.Size = new Size(103, 20);
+            supplierDetailOverviewEmailAddressLabel.Size = new Size(109, 20);
             supplierDetailOverviewEmailAddressLabel.TabIndex = 52;
-            supplierDetailOverviewEmailAddressLabel.Text = "Email Address";
+            supplierDetailOverviewEmailAddressLabel.Text = "Email Address*";
             // 
             // supplierDetailOverviewTelephoneNumberLabel
             // 
             supplierDetailOverviewTelephoneNumberLabel.AutoSize = true;
             supplierDetailOverviewTelephoneNumberLabel.Location = new Point(18, 120);
             supplierDetailOverviewTelephoneNumberLabel.Name = "supplierDetailOverviewTelephoneNumberLabel";
-            supplierDetailOverviewTelephoneNumberLabel.Size = new Size(136, 20);
+            supplierDetailOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             supplierDetailOverviewTelephoneNumberLabel.TabIndex = 51;
-            supplierDetailOverviewTelephoneNumberLabel.Text = "Telephone Number";
+            supplierDetailOverviewTelephoneNumberLabel.Text = "Telephone Number*";
             // 
             // supplierDetailOverviewEmailAddressTextbox
             // 
@@ -403,9 +403,9 @@
             supplierDetailOverviewSupplierNameLabel.AutoSize = true;
             supplierDetailOverviewSupplierNameLabel.Location = new Point(46, 77);
             supplierDetailOverviewSupplierNameLabel.Name = "supplierDetailOverviewSupplierNameLabel";
-            supplierDetailOverviewSupplierNameLabel.Size = new Size(108, 20);
+            supplierDetailOverviewSupplierNameLabel.Size = new Size(114, 20);
             supplierDetailOverviewSupplierNameLabel.TabIndex = 28;
-            supplierDetailOverviewSupplierNameLabel.Text = "Supplier Name";
+            supplierDetailOverviewSupplierNameLabel.Text = "Supplier Name*";
             // 
             // supplierDetailOverviewSupplierNameTextbox
             // 
@@ -421,9 +421,9 @@
             supplierDetailTabControlSupplierNotesPage.BackColor = Color.MediumAquamarine;
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesCreateNewSupplierNoteButton);
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesExistingSupplierNotesDataGridView);
-            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 32);
+            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 27);
             supplierDetailTabControlSupplierNotesPage.Name = "supplierDetailTabControlSupplierNotesPage";
-            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 485);
+            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 490);
             supplierDetailTabControlSupplierNotesPage.TabIndex = 4;
             supplierDetailTabControlSupplierNotesPage.Text = "Supplier Notes";
             // 

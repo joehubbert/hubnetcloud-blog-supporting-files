@@ -12,6 +12,8 @@ SELECT
 [Wholesale Carton Stock Quantity Held],
 [Wholesale Reorder Flag],
 [Unit Selling Price],
+[Unit Minimum Order Quantity],
+[Unit Minimum Stock Quantity],
 [Unit Stock Quantity Held],
 [Active Status]
 FROM [dbo].[vwProduct]

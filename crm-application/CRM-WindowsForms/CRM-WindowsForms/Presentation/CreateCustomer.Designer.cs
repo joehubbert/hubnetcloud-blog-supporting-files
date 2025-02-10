@@ -211,20 +211,20 @@
             // createCustomerOverviewEmailAddressLabel
             // 
             createCustomerOverviewEmailAddressLabel.AutoSize = true;
-            createCustomerOverviewEmailAddressLabel.Location = new Point(41, 201);
+            createCustomerOverviewEmailAddressLabel.Location = new Point(40, 203);
             createCustomerOverviewEmailAddressLabel.Name = "createCustomerOverviewEmailAddressLabel";
-            createCustomerOverviewEmailAddressLabel.Size = new Size(103, 20);
+            createCustomerOverviewEmailAddressLabel.Size = new Size(109, 20);
             createCustomerOverviewEmailAddressLabel.TabIndex = 52;
-            createCustomerOverviewEmailAddressLabel.Text = "Email Address";
+            createCustomerOverviewEmailAddressLabel.Text = "Email Address*";
             // 
             // createCustomerOverviewTelephoneNumberLabel
             // 
             createCustomerOverviewTelephoneNumberLabel.AutoSize = true;
-            createCustomerOverviewTelephoneNumberLabel.Location = new Point(12, 160);
+            createCustomerOverviewTelephoneNumberLabel.Location = new Point(8, 160);
             createCustomerOverviewTelephoneNumberLabel.Name = "createCustomerOverviewTelephoneNumberLabel";
-            createCustomerOverviewTelephoneNumberLabel.Size = new Size(136, 20);
+            createCustomerOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerOverviewTelephoneNumberLabel.TabIndex = 51;
-            createCustomerOverviewTelephoneNumberLabel.Text = "Telephone Number";
+            createCustomerOverviewTelephoneNumberLabel.Text = "Telephone Number*";
             // 
             // createCustomerOverviewEmailAddressTextbox
             // 
@@ -285,11 +285,11 @@
             // createCustomerOverviewSalesSubRegionLabel
             // 
             createCustomerOverviewSalesSubRegionLabel.AutoSize = true;
-            createCustomerOverviewSalesSubRegionLabel.Location = new Point(541, 72);
+            createCustomerOverviewSalesSubRegionLabel.Location = new Point(535, 72);
             createCustomerOverviewSalesSubRegionLabel.Name = "createCustomerOverviewSalesSubRegionLabel";
-            createCustomerOverviewSalesSubRegionLabel.Size = new Size(123, 20);
+            createCustomerOverviewSalesSubRegionLabel.Size = new Size(129, 20);
             createCustomerOverviewSalesSubRegionLabel.TabIndex = 46;
-            createCustomerOverviewSalesSubRegionLabel.Text = "Sales Sub Region";
+            createCustomerOverviewSalesSubRegionLabel.Text = "Sales Sub Region*";
             // 
             // createCustomerOverviewSalesSubRegionComboBox
             // 
@@ -398,18 +398,18 @@
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.AutoSize = true;
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Location = new Point(541, 424);
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Name = "createCustomerOverviewWillBeParentInCustomerHierarchyLabel";
-            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Size = new Size(371, 20);
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Size = new Size(377, 20);
             createCustomerOverviewWillBeParentInCustomerHierarchyLabel.TabIndex = 39;
-            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Text = "Will this customer be a parent in a customer hierarchy?";
+            createCustomerOverviewWillBeParentInCustomerHierarchyLabel.Text = "Will this customer be a parent in a customer hierarchy?*";
             // 
             // createCustomerOverviewSalesRegionLabel
             // 
             createCustomerOverviewSalesRegionLabel.AutoSize = true;
-            createCustomerOverviewSalesRegionLabel.Location = new Point(570, 26);
+            createCustomerOverviewSalesRegionLabel.Location = new Point(564, 26);
             createCustomerOverviewSalesRegionLabel.Name = "createCustomerOverviewSalesRegionLabel";
-            createCustomerOverviewSalesRegionLabel.Size = new Size(94, 20);
+            createCustomerOverviewSalesRegionLabel.Size = new Size(100, 20);
             createCustomerOverviewSalesRegionLabel.TabIndex = 34;
-            createCustomerOverviewSalesRegionLabel.Text = "Sales Region";
+            createCustomerOverviewSalesRegionLabel.Text = "Sales Region*";
             // 
             // createCustomerOverviewSalesRegionComboBox
             // 
@@ -441,11 +441,11 @@
             // createCustomerOverviewAccountManagerLabel
             // 
             createCustomerOverviewAccountManagerLabel.AutoSize = true;
-            createCustomerOverviewAccountManagerLabel.Location = new Point(538, 120);
+            createCustomerOverviewAccountManagerLabel.Location = new Point(532, 120);
             createCustomerOverviewAccountManagerLabel.Name = "createCustomerOverviewAccountManagerLabel";
-            createCustomerOverviewAccountManagerLabel.Size = new Size(126, 20);
+            createCustomerOverviewAccountManagerLabel.Size = new Size(132, 20);
             createCustomerOverviewAccountManagerLabel.TabIndex = 30;
-            createCustomerOverviewAccountManagerLabel.Text = "Account Manager";
+            createCustomerOverviewAccountManagerLabel.Text = "Account Manager*";
             // 
             // createCustomerOverviewAccountManagerComboBox
             // 
@@ -461,27 +461,27 @@
             createCustomerOverviewFirstNameLabel.AutoSize = true;
             createCustomerOverviewFirstNameLabel.Location = new Point(64, 31);
             createCustomerOverviewFirstNameLabel.Name = "createCustomerOverviewFirstNameLabel";
-            createCustomerOverviewFirstNameLabel.Size = new Size(80, 20);
+            createCustomerOverviewFirstNameLabel.Size = new Size(86, 20);
             createCustomerOverviewFirstNameLabel.TabIndex = 28;
-            createCustomerOverviewFirstNameLabel.Text = "First Name";
+            createCustomerOverviewFirstNameLabel.Text = "First Name*";
             // 
             // createCustomerOverviewLastNameLabel
             // 
             createCustomerOverviewLastNameLabel.AutoSize = true;
             createCustomerOverviewLastNameLabel.Location = new Point(64, 77);
             createCustomerOverviewLastNameLabel.Name = "createCustomerOverviewLastNameLabel";
-            createCustomerOverviewLastNameLabel.Size = new Size(79, 20);
+            createCustomerOverviewLastNameLabel.Size = new Size(85, 20);
             createCustomerOverviewLastNameLabel.TabIndex = 27;
-            createCustomerOverviewLastNameLabel.Text = "Last Name";
+            createCustomerOverviewLastNameLabel.Text = "Last Name*";
             // 
             // createCustomerOverviewCompanyNameLabel
             // 
             createCustomerOverviewCompanyNameLabel.AutoSize = true;
-            createCustomerOverviewCompanyNameLabel.Location = new Point(32, 117);
+            createCustomerOverviewCompanyNameLabel.Location = new Point(28, 117);
             createCustomerOverviewCompanyNameLabel.Name = "createCustomerOverviewCompanyNameLabel";
-            createCustomerOverviewCompanyNameLabel.Size = new Size(116, 20);
+            createCustomerOverviewCompanyNameLabel.Size = new Size(122, 20);
             createCustomerOverviewCompanyNameLabel.TabIndex = 26;
-            createCustomerOverviewCompanyNameLabel.Text = "Company Name";
+            createCustomerOverviewCompanyNameLabel.Text = "Company Name*";
             // 
             // createCustomerOverviewLastNameTextbox
             // 
@@ -512,36 +512,36 @@
             createCustomerOverviewCustomerTierLabel.AutoSize = true;
             createCustomerOverviewCustomerTierLabel.Location = new Point(47, 371);
             createCustomerOverviewCustomerTierLabel.Name = "createCustomerOverviewCustomerTierLabel";
-            createCustomerOverviewCustomerTierLabel.Size = new Size(101, 20);
+            createCustomerOverviewCustomerTierLabel.Size = new Size(107, 20);
             createCustomerOverviewCustomerTierLabel.TabIndex = 22;
-            createCustomerOverviewCustomerTierLabel.Text = "Customer Tier";
+            createCustomerOverviewCustomerTierLabel.Text = "Customer Tier*";
             // 
             // createCustomerOverviewCustomerTypeLabel
             // 
             createCustomerOverviewCustomerTypeLabel.AutoSize = true;
             createCustomerOverviewCustomerTypeLabel.Location = new Point(41, 327);
             createCustomerOverviewCustomerTypeLabel.Name = "createCustomerOverviewCustomerTypeLabel";
-            createCustomerOverviewCustomerTypeLabel.Size = new Size(107, 20);
+            createCustomerOverviewCustomerTypeLabel.Size = new Size(113, 20);
             createCustomerOverviewCustomerTypeLabel.TabIndex = 21;
-            createCustomerOverviewCustomerTypeLabel.Text = "Customer Type";
+            createCustomerOverviewCustomerTypeLabel.Text = "Customer Type*";
             // 
             // createCustomerOverviewCustomerSinceLabel
             // 
             createCustomerOverviewCustomerSinceLabel.AutoSize = true;
             createCustomerOverviewCustomerSinceLabel.Location = new Point(37, 283);
             createCustomerOverviewCustomerSinceLabel.Name = "createCustomerOverviewCustomerSinceLabel";
-            createCustomerOverviewCustomerSinceLabel.Size = new Size(111, 20);
+            createCustomerOverviewCustomerSinceLabel.Size = new Size(117, 20);
             createCustomerOverviewCustomerSinceLabel.TabIndex = 20;
-            createCustomerOverviewCustomerSinceLabel.Text = "Customer Since";
+            createCustomerOverviewCustomerSinceLabel.Text = "Customer Since*";
             // 
             // createCustomerOverviewExistingParentCompanyLabel
             // 
             createCustomerOverviewExistingParentCompanyLabel.AutoSize = true;
             createCustomerOverviewExistingParentCompanyLabel.Location = new Point(541, 164);
             createCustomerOverviewExistingParentCompanyLabel.Name = "createCustomerOverviewExistingParentCompanyLabel";
-            createCustomerOverviewExistingParentCompanyLabel.Size = new Size(449, 20);
+            createCustomerOverviewExistingParentCompanyLabel.Size = new Size(455, 20);
             createCustomerOverviewExistingParentCompanyLabel.TabIndex = 19;
-            createCustomerOverviewExistingParentCompanyLabel.Text = "Is there an existing customer, that is a parent of the new customer?";
+            createCustomerOverviewExistingParentCompanyLabel.Text = "Is there an existing customer, that is a parent of the new customer?*";
             // 
             // createCustomerOverviewCustomerTierComboBox
             // 
@@ -597,9 +597,9 @@
             createCustomerOverviewActiveStatusCheckbox.Location = new Point(168, 490);
             createCustomerOverviewActiveStatusCheckbox.Margin = new Padding(4);
             createCustomerOverviewActiveStatusCheckbox.Name = "createCustomerOverviewActiveStatusCheckbox";
-            createCustomerOverviewActiveStatusCheckbox.Size = new Size(136, 24);
+            createCustomerOverviewActiveStatusCheckbox.Size = new Size(142, 24);
             createCustomerOverviewActiveStatusCheckbox.TabIndex = 9;
-            createCustomerOverviewActiveStatusCheckbox.Text = "Active Customer";
+            createCustomerOverviewActiveStatusCheckbox.Text = "Active Customer*";
             createCustomerOverviewActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCustomerTabControlBillingPage
@@ -637,18 +637,18 @@
             createCustomerBillingInformationEmailAddressLabel.AutoSize = true;
             createCustomerBillingInformationEmailAddressLabel.Location = new Point(582, 95);
             createCustomerBillingInformationEmailAddressLabel.Name = "createCustomerBillingInformationEmailAddressLabel";
-            createCustomerBillingInformationEmailAddressLabel.Size = new Size(103, 20);
+            createCustomerBillingInformationEmailAddressLabel.Size = new Size(109, 20);
             createCustomerBillingInformationEmailAddressLabel.TabIndex = 20;
-            createCustomerBillingInformationEmailAddressLabel.Text = "Email Address";
+            createCustomerBillingInformationEmailAddressLabel.Text = "Email Address*";
             // 
             // createCustomerBillingInformationTelephoneNumberLabel
             // 
             createCustomerBillingInformationTelephoneNumberLabel.AutoSize = true;
             createCustomerBillingInformationTelephoneNumberLabel.Location = new Point(549, 56);
             createCustomerBillingInformationTelephoneNumberLabel.Name = "createCustomerBillingInformationTelephoneNumberLabel";
-            createCustomerBillingInformationTelephoneNumberLabel.Size = new Size(136, 20);
+            createCustomerBillingInformationTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerBillingInformationTelephoneNumberLabel.TabIndex = 19;
-            createCustomerBillingInformationTelephoneNumberLabel.Text = "Telephone Number";
+            createCustomerBillingInformationTelephoneNumberLabel.Text = "Telephone Number*";
             // 
             // createCustomerBillingInformationAddressLine2Label
             // 
@@ -664,63 +664,63 @@
             createCustomerBillingInformationAddressLine3Label.AutoSize = true;
             createCustomerBillingInformationAddressLine3Label.Location = new Point(36, 324);
             createCustomerBillingInformationAddressLine3Label.Name = "createCustomerBillingInformationAddressLine3Label";
-            createCustomerBillingInformationAddressLine3Label.Size = new Size(105, 20);
+            createCustomerBillingInformationAddressLine3Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine3Label.TabIndex = 17;
-            createCustomerBillingInformationAddressLine3Label.Text = "Address Line 3";
+            createCustomerBillingInformationAddressLine3Label.Text = "Address Line 3*";
             // 
             // createCustomerBillingInformationAddressLine4Label
             // 
             createCustomerBillingInformationAddressLine4Label.AutoSize = true;
             createCustomerBillingInformationAddressLine4Label.Location = new Point(36, 369);
             createCustomerBillingInformationAddressLine4Label.Name = "createCustomerBillingInformationAddressLine4Label";
-            createCustomerBillingInformationAddressLine4Label.Size = new Size(105, 20);
+            createCustomerBillingInformationAddressLine4Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine4Label.TabIndex = 16;
-            createCustomerBillingInformationAddressLine4Label.Text = "Address Line 4";
+            createCustomerBillingInformationAddressLine4Label.Text = "Address Line 4*";
             // 
             // createCustomerBillingInformationAddressLine5Label
             // 
             createCustomerBillingInformationAddressLine5Label.AutoSize = true;
             createCustomerBillingInformationAddressLine5Label.Location = new Point(36, 414);
             createCustomerBillingInformationAddressLine5Label.Name = "createCustomerBillingInformationAddressLine5Label";
-            createCustomerBillingInformationAddressLine5Label.Size = new Size(105, 20);
+            createCustomerBillingInformationAddressLine5Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine5Label.TabIndex = 15;
-            createCustomerBillingInformationAddressLine5Label.Text = "Address Line 5";
+            createCustomerBillingInformationAddressLine5Label.Text = "Address Line 5*";
             // 
             // createCustomerBillingInformationAddressLine1Label
             // 
             createCustomerBillingInformationAddressLine1Label.AutoSize = true;
             createCustomerBillingInformationAddressLine1Label.Location = new Point(36, 234);
             createCustomerBillingInformationAddressLine1Label.Name = "createCustomerBillingInformationAddressLine1Label";
-            createCustomerBillingInformationAddressLine1Label.Size = new Size(105, 20);
+            createCustomerBillingInformationAddressLine1Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine1Label.TabIndex = 14;
-            createCustomerBillingInformationAddressLine1Label.Text = "Address Line 1";
+            createCustomerBillingInformationAddressLine1Label.Text = "Address Line 1*";
             // 
             // createCustomerBillingInformationCompanyNameLabel
             // 
             createCustomerBillingInformationCompanyNameLabel.AutoSize = true;
             createCustomerBillingInformationCompanyNameLabel.Location = new Point(25, 138);
             createCustomerBillingInformationCompanyNameLabel.Name = "createCustomerBillingInformationCompanyNameLabel";
-            createCustomerBillingInformationCompanyNameLabel.Size = new Size(116, 20);
+            createCustomerBillingInformationCompanyNameLabel.Size = new Size(122, 20);
             createCustomerBillingInformationCompanyNameLabel.TabIndex = 13;
-            createCustomerBillingInformationCompanyNameLabel.Text = "Company Name";
+            createCustomerBillingInformationCompanyNameLabel.Text = "Company Name*";
             // 
             // createCustomerBillingInformationLastNameLabel
             // 
             createCustomerBillingInformationLastNameLabel.AutoSize = true;
             createCustomerBillingInformationLastNameLabel.Location = new Point(62, 95);
             createCustomerBillingInformationLastNameLabel.Name = "createCustomerBillingInformationLastNameLabel";
-            createCustomerBillingInformationLastNameLabel.Size = new Size(79, 20);
+            createCustomerBillingInformationLastNameLabel.Size = new Size(85, 20);
             createCustomerBillingInformationLastNameLabel.TabIndex = 12;
-            createCustomerBillingInformationLastNameLabel.Text = "Last Name";
+            createCustomerBillingInformationLastNameLabel.Text = "Last Name*";
             // 
             // createCustomerBillingInformationFirstNameLabel
             // 
             createCustomerBillingInformationFirstNameLabel.AutoSize = true;
             createCustomerBillingInformationFirstNameLabel.Location = new Point(62, 52);
             createCustomerBillingInformationFirstNameLabel.Name = "createCustomerBillingInformationFirstNameLabel";
-            createCustomerBillingInformationFirstNameLabel.Size = new Size(80, 20);
+            createCustomerBillingInformationFirstNameLabel.Size = new Size(86, 20);
             createCustomerBillingInformationFirstNameLabel.TabIndex = 11;
-            createCustomerBillingInformationFirstNameLabel.Text = "First Name";
+            createCustomerBillingInformationFirstNameLabel.Text = "First Name*";
             // 
             // createCustomerBillingInformationAddressLine4Textbox
             // 
@@ -836,18 +836,18 @@
             createCustomerShippingInformationEmailAddressLabel.AutoSize = true;
             createCustomerShippingInformationEmailAddressLabel.Location = new Point(582, 95);
             createCustomerShippingInformationEmailAddressLabel.Name = "createCustomerShippingInformationEmailAddressLabel";
-            createCustomerShippingInformationEmailAddressLabel.Size = new Size(103, 20);
+            createCustomerShippingInformationEmailAddressLabel.Size = new Size(109, 20);
             createCustomerShippingInformationEmailAddressLabel.TabIndex = 40;
-            createCustomerShippingInformationEmailAddressLabel.Text = "Email Address";
+            createCustomerShippingInformationEmailAddressLabel.Text = "Email Address*";
             // 
             // createCustomerShippingInformationTelephoneNumberLabel
             // 
             createCustomerShippingInformationTelephoneNumberLabel.AutoSize = true;
             createCustomerShippingInformationTelephoneNumberLabel.Location = new Point(549, 56);
             createCustomerShippingInformationTelephoneNumberLabel.Name = "createCustomerShippingInformationTelephoneNumberLabel";
-            createCustomerShippingInformationTelephoneNumberLabel.Size = new Size(136, 20);
+            createCustomerShippingInformationTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerShippingInformationTelephoneNumberLabel.TabIndex = 39;
-            createCustomerShippingInformationTelephoneNumberLabel.Text = "Telephone Number";
+            createCustomerShippingInformationTelephoneNumberLabel.Text = "Telephone Number*";
             // 
             // createCustomerShippingInformationAddressLine2Label
             // 
@@ -863,63 +863,63 @@
             createCustomerShippingInformationAddressLine3Label.AutoSize = true;
             createCustomerShippingInformationAddressLine3Label.Location = new Point(36, 324);
             createCustomerShippingInformationAddressLine3Label.Name = "createCustomerShippingInformationAddressLine3Label";
-            createCustomerShippingInformationAddressLine3Label.Size = new Size(105, 20);
+            createCustomerShippingInformationAddressLine3Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine3Label.TabIndex = 37;
-            createCustomerShippingInformationAddressLine3Label.Text = "Address Line 3";
+            createCustomerShippingInformationAddressLine3Label.Text = "Address Line 3*";
             // 
             // createCustomerShippingInformationAddressLine4Label
             // 
             createCustomerShippingInformationAddressLine4Label.AutoSize = true;
             createCustomerShippingInformationAddressLine4Label.Location = new Point(36, 369);
             createCustomerShippingInformationAddressLine4Label.Name = "createCustomerShippingInformationAddressLine4Label";
-            createCustomerShippingInformationAddressLine4Label.Size = new Size(105, 20);
+            createCustomerShippingInformationAddressLine4Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine4Label.TabIndex = 36;
-            createCustomerShippingInformationAddressLine4Label.Text = "Address Line 4";
+            createCustomerShippingInformationAddressLine4Label.Text = "Address Line 4*";
             // 
             // createCustomerShippingInformationAddressLine5Label
             // 
             createCustomerShippingInformationAddressLine5Label.AutoSize = true;
             createCustomerShippingInformationAddressLine5Label.Location = new Point(36, 414);
             createCustomerShippingInformationAddressLine5Label.Name = "createCustomerShippingInformationAddressLine5Label";
-            createCustomerShippingInformationAddressLine5Label.Size = new Size(105, 20);
+            createCustomerShippingInformationAddressLine5Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine5Label.TabIndex = 35;
-            createCustomerShippingInformationAddressLine5Label.Text = "Address Line 5";
+            createCustomerShippingInformationAddressLine5Label.Text = "Address Line 5*";
             // 
             // createCustomerShippingInformationAddressLine1Label
             // 
             createCustomerShippingInformationAddressLine1Label.AutoSize = true;
             createCustomerShippingInformationAddressLine1Label.Location = new Point(36, 234);
             createCustomerShippingInformationAddressLine1Label.Name = "createCustomerShippingInformationAddressLine1Label";
-            createCustomerShippingInformationAddressLine1Label.Size = new Size(105, 20);
+            createCustomerShippingInformationAddressLine1Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine1Label.TabIndex = 34;
-            createCustomerShippingInformationAddressLine1Label.Text = "Address Line 1";
+            createCustomerShippingInformationAddressLine1Label.Text = "Address Line 1*";
             // 
             // createCustomerShippingInformationCompanyNameLabel
             // 
             createCustomerShippingInformationCompanyNameLabel.AutoSize = true;
             createCustomerShippingInformationCompanyNameLabel.Location = new Point(25, 138);
             createCustomerShippingInformationCompanyNameLabel.Name = "createCustomerShippingInformationCompanyNameLabel";
-            createCustomerShippingInformationCompanyNameLabel.Size = new Size(116, 20);
+            createCustomerShippingInformationCompanyNameLabel.Size = new Size(122, 20);
             createCustomerShippingInformationCompanyNameLabel.TabIndex = 33;
-            createCustomerShippingInformationCompanyNameLabel.Text = "Company Name";
+            createCustomerShippingInformationCompanyNameLabel.Text = "Company Name*";
             // 
             // createCustomerShippingInformationLastNameLabel
             // 
             createCustomerShippingInformationLastNameLabel.AutoSize = true;
             createCustomerShippingInformationLastNameLabel.Location = new Point(62, 95);
             createCustomerShippingInformationLastNameLabel.Name = "createCustomerShippingInformationLastNameLabel";
-            createCustomerShippingInformationLastNameLabel.Size = new Size(79, 20);
+            createCustomerShippingInformationLastNameLabel.Size = new Size(85, 20);
             createCustomerShippingInformationLastNameLabel.TabIndex = 32;
-            createCustomerShippingInformationLastNameLabel.Text = "Last Name";
+            createCustomerShippingInformationLastNameLabel.Text = "Last Name*";
             // 
             // createCustomerShippingInformationFirstNameLabel
             // 
             createCustomerShippingInformationFirstNameLabel.AutoSize = true;
             createCustomerShippingInformationFirstNameLabel.Location = new Point(62, 52);
             createCustomerShippingInformationFirstNameLabel.Name = "createCustomerShippingInformationFirstNameLabel";
-            createCustomerShippingInformationFirstNameLabel.Size = new Size(80, 20);
+            createCustomerShippingInformationFirstNameLabel.Size = new Size(86, 20);
             createCustomerShippingInformationFirstNameLabel.TabIndex = 31;
-            createCustomerShippingInformationFirstNameLabel.Text = "First Name";
+            createCustomerShippingInformationFirstNameLabel.Text = "First Name*";
             // 
             // createCustomerShippingInformationAddressLine4Textbox
             // 
@@ -1058,18 +1058,18 @@
             createCustomerFinancePaymentDaysLabel.AutoSize = true;
             createCustomerFinancePaymentDaysLabel.Location = new Point(55, 154);
             createCustomerFinancePaymentDaysLabel.Name = "createCustomerFinancePaymentDaysLabel";
-            createCustomerFinancePaymentDaysLabel.Size = new Size(101, 20);
+            createCustomerFinancePaymentDaysLabel.Size = new Size(107, 20);
             createCustomerFinancePaymentDaysLabel.TabIndex = 20;
-            createCustomerFinancePaymentDaysLabel.Text = "Payment Days";
+            createCustomerFinancePaymentDaysLabel.Text = "Payment Days*";
             // 
             // createCustomerFinancePaymentCurrencyLabel
             // 
             createCustomerFinancePaymentCurrencyLabel.AutoSize = true;
             createCustomerFinancePaymentCurrencyLabel.Location = new Point(30, 110);
             createCustomerFinancePaymentCurrencyLabel.Name = "createCustomerFinancePaymentCurrencyLabel";
-            createCustomerFinancePaymentCurrencyLabel.Size = new Size(126, 20);
+            createCustomerFinancePaymentCurrencyLabel.Size = new Size(132, 20);
             createCustomerFinancePaymentCurrencyLabel.TabIndex = 19;
-            createCustomerFinancePaymentCurrencyLabel.Text = "Payment Currency";
+            createCustomerFinancePaymentCurrencyLabel.Text = "Payment Currency*";
             // 
             // createCustomerFinanceCreditLimitLabel
             // 

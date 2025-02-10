@@ -4,6 +4,8 @@
     @productName NVARCHAR(50),
     @supplierId UNIQUEIDENTIFIER,
     @unitPrice MONEY,
+    @unitMinimumOrderQuantity INT,
+    @unitMinimumStockQuantity INT = NULL,
     @unitStockQuantityHeld INT,
     @wholesaleCartonStockQuantityHeld INT,
     @wholesalePricePerUnit MONEY,
@@ -21,6 +23,8 @@ CREATE TABLE #ProductTemp
     [WholesaleCartonStockQuantityHeld] INT NOT NULL,
     [WholesaleReorderFlag] BIT NOT NULL,
     [UnitPrice] MONEY NOT NULL,
+    [UnitMinimumOrderQuantity] INT NOT NULL,
+    [UnitMinimumStockQuantity] INT NULL,
     [UnitStockQuantityHeld] INT NOT NULL,
     [ActiveStatus] BIT NOT NULL
 )
@@ -35,6 +39,8 @@ INSERT INTO #ProductTemp
     [WholesaleCartonStockQuantityHeld],
     [WholesaleReorderFlag],
     [UnitPrice],
+    [UnitMinimumOrderQuantity],
+    [UnitMinimumStockQuantity],
     [UnitStockQuantityHeld],
     [ActiveStatus]
 )
@@ -48,6 +54,8 @@ VALUES
     @wholesaleCartonStockQuantityHeld,
     @wholesaleReorderFlag,
     @unitPrice,
+    @unitMinimumOrderQuantity,
+    @unitMinimumStockQuantity,
     @unitStockQuantityHeld,
     @activeStatus
 )
@@ -78,6 +86,8 @@ INSERT
     [WholesaleCartonStockQuantityHeld],
     [WholesaleReorderFlag],
     [UnitPrice],
+    [UnitMinimumOrderQuantity],
+    [UnitMinimumStockQuantity],
     [UnitStockQuantityHeld],
     [ActiveStatus]
 )
@@ -91,6 +101,8 @@ VALUES
     source.[WholesaleCartonStockQuantityHeld],
     source.[WholesaleReorderFlag],
     source.[UnitPrice],
+    source.[UnitMinimumOrderQuantity],
+    source.[UnitMinimumStockQuantity],
     source.[UnitStockQuantityHeld],
     source.[ActiveStatus]
 );

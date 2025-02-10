@@ -125,6 +125,8 @@ namespace CRM_WindowsForms.Presentation
             bool activeStatus = createProductActiveStatusCheckbox.Checked;
             Guid productCategoryId = Guid.Parse(createProductProductCategoryComboBox.SelectedValue.ToString());
             string productName = createProductProductNameTextbox.Text.TrimEnd();
+            int unitMinimumOrderQuantity = int.Parse(createProductUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
+            int unitMinimumStockQuantity = int.Parse(createProductUnitMinimumStockQuantityTextbox.Text.TrimEnd());
             decimal unitPrice = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
             int unitStockQuantityHeld = int.Parse(createProductUnitStockQuantityHeldTextbox.Text.TrimEnd());
             decimal wholesalePricePerUnit = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
@@ -171,6 +173,12 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    Name = "UnitMinimumOrderQuantity",
+                    Value = unitMinimumOrderQuantity,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
                     Name = "UnitPrice",
                     Value = unitPrice,
                     ValueType = typeof(decimal)
@@ -207,6 +215,16 @@ namespace CRM_WindowsForms.Presentation
                 }
             };
 
+            if (unitMinimumOrderQuantity > 0)
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    Name = "UnitMinimumStockQuantity",
+                    Value = unitMinimumStockQuantity,
+                    ValueType = typeof(int)
+                });
+            }
+
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
             var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
@@ -241,6 +259,11 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "@unitMinimumOrderQuantity",
+                        ParameterValue = unitMinimumOrderQuantity
+                    },
+                    new Parameter
+                    {
                         ParameterName = "@unitPrice",
                         ParameterValue = unitPrice
                     },
@@ -265,6 +288,15 @@ namespace CRM_WindowsForms.Presentation
                         ParameterValue = wholesaleUnitQuantityPerCarton
                     }
                 };
+
+                if (unitMinimumOrderQuantity > 0)
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@unitMinimumStockQuantity",
+                        ParameterValue = unitMinimumStockQuantity
+                    });
+                }
 
                 string storedProcedureName = "[dbo].[spCreateProduct]";
                 string operationType = "create";

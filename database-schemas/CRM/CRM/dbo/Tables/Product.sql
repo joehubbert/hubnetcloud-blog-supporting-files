@@ -9,6 +9,8 @@
     [WholesaleCartonStockQuantityHeld] INT NOT NULL,
     [WholesaleReorderFlag] BIT NOT NULL,
     [UnitPrice] MONEY NOT NULL,
+    [UnitMinimumOrderQuantity] INT NOT NULL,
+    [UnitMinimumStockQuantity] INT NULL,
     [UnitStockQuantityHeld] INT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
     [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),

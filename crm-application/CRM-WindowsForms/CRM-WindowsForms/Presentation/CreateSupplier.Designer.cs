@@ -125,36 +125,36 @@
             createSupplierOverviewAddressLine3Label.AutoSize = true;
             createSupplierOverviewAddressLine3Label.Location = new Point(505, 121);
             createSupplierOverviewAddressLine3Label.Name = "createSupplierOverviewAddressLine3Label";
-            createSupplierOverviewAddressLine3Label.Size = new Size(105, 20);
+            createSupplierOverviewAddressLine3Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine3Label.TabIndex = 56;
-            createSupplierOverviewAddressLine3Label.Text = "Address Line 3";
+            createSupplierOverviewAddressLine3Label.Text = "Address Line 3*";
             // 
             // createSupplierOverviewAddressLine4Label
             // 
             createSupplierOverviewAddressLine4Label.AutoSize = true;
             createSupplierOverviewAddressLine4Label.Location = new Point(505, 166);
             createSupplierOverviewAddressLine4Label.Name = "createSupplierOverviewAddressLine4Label";
-            createSupplierOverviewAddressLine4Label.Size = new Size(105, 20);
+            createSupplierOverviewAddressLine4Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine4Label.TabIndex = 55;
-            createSupplierOverviewAddressLine4Label.Text = "Address Line 4";
+            createSupplierOverviewAddressLine4Label.Text = "Address Line 4*";
             // 
             // createSupplierOverviewAddressLine5Label
             // 
             createSupplierOverviewAddressLine5Label.AutoSize = true;
             createSupplierOverviewAddressLine5Label.Location = new Point(505, 211);
             createSupplierOverviewAddressLine5Label.Name = "createSupplierOverviewAddressLine5Label";
-            createSupplierOverviewAddressLine5Label.Size = new Size(105, 20);
+            createSupplierOverviewAddressLine5Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine5Label.TabIndex = 54;
-            createSupplierOverviewAddressLine5Label.Text = "Address Line 5";
+            createSupplierOverviewAddressLine5Label.Text = "Address Line 5*";
             // 
             // createSupplierOverviewAddressLine1Label
             // 
             createSupplierOverviewAddressLine1Label.AutoSize = true;
             createSupplierOverviewAddressLine1Label.Location = new Point(505, 31);
             createSupplierOverviewAddressLine1Label.Name = "createSupplierOverviewAddressLine1Label";
-            createSupplierOverviewAddressLine1Label.Size = new Size(105, 20);
+            createSupplierOverviewAddressLine1Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine1Label.TabIndex = 53;
-            createSupplierOverviewAddressLine1Label.Text = "Address Line 1";
+            createSupplierOverviewAddressLine1Label.Text = "Address Line 1*";
             // 
             // createSupplierOverviewAddressLine4Textbox
             // 
@@ -201,18 +201,18 @@
             createSupplierOverviewEmailAddressLabel.AutoSize = true;
             createSupplierOverviewEmailAddressLabel.Location = new Point(41, 115);
             createSupplierOverviewEmailAddressLabel.Name = "createSupplierOverviewEmailAddressLabel";
-            createSupplierOverviewEmailAddressLabel.Size = new Size(103, 20);
+            createSupplierOverviewEmailAddressLabel.Size = new Size(109, 20);
             createSupplierOverviewEmailAddressLabel.TabIndex = 52;
-            createSupplierOverviewEmailAddressLabel.Text = "Email Address";
+            createSupplierOverviewEmailAddressLabel.Text = "Email Address*";
             // 
             // createSupplierOverviewTelephoneNumberLabel
             // 
             createSupplierOverviewTelephoneNumberLabel.AutoSize = true;
             createSupplierOverviewTelephoneNumberLabel.Location = new Point(12, 74);
             createSupplierOverviewTelephoneNumberLabel.Name = "createSupplierOverviewTelephoneNumberLabel";
-            createSupplierOverviewTelephoneNumberLabel.Size = new Size(136, 20);
+            createSupplierOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             createSupplierOverviewTelephoneNumberLabel.TabIndex = 51;
-            createSupplierOverviewTelephoneNumberLabel.Text = "Telephone Number";
+            createSupplierOverviewTelephoneNumberLabel.Text = "Telephone Number*";
             // 
             // createSupplierOverviewEmailAddressTextbox
             // 
@@ -235,9 +235,9 @@
             createSupplierOverviewSupplierNameLabel.AutoSize = true;
             createSupplierOverviewSupplierNameLabel.Location = new Point(40, 31);
             createSupplierOverviewSupplierNameLabel.Name = "createSupplierOverviewSupplierNameLabel";
-            createSupplierOverviewSupplierNameLabel.Size = new Size(108, 20);
+            createSupplierOverviewSupplierNameLabel.Size = new Size(114, 20);
             createSupplierOverviewSupplierNameLabel.TabIndex = 28;
-            createSupplierOverviewSupplierNameLabel.Text = "Supplier Name";
+            createSupplierOverviewSupplierNameLabel.Text = "Supplier Name*";
             // 
             // createSupplierOverviewSupplierNameTextbox
             // 
@@ -256,9 +256,9 @@
             createSupplierOverviewActiveStatusCheckbox.Location = new Point(168, 307);
             createSupplierOverviewActiveStatusCheckbox.Margin = new Padding(4);
             createSupplierOverviewActiveStatusCheckbox.Name = "createSupplierOverviewActiveStatusCheckbox";
-            createSupplierOverviewActiveStatusCheckbox.Size = new Size(128, 24);
+            createSupplierOverviewActiveStatusCheckbox.Size = new Size(134, 24);
             createSupplierOverviewActiveStatusCheckbox.TabIndex = 9;
-            createSupplierOverviewActiveStatusCheckbox.Text = "Active Supplier";
+            createSupplierOverviewActiveStatusCheckbox.Text = "Active Supplier*";
             createSupplierOverviewActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createSupplierTabControlFinancePage
@@ -271,9 +271,9 @@
             createSupplierTabControlFinancePage.Controls.Add(createSupplierFinancePaymentCurrencyComboBoxLabel);
             createSupplierTabControlFinancePage.Controls.Add(createSupplierFinancePaymentDaysTextbox);
             createSupplierTabControlFinancePage.Controls.Add(createSupplierFinancePaymentCurrencyComboBox);
-            createSupplierTabControlFinancePage.Location = new Point(4, 27);
+            createSupplierTabControlFinancePage.Location = new Point(4, 32);
             createSupplierTabControlFinancePage.Name = "createSupplierTabControlFinancePage";
-            createSupplierTabControlFinancePage.Size = new Size(1067, 375);
+            createSupplierTabControlFinancePage.Size = new Size(1067, 370);
             createSupplierTabControlFinancePage.TabIndex = 3;
             createSupplierTabControlFinancePage.Text = "Finance";
             // 
@@ -313,18 +313,18 @@
             createSupplierFinancePaymentDaysTextboxLabel.AutoSize = true;
             createSupplierFinancePaymentDaysTextboxLabel.Location = new Point(65, 69);
             createSupplierFinancePaymentDaysTextboxLabel.Name = "createSupplierFinancePaymentDaysTextboxLabel";
-            createSupplierFinancePaymentDaysTextboxLabel.Size = new Size(101, 20);
+            createSupplierFinancePaymentDaysTextboxLabel.Size = new Size(107, 20);
             createSupplierFinancePaymentDaysTextboxLabel.TabIndex = 20;
-            createSupplierFinancePaymentDaysTextboxLabel.Text = "Payment Days";
+            createSupplierFinancePaymentDaysTextboxLabel.Text = "Payment Days*";
             // 
             // createSupplierFinancePaymentCurrencyComboBoxLabel
             // 
             createSupplierFinancePaymentCurrencyComboBoxLabel.AutoSize = true;
             createSupplierFinancePaymentCurrencyComboBoxLabel.Location = new Point(40, 31);
             createSupplierFinancePaymentCurrencyComboBoxLabel.Name = "createSupplierFinancePaymentCurrencyComboBoxLabel";
-            createSupplierFinancePaymentCurrencyComboBoxLabel.Size = new Size(126, 20);
+            createSupplierFinancePaymentCurrencyComboBoxLabel.Size = new Size(132, 20);
             createSupplierFinancePaymentCurrencyComboBoxLabel.TabIndex = 19;
-            createSupplierFinancePaymentCurrencyComboBoxLabel.Text = "Payment Currency";
+            createSupplierFinancePaymentCurrencyComboBoxLabel.Text = "Payment Currency*";
             // 
             // createSupplierFinancePaymentDaysTextbox
             // 

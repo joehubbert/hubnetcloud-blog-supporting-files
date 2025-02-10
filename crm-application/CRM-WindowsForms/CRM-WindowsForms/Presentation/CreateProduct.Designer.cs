@@ -57,6 +57,10 @@
             createProductWholesalePricePerUnitTextboxSeparator = new Label();
             createProductWholesaleGroupBox = new GroupBox();
             createProductPerUnitGroupBox = new GroupBox();
+            createProductUnitMinimumOrderQuantityTextbox = new TextBox();
+            createProductUnitMinimumOrderQuantityLabel = new Label();
+            createProductUnitMinimumStockQuantityTextbox = new TextBox();
+            createProductUnitMinimumStockQuantityLabel = new Label();
             createProductWholesaleReorderFlagPanel.SuspendLayout();
             createProductWholesaleGroupBox.SuspendLayout();
             createProductPerUnitGroupBox.SuspendLayout();
@@ -79,29 +83,29 @@
             createProductWholesalePricePerUnitLabel.Font = new Font("Segoe UI", 11F);
             createProductWholesalePricePerUnitLabel.Location = new Point(98, 39);
             createProductWholesalePricePerUnitLabel.Name = "createProductWholesalePricePerUnitLabel";
-            createProductWholesalePricePerUnitLabel.Size = new Size(169, 20);
+            createProductWholesalePricePerUnitLabel.Size = new Size(175, 20);
             createProductWholesalePricePerUnitLabel.TabIndex = 57;
-            createProductWholesalePricePerUnitLabel.Text = "Wholesale Price Per Unit";
+            createProductWholesalePricePerUnitLabel.Text = "Wholesale Price Per Unit*";
             // 
             // createProductUnitStockQuantityHeldLabel
             // 
             createProductUnitStockQuantityHeldLabel.AutoSize = true;
             createProductUnitStockQuantityHeldLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitStockQuantityHeldLabel.Location = new Point(93, 70);
+            createProductUnitStockQuantityHeldLabel.Location = new Point(93, 155);
             createProductUnitStockQuantityHeldLabel.Name = "createProductUnitStockQuantityHeldLabel";
-            createProductUnitStockQuantityHeldLabel.Size = new Size(172, 20);
+            createProductUnitStockQuantityHeldLabel.Size = new Size(178, 20);
             createProductUnitStockQuantityHeldLabel.TabIndex = 56;
-            createProductUnitStockQuantityHeldLabel.Text = "Unit Stock Quantity Held";
+            createProductUnitStockQuantityHeldLabel.Text = "Unit Stock Quantity Held*";
             // 
             // createProductWholesaleUnitQuantityPerCartonLabel
             // 
             createProductWholesaleUnitQuantityPerCartonLabel.AutoSize = true;
             createProductWholesaleUnitQuantityPerCartonLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleUnitQuantityPerCartonLabel.Location = new Point(20, 80);
+            createProductWholesaleUnitQuantityPerCartonLabel.Location = new Point(26, 80);
             createProductWholesaleUnitQuantityPerCartonLabel.Name = "createProductWholesaleUnitQuantityPerCartonLabel";
-            createProductWholesaleUnitQuantityPerCartonLabel.Size = new Size(241, 20);
+            createProductWholesaleUnitQuantityPerCartonLabel.Size = new Size(247, 20);
             createProductWholesaleUnitQuantityPerCartonLabel.TabIndex = 55;
-            createProductWholesaleUnitQuantityPerCartonLabel.Text = "Wholesale Unit Quantity Per Carton";
+            createProductWholesaleUnitQuantityPerCartonLabel.Text = "Wholesale Unit Quantity Per Carton*";
             // 
             // createProductWholesaleCartonQuantityLabel
             // 
@@ -109,9 +113,9 @@
             createProductWholesaleCartonQuantityLabel.Font = new Font("Segoe UI", 11F);
             createProductWholesaleCartonQuantityLabel.Location = new Point(81, 125);
             createProductWholesaleCartonQuantityLabel.Name = "createProductWholesaleCartonQuantityLabel";
-            createProductWholesaleCartonQuantityLabel.Size = new Size(187, 20);
+            createProductWholesaleCartonQuantityLabel.Size = new Size(193, 20);
             createProductWholesaleCartonQuantityLabel.TabIndex = 54;
-            createProductWholesaleCartonQuantityLabel.Text = "Wbolesale Carton Quantity";
+            createProductWholesaleCartonQuantityLabel.Text = "Wbolesale Carton Quantity*";
             // 
             // createProductUnitPriceLabel
             // 
@@ -119,15 +123,15 @@
             createProductUnitPriceLabel.Font = new Font("Segoe UI", 11F);
             createProductUnitPriceLabel.Location = new Point(193, 29);
             createProductUnitPriceLabel.Name = "createProductUnitPriceLabel";
-            createProductUnitPriceLabel.Size = new Size(72, 20);
+            createProductUnitPriceLabel.Size = new Size(78, 20);
             createProductUnitPriceLabel.TabIndex = 53;
-            createProductUnitPriceLabel.Text = "Unit Price";
+            createProductUnitPriceLabel.Text = "Unit Price*";
             // 
             // createProductUnitStockQuantityHeldTextbox
             // 
             createProductUnitStockQuantityHeldTextbox.Enabled = false;
             createProductUnitStockQuantityHeldTextbox.Font = new Font("Segoe UI", 11F);
-            createProductUnitStockQuantityHeldTextbox.Location = new Point(283, 67);
+            createProductUnitStockQuantityHeldTextbox.Location = new Point(284, 152);
             createProductUnitStockQuantityHeldTextbox.MaxLength = 50;
             createProductUnitStockQuantityHeldTextbox.Name = "createProductUnitStockQuantityHeldTextbox";
             createProductUnitStockQuantityHeldTextbox.ReadOnly = true;
@@ -175,27 +179,27 @@
             createProductSupplierLabel.AutoSize = true;
             createProductSupplierLabel.Location = new Point(115, 155);
             createProductSupplierLabel.Name = "createProductSupplierLabel";
-            createProductSupplierLabel.Size = new Size(64, 20);
+            createProductSupplierLabel.Size = new Size(70, 20);
             createProductSupplierLabel.TabIndex = 52;
-            createProductSupplierLabel.Text = "Supplier";
+            createProductSupplierLabel.Text = "Supplier*";
             // 
             // createProductProductCategoryLabel
             // 
             createProductProductCategoryLabel.AutoSize = true;
             createProductProductCategoryLabel.Location = new Point(55, 111);
             createProductProductCategoryLabel.Name = "createProductProductCategoryLabel";
-            createProductProductCategoryLabel.Size = new Size(124, 20);
+            createProductProductCategoryLabel.Size = new Size(130, 20);
             createProductProductCategoryLabel.TabIndex = 51;
-            createProductProductCategoryLabel.Text = "Product Category";
+            createProductProductCategoryLabel.Text = "Product Category*";
             // 
             // createProductProductNameLabel
             // 
             createProductProductNameLabel.AutoSize = true;
             createProductProductNameLabel.Location = new Point(75, 71);
             createProductProductNameLabel.Name = "createProductProductNameLabel";
-            createProductProductNameLabel.Size = new Size(104, 20);
+            createProductProductNameLabel.Size = new Size(110, 20);
             createProductProductNameLabel.TabIndex = 28;
-            createProductProductNameLabel.Text = "Product Name";
+            createProductProductNameLabel.Text = "Product Name*";
             // 
             // createProductProductNameTextbox
             // 
@@ -211,7 +215,7 @@
             createProductActiveStatusCheckbox.Checked = true;
             createProductActiveStatusCheckbox.CheckState = CheckState.Checked;
             createProductActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createProductActiveStatusCheckbox.Location = new Point(203, 392);
+            createProductActiveStatusCheckbox.Location = new Point(203, 468);
             createProductActiveStatusCheckbox.Margin = new Padding(4);
             createProductActiveStatusCheckbox.Name = "createProductActiveStatusCheckbox";
             createProductActiveStatusCheckbox.Size = new Size(124, 24);
@@ -223,7 +227,7 @@
             // 
             createProductSubmitButton.FlatStyle = FlatStyle.Flat;
             createProductSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductSubmitButton.Location = new Point(420, 464);
+            createProductSubmitButton.Location = new Point(408, 515);
             createProductSubmitButton.Margin = new Padding(4);
             createProductSubmitButton.Name = "createProductSubmitButton";
             createProductSubmitButton.Size = new Size(198, 66);
@@ -313,11 +317,11 @@
             // 
             createProductWholesaleReorderFlagLabel.AutoSize = true;
             createProductWholesaleReorderFlagLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleReorderFlagLabel.Location = new Point(130, 183);
+            createProductWholesaleReorderFlagLabel.Location = new Point(125, 183);
             createProductWholesaleReorderFlagLabel.Name = "createProductWholesaleReorderFlagLabel";
-            createProductWholesaleReorderFlagLabel.Size = new Size(143, 20);
+            createProductWholesaleReorderFlagLabel.Size = new Size(148, 20);
             createProductWholesaleReorderFlagLabel.TabIndex = 72;
-            createProductWholesaleReorderFlagLabel.Text = "Wbolesale Reorder?";
+            createProductWholesaleReorderFlagLabel.Text = "Wholesale Reorder?*";
             // 
             // createProductWholesalePricePerUnitTextboxSeparator
             // 
@@ -351,6 +355,10 @@
             // 
             // createProductPerUnitGroupBox
             // 
+            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumStockQuantityTextbox);
+            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumStockQuantityLabel);
+            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumOrderQuantityTextbox);
+            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumOrderQuantityLabel);
             createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceTextboxB);
             createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceLabel);
             createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceTextboxSeparatorLabel);
@@ -360,17 +368,59 @@
             createProductPerUnitGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             createProductPerUnitGroupBox.Location = new Point(467, 294);
             createProductPerUnitGroupBox.Name = "createProductPerUnitGroupBox";
-            createProductPerUnitGroupBox.Size = new Size(539, 122);
+            createProductPerUnitGroupBox.Size = new Size(539, 198);
             createProductPerUnitGroupBox.TabIndex = 75;
             createProductPerUnitGroupBox.TabStop = false;
             createProductPerUnitGroupBox.Text = "Per Unit";
+            // 
+            // createProductUnitMinimumOrderQuantityTextbox
+            // 
+            createProductUnitMinimumOrderQuantityTextbox.Enabled = false;
+            createProductUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
+            createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;
+            createProductUnitMinimumOrderQuantityTextbox.Name = "createProductUnitMinimumOrderQuantityTextbox";
+            createProductUnitMinimumOrderQuantityTextbox.ReadOnly = true;
+            createProductUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
+            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 72;
+            // 
+            // createProductUnitMinimumOrderQuantityLabel
+            // 
+            createProductUnitMinimumOrderQuantityLabel.AutoSize = true;
+            createProductUnitMinimumOrderQuantityLabel.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumOrderQuantityLabel.Location = new Point(60, 70);
+            createProductUnitMinimumOrderQuantityLabel.Name = "createProductUnitMinimumOrderQuantityLabel";
+            createProductUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
+            createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
+            createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
+            // 
+            // createProductUnitMinimumStockQuantityTextbox
+            // 
+            createProductUnitMinimumStockQuantityTextbox.Enabled = false;
+            createProductUnitMinimumStockQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumStockQuantityTextbox.Location = new Point(284, 109);
+            createProductUnitMinimumStockQuantityTextbox.MaxLength = 50;
+            createProductUnitMinimumStockQuantityTextbox.Name = "createProductUnitMinimumStockQuantityTextbox";
+            createProductUnitMinimumStockQuantityTextbox.ReadOnly = true;
+            createProductUnitMinimumStockQuantityTextbox.Size = new Size(99, 27);
+            createProductUnitMinimumStockQuantityTextbox.TabIndex = 74;
+            // 
+            // createProductUnitMinimumStockQuantityLabel
+            // 
+            createProductUnitMinimumStockQuantityLabel.AutoSize = true;
+            createProductUnitMinimumStockQuantityLabel.Font = new Font("Segoe UI", 11F);
+            createProductUnitMinimumStockQuantityLabel.Location = new Point(68, 112);
+            createProductUnitMinimumStockQuantityLabel.Name = "createProductUnitMinimumStockQuantityLabel";
+            createProductUnitMinimumStockQuantityLabel.Size = new Size(203, 20);
+            createProductUnitMinimumStockQuantityLabel.TabIndex = 73;
+            createProductUnitMinimumStockQuantityLabel.Text = "Unit Minimum Stock Quantity";
             // 
             // CreateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(1037, 556);
+            ClientSize = new Size(1037, 594);
             Controls.Add(createProductPerUnitGroupBox);
             Controls.Add(createProductWholesaleGroupBox);
             Controls.Add(createProductSupplierComboBox);
@@ -430,5 +480,9 @@
         private Label createProductWholesalePricePerUnitTextboxSeparator;
         private GroupBox createProductWholesaleGroupBox;
         private GroupBox createProductPerUnitGroupBox;
+        private TextBox createProductUnitMinimumOrderQuantityTextbox;
+        private Label createProductUnitMinimumOrderQuantityLabel;
+        private TextBox createProductUnitMinimumStockQuantityTextbox;
+        private Label createProductUnitMinimumStockQuantityLabel;
     }
 }

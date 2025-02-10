@@ -375,7 +375,6 @@
             // 
             // createProductUnitMinimumStockQuantityTextbox
             // 
-            createProductUnitMinimumStockQuantityTextbox.Enabled = false;
             createProductUnitMinimumStockQuantityTextbox.Font = new Font("Segoe UI", 11F);
             createProductUnitMinimumStockQuantityTextbox.Location = new Point(284, 109);
             createProductUnitMinimumStockQuantityTextbox.MaxLength = 50;
@@ -396,7 +395,6 @@
             // 
             // createProductUnitMinimumOrderQuantityTextbox
             // 
-            createProductUnitMinimumOrderQuantityTextbox.Enabled = false;
             createProductUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
             createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
             createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;

@@ -40,7 +40,7 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task CreateSupplierFinanceLoadCurrencyDataAsync(Guid paymentCurrencyId)
+        private async Task SupplierDetailFinanceLoadCurrencyDataAsync(Guid paymentCurrencyId)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -104,7 +104,7 @@ namespace CRM_WindowsForms.Presentation
                     supplierDetailCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
                     supplierDetailCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp"].ToString();
                     Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency"];
-                    await CreateSupplierFinanceLoadCurrencyDataAsync(paymentCurrencyId);
+                    await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailFinancePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
                     supplierDetailLastUpdatedByTextbox.Text = supplierDataRow["Modified By"].ToString();
@@ -559,7 +559,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            CreateSupplierNote createSupplierNoteForm = new CreateSupplierNote(_supplierId);
+            SupplierDetailNote createSupplierNoteForm = new SupplierDetailNote(_supplierId);
             createSupplierNoteForm.Show();
         }
     }

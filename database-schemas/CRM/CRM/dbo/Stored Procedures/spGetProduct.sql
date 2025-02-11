@@ -6,6 +6,7 @@ SELECT
 [Product Id],
 [Product Category Id],
 [Product Category],
+[Supplier Id],
 [Supplier Name],
 [Product Name],
 [Wholesale Price Per Unit],

@@ -5,6 +5,7 @@ SELECT
 P.[ProductId] AS [Product Id],
 P.[ProductCategoryId] AS [Product Category Id],
 PC.[ProductCategory] AS [Product Category],
+S.[SupplierId] AS [Supplier Id],
 S.[SupplierName] AS [Supplier Name],
 P.[ProductName] AS [Product Name],
 P.[WholesalePricePerUnit] AS [Wholesale Price Per Unit],

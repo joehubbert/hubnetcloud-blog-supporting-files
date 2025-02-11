@@ -101,21 +101,23 @@ namespace CRM_WindowsForms.Presentation
                 if (supplierDataTable != null)
                 {
                     DataRow supplierDataRow = supplierDataTable.Rows[0];
-                    supplierDetailCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
-                    supplierDetailCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp"].ToString();
+                    
                     Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency"];
                     await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailFinancePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
-                    supplierDetailLastUpdatedByTextbox.Text = supplierDataRow["Modified By"].ToString();
-                    supplierDetailLastUpdatedByTextbox.Text = supplierDataRow["Modified Timestamp"].ToString();
+                    
                     supplierDetailOverviewActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
                     supplierDetailOverviewAddressLine1Textbox.Text = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailOverviewAddressLine2Textbox.Text = supplierDataRow["Address Line 2"].ToString();
                     supplierDetailOverviewAddressLine3Textbox.Text = supplierDataRow["Address Line 3"].ToString();
                     supplierDetailOverviewAddressLine4Textbox.Text = supplierDataRow["Address Line 4"].ToString();
                     supplierDetailOverviewAddressLine5Textbox.Text = supplierDataRow["Address Line 5"].ToString();
+                    supplierDetailOverviewCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
+                    supplierDetailOverviewCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp"].ToString();
                     supplierDetailOverviewEmailAddressTextbox.Text = supplierDataRow["Email Address"].ToString();
+                    supplierDetailOverviewLastUpdatedByTextbox.Text = supplierDataRow["Modified By"].ToString();
+                    supplierDetailOverviewLastUpdatedTimestampTextbox.Text = supplierDataRow["Modified Timestamp"].ToString();
                     supplierDetailOverviewSupplierIdTextbox.Text = supplierDataRow["Supplier Id"].ToString();
                     supplierDetailOverviewSupplierNameTextbox.Text = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailOverviewTelephoneNumberTextbox.Text = supplierDataRow["Telephone Number"].ToString();
@@ -130,7 +132,6 @@ namespace CRM_WindowsForms.Presentation
                     supplierDetailOverviewAddressLine4OriginalValue = supplierDataRow["Address Line 4"].ToString();
                     supplierDetailOverviewAddressLine5OriginalValue = supplierDataRow["Address Line 5"].ToString();
                     supplierDetailOverviewEmailAddressOriginalValue = supplierDataRow["Email Address"].ToString();
-                    supplierDetailOverviewSupplierIdOriginalValue = supplierDataRow["Supplier Id"].ToString();
                     supplierDetailOverviewSupplierNameOriginalValue = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailOverviewTelephoneNumberOriginalValue = supplierDataRow["Telephone Number"].ToString();
                 }
@@ -538,13 +539,13 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            supplierDetailCreatedByTextbox.Enabled = !supplierDetailCreatedByTextbox.Enabled;
-            supplierDetailCreatedTimestampTextbox.Enabled = !supplierDetailCreatedTimestampTextbox.Enabled;
+            supplierDetailOverviewCreatedByTextbox.Enabled = !supplierDetailOverviewCreatedByTextbox.Enabled;
+            supplierDetailOverviewCreatedTimestampTextbox.Enabled = !supplierDetailOverviewCreatedTimestampTextbox.Enabled;
             supplierDetailFinancePaymentCurrencyComboBox.Enabled = !supplierDetailFinancePaymentCurrencyComboBox.Enabled;
             supplierDetailFinancePaymentDaysTextbox.Enabled = !supplierDetailFinancePaymentDaysTextbox.Enabled;
             supplierDetailFinanceVATNumberTextbox.Enabled = !supplierDetailFinanceVATNumberTextbox.Enabled;
-            supplierDetailLastUpdatedByTextbox.Enabled = !supplierDetailLastUpdatedByTextbox.Enabled;
-            supplierDetailLastUpdatedByTextbox.Enabled = !supplierDetailLastUpdatedByTextbox.Enabled;
+            supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
+            supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
             supplierDetailOverviewActiveStatusCheckbox.Enabled = !supplierDetailOverviewActiveStatusCheckbox.Enabled;
             supplierDetailOverviewAddressLine1Textbox.Enabled = !supplierDetailOverviewAddressLine1Textbox.Enabled;
             supplierDetailOverviewAddressLine2Textbox.Enabled = !supplierDetailOverviewAddressLine2Textbox.Enabled;

@@ -32,14 +32,14 @@
             supplierDetailOverviewActiveStatusCheckbox = new CheckBox();
             supplierDetailToggleEditModeButton = new Button();
             supplierDetailOverviewSupplierIdTextbox = new TextBox();
-            supplierDetailCreatedTimestampTextbox = new TextBox();
-            supplierDetailLastUpdatedTimestampTextbox = new TextBox();
-            supplierDetailCreatedByTextbox = new TextBox();
-            supplierDetailLastUpdatedByTextbox = new TextBox();
-            supplierDetailLastUpdatedTimestampLabel = new Label();
-            supplierDetailLastUpdatedByLabel = new Label();
-            supplierDetailCreatedTimestampLabel = new Label();
-            supplierDetailCreatedByLabel = new Label();
+            supplierDetailOverviewCreatedTimestampTextbox = new TextBox();
+            supplierDetailOverviewLastUpdatedTimestampTextbox = new TextBox();
+            supplierDetailOverviewCreatedByTextbox = new TextBox();
+            supplierDetailOverviewLastUpdatedByTextbox = new TextBox();
+            supplierDetailOverviewLastUpdatedTimestampLabel = new Label();
+            supplierDetailOverviewLastUpdatedByLabel = new Label();
+            supplierDetailOverviewCreatedTimestampLabel = new Label();
+            supplierDetailOverviewCreatedByLabel = new Label();
             supplierDetailSupplierIdLabel = new Label();
             supplierDetailTitleLabel = new Label();
             supplierDetailTabControl = new TabControl();
@@ -127,81 +127,81 @@
             supplierDetailOverviewSupplierIdTextbox.Size = new Size(370, 27);
             supplierDetailOverviewSupplierIdTextbox.TabIndex = 34;
             // 
-            // supplierDetailCreatedTimestampTextbox
+            // supplierDetailOverviewCreatedTimestampTextbox
             // 
-            supplierDetailCreatedTimestampTextbox.Enabled = false;
-            supplierDetailCreatedTimestampTextbox.Location = new Point(818, 305);
-            supplierDetailCreatedTimestampTextbox.MaxLength = 50;
-            supplierDetailCreatedTimestampTextbox.Name = "supplierDetailCreatedTimestampTextbox";
-            supplierDetailCreatedTimestampTextbox.ReadOnly = true;
-            supplierDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            supplierDetailCreatedTimestampTextbox.TabIndex = 44;
+            supplierDetailOverviewCreatedTimestampTextbox.Enabled = false;
+            supplierDetailOverviewCreatedTimestampTextbox.Location = new Point(818, 305);
+            supplierDetailOverviewCreatedTimestampTextbox.MaxLength = 50;
+            supplierDetailOverviewCreatedTimestampTextbox.Name = "supplierDetailOverviewCreatedTimestampTextbox";
+            supplierDetailOverviewCreatedTimestampTextbox.ReadOnly = true;
+            supplierDetailOverviewCreatedTimestampTextbox.Size = new Size(370, 27);
+            supplierDetailOverviewCreatedTimestampTextbox.TabIndex = 44;
             // 
-            // supplierDetailLastUpdatedTimestampTextbox
+            // supplierDetailOverviewLastUpdatedTimestampTextbox
             // 
-            supplierDetailLastUpdatedTimestampTextbox.Enabled = false;
-            supplierDetailLastUpdatedTimestampTextbox.Location = new Point(818, 396);
-            supplierDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            supplierDetailLastUpdatedTimestampTextbox.Name = "supplierDetailLastUpdatedTimestampTextbox";
-            supplierDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            supplierDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            supplierDetailLastUpdatedTimestampTextbox.TabIndex = 47;
+            supplierDetailOverviewLastUpdatedTimestampTextbox.Enabled = false;
+            supplierDetailOverviewLastUpdatedTimestampTextbox.Location = new Point(818, 396);
+            supplierDetailOverviewLastUpdatedTimestampTextbox.MaxLength = 50;
+            supplierDetailOverviewLastUpdatedTimestampTextbox.Name = "supplierDetailOverviewLastUpdatedTimestampTextbox";
+            supplierDetailOverviewLastUpdatedTimestampTextbox.ReadOnly = true;
+            supplierDetailOverviewLastUpdatedTimestampTextbox.Size = new Size(370, 27);
+            supplierDetailOverviewLastUpdatedTimestampTextbox.TabIndex = 47;
             // 
-            // supplierDetailCreatedByTextbox
+            // supplierDetailOverviewCreatedByTextbox
             // 
-            supplierDetailCreatedByTextbox.Enabled = false;
-            supplierDetailCreatedByTextbox.Location = new Point(818, 260);
-            supplierDetailCreatedByTextbox.MaxLength = 50;
-            supplierDetailCreatedByTextbox.Name = "supplierDetailCreatedByTextbox";
-            supplierDetailCreatedByTextbox.ReadOnly = true;
-            supplierDetailCreatedByTextbox.Size = new Size(370, 27);
-            supplierDetailCreatedByTextbox.TabIndex = 41;
+            supplierDetailOverviewCreatedByTextbox.Enabled = false;
+            supplierDetailOverviewCreatedByTextbox.Location = new Point(818, 260);
+            supplierDetailOverviewCreatedByTextbox.MaxLength = 50;
+            supplierDetailOverviewCreatedByTextbox.Name = "supplierDetailOverviewCreatedByTextbox";
+            supplierDetailOverviewCreatedByTextbox.ReadOnly = true;
+            supplierDetailOverviewCreatedByTextbox.Size = new Size(370, 27);
+            supplierDetailOverviewCreatedByTextbox.TabIndex = 41;
             // 
-            // supplierDetailLastUpdatedByTextbox
+            // supplierDetailOverviewLastUpdatedByTextbox
             // 
-            supplierDetailLastUpdatedByTextbox.Enabled = false;
-            supplierDetailLastUpdatedByTextbox.Location = new Point(818, 350);
-            supplierDetailLastUpdatedByTextbox.MaxLength = 50;
-            supplierDetailLastUpdatedByTextbox.Name = "supplierDetailLastUpdatedByTextbox";
-            supplierDetailLastUpdatedByTextbox.ReadOnly = true;
-            supplierDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            supplierDetailLastUpdatedByTextbox.TabIndex = 45;
+            supplierDetailOverviewLastUpdatedByTextbox.Enabled = false;
+            supplierDetailOverviewLastUpdatedByTextbox.Location = new Point(818, 350);
+            supplierDetailOverviewLastUpdatedByTextbox.MaxLength = 50;
+            supplierDetailOverviewLastUpdatedByTextbox.Name = "supplierDetailOverviewLastUpdatedByTextbox";
+            supplierDetailOverviewLastUpdatedByTextbox.ReadOnly = true;
+            supplierDetailOverviewLastUpdatedByTextbox.Size = new Size(370, 27);
+            supplierDetailOverviewLastUpdatedByTextbox.TabIndex = 45;
             // 
-            // supplierDetailLastUpdatedTimestampLabel
+            // supplierDetailOverviewLastUpdatedTimestampLabel
             // 
-            supplierDetailLastUpdatedTimestampLabel.AutoSize = true;
-            supplierDetailLastUpdatedTimestampLabel.Location = new Point(627, 399);
-            supplierDetailLastUpdatedTimestampLabel.Name = "supplierDetailLastUpdatedTimestampLabel";
-            supplierDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            supplierDetailLastUpdatedTimestampLabel.TabIndex = 54;
-            supplierDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            supplierDetailOverviewLastUpdatedTimestampLabel.AutoSize = true;
+            supplierDetailOverviewLastUpdatedTimestampLabel.Location = new Point(627, 399);
+            supplierDetailOverviewLastUpdatedTimestampLabel.Name = "supplierDetailOverviewLastUpdatedTimestampLabel";
+            supplierDetailOverviewLastUpdatedTimestampLabel.Size = new Size(175, 20);
+            supplierDetailOverviewLastUpdatedTimestampLabel.TabIndex = 54;
+            supplierDetailOverviewLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
             // 
-            // supplierDetailLastUpdatedByLabel
+            // supplierDetailOverviewLastUpdatedByLabel
             // 
-            supplierDetailLastUpdatedByLabel.AutoSize = true;
-            supplierDetailLastUpdatedByLabel.Location = new Point(685, 353);
-            supplierDetailLastUpdatedByLabel.Name = "supplierDetailLastUpdatedByLabel";
-            supplierDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            supplierDetailLastUpdatedByLabel.TabIndex = 53;
-            supplierDetailLastUpdatedByLabel.Text = "Last Updated By";
+            supplierDetailOverviewLastUpdatedByLabel.AutoSize = true;
+            supplierDetailOverviewLastUpdatedByLabel.Location = new Point(685, 353);
+            supplierDetailOverviewLastUpdatedByLabel.Name = "supplierDetailOverviewLastUpdatedByLabel";
+            supplierDetailOverviewLastUpdatedByLabel.Size = new Size(117, 20);
+            supplierDetailOverviewLastUpdatedByLabel.TabIndex = 53;
+            supplierDetailOverviewLastUpdatedByLabel.Text = "Last Updated By";
             // 
-            // supplierDetailCreatedTimestampLabel
+            // supplierDetailOverviewCreatedTimestampLabel
             // 
-            supplierDetailCreatedTimestampLabel.AutoSize = true;
-            supplierDetailCreatedTimestampLabel.Location = new Point(663, 308);
-            supplierDetailCreatedTimestampLabel.Name = "supplierDetailCreatedTimestampLabel";
-            supplierDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            supplierDetailCreatedTimestampLabel.TabIndex = 52;
-            supplierDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            supplierDetailOverviewCreatedTimestampLabel.AutoSize = true;
+            supplierDetailOverviewCreatedTimestampLabel.Location = new Point(663, 308);
+            supplierDetailOverviewCreatedTimestampLabel.Name = "supplierDetailOverviewCreatedTimestampLabel";
+            supplierDetailOverviewCreatedTimestampLabel.Size = new Size(139, 20);
+            supplierDetailOverviewCreatedTimestampLabel.TabIndex = 52;
+            supplierDetailOverviewCreatedTimestampLabel.Text = "Created Timestamp";
             // 
-            // supplierDetailCreatedByLabel
+            // supplierDetailOverviewCreatedByLabel
             // 
-            supplierDetailCreatedByLabel.AutoSize = true;
-            supplierDetailCreatedByLabel.Location = new Point(721, 263);
-            supplierDetailCreatedByLabel.Name = "supplierDetailCreatedByLabel";
-            supplierDetailCreatedByLabel.Size = new Size(81, 20);
-            supplierDetailCreatedByLabel.TabIndex = 49;
-            supplierDetailCreatedByLabel.Text = "Created By";
+            supplierDetailOverviewCreatedByLabel.AutoSize = true;
+            supplierDetailOverviewCreatedByLabel.Location = new Point(721, 263);
+            supplierDetailOverviewCreatedByLabel.Name = "supplierDetailOverviewCreatedByLabel";
+            supplierDetailOverviewCreatedByLabel.Size = new Size(81, 20);
+            supplierDetailOverviewCreatedByLabel.TabIndex = 49;
+            supplierDetailOverviewCreatedByLabel.Text = "Created By";
             // 
             // supplierDetailSupplierIdLabel
             // 
@@ -243,20 +243,20 @@
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewActiveStatusCheckbox);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine4Label);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine5Label);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailCreatedTimestampTextbox);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewCreatedTimestampTextbox);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewSupplierIdTextbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailLastUpdatedTimestampTextbox);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewLastUpdatedTimestampTextbox);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine1Label);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailCreatedByTextbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailLastUpdatedByTextbox);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewCreatedByTextbox);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewLastUpdatedByTextbox);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine4Textbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailLastUpdatedTimestampLabel);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewLastUpdatedTimestampLabel);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine5Textbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailLastUpdatedByLabel);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewLastUpdatedByLabel);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine3Textbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailCreatedTimestampLabel);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewCreatedTimestampLabel);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine2Textbox);
-            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailCreatedByLabel);
+            supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewCreatedByLabel);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewAddressLine1Textbox);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewEmailAddressLabel);
             supplierDetailTabControlOverviewPage.Controls.Add(supplierDetailOverviewTelephoneNumberLabel);
@@ -567,14 +567,14 @@
         private CheckBox supplierDetailOverviewActiveStatusCheckbox;
         private Button supplierDetailToggleEditModeButton;
         private TextBox supplierDetailOverviewSupplierIdTextbox;
-        private TextBox supplierDetailCreatedTimestampTextbox;
-        private TextBox supplierDetailLastUpdatedTimestampTextbox;
-        private TextBox supplierDetailCreatedByTextbox;
-        private TextBox supplierDetailLastUpdatedByTextbox;
-        private Label supplierDetailLastUpdatedTimestampLabel;
-        private Label supplierDetailLastUpdatedByLabel;
-        private Label supplierDetailCreatedTimestampLabel;
-        private Label supplierDetailCreatedByLabel;
+        private TextBox supplierDetailOverviewCreatedTimestampTextbox;
+        private TextBox supplierDetailOverviewLastUpdatedTimestampTextbox;
+        private TextBox supplierDetailOverviewCreatedByTextbox;
+        private TextBox supplierDetailOverviewLastUpdatedByTextbox;
+        private Label supplierDetailOverviewLastUpdatedTimestampLabel;
+        private Label supplierDetailOverviewLastUpdatedByLabel;
+        private Label supplierDetailOverviewCreatedTimestampLabel;
+        private Label supplierDetailOverviewCreatedByLabel;
         private Label supplierDetailSupplierIdLabel;
         private Label supplierDetailTitleLabel;
         private TabControl supplierDetailTabControl;

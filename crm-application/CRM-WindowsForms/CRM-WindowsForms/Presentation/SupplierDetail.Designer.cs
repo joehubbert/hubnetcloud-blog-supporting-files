@@ -227,8 +227,8 @@
             // 
             supplierDetailTabControl.Appearance = TabAppearance.FlatButtons;
             supplierDetailTabControl.Controls.Add(supplierDetailTabControlOverviewPage);
-            supplierDetailTabControl.Controls.Add(supplierDetailTabControlSupplierNotesPage);
             supplierDetailTabControl.Controls.Add(supplierDetailTabControlFinancePage);
+            supplierDetailTabControl.Controls.Add(supplierDetailTabControlSupplierNotesPage);
             supplierDetailTabControl.Location = new Point(13, 121);
             supplierDetailTabControl.Name = "supplierDetailTabControl";
             supplierDetailTabControl.SelectedIndex = 0;

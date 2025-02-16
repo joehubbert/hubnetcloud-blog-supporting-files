@@ -349,77 +349,77 @@ namespace CRM_WindowsForms.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailFinancePaymentCurrencyId",
+                        VariableName = "Supplier Detail Finance: Payment Currency Id",
                         VariableType = "Guid",
                         OriginalValue = supplierDetailFinancePaymentCurrencyIdOriginalValue,
                         NewValue = supplierDetailFinancePaymentCurrencyId
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailFinancePaymentDays",
+                        VariableName = "Supplier Detail Finance: Payment Days",
                         VariableType = "int",
                         OriginalValue = supplierDetailFinancePaymentDaysOriginalValue,
                         NewValue = supplierDetailFinancePaymentDays
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailFinanceVATNumber",
+                        VariableName = "Supplier Detail Finance: VAT Number",
                         VariableType = "string",
                         OriginalValue = supplierDetailFinanceVATNumberOriginalValue,
                         NewValue = supplierDetailFinanceVATNumber
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewActiveStatus",
+                        VariableName = "Supplier Detail Overview: Active Status",
                         VariableType = "bool",
                         OriginalValue = supplierDetailOverviewActiveStatusOrginalValue,
                         NewValue = supplierDetailOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewAddressLine1",
+                        VariableName = "Supplier Detail Overview: Address Line 1",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewAddressLine1OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine1
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewAddressLine3",
+                        VariableName = "Supplier Detail Overview: Address Line 3",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewAddressLine3OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine3
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewAddressLine4",
+                        VariableName = "Supplier Detail Overview: Address Line 4",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewAddressLine4OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine4
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewAddressLine5",
+                        VariableName = "Supplier Detail Overview: Address Line 5",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewAddressLine5OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine5
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewEmailAddress",
+                        VariableName = "Supplier Detail Overview: Email Address",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewEmailAddressOriginalValue,
                         NewValue = supplierDetailOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewSupplierName",
+                        VariableName = "Supplier Detail Overview: Supplier Name",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewSupplierNameOriginalValue,
                         NewValue = supplierDetailOverviewSupplierName
                     },
                     new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewTelephoneNumber",
+                        VariableName = "Supplier Detail Overview: Telephone Number",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewTelephoneNumberOriginalValue,
                         NewValue = supplierDetailOverviewTelephoneNumber
@@ -430,7 +430,7 @@ namespace CRM_WindowsForms.Presentation
                 {
                     changesList.Add(new ChangeDetail
                     {
-                        VariableName = "SupplierDetailOverviewAddressLine2",
+                        VariableName = "Supplier Detail Overview: Address Line 2",
                         VariableType = "string",
                         OriginalValue = supplierDetailOverviewAddressLine2OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine2

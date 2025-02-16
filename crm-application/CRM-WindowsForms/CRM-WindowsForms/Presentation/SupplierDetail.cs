@@ -560,7 +560,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            SupplierDetailNote createSupplierNoteForm = new SupplierDetailNote(_supplierId);
+            CreateSupplierNote createSupplierNoteForm = new CreateSupplierNote(_supplierId);
             createSupplierNoteForm.Show();
         }
     }

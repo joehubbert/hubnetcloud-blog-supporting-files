@@ -5,7 +5,7 @@
     @productName NVARCHAR(50),
     @supplierId UNIQUEIDENTIFIER,
     @unitMinimumOrderQuantity INT,
-    @unitMinimumStockQuantity INT = NULL,
+    @unitMinimumStockQuantity INT,
     @unitPrice MONEY,
     @unitStockQuantityHeld INT,
     @wholesaleCartonStockQuantityHeld INT,

@@ -95,7 +95,7 @@
             productDetailUpdateProductButton.Margin = new Padding(4);
             productDetailUpdateProductButton.Name = "productDetailUpdateProductButton";
             productDetailUpdateProductButton.Size = new Size(185, 70);
-            productDetailUpdateProductButton.TabIndex = 51;
+            productDetailUpdateProductButton.TabIndex = 22;
             productDetailUpdateProductButton.Text = "Update Product";
             productDetailUpdateProductButton.UseVisualStyleBackColor = true;
             productDetailUpdateProductButton.Click += productDetailUpdateProductButton_Click;
@@ -121,7 +121,7 @@
             productDetailToggleEditModeButton.Margin = new Padding(4);
             productDetailToggleEditModeButton.Name = "productDetailToggleEditModeButton";
             productDetailToggleEditModeButton.Size = new Size(108, 92);
-            productDetailToggleEditModeButton.TabIndex = 50;
+            productDetailToggleEditModeButton.TabIndex = 21;
             productDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             productDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             productDetailToggleEditModeButton.Click += productDetailToggleEditModeButton_Click;
@@ -133,7 +133,7 @@
             productDetailOverviewProductIdTextbox.Name = "productDetailOverviewProductIdTextbox";
             productDetailOverviewProductIdTextbox.ReadOnly = true;
             productDetailOverviewProductIdTextbox.Size = new Size(370, 27);
-            productDetailOverviewProductIdTextbox.TabIndex = 34;
+            productDetailOverviewProductIdTextbox.TabIndex = 1;
             // 
             // productDetailOverviewCreatedTimestampTextbox
             // 
@@ -143,7 +143,7 @@
             productDetailOverviewCreatedTimestampTextbox.Name = "productDetailOverviewCreatedTimestampTextbox";
             productDetailOverviewCreatedTimestampTextbox.ReadOnly = true;
             productDetailOverviewCreatedTimestampTextbox.Size = new Size(370, 27);
-            productDetailOverviewCreatedTimestampTextbox.TabIndex = 44;
+            productDetailOverviewCreatedTimestampTextbox.TabIndex = 17;
             // 
             // productDetailOverviewLastUpdatedTimestampTextbox
             // 
@@ -153,7 +153,7 @@
             productDetailOverviewLastUpdatedTimestampTextbox.Name = "productDetailOverviewLastUpdatedTimestampTextbox";
             productDetailOverviewLastUpdatedTimestampTextbox.ReadOnly = true;
             productDetailOverviewLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            productDetailOverviewLastUpdatedTimestampTextbox.TabIndex = 47;
+            productDetailOverviewLastUpdatedTimestampTextbox.TabIndex = 19;
             // 
             // productDetailOverviewCreatedByTextbox
             // 
@@ -163,7 +163,7 @@
             productDetailOverviewCreatedByTextbox.Name = "productDetailOverviewCreatedByTextbox";
             productDetailOverviewCreatedByTextbox.ReadOnly = true;
             productDetailOverviewCreatedByTextbox.Size = new Size(370, 27);
-            productDetailOverviewCreatedByTextbox.TabIndex = 41;
+            productDetailOverviewCreatedByTextbox.TabIndex = 16;
             // 
             // productDetailOverviewLastUpdatedByTextbox
             // 
@@ -173,7 +173,7 @@
             productDetailOverviewLastUpdatedByTextbox.Name = "productDetailOverviewLastUpdatedByTextbox";
             productDetailOverviewLastUpdatedByTextbox.ReadOnly = true;
             productDetailOverviewLastUpdatedByTextbox.Size = new Size(370, 27);
-            productDetailOverviewLastUpdatedByTextbox.TabIndex = 45;
+            productDetailOverviewLastUpdatedByTextbox.TabIndex = 18;
             // 
             // productDetailOverviewLastUpdatedTimestampLabel
             // 
@@ -300,7 +300,7 @@
             productDetailOverviewUnitMinimumStockQuantityTextbox.Name = "productDetailOverviewUnitMinimumStockQuantityTextbox";
             productDetailOverviewUnitMinimumStockQuantityTextbox.ReadOnly = true;
             productDetailOverviewUnitMinimumStockQuantityTextbox.Size = new Size(99, 27);
-            productDetailOverviewUnitMinimumStockQuantityTextbox.TabIndex = 74;
+            productDetailOverviewUnitMinimumStockQuantityTextbox.TabIndex = 14;
             // 
             // productDetailOverviewUnitMinimumStockQuantityLabel
             // 
@@ -321,7 +321,7 @@
             productDetailOverviewUnitMinimumOrderQuantityTextbox.Name = "productDetailOverviewUnitMinimumOrderQuantityTextbox";
             productDetailOverviewUnitMinimumOrderQuantityTextbox.ReadOnly = true;
             productDetailOverviewUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
-            productDetailOverviewUnitMinimumOrderQuantityTextbox.TabIndex = 72;
+            productDetailOverviewUnitMinimumOrderQuantityTextbox.TabIndex = 13;
             // 
             // productDetailOverviewUnitMinimumOrderQuantityLabel
             // 
@@ -341,7 +341,7 @@
             productDetailOverviewUnitPriceTextboxB.MaxLength = 50;
             productDetailOverviewUnitPriceTextboxB.Name = "productDetailOverviewUnitPriceTextboxB";
             productDetailOverviewUnitPriceTextboxB.Size = new Size(45, 27);
-            productDetailOverviewUnitPriceTextboxB.TabIndex = 68;
+            productDetailOverviewUnitPriceTextboxB.TabIndex = 12;
             // 
             // productDetailOverviewUnitPriceLabel
             // 
@@ -371,7 +371,7 @@
             productDetailOverviewUnitPriceTextboxA.MaxLength = 50;
             productDetailOverviewUnitPriceTextboxA.Name = "productDetailOverviewUnitPriceTextboxA";
             productDetailOverviewUnitPriceTextboxA.Size = new Size(99, 27);
-            productDetailOverviewUnitPriceTextboxA.TabIndex = 58;
+            productDetailOverviewUnitPriceTextboxA.TabIndex = 11;
             // 
             // productDetailOverviewUnitStockQuantityHeldTextbox
             // 
@@ -382,7 +382,7 @@
             productDetailOverviewUnitStockQuantityHeldTextbox.Name = "productDetailOverviewUnitStockQuantityHeldTextbox";
             productDetailOverviewUnitStockQuantityHeldTextbox.ReadOnly = true;
             productDetailOverviewUnitStockQuantityHeldTextbox.Size = new Size(99, 27);
-            productDetailOverviewUnitStockQuantityHeldTextbox.TabIndex = 61;
+            productDetailOverviewUnitStockQuantityHeldTextbox.TabIndex = 15;
             // 
             // productDetailOverviewUnitStockQuantityHeldLabel
             // 
@@ -422,7 +422,7 @@
             productDetailOverviewWholesalePricePerUnitTextboxB.MaxLength = 50;
             productDetailOverviewWholesalePricePerUnitTextboxB.Name = "productDetailOverviewWholesalePricePerUnitTextboxB";
             productDetailOverviewWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
-            productDetailOverviewWholesalePricePerUnitTextboxB.TabIndex = 60;
+            productDetailOverviewWholesalePricePerUnitTextboxB.TabIndex = 6;
             // 
             // productDetailOverviewWholesalePricePerUnitTextboxA
             // 
@@ -432,7 +432,7 @@
             productDetailOverviewWholesalePricePerUnitTextboxA.MaxLength = 50;
             productDetailOverviewWholesalePricePerUnitTextboxA.Name = "productDetailOverviewWholesalePricePerUnitTextboxA";
             productDetailOverviewWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
-            productDetailOverviewWholesalePricePerUnitTextboxA.TabIndex = 59;
+            productDetailOverviewWholesalePricePerUnitTextboxA.TabIndex = 5;
             // 
             // productDetailOverviewWholesaleReorderFlagLabel
             // 
@@ -481,7 +481,7 @@
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Location = new Point(93, 21);
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Name = "productDetailOverviewWholesaleReorderFlagYesRadioButton";
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Size = new Size(48, 24);
-            productDetailOverviewWholesaleReorderFlagYesRadioButton.TabIndex = 66;
+            productDetailOverviewWholesaleReorderFlagYesRadioButton.TabIndex = 10;
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Text = "Yes";
             productDetailOverviewWholesaleReorderFlagYesRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -492,7 +492,7 @@
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Location = new Point(17, 21);
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Name = "productDetailOverviewWholesaleReorderFlagNoRadioButton";
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Size = new Size(47, 24);
-            productDetailOverviewWholesaleReorderFlagNoRadioButton.TabIndex = 65;
+            productDetailOverviewWholesaleReorderFlagNoRadioButton.TabIndex = 9;
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Text = "No";
             productDetailOverviewWholesaleReorderFlagNoRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -504,7 +504,7 @@
             productDetailOverviewWholesaleCartonQuantityTextbox.MaxLength = 50;
             productDetailOverviewWholesaleCartonQuantityTextbox.Name = "productDetailOverviewWholesaleCartonQuantityTextbox";
             productDetailOverviewWholesaleCartonQuantityTextbox.Size = new Size(99, 27);
-            productDetailOverviewWholesaleCartonQuantityTextbox.TabIndex = 69;
+            productDetailOverviewWholesaleCartonQuantityTextbox.TabIndex = 8;
             // 
             // productDetailOverviewWholesaleUnitQuantityPerCartonTextbox
             // 
@@ -514,7 +514,7 @@
             productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.MaxLength = 50;
             productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Name = "productDetailOverviewWholesaleUnitQuantityPerCartonTextbox";
             productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Size = new Size(99, 27);
-            productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.TabIndex = 62;
+            productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.TabIndex = 7;
             // 
             // productDetailOverviewWholesaleCartonQuantityLabel
             // 
@@ -543,7 +543,7 @@
             productDetailOverviewSupplierComboBox.Location = new Point(171, 154);
             productDetailOverviewSupplierComboBox.Name = "productDetailOverviewSupplierComboBox";
             productDetailOverviewSupplierComboBox.Size = new Size(370, 28);
-            productDetailOverviewSupplierComboBox.TabIndex = 70;
+            productDetailOverviewSupplierComboBox.TabIndex = 4;
             // 
             // productDetailOverviewProductCategoryComboBox
             // 
@@ -552,7 +552,7 @@
             productDetailOverviewProductCategoryComboBox.Location = new Point(171, 110);
             productDetailOverviewProductCategoryComboBox.Name = "productDetailOverviewProductCategoryComboBox";
             productDetailOverviewProductCategoryComboBox.Size = new Size(370, 28);
-            productDetailOverviewProductCategoryComboBox.TabIndex = 69;
+            productDetailOverviewProductCategoryComboBox.TabIndex = 3;
             // 
             // productDetailOverviewProductNameTextbox
             // 
@@ -561,7 +561,7 @@
             productDetailOverviewProductNameTextbox.MaxLength = 50;
             productDetailOverviewProductNameTextbox.Name = "productDetailOverviewProductNameTextbox";
             productDetailOverviewProductNameTextbox.Size = new Size(370, 27);
-            productDetailOverviewProductNameTextbox.TabIndex = 65;
+            productDetailOverviewProductNameTextbox.TabIndex = 2;
             // 
             // productDetailOverviewProductNameLabel
             // 
@@ -595,9 +595,9 @@
             productDetailTabControlProductNotesPage.BackColor = Color.SkyBlue;
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesCreateNewProductNoteButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
-            productDetailTabControlProductNotesPage.Location = new Point(4, 27);
+            productDetailTabControlProductNotesPage.Location = new Point(4, 32);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 563);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 558);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 
@@ -610,7 +610,7 @@
             productDetailProductNotesCreateNewProductNoteButton.Margin = new Padding(4);
             productDetailProductNotesCreateNewProductNoteButton.Name = "productDetailProductNotesCreateNewProductNoteButton";
             productDetailProductNotesCreateNewProductNoteButton.Size = new Size(151, 70);
-            productDetailProductNotesCreateNewProductNoteButton.TabIndex = 56;
+            productDetailProductNotesCreateNewProductNoteButton.TabIndex = 20;
             productDetailProductNotesCreateNewProductNoteButton.Text = "Create New Product Note";
             productDetailProductNotesCreateNewProductNoteButton.UseVisualStyleBackColor = true;
             productDetailProductNotesCreateNewProductNoteButton.Click += productDetailProductNotesCreateNewProductNoteButton_Click;

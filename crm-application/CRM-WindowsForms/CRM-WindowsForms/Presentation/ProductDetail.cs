@@ -142,7 +142,7 @@ namespace CRM_WindowsForms.Presentation
                     await ProductDetailOverviewLoadProductCategoryDataAsync(productCategoryId);
                     productDetailOverviewProductNameTextbox.Text = productDataRow["Product Name"].ToString();
                     Guid productSupplierId = (Guid)productDataRow["Supplier Id"];
-                    await ProductDetailOverviewLoadProductCategoryDataAsync(productSupplierId);
+                    await ProductDetailOverviewLoadSupplierDataAsync(productSupplierId);
                     productDetailOverviewUnitMinimumOrderQuantityTextbox.Text = productDataRow["Unit Minimum Order Quantity"].ToString();
                     productDetailOverviewUnitMinimumStockQuantityTextbox.Text = productDataRow["Unit Minimum Stock Quantity"].ToString();
                     string unitPricePartA;

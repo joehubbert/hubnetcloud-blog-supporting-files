@@ -18,31 +18,6 @@ namespace CRM_WindowsForms.Presentation
 
         private void InitializeCustomComponents()
         {
-            createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTypeComboBox_DropDown);
-            createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTierComboBox_DropDown);
-            createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(CreateCustomerOverviewAccountManagerComboBox_DropDown);
-            createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_DropDown);
-            createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
-            createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
-            createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
-
-            createCustomerOverviewFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-
             createCustomerBillingInformationAddressLine1Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerBillingInformationAddressLine2Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerBillingInformationAddressLine3Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
@@ -53,6 +28,29 @@ namespace CRM_WindowsForms.Presentation
             createCustomerBillingInformationFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerBillingInformationLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerBillingInformationTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
+            createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
+            createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
+            createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(CreateCustomerOverviewAccountManagerComboBox_DropDown);
+            createCustomerOverviewCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTierComboBox_DropDown);
+            createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTypeComboBox_DropDown);
+            createCustomerOverviewEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
+            createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
+            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_DropDown);
+            createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
+            createCustomerOverviewTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

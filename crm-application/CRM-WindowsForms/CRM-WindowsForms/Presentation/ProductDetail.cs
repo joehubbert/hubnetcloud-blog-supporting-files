@@ -290,7 +290,7 @@ namespace CRM_WindowsForms.Presentation
                 productDetailOverviewUnitMinimumStockQuantity = int.Parse(productDetailOverviewUnitMinimumStockQuantityTextbox.Text.TrimEnd());
             }
             decimal productDetailOverviewUnitPrice = decimal.Parse($"{productDetailOverviewUnitPriceTextboxA.Text.TrimEnd()}.{productDetailOverviewUnitPriceTextboxB.Text.TrimEnd()}");
-            int productDetailOverviewUnitQuantityStockHeld = int.Parse(productDetailOverviewUnitStockQuantityHeldOriginalValue + productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
+            int productDetailOverviewUnitStockQuantityHeld = int.Parse(productDetailOverviewUnitStockQuantityHeldOriginalValue + productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
             int productDetailOverviewWholesaleCartonQuantityStockHeld = int.Parse(productDetailOverviewUnitStockQuantityHeldOriginalValue + productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
             decimal productDetailOverviewWholesalePricePerUnit = decimal.Parse($"{productDetailOverviewWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{productDetailOverviewWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
             int productDetailOverviewWholesaleUnitQuantityPerCarton = int.Parse(productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
@@ -452,6 +452,13 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new ChangeDetail
                     {
+                        VariableName = "Product Detail Overview: Unit Stock Quantity Held",
+                        VariableType = "string",
+                        OriginalValue = productDetailOverviewUnitStockQuantityHeldOriginalValue,
+                        NewValue = productDetailOverviewUnitStockQuantityHeld
+                    },
+                    new ChangeDetail
+                    {
                         VariableName = "Product Detail Overview: Wholesale Carton Quantity Stock Held",
                         VariableType = "int",
                         OriginalValue = productDetailOverviewWholesaleCartonQuantityStockHeldOriginalValue,
@@ -531,7 +538,7 @@ namespace CRM_WindowsForms.Presentation
                         new Parameter
                         {
                             ParameterName = "@unitStockQuantityHeld",
-                            ParameterValue = productDetailOverviewUnitS
+                            ParameterValue = productDetailOverviewUnitStockQuantityHeld
                         },
                         new Parameter
                         {

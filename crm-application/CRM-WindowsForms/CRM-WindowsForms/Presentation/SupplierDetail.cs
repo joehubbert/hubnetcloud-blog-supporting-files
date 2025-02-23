@@ -101,12 +101,12 @@ namespace CRM_WindowsForms.Presentation
                 if (supplierDataTable != null)
                 {
                     DataRow supplierDataRow = supplierDataTable.Rows[0];
-                    
+
                     Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency"];
                     await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailFinancePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
-                    
+
                     supplierDetailOverviewActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
                     supplierDetailOverviewAddressLine1Textbox.Text = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailOverviewAddressLine2Textbox.Text = supplierDataRow["Address Line 2"].ToString();
@@ -562,6 +562,11 @@ namespace CRM_WindowsForms.Presentation
         {
             CreateSupplierNote createSupplierNoteForm = new CreateSupplierNote(_supplierId);
             createSupplierNoteForm.Show();
+        }
+
+        private async void supplierDetailSupplierNotesRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await ViewSupplierDetailExistingSupplierNote_Load(sender, e);
         }
     }
 }

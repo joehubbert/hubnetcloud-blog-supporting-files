@@ -1,6 +1,7 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -605,6 +606,11 @@ namespace CRM_WindowsForms.Presentation
         {
             CreateProductNote createProductNoteForm = new CreateProductNote(_productId);
             createProductNoteForm.Show();
+        }
+
+        private async void productDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await ViewProductDetailExistingProductNote_Load(sender, e);
         }
     }
 }

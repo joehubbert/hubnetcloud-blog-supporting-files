@@ -1,7 +1,6 @@
 ﻿using CRM_WindowsForms.Model;
 using CRM_WindowsForms.Presentation.Functions;
 using System.Data;
-using System.Threading.Tasks;
 
 namespace CRM_WindowsForms.Presentation
 {

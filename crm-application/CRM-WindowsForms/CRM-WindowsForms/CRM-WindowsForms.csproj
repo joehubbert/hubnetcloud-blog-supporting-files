@@ -12,10 +12,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.1" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.68.0" />
-    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.68.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.70.0" />
+    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.70.0" />
     <PackageReference Include="MySql.Data" Version="9.2.0" />
-    <PackageReference Include="Npgsql" Version="9.0.2" />
+    <PackageReference Include="Npgsql" Version="9.0.3" />
   </ItemGroup>
 
   <ItemGroup>

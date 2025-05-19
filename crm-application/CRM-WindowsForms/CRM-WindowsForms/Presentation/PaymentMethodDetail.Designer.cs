@@ -116,7 +116,6 @@
             // 
             // paymentMethodDetailCreatedTimestampTextbox
             // 
-            paymentMethodDetailCreatedTimestampTextbox.Enabled = false;
             paymentMethodDetailCreatedTimestampTextbox.Location = new Point(849, 178);
             paymentMethodDetailCreatedTimestampTextbox.MaxLength = 50;
             paymentMethodDetailCreatedTimestampTextbox.Name = "paymentMethodDetailCreatedTimestampTextbox";
@@ -126,7 +125,6 @@
             // 
             // paymentMethodDetailLastUpdatedTimestampTextbox
             // 
-            paymentMethodDetailLastUpdatedTimestampTextbox.Enabled = false;
             paymentMethodDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
             paymentMethodDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             paymentMethodDetailLastUpdatedTimestampTextbox.Name = "paymentMethodDetailLastUpdatedTimestampTextbox";
@@ -136,7 +134,6 @@
             // 
             // paymentMethodDetailCreatedByTextbox
             // 
-            paymentMethodDetailCreatedByTextbox.Enabled = false;
             paymentMethodDetailCreatedByTextbox.Location = new Point(849, 138);
             paymentMethodDetailCreatedByTextbox.MaxLength = 50;
             paymentMethodDetailCreatedByTextbox.Name = "paymentMethodDetailCreatedByTextbox";
@@ -146,7 +143,6 @@
             // 
             // paymentMethodDetailLastUpdatedByTextbox
             // 
-            paymentMethodDetailLastUpdatedByTextbox.Enabled = false;
             paymentMethodDetailLastUpdatedByTextbox.Location = new Point(849, 218);
             paymentMethodDetailLastUpdatedByTextbox.MaxLength = 50;
             paymentMethodDetailLastUpdatedByTextbox.Name = "paymentMethodDetailLastUpdatedByTextbox";

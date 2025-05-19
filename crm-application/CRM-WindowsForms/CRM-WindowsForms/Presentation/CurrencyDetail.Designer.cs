@@ -124,7 +124,6 @@
             // 
             // currencyDetailLastUpdatedByTextbox
             // 
-            currencyDetailLastUpdatedByTextbox.Enabled = false;
             currencyDetailLastUpdatedByTextbox.Location = new Point(860, 218);
             currencyDetailLastUpdatedByTextbox.MaxLength = 50;
             currencyDetailLastUpdatedByTextbox.Name = "currencyDetailLastUpdatedByTextbox";
@@ -134,7 +133,6 @@
             // 
             // currencyDetailCreatedByTextbox
             // 
-            currencyDetailCreatedByTextbox.Enabled = false;
             currencyDetailCreatedByTextbox.Location = new Point(860, 138);
             currencyDetailCreatedByTextbox.MaxLength = 50;
             currencyDetailCreatedByTextbox.Name = "currencyDetailCreatedByTextbox";
@@ -144,7 +142,6 @@
             // 
             // currencyDetailLastUpdatedTimestampTextbox
             // 
-            currencyDetailLastUpdatedTimestampTextbox.Enabled = false;
             currencyDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
             currencyDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             currencyDetailLastUpdatedTimestampTextbox.Name = "currencyDetailLastUpdatedTimestampTextbox";
@@ -154,7 +151,6 @@
             // 
             // currencyDetailCreatedTimestampTextbox
             // 
-            currencyDetailCreatedTimestampTextbox.Enabled = false;
             currencyDetailCreatedTimestampTextbox.Location = new Point(860, 178);
             currencyDetailCreatedTimestampTextbox.MaxLength = 50;
             currencyDetailCreatedTimestampTextbox.Name = "currencyDetailCreatedTimestampTextbox";

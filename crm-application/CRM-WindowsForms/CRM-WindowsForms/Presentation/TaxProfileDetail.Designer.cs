@@ -126,7 +126,6 @@
             // 
             // taxProfileDetailLastUpdatedByTextbox
             // 
-            taxProfileDetailLastUpdatedByTextbox.Enabled = false;
             taxProfileDetailLastUpdatedByTextbox.Location = new Point(860, 218);
             taxProfileDetailLastUpdatedByTextbox.MaxLength = 50;
             taxProfileDetailLastUpdatedByTextbox.Name = "taxProfileDetailLastUpdatedByTextbox";
@@ -136,7 +135,6 @@
             // 
             // taxProfileDetailCreatedByTextbox
             // 
-            taxProfileDetailCreatedByTextbox.Enabled = false;
             taxProfileDetailCreatedByTextbox.Location = new Point(860, 138);
             taxProfileDetailCreatedByTextbox.MaxLength = 50;
             taxProfileDetailCreatedByTextbox.Name = "taxProfileDetailCreatedByTextbox";
@@ -146,7 +144,6 @@
             // 
             // taxProfileDetailLastUpdatedTimestampTextbox
             // 
-            taxProfileDetailLastUpdatedTimestampTextbox.Enabled = false;
             taxProfileDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
             taxProfileDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             taxProfileDetailLastUpdatedTimestampTextbox.Name = "taxProfileDetailLastUpdatedTimestampTextbox";
@@ -156,7 +153,6 @@
             // 
             // taxProfileDetailCreatedTimestampTextbox
             // 
-            taxProfileDetailCreatedTimestampTextbox.Enabled = false;
             taxProfileDetailCreatedTimestampTextbox.Location = new Point(860, 178);
             taxProfileDetailCreatedTimestampTextbox.MaxLength = 50;
             taxProfileDetailCreatedTimestampTextbox.Name = "taxProfileDetailCreatedTimestampTextbox";

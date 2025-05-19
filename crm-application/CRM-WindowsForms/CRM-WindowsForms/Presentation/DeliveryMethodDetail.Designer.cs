@@ -130,7 +130,6 @@
             // 
             // deliveryMethodDetailLastUpdatedByTextbox
             // 
-            deliveryMethodDetailLastUpdatedByTextbox.Enabled = false;
             deliveryMethodDetailLastUpdatedByTextbox.Location = new Point(860, 218);
             deliveryMethodDetailLastUpdatedByTextbox.MaxLength = 50;
             deliveryMethodDetailLastUpdatedByTextbox.Name = "deliveryMethodDetailLastUpdatedByTextbox";
@@ -140,7 +139,6 @@
             // 
             // deliveryMethodDetailCreatedByTextbox
             // 
-            deliveryMethodDetailCreatedByTextbox.Enabled = false;
             deliveryMethodDetailCreatedByTextbox.Location = new Point(860, 138);
             deliveryMethodDetailCreatedByTextbox.MaxLength = 50;
             deliveryMethodDetailCreatedByTextbox.Name = "deliveryMethodDetailCreatedByTextbox";
@@ -150,7 +148,6 @@
             // 
             // deliveryMethodDetailLastUpdatedTimestampTextbox
             // 
-            deliveryMethodDetailLastUpdatedTimestampTextbox.Enabled = false;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
             deliveryMethodDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             deliveryMethodDetailLastUpdatedTimestampTextbox.Name = "deliveryMethodDetailLastUpdatedTimestampTextbox";
@@ -160,7 +157,6 @@
             // 
             // deliveryMethodDetailCreatedTimestampTextbox
             // 
-            deliveryMethodDetailCreatedTimestampTextbox.Enabled = false;
             deliveryMethodDetailCreatedTimestampTextbox.Location = new Point(860, 178);
             deliveryMethodDetailCreatedTimestampTextbox.MaxLength = 50;
             deliveryMethodDetailCreatedTimestampTextbox.Name = "deliveryMethodDetailCreatedTimestampTextbox";

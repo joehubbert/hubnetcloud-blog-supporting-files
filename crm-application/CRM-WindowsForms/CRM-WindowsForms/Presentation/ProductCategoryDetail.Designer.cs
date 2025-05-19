@@ -116,7 +116,6 @@
             // 
             // productCategoryDetailCreatedTimestampTextbox
             // 
-            productCategoryDetailCreatedTimestampTextbox.Enabled = false;
             productCategoryDetailCreatedTimestampTextbox.Location = new Point(849, 178);
             productCategoryDetailCreatedTimestampTextbox.MaxLength = 50;
             productCategoryDetailCreatedTimestampTextbox.Name = "productCategoryDetailCreatedTimestampTextbox";
@@ -126,7 +125,6 @@
             // 
             // productCategoryDetailLastUpdatedTimestampTextbox
             // 
-            productCategoryDetailLastUpdatedTimestampTextbox.Enabled = false;
             productCategoryDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
             productCategoryDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             productCategoryDetailLastUpdatedTimestampTextbox.Name = "productCategoryDetailLastUpdatedTimestampTextbox";
@@ -136,7 +134,6 @@
             // 
             // productCategoryDetailCreatedByTextbox
             // 
-            productCategoryDetailCreatedByTextbox.Enabled = false;
             productCategoryDetailCreatedByTextbox.Location = new Point(849, 138);
             productCategoryDetailCreatedByTextbox.MaxLength = 50;
             productCategoryDetailCreatedByTextbox.Name = "productCategoryDetailCreatedByTextbox";
@@ -146,7 +143,6 @@
             // 
             // productCategoryDetailLastUpdatedByTextbox
             // 
-            productCategoryDetailLastUpdatedByTextbox.Enabled = false;
             productCategoryDetailLastUpdatedByTextbox.Location = new Point(849, 218);
             productCategoryDetailLastUpdatedByTextbox.MaxLength = 50;
             productCategoryDetailLastUpdatedByTextbox.Name = "productCategoryDetailLastUpdatedByTextbox";

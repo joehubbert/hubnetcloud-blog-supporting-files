@@ -118,7 +118,6 @@
             // 
             // salesSubRegionDetailCreatedTimestampTextbox
             // 
-            salesSubRegionDetailCreatedTimestampTextbox.Enabled = false;
             salesSubRegionDetailCreatedTimestampTextbox.Location = new Point(849, 178);
             salesSubRegionDetailCreatedTimestampTextbox.MaxLength = 50;
             salesSubRegionDetailCreatedTimestampTextbox.Name = "salesSubRegionDetailCreatedTimestampTextbox";
@@ -128,7 +127,6 @@
             // 
             // salesSubRegionDetailLastUpdatedTimestampTextbox
             // 
-            salesSubRegionDetailLastUpdatedTimestampTextbox.Enabled = false;
             salesSubRegionDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
             salesSubRegionDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             salesSubRegionDetailLastUpdatedTimestampTextbox.Name = "salesSubRegionDetailLastUpdatedTimestampTextbox";
@@ -138,7 +136,6 @@
             // 
             // salesSubRegionDetailCreatedByTextbox
             // 
-            salesSubRegionDetailCreatedByTextbox.Enabled = false;
             salesSubRegionDetailCreatedByTextbox.Location = new Point(849, 138);
             salesSubRegionDetailCreatedByTextbox.MaxLength = 50;
             salesSubRegionDetailCreatedByTextbox.Name = "salesSubRegionDetailCreatedByTextbox";
@@ -148,7 +145,6 @@
             // 
             // salesSubRegionDetailLastUpdatedByTextbox
             // 
-            salesSubRegionDetailLastUpdatedByTextbox.Enabled = false;
             salesSubRegionDetailLastUpdatedByTextbox.Location = new Point(849, 218);
             salesSubRegionDetailLastUpdatedByTextbox.MaxLength = 50;
             salesSubRegionDetailLastUpdatedByTextbox.Name = "salesSubRegionDetailLastUpdatedByTextbox";

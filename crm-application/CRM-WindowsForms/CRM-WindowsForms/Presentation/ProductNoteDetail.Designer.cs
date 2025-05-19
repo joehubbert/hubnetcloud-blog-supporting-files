@@ -125,7 +125,6 @@
             // 
             // productNoteDetailLastUpdatedByTextbox
             // 
-            productNoteDetailLastUpdatedByTextbox.Enabled = false;
             productNoteDetailLastUpdatedByTextbox.Location = new Point(978, 218);
             productNoteDetailLastUpdatedByTextbox.MaxLength = 50;
             productNoteDetailLastUpdatedByTextbox.Name = "productNoteDetailLastUpdatedByTextbox";
@@ -135,7 +134,6 @@
             // 
             // productNoteDetailCreatedByTextbox
             // 
-            productNoteDetailCreatedByTextbox.Enabled = false;
             productNoteDetailCreatedByTextbox.Location = new Point(978, 138);
             productNoteDetailCreatedByTextbox.MaxLength = 50;
             productNoteDetailCreatedByTextbox.Name = "productNoteDetailCreatedByTextbox";
@@ -145,7 +143,6 @@
             // 
             // productNoteDetailLastUpdatedTimestampTextbox
             // 
-            productNoteDetailLastUpdatedTimestampTextbox.Enabled = false;
             productNoteDetailLastUpdatedTimestampTextbox.Location = new Point(978, 258);
             productNoteDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             productNoteDetailLastUpdatedTimestampTextbox.Name = "productNoteDetailLastUpdatedTimestampTextbox";
@@ -155,7 +152,6 @@
             // 
             // productNoteDetailCreatedTimestampTextbox
             // 
-            productNoteDetailCreatedTimestampTextbox.Enabled = false;
             productNoteDetailCreatedTimestampTextbox.Location = new Point(978, 178);
             productNoteDetailCreatedTimestampTextbox.MaxLength = 50;
             productNoteDetailCreatedTimestampTextbox.Name = "productNoteDetailCreatedTimestampTextbox";

@@ -116,7 +116,6 @@
             // 
             // supplierNoteTypeDetailCreatedTimestampTextbox
             // 
-            supplierNoteTypeDetailCreatedTimestampTextbox.Enabled = false;
             supplierNoteTypeDetailCreatedTimestampTextbox.Location = new Point(849, 178);
             supplierNoteTypeDetailCreatedTimestampTextbox.MaxLength = 50;
             supplierNoteTypeDetailCreatedTimestampTextbox.Name = "supplierNoteTypeDetailCreatedTimestampTextbox";
@@ -126,7 +125,6 @@
             // 
             // supplierNoteTypeDetailLastUpdatedTimestampTextbox
             // 
-            supplierNoteTypeDetailLastUpdatedTimestampTextbox.Enabled = false;
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             supplierNoteTypeDetailLastUpdatedTimestampTextbox.Name = "supplierNoteTypeDetailLastUpdatedTimestampTextbox";
@@ -136,7 +134,6 @@
             // 
             // supplierNoteTypeDetailCreatedByTextbox
             // 
-            supplierNoteTypeDetailCreatedByTextbox.Enabled = false;
             supplierNoteTypeDetailCreatedByTextbox.Location = new Point(849, 138);
             supplierNoteTypeDetailCreatedByTextbox.MaxLength = 50;
             supplierNoteTypeDetailCreatedByTextbox.Name = "supplierNoteTypeDetailCreatedByTextbox";
@@ -146,7 +143,6 @@
             // 
             // supplierNoteTypeDetailLastUpdatedByTextbox
             // 
-            supplierNoteTypeDetailLastUpdatedByTextbox.Enabled = false;
             supplierNoteTypeDetailLastUpdatedByTextbox.Location = new Point(849, 218);
             supplierNoteTypeDetailLastUpdatedByTextbox.MaxLength = 50;
             supplierNoteTypeDetailLastUpdatedByTextbox.Name = "supplierNoteTypeDetailLastUpdatedByTextbox";

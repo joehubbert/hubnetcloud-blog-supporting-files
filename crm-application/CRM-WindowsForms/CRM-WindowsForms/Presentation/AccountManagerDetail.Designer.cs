@@ -160,7 +160,6 @@
             // 
             // accountManagerDetailLastUpdatedByTextbox
             // 
-            accountManagerDetailLastUpdatedByTextbox.Enabled = false;
             accountManagerDetailLastUpdatedByTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailLastUpdatedByTextbox.Location = new Point(894, 140);
             accountManagerDetailLastUpdatedByTextbox.Margin = new Padding(4);
@@ -172,7 +171,6 @@
             // 
             // accountManagerDetailCreatedTimestampTextbox
             // 
-            accountManagerDetailCreatedTimestampTextbox.Enabled = false;
             accountManagerDetailCreatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailCreatedTimestampTextbox.Location = new Point(894, 103);
             accountManagerDetailCreatedTimestampTextbox.Margin = new Padding(4);
@@ -184,7 +182,6 @@
             // 
             // accountManagerDetailLastUpdatedTimestampTextbox
             // 
-            accountManagerDetailLastUpdatedTimestampTextbox.Enabled = false;
             accountManagerDetailLastUpdatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailLastUpdatedTimestampTextbox.Location = new Point(894, 177);
             accountManagerDetailLastUpdatedTimestampTextbox.Margin = new Padding(4);
@@ -196,7 +193,6 @@
             // 
             // accountManagerDetailCreatedByTextbox
             // 
-            accountManagerDetailCreatedByTextbox.Enabled = false;
             accountManagerDetailCreatedByTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailCreatedByTextbox.Location = new Point(894, 66);
             accountManagerDetailCreatedByTextbox.Margin = new Padding(4);

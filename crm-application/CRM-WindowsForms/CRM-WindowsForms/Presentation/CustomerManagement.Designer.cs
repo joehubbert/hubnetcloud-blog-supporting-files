@@ -30,6 +30,7 @@
         {
             customerManagementTitleLabel = new Label();
             customerManagementCreateCustomerButton = new Button();
+            customerManagementViewAllCustomersButton = new Button();
             SuspendLayout();
             // 
             // customerManagementTitleLabel
@@ -56,12 +57,26 @@
             customerManagementCreateCustomerButton.UseVisualStyleBackColor = true;
             customerManagementCreateCustomerButton.Click += customerManagementCreateCustomerButton_Click;
             // 
+            // customerManagementViewAllCustomersButton
+            // 
+            customerManagementViewAllCustomersButton.FlatStyle = FlatStyle.Flat;
+            customerManagementViewAllCustomersButton.Font = new Font("Segoe UI", 11F);
+            customerManagementViewAllCustomersButton.Location = new Point(276, 76);
+            customerManagementViewAllCustomersButton.Margin = new Padding(4);
+            customerManagementViewAllCustomersButton.Name = "customerManagementViewAllCustomersButton";
+            customerManagementViewAllCustomersButton.Size = new Size(212, 72);
+            customerManagementViewAllCustomersButton.TabIndex = 9;
+            customerManagementViewAllCustomersButton.Text = "View All Customers";
+            customerManagementViewAllCustomersButton.UseVisualStyleBackColor = true;
+            customerManagementViewAllCustomersButton.Click += customerManagementViewAllCustomersButton_Click;
+            // 
             // CustomerManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(960, 540);
+            ClientSize = new Size(532, 192);
+            Controls.Add(customerManagementViewAllCustomersButton);
             Controls.Add(customerManagementCreateCustomerButton);
             Controls.Add(customerManagementTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -79,5 +94,6 @@
 
         private Label customerManagementTitleLabel;
         private Button customerManagementCreateCustomerButton;
+        private Button customerManagementViewAllCustomersButton;
     }
 }

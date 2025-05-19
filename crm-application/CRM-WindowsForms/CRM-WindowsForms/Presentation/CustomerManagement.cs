@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation
 {
     public partial class CustomerManagement : Form
     {
@@ -21,6 +11,12 @@ namespace CRM_WindowsForms.Presentation
         {
             CreateCustomer createCustomer = new CreateCustomer();
             createCustomer.Show();
+        }
+
+        private void customerManagementViewAllCustomersButton_Click(object sender, EventArgs e)
+        {
+            ViewAllCustomer viewAllCustomer = new ViewAllCustomer();
+            viewAllCustomer.Show();
         }
     }
 }

@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation
 {
     public partial class ProductManagement : Form
     {
         public ProductManagement()
         {
             InitializeComponent();
+        }
+
+        private void productManagementCreateProductButton_Click(object sender, EventArgs e)
+        {
+            CreateProduct createProduct = new CreateProduct();
+            createProduct.Show();
+        }
+
+        private void productManagementViewAllProductsButton_Click(object sender, EventArgs e)
+        {
+            ViewAllProduct viewAllProduct = new ViewAllProduct();
+            viewAllProduct.Show();
         }
     }
 }

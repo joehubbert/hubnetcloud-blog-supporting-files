@@ -1,20 +1,22 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation
 {
     public partial class SupplierManagement : Form
     {
         public SupplierManagement()
         {
             InitializeComponent();
+        }
+
+        private void supplierManagementCreateSupplierButton_Click(object sender, EventArgs e)
+        {
+            CreateSupplier createSupplier = new CreateSupplier();
+            createSupplier.Show();
+        }
+
+        private void supplierManagementViewAllSuppliersButton_Click(object sender, EventArgs e)
+        {
+            ViewAllSupplier viewAllSupplier = new ViewAllSupplier();
+            viewAllSupplier.Show();
         }
     }
 }

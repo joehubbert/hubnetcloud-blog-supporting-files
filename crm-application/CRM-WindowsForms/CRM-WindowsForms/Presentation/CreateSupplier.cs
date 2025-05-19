@@ -115,30 +115,35 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierFinancePayemntCurrencyId",
                     Value = supplierFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierFinancePayemntDays",
                     Value = supplierFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewActiveStatus",
                     Value = supplierOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewActiveStatus",
                     Value = supplierOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewAddressLine1",
                     Value = supplierOverviewAddressLine1,
                     MaxLength = 50,
@@ -146,6 +151,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewAddressLine3",
                     Value = supplierOverviewAddressLine3,
                     MaxLength = 50,
@@ -153,6 +159,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewAddressLine4",
                     Value = supplierOverviewAddressLine4,
                     MaxLength = 50,
@@ -160,6 +167,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewAddressLine5",
                     Value = supplierOverviewAddressLine5,
                     MaxLength = 50,
@@ -167,6 +175,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewEmailAddress",
                     Value = supplierOverviewEmailAddress,
                     MaxLength = 50,
@@ -174,6 +183,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewSupplierName",
                     Value = supplierOverviewSupplierName,
                     MaxLength = 50,
@@ -181,6 +191,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierOverviewTelephoneNumber",
                     Value = supplierOverviewTelephoneNumber,
                     MaxLength = 13,
@@ -192,6 +203,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true;
                     Name = "SupplierOverviewAddressLine2",
                     Value = supplierOverviewAddressLine2,
                     MaxLength = 50,
@@ -203,6 +215,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true;
                     Name = "SupplierFinanceVATNumber",
                     Value = supplierFinanceVATNumber,
                     MaxLength = 50,

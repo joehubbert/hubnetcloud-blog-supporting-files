@@ -165,11 +165,13 @@
             // 
             // productNoteDetailProductNoteTextbox
             // 
+            productNoteDetailProductNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             productNoteDetailProductNoteTextbox.Enabled = false;
             productNoteDetailProductNoteTextbox.Location = new Point(235, 258);
-            productNoteDetailProductNoteTextbox.MaxLength = 1073741823;
+            productNoteDetailProductNoteTextbox.MaxLength = 4000;
             productNoteDetailProductNoteTextbox.Multiline = true;
             productNoteDetailProductNoteTextbox.Name = "productNoteDetailProductNoteTextbox";
+            productNoteDetailProductNoteTextbox.ScrollBars = ScrollBars.Vertical;
             productNoteDetailProductNoteTextbox.Size = new Size(524, 259);
             productNoteDetailProductNoteTextbox.TabIndex = 3;
             // 

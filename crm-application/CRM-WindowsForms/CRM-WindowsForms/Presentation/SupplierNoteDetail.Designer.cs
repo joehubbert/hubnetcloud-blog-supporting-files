@@ -167,9 +167,10 @@
             // 
             supplierNoteDetailSupplierNoteTextbox.Enabled = false;
             supplierNoteDetailSupplierNoteTextbox.Location = new Point(235, 258);
-            supplierNoteDetailSupplierNoteTextbox.MaxLength = 1073741823;
+            supplierNoteDetailSupplierNoteTextbox.MaxLength = 4000;
             supplierNoteDetailSupplierNoteTextbox.Multiline = true;
             supplierNoteDetailSupplierNoteTextbox.Name = "supplierNoteDetailSupplierNoteTextbox";
+            supplierNoteDetailSupplierNoteTextbox.ScrollBars = ScrollBars.Vertical;
             supplierNoteDetailSupplierNoteTextbox.Size = new Size(524, 259);
             supplierNoteDetailSupplierNoteTextbox.TabIndex = 3;
             // 

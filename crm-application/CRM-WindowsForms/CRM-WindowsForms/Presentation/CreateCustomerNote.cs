@@ -75,19 +75,22 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CustomerId",
                     Value = customerId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CustomerNote",
                     Value = customerNote,
-                    MaxLength = 1073741823,
+                    MaxLength = 4000,
                     ValueType = typeof(string)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CustomerNoteTitle",
                     Value = customerNoteTitle,
                     MaxLength = 50,
@@ -95,6 +98,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CustomerNoteTypeId",
                     Value = customerNoteTypeId,
                     ValueType = typeof(Guid)

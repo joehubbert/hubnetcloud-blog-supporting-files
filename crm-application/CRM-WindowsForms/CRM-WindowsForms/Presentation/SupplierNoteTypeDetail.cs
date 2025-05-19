@@ -88,12 +88,14 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "SupplierNoteType",
                     Value = supplierNoteType,
                     MaxLength = 50,

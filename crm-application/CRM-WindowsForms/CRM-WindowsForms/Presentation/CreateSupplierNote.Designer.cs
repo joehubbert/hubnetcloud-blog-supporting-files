@@ -67,10 +67,12 @@
             // 
             // createSupplierNoteSupplierNoteTextbox
             // 
+            createSupplierNoteSupplierNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             createSupplierNoteSupplierNoteTextbox.Location = new Point(188, 147);
-            createSupplierNoteSupplierNoteTextbox.MaxLength = 1073741823;
+            createSupplierNoteSupplierNoteTextbox.MaxLength = 4000;
             createSupplierNoteSupplierNoteTextbox.Multiline = true;
             createSupplierNoteSupplierNoteTextbox.Name = "createSupplierNoteSupplierNoteTextbox";
+            createSupplierNoteSupplierNoteTextbox.ScrollBars = ScrollBars.Vertical;
             createSupplierNoteSupplierNoteTextbox.Size = new Size(524, 259);
             createSupplierNoteSupplierNoteTextbox.TabIndex = 2;
             // 
@@ -79,14 +81,14 @@
             createSupplierNoteSupplierNoteTitleLabel.AutoSize = true;
             createSupplierNoteSupplierNoteTitleLabel.Location = new Point(40, 68);
             createSupplierNoteSupplierNoteTitleLabel.Name = "createSupplierNoteSupplierNoteTitleLabel";
-            createSupplierNoteSupplierNoteTitleLabel.Size = new Size(134, 20);
+            createSupplierNoteSupplierNoteTitleLabel.Size = new Size(140, 20);
             createSupplierNoteSupplierNoteTitleLabel.TabIndex = 11;
-            createSupplierNoteSupplierNoteTitleLabel.Text = "Supplier Note Title";
+            createSupplierNoteSupplierNoteTitleLabel.Text = "Supplier Note Title*";
             // 
             // createSupplierNoteSupplierNoteTypeLabel
             // 
             createSupplierNoteSupplierNoteTypeLabel.AutoSize = true;
-            createSupplierNoteSupplierNoteTypeLabel.Location = new Point(40, 107);
+            createSupplierNoteSupplierNoteTypeLabel.Location = new Point(44, 107);
             createSupplierNoteSupplierNoteTypeLabel.Name = "createSupplierNoteSupplierNoteTypeLabel";
             createSupplierNoteSupplierNoteTypeLabel.Size = new Size(136, 20);
             createSupplierNoteSupplierNoteTypeLabel.TabIndex = 12;
@@ -97,9 +99,9 @@
             createSupplierNoteSupplierNoteLabel.AutoSize = true;
             createSupplierNoteSupplierNoteLabel.Location = new Point(73, 150);
             createSupplierNoteSupplierNoteLabel.Name = "createSupplierNoteSupplierNoteLabel";
-            createSupplierNoteSupplierNoteLabel.Size = new Size(101, 20);
+            createSupplierNoteSupplierNoteLabel.Size = new Size(107, 20);
             createSupplierNoteSupplierNoteLabel.TabIndex = 13;
-            createSupplierNoteSupplierNoteLabel.Text = "Supplier Note";
+            createSupplierNoteSupplierNoteLabel.Text = "Supplier Note*";
             // 
             // createSupplierSubmitButton
             // 

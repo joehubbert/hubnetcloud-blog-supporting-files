@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -14,6 +15,7 @@ namespace CRM_WindowsForms.Presentation.Functions
 
         public class DataProperty
         {
+            public bool AllowNullValue { get; set; } = false;
             public string Name { get; set; } = string.Empty;
             public object Value { get; set; } = string.Empty;
             public int MaxLength { get; set; } = 0;
@@ -33,6 +35,11 @@ namespace CRM_WindowsForms.Presentation.Functions
                     if (value.Length > property.MaxLength)
                     {
                         validationErrors.AppendLine($"{property.Name} cannot be longer than {property.MaxLength} characters. Submitted length is {value.Length} characters.");
+                    }
+
+                    if (property.AllowNullValue == false)
+                    {
+                        validationErrors.AppendLine($"{property.Name} cannot be empty.");
                     }
 
                     if (property.Name.Contains("EmailAddress"))

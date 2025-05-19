@@ -92,12 +92,14 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CurrencyCode",
                     Value = currencyCode,
                     MaxLength = 3,
@@ -105,6 +107,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "CurrencyName",
                     Value = currencyName,
                     MaxLength = 50,

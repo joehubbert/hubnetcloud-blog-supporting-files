@@ -67,10 +67,12 @@
             // 
             // createProductNoteProductNoteTextbox
             // 
+            createProductNoteProductNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             createProductNoteProductNoteTextbox.Location = new Point(188, 147);
-            createProductNoteProductNoteTextbox.MaxLength = 1073741823;
+            createProductNoteProductNoteTextbox.MaxLength = 4000;
             createProductNoteProductNoteTextbox.Multiline = true;
             createProductNoteProductNoteTextbox.Name = "createProductNoteProductNoteTextbox";
+            createProductNoteProductNoteTextbox.ScrollBars = ScrollBars.Vertical;
             createProductNoteProductNoteTextbox.Size = new Size(524, 259);
             createProductNoteProductNoteTextbox.TabIndex = 2;
             // 
@@ -79,14 +81,14 @@
             createProductNoteProductNoteTitleLabel.AutoSize = true;
             createProductNoteProductNoteTitleLabel.Location = new Point(40, 68);
             createProductNoteProductNoteTitleLabel.Name = "createProductNoteProductNoteTitleLabel";
-            createProductNoteProductNoteTitleLabel.Size = new Size(130, 20);
+            createProductNoteProductNoteTitleLabel.Size = new Size(136, 20);
             createProductNoteProductNoteTitleLabel.TabIndex = 11;
-            createProductNoteProductNoteTitleLabel.Text = "Product Note Title";
+            createProductNoteProductNoteTitleLabel.Text = "Product Note Title*";
             // 
             // createProductNoteProductNoteTypeLabel
             // 
             createProductNoteProductNoteTypeLabel.AutoSize = true;
-            createProductNoteProductNoteTypeLabel.Location = new Point(40, 107);
+            createProductNoteProductNoteTypeLabel.Location = new Point(44, 107);
             createProductNoteProductNoteTypeLabel.Name = "createProductNoteProductNoteTypeLabel";
             createProductNoteProductNoteTypeLabel.Size = new Size(132, 20);
             createProductNoteProductNoteTypeLabel.TabIndex = 12;
@@ -97,9 +99,9 @@
             createProductNoteProductNoteLabel.AutoSize = true;
             createProductNoteProductNoteLabel.Location = new Point(73, 150);
             createProductNoteProductNoteLabel.Name = "createProductNoteProductNoteLabel";
-            createProductNoteProductNoteLabel.Size = new Size(97, 20);
+            createProductNoteProductNoteLabel.Size = new Size(103, 20);
             createProductNoteProductNoteLabel.TabIndex = 13;
-            createProductNoteProductNoteLabel.Text = "Product Note";
+            createProductNoteProductNoteLabel.Text = "Product Note*";
             // 
             // createProductSubmitButton
             // 

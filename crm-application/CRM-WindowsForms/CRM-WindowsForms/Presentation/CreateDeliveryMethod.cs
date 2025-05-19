@@ -83,18 +83,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "DeliveryCost",
                     Value = deliveryCost,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "DeliveryMethod",
                     Value = deliveryMethod,
                     MaxLength = 50,
@@ -102,12 +105,14 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "DeliveryTime",
                     Value = deliveryTime,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false;
                     Name = "TaxProfileId",
                     Value = taxProfileId,
                     ValueType = typeof(Guid)

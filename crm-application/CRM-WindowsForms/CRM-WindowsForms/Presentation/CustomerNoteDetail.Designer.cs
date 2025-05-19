@@ -165,11 +165,13 @@
             // 
             // customerNoteDetailCustomerNoteTextbox
             // 
+            customerNoteDetailCustomerNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             customerNoteDetailCustomerNoteTextbox.Enabled = false;
             customerNoteDetailCustomerNoteTextbox.Location = new Point(235, 258);
-            customerNoteDetailCustomerNoteTextbox.MaxLength = 1073741823;
+            customerNoteDetailCustomerNoteTextbox.MaxLength = 4000;
             customerNoteDetailCustomerNoteTextbox.Multiline = true;
             customerNoteDetailCustomerNoteTextbox.Name = "customerNoteDetailCustomerNoteTextbox";
+            customerNoteDetailCustomerNoteTextbox.ScrollBars = ScrollBars.Vertical;
             customerNoteDetailCustomerNoteTextbox.Size = new Size(524, 259);
             customerNoteDetailCustomerNoteTextbox.TabIndex = 3;
             // 

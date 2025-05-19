@@ -67,26 +67,28 @@
             // 
             // createCustomerNoteCustomerNoteTextbox
             // 
+            createCustomerNoteCustomerNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             createCustomerNoteCustomerNoteTextbox.Location = new Point(188, 147);
-            createCustomerNoteCustomerNoteTextbox.MaxLength = 1073741823;
+            createCustomerNoteCustomerNoteTextbox.MaxLength = 4000;
             createCustomerNoteCustomerNoteTextbox.Multiline = true;
             createCustomerNoteCustomerNoteTextbox.Name = "createCustomerNoteCustomerNoteTextbox";
+            createCustomerNoteCustomerNoteTextbox.ScrollBars = ScrollBars.Vertical;
             createCustomerNoteCustomerNoteTextbox.Size = new Size(524, 259);
             createCustomerNoteCustomerNoteTextbox.TabIndex = 2;
             // 
             // createCustomerNoteCustomerNoteTitleLabel
             // 
             createCustomerNoteCustomerNoteTitleLabel.AutoSize = true;
-            createCustomerNoteCustomerNoteTitleLabel.Location = new Point(40, 68);
+            createCustomerNoteCustomerNoteTitleLabel.Location = new Point(34, 68);
             createCustomerNoteCustomerNoteTitleLabel.Name = "createCustomerNoteCustomerNoteTitleLabel";
-            createCustomerNoteCustomerNoteTitleLabel.Size = new Size(142, 20);
+            createCustomerNoteCustomerNoteTitleLabel.Size = new Size(148, 20);
             createCustomerNoteCustomerNoteTitleLabel.TabIndex = 11;
-            createCustomerNoteCustomerNoteTitleLabel.Text = "Customer Note Title";
+            createCustomerNoteCustomerNoteTitleLabel.Text = "Customer Note Title*";
             // 
             // createCustomerNoteCustomerNoteTypeLabel
             // 
             createCustomerNoteCustomerNoteTypeLabel.AutoSize = true;
-            createCustomerNoteCustomerNoteTypeLabel.Location = new Point(40, 107);
+            createCustomerNoteCustomerNoteTypeLabel.Location = new Point(38, 107);
             createCustomerNoteCustomerNoteTypeLabel.Name = "createCustomerNoteCustomerNoteTypeLabel";
             createCustomerNoteCustomerNoteTypeLabel.Size = new Size(144, 20);
             createCustomerNoteCustomerNoteTypeLabel.TabIndex = 12;
@@ -95,11 +97,11 @@
             // createCustomerNoteCustomerNoteLabel
             // 
             createCustomerNoteCustomerNoteLabel.AutoSize = true;
-            createCustomerNoteCustomerNoteLabel.Location = new Point(73, 150);
+            createCustomerNoteCustomerNoteLabel.Location = new Point(67, 150);
             createCustomerNoteCustomerNoteLabel.Name = "createCustomerNoteCustomerNoteLabel";
-            createCustomerNoteCustomerNoteLabel.Size = new Size(109, 20);
+            createCustomerNoteCustomerNoteLabel.Size = new Size(115, 20);
             createCustomerNoteCustomerNoteLabel.TabIndex = 13;
-            createCustomerNoteCustomerNoteLabel.Text = "Customer Note";
+            createCustomerNoteCustomerNoteLabel.Text = "Customer Note*";
             // 
             // createCustomerSubmitButton
             // 

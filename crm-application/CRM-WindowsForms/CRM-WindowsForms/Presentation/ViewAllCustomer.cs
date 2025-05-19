@@ -40,7 +40,7 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    dataTable.DefaultView.Sort = "Customer ASC";
+                    dataTable.DefaultView.Sort = "Customer Id ASC";
                     viewAllCustomerDataGridView.AutoGenerateColumns = true;
                     viewAllCustomerDataGridView.DataSource = dataTable;
                     viewAllCustomerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

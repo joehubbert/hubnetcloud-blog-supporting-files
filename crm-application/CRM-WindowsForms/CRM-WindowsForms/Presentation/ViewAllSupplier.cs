@@ -40,7 +40,7 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    dataTable.DefaultView.Sort = "Supplier ASC";
+                    dataTable.DefaultView.Sort = "Supplier Name ASC";
                     viewAllSupplierDataGridView.AutoGenerateColumns = true;
                     viewAllSupplierDataGridView.DataSource = dataTable;
                     viewAllSupplierDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

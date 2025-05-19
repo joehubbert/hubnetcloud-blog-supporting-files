@@ -40,7 +40,7 @@ namespace CRM_WindowsForms.Presentation
                 }
                 else
                 {
-                    dataTable.DefaultView.Sort = "Product ASC";
+                    dataTable.DefaultView.Sort = "Product Name ASC";
                     viewAllProductDataGridView.AutoGenerateColumns = true;
                     viewAllProductDataGridView.DataSource = dataTable;
                     viewAllProductDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;

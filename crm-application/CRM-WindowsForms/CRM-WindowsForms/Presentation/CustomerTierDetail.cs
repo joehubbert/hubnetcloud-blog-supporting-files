@@ -92,14 +92,14 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "CustomerTierCode",
                     Value = customerTierCode,
                     MaxLength = 1,
@@ -107,7 +107,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "CustomerTierDescription",
                     Value = customerTierDescription,
                     MaxLength = 50,

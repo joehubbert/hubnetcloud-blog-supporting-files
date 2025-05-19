@@ -136,21 +136,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "SalesRegionId",
                     Value = salesRegionId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "SalesSubRegion",
                     Value = salesSubRegion,
                     MaxLength = 50

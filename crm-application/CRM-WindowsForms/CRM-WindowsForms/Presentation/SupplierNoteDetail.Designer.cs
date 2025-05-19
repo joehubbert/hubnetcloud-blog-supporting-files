@@ -165,6 +165,7 @@
             // 
             // supplierNoteDetailSupplierNoteTextbox
             // 
+            supplierNoteDetailSupplierNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             supplierNoteDetailSupplierNoteTextbox.Enabled = false;
             supplierNoteDetailSupplierNoteTextbox.Location = new Point(235, 258);
             supplierNoteDetailSupplierNoteTextbox.MaxLength = 4000;

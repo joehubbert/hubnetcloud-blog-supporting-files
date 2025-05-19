@@ -181,7 +181,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     MaxLength = 50,
@@ -189,7 +189,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "FirstName",
                     Value = firstName,
                     MaxLength = 50,
@@ -197,7 +197,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "LastName",
                     Value = lastName,
                     MaxLength = 50,
@@ -205,7 +205,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "EmailAddress",
                     Value = emailAddress,
                     MaxLength = 50,
@@ -213,7 +213,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "TelephoneNumber",
                     Value = telephoneNumber,
                     MaxLength = 13,

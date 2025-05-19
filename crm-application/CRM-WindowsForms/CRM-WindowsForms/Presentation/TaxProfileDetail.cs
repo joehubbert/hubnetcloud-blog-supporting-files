@@ -98,14 +98,14 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "TaxProfile",
                     Value = taxProfile,
                     MaxLength = 50,
@@ -113,7 +113,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
-                    AllowNullValue = false;
+                    AllowNullValue = false,
                     Name = "TaxRate",
                     Value = taxRate,
                     ValueType = typeof(decimal)

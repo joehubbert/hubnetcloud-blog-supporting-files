@@ -2,7 +2,7 @@
     @accountManagerId UNIQUEIDENTIFIER,
     @activeStatus BIT,
     @creditEnabled BIT,
-    @creditLimit MONEY = NULL,
+    @creditLimit MONEY,
     @customerId UNIQUEIDENTIFIER,
     @customerSince DATE,
     @customerTierId UNIQUEIDENTIFIER,

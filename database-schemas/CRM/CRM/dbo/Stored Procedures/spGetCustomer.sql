@@ -11,6 +11,7 @@ SELECT
 [Customer Tier],
 [Customer Tier Id],
 [Customer Type],
+[Customer Type Id],
 [Sales Region],
 [Sales Region Id],
 [Sales Sub Region],

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateProductNote]
 	@productId UNIQUEIDENTIFIER,
-	@productNote NVARCHAR(MAX),
+	@productNote NVARCHAR(4000),
 	@productNoteTitle NVARCHAR(50),
 	@productNoteTypeId UNIQUEIDENTIFIER
 AS

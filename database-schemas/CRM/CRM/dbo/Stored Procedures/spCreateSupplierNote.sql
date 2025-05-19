@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateSupplierNote]
 	@supplierId UNIQUEIDENTIFIER,
-	@supplierNote NVARCHAR(MAX),
+	@supplierNote NVARCHAR(4000),
 	@supplierNoteTitle NVARCHAR(50),
 	@supplierNoteTypeId UNIQUEIDENTIFIER
 AS

@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomerNote]
 	@customerId UNIQUEIDENTIFIER,
-	@customerNote NVARCHAR(MAX),
+	@customerNote NVARCHAR(4000),
 	@customerNoteTitle NVARCHAR(50),
 	@customerNoteTypeId UNIQUEIDENTIFIER
 AS

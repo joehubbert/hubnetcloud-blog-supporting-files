@@ -1,5 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProductNote]
-	@productNote NVARCHAR(MAX),
+	@productNote NVARCHAR(4000),
 	@productNoteId UNIQUEIDENTIFIER,
 	@productNoteTitle NVARCHAR(50),
 	@productNoteTypeId UNIQUEIDENTIFIER

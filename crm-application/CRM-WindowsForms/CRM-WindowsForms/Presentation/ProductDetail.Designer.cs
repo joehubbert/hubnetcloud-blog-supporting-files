@@ -125,7 +125,7 @@
             productDetailToggleEditModeButton.TabIndex = 24;
             productDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             productDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            productDetailToggleEditModeButton.Click += productDetailToggleEditModeButton_Click;
+            productDetailToggleEditModeButton.Click += ProductDetailToggleEditModeButton_Click;
             // 
             // productDetailOverviewProductIdTextbox
             // 
@@ -615,7 +615,7 @@
             productDetailProductNotesRefreshDataButton.TabIndex = 23;
             productDetailProductNotesRefreshDataButton.Text = "Refresh Data";
             productDetailProductNotesRefreshDataButton.UseVisualStyleBackColor = true;
-            productDetailProductNotesRefreshDataButton.Click += productDetailProductNotesRefreshDataButton_Click;
+            productDetailProductNotesRefreshDataButton.Click += ProductDetailProductNotesRefreshDataButton_Click;
             // 
             // productDetailProductNotesCreateNewProductNoteButton
             // 
@@ -629,7 +629,7 @@
             productDetailProductNotesCreateNewProductNoteButton.TabIndex = 22;
             productDetailProductNotesCreateNewProductNoteButton.Text = "Create New Product Note";
             productDetailProductNotesCreateNewProductNoteButton.UseVisualStyleBackColor = true;
-            productDetailProductNotesCreateNewProductNoteButton.Click += productDetailProductNotesCreateNewProductNoteButton_Click;
+            productDetailProductNotesCreateNewProductNoteButton.Click += ProductDetailProductNotesCreateNewProductNoteButton_Click;
             // 
             // productDetailProductNotesExistingProductNotesDataGridView
             // 

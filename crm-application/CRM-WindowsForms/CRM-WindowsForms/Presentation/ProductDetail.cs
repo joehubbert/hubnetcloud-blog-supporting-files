@@ -32,7 +32,7 @@ namespace CRM_WindowsForms.Presentation
         private void InitializeCustomComponents()
         {
             productDetailTabControl.SelectedIndexChanged += ProductDetailTabControl_SelectedIndexChanged;
-            productDetailToggleEditModeButton.Click += productDetailToggleEditModeButton_Click;
+            productDetailToggleEditModeButton.Click += ProductDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -583,7 +583,7 @@ namespace CRM_WindowsForms.Presentation
             ViewProductDetailProductInformation_Load(this, EventArgs.Empty);
         }
 
-        private void productDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void ProductDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
             productDetailOverviewActiveStatusCheckbox.Enabled = !productDetailOverviewActiveStatusCheckbox.Enabled;
             productDetailOverviewProductCategoryComboBox.Enabled = !productDetailOverviewProductCategoryComboBox.Enabled;
@@ -601,13 +601,13 @@ namespace CRM_WindowsForms.Presentation
             productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled = !productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled;
         }
 
-        private void productDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
+        private void ProductDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
         {
             CreateProductNote createProductNoteForm = new CreateProductNote(_productId);
             createProductNoteForm.Show();
         }
 
-        private async void productDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)
+        private async void ProductDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)
         {
             await ViewProductDetailExistingProductNote_Load(sender, e);
         }

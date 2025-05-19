@@ -60,13 +60,13 @@ FROM [dbo].[Customer] C
 INNER JOIN [dbo].[AccountManager] AM ON C.[AccountManagerId] = AM.[AccountManagerId]
 INNER JOIN [dbo].[CustomerTier] CTI ON C.[CustomerTierId] = CTI.[CustomerTierId]
 INNER JOIN [dbo].[CustomerType] CTY ON C.[CustomerTypeId] = CTY.[CustomerTypeId]
-INNER JOIN [dbo].[Order] O ON C.[CustomerId] = O.[CustomerId]
-INNER JOIN [dbo].[OrderStatus] OS ON O.[OrderStatusId] = OS.[OrderStatusId]
+LEFT JOIN [dbo].[Order] O ON C.[CustomerId] = O.[CustomerId]
+LEFT JOIN [dbo].[OrderStatus] OS ON O.[OrderStatusId] = OS.[OrderStatusId]
 INNER JOIN [dbo].[Currency] CUR ON C.[PaymentCurrencyId] = CUR.[CurrencyId]
-INNER JOIN [dbo].[PaymentMethod] PM ON O.[PaymentMethodId] = PM.[PaymentMethodId]
+LEFT JOIN [dbo].[PaymentMethod] PM ON O.[PaymentMethodId] = PM.[PaymentMethodId]
 INNER JOIN [dbo].[SalesSubRegion] SSR ON C.[SalesSubRegionId] = SSR.[SalesSubRegionId]
 INNER JOIN [dbo].[SalesRegion] SR ON SSR.[SalesRegionId] = SR.[SalesRegionId]
-INNER JOIN [dbo].[vwOrderValue] VOV ON O.[OrderId] = VOV.[OrderId]
+LEFT JOIN [dbo].[vwOrderValue] VOV ON O.[OrderId] = VOV.[OrderId]
 GROUP BY
 C.[GlobalParentCustomerId],
 C.[TopParentCustomerId],

@@ -4,6 +4,7 @@
     [ProductCategoryId] UNIQUEIDENTIFIER NOT NULL,
     [SupplierId] UNIQUEIDENTIFIER NOT NULL,
     [ProductName] NVARCHAR(50) NOT NULL,
+    [ProductImage] VARBINARY(MAX) NULL,
     [WholesalePricePerUnit] MONEY NOT NULL,
     [WholesaleUnitQuantityPerCarton] INT NOT NULL,
     [WholesaleCartonStockQuantityHeld] INT NOT NULL,

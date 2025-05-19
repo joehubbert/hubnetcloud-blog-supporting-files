@@ -4,6 +4,7 @@
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
     @addressLine5 NVARCHAR(50),
+    @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
@@ -13,6 +14,7 @@ AS
 CREATE TABLE #CompanyConfigurationTemp
 (
 	[CompanyName] NVARCHAR(50) NOT NULL,
+    [CompanyLogo] VARBINARY(MAX) NULL,
     [AddressLine1] NVARCHAR(50) NOT NULL,
     [AddressLine2] NVARCHAR(50) NULL,
     [AddressLine3] NVARCHAR(50) NOT NULL,
@@ -26,6 +28,7 @@ CREATE TABLE #CompanyConfigurationTemp
 INSERT INTO #CompanyConfigurationTemp
 (
     [CompanyName],
+    [CompanyLogo],
     [AddressLine1],
     [AddressLine2],
     [AddressLine3],
@@ -38,6 +41,7 @@ INSERT INTO #CompanyConfigurationTemp
 VALUES
 (
     @companyName,
+    @companyLogo,
     @addressLine1,
     @addressLine2,
     @addressLine3,
@@ -74,6 +78,7 @@ WHEN NOT MATCHED THEN
 INSERT
 (
     [CompanyName],
+    [CompanyLogo],
     [AddressLine1],
     [AddressLine2],
     [AddressLine3],
@@ -86,6 +91,7 @@ INSERT
 VALUES
 (
     source.[CompanyName],
+    source.[CompanyLogo],
     source.[AddressLine1],
     source.[AddressLine2],
     source.[AddressLine3],

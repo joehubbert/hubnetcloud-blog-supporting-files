@@ -4,6 +4,7 @@ AS
 SELECT
 [CompanyId] AS [Company Id],
 [CompanyName] AS [Company Name],
+[CompanyLogo] AS [Company Logo],
 [AddressLine1] AS [Address Line 1],
 [AddressLine2] AS [Address Line 2],
 [AddressLine3] AS [Address Line 3],

@@ -9,6 +9,7 @@ SELECT
 [Supplier Id],
 [Supplier Name],
 [Product Name],
+[Product Image],
 [Wholesale Price Per Unit],
 [Wholesale Unit Quantity Per Carton],
 [Wholesale Carton Stock Quantity Held],

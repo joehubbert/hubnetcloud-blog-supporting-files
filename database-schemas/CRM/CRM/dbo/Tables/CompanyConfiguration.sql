@@ -2,6 +2,7 @@
 (
 	[CompanyId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[CompanyName] NVARCHAR(50) NOT NULL,
+    [CompanyLogo] VARBINARY(MAX) NULL,
     [AddressLine1] NVARCHAR(50) NOT NULL,
     [AddressLine2] NVARCHAR(50) NULL,
     [AddressLine3] NVARCHAR(50) NOT NULL,

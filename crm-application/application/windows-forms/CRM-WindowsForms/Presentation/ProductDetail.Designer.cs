@@ -74,6 +74,10 @@
             productDetailOverviewProductNameLabel = new Label();
             productDetailOverviewProductCategoryLabel = new Label();
             productDetailOverviewSupplierLabel = new Label();
+            productDetailTabControlProductImagePage = new TabPage();
+            productDetailProductImagePictureBox = new PictureBox();
+            productDetailProductImagePictureBoxLabel = new Label();
+            productDetailProductImageChooseProductImageButton = new Button();
             productDetailTabControlProductNotesPage = new TabPage();
             productDetailProductNotesRefreshDataButton = new Button();
             productDetailProductNotesCreateNewProductNoteButton = new Button();
@@ -83,6 +87,8 @@
             productDetailOverviewPerUnitGroupBox.SuspendLayout();
             productDetailOverviewWholesaleGroupBox.SuspendLayout();
             productDetailOverviewWholesaleReorderFlagPanel.SuspendLayout();
+            productDetailTabControlProductImagePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)productDetailProductImagePictureBox).BeginInit();
             productDetailTabControlProductNotesPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)productDetailProductNotesExistingProductNotesDataGridView).BeginInit();
             SuspendLayout();
@@ -92,7 +98,7 @@
             productDetailUpdateProductButton.Enabled = false;
             productDetailUpdateProductButton.FlatStyle = FlatStyle.Flat;
             productDetailUpdateProductButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            productDetailUpdateProductButton.Location = new Point(541, 722);
+            productDetailUpdateProductButton.Location = new Point(545, 753);
             productDetailUpdateProductButton.Margin = new Padding(4);
             productDetailUpdateProductButton.Name = "productDetailUpdateProductButton";
             productDetailUpdateProductButton.Size = new Size(185, 70);
@@ -232,11 +238,12 @@
             // 
             productDetailTabControl.Appearance = TabAppearance.FlatButtons;
             productDetailTabControl.Controls.Add(productDetailTabControlOverviewPage);
+            productDetailTabControl.Controls.Add(productDetailTabControlProductImagePage);
             productDetailTabControl.Controls.Add(productDetailTabControlProductNotesPage);
             productDetailTabControl.Location = new Point(13, 121);
             productDetailTabControl.Name = "productDetailTabControl";
             productDetailTabControl.SelectedIndex = 0;
-            productDetailTabControl.Size = new Size(1264, 594);
+            productDetailTabControl.Size = new Size(1264, 625);
             productDetailTabControl.TabIndex = 0;
             // 
             // productDetailTabControlOverviewPage
@@ -264,7 +271,7 @@
             productDetailTabControlOverviewPage.Location = new Point(4, 32);
             productDetailTabControlOverviewPage.Name = "productDetailTabControlOverviewPage";
             productDetailTabControlOverviewPage.Padding = new Padding(3);
-            productDetailTabControlOverviewPage.Size = new Size(1256, 558);
+            productDetailTabControlOverviewPage.Size = new Size(1256, 589);
             productDetailTabControlOverviewPage.TabIndex = 0;
             productDetailTabControlOverviewPage.Text = "Overview";
             // 
@@ -316,7 +323,6 @@
             productDetailOverviewUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
             productDetailOverviewUnitMinimumOrderQuantityTextbox.MaxLength = 50;
             productDetailOverviewUnitMinimumOrderQuantityTextbox.Name = "productDetailOverviewUnitMinimumOrderQuantityTextbox";
-            productDetailOverviewUnitMinimumOrderQuantityTextbox.ReadOnly = true;
             productDetailOverviewUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
             productDetailOverviewUnitMinimumOrderQuantityTextbox.TabIndex = 14;
             // 
@@ -372,7 +378,6 @@
             // 
             // productDetailOverviewUnitStockQuantityHeldTextbox
             // 
-            productDetailOverviewUnitStockQuantityHeldTextbox.Enabled = false;
             productDetailOverviewUnitStockQuantityHeldTextbox.Font = new Font("Segoe UI", 11F);
             productDetailOverviewUnitStockQuantityHeldTextbox.Location = new Point(284, 152);
             productDetailOverviewUnitStockQuantityHeldTextbox.MaxLength = 50;
@@ -519,9 +524,9 @@
             productDetailOverviewWholesaleCartonQuantityLabel.Font = new Font("Segoe UI", 11F);
             productDetailOverviewWholesaleCartonQuantityLabel.Location = new Point(81, 125);
             productDetailOverviewWholesaleCartonQuantityLabel.Name = "productDetailOverviewWholesaleCartonQuantityLabel";
-            productDetailOverviewWholesaleCartonQuantityLabel.Size = new Size(193, 20);
+            productDetailOverviewWholesaleCartonQuantityLabel.Size = new Size(192, 20);
             productDetailOverviewWholesaleCartonQuantityLabel.TabIndex = 54;
-            productDetailOverviewWholesaleCartonQuantityLabel.Text = "Wbolesale Carton Quantity*";
+            productDetailOverviewWholesaleCartonQuantityLabel.Text = "Wholesale Carton Quantity*";
             // 
             // productDetailOverviewWholesaleUnitQuantityPerCartonLabel
             // 
@@ -587,6 +592,52 @@
             productDetailOverviewSupplierLabel.TabIndex = 68;
             productDetailOverviewSupplierLabel.Text = "Supplier*";
             // 
+            // productDetailTabControlProductImagePage
+            // 
+            productDetailTabControlProductImagePage.BackColor = Color.SkyBlue;
+            productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBox);
+            productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBoxLabel);
+            productDetailTabControlProductImagePage.Controls.Add(productDetailProductImageChooseProductImageButton);
+            productDetailTabControlProductImagePage.Location = new Point(4, 32);
+            productDetailTabControlProductImagePage.Name = "productDetailTabControlProductImagePage";
+            productDetailTabControlProductImagePage.Size = new Size(1256, 589);
+            productDetailTabControlProductImagePage.TabIndex = 5;
+            productDetailTabControlProductImagePage.Text = "Product Image";
+            // 
+            // productDetailProductImagePictureBox
+            // 
+            productDetailProductImagePictureBox.BorderStyle = BorderStyle.Fixed3D;
+            productDetailProductImagePictureBox.Location = new Point(134, 76);
+            productDetailProductImagePictureBox.Name = "productDetailProductImagePictureBox";
+            productDetailProductImagePictureBox.Size = new Size(500, 500);
+            productDetailProductImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            productDetailProductImagePictureBox.TabIndex = 79;
+            productDetailProductImagePictureBox.TabStop = false;
+            // 
+            // productDetailProductImagePictureBoxLabel
+            // 
+            productDetailProductImagePictureBoxLabel.AutoSize = true;
+            productDetailProductImagePictureBoxLabel.Font = new Font("Segoe UI", 11F);
+            productDetailProductImagePictureBoxLabel.Location = new Point(22, 76);
+            productDetailProductImagePictureBoxLabel.Name = "productDetailProductImagePictureBoxLabel";
+            productDetailProductImagePictureBoxLabel.Size = new Size(106, 20);
+            productDetailProductImagePictureBoxLabel.TabIndex = 81;
+            productDetailProductImagePictureBoxLabel.Text = "Product Image";
+            // 
+            // productDetailProductImageChooseProductImageButton
+            // 
+            productDetailProductImageChooseProductImageButton.Enabled = false;
+            productDetailProductImageChooseProductImageButton.FlatStyle = FlatStyle.Flat;
+            productDetailProductImageChooseProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            productDetailProductImageChooseProductImageButton.Location = new Point(134, 12);
+            productDetailProductImageChooseProductImageButton.Margin = new Padding(4);
+            productDetailProductImageChooseProductImageButton.Name = "productDetailProductImageChooseProductImageButton";
+            productDetailProductImageChooseProductImageButton.Size = new Size(159, 51);
+            productDetailProductImageChooseProductImageButton.TabIndex = 80;
+            productDetailProductImageChooseProductImageButton.Text = "Choose Product Image";
+            productDetailProductImageChooseProductImageButton.UseVisualStyleBackColor = true;
+            productDetailProductImageChooseProductImageButton.Click += productDetailProductImageChooseProductImageButton_Click;
+            // 
             // productDetailTabControlProductNotesPage
             // 
             productDetailTabControlProductNotesPage.BackColor = Color.SkyBlue;
@@ -595,7 +646,7 @@
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
             productDetailTabControlProductNotesPage.Location = new Point(4, 27);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 563);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 594);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 
@@ -642,7 +693,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(1289, 805);
+            ClientSize = new Size(1289, 836);
             Controls.Add(productDetailTabControl);
             Controls.Add(productDetailUpdateProductButton);
             Controls.Add(productDetailToggleEditModeButton);
@@ -663,6 +714,9 @@
             productDetailOverviewWholesaleGroupBox.PerformLayout();
             productDetailOverviewWholesaleReorderFlagPanel.ResumeLayout(false);
             productDetailOverviewWholesaleReorderFlagPanel.PerformLayout();
+            productDetailTabControlProductImagePage.ResumeLayout(false);
+            productDetailTabControlProductImagePage.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)productDetailProductImagePictureBox).EndInit();
             productDetailTabControlProductNotesPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)productDetailProductNotesExistingProductNotesDataGridView).EndInit();
             ResumeLayout(false);
@@ -720,5 +774,9 @@
         private TextBox productDetailOverviewUnitStockQuantityHeldTextbox;
         private Label productDetailOverviewUnitStockQuantityHeldLabel;
         private Button productDetailProductNotesRefreshDataButton;
+        private TabPage productDetailTabControlProductImagePage;
+        private PictureBox productDetailProductImagePictureBox;
+        private Label productDetailProductImagePictureBoxLabel;
+        private Button productDetailProductImageChooseProductImageButton;
     }
 }

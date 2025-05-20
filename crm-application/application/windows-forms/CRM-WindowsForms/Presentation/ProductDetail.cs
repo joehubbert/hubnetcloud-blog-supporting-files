@@ -16,10 +16,12 @@ namespace CRM_WindowsForms.Presentation
         private int? productDetailOverviewUnitMinimumStockQuantityOriginalValue;
         private decimal? productDetailOverviewUnitPriceOriginalValue;
         private int? productDetailOverviewUnitStockQuantityHeldOriginalValue;
-        private int? productDetailOverviewWholesaleCartonQuantityStockHeldOriginalValue;
+        private int? productDetailOverviewWholesaleCartonStockQuantityHeldOriginalValue;
         private decimal? productDetailOverviewWholesalePricePerUnitOriginalValue;
         private bool? productDetailOverviewWholesaleReorderFlagOriginalValue;
         private int? productDetailOverviewWholesaleUnitQuantityPerCartonOriginalValue;
+        private byte[]? productDetailProductImageOriginalValue;
+        private byte[]? productDetailProductImageRuntimeValue;
 
         public ProductDetail(Guid productId)
         {
@@ -90,15 +92,17 @@ namespace CRM_WindowsForms.Presentation
                     {
                         SupplierId = row.Field<Guid>("Supplier Id"),
                         Supplier = row.Field<string>("Supplier Name"),
-                        DisplayText = $"{row.Field<string>("Supplier Name")} | {row.Field<Guid>("Supplier Id")}"
+                        DisplayText = row.Field<string>("VAT Number") != null
+                            ? $"{row.Field<string>("Supplier Name")} | {row.Field<string>("VAT Number")}"
+                            : row.Field<string>("Supplier Name")
                     })
                     .OrderBy(item => item.Supplier)
                     .ToList();
 
-                productDetailOverviewProductCategoryComboBox.DataSource = supplierList;
-                productDetailOverviewProductCategoryComboBox.DisplayMember = "DisplayText";
-                productDetailOverviewProductCategoryComboBox.ValueMember = "SupplierId";
-                productDetailOverviewProductCategoryComboBox.SelectedValue = productSupplierId;
+                productDetailOverviewSupplierComboBox.DataSource = supplierList;
+                productDetailOverviewSupplierComboBox.DisplayMember = "DisplayText";
+                productDetailOverviewSupplierComboBox.ValueMember = "SupplierId";
+                productDetailOverviewSupplierComboBox.SelectedValue = productSupplierId;
             }
             catch (Exception ex)
             {
@@ -151,12 +155,13 @@ namespace CRM_WindowsForms.Presentation
                     SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Unit Selling Price"], out unitPricePartA, out unitPricePartB);
                     productDetailOverviewUnitPriceTextboxA.Text = unitPricePartA;
                     productDetailOverviewUnitPriceTextboxB.Text = unitPricePartB;
+                    productDetailOverviewUnitStockQuantityHeldTextbox.Text = productDataRow["Unit Stock Quantity Held"].ToString();
                     productDetailOverviewWholesaleCartonQuantityTextbox.Text = productDataRow["Wholesale Carton Stock Quantity Held"].ToString();
-                    string whosalePricePerUnitPartA;
-                    string whosalePricePerUnitPartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out whosalePricePerUnitPartA, out whosalePricePerUnitPartB);
-                    productDetailOverviewWholesalePricePerUnitTextboxA.Text = whosalePricePerUnitPartA;
-                    productDetailOverviewWholesalePricePerUnitTextboxB.Text = whosalePricePerUnitPartB;
+                    string wholesalePricePerUnitPartA;
+                    string wholesalePricePerUnitPartB;
+                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out wholesalePricePerUnitPartA, out wholesalePricePerUnitPartB);
+                    productDetailOverviewWholesalePricePerUnitTextboxA.Text = wholesalePricePerUnitPartA;
+                    productDetailOverviewWholesalePricePerUnitTextboxB.Text = wholesalePricePerUnitPartB;
                     productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Text = productDataRow["Wholesale Unit Quantity Per Carton"].ToString();
                     if ((bool)productDataRow["Wholesale Reorder Flag"])
                     {
@@ -166,6 +171,14 @@ namespace CRM_WindowsForms.Presentation
                     {
                         productDetailOverviewWholesaleReorderFlagNoRadioButton.Checked = true;
                     }
+                    if (productDataRow["Product Image"] != DBNull.Value)
+                    {
+                        productDetailProductImagePictureBox.Image = ImageHelper.ByteArrayToImage((byte[])productDataRow["Product Image"]);
+                    }
+                    else
+                    {
+                        productDetailProductImagePictureBox.Image = null;
+                    }
 
                     productDetailOverviewActiveStatusOriginalValue = (bool)productDataRow["Active Status"];
                     productDetailOverviewProductCategoryIdOriginalValue = (Guid)productDataRow["Product Category Id"];
@@ -174,10 +187,12 @@ namespace CRM_WindowsForms.Presentation
                     productDetailOverviewUnitMinimumOrderQuantityOriginalValue = (int)productDataRow["Unit Minimum Order Quantity"];
                     productDetailOverviewUnitMinimumStockQuantityOriginalValue = (int)productDataRow["Unit Minimum Stock Quantity"];
                     productDetailOverviewUnitPriceOriginalValue = (decimal)productDataRow["Unit Selling Price"];
-                    productDetailOverviewWholesaleCartonQuantityStockHeldOriginalValue = (int)productDataRow["Wholesale Carton Quantity Stock Held"];
+                    productDetailOverviewUnitStockQuantityHeldOriginalValue = (int)productDataRow["Unit Stock Quantity Held"];
+                    productDetailOverviewWholesaleCartonStockQuantityHeldOriginalValue = (int)productDataRow["Wholesale Carton Stock Quantity Held"];
                     productDetailOverviewWholesalePricePerUnitOriginalValue = (decimal)productDataRow["Wholesale Price Per Unit"];
                     productDetailOverviewWholesaleUnitQuantityPerCartonOriginalValue = (int)productDataRow["Wholesale Unit Quantity Per Carton"];
                     productDetailOverviewWholesaleReorderFlagOriginalValue = (bool)productDataRow["Wholesale Reorder Flag"];
+                    productDetailProductImageOriginalValue = productDataRow["Product Image"] as byte[];
                 }
                 else
                 {
@@ -274,6 +289,30 @@ namespace CRM_WindowsForms.Presentation
             productDetailOverviewUnitStockQuantityHeldTextbox.Text = (int.Parse(productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd()) * int.Parse(productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd())).ToString();
         }
 
+        private void productDetailProductImageChooseProductImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+
+                    if (ValidateDataInput.IsValidImageFile(filePath, out string errorMessage))
+                    {
+                        productDetailProductImagePictureBox.Image = Image.FromFile(filePath);
+                        productDetailProductImageRuntimeValue = File.ReadAllBytes(filePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show(errorMessage, "Invalid Image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        productDetailProductImagePictureBox.Image = null;
+                        productDetailProductImageRuntimeValue = null;
+                    }
+                }
+            }
+        }
+
         private async void productDetailUpdateProductButton_Click(object sender, EventArgs e)
         {
             bool productDetailOverviewActiveStatus = productDetailOverviewActiveStatusCheckbox.Checked;
@@ -291,8 +330,7 @@ namespace CRM_WindowsForms.Presentation
                 productDetailOverviewUnitMinimumStockQuantity = int.Parse(productDetailOverviewUnitMinimumStockQuantityTextbox.Text.TrimEnd());
             }
             decimal productDetailOverviewUnitPrice = decimal.Parse($"{productDetailOverviewUnitPriceTextboxA.Text.TrimEnd()}.{productDetailOverviewUnitPriceTextboxB.Text.TrimEnd()}");
-            int productDetailOverviewUnitStockQuantityHeld = int.Parse(productDetailOverviewUnitStockQuantityHeldOriginalValue + productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
-            int productDetailOverviewWholesaleCartonQuantityStockHeld = int.Parse(productDetailOverviewUnitStockQuantityHeldOriginalValue + productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
+            int productDetailOverviewWholesaleCartonStockQuantityHeld = int.Parse(productDetailOverviewWholesaleCartonQuantityTextbox.Text.TrimEnd());
             decimal productDetailOverviewWholesalePricePerUnit = decimal.Parse($"{productDetailOverviewWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{productDetailOverviewWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
             int productDetailOverviewWholesaleUnitQuantityPerCarton = int.Parse(productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
             bool productDetailOverviewWholesaleReorderFlag;
@@ -304,6 +342,8 @@ namespace CRM_WindowsForms.Presentation
             {
                 productDetailOverviewWholesaleReorderFlag = false;
             }
+            byte[] productImage = productDetailProductImageRuntimeValue ?? Array.Empty<byte>();
+            int productDetailOverviewUnitStockQuantityHeld = (productDetailOverviewWholesaleCartonStockQuantityHeld * productDetailOverviewWholesaleUnitQuantityPerCarton);
 
             string dataSubject = "Product";
 
@@ -368,15 +408,15 @@ namespace CRM_WindowsForms.Presentation
                 new ValidateDataInput.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ProductDetailOverviewWholesaleCartonQuantityStockHeld",
-                    Value = productDetailOverviewWholesaleCartonQuantityStockHeld,
+                    Name = "ProductDetailOverviewWholesaleCartonStockQuantityHeld",
+                    Value = productDetailOverviewWholesaleCartonStockQuantityHeld,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ProductDetailOverviewWholesaleCartonQuantityStockHeld",
-                    Value = productDetailOverviewWholesaleCartonQuantityStockHeld,
+                    Name = "ProductDetailOverviewWholesaleCartonStockQuantityHeld",
+                    Value = productDetailOverviewWholesaleCartonStockQuantityHeld,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
@@ -401,6 +441,17 @@ namespace CRM_WindowsForms.Presentation
                     ValueType = typeof(bool)
                 }
             };
+
+            if (productImage != null && productImage.Length > 0)
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "ProductImage",
+                    Value = productImage,
+                    ValueType = typeof(byte[])
+                });
+            }
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
@@ -472,10 +523,10 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new ChangeDetail
                     {
-                        VariableName = "Product Detail Overview: Wholesale Carton Quantity Stock Held",
+                        VariableName = "Product Detail Overview: Wholesale Carton Stock Quantity Held",
                         VariableType = "int",
-                        OriginalValue = productDetailOverviewWholesaleCartonQuantityStockHeldOriginalValue,
-                        NewValue = productDetailOverviewWholesaleCartonQuantityStockHeld
+                        OriginalValue = productDetailOverviewWholesaleCartonStockQuantityHeldOriginalValue,
+                        NewValue = productDetailOverviewWholesaleCartonStockQuantityHeld
                     },
                     new ChangeDetail
                     {
@@ -556,7 +607,7 @@ namespace CRM_WindowsForms.Presentation
                         new Parameter
                         {
                             ParameterName = "@wholesaleCartonStockQuantityHeld",
-                            ParameterValue = productDetailOverviewWholesaleCartonQuantityStockHeld
+                            ParameterValue = productDetailOverviewWholesaleCartonStockQuantityHeld
                         },
                         new Parameter
                         {
@@ -574,6 +625,15 @@ namespace CRM_WindowsForms.Presentation
                             ParameterValue = productDetailOverviewWholesaleUnitQuantityPerCarton
                         }
                     };
+
+                    if (productImage != null && productImage.Length > 0)
+                    {
+                        parameters.Add(new Parameter
+                        {
+                            ParameterName = "@productImage",
+                            ParameterValue = productImage
+                        });
+                    }
 
                     string storedProcedureName = "[dbo].[spUpdateProduct]";
                     string operationType = "update";
@@ -612,6 +672,8 @@ namespace CRM_WindowsForms.Presentation
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Enabled = !productDetailOverviewWholesaleReorderFlagYesRadioButton.Enabled;
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Enabled = !productDetailOverviewWholesaleReorderFlagNoRadioButton.Enabled;
             productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled = !productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled;
+            productDetailProductImageChooseProductImageButton.Enabled = !productDetailProductImageChooseProductImageButton.Enabled;
+            productDetailUpdateProductButton.Enabled = !productDetailUpdateProductButton.Enabled;
         }
 
         private void ProductDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)

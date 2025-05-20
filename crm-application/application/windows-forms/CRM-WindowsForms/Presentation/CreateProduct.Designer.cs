@@ -449,7 +449,7 @@
             // 
             createProductProductImagePictureBoxLabel.AutoSize = true;
             createProductProductImagePictureBoxLabel.Font = new Font("Segoe UI", 11F);
-            createProductProductImagePictureBoxLabel.Location = new Point(24, 25);
+            createProductProductImagePictureBoxLabel.Location = new Point(23, 74);
             createProductProductImagePictureBoxLabel.Name = "createProductProductImagePictureBoxLabel";
             createProductProductImagePictureBoxLabel.Size = new Size(106, 20);
             createProductProductImagePictureBoxLabel.TabIndex = 78;

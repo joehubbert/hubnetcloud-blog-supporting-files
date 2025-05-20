@@ -7,6 +7,7 @@ namespace CRM_WindowsForms.Presentation
     public partial class CreateProduct : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private byte[]? _productImageBytes = null;
         private readonly string dataSubject = "Product";
 
         public CreateProduct()
@@ -95,7 +96,9 @@ namespace CRM_WindowsForms.Presentation
                     {
                         SupplierId = row.Field<Guid>("Supplier Id"),
                         SupplierName = row.Field<string>("Supplier Name"),
-                        DisplayText = $"{row.Field<string>("Supplier Name")} | {row.Field<Guid>("Supplier Id")}"
+                        DisplayText = row.Field<string>("VAT Number") != null
+                            ? $"{row.Field<string>("Supplier Name")} | {row.Field<string>("VAT Number")}"
+                            : row.Field<string>("Supplier Name")
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
@@ -136,10 +139,35 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
+        private void createProductChooseProductImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+
+                    if (ValidateDataInput.IsValidImageFile(filePath, out string errorMessage))
+                    {
+                        createProductProductImagePictureBox.Image = Image.FromFile(filePath);
+                        _productImageBytes = File.ReadAllBytes(filePath);
+                    }
+                    else
+                    {
+                        MessageBox.Show(errorMessage, "Invalid Image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        createProductProductImagePictureBox.Image = null;
+                        _productImageBytes = null;
+                    }
+                }
+            }
+        }
+
         private async void createProductSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createProductActiveStatusCheckbox.Checked;
             Guid productCategoryId = Guid.Parse(createProductProductCategoryComboBox.SelectedValue.ToString());
+            byte[] productImage = _productImageBytes ?? Array.Empty<byte>();
             string productName = createProductProductNameTextbox.Text.TrimEnd();
             int unitMinimumOrderQuantity = int.Parse(createProductUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
             int unitMinimumStockQuantity;
@@ -257,6 +285,17 @@ namespace CRM_WindowsForms.Presentation
                 }
             };
 
+            if (productImage != null && productImage.Length > 0)
+            {
+                dataToValidate.Add(new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "ProductImage",
+                    Value = productImage,
+                    ValueType = typeof(byte[])
+                });
+            }
+
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
             var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
@@ -330,6 +369,15 @@ namespace CRM_WindowsForms.Presentation
                         ParameterValue = wholesaleUnitQuantityPerCarton
                     }
                 };
+
+                if (productImage != null && productImage.Length > 0)
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@productImage",
+                        ParameterValue = productImage
+                    });
+                }
 
                 string storedProcedureName = "[dbo].[spCreateProduct]";
                 string operationType = "create";

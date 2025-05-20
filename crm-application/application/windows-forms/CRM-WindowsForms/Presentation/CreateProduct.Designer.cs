@@ -61,9 +61,19 @@
             createProductUnitMinimumStockQuantityLabel = new Label();
             createProductUnitMinimumOrderQuantityTextbox = new TextBox();
             createProductUnitMinimumOrderQuantityLabel = new Label();
+            createProductProductImagePictureBox = new PictureBox();
+            createProductChooseProductImageButton = new Button();
+            createProductProductImagePictureBoxLabel = new Label();
+            createProductTabControl = new TabControl();
+            createProductTabControlProductDetails = new TabPage();
+            createProductTabControlProductImage = new TabPage();
             createProductWholesaleReorderFlagPanel.SuspendLayout();
             createProductWholesaleGroupBox.SuspendLayout();
             createProductPerUnitGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)createProductProductImagePictureBox).BeginInit();
+            createProductTabControl.SuspendLayout();
+            createProductTabControlProductDetails.SuspendLayout();
+            createProductTabControlProductImage.SuspendLayout();
             SuspendLayout();
             // 
             // createProductTitleLabel
@@ -177,7 +187,7 @@
             // createProductSupplierLabel
             // 
             createProductSupplierLabel.AutoSize = true;
-            createProductSupplierLabel.Location = new Point(115, 155);
+            createProductSupplierLabel.Location = new Point(82, 106);
             createProductSupplierLabel.Name = "createProductSupplierLabel";
             createProductSupplierLabel.Size = new Size(70, 20);
             createProductSupplierLabel.TabIndex = 52;
@@ -186,7 +196,7 @@
             // createProductProductCategoryLabel
             // 
             createProductProductCategoryLabel.AutoSize = true;
-            createProductProductCategoryLabel.Location = new Point(55, 111);
+            createProductProductCategoryLabel.Location = new Point(22, 62);
             createProductProductCategoryLabel.Name = "createProductProductCategoryLabel";
             createProductProductCategoryLabel.Size = new Size(130, 20);
             createProductProductCategoryLabel.TabIndex = 51;
@@ -195,7 +205,7 @@
             // createProductProductNameLabel
             // 
             createProductProductNameLabel.AutoSize = true;
-            createProductProductNameLabel.Location = new Point(75, 71);
+            createProductProductNameLabel.Location = new Point(42, 22);
             createProductProductNameLabel.Name = "createProductProductNameLabel";
             createProductProductNameLabel.Size = new Size(110, 20);
             createProductProductNameLabel.TabIndex = 28;
@@ -203,7 +213,7 @@
             // 
             // createProductProductNameTextbox
             // 
-            createProductProductNameTextbox.Location = new Point(203, 68);
+            createProductProductNameTextbox.Location = new Point(170, 19);
             createProductProductNameTextbox.MaxLength = 50;
             createProductProductNameTextbox.Name = "createProductProductNameTextbox";
             createProductProductNameTextbox.Size = new Size(403, 27);
@@ -215,7 +225,7 @@
             createProductActiveStatusCheckbox.Checked = true;
             createProductActiveStatusCheckbox.CheckState = CheckState.Checked;
             createProductActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createProductActiveStatusCheckbox.Location = new Point(203, 468);
+            createProductActiveStatusCheckbox.Location = new Point(170, 357);
             createProductActiveStatusCheckbox.Margin = new Padding(4);
             createProductActiveStatusCheckbox.Name = "createProductActiveStatusCheckbox";
             createProductActiveStatusCheckbox.Size = new Size(124, 24);
@@ -227,7 +237,7 @@
             // 
             createProductSubmitButton.FlatStyle = FlatStyle.Flat;
             createProductSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductSubmitButton.Location = new Point(408, 515);
+            createProductSubmitButton.Location = new Point(408, 738);
             createProductSubmitButton.Margin = new Padding(4);
             createProductSubmitButton.Name = "createProductSubmitButton";
             createProductSubmitButton.Size = new Size(198, 66);
@@ -239,7 +249,7 @@
             // createProductProductCategoryComboBox
             // 
             createProductProductCategoryComboBox.FormattingEnabled = true;
-            createProductProductCategoryComboBox.Location = new Point(203, 108);
+            createProductProductCategoryComboBox.Location = new Point(170, 59);
             createProductProductCategoryComboBox.Name = "createProductProductCategoryComboBox";
             createProductProductCategoryComboBox.Size = new Size(403, 28);
             createProductProductCategoryComboBox.TabIndex = 1;
@@ -247,7 +257,7 @@
             // createProductSupplierComboBox
             // 
             createProductSupplierComboBox.FormattingEnabled = true;
-            createProductSupplierComboBox.Location = new Point(203, 152);
+            createProductSupplierComboBox.Location = new Point(170, 103);
             createProductSupplierComboBox.Name = "createProductSupplierComboBox";
             createProductSupplierComboBox.Size = new Size(403, 28);
             createProductSupplierComboBox.TabIndex = 2;
@@ -346,7 +356,7 @@
             createProductWholesaleGroupBox.Controls.Add(createProductWholesaleCartonQuantityLabel);
             createProductWholesaleGroupBox.Controls.Add(createProductWholesaleUnitQuantityPerCartonLabel);
             createProductWholesaleGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductWholesaleGroupBox.Location = new Point(616, 30);
+            createProductWholesaleGroupBox.Location = new Point(599, 19);
             createProductWholesaleGroupBox.Name = "createProductWholesaleGroupBox";
             createProductWholesaleGroupBox.Size = new Size(539, 246);
             createProductWholesaleGroupBox.TabIndex = 74;
@@ -366,7 +376,7 @@
             createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldTextbox);
             createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldLabel);
             createProductPerUnitGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductPerUnitGroupBox.Location = new Point(616, 294);
+            createProductPerUnitGroupBox.Location = new Point(599, 271);
             createProductPerUnitGroupBox.Name = "createProductPerUnitGroupBox";
             createProductPerUnitGroupBox.Size = new Size(539, 198);
             createProductPerUnitGroupBox.TabIndex = 75;
@@ -412,23 +422,91 @@
             createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
             createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
             // 
+            // createProductProductImagePictureBox
+            // 
+            createProductProductImagePictureBox.BorderStyle = BorderStyle.Fixed3D;
+            createProductProductImagePictureBox.Location = new Point(148, 74);
+            createProductProductImagePictureBox.Name = "createProductProductImagePictureBox";
+            createProductProductImagePictureBox.Size = new Size(500, 500);
+            createProductProductImagePictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            createProductProductImagePictureBox.TabIndex = 76;
+            createProductProductImagePictureBox.TabStop = false;
+            // 
+            // createProductChooseProductImageButton
+            // 
+            createProductChooseProductImageButton.FlatStyle = FlatStyle.Flat;
+            createProductChooseProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductChooseProductImageButton.Location = new Point(148, 10);
+            createProductChooseProductImageButton.Margin = new Padding(4);
+            createProductChooseProductImageButton.Name = "createProductChooseProductImageButton";
+            createProductChooseProductImageButton.Size = new Size(159, 51);
+            createProductChooseProductImageButton.TabIndex = 77;
+            createProductChooseProductImageButton.Text = "Choose Product Image";
+            createProductChooseProductImageButton.UseVisualStyleBackColor = true;
+            createProductChooseProductImageButton.Click += createProductChooseProductImageButton_Click;
+            // 
+            // createProductProductImagePictureBoxLabel
+            // 
+            createProductProductImagePictureBoxLabel.AutoSize = true;
+            createProductProductImagePictureBoxLabel.Font = new Font("Segoe UI", 11F);
+            createProductProductImagePictureBoxLabel.Location = new Point(24, 25);
+            createProductProductImagePictureBoxLabel.Name = "createProductProductImagePictureBoxLabel";
+            createProductProductImagePictureBoxLabel.Size = new Size(106, 20);
+            createProductProductImagePictureBoxLabel.TabIndex = 78;
+            createProductProductImagePictureBoxLabel.Text = "Product Image";
+            // 
+            // createProductTabControl
+            // 
+            createProductTabControl.Appearance = TabAppearance.FlatButtons;
+            createProductTabControl.Controls.Add(createProductTabControlProductDetails);
+            createProductTabControl.Controls.Add(createProductTabControlProductImage);
+            createProductTabControl.Location = new Point(13, 58);
+            createProductTabControl.Name = "createProductTabControl";
+            createProductTabControl.SelectedIndex = 0;
+            createProductTabControl.Size = new Size(1179, 631);
+            createProductTabControl.TabIndex = 79;
+            // 
+            // createProductTabControlProductDetails
+            // 
+            createProductTabControlProductDetails.BackColor = Color.SkyBlue;
+            createProductTabControlProductDetails.Controls.Add(createProductProductNameTextbox);
+            createProductTabControlProductDetails.Controls.Add(createProductPerUnitGroupBox);
+            createProductTabControlProductDetails.Controls.Add(createProductSupplierLabel);
+            createProductTabControlProductDetails.Controls.Add(createProductActiveStatusCheckbox);
+            createProductTabControlProductDetails.Controls.Add(createProductWholesaleGroupBox);
+            createProductTabControlProductDetails.Controls.Add(createProductProductCategoryLabel);
+            createProductTabControlProductDetails.Controls.Add(createProductProductNameLabel);
+            createProductTabControlProductDetails.Controls.Add(createProductProductCategoryComboBox);
+            createProductTabControlProductDetails.Controls.Add(createProductSupplierComboBox);
+            createProductTabControlProductDetails.Location = new Point(4, 32);
+            createProductTabControlProductDetails.Name = "createProductTabControlProductDetails";
+            createProductTabControlProductDetails.Padding = new Padding(3);
+            createProductTabControlProductDetails.Size = new Size(1171, 595);
+            createProductTabControlProductDetails.TabIndex = 0;
+            createProductTabControlProductDetails.Text = "Product Details";
+            // 
+            // createProductTabControlProductImage
+            // 
+            createProductTabControlProductImage.BackColor = Color.SkyBlue;
+            createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBox);
+            createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBoxLabel);
+            createProductTabControlProductImage.Controls.Add(createProductChooseProductImageButton);
+            createProductTabControlProductImage.Location = new Point(4, 32);
+            createProductTabControlProductImage.Name = "createProductTabControlProductImage";
+            createProductTabControlProductImage.Padding = new Padding(3);
+            createProductTabControlProductImage.Size = new Size(1171, 595);
+            createProductTabControlProductImage.TabIndex = 1;
+            createProductTabControlProductImage.Text = "Product Image";
+            // 
             // CreateProduct
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(1204, 594);
-            Controls.Add(createProductPerUnitGroupBox);
-            Controls.Add(createProductWholesaleGroupBox);
-            Controls.Add(createProductSupplierComboBox);
-            Controls.Add(createProductProductCategoryComboBox);
+            ClientSize = new Size(1204, 832);
+            Controls.Add(createProductTabControl);
             Controls.Add(createProductSubmitButton);
             Controls.Add(createProductTitleLabel);
-            Controls.Add(createProductActiveStatusCheckbox);
-            Controls.Add(createProductProductNameTextbox);
-            Controls.Add(createProductProductNameLabel);
-            Controls.Add(createProductProductCategoryLabel);
-            Controls.Add(createProductSupplierLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             Margin = new Padding(4);
@@ -442,6 +520,12 @@
             createProductWholesaleGroupBox.PerformLayout();
             createProductPerUnitGroupBox.ResumeLayout(false);
             createProductPerUnitGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)createProductProductImagePictureBox).EndInit();
+            createProductTabControl.ResumeLayout(false);
+            createProductTabControlProductDetails.ResumeLayout(false);
+            createProductTabControlProductDetails.PerformLayout();
+            createProductTabControlProductImage.ResumeLayout(false);
+            createProductTabControlProductImage.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -481,5 +565,11 @@
         private Label createProductUnitMinimumOrderQuantityLabel;
         private TextBox createProductUnitMinimumStockQuantityTextbox;
         private Label createProductUnitMinimumStockQuantityLabel;
+        private PictureBox createProductProductImagePictureBox;
+        private Button createProductChooseProductImageButton;
+        private Label createProductProductImagePictureBoxLabel;
+        private TabControl createProductTabControl;
+        private TabPage createProductTabControlProductDetails;
+        private TabPage createProductTabControlProductImage;
     }
 }

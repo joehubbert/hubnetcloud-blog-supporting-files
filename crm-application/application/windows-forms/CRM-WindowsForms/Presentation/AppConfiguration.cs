@@ -34,9 +34,19 @@ namespace CRM_WindowsForms.Presentation
 
         private void appConfigurationTestConnectionButton_Click(object sender, EventArgs e)
         {
+            var testConnection = new SqlConnectionStringBuilder
+            {
+                DataSource = appConfigurationDatabaseServernameTextbox.Text,
+                InitialCatalog = appConfigurationDatabaseNameTextbox.Text,
+                IntegratedSecurity = true, // Or set UserID/Password if you use SQL authentication
+                Encrypt = appConfigurationDatabaseEncryptConnectionCheckbox.Checked,
+                TrustServerCertificate = true,
+                ApplicationName = "CRM-WindowsForms"
+            };
+
             try
             {
-                using (SqlConnection connection = new SqlConnection(_databaseConnectionSettings.DatabaseConnectionString))
+                using (SqlConnection connection = new SqlConnection(testConnection.ConnectionString))
                 {
                     connection.Open();
                     MessageBox.Show("Connection successful.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);

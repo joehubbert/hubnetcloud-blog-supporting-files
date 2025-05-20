@@ -428,7 +428,7 @@
             createProductProductImagePictureBox.Location = new Point(148, 74);
             createProductProductImagePictureBox.Name = "createProductProductImagePictureBox";
             createProductProductImagePictureBox.Size = new Size(500, 500);
-            createProductProductImagePictureBox.SizeMode = PictureBoxSizeMode.AutoSize;
+            createProductProductImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
             createProductProductImagePictureBox.TabIndex = 76;
             createProductProductImagePictureBox.TabStop = false;
             // 

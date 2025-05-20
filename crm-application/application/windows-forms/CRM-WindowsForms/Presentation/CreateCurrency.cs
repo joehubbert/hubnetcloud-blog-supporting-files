@@ -1,4 +1,4 @@
-﻿using CRM_WindowsForms.Model;
+﻿using CRM_WindowsForms.Interface;
 using CRM_WindowsForms.Presentation.Functions;
 
 namespace CRM_WindowsForms.Presentation

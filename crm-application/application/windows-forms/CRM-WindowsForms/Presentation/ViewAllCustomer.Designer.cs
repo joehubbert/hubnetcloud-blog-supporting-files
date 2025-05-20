@@ -1,4 +1,6 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿using CRM_WindowsForms.Interface;
+
+namespace CRM_WindowsForms.Presentation
 {
     partial class ViewAllCustomer
     {
@@ -68,7 +70,7 @@
             // 
             // databaseConnectionSettingsBindingSource
             // 
-            databaseConnectionSettingsBindingSource.DataSource = typeof(Model.DatabaseConnectionSettings);
+            databaseConnectionSettingsBindingSource.DataSource = typeof(DatabaseConnectionSettings);
             // 
             // viewAllCustomerRefreshDataButton
             // 

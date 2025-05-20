@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics.CodeAnalysis;
+﻿using System.Drawing.Imaging;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -28,7 +27,7 @@ namespace CRM_WindowsForms.Presentation.Functions
 
             foreach (var property in dataToValidate)
             {
-                string value = property.Value.ToString().TrimEnd();
+                string value = property.Value?.ToString()?.TrimEnd() ?? string.Empty;
 
                 if (property.ValueType == typeof(string))
                 {
@@ -37,7 +36,7 @@ namespace CRM_WindowsForms.Presentation.Functions
                         validationErrors.AppendLine($"{property.Name} cannot be longer than {property.MaxLength} characters. Submitted length is {value.Length} characters.");
                     }
 
-                    if (property.AllowNullValue == false)
+                    if (property.AllowNullValue == false && string.IsNullOrWhiteSpace(value))
                     {
                         validationErrors.AppendLine($"{property.Name} cannot be empty.");
                     }
@@ -60,9 +59,9 @@ namespace CRM_WindowsForms.Presentation.Functions
                         {
                             validationErrors.AppendLine($"Telephone Number cannot be longer than 13 characters. Submitted length is {value.Length} characters.");
                         }
-                        else if (!Regex.IsMatch(value, @"^\+\d{12}$"))
+                        else if (!Regex.IsMatch(value, @"^\+\d{6,}$"))
                         {
-                            validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by exactly 12 digits.");
+                            validationErrors.AppendLine("Telephone Number must start with a '+' prefix followed by at least 6 digits.");
                         }
                     }
                 }
@@ -108,6 +107,23 @@ namespace CRM_WindowsForms.Presentation.Functions
                         validationErrors.AppendLine($"{property.Name} must be a valid datetime.");
                     }
                 }
+                else if (property.Name.ToLower().Contains("image"))
+                {
+                    if (property.Value is byte[] imageBytes)
+                    {
+                        if (!IsValidImageBytes(imageBytes, out string error))
+                        {
+                            validationErrors.AppendLine($"{property.Name}: {error}");
+                        }
+                    }
+                    else if (property.Value is string imagePath && !string.IsNullOrWhiteSpace(imagePath))
+                    {
+                        if (!IsValidImageFile(imagePath, out string error))
+                        {
+                            validationErrors.AppendLine($"{property.Name}: {error}");
+                        }
+                    }
+                }
 
                 if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(value))
                 {
@@ -127,6 +143,66 @@ namespace CRM_WindowsForms.Presentation.Functions
 
             return new ValidationResult { IsValid = true };
         }
+
+        public static bool IsValidImageFile(string filePath, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            string extension = Path.GetExtension(filePath).ToLower();
+
+            if (extension != ".png" && extension != ".jpg" && extension != ".jpeg")
+            {
+                errorMessage = "Only PNG and JPG images are allowed.";
+                return false;
+            }
+
+            try
+            {
+                using (var img = Image.FromFile(filePath))
+                {
+                    if (img.Width > 1000 || img.Height > 1000)
+                    {
+                        errorMessage = "Image dimensions must not exceed 1000x1000 pixels.";
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                errorMessage = "The selected file is not a valid image.";
+                return false;
+            }
+
+            return true;
+        }
+
+        public static bool IsValidImageBytes(byte[] imageBytes, out string errorMessage)
+        {
+            errorMessage = string.Empty;
+            try
+            {
+                using (var ms = new MemoryStream(imageBytes))
+                using (var img = Image.FromStream(ms))
+                {
+                    var format = img.RawFormat;
+                    if (format.Guid != ImageFormat.Png.Guid &&
+                        format.Guid != ImageFormat.Jpeg.Guid)
+                    {
+                        errorMessage = "Only PNG and JPG images are allowed.";
+                        return false;
+                    }
+                    if (img.Width > 1000 || img.Height > 1000)
+                    {
+                        errorMessage = "Image dimensions must not exceed 1000x1000 pixels.";
+                        return false;
+                    }
+                }
+            }
+            catch
+            {
+                errorMessage = "The selected file is not a valid image.";
+                return false;
+            }
+            return true;
+        }
     }
 }
-

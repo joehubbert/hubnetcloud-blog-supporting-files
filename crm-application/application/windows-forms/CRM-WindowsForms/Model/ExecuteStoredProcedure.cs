@@ -28,7 +28,6 @@ namespace CRM_WindowsForms.Model
                     {
                         foreach (var parameter in parameters)
                         {
-                            // Ensure parameter names and values are properly sanitized
                             if (string.IsNullOrWhiteSpace(parameter.ParameterName))
                             {
                                 throw new ArgumentException("Parameter name cannot be null or whitespace.", nameof(parameters));
@@ -59,7 +58,6 @@ namespace CRM_WindowsForms.Model
                     {
                         foreach (var parameter in parameters)
                         {
-                            // Ensure parameter names and values are properly sanitized
                             if (string.IsNullOrWhiteSpace(parameter.ParameterName))
                             {
                                 throw new ArgumentException("Parameter name cannot be null or whitespace.", nameof(parameters));

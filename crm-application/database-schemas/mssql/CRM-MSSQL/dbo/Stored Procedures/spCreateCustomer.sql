@@ -78,7 +78,7 @@ CREATE TABLE #CustomerTemp
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NOT NULL,
     [PaymentDays] TINYINT NOT NULL,
-    [VATNumber] NVARCHAR(50) NOT NULL,
+    [VATNumber] NVARCHAR(50) NULL,
     [GlobalParentCustomer] BIT NOT NULL,
     [TopParentCustomer] BIT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
@@ -210,7 +210,6 @@ AND C.[ShippingAddressLine4] = CT.[ShippingAddressLine4]
 AND C.[ShippingAddressLine5] = CT.[ShippingAddressLine5]
 AND C.[ShippingTelephoneNumber] = CT.[ShippingTelephoneNumber]
 AND C.[ShippingEmailAddress] = CT.[ShippingEmailAddress]
-AND C.[VATNumber] = CT.[VATNumber]
 WHERE C.[FirstName] = CT.[FirstName]
 AND C.[LastName] = CT.[LastName]
 AND C.[CompanyName] = CT.[CompanyName]
@@ -236,7 +235,6 @@ AND C.[ShippingAddressLine4] = CT.[ShippingAddressLine4]
 AND C.[ShippingAddressLine5] = CT.[ShippingAddressLine5]
 AND C.[ShippingTelephoneNumber] = CT.[ShippingTelephoneNumber]
 AND C.[ShippingEmailAddress] = CT.[ShippingEmailAddress]
-AND C.[VATNumber] = CT.[VATNumber]
 )
 THROW 50000, 'Customer already exists, please update the existing record.', 1;
 ELSE

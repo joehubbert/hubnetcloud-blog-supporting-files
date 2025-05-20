@@ -563,7 +563,7 @@ namespace CRM_WindowsForms.Presentation
             if(!customerFinanceCreditEnabled)
             {
                 createCustomerFinanceCreditLimitTextboxA.Text = "0";
-                createCustomerFinanceCreditLimitTextboxB.Text = "0";
+                createCustomerFinanceCreditLimitTextboxB.Text = "00";
             }
             decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()}.{createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()}");
             Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
@@ -1033,6 +1033,11 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "@creditLimit",
+                        ParameterValue = customerFinanceCreditLimit
+                    },
+                    new Parameter
+                    {
                         ParameterName = "@customerSince",
                         ParameterValue = customerOverviewCustomerSince
                     },
@@ -1130,11 +1135,6 @@ namespace CRM_WindowsForms.Presentation
                     {
                         ParameterName = "@topParentCustomer",
                         ParameterValue = customerOverviewWillBeTopParent
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@vatNumber",
-                        ParameterValue = customerFinanceVATNumber
                     }
                 };
 
@@ -1162,15 +1162,6 @@ namespace CRM_WindowsForms.Presentation
                     {
                         ParameterName = "@billingCompanyName",
                         ParameterValue = customerBillingInformationCompanyName
-                    });
-                }
-
-                if (customerFinanceCreditLimit != 0)
-                {
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@creditLimit",
-                        ParameterValue = customerFinanceCreditLimit
                     });
                 }
 
@@ -1207,6 +1198,15 @@ namespace CRM_WindowsForms.Presentation
                     {
                         ParameterName = "@topParentCustomerId",
                         ParameterValue = customerOverviewExistingTopParentCustomerId
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(customerFinanceVATNumber))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@vatNumber",
+                        ParameterValue = customerFinanceVATNumber
                     });
                 }
 

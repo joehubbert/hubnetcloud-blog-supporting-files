@@ -481,6 +481,13 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new ChangeDetail
                     {
+                        VariableName = "Product Detail Product Image: Product Image",
+                        VariableType = "byte",
+                        OriginalValue = productDetailProductImageOriginalValue,
+                        NewValue = productDetailProductImageRuntimeValue
+                    },
+                    new ChangeDetail
+                    {
                         VariableName = "Product Detail Overview: Product Name",
                         VariableType = "string",
                         OriginalValue = productDetailOverviewProductNameOriginalValue,

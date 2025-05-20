@@ -138,7 +138,6 @@
             // 
             // productDetailOverviewCreatedTimestampTextbox
             // 
-            productDetailOverviewCreatedTimestampTextbox.Enabled = false;
             productDetailOverviewCreatedTimestampTextbox.Location = new Point(818, 327);
             productDetailOverviewCreatedTimestampTextbox.MaxLength = 50;
             productDetailOverviewCreatedTimestampTextbox.Name = "productDetailOverviewCreatedTimestampTextbox";
@@ -148,7 +147,6 @@
             // 
             // productDetailOverviewLastUpdatedTimestampTextbox
             // 
-            productDetailOverviewLastUpdatedTimestampTextbox.Enabled = false;
             productDetailOverviewLastUpdatedTimestampTextbox.Location = new Point(818, 418);
             productDetailOverviewLastUpdatedTimestampTextbox.MaxLength = 50;
             productDetailOverviewLastUpdatedTimestampTextbox.Name = "productDetailOverviewLastUpdatedTimestampTextbox";
@@ -158,7 +156,6 @@
             // 
             // productDetailOverviewCreatedByTextbox
             // 
-            productDetailOverviewCreatedByTextbox.Enabled = false;
             productDetailOverviewCreatedByTextbox.Location = new Point(818, 282);
             productDetailOverviewCreatedByTextbox.MaxLength = 50;
             productDetailOverviewCreatedByTextbox.Name = "productDetailOverviewCreatedByTextbox";
@@ -168,7 +165,6 @@
             // 
             // productDetailOverviewLastUpdatedByTextbox
             // 
-            productDetailOverviewLastUpdatedByTextbox.Enabled = false;
             productDetailOverviewLastUpdatedByTextbox.Location = new Point(818, 372);
             productDetailOverviewLastUpdatedByTextbox.MaxLength = 50;
             productDetailOverviewLastUpdatedByTextbox.Name = "productDetailOverviewLastUpdatedByTextbox";
@@ -597,15 +593,14 @@
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesRefreshDataButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesCreateNewProductNoteButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
-            productDetailTabControlProductNotesPage.Location = new Point(4, 32);
+            productDetailTabControlProductNotesPage.Location = new Point(4, 27);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 558);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 563);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 
             // productDetailProductNotesRefreshDataButton
             // 
-            productDetailProductNotesRefreshDataButton.Enabled = false;
             productDetailProductNotesRefreshDataButton.FlatStyle = FlatStyle.Flat;
             productDetailProductNotesRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             productDetailProductNotesRefreshDataButton.Location = new Point(1093, 95);
@@ -619,7 +614,6 @@
             // 
             // productDetailProductNotesCreateNewProductNoteButton
             // 
-            productDetailProductNotesCreateNewProductNoteButton.Enabled = false;
             productDetailProductNotesCreateNewProductNoteButton.FlatStyle = FlatStyle.Flat;
             productDetailProductNotesCreateNewProductNoteButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             productDetailProductNotesCreateNewProductNoteButton.Location = new Point(1093, 17);
@@ -633,10 +627,13 @@
             // 
             // productDetailProductNotesExistingProductNotesDataGridView
             // 
+            productDetailProductNotesExistingProductNotesDataGridView.AllowUserToAddRows = false;
+            productDetailProductNotesExistingProductNotesDataGridView.AllowUserToDeleteRows = false;
             productDetailProductNotesExistingProductNotesDataGridView.BackgroundColor = Color.SkyBlue;
             productDetailProductNotesExistingProductNotesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             productDetailProductNotesExistingProductNotesDataGridView.Location = new Point(21, 17);
             productDetailProductNotesExistingProductNotesDataGridView.Name = "productDetailProductNotesExistingProductNotesDataGridView";
+            productDetailProductNotesExistingProductNotesDataGridView.ReadOnly = true;
             productDetailProductNotesExistingProductNotesDataGridView.Size = new Size(1059, 523);
             productDetailProductNotesExistingProductNotesDataGridView.TabIndex = 21;
             // 

@@ -559,9 +559,13 @@ namespace CRM_WindowsForms.Presentation
             string customerBillingInformationFirstName = createCustomerBillingInformationFirstNameTextbox.Text.TrimEnd();
             string customerBillingInformationLastName = createCustomerBillingInformationLastNameTextbox.Text.TrimEnd();
             string customerBillingInformationTelephoneNumber = createCustomerBillingInformationTelephoneNumberTextbox.Text.TrimEnd();
-
             bool customerFinanceCreditEnabled = createCustomerFinanceCreditEnabledCheckbox.Checked;
-            decimal customerFinanceCreditLimit = decimal.Parse(createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()) + (decimal.Parse(createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()));
+            if(!customerFinanceCreditEnabled)
+            {
+                createCustomerFinanceCreditLimitTextboxA.Text = "0";
+                createCustomerFinanceCreditLimitTextboxB.Text = "0";
+            }
+            decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()}.{createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()}");
             Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
             byte customerFinancePaymentDays = byte.Parse(createCustomerFinancePaymentDaysTextbox.Text.TrimEnd());
             string? customerFinanceVATNumber = createCustomerFinanceVATNumberTextbox.Text.TrimEnd();
@@ -614,6 +618,7 @@ namespace CRM_WindowsForms.Presentation
 
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine1",
                     Value = customerBillingInformationAddressLine1,
                     MaxLength = 50,
@@ -621,6 +626,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine3",
                     Value = customerBillingInformationAddressLine3,
                     MaxLength = 50,
@@ -628,6 +634,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine4",
                     Value = customerBillingInformationAddressLine4,
                     MaxLength = 50,
@@ -635,6 +642,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine5",
                     Value = customerBillingInformationAddressLine5,
                     MaxLength = 50,
@@ -642,6 +650,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationEmailAddress",
                     Value = customerBillingInformationEmailAddress,
                     MaxLength = 50,
@@ -649,6 +658,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationFirstName",
                     Value = customerBillingInformationFirstName,
                     MaxLength = 50,
@@ -656,6 +666,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationLastName",
                     Value = customerBillingInformationLastName,
                     MaxLength = 50,
@@ -663,6 +674,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerBillingInformationTelephoneNumber",
                     Value = customerBillingInformationTelephoneNumber,
                     MaxLength = 13,
@@ -670,60 +682,70 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerFinanceCreditEnabled",
                     Value = customerFinanceCreditEnabled,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerFinanceCreditLimit",
                     Value = customerFinanceCreditLimit,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerFinancePaymentCurrencyId",
                     Value = customerFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerFinancePaymentDays",
                     Value = customerFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewAccountManagerId",
                     Value = customerOverviewAccountManagerId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewActiveStatus",
                     Value = customerOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewCustomerSince",
                     Value = customerOverviewCustomerSince,
                     ValueType = typeof(DateTime)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewCustomerTierId",
                     Value = customerOverviewCustomerTierId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewCustomerTypeId",
                     Value = customerOverviewCustomerTypeId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewEmailAddress",
                     Value = customerOverviewEmailAddress,
                     MaxLength = 50,
@@ -731,6 +753,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewFirstName",
                     Value = customerOverviewFirstName,
                     MaxLength = 50,
@@ -738,6 +761,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewLastName",
                     Value = customerOverviewLastName,
                     MaxLength = 50,
@@ -745,12 +769,14 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewSalesSubRegionId",
                     Value = customerOverviewSalesSubRegionId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewTelephoneNumber",
                     Value = customerOverviewTelephoneNumber,
                     MaxLength = 13,
@@ -758,18 +784,21 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewWillBeGlobalParent",
                     Value = customerOverviewWillBeGlobalParent,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewWillBeTopParent",
                     Value = customerOverviewWillBeTopParent,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerOverviewTelephoneNumber",
                     Value = customerOverviewTelephoneNumber,
                     MaxLength = 13,
@@ -777,6 +806,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine1",
                     Value = customerShippingInformationAddressLine1,
                     MaxLength = 50,
@@ -784,6 +814,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine3",
                     Value = customerShippingInformationAddressLine3,
                     MaxLength = 50,
@@ -791,6 +822,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine4",
                     Value = customerShippingInformationAddressLine4,
                     MaxLength = 50,
@@ -798,6 +830,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine5",
                     Value = customerShippingInformationAddressLine5,
                     MaxLength = 50,
@@ -805,6 +838,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationEmailAddress",
                     Value = customerShippingInformationEmailAddress,
                     MaxLength = 50,
@@ -812,6 +846,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationFirstName",
                     Value = customerShippingInformationFirstName,
                     MaxLength = 50,
@@ -819,6 +854,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationLastName",
                     Value = customerShippingInformationLastName,
                     MaxLength = 50,
@@ -826,6 +862,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "CustomerShippingInformationTelephoneNumber",
                     Value = customerShippingInformationTelephoneNumber,
                     MaxLength = 13,
@@ -837,6 +874,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerBillingInformationAddressLine2",
                     Value = customerBillingInformationAddressLine2,
                     MaxLength = 50,
@@ -848,6 +886,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerBillingInformationCompanyName",
                     Value = customerBillingInformationCompanyName,
                     MaxLength = 50,
@@ -859,6 +898,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CompanyFinanceVATNumber",
                     Value = customerFinanceVATNumber,
                     MaxLength = 50,
@@ -870,6 +910,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerOverviewCompanyName",
                     Value = customerOverviewCompanyName,
                     MaxLength = 50,
@@ -881,6 +922,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerOverviewExistingGlobalParentCustomerId",
                     Value = customerOverviewExistingGlobalParentCustomerId,
                     ValueType = typeof(Guid)
@@ -891,6 +933,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerOverviewExistingTopParentCustomerId",
                     Value = customerOverviewExistingTopParentCustomerId,
                     ValueType = typeof(Guid)
@@ -901,6 +944,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerShippingInformationAddressLine2",
                     Value = customerShippingInformationAddressLine2,
                     MaxLength = 50,
@@ -912,6 +956,7 @@ namespace CRM_WindowsForms.Presentation
             {
                 dataToValidate.Add(new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
                     Name = "CustomerShippingInformationCompanyName",
                     Value = customerShippingInformationCompanyName,
                     MaxLength = 50,
@@ -1117,6 +1162,15 @@ namespace CRM_WindowsForms.Presentation
                     {
                         ParameterName = "@billingCompanyName",
                         ParameterValue = customerBillingInformationCompanyName
+                    });
+                }
+
+                if (customerFinanceCreditLimit != 0)
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "@creditLimit",
+                        ParameterValue = customerFinanceCreditLimit
                     });
                 }
 

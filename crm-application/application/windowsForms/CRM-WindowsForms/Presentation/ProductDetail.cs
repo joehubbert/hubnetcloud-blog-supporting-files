@@ -32,7 +32,6 @@ namespace CRM_WindowsForms.Presentation
         private void InitializeCustomComponents()
         {
             productDetailTabControl.SelectedIndexChanged += ProductDetailTabControl_SelectedIndexChanged;
-            productDetailToggleEditModeButton.Click += ProductDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -90,13 +89,14 @@ namespace CRM_WindowsForms.Presentation
                     .Select(row => new
                     {
                         SupplierId = row.Field<Guid>("Supplier Id"),
-                        Supplier = row.Field<string>("Supplier")
+                        Supplier = row.Field<string>("Supplier Name"),
+                        DisplayText = $"{row.Field<string>("Supplier Name")} | {row.Field<Guid>("Supplier Id")}"
                     })
                     .OrderBy(item => item.Supplier)
                     .ToList();
 
                 productDetailOverviewProductCategoryComboBox.DataSource = supplierList;
-                productDetailOverviewProductCategoryComboBox.DisplayMember = "Supplier";
+                productDetailOverviewProductCategoryComboBox.DisplayMember = "DisplayText";
                 productDetailOverviewProductCategoryComboBox.ValueMember = "SupplierId";
                 productDetailOverviewProductCategoryComboBox.SelectedValue = productSupplierId;
             }
@@ -140,6 +140,7 @@ namespace CRM_WindowsForms.Presentation
                     productDetailOverviewLastUpdatedTimestampTextbox.Text = productDataRow["Modified Timestamp"].ToString();
                     Guid productCategoryId = (Guid)productDataRow["Product Category Id"];
                     await ProductDetailOverviewLoadProductCategoryDataAsync(productCategoryId);
+                    productDetailOverviewProductIdTextbox.Text = productDataRow["Product Id"].ToString();
                     productDetailOverviewProductNameTextbox.Text = productDataRow["Product Name"].ToString();
                     Guid productSupplierId = (Guid)productDataRow["Supplier Id"];
                     await ProductDetailOverviewLoadSupplierDataAsync(productSupplierId);
@@ -150,7 +151,7 @@ namespace CRM_WindowsForms.Presentation
                     SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Unit Selling Price"], out unitPricePartA, out unitPricePartB);
                     productDetailOverviewUnitPriceTextboxA.Text = unitPricePartA;
                     productDetailOverviewUnitPriceTextboxB.Text = unitPricePartB;
-                    productDetailOverviewWholesaleCartonQuantityTextbox.Text = productDataRow["Wholesale Carton Quantity Stock Held"].ToString();
+                    productDetailOverviewWholesaleCartonQuantityTextbox.Text = productDataRow["Wholesale Carton Stock Quantity Held"].ToString();
                     string whosalePricePerUnitPartA;
                     string whosalePricePerUnitPartB;
                     SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out whosalePricePerUnitPartA, out whosalePricePerUnitPartB);
@@ -316,18 +317,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewActiveStatus",
                     Value = productDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewProductCategoryId",
                     Value = productDetailOverviewProductCategoryId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewProductName",
                     Value = productDetailOverviewProductName,
                     MaxLength = 50,
@@ -335,54 +339,63 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewSupplierId",
                     Value = productDetailOverviewSupplierId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitMinimumOrderQuantity",
                     Value = productDetailOverviewUnitMinimumOrderQuantity,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitMinimumStockQuantity",
                     Value = productDetailOverviewUnitMinimumStockQuantity,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitPrice",
                     Value = productDetailOverviewUnitPrice,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleCartonQuantityStockHeld",
                     Value = productDetailOverviewWholesaleCartonQuantityStockHeld,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleCartonQuantityStockHeld",
                     Value = productDetailOverviewWholesaleCartonQuantityStockHeld,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesalePricePerUnit",
                     Value = productDetailOverviewWholesalePricePerUnit,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleUnitQuantityPerCarton",
                     Value = productDetailOverviewWholesaleUnitQuantityPerCarton,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleReorderFlag",
                     Value = productDetailOverviewWholesaleReorderFlag,
                     ValueType = typeof(bool)

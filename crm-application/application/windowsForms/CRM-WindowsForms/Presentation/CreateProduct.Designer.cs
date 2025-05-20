@@ -113,9 +113,9 @@
             createProductWholesaleCartonQuantityLabel.Font = new Font("Segoe UI", 11F);
             createProductWholesaleCartonQuantityLabel.Location = new Point(81, 125);
             createProductWholesaleCartonQuantityLabel.Name = "createProductWholesaleCartonQuantityLabel";
-            createProductWholesaleCartonQuantityLabel.Size = new Size(193, 20);
+            createProductWholesaleCartonQuantityLabel.Size = new Size(192, 20);
             createProductWholesaleCartonQuantityLabel.TabIndex = 54;
-            createProductWholesaleCartonQuantityLabel.Text = "Wbolesale Carton Quantity*";
+            createProductWholesaleCartonQuantityLabel.Text = "Wholesale Carton Quantity*";
             // 
             // createProductUnitPriceLabel
             // 
@@ -136,7 +136,7 @@
             createProductUnitStockQuantityHeldTextbox.Name = "createProductUnitStockQuantityHeldTextbox";
             createProductUnitStockQuantityHeldTextbox.ReadOnly = true;
             createProductUnitStockQuantityHeldTextbox.Size = new Size(99, 27);
-            createProductUnitStockQuantityHeldTextbox.TabIndex = 61;
+            createProductUnitStockQuantityHeldTextbox.TabIndex = 13;
             // 
             // createProductWholesaleUnitQuantityPerCartonTextbox
             // 
@@ -145,7 +145,7 @@
             createProductWholesaleUnitQuantityPerCartonTextbox.MaxLength = 50;
             createProductWholesaleUnitQuantityPerCartonTextbox.Name = "createProductWholesaleUnitQuantityPerCartonTextbox";
             createProductWholesaleUnitQuantityPerCartonTextbox.Size = new Size(99, 27);
-            createProductWholesaleUnitQuantityPerCartonTextbox.TabIndex = 62;
+            createProductWholesaleUnitQuantityPerCartonTextbox.TabIndex = 5;
             // 
             // createProductWholesalePricePerUnitTextboxB
             // 
@@ -154,7 +154,7 @@
             createProductWholesalePricePerUnitTextboxB.MaxLength = 50;
             createProductWholesalePricePerUnitTextboxB.Name = "createProductWholesalePricePerUnitTextboxB";
             createProductWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
-            createProductWholesalePricePerUnitTextboxB.TabIndex = 60;
+            createProductWholesalePricePerUnitTextboxB.TabIndex = 4;
             // 
             // createProductWholesalePricePerUnitTextboxA
             // 
@@ -163,7 +163,7 @@
             createProductWholesalePricePerUnitTextboxA.MaxLength = 50;
             createProductWholesalePricePerUnitTextboxA.Name = "createProductWholesalePricePerUnitTextboxA";
             createProductWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
-            createProductWholesalePricePerUnitTextboxA.TabIndex = 59;
+            createProductWholesalePricePerUnitTextboxA.TabIndex = 3;
             // 
             // createProductUnitPriceTextboxA
             // 
@@ -172,7 +172,7 @@
             createProductUnitPriceTextboxA.MaxLength = 50;
             createProductUnitPriceTextboxA.Name = "createProductUnitPriceTextboxA";
             createProductUnitPriceTextboxA.Size = new Size(99, 27);
-            createProductUnitPriceTextboxA.TabIndex = 58;
+            createProductUnitPriceTextboxA.TabIndex = 9;
             // 
             // createProductSupplierLabel
             // 
@@ -206,8 +206,8 @@
             createProductProductNameTextbox.Location = new Point(203, 68);
             createProductProductNameTextbox.MaxLength = 50;
             createProductProductNameTextbox.Name = "createProductProductNameTextbox";
-            createProductProductNameTextbox.Size = new Size(234, 27);
-            createProductProductNameTextbox.TabIndex = 1;
+            createProductProductNameTextbox.Size = new Size(403, 27);
+            createProductProductNameTextbox.TabIndex = 0;
             // 
             // createProductActiveStatusCheckbox
             // 
@@ -219,7 +219,7 @@
             createProductActiveStatusCheckbox.Margin = new Padding(4);
             createProductActiveStatusCheckbox.Name = "createProductActiveStatusCheckbox";
             createProductActiveStatusCheckbox.Size = new Size(124, 24);
-            createProductActiveStatusCheckbox.TabIndex = 9;
+            createProductActiveStatusCheckbox.TabIndex = 14;
             createProductActiveStatusCheckbox.Text = "Active Product";
             createProductActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -231,7 +231,7 @@
             createProductSubmitButton.Margin = new Padding(4);
             createProductSubmitButton.Name = "createProductSubmitButton";
             createProductSubmitButton.Size = new Size(198, 66);
-            createProductSubmitButton.TabIndex = 50;
+            createProductSubmitButton.TabIndex = 15;
             createProductSubmitButton.Text = "Submit";
             createProductSubmitButton.UseVisualStyleBackColor = true;
             createProductSubmitButton.Click += createProductSubmitButton_Click;
@@ -241,16 +241,16 @@
             createProductProductCategoryComboBox.FormattingEnabled = true;
             createProductProductCategoryComboBox.Location = new Point(203, 108);
             createProductProductCategoryComboBox.Name = "createProductProductCategoryComboBox";
-            createProductProductCategoryComboBox.Size = new Size(234, 28);
-            createProductProductCategoryComboBox.TabIndex = 63;
+            createProductProductCategoryComboBox.Size = new Size(403, 28);
+            createProductProductCategoryComboBox.TabIndex = 1;
             // 
             // createProductSupplierComboBox
             // 
             createProductSupplierComboBox.FormattingEnabled = true;
             createProductSupplierComboBox.Location = new Point(203, 152);
             createProductSupplierComboBox.Name = "createProductSupplierComboBox";
-            createProductSupplierComboBox.Size = new Size(234, 28);
-            createProductSupplierComboBox.TabIndex = 64;
+            createProductSupplierComboBox.Size = new Size(403, 28);
+            createProductSupplierComboBox.TabIndex = 2;
             // 
             // createProductWholesaleReorderFlagNoRadioButton
             // 
@@ -258,7 +258,7 @@
             createProductWholesaleReorderFlagNoRadioButton.Location = new Point(17, 21);
             createProductWholesaleReorderFlagNoRadioButton.Name = "createProductWholesaleReorderFlagNoRadioButton";
             createProductWholesaleReorderFlagNoRadioButton.Size = new Size(47, 24);
-            createProductWholesaleReorderFlagNoRadioButton.TabIndex = 65;
+            createProductWholesaleReorderFlagNoRadioButton.TabIndex = 7;
             createProductWholesaleReorderFlagNoRadioButton.TabStop = true;
             createProductWholesaleReorderFlagNoRadioButton.Text = "No";
             createProductWholesaleReorderFlagNoRadioButton.UseVisualStyleBackColor = true;
@@ -270,7 +270,7 @@
             createProductWholesaleReorderFlagYesRadioButton.Location = new Point(93, 21);
             createProductWholesaleReorderFlagYesRadioButton.Name = "createProductWholesaleReorderFlagYesRadioButton";
             createProductWholesaleReorderFlagYesRadioButton.Size = new Size(48, 24);
-            createProductWholesaleReorderFlagYesRadioButton.TabIndex = 66;
+            createProductWholesaleReorderFlagYesRadioButton.TabIndex = 8;
             createProductWholesaleReorderFlagYesRadioButton.TabStop = true;
             createProductWholesaleReorderFlagYesRadioButton.Text = "Yes";
             createProductWholesaleReorderFlagYesRadioButton.UseVisualStyleBackColor = true;
@@ -292,7 +292,7 @@
             createProductUnitPriceTextboxB.MaxLength = 50;
             createProductUnitPriceTextboxB.Name = "createProductUnitPriceTextboxB";
             createProductUnitPriceTextboxB.Size = new Size(45, 27);
-            createProductUnitPriceTextboxB.TabIndex = 68;
+            createProductUnitPriceTextboxB.TabIndex = 10;
             // 
             // createProductWholesaleCartonQuantityTextbox
             // 
@@ -301,7 +301,7 @@
             createProductWholesaleCartonQuantityTextbox.MaxLength = 50;
             createProductWholesaleCartonQuantityTextbox.Name = "createProductWholesaleCartonQuantityTextbox";
             createProductWholesaleCartonQuantityTextbox.Size = new Size(99, 27);
-            createProductWholesaleCartonQuantityTextbox.TabIndex = 69;
+            createProductWholesaleCartonQuantityTextbox.TabIndex = 6;
             // 
             // createProductUnitPriceTextboxSeparatorLabel
             // 
@@ -346,7 +346,7 @@
             createProductWholesaleGroupBox.Controls.Add(createProductWholesaleCartonQuantityLabel);
             createProductWholesaleGroupBox.Controls.Add(createProductWholesaleUnitQuantityPerCartonLabel);
             createProductWholesaleGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductWholesaleGroupBox.Location = new Point(467, 30);
+            createProductWholesaleGroupBox.Location = new Point(616, 30);
             createProductWholesaleGroupBox.Name = "createProductWholesaleGroupBox";
             createProductWholesaleGroupBox.Size = new Size(539, 246);
             createProductWholesaleGroupBox.TabIndex = 74;
@@ -366,7 +366,7 @@
             createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldTextbox);
             createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldLabel);
             createProductPerUnitGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductPerUnitGroupBox.Location = new Point(467, 294);
+            createProductPerUnitGroupBox.Location = new Point(616, 294);
             createProductPerUnitGroupBox.Name = "createProductPerUnitGroupBox";
             createProductPerUnitGroupBox.Size = new Size(539, 198);
             createProductPerUnitGroupBox.TabIndex = 75;
@@ -379,9 +379,8 @@
             createProductUnitMinimumStockQuantityTextbox.Location = new Point(284, 109);
             createProductUnitMinimumStockQuantityTextbox.MaxLength = 50;
             createProductUnitMinimumStockQuantityTextbox.Name = "createProductUnitMinimumStockQuantityTextbox";
-            createProductUnitMinimumStockQuantityTextbox.ReadOnly = true;
             createProductUnitMinimumStockQuantityTextbox.Size = new Size(99, 27);
-            createProductUnitMinimumStockQuantityTextbox.TabIndex = 74;
+            createProductUnitMinimumStockQuantityTextbox.TabIndex = 12;
             // 
             // createProductUnitMinimumStockQuantityLabel
             // 
@@ -399,9 +398,8 @@
             createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
             createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;
             createProductUnitMinimumOrderQuantityTextbox.Name = "createProductUnitMinimumOrderQuantityTextbox";
-            createProductUnitMinimumOrderQuantityTextbox.ReadOnly = true;
             createProductUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
-            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 72;
+            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 11;
             createProductUnitMinimumOrderQuantityTextbox.Text = "1";
             // 
             // createProductUnitMinimumOrderQuantityLabel
@@ -419,7 +417,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.SkyBlue;
-            ClientSize = new Size(1037, 594);
+            ClientSize = new Size(1204, 594);
             Controls.Add(createProductPerUnitGroupBox);
             Controls.Add(createProductWholesaleGroupBox);
             Controls.Add(createProductSupplierComboBox);

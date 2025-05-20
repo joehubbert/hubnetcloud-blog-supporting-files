@@ -95,7 +95,7 @@ namespace CRM_WindowsForms.Presentation
                     {
                         SupplierId = row.Field<Guid>("Supplier Id"),
                         SupplierName = row.Field<string>("Supplier Name"),
-                        DisplayText = $"{row.Field<string>("Supplier Id")} - {row.Field<string>("Supplier Name")}"
+                        DisplayText = $"{row.Field<string>("Supplier Name")} | {row.Field<Guid>("Supplier Id")}"
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
@@ -117,7 +117,23 @@ namespace CRM_WindowsForms.Presentation
 
         private void CalulateUnitStockQuantityHeld(object? sender, EventArgs e)
         {
-            createProductUnitStockQuantityHeldTextbox.Text = (int.Parse(createProductWholesaleCartonQuantityTextbox.Text) * int.Parse(createProductWholesaleUnitQuantityPerCartonTextbox.Text)).ToString();
+            if (!string.IsNullOrWhiteSpace(createProductWholesaleCartonQuantityTextbox.Text) &&
+                !string.IsNullOrWhiteSpace(createProductWholesaleUnitQuantityPerCartonTextbox.Text))
+            {
+                if (int.TryParse(createProductWholesaleCartonQuantityTextbox.Text, out int cartonQty) &&
+                    int.TryParse(createProductWholesaleUnitQuantityPerCartonTextbox.Text, out int unitPerCarton))
+                {
+                    createProductUnitStockQuantityHeldTextbox.Text = (cartonQty * unitPerCarton).ToString();
+                }
+                else
+                {
+                    createProductUnitStockQuantityHeldTextbox.Text = string.Empty;
+                }
+            }
+            else
+            {
+                createProductUnitStockQuantityHeldTextbox.Text = string.Empty;
+            }
         }
 
         private async void createProductSubmitButton_Click(object sender, EventArgs e)
@@ -126,10 +142,18 @@ namespace CRM_WindowsForms.Presentation
             Guid productCategoryId = Guid.Parse(createProductProductCategoryComboBox.SelectedValue.ToString());
             string productName = createProductProductNameTextbox.Text.TrimEnd();
             int unitMinimumOrderQuantity = int.Parse(createProductUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
-            int unitMinimumStockQuantity = int.Parse(createProductUnitMinimumStockQuantityTextbox.Text.TrimEnd());
-            decimal unitPrice = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
+            int unitMinimumStockQuantity;
+            if (int.TryParse(createProductUnitMinimumStockQuantityTextbox.Text.Trim(), out unitMinimumStockQuantity))
+            {
+
+            }
+            else
+            {
+                unitMinimumStockQuantity = 0;
+            }
+            decimal unitPrice = decimal.Parse($"{createProductWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
             int unitStockQuantityHeld = int.Parse(createProductUnitStockQuantityHeldTextbox.Text.TrimEnd());
-            decimal wholesalePricePerUnit = decimal.Parse(createProductWholesalePricePerUnitTextboxA.Text.TrimEnd() + decimal.Parse(createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()));
+            decimal wholesalePricePerUnit = decimal.Parse($"{createProductWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
             bool wholesaleReorderFlag;
             if (createProductWholesaleReorderFlagYesRadioButton.Checked)
             {
@@ -140,6 +164,7 @@ namespace CRM_WindowsForms.Presentation
                 wholesaleReorderFlag = false;
             }
             int wholesaleUnitQuantityPerCarton = int.Parse(createProductWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
+            int wholesaleCartonStockQuantityHeld = int.Parse(createProductWholesaleCartonQuantityTextbox.Text.TrimEnd());
             Guid supplierId = Guid.Parse(createProductSupplierComboBox.SelectedValue.ToString());
 
             string dataSubject = "Product";
@@ -154,18 +179,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductCategory",
                     Value = productCategoryId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "ProductName",
                     Value = productName,
                     MaxLength = 50,
@@ -173,57 +201,61 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "UnitMinimumOrderQuantity",
                     Value = unitMinimumOrderQuantity,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "UnitPrice",
                     Value = unitPrice,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "UnitStockQuantityHeld",
                     Value = unitStockQuantityHeld,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
+                    Name = "WholesaleCartonStockQuantityHeld",
+                    Value = wholesaleCartonStockQuantityHeld,
+                    ValueType = typeof(int)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = false,
                     Name = "WholesalePricePerUnit",
                     Value = wholesalePricePerUnit,
                     ValueType = typeof(decimal)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "WholesaleReorderFlag",
                     Value = wholesaleReorderFlag,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "WholesaleUnitQuantityPerCarton",
                     Value = wholesaleUnitQuantityPerCarton,
                     ValueType = typeof(int)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierId",
                     Value = supplierId,
                     ValueType = typeof(Guid)
                 }
             };
-
-            if (unitMinimumOrderQuantity > 0)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "UnitMinimumStockQuantity",
-                    Value = unitMinimumStockQuantity,
-                    ValueType = typeof(int)
-                });
-            }
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
@@ -264,6 +296,11 @@ namespace CRM_WindowsForms.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "@unitMinimumStockQuantity",
+                        ParameterValue = unitMinimumStockQuantity
+                    },
+                    new Parameter
+                    {
                         ParameterName = "@unitPrice",
                         ParameterValue = unitPrice
                     },
@@ -271,6 +308,11 @@ namespace CRM_WindowsForms.Presentation
                     {
                         ParameterName = "@unitStockQuantityHeld",
                         ParameterValue = unitStockQuantityHeld
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "@wholesaleCartonStockQuantityHeld",
+                        ParameterValue = wholesaleCartonStockQuantityHeld
                     },
                     new Parameter
                     {
@@ -288,15 +330,6 @@ namespace CRM_WindowsForms.Presentation
                         ParameterValue = wholesaleUnitQuantityPerCarton
                     }
                 };
-
-                if (unitMinimumOrderQuantity > 0)
-                {
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@unitMinimumStockQuantity",
-                        ParameterValue = unitMinimumStockQuantity
-                    });
-                }
 
                 string storedProcedureName = "[dbo].[spCreateProduct]";
                 string operationType = "create";

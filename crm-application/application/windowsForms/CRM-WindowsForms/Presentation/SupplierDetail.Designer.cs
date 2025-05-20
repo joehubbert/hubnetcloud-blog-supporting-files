@@ -130,7 +130,6 @@
             // 
             // supplierDetailOverviewCreatedTimestampTextbox
             // 
-            supplierDetailOverviewCreatedTimestampTextbox.Enabled = false;
             supplierDetailOverviewCreatedTimestampTextbox.Location = new Point(818, 305);
             supplierDetailOverviewCreatedTimestampTextbox.MaxLength = 11;
             supplierDetailOverviewCreatedTimestampTextbox.Name = "supplierDetailOverviewCreatedTimestampTextbox";
@@ -140,7 +139,6 @@
             // 
             // supplierDetailOverviewLastUpdatedTimestampTextbox
             // 
-            supplierDetailOverviewLastUpdatedTimestampTextbox.Enabled = false;
             supplierDetailOverviewLastUpdatedTimestampTextbox.Location = new Point(818, 396);
             supplierDetailOverviewLastUpdatedTimestampTextbox.MaxLength = 13;
             supplierDetailOverviewLastUpdatedTimestampTextbox.Name = "supplierDetailOverviewLastUpdatedTimestampTextbox";
@@ -150,7 +148,6 @@
             // 
             // supplierDetailOverviewCreatedByTextbox
             // 
-            supplierDetailOverviewCreatedByTextbox.Enabled = false;
             supplierDetailOverviewCreatedByTextbox.Location = new Point(818, 260);
             supplierDetailOverviewCreatedByTextbox.MaxLength = 10;
             supplierDetailOverviewCreatedByTextbox.Name = "supplierDetailOverviewCreatedByTextbox";
@@ -160,7 +157,6 @@
             // 
             // supplierDetailOverviewLastUpdatedByTextbox
             // 
-            supplierDetailOverviewLastUpdatedByTextbox.Enabled = false;
             supplierDetailOverviewLastUpdatedByTextbox.Location = new Point(818, 350);
             supplierDetailOverviewLastUpdatedByTextbox.MaxLength = 12;
             supplierDetailOverviewLastUpdatedByTextbox.Name = "supplierDetailOverviewLastUpdatedByTextbox";
@@ -507,15 +503,14 @@
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesRefreshDataButton);
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesCreateNewSupplierNoteButton);
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesExistingSupplierNotesDataGridView);
-            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 32);
+            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 27);
             supplierDetailTabControlSupplierNotesPage.Name = "supplierDetailTabControlSupplierNotesPage";
-            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 485);
+            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 490);
             supplierDetailTabControlSupplierNotesPage.TabIndex = 4;
             supplierDetailTabControlSupplierNotesPage.Text = "Supplier Notes";
             // 
             // supplierDetailSupplierNotesRefreshDataButton
             // 
-            supplierDetailSupplierNotesRefreshDataButton.Enabled = false;
             supplierDetailSupplierNotesRefreshDataButton.FlatStyle = FlatStyle.Flat;
             supplierDetailSupplierNotesRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             supplierDetailSupplierNotesRefreshDataButton.Location = new Point(1093, 95);
@@ -529,7 +524,6 @@
             // 
             // supplierDetailSupplierNotesCreateNewSupplierNoteButton
             // 
-            supplierDetailSupplierNotesCreateNewSupplierNoteButton.Enabled = false;
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.FlatStyle = FlatStyle.Flat;
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.Location = new Point(1093, 17);
@@ -543,10 +537,13 @@
             // 
             // supplierDetailSupplierNotesExistingSupplierNotesDataGridView
             // 
+            supplierDetailSupplierNotesExistingSupplierNotesDataGridView.AllowUserToAddRows = false;
+            supplierDetailSupplierNotesExistingSupplierNotesDataGridView.AllowUserToDeleteRows = false;
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.BackgroundColor = Color.MediumAquamarine;
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Location = new Point(21, 17);
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Name = "supplierDetailSupplierNotesExistingSupplierNotesDataGridView";
+            supplierDetailSupplierNotesExistingSupplierNotesDataGridView.ReadOnly = true;
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Size = new Size(1059, 453);
             supplierDetailSupplierNotesExistingSupplierNotesDataGridView.TabIndex = 19;
             // 

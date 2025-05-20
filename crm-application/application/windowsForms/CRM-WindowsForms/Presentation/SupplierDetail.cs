@@ -31,8 +31,8 @@ namespace CRM_WindowsForms.Presentation
 
         private void InitializeCustomComponents()
         {
+            supplierDetailFinanceVATRegisteredCheckbox.CheckedChanged += SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged;
             supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
-            supplierDetailToggleEditModeButton.Click += supplierDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -102,11 +102,18 @@ namespace CRM_WindowsForms.Presentation
                 {
                     DataRow supplierDataRow = supplierDataTable.Rows[0];
 
-                    Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency"];
+                    Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency Id"];
                     await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailFinancePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
-
+                    if(supplierDetailFinanceVATNumberTextbox.Text.Length > 0)
+                    {
+                        supplierDetailFinanceVATRegisteredCheckbox.Checked = true;
+                    }
+                    else
+                    {
+                        supplierDetailFinanceVATRegisteredCheckbox.Checked = false;
+                    }
                     supplierDetailOverviewActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
                     supplierDetailOverviewAddressLine1Textbox.Text = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailOverviewAddressLine2Textbox.Text = supplierDataRow["Address Line 2"].ToString();
@@ -122,7 +129,7 @@ namespace CRM_WindowsForms.Presentation
                     supplierDetailOverviewSupplierNameTextbox.Text = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailOverviewTelephoneNumberTextbox.Text = supplierDataRow["Telephone Number"].ToString();
 
-                    supplierDetailFinancePaymentCurrencyIdOriginalValue = (Guid)supplierDataRow["Payment Currency"];
+                    supplierDetailFinancePaymentCurrencyIdOriginalValue = paymentCurrencyId;
                     supplierDetailFinancePaymentDaysOriginalValue = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberOriginalValue = supplierDataRow["VAT Number"].ToString();
                     supplierDetailOverviewActiveStatusOrginalValue = (bool)supplierDataRow["Active Status"];
@@ -201,6 +208,27 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
+        private void SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (!supplierDetailFinanceVATRegisteredCheckbox.Checked)
+            {
+                var result = MessageBox.Show(
+                    "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
+                    "Warning",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    supplierDetailFinanceVATNumberTextbox.Text = string.Empty;
+                }
+                else
+                {
+                    supplierDetailFinanceVATRegisteredCheckbox.Checked = true;
+                }
+            }
+        }
+
         private void SupplierDetailSupplierNotesExistingSupplierNotesDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
@@ -253,18 +281,21 @@ namespace CRM_WindowsForms.Presentation
             {
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailFinancePaymentCurrencyId",
                     Value = supplierDetailFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailFinancePaymentDays",
                     Value = supplierDetailFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailFinanceVATNumber",
                     Value = supplierDetailFinanceVATNumber,
                     MaxLength = 50,
@@ -272,12 +303,14 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewActiveStatus",
                     Value = supplierDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewAddressLine1",
                     Value = supplierDetailOverviewAddressLine1,
                     MaxLength = 50,
@@ -285,6 +318,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewAddressLine3",
                     Value = supplierDetailOverviewAddressLine3,
                     MaxLength = 50,
@@ -292,6 +326,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewAddressLine4",
                     Value = supplierDetailOverviewAddressLine4,
                     MaxLength = 50,
@@ -299,6 +334,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewAddressLine5",
                     Value = supplierDetailOverviewAddressLine5,
                     MaxLength = 50,
@@ -306,12 +342,14 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewEmailAddress",
                     Value = supplierDetailOverviewEmailAddress,
                     ValueType = typeof(string)
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewSupplierName",
                     Value = supplierDetailOverviewSupplierName,
                     MaxLength = 50,
@@ -319,6 +357,7 @@ namespace CRM_WindowsForms.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = false,
                     Name = "SupplierDetailOverviewTelephoneNumber",
                     Value = supplierDetailOverviewTelephoneNumber,
                     ValueType = typeof(string)
@@ -537,13 +576,14 @@ namespace CRM_WindowsForms.Presentation
             ViewSupplierDetailSupplierInformation_Load(this, EventArgs.Empty);
         }
 
-        private void supplierDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void supplierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             supplierDetailOverviewCreatedByTextbox.Enabled = !supplierDetailOverviewCreatedByTextbox.Enabled;
             supplierDetailOverviewCreatedTimestampTextbox.Enabled = !supplierDetailOverviewCreatedTimestampTextbox.Enabled;
             supplierDetailFinancePaymentCurrencyComboBox.Enabled = !supplierDetailFinancePaymentCurrencyComboBox.Enabled;
             supplierDetailFinancePaymentDaysTextbox.Enabled = !supplierDetailFinancePaymentDaysTextbox.Enabled;
             supplierDetailFinanceVATNumberTextbox.Enabled = !supplierDetailFinanceVATNumberTextbox.Enabled;
+            supplierDetailFinanceVATRegisteredCheckbox.Enabled = !supplierDetailFinanceVATRegisteredCheckbox.Enabled;
             supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
             supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
             supplierDetailOverviewActiveStatusCheckbox.Enabled = !supplierDetailOverviewActiveStatusCheckbox.Enabled;
@@ -556,6 +596,7 @@ namespace CRM_WindowsForms.Presentation
             supplierDetailOverviewSupplierIdTextbox.Enabled = !supplierDetailOverviewSupplierIdTextbox.Enabled;
             supplierDetailOverviewSupplierNameTextbox.Enabled = !supplierDetailOverviewSupplierNameTextbox.Enabled;
             supplierDetailOverviewTelephoneNumberTextbox.Enabled = !supplierDetailOverviewTelephoneNumberTextbox.Enabled;
+            supplierDetailUpdateSupplierButton.Enabled = !supplierDetailUpdateSupplierButton.Enabled;
         }
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)

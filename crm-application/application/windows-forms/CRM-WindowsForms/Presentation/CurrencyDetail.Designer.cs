@@ -160,10 +160,10 @@
             // 
             // currencyDetailCurrencyNameTextbox
             // 
-            currencyDetailCurrencyNameTextbox.Enabled = false;
             currencyDetailCurrencyNameTextbox.Location = new Point(201, 217);
             currencyDetailCurrencyNameTextbox.MaxLength = 50;
             currencyDetailCurrencyNameTextbox.Name = "currencyDetailCurrencyNameTextbox";
+            currencyDetailCurrencyNameTextbox.ReadOnly = true;
             currencyDetailCurrencyNameTextbox.Size = new Size(370, 27);
             currencyDetailCurrencyNameTextbox.TabIndex = 2;
             // 
@@ -178,10 +178,10 @@
             // 
             // currencyDetailCurrencyCodeTextbox
             // 
-            currencyDetailCurrencyCodeTextbox.Enabled = false;
             currencyDetailCurrencyCodeTextbox.Location = new Point(201, 178);
             currencyDetailCurrencyCodeTextbox.MaxLength = 3;
             currencyDetailCurrencyCodeTextbox.Name = "currencyDetailCurrencyCodeTextbox";
+            currencyDetailCurrencyCodeTextbox.ReadOnly = true;
             currencyDetailCurrencyCodeTextbox.Size = new Size(64, 27);
             currencyDetailCurrencyCodeTextbox.TabIndex = 1;
             // 

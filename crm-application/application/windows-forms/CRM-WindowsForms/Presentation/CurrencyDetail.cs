@@ -202,8 +202,8 @@ namespace CRM_WindowsForms.Presentation
 
         private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            currencyDetailCurrencyCodeTextbox.Enabled = !currencyDetailCurrencyCodeTextbox.Enabled;
-            currencyDetailCurrencyNameTextbox.Enabled = !currencyDetailCurrencyNameTextbox.Enabled;
+            currencyDetailCurrencyCodeTextbox.ReadOnly = !currencyDetailCurrencyCodeTextbox.ReadOnly;
+            currencyDetailCurrencyNameTextbox.ReadOnly = !currencyDetailCurrencyNameTextbox.ReadOnly;
             currencyDetailActiveStatusCheckbox.Enabled = !currencyDetailActiveStatusCheckbox.Enabled;
             currencyDetailUpdateCurrencyButton.Enabled = !currencyDetailUpdateCurrencyButton.Enabled;
         }

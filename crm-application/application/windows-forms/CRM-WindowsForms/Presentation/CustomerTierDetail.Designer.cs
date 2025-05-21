@@ -160,10 +160,10 @@
             // 
             // customerTierDetailCustomerTierDescriptionTextbox
             // 
-            customerTierDetailCustomerTierDescriptionTextbox.Enabled = false;
             customerTierDetailCustomerTierDescriptionTextbox.Location = new Point(235, 217);
             customerTierDetailCustomerTierDescriptionTextbox.MaxLength = 50;
             customerTierDetailCustomerTierDescriptionTextbox.Name = "customerTierDetailCustomerTierDescriptionTextbox";
+            customerTierDetailCustomerTierDescriptionTextbox.ReadOnly = true;
             customerTierDetailCustomerTierDescriptionTextbox.Size = new Size(370, 27);
             customerTierDetailCustomerTierDescriptionTextbox.TabIndex = 2;
             // 
@@ -178,10 +178,10 @@
             // 
             // customerTierDetailCustomerTierCodeTextbox
             // 
-            customerTierDetailCustomerTierCodeTextbox.Enabled = false;
             customerTierDetailCustomerTierCodeTextbox.Location = new Point(235, 177);
             customerTierDetailCustomerTierCodeTextbox.MaxLength = 3;
             customerTierDetailCustomerTierCodeTextbox.Name = "customerTierDetailCustomerTierCodeTextbox";
+            customerTierDetailCustomerTierCodeTextbox.ReadOnly = true;
             customerTierDetailCustomerTierCodeTextbox.Size = new Size(64, 27);
             customerTierDetailCustomerTierCodeTextbox.TabIndex = 1;
             // 

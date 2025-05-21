@@ -178,7 +178,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void productCategoryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            productCategoryDetailProductCategoryTextbox.Enabled = !productCategoryDetailProductCategoryTextbox.Enabled;
+            productCategoryDetailProductCategoryTextbox.ReadOnly = !productCategoryDetailProductCategoryTextbox.ReadOnly;
             productCategoryDetailActiveStatusCheckbox.Enabled = !productCategoryDetailActiveStatusCheckbox.Enabled;
             productCategoryDetailUpdateProductCategoryButton.Enabled = !productCategoryDetailUpdateProductCategoryButton.Enabled;
         }

@@ -578,24 +578,24 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            supplierDetailOverviewCreatedByTextbox.Enabled = !supplierDetailOverviewCreatedByTextbox.Enabled;
-            supplierDetailOverviewCreatedTimestampTextbox.Enabled = !supplierDetailOverviewCreatedTimestampTextbox.Enabled;
+            supplierDetailOverviewCreatedByTextbox.ReadOnly = !supplierDetailOverviewCreatedByTextbox.ReadOnly;
+            supplierDetailOverviewCreatedTimestampTextbox.ReadOnly = !supplierDetailOverviewCreatedTimestampTextbox.ReadOnly;
             supplierDetailFinancePaymentCurrencyComboBox.Enabled = !supplierDetailFinancePaymentCurrencyComboBox.Enabled;
-            supplierDetailFinancePaymentDaysTextbox.Enabled = !supplierDetailFinancePaymentDaysTextbox.Enabled;
-            supplierDetailFinanceVATNumberTextbox.Enabled = !supplierDetailFinanceVATNumberTextbox.Enabled;
+            supplierDetailFinancePaymentDaysTextbox.ReadOnly = !supplierDetailFinancePaymentDaysTextbox.ReadOnly;
+            supplierDetailFinanceVATNumberTextbox.ReadOnly = !supplierDetailFinanceVATNumberTextbox.ReadOnly;
             supplierDetailFinanceVATRegisteredCheckbox.Enabled = !supplierDetailFinanceVATRegisteredCheckbox.Enabled;
-            supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
-            supplierDetailOverviewLastUpdatedByTextbox.Enabled = !supplierDetailOverviewLastUpdatedByTextbox.Enabled;
+            supplierDetailOverviewLastUpdatedByTextbox.ReadOnly = !supplierDetailOverviewLastUpdatedByTextbox.ReadOnly;
+            supplierDetailOverviewLastUpdatedByTextbox.ReadOnly = !supplierDetailOverviewLastUpdatedByTextbox.ReadOnly;
             supplierDetailOverviewActiveStatusCheckbox.Enabled = !supplierDetailOverviewActiveStatusCheckbox.Enabled;
-            supplierDetailOverviewAddressLine1Textbox.Enabled = !supplierDetailOverviewAddressLine1Textbox.Enabled;
-            supplierDetailOverviewAddressLine2Textbox.Enabled = !supplierDetailOverviewAddressLine2Textbox.Enabled;
-            supplierDetailOverviewAddressLine3Textbox.Enabled = !supplierDetailOverviewAddressLine3Textbox.Enabled;
-            supplierDetailOverviewAddressLine4Textbox.Enabled = !supplierDetailOverviewAddressLine4Textbox.Enabled;
-            supplierDetailOverviewAddressLine5Textbox.Enabled = !supplierDetailOverviewAddressLine5Textbox.Enabled;
-            supplierDetailOverviewEmailAddressTextbox.Enabled = !supplierDetailOverviewEmailAddressTextbox.Enabled;
-            supplierDetailOverviewSupplierIdTextbox.Enabled = !supplierDetailOverviewSupplierIdTextbox.Enabled;
-            supplierDetailOverviewSupplierNameTextbox.Enabled = !supplierDetailOverviewSupplierNameTextbox.Enabled;
-            supplierDetailOverviewTelephoneNumberTextbox.Enabled = !supplierDetailOverviewTelephoneNumberTextbox.Enabled;
+            supplierDetailOverviewAddressLine1Textbox.ReadOnly = !supplierDetailOverviewAddressLine1Textbox.ReadOnly;
+            supplierDetailOverviewAddressLine2Textbox.ReadOnly = !supplierDetailOverviewAddressLine2Textbox.ReadOnly;
+            supplierDetailOverviewAddressLine3Textbox.ReadOnly = !supplierDetailOverviewAddressLine3Textbox.ReadOnly;
+            supplierDetailOverviewAddressLine4Textbox.ReadOnly = !supplierDetailOverviewAddressLine4Textbox.ReadOnly;
+            supplierDetailOverviewAddressLine5Textbox.ReadOnly = !supplierDetailOverviewAddressLine5Textbox.ReadOnly;
+            supplierDetailOverviewEmailAddressTextbox.ReadOnly = !supplierDetailOverviewEmailAddressTextbox.ReadOnly;
+            supplierDetailOverviewSupplierIdTextbox.ReadOnly = !supplierDetailOverviewSupplierIdTextbox.ReadOnly;
+            supplierDetailOverviewSupplierNameTextbox.ReadOnly = !supplierDetailOverviewSupplierNameTextbox.ReadOnly;
+            supplierDetailOverviewTelephoneNumberTextbox.ReadOnly = !supplierDetailOverviewTelephoneNumberTextbox.ReadOnly;
             supplierDetailUpdateSupplierButton.Enabled = !supplierDetailUpdateSupplierButton.Enabled;
         }
 

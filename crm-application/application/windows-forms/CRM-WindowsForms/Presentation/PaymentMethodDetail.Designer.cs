@@ -107,10 +107,10 @@
             // 
             // paymentMethodDetailPaymentMethodTextbox
             // 
-            paymentMethodDetailPaymentMethodTextbox.Enabled = false;
             paymentMethodDetailPaymentMethodTextbox.Location = new Point(201, 178);
             paymentMethodDetailPaymentMethodTextbox.MaxLength = 50;
             paymentMethodDetailPaymentMethodTextbox.Name = "paymentMethodDetailPaymentMethodTextbox";
+            paymentMethodDetailPaymentMethodTextbox.ReadOnly = true;
             paymentMethodDetailPaymentMethodTextbox.Size = new Size(370, 27);
             paymentMethodDetailPaymentMethodTextbox.TabIndex = 1;
             // 

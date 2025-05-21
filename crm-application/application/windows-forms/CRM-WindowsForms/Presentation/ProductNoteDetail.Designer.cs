@@ -162,11 +162,11 @@
             // productNoteDetailProductNoteTextbox
             // 
             productNoteDetailProductNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            productNoteDetailProductNoteTextbox.Enabled = false;
             productNoteDetailProductNoteTextbox.Location = new Point(235, 258);
             productNoteDetailProductNoteTextbox.MaxLength = 4000;
             productNoteDetailProductNoteTextbox.Multiline = true;
             productNoteDetailProductNoteTextbox.Name = "productNoteDetailProductNoteTextbox";
+            productNoteDetailProductNoteTextbox.ReadOnly = true;
             productNoteDetailProductNoteTextbox.ScrollBars = ScrollBars.Vertical;
             productNoteDetailProductNoteTextbox.Size = new Size(524, 259);
             productNoteDetailProductNoteTextbox.TabIndex = 3;
@@ -182,10 +182,10 @@
             // 
             // productNoteDetailProductNoteTitleTextbox
             // 
-            productNoteDetailProductNoteTitleTextbox.Enabled = false;
             productNoteDetailProductNoteTitleTextbox.Location = new Point(235, 177);
             productNoteDetailProductNoteTitleTextbox.MaxLength = 50;
             productNoteDetailProductNoteTitleTextbox.Name = "productNoteDetailProductNoteTitleTextbox";
+            productNoteDetailProductNoteTitleTextbox.ReadOnly = true;
             productNoteDetailProductNoteTitleTextbox.Size = new Size(524, 27);
             productNoteDetailProductNoteTitleTextbox.TabIndex = 1;
             // 

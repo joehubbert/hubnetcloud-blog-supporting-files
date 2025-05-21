@@ -162,11 +162,11 @@
             // customerNoteDetailCustomerNoteTextbox
             // 
             customerNoteDetailCustomerNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            customerNoteDetailCustomerNoteTextbox.Enabled = false;
             customerNoteDetailCustomerNoteTextbox.Location = new Point(235, 258);
             customerNoteDetailCustomerNoteTextbox.MaxLength = 4000;
             customerNoteDetailCustomerNoteTextbox.Multiline = true;
             customerNoteDetailCustomerNoteTextbox.Name = "customerNoteDetailCustomerNoteTextbox";
+            customerNoteDetailCustomerNoteTextbox.ReadOnly = true;
             customerNoteDetailCustomerNoteTextbox.ScrollBars = ScrollBars.Vertical;
             customerNoteDetailCustomerNoteTextbox.Size = new Size(524, 259);
             customerNoteDetailCustomerNoteTextbox.TabIndex = 3;
@@ -182,10 +182,10 @@
             // 
             // customerNoteDetailCustomerNoteTitleTextbox
             // 
-            customerNoteDetailCustomerNoteTitleTextbox.Enabled = false;
             customerNoteDetailCustomerNoteTitleTextbox.Location = new Point(235, 177);
             customerNoteDetailCustomerNoteTitleTextbox.MaxLength = 50;
             customerNoteDetailCustomerNoteTitleTextbox.Name = "customerNoteDetailCustomerNoteTitleTextbox";
+            customerNoteDetailCustomerNoteTitleTextbox.ReadOnly = true;
             customerNoteDetailCustomerNoteTitleTextbox.Size = new Size(524, 27);
             customerNoteDetailCustomerNoteTitleTextbox.TabIndex = 1;
             // 

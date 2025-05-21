@@ -107,10 +107,10 @@
             // 
             // supplierNoteTypeDetailSupplierNoteTypeTextbox
             // 
-            supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled = false;
             supplierNoteTypeDetailSupplierNoteTypeTextbox.Location = new Point(224, 178);
             supplierNoteTypeDetailSupplierNoteTypeTextbox.MaxLength = 50;
             supplierNoteTypeDetailSupplierNoteTypeTextbox.Name = "supplierNoteTypeDetailSupplierNoteTypeTextbox";
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.ReadOnly = true;
             supplierNoteTypeDetailSupplierNoteTypeTextbox.Size = new Size(370, 27);
             supplierNoteTypeDetailSupplierNoteTypeTextbox.TabIndex = 1;
             // 

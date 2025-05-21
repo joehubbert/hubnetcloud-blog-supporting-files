@@ -178,7 +178,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void salesRegionDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            salesRegionDetailSalesRegionTextbox.Enabled = !salesRegionDetailSalesRegionTextbox.Enabled;
+            salesRegionDetailSalesRegionTextbox.ReadOnly = !salesRegionDetailSalesRegionTextbox.ReadOnly;
             salesRegionDetailActiveStatusCheckbox.Enabled = !salesRegionDetailActiveStatusCheckbox.Enabled;
             salesRegionDetailUpdateSalesRegionButton.Enabled = !salesRegionDetailUpdateSalesRegionButton.Enabled;
         }

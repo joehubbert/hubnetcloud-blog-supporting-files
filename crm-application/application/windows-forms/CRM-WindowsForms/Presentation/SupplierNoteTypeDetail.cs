@@ -178,7 +178,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierNoteTypeDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled = !supplierNoteTypeDetailSupplierNoteTypeTextbox.Enabled;
+            supplierNoteTypeDetailSupplierNoteTypeTextbox.ReadOnly = !supplierNoteTypeDetailSupplierNoteTypeTextbox.ReadOnly;
             supplierNoteTypeDetailActiveStatusCheckbox.Enabled = !supplierNoteTypeDetailActiveStatusCheckbox.Enabled;
             supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Enabled = !supplierNoteTypeDetailUpdateSupplierNoteTypeButton.Enabled;
         }

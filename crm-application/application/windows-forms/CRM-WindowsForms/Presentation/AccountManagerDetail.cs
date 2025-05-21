@@ -334,10 +334,10 @@ namespace CRM_WindowsForms.Presentation
 
         private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            accountManagerDetailFirstNameTextbox.Enabled = !accountManagerDetailFirstNameTextbox.Enabled;
-            accountManagerDetailLastNameTextbox.Enabled = !accountManagerDetailLastNameTextbox.Enabled;
-            accountManagerDetailEmailAddressTextbox.Enabled = !accountManagerDetailEmailAddressTextbox.Enabled;
-            accountManagerDetailTelephoneNumberTextbox.Enabled = !accountManagerDetailTelephoneNumberTextbox.Enabled;
+            accountManagerDetailFirstNameTextbox.ReadOnly = !accountManagerDetailFirstNameTextbox.ReadOnly;
+            accountManagerDetailLastNameTextbox.ReadOnly = !accountManagerDetailLastNameTextbox.ReadOnly;
+            accountManagerDetailEmailAddressTextbox.ReadOnly = !accountManagerDetailEmailAddressTextbox.ReadOnly;
+            accountManagerDetailTelephoneNumberTextbox.ReadOnly = !accountManagerDetailTelephoneNumberTextbox.ReadOnly;
             accountManagerDetailActiveStatusCheckbox.Enabled = !accountManagerDetailActiveStatusCheckbox.Enabled;
             accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
         }

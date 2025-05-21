@@ -109,10 +109,10 @@
             // 
             // salesSubRegionDetailSalesSubRegionTextbox
             // 
-            salesSubRegionDetailSalesSubRegionTextbox.Enabled = false;
             salesSubRegionDetailSalesSubRegionTextbox.Location = new Point(224, 178);
             salesSubRegionDetailSalesSubRegionTextbox.MaxLength = 50;
             salesSubRegionDetailSalesSubRegionTextbox.Name = "salesSubRegionDetailSalesSubRegionTextbox";
+            salesSubRegionDetailSalesSubRegionTextbox.ReadOnly = true;
             salesSubRegionDetailSalesSubRegionTextbox.Size = new Size(370, 27);
             salesSubRegionDetailSalesSubRegionTextbox.TabIndex = 1;
             // 

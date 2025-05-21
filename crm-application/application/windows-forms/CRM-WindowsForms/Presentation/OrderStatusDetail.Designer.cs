@@ -107,10 +107,10 @@
             // 
             // orderStatusDetailOrderStatusTextbox
             // 
-            orderStatusDetailOrderStatusTextbox.Enabled = false;
             orderStatusDetailOrderStatusTextbox.Location = new Point(224, 178);
             orderStatusDetailOrderStatusTextbox.MaxLength = 50;
             orderStatusDetailOrderStatusTextbox.Name = "orderStatusDetailOrderStatusTextbox";
+            orderStatusDetailOrderStatusTextbox.ReadOnly = true;
             orderStatusDetailOrderStatusTextbox.Size = new Size(370, 27);
             orderStatusDetailOrderStatusTextbox.TabIndex = 1;
             // 

@@ -178,7 +178,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void orderStatusDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            orderStatusDetailOrderStatusTextbox.Enabled = !orderStatusDetailOrderStatusTextbox.Enabled;
+            orderStatusDetailOrderStatusTextbox.ReadOnly = !orderStatusDetailOrderStatusTextbox.ReadOnly;
             orderStatusDetailActiveStatusCheckbox.Enabled = !orderStatusDetailActiveStatusCheckbox.Enabled;
             orderStatusDetailUpdateOrderStatusButton.Enabled = !orderStatusDetailUpdateOrderStatusButton.Enabled;
         }

@@ -310,45 +310,45 @@
             // 
             // accountManagerDetailLastNameTextbox
             // 
-            accountManagerDetailLastNameTextbox.Enabled = false;
             accountManagerDetailLastNameTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailLastNameTextbox.Location = new Point(184, 140);
             accountManagerDetailLastNameTextbox.Margin = new Padding(4);
             accountManagerDetailLastNameTextbox.MaxLength = 50;
             accountManagerDetailLastNameTextbox.Name = "accountManagerDetailLastNameTextbox";
+            accountManagerDetailLastNameTextbox.ReadOnly = true;
             accountManagerDetailLastNameTextbox.Size = new Size(340, 27);
             accountManagerDetailLastNameTextbox.TabIndex = 4;
             // 
             // accountManagerDetailEmailAddressTextbox
             // 
-            accountManagerDetailEmailAddressTextbox.Enabled = false;
             accountManagerDetailEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailEmailAddressTextbox.Location = new Point(184, 103);
             accountManagerDetailEmailAddressTextbox.Margin = new Padding(4);
             accountManagerDetailEmailAddressTextbox.MaxLength = 50;
             accountManagerDetailEmailAddressTextbox.Name = "accountManagerDetailEmailAddressTextbox";
+            accountManagerDetailEmailAddressTextbox.ReadOnly = true;
             accountManagerDetailEmailAddressTextbox.Size = new Size(340, 27);
             accountManagerDetailEmailAddressTextbox.TabIndex = 3;
             // 
             // accountManagerDetailTelephoneNumberTextbox
             // 
-            accountManagerDetailTelephoneNumberTextbox.Enabled = false;
             accountManagerDetailTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailTelephoneNumberTextbox.Location = new Point(184, 177);
             accountManagerDetailTelephoneNumberTextbox.Margin = new Padding(4);
             accountManagerDetailTelephoneNumberTextbox.MaxLength = 13;
             accountManagerDetailTelephoneNumberTextbox.Name = "accountManagerDetailTelephoneNumberTextbox";
+            accountManagerDetailTelephoneNumberTextbox.ReadOnly = true;
             accountManagerDetailTelephoneNumberTextbox.Size = new Size(340, 27);
             accountManagerDetailTelephoneNumberTextbox.TabIndex = 5;
             // 
             // accountManagerDetailFirstNameTextbox
             // 
-            accountManagerDetailFirstNameTextbox.Enabled = false;
             accountManagerDetailFirstNameTextbox.Font = new Font("Segoe UI", 11F);
             accountManagerDetailFirstNameTextbox.Location = new Point(184, 66);
             accountManagerDetailFirstNameTextbox.Margin = new Padding(4);
             accountManagerDetailFirstNameTextbox.MaxLength = 50;
             accountManagerDetailFirstNameTextbox.Name = "accountManagerDetailFirstNameTextbox";
+            accountManagerDetailFirstNameTextbox.ReadOnly = true;
             accountManagerDetailFirstNameTextbox.Size = new Size(340, 27);
             accountManagerDetailFirstNameTextbox.TabIndex = 2;
             // 

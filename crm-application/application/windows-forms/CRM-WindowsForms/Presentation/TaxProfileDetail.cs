@@ -207,9 +207,9 @@ namespace CRM_WindowsForms.Presentation
 
         private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            taxProfileDetailTaxProfileTextbox.Enabled = !taxProfileDetailTaxProfileTextbox.Enabled;
-            taxProfileDetailTaxRateTextboxA.Enabled = !taxProfileDetailTaxRateTextboxA.Enabled;
-            taxProfileDetailTaxRateTextboxB.Enabled = !taxProfileDetailTaxRateTextboxB.Enabled;
+            taxProfileDetailTaxProfileTextbox.ReadOnly = !taxProfileDetailTaxProfileTextbox.ReadOnly;
+            taxProfileDetailTaxRateTextboxA.ReadOnly = !taxProfileDetailTaxRateTextboxA.ReadOnly;
+            taxProfileDetailTaxRateTextboxB.ReadOnly = !taxProfileDetailTaxRateTextboxB.ReadOnly;
             taxProfileDetailActiveStatusCheckbox.Enabled = !taxProfileDetailActiveStatusCheckbox.Enabled;
             taxProfileDetailUpdateTaxProfileButton.Enabled = !taxProfileDetailUpdateTaxProfileButton.Enabled;
         }

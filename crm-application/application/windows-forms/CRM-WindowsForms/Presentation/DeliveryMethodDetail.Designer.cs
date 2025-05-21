@@ -170,6 +170,7 @@
             deliveryMethodDetailDeliveryCostTextboxA.Location = new Point(243, 218);
             deliveryMethodDetailDeliveryCostTextboxA.MaxLength = 10;
             deliveryMethodDetailDeliveryCostTextboxA.Name = "deliveryMethodDetailDeliveryCostTextboxA";
+            deliveryMethodDetailDeliveryCostTextboxA.ReadOnly = true;
             deliveryMethodDetailDeliveryCostTextboxA.Size = new Size(142, 27);
             deliveryMethodDetailDeliveryCostTextboxA.TabIndex = 2;
             // 
@@ -188,6 +189,7 @@
             deliveryMethodDetailDeliveryMethodTextbox.Location = new Point(243, 178);
             deliveryMethodDetailDeliveryMethodTextbox.MaxLength = 50;
             deliveryMethodDetailDeliveryMethodTextbox.Name = "deliveryMethodDetailDeliveryMethodTextbox";
+            deliveryMethodDetailDeliveryMethodTextbox.ReadOnly = true;
             deliveryMethodDetailDeliveryMethodTextbox.Size = new Size(370, 27);
             deliveryMethodDetailDeliveryMethodTextbox.TabIndex = 1;
             // 
@@ -236,6 +238,7 @@
             deliveryMethodDetailDeliveryCostTextboxB.Location = new Point(409, 218);
             deliveryMethodDetailDeliveryCostTextboxB.MaxLength = 4;
             deliveryMethodDetailDeliveryCostTextboxB.Name = "deliveryMethodDetailDeliveryCostTextboxB";
+            deliveryMethodDetailDeliveryCostTextboxB.ReadOnly = true;
             deliveryMethodDetailDeliveryCostTextboxB.Size = new Size(62, 27);
             deliveryMethodDetailDeliveryCostTextboxB.TabIndex = 3;
             // 
@@ -271,10 +274,12 @@
             // 
             // deliveryMethodDetailDeliveryTimeTextbox
             // 
+            deliveryMethodDetailDeliveryTimeTextbox.Enabled = false;
             deliveryMethodDetailDeliveryTimeTextbox.Location = new Point(243, 258);
             deliveryMethodDetailDeliveryTimeTextbox.Margin = new Padding(3, 4, 3, 4);
             deliveryMethodDetailDeliveryTimeTextbox.MaxLength = 3;
             deliveryMethodDetailDeliveryTimeTextbox.Name = "deliveryMethodDetailDeliveryTimeTextbox";
+            deliveryMethodDetailDeliveryTimeTextbox.ReadOnly = true;
             deliveryMethodDetailDeliveryTimeTextbox.Size = new Size(41, 27);
             deliveryMethodDetailDeliveryTimeTextbox.TabIndex = 4;
             // 

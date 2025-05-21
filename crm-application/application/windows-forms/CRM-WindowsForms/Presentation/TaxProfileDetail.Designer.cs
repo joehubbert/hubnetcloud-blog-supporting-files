@@ -162,10 +162,10 @@
             // 
             // taxProfileDetailTaxRateTextboxA
             // 
-            taxProfileDetailTaxRateTextboxA.Enabled = false;
             taxProfileDetailTaxRateTextboxA.Location = new Point(212, 218);
             taxProfileDetailTaxRateTextboxA.MaxLength = 5;
             taxProfileDetailTaxRateTextboxA.Name = "taxProfileDetailTaxRateTextboxA";
+            taxProfileDetailTaxRateTextboxA.ReadOnly = true;
             taxProfileDetailTaxRateTextboxA.Size = new Size(88, 27);
             taxProfileDetailTaxRateTextboxA.TabIndex = 2;
             // 
@@ -180,10 +180,10 @@
             // 
             // taxProfileDetailTaxProfileTextbox
             // 
-            taxProfileDetailTaxProfileTextbox.Enabled = false;
             taxProfileDetailTaxProfileTextbox.Location = new Point(212, 178);
             taxProfileDetailTaxProfileTextbox.MaxLength = 50;
             taxProfileDetailTaxProfileTextbox.Name = "taxProfileDetailTaxProfileTextbox";
+            taxProfileDetailTaxProfileTextbox.ReadOnly = true;
             taxProfileDetailTaxProfileTextbox.Size = new Size(370, 27);
             taxProfileDetailTaxProfileTextbox.TabIndex = 1;
             // 
@@ -228,10 +228,10 @@
             // 
             // taxProfileDetailTaxRateTextboxB
             // 
-            taxProfileDetailTaxRateTextboxB.Enabled = false;
             taxProfileDetailTaxRateTextboxB.Location = new Point(326, 218);
             taxProfileDetailTaxRateTextboxB.MaxLength = 5;
             taxProfileDetailTaxRateTextboxB.Name = "taxProfileDetailTaxRateTextboxB";
+            taxProfileDetailTaxRateTextboxB.ReadOnly = true;
             taxProfileDetailTaxRateTextboxB.Size = new Size(38, 27);
             taxProfileDetailTaxRateTextboxB.TabIndex = 3;
             // 

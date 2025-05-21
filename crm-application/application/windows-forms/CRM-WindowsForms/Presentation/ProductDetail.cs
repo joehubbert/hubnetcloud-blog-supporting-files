@@ -667,18 +667,18 @@ namespace CRM_WindowsForms.Presentation
         {
             productDetailOverviewActiveStatusCheckbox.Enabled = !productDetailOverviewActiveStatusCheckbox.Enabled;
             productDetailOverviewProductCategoryComboBox.Enabled = !productDetailOverviewProductCategoryComboBox.Enabled;
-            productDetailOverviewProductNameTextbox.Enabled = !productDetailOverviewProductNameTextbox.Enabled;
+            productDetailOverviewProductNameTextbox.ReadOnly = !productDetailOverviewProductNameTextbox.ReadOnly;
             productDetailOverviewSupplierComboBox.Enabled = !productDetailOverviewSupplierComboBox.Enabled;
-            productDetailOverviewUnitMinimumOrderQuantityTextbox.Enabled = !productDetailOverviewUnitMinimumOrderQuantityTextbox.Enabled;
-            productDetailOverviewUnitMinimumStockQuantityTextbox.Enabled = !productDetailOverviewUnitMinimumStockQuantityTextbox.Enabled;
-            productDetailOverviewUnitPriceTextboxA.Enabled = !productDetailOverviewUnitPriceTextboxA.Enabled;
-            productDetailOverviewUnitPriceTextboxB.Enabled = !productDetailOverviewUnitPriceTextboxB.Enabled;
-            productDetailOverviewWholesaleCartonQuantityTextbox.Enabled = !productDetailOverviewWholesaleCartonQuantityTextbox.Enabled;
-            productDetailOverviewWholesalePricePerUnitTextboxA.Enabled = !productDetailOverviewWholesalePricePerUnitTextboxA.Enabled;
-            productDetailOverviewWholesalePricePerUnitTextboxB.Enabled = !productDetailOverviewWholesalePricePerUnitTextboxB.Enabled;
+            productDetailOverviewUnitMinimumOrderQuantityTextbox.ReadOnly = !productDetailOverviewUnitMinimumOrderQuantityTextbox.ReadOnly;
+            productDetailOverviewUnitMinimumStockQuantityTextbox.ReadOnly = !productDetailOverviewUnitMinimumStockQuantityTextbox.ReadOnly;
+            productDetailOverviewUnitPriceTextboxA.ReadOnly = !productDetailOverviewUnitPriceTextboxA.ReadOnly;
+            productDetailOverviewUnitPriceTextboxB.ReadOnly = !productDetailOverviewUnitPriceTextboxB.ReadOnly;
+            productDetailOverviewWholesaleCartonQuantityTextbox.ReadOnly = !productDetailOverviewWholesaleCartonQuantityTextbox.ReadOnly;
+            productDetailOverviewWholesalePricePerUnitTextboxA.ReadOnly = !productDetailOverviewWholesalePricePerUnitTextboxA.ReadOnly;
+            productDetailOverviewWholesalePricePerUnitTextboxB.ReadOnly = !productDetailOverviewWholesalePricePerUnitTextboxB.ReadOnly;
             productDetailOverviewWholesaleReorderFlagYesRadioButton.Enabled = !productDetailOverviewWholesaleReorderFlagYesRadioButton.Enabled;
             productDetailOverviewWholesaleReorderFlagNoRadioButton.Enabled = !productDetailOverviewWholesaleReorderFlagNoRadioButton.Enabled;
-            productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled = !productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.Enabled;
+            productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.ReadOnly = !productDetailOverviewWholesaleUnitQuantityPerCartonTextbox.ReadOnly;
             productDetailProductImageChooseProductImageButton.Enabled = !productDetailProductImageChooseProductImageButton.Enabled;
             productDetailUpdateProductButton.Enabled = !productDetailUpdateProductButton.Enabled;
         }

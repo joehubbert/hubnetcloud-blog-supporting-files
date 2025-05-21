@@ -54,7 +54,7 @@ namespace CRM_WindowsForms.Presentation
                     DataRow customerTierDataRow = customerTierDataTable.Rows[0];
                     customerTierDetailCustomerTierIdTextbox.Text = customerTierDataRow["Customer Tier Id"].ToString();
                     customerTierDetailCustomerTierCodeTextbox.Text = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier"].ToString();
+                    customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier Description"].ToString();
                     customerTierDetailCreatedByTextbox.Text = customerTierDataRow["Created By"].ToString();
                     customerTierDetailCreatedTimestampTextbox.Text = customerTierDataRow["Created Timestamp"].ToString();
                     customerTierDetailLastUpdatedByTextbox.Text = customerTierDataRow["Modified By"].ToString();
@@ -62,7 +62,7 @@ namespace CRM_WindowsForms.Presentation
                     customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
 
                     customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier"].ToString();
+                    customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier Description"].ToString();
                     customerTierDetailActiveStatusOriginalValue = (bool)customerTierDataRow["Active Status"];
                 }
                 else
@@ -202,7 +202,8 @@ namespace CRM_WindowsForms.Presentation
 
         private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            customerTierDetailCustomerTierDescriptionTextbox.Enabled = !customerTierDetailCustomerTierDescriptionTextbox.Enabled;
+            customerTierDetailCustomerTierCodeTextbox.ReadOnly = !customerTierDetailCustomerTierCodeTextbox.ReadOnly;
+            customerTierDetailCustomerTierDescriptionTextbox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextbox.ReadOnly;
             customerTierDetailActiveStatusCheckbox.Enabled = !customerTierDetailActiveStatusCheckbox.Enabled;
             customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;
         }

@@ -302,10 +302,10 @@ namespace CRM_WindowsForms.Presentation
 
         private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            deliveryMethodDetailDeliveryMethodTextbox.Enabled = !deliveryMethodDetailDeliveryMethodTextbox.Enabled;
-            deliveryMethodDetailDeliveryCostTextboxA.Enabled = !deliveryMethodDetailDeliveryCostTextboxA.Enabled;
-            deliveryMethodDetailDeliveryCostTextboxB.Enabled = !deliveryMethodDetailDeliveryCostTextboxB.Enabled;
-            deliveryMethodDetailDeliveryTimeTextbox.Enabled = !deliveryMethodDetailDeliveryTimeTextbox.Enabled;
+            deliveryMethodDetailDeliveryMethodTextbox.ReadOnly = !deliveryMethodDetailDeliveryMethodTextbox.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextboxA.ReadOnly = !deliveryMethodDetailDeliveryCostTextboxA.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextboxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextboxB.ReadOnly;
+            deliveryMethodDetailDeliveryTimeTextbox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextbox.ReadOnly;
             deliveryMethodDetailTaxProfileComboBox.Enabled = !deliveryMethodDetailTaxProfileComboBox.Enabled;
             deliveryMethodDetailActiveStatusCheckbox.Enabled = !deliveryMethodDetailActiveStatusCheckbox.Enabled;
             deliveryMethodDetailUpdateDeliveryMethodButton.Enabled = !deliveryMethodDetailUpdateDeliveryMethodButton.Enabled;

@@ -162,11 +162,11 @@
             // supplierNoteDetailSupplierNoteTextbox
             // 
             supplierNoteDetailSupplierNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            supplierNoteDetailSupplierNoteTextbox.Enabled = false;
             supplierNoteDetailSupplierNoteTextbox.Location = new Point(235, 258);
             supplierNoteDetailSupplierNoteTextbox.MaxLength = 4000;
             supplierNoteDetailSupplierNoteTextbox.Multiline = true;
             supplierNoteDetailSupplierNoteTextbox.Name = "supplierNoteDetailSupplierNoteTextbox";
+            supplierNoteDetailSupplierNoteTextbox.ReadOnly = true;
             supplierNoteDetailSupplierNoteTextbox.ScrollBars = ScrollBars.Vertical;
             supplierNoteDetailSupplierNoteTextbox.Size = new Size(524, 259);
             supplierNoteDetailSupplierNoteTextbox.TabIndex = 3;
@@ -182,10 +182,10 @@
             // 
             // supplierNoteDetailSupplierNoteTitleTextbox
             // 
-            supplierNoteDetailSupplierNoteTitleTextbox.Enabled = false;
             supplierNoteDetailSupplierNoteTitleTextbox.Location = new Point(235, 177);
             supplierNoteDetailSupplierNoteTitleTextbox.MaxLength = 50;
             supplierNoteDetailSupplierNoteTitleTextbox.Name = "supplierNoteDetailSupplierNoteTitleTextbox";
+            supplierNoteDetailSupplierNoteTitleTextbox.ReadOnly = true;
             supplierNoteDetailSupplierNoteTitleTextbox.Size = new Size(524, 27);
             supplierNoteDetailSupplierNoteTitleTextbox.TabIndex = 1;
             // 

@@ -107,10 +107,10 @@
             // 
             // customerTypeDetailCustomerTypeTextbox
             // 
-            customerTypeDetailCustomerTypeTextbox.Enabled = false;
             customerTypeDetailCustomerTypeTextbox.Location = new Point(224, 178);
             customerTypeDetailCustomerTypeTextbox.MaxLength = 50;
             customerTypeDetailCustomerTypeTextbox.Name = "customerTypeDetailCustomerTypeTextbox";
+            customerTypeDetailCustomerTypeTextbox.ReadOnly = true;
             customerTypeDetailCustomerTypeTextbox.Size = new Size(370, 27);
             customerTypeDetailCustomerTypeTextbox.TabIndex = 1;
             // 

@@ -107,10 +107,10 @@
             // 
             // productCategoryDetailProductCategoryTextbox
             // 
-            productCategoryDetailProductCategoryTextbox.Enabled = false;
             productCategoryDetailProductCategoryTextbox.Location = new Point(224, 178);
             productCategoryDetailProductCategoryTextbox.MaxLength = 50;
             productCategoryDetailProductCategoryTextbox.Name = "productCategoryDetailProductCategoryTextbox";
+            productCategoryDetailProductCategoryTextbox.ReadOnly = true;
             productCategoryDetailProductCategoryTextbox.Size = new Size(370, 27);
             productCategoryDetailProductCategoryTextbox.TabIndex = 1;
             // 

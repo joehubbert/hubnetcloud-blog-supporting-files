@@ -178,7 +178,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void paymentMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            paymentMethodDetailPaymentMethodTextbox.Enabled = !paymentMethodDetailPaymentMethodTextbox.Enabled;
+            paymentMethodDetailPaymentMethodTextbox.ReadOnly = !paymentMethodDetailPaymentMethodTextbox.ReadOnly;
             paymentMethodDetailActiveStatusCheckbox.Enabled = !paymentMethodDetailActiveStatusCheckbox.Enabled;
             paymentMethodDetailUpdatePaymentMethodButton.Enabled = !paymentMethodDetailUpdatePaymentMethodButton.Enabled;
         }

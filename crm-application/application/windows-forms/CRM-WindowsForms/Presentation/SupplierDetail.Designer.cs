@@ -316,46 +316,46 @@
             // 
             // supplierDetailOverviewAddressLine4Textbox
             // 
-            supplierDetailOverviewAddressLine4Textbox.Enabled = false;
             supplierDetailOverviewAddressLine4Textbox.Location = new Point(818, 165);
             supplierDetailOverviewAddressLine4Textbox.MaxLength = 50;
             supplierDetailOverviewAddressLine4Textbox.Name = "supplierDetailOverviewAddressLine4Textbox";
+            supplierDetailOverviewAddressLine4Textbox.ReadOnly = true;
             supplierDetailOverviewAddressLine4Textbox.Size = new Size(370, 27);
             supplierDetailOverviewAddressLine4Textbox.TabIndex = 9;
             // 
             // supplierDetailOverviewAddressLine5Textbox
             // 
-            supplierDetailOverviewAddressLine5Textbox.Enabled = false;
             supplierDetailOverviewAddressLine5Textbox.Location = new Point(818, 210);
             supplierDetailOverviewAddressLine5Textbox.MaxLength = 50;
             supplierDetailOverviewAddressLine5Textbox.Name = "supplierDetailOverviewAddressLine5Textbox";
+            supplierDetailOverviewAddressLine5Textbox.ReadOnly = true;
             supplierDetailOverviewAddressLine5Textbox.Size = new Size(370, 27);
             supplierDetailOverviewAddressLine5Textbox.TabIndex = 10;
             // 
             // supplierDetailOverviewAddressLine3Textbox
             // 
-            supplierDetailOverviewAddressLine3Textbox.Enabled = false;
             supplierDetailOverviewAddressLine3Textbox.Location = new Point(818, 120);
             supplierDetailOverviewAddressLine3Textbox.MaxLength = 50;
             supplierDetailOverviewAddressLine3Textbox.Name = "supplierDetailOverviewAddressLine3Textbox";
+            supplierDetailOverviewAddressLine3Textbox.ReadOnly = true;
             supplierDetailOverviewAddressLine3Textbox.Size = new Size(370, 27);
             supplierDetailOverviewAddressLine3Textbox.TabIndex = 8;
             // 
             // supplierDetailOverviewAddressLine2Textbox
             // 
-            supplierDetailOverviewAddressLine2Textbox.Enabled = false;
             supplierDetailOverviewAddressLine2Textbox.Location = new Point(818, 75);
             supplierDetailOverviewAddressLine2Textbox.MaxLength = 50;
             supplierDetailOverviewAddressLine2Textbox.Name = "supplierDetailOverviewAddressLine2Textbox";
+            supplierDetailOverviewAddressLine2Textbox.ReadOnly = true;
             supplierDetailOverviewAddressLine2Textbox.Size = new Size(370, 27);
             supplierDetailOverviewAddressLine2Textbox.TabIndex = 7;
             // 
             // supplierDetailOverviewAddressLine1Textbox
             // 
-            supplierDetailOverviewAddressLine1Textbox.Enabled = false;
             supplierDetailOverviewAddressLine1Textbox.Location = new Point(818, 30);
             supplierDetailOverviewAddressLine1Textbox.MaxLength = 50;
             supplierDetailOverviewAddressLine1Textbox.Name = "supplierDetailOverviewAddressLine1Textbox";
+            supplierDetailOverviewAddressLine1Textbox.ReadOnly = true;
             supplierDetailOverviewAddressLine1Textbox.Size = new Size(370, 27);
             supplierDetailOverviewAddressLine1Textbox.TabIndex = 6;
             // 
@@ -379,19 +379,19 @@
             // 
             // supplierDetailOverviewEmailAddressTextbox
             // 
-            supplierDetailOverviewEmailAddressTextbox.Enabled = false;
             supplierDetailOverviewEmailAddressTextbox.Location = new Point(171, 157);
             supplierDetailOverviewEmailAddressTextbox.MaxLength = 50;
             supplierDetailOverviewEmailAddressTextbox.Name = "supplierDetailOverviewEmailAddressTextbox";
+            supplierDetailOverviewEmailAddressTextbox.ReadOnly = true;
             supplierDetailOverviewEmailAddressTextbox.Size = new Size(370, 27);
             supplierDetailOverviewEmailAddressTextbox.TabIndex = 4;
             // 
             // supplierDetailOverviewTelephoneNumberTextbox
             // 
-            supplierDetailOverviewTelephoneNumberTextbox.Enabled = false;
             supplierDetailOverviewTelephoneNumberTextbox.Location = new Point(171, 114);
             supplierDetailOverviewTelephoneNumberTextbox.MaxLength = 50;
             supplierDetailOverviewTelephoneNumberTextbox.Name = "supplierDetailOverviewTelephoneNumberTextbox";
+            supplierDetailOverviewTelephoneNumberTextbox.ReadOnly = true;
             supplierDetailOverviewTelephoneNumberTextbox.Size = new Size(370, 27);
             supplierDetailOverviewTelephoneNumberTextbox.TabIndex = 3;
             // 
@@ -406,10 +406,10 @@
             // 
             // supplierDetailOverviewSupplierNameTextbox
             // 
-            supplierDetailOverviewSupplierNameTextbox.Enabled = false;
             supplierDetailOverviewSupplierNameTextbox.Location = new Point(171, 71);
             supplierDetailOverviewSupplierNameTextbox.MaxLength = 50;
             supplierDetailOverviewSupplierNameTextbox.Name = "supplierDetailOverviewSupplierNameTextbox";
+            supplierDetailOverviewSupplierNameTextbox.ReadOnly = true;
             supplierDetailOverviewSupplierNameTextbox.Size = new Size(370, 27);
             supplierDetailOverviewSupplierNameTextbox.TabIndex = 2;
             // 
@@ -440,10 +440,10 @@
             // 
             // supplierDetailFinanceVATNumberTextbox
             // 
-            supplierDetailFinanceVATNumberTextbox.Enabled = false;
             supplierDetailFinanceVATNumberTextbox.Location = new Point(181, 140);
             supplierDetailFinanceVATNumberTextbox.MaxLength = 50;
             supplierDetailFinanceVATNumberTextbox.Name = "supplierDetailFinanceVATNumberTextbox";
+            supplierDetailFinanceVATNumberTextbox.ReadOnly = true;
             supplierDetailFinanceVATNumberTextbox.Size = new Size(208, 27);
             supplierDetailFinanceVATNumberTextbox.TabIndex = 18;
             // 
@@ -480,10 +480,10 @@
             // 
             // supplierDetailFinancePaymentDaysTextbox
             // 
-            supplierDetailFinancePaymentDaysTextbox.Enabled = false;
             supplierDetailFinancePaymentDaysTextbox.Location = new Point(181, 66);
             supplierDetailFinancePaymentDaysTextbox.MaxLength = 3;
             supplierDetailFinancePaymentDaysTextbox.Name = "supplierDetailFinancePaymentDaysTextbox";
+            supplierDetailFinancePaymentDaysTextbox.ReadOnly = true;
             supplierDetailFinancePaymentDaysTextbox.Size = new Size(103, 27);
             supplierDetailFinancePaymentDaysTextbox.TabIndex = 16;
             // 

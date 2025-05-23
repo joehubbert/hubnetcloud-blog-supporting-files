@@ -163,6 +163,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
+        private void createProductRemoveProductImageButton_Click(object sender, EventArgs e)
+        {
+            createProductProductImagePictureBox.Image = null;
+            _productImageBytes = null;
+        }
+
         private async void createProductSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createProductActiveStatusCheckbox.Checked;

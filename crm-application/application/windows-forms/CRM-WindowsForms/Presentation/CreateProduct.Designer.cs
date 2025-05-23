@@ -67,6 +67,7 @@
             createProductTabControl = new TabControl();
             createProductTabControlProductDetails = new TabPage();
             createProductTabControlProductImage = new TabPage();
+            createProductRemoveProductImageButton = new Button();
             createProductWholesaleReorderFlagPanel.SuspendLayout();
             createProductWholesaleGroupBox.SuspendLayout();
             createProductPerUnitGroupBox.SuspendLayout();
@@ -488,6 +489,7 @@
             // createProductTabControlProductImage
             // 
             createProductTabControlProductImage.BackColor = Color.SkyBlue;
+            createProductTabControlProductImage.Controls.Add(createProductRemoveProductImageButton);
             createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBox);
             createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBoxLabel);
             createProductTabControlProductImage.Controls.Add(createProductChooseProductImageButton);
@@ -497,6 +499,19 @@
             createProductTabControlProductImage.Size = new Size(1171, 595);
             createProductTabControlProductImage.TabIndex = 1;
             createProductTabControlProductImage.Text = "Product Image";
+            // 
+            // createProductRemoveProductImageButton
+            // 
+            createProductRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
+            createProductRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductRemoveProductImageButton.Location = new Point(315, 10);
+            createProductRemoveProductImageButton.Margin = new Padding(4);
+            createProductRemoveProductImageButton.Name = "createProductRemoveProductImageButton";
+            createProductRemoveProductImageButton.Size = new Size(159, 51);
+            createProductRemoveProductImageButton.TabIndex = 79;
+            createProductRemoveProductImageButton.Text = "Remove Product Image";
+            createProductRemoveProductImageButton.UseVisualStyleBackColor = true;
+            createProductRemoveProductImageButton.Click += createProductRemoveProductImageButton_Click;
             // 
             // CreateProduct
             // 
@@ -571,5 +586,6 @@
         private TabControl createProductTabControl;
         private TabPage createProductTabControlProductDetails;
         private TabPage createProductTabControlProductImage;
+        private Button createProductRemoveProductImageButton;
     }
 }

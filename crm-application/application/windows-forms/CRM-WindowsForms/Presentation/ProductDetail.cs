@@ -313,6 +313,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
+        private void productDetailProductImageRemoveProductImageButton_Click(object sender, EventArgs e)
+        {
+            productDetailProductImagePictureBox.Image = null;
+            productDetailProductImageRuntimeValue = null;
+        }
+
         private async void productDetailUpdateProductButton_Click(object sender, EventArgs e)
         {
             bool productDetailOverviewActiveStatus = productDetailOverviewActiveStatusCheckbox.Checked;

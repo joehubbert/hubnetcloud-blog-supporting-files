@@ -82,6 +82,7 @@
             productDetailProductNotesRefreshDataButton = new Button();
             productDetailProductNotesCreateNewProductNoteButton = new Button();
             productDetailProductNotesExistingProductNotesDataGridView = new DataGridView();
+            productDetailProductImageRemoveProductImageButton = new Button();
             productDetailTabControl.SuspendLayout();
             productDetailTabControlOverviewPage.SuspendLayout();
             productDetailOverviewPerUnitGroupBox.SuspendLayout();
@@ -595,6 +596,7 @@
             // productDetailTabControlProductImagePage
             // 
             productDetailTabControlProductImagePage.BackColor = Color.SkyBlue;
+            productDetailTabControlProductImagePage.Controls.Add(productDetailProductImageRemoveProductImageButton);
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBox);
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBoxLabel);
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImageChooseProductImageButton);
@@ -644,9 +646,9 @@
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesRefreshDataButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesCreateNewProductNoteButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
-            productDetailTabControlProductNotesPage.Location = new Point(4, 32);
+            productDetailTabControlProductNotesPage.Location = new Point(4, 27);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 589);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 594);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 
@@ -687,6 +689,19 @@
             productDetailProductNotesExistingProductNotesDataGridView.ReadOnly = true;
             productDetailProductNotesExistingProductNotesDataGridView.Size = new Size(1059, 523);
             productDetailProductNotesExistingProductNotesDataGridView.TabIndex = 21;
+            // 
+            // productDetailProductImageRemoveProductImageButton
+            // 
+            productDetailProductImageRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
+            productDetailProductImageRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            productDetailProductImageRemoveProductImageButton.Location = new Point(301, 12);
+            productDetailProductImageRemoveProductImageButton.Margin = new Padding(4);
+            productDetailProductImageRemoveProductImageButton.Name = "productDetailProductImageRemoveProductImageButton";
+            productDetailProductImageRemoveProductImageButton.Size = new Size(159, 51);
+            productDetailProductImageRemoveProductImageButton.TabIndex = 82;
+            productDetailProductImageRemoveProductImageButton.Text = "Remove Product Image";
+            productDetailProductImageRemoveProductImageButton.UseVisualStyleBackColor = true;
+            productDetailProductImageRemoveProductImageButton.Click += productDetailProductImageRemoveProductImageButton_Click;
             // 
             // ProductDetail
             // 
@@ -778,5 +793,6 @@
         private PictureBox productDetailProductImagePictureBox;
         private Label productDetailProductImagePictureBoxLabel;
         private Button productDetailProductImageChooseProductImageButton;
+        private Button productDetailProductImageRemoveProductImageButton;
     }
 }

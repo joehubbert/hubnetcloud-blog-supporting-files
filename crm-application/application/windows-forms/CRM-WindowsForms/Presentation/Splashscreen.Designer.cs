@@ -63,9 +63,9 @@
             splashscreenAuthorLabel.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             splashscreenAuthorLabel.Location = new Point(12, 303);
             splashscreenAuthorLabel.Name = "splashscreenAuthorLabel";
-            splashscreenAuthorLabel.Size = new Size(285, 20);
+            splashscreenAuthorLabel.Size = new Size(143, 20);
             splashscreenAuthorLabel.TabIndex = 2;
-            splashscreenAuthorLabel.Text = "© Joe Hubbert 2025 | All Rights Reserved.";
+            splashscreenAuthorLabel.Text = "© Joe Hubbert 2025";
             // 
             // splashscreenSoftwareTitle2Label
             // 

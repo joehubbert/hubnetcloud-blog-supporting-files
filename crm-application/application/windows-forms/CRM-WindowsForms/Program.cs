@@ -1,16 +1,20 @@
-namespace CRM_WindowsForms.Presentation
+using CRM_WindowsForms.Presentation;
+
+namespace CRM_WindowsForms
 {
-    internal static class Program
+    static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+
+            using (var splash = new Splashscreen())
+            {
+                splash.ShowDialog();
+            }
+
             Application.Run(new Home());
         }
     }

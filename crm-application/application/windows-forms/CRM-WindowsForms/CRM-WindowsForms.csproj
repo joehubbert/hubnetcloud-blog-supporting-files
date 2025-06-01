@@ -8,6 +8,10 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ForceDesignerDPIUnaware>true</ForceDesignerDPIUnaware>
+    <Title>CRM - Windows Forms (Enterprise Edition)</Title>
+    <Company>Joe Hubbert</Company>
+    <Authors>Joe Hubbert</Authors>
+    <Product>CRM - Enterprise Edition</Product>
   </PropertyGroup>
 
   <ItemGroup>

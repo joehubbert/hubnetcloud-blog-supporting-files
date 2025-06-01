@@ -1,4 +1,6 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿using CRM_WindowsForms.Presentation.Functions;
+
+namespace CRM_WindowsForms.Presentation
 {
     public partial class Splashscreen : Form
     {
@@ -11,6 +13,7 @@
             InitializeComponent();
             closeTimer.Interval = 3000; // Set timer interval to 5 seconds
             closeTimer.Tick += (s, e) => { closeTimer.Stop(); this.Close(); };
+            this.splashscreenAuthorLabel.Text = $"{new AssemblyAccessor().GetAssemblyCompany()} © {DateTime.Now.Year}";
 
             animationTimer.Interval = 300; // 0.3 seconds
             animationTimer.Tick += timer_Tick;

@@ -9,7 +9,7 @@ namespace CRM_WindowsForms.Interface
         public string? DatabaseName { get; set; }
         public bool EncryptConnection { get; set; }
 
-        private static readonly string ConfigFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"CRM-WindowsForms");
+        private static readonly string ConfigFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"CRM-WindowsForms.EnterpriseEdition");
         private static readonly string ConfigFilePath = Path.Combine(ConfigFolderPath, "config.json");
 
         public static async Task<DatabaseConnectionSettings> LoadAsync()
@@ -43,7 +43,7 @@ namespace CRM_WindowsForms.Interface
                     IntegratedSecurity = true,
                     Encrypt = EncryptConnection,
                     TrustServerCertificate = true,
-                    ApplicationName = "CRM-WindowsForms"
+                    ApplicationName = "CRM - Enterprise Edition"
                 };
                 return builder.ConnectionString;
             }

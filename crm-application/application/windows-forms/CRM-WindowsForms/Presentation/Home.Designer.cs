@@ -78,11 +78,11 @@
             homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus = new ToolStripMenuItem();
+            homeMenuStripCompanyManagementMasterDataManagementOrder = new ToolStripMenuItem();
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus = new ToolStripMenuItem();
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus = new ToolStripMenuItem();
             homeMenuStripCompanyManagementMasterDataManagementProduct = new ToolStripMenuItem();
@@ -326,7 +326,7 @@
             // 
             homeMenuStripCompanyManagementMasterDataManagement.BackColor = Color.Transparent;
             homeMenuStripCompanyManagementMasterDataManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementAccountManagement, homeMenuStripCompanyManagementMasterDataManagementCustomer, homeMenuStripCompanyManagementMasterDataManagementFinance, homeMenuStripCompanyManagementMasterDataManagementLogistics, homeMenuStripCompanyManagementMasterDataManagementMiscellaneous, homeMenuStripCompanyManagementMasterDataManagementProduct, homeMenuStripCompanyManagementMasterDataManagementSalesGeography, homeMenuStripCompanyManagementMasterDataManagementSupplier });
+            homeMenuStripCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementAccountManagement, homeMenuStripCompanyManagementMasterDataManagementCustomer, homeMenuStripCompanyManagementMasterDataManagementFinance, homeMenuStripCompanyManagementMasterDataManagementLogistics, homeMenuStripCompanyManagementMasterDataManagementOrder, homeMenuStripCompanyManagementMasterDataManagementProduct, homeMenuStripCompanyManagementMasterDataManagementSalesGeography, homeMenuStripCompanyManagementMasterDataManagementSupplier });
             homeMenuStripCompanyManagementMasterDataManagement.Name = "homeMenuStripCompanyManagementMasterDataManagement";
             homeMenuStripCompanyManagementMasterDataManagement.Size = new Size(229, 22);
             homeMenuStripCompanyManagementMasterDataManagement.Text = "&Master Data Management";
@@ -590,23 +590,23 @@
             homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Size = new Size(227, 22);
             homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Text = "&View All Delivery Methods";
             // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneous
+            // homeMenuStripCompanyManagementMasterDataManagementOrder
             // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus });
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneous";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneous.Text = "&Miscellaneous";
+            homeMenuStripCompanyManagementMasterDataManagementOrder.BackColor = Color.Transparent;
+            homeMenuStripCompanyManagementMasterDataManagementOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripCompanyManagementMasterDataManagementOrder.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus, homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus });
+            homeMenuStripCompanyManagementMasterDataManagementOrder.Name = "homeMenuStripCompanyManagementMasterDataManagementOrder";
+            homeMenuStripCompanyManagementMasterDataManagementOrder.Size = new Size(203, 22);
+            homeMenuStripCompanyManagementMasterDataManagementOrder.Text = "&Order";
             // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus
+            // homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus
             // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus });
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus.Text = "&Order Status";
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.BackColor = Color.Transparent;
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus });
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus";
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Size = new Size(206, 22);
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Text = "&Order Status";
             // 
             // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus
             // 
@@ -624,14 +624,14 @@
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Size = new Size(212, 22);
             homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Text = "&View All Order Statuses";
             // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus
+            // homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus
             // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus });
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus.Text = "&Order Line Item Status";
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.BackColor = Color.Transparent;
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus });
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus";
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Size = new Size(206, 22);
+            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Text = "&Order Line Item Status";
             // 
             // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus
             // 
@@ -994,7 +994,7 @@
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomer;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinance;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementLogistics;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneous;
+        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrder;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProduct;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeography;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplier;
@@ -1045,10 +1045,10 @@
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatus;
+        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatus;
+        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus;
         private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus;
         private ToolStripMenuItem homeMenuStripOrderManagementCreateOrder;

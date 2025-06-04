@@ -1,6 +1,3 @@
-using System.Drawing;
-using System.IO;
-
 namespace CRM_WindowsForms.Presentation.Functions
 {
     public static class ImageHelper

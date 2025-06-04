@@ -35,10 +35,10 @@ namespace CRM_WindowsForms.Presentation
             productManagement.Show();
         }
 
-        private void homeNavCompanyAdministration_Click(object sender, EventArgs e)
+        private void homeNavCompanyManagement_Click(object sender, EventArgs e)
         {
-            CompanyAdministration companyAdministration = new CompanyAdministration();
-            companyAdministration.Show();
+            CompanyManagement companyManagement = new CompanyManagement();
+            companyManagement.Show();
         }
 
         private void homeNavSupplierManagementButton_Click(object sender, EventArgs e)

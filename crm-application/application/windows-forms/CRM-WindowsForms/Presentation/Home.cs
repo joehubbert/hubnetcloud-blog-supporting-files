@@ -1,14 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation
 {
     public partial class Home : Form
     {
@@ -17,22 +7,10 @@ namespace CRM_WindowsForms.Presentation
             InitializeComponent();
         }
 
-        private void homeNavOrderManagement_Click(object sender, EventArgs e)
+        private void homeNavAppConfiguration_Click(object sender, EventArgs e)
         {
-            OrderManagement orderManagement = new OrderManagement();
-            orderManagement.Show();
-        }
-
-        private void homeNavCustomerManagement_Click(object sender, EventArgs e)
-        {
-            CustomerManagement customerManagement = new CustomerManagement();
-            customerManagement.Show();
-        }
-
-        private void homeNavProductManagement_Click(object sender, EventArgs e)
-        {
-            ProductManagement productManagement = new ProductManagement();
-            productManagement.Show();
+            AppConfiguration appConfiguration = new AppConfiguration();
+            appConfiguration.Show();
         }
 
         private void homeNavCompanyManagement_Click(object sender, EventArgs e)
@@ -41,16 +19,34 @@ namespace CRM_WindowsForms.Presentation
             companyManagement.Show();
         }
 
-        private void homeNavSupplierManagementButton_Click(object sender, EventArgs e)
+        private void homeNavCustomerManagement_Click(object sender, EventArgs e)
         {
-            SupplierManagement supplierManagement = new SupplierManagement();
-            supplierManagement.Show();
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("CustomerManagement");
+            moduleHomeSimple.Show();
         }
 
-        private void homeNavAppConfiguration_Click(object sender, EventArgs e)
+        private void homeNavMarketingManagement_Click(object sender, EventArgs e)
         {
-            AppConfiguration appConfiguration = new AppConfiguration();
-            appConfiguration.Show();
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("MarketingManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeNavOrderManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("OrderManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeNavProductManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("ProductManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeNavSupplierManagementButton_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("SupplierManagement");
+            moduleHomeSimple.Show();
         }
 
         private void homeMenuStripHelpAbout_Click(object sender, EventArgs e)
@@ -65,37 +61,73 @@ namespace CRM_WindowsForms.Presentation
             solitaire.Show();
         }
 
-        private void homeMenuStripCustomerManagementCreateCustomer_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleCompanyManagement_Click(object sender, EventArgs e)
+        {
+            CompanyManagement companyManagement = new CompanyManagement();
+            companyManagement.Show();
+        }
+
+        private void homeMenuStripModuleCustomerManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("CustomerManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeMenuStripModuleCustomerManagementCreateCustomer_Click(object sender, EventArgs e)
         {
             CreateCustomer createCustomer = new CreateCustomer();
             createCustomer.Show();
         }
 
-        private void homeMenuStripCustomerManagementViewAllCustomer_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleCustomerManagementViewAllCustomer_Click(object sender, EventArgs e)
         {
             ViewAllCustomer viewAllCustomer = new ViewAllCustomer();
             viewAllCustomer.Show();
         }
 
-        private void homeMenuStripProductManagementCreateProduct_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleMarketingManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("MarketingManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeMenuStripModuleOrderManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("OrderManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeMenuStripModuleProductManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("ProductManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeMenuStripModuleProductManagementCreateProduct_Click(object sender, EventArgs e)
         {
             CreateProduct createProduct = new CreateProduct();
             createProduct.Show();
         }
 
-        private void homeMenuStripProductManagementViewAllProduct_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleProductManagementViewAllProduct_Click(object sender, EventArgs e)
         {
             ViewAllProduct viewAllProduct = new ViewAllProduct();
             viewAllProduct.Show();
         }
 
-        private void homeMenuStripSupplierManagementCreateSupplier_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleSupplierManagement_Click(object sender, EventArgs e)
+        {
+            ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("SupplierManagement");
+            moduleHomeSimple.Show();
+        }
+
+        private void homeMenuStripModuleSupplierManagementCreateSupplier_Click(object sender, EventArgs e)
         {
             CreateSupplier createSupplier = new CreateSupplier();
             createSupplier.Show();
         }
 
-        private void homeMenuStripSupplierManagementViewAllSupplier_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleSupplierManagementViewAllSupplier_Click(object sender, EventArgs e)
         {
             ViewAllSupplier viewAllSupplier = new ViewAllSupplier();
             viewAllSupplier.Show();

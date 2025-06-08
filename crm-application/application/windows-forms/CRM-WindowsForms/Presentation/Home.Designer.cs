@@ -36,88 +36,91 @@
             homeTitleLabel = new Label();
             homeNavSupplierManagementButton = new Button();
             homeMenuStrip = new MenuStrip();
-            homeMenuStripOrderManagement = new ToolStripMenuItem();
-            homeMenuStripOrderManagementCreateOrder = new ToolStripMenuItem();
-            homeMenuStripOrderManagementViewAllOrder = new ToolStripMenuItem();
-            homeMenuStripCustomerManagement = new ToolStripMenuItem();
-            homeMenuStripCustomerManagementCreateCustomer = new ToolStripMenuItem();
-            homeMenuStripCustomerManagementViewAllCustomer = new ToolStripMenuItem();
-            homeMenuStripProductManagement = new ToolStripMenuItem();
-            homeMenuStripProductManagementCreateProduct = new ToolStripMenuItem();
-            homeMenuStripProductManagementViewAllProduct = new ToolStripMenuItem();
-            homeMenuStripCompanyManagement = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagement = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomer = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinance = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementLogistics = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementOrder = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProduct = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSupplier = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementCompanyConfiguration = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration = new ToolStripMenuItem();
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration = new ToolStripMenuItem();
-            homeMenuStripSupplierManagement = new ToolStripMenuItem();
-            homeMenuStripSupplierManagementCreateSupplier = new ToolStripMenuItem();
-            homeMenuStripSupplierManagementViewAllSupplier = new ToolStripMenuItem();
+            homeMenuStripModule = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagement = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagement = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCustomerManagement = new ToolStripMenuItem();
+            homeMenuStripModuleCustomerManagementCreateCustomer = new ToolStripMenuItem();
+            homeMenuStripModuleCustomerManagementViewAllCustomer = new ToolStripMenuItem();
+            homeMenuStripModuleMarketingManagement = new ToolStripMenuItem();
+            homeMenuStripModuleOrderManagement = new ToolStripMenuItem();
+            homeMenuStripModuleOrderManagementCreateOrder = new ToolStripMenuItem();
+            homeMenuStripModuleOrderManagementViewAllOrder = new ToolStripMenuItem();
+            homeMenuStripModuleProductManagement = new ToolStripMenuItem();
+            homeMenuStripModuleProductManagementCreateProduct = new ToolStripMenuItem();
+            homeMenuStripModuleProductManagementViewAllProduct = new ToolStripMenuItem();
+            homeMenuStripModuleSupplierManagement = new ToolStripMenuItem();
+            homeMenuStripModuleSupplierManagementCreateSupplier = new ToolStripMenuItem();
+            homeMenuStripModuleSupplierManagementViewAllSupplier = new ToolStripMenuItem();
             homeMenuStripOptions = new ToolStripMenuItem();
             homeMenuStripOptionsAppConfiguration = new ToolStripMenuItem();
             homeMenuStripHelp = new ToolStripMenuItem();
             homeMenuStripHelpAbout = new ToolStripMenuItem();
             homeMenuStripHelpEasterEgg = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSolitaire = new ToolStripMenuItem();
+            homeNavMarketingManagement = new Button();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -127,7 +130,7 @@
             homeNavOrderManagement.FlatStyle = FlatStyle.Flat;
             homeNavOrderManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavOrderManagement.ForeColor = Color.Black;
-            homeNavOrderManagement.Location = new Point(249, 164);
+            homeNavOrderManagement.Location = new Point(242, 153);
             homeNavOrderManagement.Margin = new Padding(4);
             homeNavOrderManagement.Name = "homeNavOrderManagement";
             homeNavOrderManagement.Size = new Size(208, 73);
@@ -142,7 +145,7 @@
             homeNavAppConfiguration.FlatStyle = FlatStyle.Flat;
             homeNavAppConfiguration.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavAppConfiguration.ForeColor = Color.Black;
-            homeNavAppConfiguration.Location = new Point(685, 36);
+            homeNavAppConfiguration.Location = new Point(721, 32);
             homeNavAppConfiguration.Margin = new Padding(4);
             homeNavAppConfiguration.Name = "homeNavAppConfiguration";
             homeNavAppConfiguration.Size = new Size(208, 73);
@@ -157,7 +160,7 @@
             homeNavProductManagement.FlatStyle = FlatStyle.Flat;
             homeNavProductManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavProductManagement.ForeColor = Color.Black;
-            homeNavProductManagement.Location = new Point(249, 263);
+            homeNavProductManagement.Location = new Point(242, 252);
             homeNavProductManagement.Margin = new Padding(4);
             homeNavProductManagement.Name = "homeNavProductManagement";
             homeNavProductManagement.Size = new Size(208, 73);
@@ -172,7 +175,7 @@
             homeNavCompanyManagement.FlatStyle = FlatStyle.Flat;
             homeNavCompanyManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavCompanyManagement.ForeColor = Color.Black;
-            homeNavCompanyManagement.Location = new Point(484, 263);
+            homeNavCompanyManagement.Location = new Point(477, 252);
             homeNavCompanyManagement.Margin = new Padding(4);
             homeNavCompanyManagement.Name = "homeNavCompanyManagement";
             homeNavCompanyManagement.Size = new Size(208, 73);
@@ -187,7 +190,7 @@
             homeNavCustomerManagement.FlatStyle = FlatStyle.Flat;
             homeNavCustomerManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavCustomerManagement.ForeColor = Color.Black;
-            homeNavCustomerManagement.Location = new Point(484, 164);
+            homeNavCustomerManagement.Location = new Point(477, 153);
             homeNavCustomerManagement.Margin = new Padding(4);
             homeNavCustomerManagement.Name = "homeNavCustomerManagement";
             homeNavCustomerManagement.Size = new Size(208, 73);
@@ -213,7 +216,7 @@
             homeNavSupplierManagementButton.FlatStyle = FlatStyle.Flat;
             homeNavSupplierManagementButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavSupplierManagementButton.ForeColor = Color.Black;
-            homeNavSupplierManagementButton.Location = new Point(249, 362);
+            homeNavSupplierManagementButton.Location = new Point(242, 351);
             homeNavSupplierManagementButton.Margin = new Padding(4);
             homeNavSupplierManagementButton.Name = "homeNavSupplierManagementButton";
             homeNavSupplierManagementButton.Size = new Size(208, 73);
@@ -226,657 +229,680 @@
             // 
             homeMenuStrip.BackColor = Color.White;
             homeMenuStrip.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            homeMenuStrip.Items.AddRange(new ToolStripItem[] { homeMenuStripOrderManagement, homeMenuStripCustomerManagement, homeMenuStripProductManagement, homeMenuStripCompanyManagement, homeMenuStripSupplierManagement, homeMenuStripOptions, homeMenuStripHelp });
+            homeMenuStrip.Items.AddRange(new ToolStripItem[] { homeMenuStripModule, homeMenuStripOptions, homeMenuStripHelp });
             homeMenuStrip.Location = new Point(0, 0);
             homeMenuStrip.Name = "homeMenuStrip";
             homeMenuStrip.RenderMode = ToolStripRenderMode.Professional;
-            homeMenuStrip.Size = new Size(925, 25);
+            homeMenuStrip.Size = new Size(947, 25);
             homeMenuStrip.TabIndex = 0;
             homeMenuStrip.Text = "homeMenuStrip";
             // 
-            // homeMenuStripOrderManagement
-            // 
-            homeMenuStripOrderManagement.BackColor = Color.White;
-            homeMenuStripOrderManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripOrderManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripOrderManagementCreateOrder, homeMenuStripOrderManagementViewAllOrder });
-            homeMenuStripOrderManagement.Name = "homeMenuStripOrderManagement";
-            homeMenuStripOrderManagement.Size = new Size(136, 21);
-            homeMenuStripOrderManagement.Text = "&Order Management";
-            // 
-            // homeMenuStripOrderManagementCreateOrder
-            // 
-            homeMenuStripOrderManagementCreateOrder.BackColor = Color.Transparent;
-            homeMenuStripOrderManagementCreateOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripOrderManagementCreateOrder.Name = "homeMenuStripOrderManagementCreateOrder";
-            homeMenuStripOrderManagementCreateOrder.Size = new Size(166, 22);
-            homeMenuStripOrderManagementCreateOrder.Text = "&Create Order";
-            // 
-            // homeMenuStripOrderManagementViewAllOrder
-            // 
-            homeMenuStripOrderManagementViewAllOrder.BackColor = Color.Transparent;
-            homeMenuStripOrderManagementViewAllOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripOrderManagementViewAllOrder.Name = "homeMenuStripOrderManagementViewAllOrder";
-            homeMenuStripOrderManagementViewAllOrder.Size = new Size(166, 22);
-            homeMenuStripOrderManagementViewAllOrder.Text = "&View All Orders";
-            // 
-            // homeMenuStripCustomerManagement
-            // 
-            homeMenuStripCustomerManagement.BackColor = Color.White;
-            homeMenuStripCustomerManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCustomerManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCustomerManagementCreateCustomer, homeMenuStripCustomerManagementViewAllCustomer });
-            homeMenuStripCustomerManagement.Name = "homeMenuStripCustomerManagement";
-            homeMenuStripCustomerManagement.Size = new Size(157, 21);
-            homeMenuStripCustomerManagement.Text = "&Customer Management";
-            // 
-            // homeMenuStripCustomerManagementCreateCustomer
-            // 
-            homeMenuStripCustomerManagementCreateCustomer.BackColor = Color.Transparent;
-            homeMenuStripCustomerManagementCreateCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCustomerManagementCreateCustomer.Name = "homeMenuStripCustomerManagementCreateCustomer";
-            homeMenuStripCustomerManagementCreateCustomer.Size = new Size(187, 22);
-            homeMenuStripCustomerManagementCreateCustomer.Text = "&Create Customer";
-            homeMenuStripCustomerManagementCreateCustomer.Click += homeMenuStripCustomerManagementCreateCustomer_Click;
-            // 
-            // homeMenuStripCustomerManagementViewAllCustomer
-            // 
-            homeMenuStripCustomerManagementViewAllCustomer.BackColor = Color.Transparent;
-            homeMenuStripCustomerManagementViewAllCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCustomerManagementViewAllCustomer.Name = "homeMenuStripCustomerManagementViewAllCustomer";
-            homeMenuStripCustomerManagementViewAllCustomer.Size = new Size(187, 22);
-            homeMenuStripCustomerManagementViewAllCustomer.Text = "&View All Customers";
-            homeMenuStripCustomerManagementViewAllCustomer.Click += homeMenuStripCustomerManagementViewAllCustomer_Click;
-            // 
-            // homeMenuStripProductManagement
-            // 
-            homeMenuStripProductManagement.BackColor = Color.White;
-            homeMenuStripProductManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripProductManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripProductManagementCreateProduct, homeMenuStripProductManagementViewAllProduct });
-            homeMenuStripProductManagement.Name = "homeMenuStripProductManagement";
-            homeMenuStripProductManagement.Size = new Size(146, 21);
-            homeMenuStripProductManagement.Text = "&Product Management";
-            // 
-            // homeMenuStripProductManagementCreateProduct
-            // 
-            homeMenuStripProductManagementCreateProduct.BackColor = Color.Transparent;
-            homeMenuStripProductManagementCreateProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripProductManagementCreateProduct.Name = "homeMenuStripProductManagementCreateProduct";
-            homeMenuStripProductManagementCreateProduct.Size = new Size(176, 22);
-            homeMenuStripProductManagementCreateProduct.Text = "&Create Product";
-            homeMenuStripProductManagementCreateProduct.Click += homeMenuStripProductManagementCreateProduct_Click;
-            // 
-            // homeMenuStripProductManagementViewAllProduct
-            // 
-            homeMenuStripProductManagementViewAllProduct.BackColor = Color.Transparent;
-            homeMenuStripProductManagementViewAllProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripProductManagementViewAllProduct.Name = "homeMenuStripProductManagementViewAllProduct";
-            homeMenuStripProductManagementViewAllProduct.Size = new Size(176, 22);
-            homeMenuStripProductManagementViewAllProduct.Text = "&View All Products";
-            homeMenuStripProductManagementViewAllProduct.Click += homeMenuStripProductManagementViewAllProduct_Click;
-            // 
-            // homeMenuStripCompanyManagement
-            // 
-            homeMenuStripCompanyManagement.BackColor = Color.White;
-            homeMenuStripCompanyManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagement, homeMenuStripCompanyManagementCompanyConfiguration });
-            homeMenuStripCompanyManagement.Name = "homeMenuStripCompanyManagement";
-            homeMenuStripCompanyManagement.Size = new Size(156, 21);
-            homeMenuStripCompanyManagement.Text = "&Company Management";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagement
-            // 
-            homeMenuStripCompanyManagementMasterDataManagement.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementAccountManagement, homeMenuStripCompanyManagementMasterDataManagementCustomer, homeMenuStripCompanyManagementMasterDataManagementFinance, homeMenuStripCompanyManagementMasterDataManagementLogistics, homeMenuStripCompanyManagementMasterDataManagementOrder, homeMenuStripCompanyManagementMasterDataManagementProduct, homeMenuStripCompanyManagementMasterDataManagementSalesGeography, homeMenuStripCompanyManagementMasterDataManagementSupplier });
-            homeMenuStripCompanyManagementMasterDataManagement.Name = "homeMenuStripCompanyManagementMasterDataManagement";
-            homeMenuStripCompanyManagementMasterDataManagement.Size = new Size(229, 22);
-            homeMenuStripCompanyManagementMasterDataManagement.Text = "&Master Data Management";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementAccountManagement
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager });
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.Name = "homeMenuStripCompanyManagementMasterDataManagementAccountManagement";
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagement.Text = "&Account Management";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager, homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager });
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager.Name = "homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager";
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager.Size = new Size(179, 22);
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager.Text = "&Account Manager";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Name = "homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager";
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Size = new Size(234, 22);
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Text = "&Create Account Manager";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Name = "homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager";
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Size = new Size(234, 22);
-            homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Text = "&View All Account Managers";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomer
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType, homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier, homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType });
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomer";
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomer.Text = "&Customer";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType, homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType });
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType.Text = "&Customer Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Size = new Size(251, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Text = "&Create Customer Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Size = new Size(251, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Text = "&View All Customer Note Types";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier, homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier });
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier.Text = "&Customer Tier";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Size = new Size(213, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Text = "&Create Customer Tier";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Size = new Size(213, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Text = "&View All Customer Tiers";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType, homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType });
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType.Text = "&Customer Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Size = new Size(218, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Text = "&Create Customer Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Name = "homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType";
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Size = new Size(218, 22);
-            homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Text = "&View All Customer Types";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinance
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinance.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinance.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinance.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency, homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion, homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod, homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile });
-            homeMenuStripCompanyManagementMasterDataManagementFinance.Name = "homeMenuStripCompanyManagementMasterDataManagementFinance";
-            homeMenuStripCompanyManagementMasterDataManagementFinance.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinance.Text = "&Finance";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency, homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency });
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency.Text = "&Currency";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Size = new Size(186, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Text = "&Create Currency";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Size = new Size(186, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Text = "&View All Currencies";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion, homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion });
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion.Text = "&Currency Conversion";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Size = new Size(251, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Text = "&Create Currency Conversion";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Size = new Size(251, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Text = "&View All Currency Conversions";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod, homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod });
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod";
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod.Text = "&Payment Method";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod";
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Size = new Size(230, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Text = "&Create Payment Method";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod";
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Size = new Size(230, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Text = "&View All Payment Methods";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile, homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile });
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.Size = new Size(196, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile.Text = "&Tax Profile";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Size = new Size(191, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Text = "&Create Tax Profile";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Name = "homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile";
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Size = new Size(191, 22);
-            homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Text = "&View All Tax Profiles";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementLogistics
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod });
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.Name = "homeMenuStripCompanyManagementMasterDataManagementLogistics";
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementLogistics.Text = "&Logistics";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod, homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod });
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod";
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Size = new Size(172, 22);
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Text = "&Delivery Method";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod";
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Size = new Size(227, 22);
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Text = "&Create Delivery Method";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Name = "homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod";
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Size = new Size(227, 22);
-            homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Text = "&View All Delivery Methods";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementOrder
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementOrder.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementOrder.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus, homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus });
-            homeMenuStripCompanyManagementMasterDataManagementOrder.Name = "homeMenuStripCompanyManagementMasterDataManagementOrder";
-            homeMenuStripCompanyManagementMasterDataManagementOrder.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementOrder.Text = "&Order";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus });
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus";
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus.Text = "&Order Status";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Size = new Size(212, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Text = "&Create Order Status";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Size = new Size(212, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Text = "&View All Order Statuses";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus, homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus });
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus";
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Text = "&Order Line Item Status";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Size = new Size(268, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Text = "&Create Order Line Item Status";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Name = "homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus";
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Size = new Size(268, 22);
-            homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Text = "&View All Order Line Item Statuses";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProduct
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProduct.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProduct.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementProductProductCategory, homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory, homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType });
-            homeMenuStripCompanyManagementMasterDataManagementProduct.Name = "homeMenuStripCompanyManagementMasterDataManagementProduct";
-            homeMenuStripCompanyManagementMasterDataManagementProduct.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProduct.Text = "&Product";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductCategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory, homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory });
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductCategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.Size = new Size(198, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategory.Text = "&Product Category";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Size = new Size(237, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Text = "&Create Product Category";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Size = new Size(237, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Text = "&View All Product Categories";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory, homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory });
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.Size = new Size(198, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory.Text = "&Product Subcategory";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Size = new Size(257, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Text = "&Create Product Subcategory";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Size = new Size(257, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Text = "&View All Product Subcategories";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType, homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType });
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.Size = new Size(198, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType.Text = "&Product Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Size = new Size(240, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Text = "&Create Product Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Size = new Size(240, 22);
-            homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Text = "&View All Product Note Types";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeography
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion, homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion });
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeography";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeography.Text = "&Sales Geography";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion, homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion });
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.Size = new Size(177, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion.Text = "&Sales Region";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Text = "&Create Sales Region";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Size = new Size(206, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Text = "&View All Sales Regions";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion, homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion });
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Size = new Size(177, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Text = "&Sales Sub Region";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Size = new Size(232, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Text = "&Create Sales Sub Region";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Name = "homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion";
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Size = new Size(232, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Text = "&View All Sales Sub Regions";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSupplier
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType });
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.Name = "homeMenuStripCompanyManagementMasterDataManagementSupplier";
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.Size = new Size(203, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSupplier.Text = "&Supplier";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType, homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType });
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.Size = new Size(188, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType.Text = "&Supplier Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Size = new Size(243, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Text = "&Create Supplier Note Type";
-            // 
-            // homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType
-            // 
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Name = "homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType";
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Size = new Size(243, 22);
-            homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Text = "&View All Supplier Note Types";
-            // 
-            // homeMenuStripCompanyManagementCompanyConfiguration
-            // 
-            homeMenuStripCompanyManagementCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
-            homeMenuStripCompanyManagementCompanyConfiguration.Name = "homeMenuStripCompanyManagementCompanyConfiguration";
-            homeMenuStripCompanyManagementCompanyConfiguration.Size = new Size(229, 22);
-            homeMenuStripCompanyManagementCompanyConfiguration.Text = "&Company Configuration";
-            // 
-            // homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration
-            // 
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(269, 22);
-            homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
-            // 
-            // homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration
-            // 
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(269, 22);
-            homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
-            // 
-            // homeMenuStripSupplierManagement
-            // 
-            homeMenuStripSupplierManagement.BackColor = Color.Transparent;
-            homeMenuStripSupplierManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripSupplierManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripSupplierManagementCreateSupplier, homeMenuStripSupplierManagementViewAllSupplier });
-            homeMenuStripSupplierManagement.Name = "homeMenuStripSupplierManagement";
-            homeMenuStripSupplierManagement.Size = new Size(149, 21);
-            homeMenuStripSupplierManagement.Text = "&Supplier Management";
-            // 
-            // homeMenuStripSupplierManagementCreateSupplier
-            // 
-            homeMenuStripSupplierManagementCreateSupplier.BackColor = Color.Transparent;
-            homeMenuStripSupplierManagementCreateSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripSupplierManagementCreateSupplier.Name = "homeMenuStripSupplierManagementCreateSupplier";
-            homeMenuStripSupplierManagementCreateSupplier.Size = new Size(179, 22);
-            homeMenuStripSupplierManagementCreateSupplier.Text = "&Create Supplier";
-            homeMenuStripSupplierManagementCreateSupplier.Click += homeMenuStripSupplierManagementCreateSupplier_Click;
-            // 
-            // homeMenuStripSupplierManagementViewAllSupplier
-            // 
-            homeMenuStripSupplierManagementViewAllSupplier.BackColor = Color.Transparent;
-            homeMenuStripSupplierManagementViewAllSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripSupplierManagementViewAllSupplier.Name = "homeMenuStripSupplierManagementViewAllSupplier";
-            homeMenuStripSupplierManagementViewAllSupplier.Size = new Size(179, 22);
-            homeMenuStripSupplierManagementViewAllSupplier.Text = "&View All Suppliers";
-            homeMenuStripSupplierManagementViewAllSupplier.Click += homeMenuStripSupplierManagementViewAllSupplier_Click;
+            // homeMenuStripModule
+            // 
+            homeMenuStripModule.BackColor = Color.Transparent;
+            homeMenuStripModule.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModule.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagement, homeMenuStripModuleCustomerManagement, homeMenuStripModuleMarketingManagement, homeMenuStripModuleOrderManagement, homeMenuStripModuleProductManagement, homeMenuStripModuleSupplierManagement });
+            homeMenuStripModule.Name = "homeMenuStripModule";
+            homeMenuStripModule.Size = new Size(71, 21);
+            homeMenuStripModule.Text = "&Modules";
+            // 
+            // homeMenuStripModuleCompanyManagement
+            // 
+            homeMenuStripModuleCompanyManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagement, homeMenuStripModuleCompanyManagementCompanyConfiguration });
+            homeMenuStripModuleCompanyManagement.Name = "homeMenuStripModuleCompanyManagement";
+            homeMenuStripModuleCompanyManagement.Size = new Size(216, 22);
+            homeMenuStripModuleCompanyManagement.Text = "&Company Management";
+            homeMenuStripModuleCompanyManagement.Click += homeMenuStripModuleCompanyManagement_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagement
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement, homeMenuStripModuleCompanyManagementMasterDataManagementCustomer, homeMenuStripModuleCompanyManagementMasterDataManagementFinance, homeMenuStripModuleCompanyManagementMasterDataManagementLogistics, homeMenuStripModuleCompanyManagementMasterDataManagementOrder, homeMenuStripModuleCompanyManagementMasterDataManagementProduct, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography, homeMenuStripModuleCompanyManagementMasterDataManagementSupplier });
+            homeMenuStripModuleCompanyManagementMasterDataManagement.Name = "homeMenuStripModuleCompanyManagementMasterDataManagement";
+            homeMenuStripModuleCompanyManagementMasterDataManagement.Size = new Size(229, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagement.Text = "&Master Data Management";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager });
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement";
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement.Text = "&Account Management";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager, homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager });
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager";
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Size = new Size(179, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Text = "&Account Manager";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager";
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Size = new Size(234, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager.Text = "&Create Account Manager";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager";
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Size = new Size(234, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager.Text = "&View All Account Managers";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomer
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType, homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier, homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomer";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomer.Text = "&Customer";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType, homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType.Text = "&Customer Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Size = new Size(251, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType.Text = "&Create Customer Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Size = new Size(251, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType.Text = "&View All Customer Note Types";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier, homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier });
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier.Text = "&Customer Tier";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Size = new Size(213, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier.Text = "&Create Customer Tier";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Size = new Size(213, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier.Text = "&View All Customer Tiers";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType, homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType.Text = "&Customer Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Size = new Size(218, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType.Text = "&Create Customer Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Size = new Size(218, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType.Text = "&View All Customer Types";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinance
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency, homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion, homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod, homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile });
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinance";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinance.Text = "&Finance";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency, homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency });
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency.Text = "&Currency";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Size = new Size(186, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency.Text = "&Create Currency";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Size = new Size(186, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency.Text = "&View All Currencies";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion, homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion });
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion.Text = "&Currency Conversion";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Size = new Size(251, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion.Text = "&Create Currency Conversion";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Size = new Size(251, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion.Text = "&View All Currency Conversions";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod, homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod });
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod.Text = "&Payment Method";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Size = new Size(230, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod.Text = "&Create Payment Method";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Size = new Size(230, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod.Text = "&View All Payment Methods";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile, homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile });
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.Size = new Size(196, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile.Text = "&Tax Profile";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile.Text = "&Create Tax Profile";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile";
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile.Text = "&View All Tax Profiles";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementLogistics
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod });
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementLogistics";
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogistics.Text = "&Logistics";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod, homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod });
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Size = new Size(172, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod.Text = "&Delivery Method";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Size = new Size(227, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod.Text = "&Create Delivery Method";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod";
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Size = new Size(227, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod.Text = "&View All Delivery Methods";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrder
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrder";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Text = "&Order";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus.Text = "&Order Status";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Size = new Size(212, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus.Text = "&Create Order Status";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Size = new Size(212, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Text = "&View All Order Statuses";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus.Text = "&Order Line Item Status";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Size = new Size(268, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus.Text = "&Create Order Line Item Status";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Size = new Size(268, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus.Text = "&View All Order Line Item Statuses";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProduct
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProduct";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProduct.Text = "&Product";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory });
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.Size = new Size(198, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory.Text = "&Product Category";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Size = new Size(237, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory.Text = "&Create Product Category";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Size = new Size(237, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Text = "&View All Product Categories";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory });
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.Size = new Size(198, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory.Text = "&Product Subcategory";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Size = new Size(257, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory.Text = "&Create Product Subcategory";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Size = new Size(257, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory.Text = "&View All Product Subcategories";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.Size = new Size(198, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType.Text = "&Product Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Size = new Size(240, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType.Text = "&Create Product Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Size = new Size(240, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType.Text = "&View All Product Note Types";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography.Text = "&Sales Geography";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.Size = new Size(177, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion.Text = "&Sales Region";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion.Text = "&Create Sales Region";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion.Text = "&View All Sales Regions";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Size = new Size(177, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion.Text = "&Sales Sub Region";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Size = new Size(232, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion.Text = "&Create Sales Sub Region";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Size = new Size(232, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion.Text = "&View All Sales Sub Regions";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplier
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplier";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplier.Text = "&Supplier";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType, homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.Size = new Size(188, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType.Text = "&Supplier Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Size = new Size(243, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType.Text = "&Create Supplier Note Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Size = new Size(243, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType.Text = "&View All Supplier Note Types";
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Size = new Size(229, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Text = "&Company Configuration";
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(269, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(269, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
+            // 
+            // homeMenuStripModuleCustomerManagement
+            // 
+            homeMenuStripModuleCustomerManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleCustomerManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCustomerManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCustomerManagementCreateCustomer, homeMenuStripModuleCustomerManagementViewAllCustomer });
+            homeMenuStripModuleCustomerManagement.Name = "homeMenuStripModuleCustomerManagement";
+            homeMenuStripModuleCustomerManagement.Size = new Size(216, 22);
+            homeMenuStripModuleCustomerManagement.Text = "&Customer Management";
+            homeMenuStripModuleCustomerManagement.Click += homeMenuStripModuleCustomerManagement_Click;
+            // 
+            // homeMenuStripModuleCustomerManagementCreateCustomer
+            // 
+            homeMenuStripModuleCustomerManagementCreateCustomer.BackColor = Color.Transparent;
+            homeMenuStripModuleCustomerManagementCreateCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCustomerManagementCreateCustomer.Name = "homeMenuStripModuleCustomerManagementCreateCustomer";
+            homeMenuStripModuleCustomerManagementCreateCustomer.Size = new Size(187, 22);
+            homeMenuStripModuleCustomerManagementCreateCustomer.Text = "&Create Customer";
+            homeMenuStripModuleCustomerManagementCreateCustomer.Click += homeMenuStripModuleCustomerManagementCreateCustomer_Click;
+            // 
+            // homeMenuStripModuleCustomerManagementViewAllCustomer
+            // 
+            homeMenuStripModuleCustomerManagementViewAllCustomer.BackColor = Color.Transparent;
+            homeMenuStripModuleCustomerManagementViewAllCustomer.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCustomerManagementViewAllCustomer.Name = "homeMenuStripModuleCustomerManagementViewAllCustomer";
+            homeMenuStripModuleCustomerManagementViewAllCustomer.Size = new Size(187, 22);
+            homeMenuStripModuleCustomerManagementViewAllCustomer.Text = "&View All Customers";
+            homeMenuStripModuleCustomerManagementViewAllCustomer.Click += homeMenuStripModuleCustomerManagementViewAllCustomer_Click;
+            // 
+            // homeMenuStripModuleMarketingManagement
+            // 
+            homeMenuStripModuleMarketingManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleMarketingManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleMarketingManagement.Name = "homeMenuStripModuleMarketingManagement";
+            homeMenuStripModuleMarketingManagement.Size = new Size(216, 22);
+            homeMenuStripModuleMarketingManagement.Text = "&Marketing Management";
+            homeMenuStripModuleMarketingManagement.Click += homeMenuStripModuleMarketingManagement_Click;
+            // 
+            // homeMenuStripModuleOrderManagement
+            // 
+            homeMenuStripModuleOrderManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleOrderManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleOrderManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleOrderManagementCreateOrder, homeMenuStripModuleOrderManagementViewAllOrder });
+            homeMenuStripModuleOrderManagement.Name = "homeMenuStripModuleOrderManagement";
+            homeMenuStripModuleOrderManagement.Size = new Size(216, 22);
+            homeMenuStripModuleOrderManagement.Text = "&Order Management";
+            homeMenuStripModuleOrderManagement.Click += homeMenuStripModuleOrderManagement_Click;
+            // 
+            // homeMenuStripModuleOrderManagementCreateOrder
+            // 
+            homeMenuStripModuleOrderManagementCreateOrder.BackColor = Color.Transparent;
+            homeMenuStripModuleOrderManagementCreateOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleOrderManagementCreateOrder.Name = "homeMenuStripModuleOrderManagementCreateOrder";
+            homeMenuStripModuleOrderManagementCreateOrder.Size = new Size(166, 22);
+            homeMenuStripModuleOrderManagementCreateOrder.Text = "&Create Order";
+            // 
+            // homeMenuStripModuleOrderManagementViewAllOrder
+            // 
+            homeMenuStripModuleOrderManagementViewAllOrder.BackColor = Color.Transparent;
+            homeMenuStripModuleOrderManagementViewAllOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleOrderManagementViewAllOrder.Name = "homeMenuStripModuleOrderManagementViewAllOrder";
+            homeMenuStripModuleOrderManagementViewAllOrder.Size = new Size(166, 22);
+            homeMenuStripModuleOrderManagementViewAllOrder.Text = "&View All Orders";
+            // 
+            // homeMenuStripModuleProductManagement
+            // 
+            homeMenuStripModuleProductManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleProductManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleProductManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleProductManagementCreateProduct, homeMenuStripModuleProductManagementViewAllProduct });
+            homeMenuStripModuleProductManagement.Name = "homeMenuStripModuleProductManagement";
+            homeMenuStripModuleProductManagement.Size = new Size(216, 22);
+            homeMenuStripModuleProductManagement.Text = "&Product Management";
+            homeMenuStripModuleProductManagement.Click += homeMenuStripModuleProductManagement_Click;
+            // 
+            // homeMenuStripModuleProductManagementCreateProduct
+            // 
+            homeMenuStripModuleProductManagementCreateProduct.BackColor = Color.Transparent;
+            homeMenuStripModuleProductManagementCreateProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleProductManagementCreateProduct.Name = "homeMenuStripModuleProductManagementCreateProduct";
+            homeMenuStripModuleProductManagementCreateProduct.Size = new Size(180, 22);
+            homeMenuStripModuleProductManagementCreateProduct.Text = "&Create Product";
+            homeMenuStripModuleProductManagementCreateProduct.Click += homeMenuStripModuleProductManagementCreateProduct_Click;
+            // 
+            // homeMenuStripModuleProductManagementViewAllProduct
+            // 
+            homeMenuStripModuleProductManagementViewAllProduct.BackColor = Color.Transparent;
+            homeMenuStripModuleProductManagementViewAllProduct.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleProductManagementViewAllProduct.Name = "homeMenuStripModuleProductManagementViewAllProduct";
+            homeMenuStripModuleProductManagementViewAllProduct.Size = new Size(180, 22);
+            homeMenuStripModuleProductManagementViewAllProduct.Text = "&View All Products";
+            homeMenuStripModuleProductManagementViewAllProduct.Click += homeMenuStripModuleProductManagementViewAllProduct_Click;
+            // 
+            // homeMenuStripModuleSupplierManagement
+            // 
+            homeMenuStripModuleSupplierManagement.BackColor = Color.Transparent;
+            homeMenuStripModuleSupplierManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleSupplierManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleSupplierManagementCreateSupplier, homeMenuStripModuleSupplierManagementViewAllSupplier });
+            homeMenuStripModuleSupplierManagement.Name = "homeMenuStripModuleSupplierManagement";
+            homeMenuStripModuleSupplierManagement.Size = new Size(216, 22);
+            homeMenuStripModuleSupplierManagement.Text = "&Supplier Management";
+            homeMenuStripModuleSupplierManagement.Click += homeMenuStripModuleSupplierManagement_Click;
+            // 
+            // homeMenuStripModuleSupplierManagementCreateSupplier
+            // 
+            homeMenuStripModuleSupplierManagementCreateSupplier.BackColor = Color.Transparent;
+            homeMenuStripModuleSupplierManagementCreateSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleSupplierManagementCreateSupplier.Name = "homeMenuStripModuleSupplierManagementCreateSupplier";
+            homeMenuStripModuleSupplierManagementCreateSupplier.Size = new Size(180, 22);
+            homeMenuStripModuleSupplierManagementCreateSupplier.Text = "&Create Supplier";
+            homeMenuStripModuleSupplierManagementCreateSupplier.Click += homeMenuStripModuleSupplierManagementCreateSupplier_Click;
+            // 
+            // homeMenuStripModuleSupplierManagementViewAllSupplier
+            // 
+            homeMenuStripModuleSupplierManagementViewAllSupplier.BackColor = Color.Transparent;
+            homeMenuStripModuleSupplierManagementViewAllSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleSupplierManagementViewAllSupplier.Name = "homeMenuStripModuleSupplierManagementViewAllSupplier";
+            homeMenuStripModuleSupplierManagementViewAllSupplier.Size = new Size(180, 22);
+            homeMenuStripModuleSupplierManagementViewAllSupplier.Text = "&View All Suppliers";
+            homeMenuStripModuleSupplierManagementViewAllSupplier.Click += homeMenuStripModuleSupplierManagementViewAllSupplier_Click;
             // 
             // homeMenuStripOptions
             // 
@@ -932,12 +958,28 @@
             homeMenuStripHelpEasterEggSolitaire.Text = "&Solitaire";
             homeMenuStripHelpEasterEggSolitaire.Click += homeMenuStripHelpEasterEggSolitaire_Click;
             // 
+            // homeNavMarketingManagement
+            // 
+            homeNavMarketingManagement.BackColor = Color.NavajoWhite;
+            homeNavMarketingManagement.FlatStyle = FlatStyle.Flat;
+            homeNavMarketingManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            homeNavMarketingManagement.ForeColor = Color.Black;
+            homeNavMarketingManagement.Location = new Point(477, 351);
+            homeNavMarketingManagement.Margin = new Padding(4);
+            homeNavMarketingManagement.Name = "homeNavMarketingManagement";
+            homeNavMarketingManagement.Size = new Size(208, 73);
+            homeNavMarketingManagement.TabIndex = 8;
+            homeNavMarketingManagement.Text = "Marketing Management";
+            homeNavMarketingManagement.UseVisualStyleBackColor = false;
+            homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(925, 479);
+            ClientSize = new Size(947, 454);
+            Controls.Add(homeNavMarketingManagement);
             Controls.Add(homeNavSupplierManagementButton);
             Controls.Add(homeTitleLabel);
             Controls.Add(homeNavCustomerManagement);
@@ -971,87 +1013,90 @@
         private Label homeTitleLabel;
         private Button homeNavSupplierManagementButton;
         private MenuStrip homeMenuStrip;
-        private ToolStripMenuItem homeMenuStripOrderManagement;
-        private ToolStripMenuItem homeMenuStripCustomerManagement;
-        private ToolStripMenuItem homeMenuStripProductManagement;
-        private ToolStripMenuItem homeMenuStripCompanyManagement;
-        private ToolStripMenuItem homeMenuStripSupplierManagement;
+        private ToolStripMenuItem homeMenuStripModuleOrderManagement;
+        private ToolStripMenuItem homeMenuStripModuleCustomerManagement;
+        private ToolStripMenuItem homeMenuStripModuleProductManagement;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagement;
+        private ToolStripMenuItem homeMenuStripModuleSupplierManagement;
         private ToolStripMenuItem homeMenuStripOptions;
         private ToolStripMenuItem homeMenuStripHelp;
-        private ToolStripMenuItem homeMenuStripCustomerManagementCreateCustomer;
-        private ToolStripMenuItem homeMenuStripCustomerManagementViewAllCustomer;
-        private ToolStripMenuItem homeMenuStripProductManagementCreateProduct;
-        private ToolStripMenuItem homeMenuStripProductManagementViewAllProduct;
-        private ToolStripMenuItem homeMenuStripSupplierManagementCreateSupplier;
-        private ToolStripMenuItem homeMenuStripSupplierManagementViewAllSupplier;
+        private ToolStripMenuItem homeMenuStripModuleCustomerManagementCreateCustomer;
+        private ToolStripMenuItem homeMenuStripModuleCustomerManagementViewAllCustomer;
+        private ToolStripMenuItem homeMenuStripModuleProductManagementCreateProduct;
+        private ToolStripMenuItem homeMenuStripModuleProductManagementViewAllProduct;
+        private ToolStripMenuItem homeMenuStripModuleSupplierManagementCreateSupplier;
+        private ToolStripMenuItem homeMenuStripModuleSupplierManagementViewAllSupplier;
         private ToolStripMenuItem homeMenuStripOptionsAppConfiguration;
         private ToolStripMenuItem homeMenuStripHelpAbout;
         private ToolStripMenuItem homeMenuStripHelpEasterEgg;
         private ToolStripMenuItem homeMenuStripHelpEasterEggSolitaire;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagement;
-        private ToolStripMenuItem homeMenuStripCompanyManagementCompanyConfiguration;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementAccountManagement;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomer;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinance;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementLogistics;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrder;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProduct;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeography;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplier;
-        private ToolStripMenuItem homeMenuStripCompanyManagementCompanyConfigurationCreateCompanyConfiguration;
-        private ToolStripMenuItem homeMenuStripCompanyManagementCompanyConfigurationViewAllCompanyConfiguration;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManager;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTier;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrency;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfile;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductCategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrderOrderStatus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementOrderOrderLineItemStatus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus;
-        private ToolStripMenuItem homeMenuStripCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus;
-        private ToolStripMenuItem homeMenuStripOrderManagementCreateOrder;
-        private ToolStripMenuItem homeMenuStripOrderManagementViewAllOrder;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagement;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementCompanyConfiguration;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomer;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinance;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementLogistics;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrder;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProduct;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplier;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTier;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrency;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfile;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryCreateProductSubcategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubcategoryViewAllProductSubCategory;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus;
+        private ToolStripMenuItem homeMenuStripModuleOrderManagementCreateOrder;
+        private ToolStripMenuItem homeMenuStripModuleOrderManagementViewAllOrder;
+        private Button homeNavMarketingManagement;
+        private ToolStripMenuItem homeMenuStripModuleMarketingManagement;
+        private ToolStripMenuItem homeMenuStripModule;
     }
 }

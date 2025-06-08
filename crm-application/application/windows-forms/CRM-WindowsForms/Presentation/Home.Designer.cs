@@ -105,6 +105,8 @@
             homeMenuStripModuleCustomerManagementCreateCustomer = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagementViewAllCustomer = new ToolStripMenuItem();
             homeMenuStripModuleMarketingManagement = new ToolStripMenuItem();
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign = new ToolStripMenuItem();
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign = new ToolStripMenuItem();
             homeMenuStripModuleOrderManagement = new ToolStripMenuItem();
             homeMenuStripModuleOrderManagementCreateOrder = new ToolStripMenuItem();
             homeMenuStripModuleOrderManagementViewAllOrder = new ToolStripMenuItem();
@@ -121,8 +123,10 @@
             homeMenuStripHelpEasterEgg = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSolitaire = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign = new ToolStripMenuItem();
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -262,7 +266,7 @@
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagement.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementMasterDataManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement, homeMenuStripModuleCompanyManagementMasterDataManagementCustomer, homeMenuStripModuleCompanyManagementMasterDataManagementFinance, homeMenuStripModuleCompanyManagementMasterDataManagementLogistics, homeMenuStripModuleCompanyManagementMasterDataManagementOrder, homeMenuStripModuleCompanyManagementMasterDataManagementProduct, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography, homeMenuStripModuleCompanyManagementMasterDataManagementSupplier });
+            homeMenuStripModuleCompanyManagementMasterDataManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement, homeMenuStripModuleCompanyManagementMasterDataManagementCustomer, homeMenuStripModuleCompanyManagementMasterDataManagementFinance, homeMenuStripModuleCompanyManagementMasterDataManagementLogistics, homeMenuStripModuleCompanyManagementMasterDataManagementMarketing, homeMenuStripModuleCompanyManagementMasterDataManagementOrder, homeMenuStripModuleCompanyManagementMasterDataManagementProduct, homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeography, homeMenuStripModuleCompanyManagementMasterDataManagementSupplier });
             homeMenuStripModuleCompanyManagementMasterDataManagement.Name = "homeMenuStripModuleCompanyManagementMasterDataManagement";
             homeMenuStripModuleCompanyManagementMasterDataManagement.Size = new Size(229, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagement.Text = "&Master Data Management";
@@ -280,7 +284,7 @@
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager, homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager });
             homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager";
-            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Size = new Size(179, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Size = new Size(180, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager.Text = "&Account Manager";
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager
@@ -825,6 +829,24 @@
             homeMenuStripModuleMarketingManagement.Text = "&Marketing Management";
             homeMenuStripModuleMarketingManagement.Click += homeMenuStripModuleMarketingManagement_Click;
             // 
+            // homeMenuStripModuleMarketingManagementCreateMarketingCampaign
+            // 
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.BackColor = Color.Transparent;
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Name = "homeMenuStripModuleMarketingManagementCreateMarketingCampaign";
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Size = new Size(253, 22);
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Text = "&Create Marketing Campaign";
+            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Click += homeMenuStripModuleMarketingManagementCreateMarketingCampaign_Click;
+            // 
+            // homeMenuStripModuleMarketingManagementViewAllMarketingCampaign
+            // 
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.BackColor = Color.Transparent;
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Name = "homeMenuStripModuleMarketingManagementViewAllMarketingCampaign";
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Size = new Size(253, 22);
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Text = "&View All Marketing Campaigns";
+            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Click += homeMenuStripModuleMarketingManagementViewAllMarketingCampaign_Click;
+            // 
             // homeMenuStripModuleOrderManagement
             // 
             homeMenuStripModuleOrderManagement.BackColor = Color.Transparent;
@@ -894,7 +916,7 @@
             homeMenuStripModuleSupplierManagementCreateSupplier.BackColor = Color.Transparent;
             homeMenuStripModuleSupplierManagementCreateSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleSupplierManagementCreateSupplier.Name = "homeMenuStripModuleSupplierManagementCreateSupplier";
-            homeMenuStripModuleSupplierManagementCreateSupplier.Size = new Size(180, 22);
+            homeMenuStripModuleSupplierManagementCreateSupplier.Size = new Size(179, 22);
             homeMenuStripModuleSupplierManagementCreateSupplier.Text = "&Create Supplier";
             homeMenuStripModuleSupplierManagementCreateSupplier.Click += homeMenuStripModuleSupplierManagementCreateSupplier_Click;
             // 
@@ -903,7 +925,7 @@
             homeMenuStripModuleSupplierManagementViewAllSupplier.BackColor = Color.Transparent;
             homeMenuStripModuleSupplierManagementViewAllSupplier.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleSupplierManagementViewAllSupplier.Name = "homeMenuStripModuleSupplierManagementViewAllSupplier";
-            homeMenuStripModuleSupplierManagementViewAllSupplier.Size = new Size(180, 22);
+            homeMenuStripModuleSupplierManagementViewAllSupplier.Size = new Size(179, 22);
             homeMenuStripModuleSupplierManagementViewAllSupplier.Text = "&View All Suppliers";
             homeMenuStripModuleSupplierManagementViewAllSupplier.Click += homeMenuStripModuleSupplierManagementViewAllSupplier_Click;
             // 
@@ -976,23 +998,39 @@
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
             // 
-            // homeMenuStripModuleMarketingManagementCreateMarketingCampaign
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMarketing
             // 
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.BackColor = Color.Transparent;
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Name = "homeMenuStripModuleMarketingManagementCreateMarketingCampaign";
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Size = new Size(253, 22);
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Text = "&Create Marketing Campaign";
-            homeMenuStripModuleMarketingManagementCreateMarketingCampaign.Click += homeMenuStripModuleMarketingManagementCreateMarketingCampaign_Click;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMarketing";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.Size = new Size(203, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketing.Text = "&Marketing";
             // 
-            // homeMenuStripModuleMarketingManagementViewAllMarketingCampaign
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel
             // 
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.BackColor = Color.Transparent;
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Name = "homeMenuStripModuleMarketingManagementViewAllMarketingCampaign";
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Size = new Size(253, 22);
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Text = "&View All Marketing Campaigns";
-            homeMenuStripModuleMarketingManagementViewAllMarketingCampaign.Click += homeMenuStripModuleMarketingManagementViewAllMarketingCampaign_Click;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel, homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.Size = new Size(185, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel.Text = "&Marketing Channel";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel.Size = new Size(240, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel.Text = "&Create Marketing Channel";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel.Size = new Size(240, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel.Text = "&View All Marketing Channels";
             // 
             // Home
             // 
@@ -1121,5 +1159,9 @@
         private ToolStripMenuItem homeMenuStripModule;
         private ToolStripMenuItem homeMenuStripModuleMarketingManagementCreateMarketingCampaign;
         private ToolStripMenuItem homeMenuStripModuleMarketingManagementViewAllMarketingCampaign;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMarketing;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannel;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel;
     }
 }

@@ -1,6 +1,4 @@
-﻿using CRM_WindowsForms.Interface;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms.Presentation
 {
     public partial class ModuleHomeSimple : Form
     {
@@ -98,31 +96,31 @@ namespace CRM_WindowsForms.Presentation
             {
                 case "CustomerManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("ViewAllCustomer", "CustomerManagement");
+                    ViewAllData viewAllData = new ViewAllData("Customer", "CustomerManagement");
                     viewAllData.Show();
                     break;
                 }
                 case "MarketingManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("ViewAllMarketingCampaign", "MarketingManagement");
+                    ViewAllData viewAllData = new ViewAllData("MarketingCampaign", "MarketingManagement");
                     viewAllData.Show();
                     break;
                 }
                 case "OrderManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("ViewAllOrder", "OrderManagement");
+                    ViewAllData viewAllData = new ViewAllData("Order", "OrderManagement");
                     viewAllData.Show();
                     break;
                 }
                 case "ProductManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("ViewAllProduct", "ProductManagement");
+                    ViewAllData viewAllData = new ViewAllData("Product", "ProductManagement");
                     viewAllData.Show();
                     break;
                 }
                 case "SupplierManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("ViewAllSupplier", "SupplierManagement");
+                    ViewAllData viewAllData = new ViewAllData("Supplier", "SupplierManagement");
                     viewAllData.Show();
                     break;
                 }

@@ -81,8 +81,8 @@
 
         private void homeMenuStripModuleCustomerManagementViewAllCustomer_Click(object sender, EventArgs e)
         {
-            ViewAllCustomer viewAllCustomer = new ViewAllCustomer();
-            viewAllCustomer.Show();
+            ViewAllData viewAllData = new ViewAllData("ViewAllCustomer", "CustomerManagement");
+            viewAllData.Show();
         }
 
         private void homeMenuStripModuleMarketingManagement_Click(object sender, EventArgs e)
@@ -123,8 +123,8 @@
 
         private void homeMenuStripModuleProductManagementViewAllProduct_Click(object sender, EventArgs e)
         {
-            ViewAllProduct viewAllProduct = new ViewAllProduct();
-            viewAllProduct.Show();
+            ViewAllData viewAllData = new ViewAllData("ViewAllProduct", "ProductManagement");
+            viewAllData.Show();
         }
 
         private void homeMenuStripModuleSupplierManagement_Click(object sender, EventArgs e)
@@ -141,8 +141,8 @@
 
         private void homeMenuStripModuleSupplierManagementViewAllSupplier_Click(object sender, EventArgs e)
         {
-            ViewAllSupplier viewAllSupplier = new ViewAllSupplier();
-            viewAllSupplier.Show();
+            ViewAllData viewAllData = new ViewAllData("ViewAllSupplier", "SupplierManagement");
+            viewAllData.Show();
         }
 
         private void homeMenuStripOptionsAppConfiguration_Click(object sender, EventArgs e)

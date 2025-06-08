@@ -91,6 +91,18 @@
             moduleHomeSimple.Show();
         }
 
+        private void homeMenuStripModuleMarketingManagementCreateMarketingCampaign_Click(object sender, EventArgs e)
+        {
+            CreateMarketingCampaign createMarketingCampaign = new CreateMarketingCampaign();
+            createMarketingCampaign.Show();
+        }
+
+        private void homeMenuStripModuleMarketingManagementViewAllMarketingCampaign_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("ViewAllMarketingCampaign", "MarketingManagement");
+            viewAllData.Show();
+        }
+
         private void homeMenuStripModuleOrderManagement_Click(object sender, EventArgs e)
         {
             ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("OrderManagement");

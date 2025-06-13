@@ -79,6 +79,12 @@
             spiderSolitaire.Show();
         }
 
+        private void homeMenuStripHelpEasterEggSudoku_Click(object sender, EventArgs e)
+        {
+            Sudoku sudoku = new Sudoku();
+            sudoku.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagement_Click(object sender, EventArgs e)
         {
             CompanyManagement companyManagement = new CompanyManagement();

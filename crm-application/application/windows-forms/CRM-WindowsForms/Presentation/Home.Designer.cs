@@ -1055,6 +1055,7 @@
             homeMenuStripHelpEasterEggSudoku.Name = "homeMenuStripHelpEasterEggSudoku";
             homeMenuStripHelpEasterEggSudoku.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggSudoku.Text = "&Sudoku";
+            homeMenuStripHelpEasterEggSudoku.Click += homeMenuStripHelpEasterEggSudoku_Click;
             // 
             // homeNavMarketingManagement
             // 

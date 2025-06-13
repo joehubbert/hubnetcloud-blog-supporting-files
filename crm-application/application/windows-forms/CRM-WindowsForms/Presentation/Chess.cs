@@ -1,9 +1,4 @@
 ﻿using CRM_WindowsForms.Presentation.Functions;
-using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace CRM_WindowsForms.Presentation
 {
@@ -18,7 +13,9 @@ namespace CRM_WindowsForms.Presentation
         private Label lblScoreWhite;
         private Label lblScoreBlack;
         private Label lblCapturedWhite;
+        private Label lblCapturedWhite2;
         private Label lblCapturedBlack;
+        private Label lblCapturedBlack2;
         private Button btnReset;
         private int scoreWhite = 0;
         private int scoreBlack = 0;
@@ -92,7 +89,7 @@ namespace CRM_WindowsForms.Presentation
         private void InitializeChessBoard()
         {
             board = new ChessBoard();
-            this.ClientSize = new Size(BoardSize * TileSize, BoardSize * TileSize + 100);
+            this.ClientSize = new Size(BoardSize * TileSize, BoardSize * TileSize + 130);
 
             for (int row = 0; row < BoardSize; row++)
             {
@@ -159,14 +156,32 @@ namespace CRM_WindowsForms.Presentation
             };
             this.Controls.Add(lblCapturedWhite);
 
-            lblCapturedBlack = new Label
+            lblCapturedWhite2 = new Label
             {
-                Text = "Black captured: ",
+                Text = "",
                 Location = new Point(10, BoardSize * TileSize + 70),
                 AutoSize = true,
                 Font = new Font("Segoe UI", 12, FontStyle.Regular)
             };
+            this.Controls.Add(lblCapturedWhite2);
+
+            lblCapturedBlack = new Label
+            {
+                Text = "Black captured: ",
+                Location = new Point(10, BoardSize * TileSize + 90),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 12, FontStyle.Regular)
+            };
             this.Controls.Add(lblCapturedBlack);
+
+            lblCapturedBlack2 = new Label
+            {
+                Text = "",
+                Location = new Point(10, BoardSize * TileSize + 110),
+                AutoSize = true,
+                Font = new Font("Segoe UI", 12, FontStyle.Regular)
+            };
+            this.Controls.Add(lblCapturedBlack2);
         }
 
         private void InitializeResetButton()
@@ -451,8 +466,14 @@ namespace CRM_WindowsForms.Presentation
 
         private void UpdateCapturedLabels()
         {
-            lblCapturedWhite.Text = "White captured: " + string.Join(" ", capturedByWhite.ConvertAll(GetFilledPieceSymbol));
-            lblCapturedBlack.Text = "Black captured: " + string.Join(" ", capturedByBlack.ConvertAll(GetFilledPieceSymbol));
+            var whiteSymbols = capturedByWhite.ConvertAll(GetFilledPieceSymbol);
+            var blackSymbols = capturedByBlack.ConvertAll(GetFilledPieceSymbol);
+
+            lblCapturedWhite.Text = "White captured: " + string.Join(" ", whiteSymbols.Take(8));
+            lblCapturedWhite2.Text = whiteSymbols.Count > 8 ? string.Join(" ", whiteSymbols.Skip(8).Take(8)) : "";
+
+            lblCapturedBlack.Text = "Black captured: " + string.Join(" ", blackSymbols.Take(8));
+            lblCapturedBlack2.Text = blackSymbols.Count > 8 ? string.Join(" ", blackSymbols.Skip(8).Take(8)) : "";
         }
 
         private void ResetGame()

@@ -55,6 +55,12 @@
             about.Show();
         }
 
+        private void homeMenuStripHelpEasterEggFreeCell_Click(object sender, EventArgs e)
+        {
+            FreeCell freeCell = new FreeCell();
+            freeCell.Show();
+        }
+
         private void homeMenuStripHelpEasterEggSolitaire_Click(object sender, EventArgs e)
         {
             Solitaire solitaire = new Solitaire();

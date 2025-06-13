@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllOrderOutstanding]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+			SELECT
+			[Order Id],
+			[Customer Id],
+			[Order Date],
+			[Total Order Value]
+			FROM [dbo].[vwOrderOutstanding]
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+		THROW;
+	END CATCH
+END

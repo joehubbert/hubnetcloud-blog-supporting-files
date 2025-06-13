@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[spUpdateOrderPayment]
+	@orderPaymentId UNIQUEIDENTIFIER,
+	@paymentMethodId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			UPDATE [dbo].[OrderPayment]
+			SET 
+				[PaymentMethodId] = @paymentMethodId
+			WHERE [OrderPaymentId] = @orderPaymentId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

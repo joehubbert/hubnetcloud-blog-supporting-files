@@ -1,0 +1,32 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllCustomerContact]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Customer Id],
+			[Customer Contact Id],
+			[Customer Contact First Name],
+			[Customer Contact Last Name],
+			[Customer Contact Email Address],
+			[Customer Contact Telephone Number],
+			[Customer Contact Role],
+			[Active Status],
+			[Created Timestamp],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
+			FROM [dbo].[vwCustomerContact]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

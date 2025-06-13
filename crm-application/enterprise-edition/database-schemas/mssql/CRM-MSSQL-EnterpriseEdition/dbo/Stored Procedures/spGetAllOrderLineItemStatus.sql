@@ -1,0 +1,23 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllOrderLineItemStatus]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Order Line Item Status Id],
+			[Order Line Item Status],
+			[Active Status]
+			FROM [dbo].[vwOrderLineItemStatus]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

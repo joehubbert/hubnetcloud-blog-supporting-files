@@ -1,0 +1,26 @@
+﻿CREATE PROCEDURE [dbo].[spUpdateOrder]
+	@customerId UNIQUEIDENTIFIER,
+	@orderId UNIQUEIDENTIFIER,
+	@purchaseOrderNumber UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			UPDATE [dbo].[Order]
+			SET 
+				[CustomerId] = @customerId,
+				[PurchaseOrderNumber] = @purchaseOrderNumber
+			WHERE [OrderId] = @orderId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

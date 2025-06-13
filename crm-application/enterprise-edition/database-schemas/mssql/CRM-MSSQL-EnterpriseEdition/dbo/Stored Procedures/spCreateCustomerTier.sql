@@ -1,0 +1,71 @@
+﻿CREATE PROCEDURE [dbo].[spCreateCustomerTier]
+	@activeStatus BIT,
+	@customerTierCode NCHAR(1),
+	@customerTierDescription NVARCHAR(50)
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			CREATE TABLE #CustomerTierTemp
+			(
+				[CustomerTierCode] NCHAR(1) NOT NULL,
+				[CustomerTierDescription] NVARCHAR(50) NOT NULL,
+				[ActiveStatus] BIT NOT NULL
+			)
+
+			INSERT INTO #CustomerTierTemp
+			(
+				[CustomerTierCode],
+				[CustomerTierDescription],
+				[ActiveStatus]
+			)
+			VALUES
+			(
+				@customerTierCode,
+				@customerTierDescription,
+				@activeStatus
+			)
+
+			IF EXISTS
+			(
+			SELECT *
+			FROM [dbo].[CustomerTier] CT
+			INNER JOIN #CustomerTierTemp CTT ON CT.[CustomerTierCode] = CTT.[CustomerTierCode]
+			AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
+			WHERE CT.[CustomerTierCode] = CTT.[CustomerTierCode]
+			AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
+			)
+			THROW 50000, 'Customer Tier already exists, please update the existing record.', 1;
+			ELSE
+			MERGE INTO [dbo].[CustomerTier] AS target
+			USING #CustomerTierTemp AS source
+			ON target.[CustomerTierCode] = source.[CustomerTierCode]
+			AND target.[CustomerTierDescription] = source.[CustomerTierDescription]
+			WHEN NOT MATCHED THEN
+			INSERT
+			(
+				[CustomerTierCode],
+				[CustomerTierDescription],
+				[ActiveStatus]
+			)
+			VALUES
+			(
+				source.[CustomerTierCode],
+				source.[CustomerTierDescription],
+				source.[ActiveStatus]
+			);
+
+			DROP TABLE #CustomerTierTemp
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

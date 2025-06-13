@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[spGetPromotionCodeValidility]
+	@promotionCode NVARCHAR(15),
+	@validStatus BIT OUTPUT
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT 
+			@validStatus = CASE WHEN COUNT(*) > 0 THEN 1 ELSE 0 END
+			FROM [dbo].[vwActivePromotion]
+			WHERE [Promotion Code] = @promotionCode
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

@@ -1,0 +1,25 @@
+﻿/*
+Post-Deployment Script
+*/
+
+:r ".\Configuration\DatabaseVersion.sql"
+:r ".\Configuration\SoftwareEdition.sql"
+:r ".\Data Population\Currency.sql"
+:r ".\Data Population\CustomerLeadStatus.sql"
+:r ".\Data Population\CustomerLeadType.sql"
+:r ".\Data Population\CustomerNoteType.sql"
+:r ".\Data Population\CustomerType.sql"
+:r ".\Data Population\MarketingCampaignStatus.sql"
+:r ".\Data Population\MarketingCampaignType.sql"
+:r ".\Data Population\MarketingChannel.sql"
+:r ".\Data Population\OrderLineItemStatus.sql"
+:r ".\Data Population\OrderPaymentStatus.sql"
+:r ".\Data Population\OrderStatus.sql"
+:r ".\Data Population\PaymentMethod.sql"
+:r ".\Data Population\ProductNoteType.sql"
+:r ".\Data Population\PromotionTargetType.sql"
+:r ".\Data Population\PromotionType.sql"
+:r ".\Data Population\SupplierNoteType.sql"
+:r ".\Data Population\SupplierOrderLineItemStatus.sql"
+:r ".\Data Population\SupplierOrderPaymentStatus.sql"
+:r ".\Data Population\SupplierOrderStatus.sql"

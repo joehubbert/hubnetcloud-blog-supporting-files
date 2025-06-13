@@ -1,0 +1,31 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllMarketingCampaignMarketingChannelForMarketingChannel]
+	@marketingChannelId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Marketing Campaign Marketing Channel Id],
+			[Marketing Campaign Id],
+			[Marketing Campaign Name],
+			[Marketing Channel Id],
+			[Marketing Channel],
+			[Created Timestamp],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
+			FROM [dbo].[vwMarketingCampaignMarketingChannel]
+			WHERE [Marketing Channel Id] = @marketingChannelId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

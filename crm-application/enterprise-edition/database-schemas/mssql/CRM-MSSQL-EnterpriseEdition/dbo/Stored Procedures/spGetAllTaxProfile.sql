@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllTaxProfile]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Tax Profile Id],
+			[Tax Profile],
+			[Tax Rate],
+			[Active Status]
+			FROM [dbo].[vwTaxProfile]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

@@ -1,0 +1,31 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllPromotionProductForProduct]
+	@productId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Promotion Product Id],
+			[Promotion Id],
+			[Promotion Name],
+			[Product Id],
+			[Product Name],
+			[Created Timestmap],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
+			FROM [dbo].[vwPromotionProduct]
+			WHERE [Product Id] = @productId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllCurrency]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Currency Id],
+			[Currency Code],
+			[Currency Name],
+			[Active Status]
+			FROM [dbo].[vwCurrency]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

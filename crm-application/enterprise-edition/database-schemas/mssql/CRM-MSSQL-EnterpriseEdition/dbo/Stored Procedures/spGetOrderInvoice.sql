@@ -1,0 +1,25 @@
+﻿CREATE PROCEDURE [dbo].[spGetOrderInvoice]
+	@orderInvoiceId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Order Invoice Id],
+			[Order Id],
+			[Order Invoice]
+			FROM [dbo].[vwOrderInvoice]
+			WHERE [Order Invoice Id] = @orderInvoiceId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

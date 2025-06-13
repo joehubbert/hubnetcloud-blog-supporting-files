@@ -1,0 +1,23 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllCustomerNoteType]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Customer Note Type Id],
+			[Customer Note Type],
+			[Active Status]
+			FROM [dbo].[vwCustomerNoteType]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

@@ -1,0 +1,46 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllMarketingCampaign]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Marketing Campaign Id],
+			[Company Configuration Id],
+			[Company Configuration Company Name],
+			[Marketing Campaign Type Id],
+			[Marketing Campaign Type],
+			[Marketing Campaign Name],
+			[Marketing Campaign Description],
+			[Marketing Campaign Goal],
+			[Marketing Campaign Start Timestamp],
+			[Marketing Campaign End Timestamp],
+			[Marketing Campaign Start Date],
+			[Marketing Campaign End Date],
+			[Marketing Campaign Budget],
+			[Marketing Campaign Actual Cost],
+			[Marketing Campaign Budget vs Actual Cost],
+			[Marketing Campaign Budget vs Actual Cost Percentage],
+			[Marketing Campaign Forecasted Revenue],
+			[Marketing Campaign Gross Revenue],
+			[Marketing Campaign Forecasted Revenue vs Gross Revenue],
+			[Marketing Campaign Gross Revenue vs Net Revenue],
+			[Marketing Campaign Average Order Value],
+			[Active Status],
+			[Created Timestamp],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
+			FROM [dbo].[vwMarketingCampaign]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

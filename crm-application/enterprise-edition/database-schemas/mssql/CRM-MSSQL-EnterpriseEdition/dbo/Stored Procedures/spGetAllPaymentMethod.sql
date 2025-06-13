@@ -1,0 +1,23 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllPaymentMethod]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Payment Method Id],
+			[Payment Method],
+			[Active Status]
+			FROM [dbo].[vwPaymentMethod]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

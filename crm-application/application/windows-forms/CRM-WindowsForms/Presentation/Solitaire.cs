@@ -2,561 +2,1046 @@
 {
     public partial class Solitaire : Form
     {
-        private List<Card> deck = new List<Card>();
-        private Stack<Card> stock = new Stack<Card>();
-        private Stack<Card> waste = new Stack<Card>();
-        private List<Stack<Card>> tableau = new List<Stack<Card>>();
-        private List<Stack<Card>> foundation = new List<Stack<Card>>();
-        private Panel[] tableauPanels;
-        private Panel[] foundationPanels;
-        private PictureBox stockPictureBox;
-        private PictureBox wastePictureBox;
+        private const int CardWidth = 60;
+        private const int CardHeight = 90;
+        private const int CardSpacing = 20;
+        private const int TopMargin = 60;
+        private const int LeftMargin = 20;
+        private const int TableauCount = 7;
+        private const int FoundationCount = 4;
+
+        private List<SolitaireCard>[] tableau = new List<SolitaireCard>[TableauCount];
+        private List<SolitaireCard>[] foundations = new List<SolitaireCard>[FoundationCount];
+        private Stack<SolitaireCard> stock = new Stack<SolitaireCard>();
+        private Stack<SolitaireCard> waste = new Stack<SolitaireCard>();
+
+        // Scoring
+        private int score = 0;
         private Label scoreLabel;
 
-        // Drag and drop state
-        private List<Card> dragCards = null;
-        private int dragFromTableau = -1;
-        private int dragFromIndex = -1;
-        private int dragFromFoundation = -1;
-        private bool dragFromWaste = false;
+        // Selection for moves
+        private int? selectedTableauCol = null;
+        private int? selectedTableauRow = null;
+        private bool selectedWaste = false;
 
-        private int score = 0;
+        // Drag and drop
+        private bool isDragging = false;
+        private Point dragStartPoint;
+        private Point dragCurrentPoint;
+        private List<SolitaireCard> draggingCards = null;
+        private int? dragSourceCol = null;
+        private int? dragSourceRow = null;
+        private bool dragSourceWaste = false;
+
+        // Undo
+        private Stack<GameState> undoStack = new Stack<GameState>();
+
+        // Animation
+        private System.Windows.Forms.Timer animationTimer;
+        private List<AnimationStep> currentAnimations = new List<AnimationStep>();
+        private Action? animationOnComplete = null;
+
+        // Hints
+        private Panel hintsPanel;
+        private RadioButton hintsOnRadioBtn;
+        private RadioButton hintsOffRadioBtn;
+        private List<HintMove> currentHints = new List<HintMove>();
+        private int currentHintIndex = 0;
+        private Button hintBtn;
+
+        private Button restartBtn;
+        private Button dealBtn;
+        private Button undoBtn;
+        private Label winLabel;
+
+        // Stock recycle limit
+        private int stockRecycleCount = 0;
+        private const int MaxStockRecycles = 3;
 
         public Solitaire()
         {
             InitializeComponent();
-            InitializeGame();
+            DoubleBuffered = true;
+            this.Paint += Solitaire_Paint;
+            this.MouseDown += Solitaire_MouseDown;
+            this.MouseMove += Solitaire_MouseMove;
+            this.MouseUp += Solitaire_MouseUp;
+            this.MouseDoubleClick += Solitaire_MouseDoubleClick;
+
+            restartBtn = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 90, Height = 30, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            restartBtn.Click += (s, e) => StartNewGame();
+            Controls.Add(restartBtn);
+
+            dealBtn = new Button { Text = "Deal", Location = new Point(LeftMargin + 100, 5), Width = 90, Height = 30, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            dealBtn.Click += (s, e) => DealStock();
+            Controls.Add(dealBtn);
+
+            undoBtn = new Button { Text = "Undo", Location = new Point(LeftMargin + 200, 5), Width = 90, Height = 30, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            undoBtn.Click += (s, e) => Undo();
+            Controls.Add(undoBtn);
+
+            scoreLabel = new Label { Text = "Score: 0", Location = new Point(LeftMargin + 300, 10), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Bold), ForeColor = Color.White };
+            Controls.Add(scoreLabel);
+
+            winLabel = new Label { Text = "", Location = new Point(LeftMargin + 420, 10), AutoSize = true, Font = new Font("Segoe UI", 14, FontStyle.Bold), ForeColor = Color.Green };
+            Controls.Add(winLabel);
+
+            // Hints panel with two radio buttons
+            hintsPanel = new Panel { Location = new Point(LeftMargin + 600, 5), Size = new Size(200, 30) };
+            hintsOnRadioBtn = new RadioButton { Text = "Hints On", Location = new Point(0, 5), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Regular), ForeColor = Color.White };
+            hintsOffRadioBtn = new RadioButton { Text = "Hints Off", Location = new Point(90, 5), AutoSize = true, Checked = true, Font = new Font("Segoe UI", 12, FontStyle.Regular), ForeColor = Color.White };
+            hintsPanel.Controls.Add(hintsOnRadioBtn);
+            hintsPanel.Controls.Add(hintsOffRadioBtn);
+            Controls.Add(hintsPanel);
+
+            hintBtn = new Button { Text = "Show Hint", Location = new Point(LeftMargin + 820, 5), Width = 90, Height = 30, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            hintBtn.Click += (s, e) => ShowHint();
+            Controls.Add(hintBtn);
+
+            animationTimer = new System.Windows.Forms.Timer();
+            animationTimer.Interval = 15;
+            animationTimer.Tick += AnimationTimer_Tick;
+
+            StartNewGame();
         }
 
-        private void InitializeGame()
+        private void StartNewGame()
         {
-            this.BackColor = Color.ForestGreen;
-            this.ClientSize = new Size(900, 600);
+            for (int i = 0; i < TableauCount; i++)
+                tableau[i] = new List<SolitaireCard>();
+            for (int i = 0; i < FoundationCount; i++)
+                foundations[i] = new List<SolitaireCard>();
+            stock.Clear();
+            waste.Clear();
+            selectedTableauCol = null;
+            selectedTableauRow = null;
+            selectedWaste = false;
+            isDragging = false;
+            draggingCards = null;
+            dragSourceCol = null;
+            dragSourceRow = null;
+            dragSourceWaste = false;
+            winLabel.Text = "";
+            score = 0;
+            undoStack.Clear();
+            UpdateScoreLabel();
+            UpdateDealButtonState();
+            currentHints.Clear();
+            currentHintIndex = 0;
+            currentAnimations.Clear();
+            animationOnComplete = null;
+            animationTimer.Stop();
+            stockRecycleCount = 0;
 
-            deck = CreateDeck();
-            Shuffle(deck);
+            // Create and shuffle deck
+            var deck = new List<SolitaireCard>();
+            foreach (SolitaireSuit suit in Enum.GetValues(typeof(SolitaireSuit)))
+                for (int rank = 1; rank <= 13; rank++)
+                    deck.Add(new SolitaireCard(suit, rank));
+            var rnd = new Random();
+            deck = deck.OrderBy(_ => rnd.Next()).ToList();
 
-            tableau.Clear();
-            foundation.Clear();
-            for (int i = 0; i < 7; i++) tableau.Add(new Stack<Card>());
-            for (int i = 0; i < 4; i++) foundation.Add(new Stack<Card>());
-
+            // Deal to tableau
             int deckIndex = 0;
-            for (int col = 0; col < 7; col++)
+            for (int col = 0; col < TableauCount; col++)
             {
                 for (int row = 0; row <= col; row++)
                 {
                     var card = deck[deckIndex++];
                     card.FaceUp = (row == col);
-                    tableau[col].Push(card);
+                    tableau[col].Add(card);
                 }
             }
 
-            stock = new Stack<Card>(deck.Skip(deckIndex).Reverse());
-            waste = new Stack<Card>();
-            score = 0;
+            // Remaining cards to stock
+            for (; deckIndex < deck.Count; deckIndex++)
+                stock.Push(deck[deckIndex]);
 
-            SetupUIPanels();
-            DrawGame();
+            Invalidate();
         }
 
-        private void SetupUIPanels()
+        private void UpdateScoreLabel()
         {
-            this.Controls.Clear();
-
-            stockPictureBox = new PictureBox
-            {
-                Location = new Point(30, 30),
-                Size = new Size(70, 100),
-                BackColor = Color.DarkGreen,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            stockPictureBox.Click += StockPictureBox_Click;
-            this.Controls.Add(stockPictureBox);
-
-            wastePictureBox = new PictureBox
-            {
-                Location = new Point(120, 30),
-                Size = new Size(70, 100),
-                BackColor = Color.DarkGreen,
-                BorderStyle = BorderStyle.FixedSingle
-            };
-            wastePictureBox.MouseDown += WastePictureBox_MouseDown;
-            wastePictureBox.MouseDoubleClick += WastePictureBox_MouseDoubleClick;
-            this.Controls.Add(wastePictureBox);
-
-            foundationPanels = new Panel[4];
-            for (int i = 0; i < 4; i++)
-            {
-                var panel = new Panel
-                {
-                    Location = new Point(250 + i * 90, 30),
-                    Size = new Size(70, 100),
-                    BackColor = Color.DarkGreen,
-                    BorderStyle = BorderStyle.FixedSingle,
-                    Tag = i,
-                    AllowDrop = true
-                };
-                panel.Click += FoundationPanel_Click;
-                panel.DragEnter += FoundationPanel_DragEnter;
-                panel.DragDrop += FoundationPanel_DragDrop;
-                foundationPanels[i] = panel;
-                this.Controls.Add(panel);
-            }
-
-            tableauPanels = new Panel[7];
-            for (int i = 0; i < 7; i++)
-            {
-                var panel = new Panel
-                {
-                    Location = new Point(30 + i * 120, 160),
-                    Size = new Size(100, 350),
-                    BackColor = Color.Transparent,
-                    BorderStyle = BorderStyle.None,
-                    Tag = i,
-                    AllowDrop = true
-                };
-                panel.Click += TableauPanel_Click;
-                panel.DragEnter += TableauPanel_DragEnter;
-                panel.DragDrop += TableauPanel_DragDrop;
-                tableauPanels[i] = panel;
-                this.Controls.Add(panel);
-            }
-
-            scoreLabel = new Label
-            {
-                Location = new Point(800, 30),
-                Size = new Size(100, 30),
-                ForeColor = Color.White,
-                Font = new Font("Segoe UI", 12, FontStyle.Bold),
-                Text = "Score: 0"
-            };
-            this.Controls.Add(scoreLabel);
-        }
-
-        private void DrawGame()
-        {
-            stockPictureBox.Image = stock.Count > 0 ? DrawCardBack() : null;
-            wastePictureBox.Image = waste.Count > 0 ? DrawCard(waste.Peek()) : null;
-
-            for (int i = 0; i < 4; i++)
-            {
-                foundationPanels[i].Controls.Clear();
-                if (foundation[i].Count > 0)
-                {
-                    var card = foundation[i].Peek();
-                    var pb = new PictureBox
-                    {
-                        Image = DrawCard(card),
-                        Size = new Size(70, 100),
-                        Location = new Point(0, 0),
-                        Tag = i
-                    };
-                    pb.MouseDown += FoundationCard_MouseDown;
-                    pb.MouseDoubleClick += FoundationCard_MouseDoubleClick;
-                    foundationPanels[i].Controls.Add(pb);
-                }
-            }
-
-            for (int i = 0; i < 7; i++)
-            {
-                tableauPanels[i].Controls.Clear();
-                var cards = tableau[i].Reverse().ToList();
-                for (int j = 0; j < cards.Count; j++)
-                {
-                    var card = cards[j];
-                    var pb = new PictureBox
-                    {
-                        Image = card.FaceUp ? DrawCard(card) : DrawCardBack(),
-                        Size = new Size(70, 100),
-                        Location = new Point(0, j * 25),
-                        Tag = new Tuple<int, int>(i, j),
-                        BorderStyle = BorderStyle.FixedSingle
-                    };
-                    pb.MouseDown += TableauCard_MouseDown;
-                    pb.MouseDoubleClick += TableauCard_MouseDoubleClick;
-                    pb.MouseUp += TableauCard_MouseUp;
-                    tableauPanels[i].Controls.Add(pb);
-                }
-            }
-
             scoreLabel.Text = $"Score: {score}";
-
-            // Win detection
-            if (foundation.All(f => f.Count == 13))
-            {
-                MessageBox.Show($"Congratulations! You won!\nFinal Score: {score}", "Solitaire", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                InitializeGame();
-            }
         }
 
-        // Stock and waste
-        private void StockPictureBox_Click(object sender, EventArgs e)
+        private void DealStock()
         {
+            if (animationTimer.Enabled) return;
+            SaveStateForUndo();
             if (stock.Count > 0)
             {
                 var card = stock.Pop();
                 card.FaceUp = true;
-                waste.Push(card);
+                AnimateCardMove(card, new Point(LeftMargin, TopMargin), new Point(LeftMargin + CardWidth + CardSpacing, TopMargin), () =>
+                {
+                    waste.Push(card);
+                    score -= 1;
+                    UpdateScoreLabel();
+                    UpdateDealButtonState();
+                    Invalidate();
+                });
             }
             else
             {
-                while (waste.Count > 0)
+                if (stockRecycleCount < MaxStockRecycles)
                 {
-                    var card = waste.Pop();
-                    card.FaceUp = false;
-                    stock.Push(card);
-                }
-            }
-            DrawGame();
-        }
-
-        private void WastePictureBox_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (waste.Count == 0) return;
-            if (e.Button == MouseButtons.Left)
-            {
-                dragCards = new List<Card> { waste.Peek() };
-                dragFromWaste = true;
-                wastePictureBox.DoDragDrop("waste", DragDropEffects.Move);
-            }
-        }
-
-        private void WastePictureBox_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            if (waste.Count == 0) return;
-            var card = waste.Peek();
-            if (AutoMoveToFoundation(card, fromWaste: true)) return;
-            // Try tableau
-            for (int i = 0; i < 7; i++)
-            {
-                if (CanMoveToTableau(card, i))
-                {
-                    tableau[i].Push(waste.Pop());
-                    score += 5;
-                    DrawGame();
-                    return;
-                }
-            }
-        }
-
-        // Foundation
-        private void FoundationPanel_Click(object sender, EventArgs e)
-        {
-            // Not needed, handled by card events
-        }
-
-        private void FoundationCard_MouseDown(object sender, MouseEventArgs e)
-        {
-            var pb = sender as PictureBox;
-            int foundationIndex = (int)pb.Tag;
-            if (foundation[foundationIndex].Count == 0) return;
-            var card = foundation[foundationIndex].Peek();
-            if (e.Button == MouseButtons.Left)
-            {
-                dragCards = new List<Card> { card };
-                dragFromFoundation = foundationIndex;
-                pb.DoDragDrop("foundation", DragDropEffects.Move);
-            }
-        }
-
-        private void FoundationCard_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            var pb = sender as PictureBox;
-            int foundationIndex = (int)pb.Tag;
-            if (foundation[foundationIndex].Count == 0) return;
-            var card = foundation[foundationIndex].Peek();
-            // Try to move back to tableau if possible
-            for (int i = 0; i < 7; i++)
-            {
-                if (CanMoveToTableau(card, i))
-                {
-                    foundation[foundationIndex].Pop();
-                    tableau[i].Push(card);
-                    score -= 15;
-                    DrawGame();
-                    return;
-                }
-            }
-        }
-
-        private void FoundationPanel_DragEnter(object sender, DragEventArgs e)
-        {
-            if (dragCards != null && dragCards.Count == 1)
-                e.Effect = DragDropEffects.Move;
-        }
-
-        private void FoundationPanel_DragDrop(object sender, DragEventArgs e)
-        {
-            var panel = sender as Panel;
-            int destFoundation = (int)panel.Tag;
-            if (dragCards == null || dragCards.Count != 1) return;
-            var card = dragCards[0];
-            if (CanMoveToFoundation(card, destFoundation))
-            {
-                if (dragFromTableau != -1)
-                {
-                    tableau[dragFromTableau].Pop();
-                    score += 10;
-                    // Flip next card if needed
-                    var srcCards = tableau[dragFromTableau].Reverse().ToList();
-                    if (srcCards.Count > 0 && !srcCards.Last().FaceUp)
+                    var cards = waste.ToList();
+                    waste.Clear();
+                    foreach (var card in cards)
                     {
-                        srcCards.Last().FaceUp = true;
-                        tableau[dragFromTableau] = new Stack<Card>(srcCards.Reverse<Card>());
-                        score += 5;
+                        card.FaceUp = false;
+                        stock.Push(card);
+                    }
+                    stockRecycleCount++;
+                    score -= 100;
+                    UpdateScoreLabel();
+                    UpdateDealButtonState();
+                    Invalidate();
+                }
+                else
+                {
+                    MessageBox.Show(this, "No more stock recycles allowed (3-pass limit reached).", "No More Recycles", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    UpdateDealButtonState();
+                }
+            }
+        }
+
+        private void Undo()
+        {
+            if (animationTimer.Enabled) return;
+            if (undoStack.Count > 0)
+            {
+                var state = undoStack.Pop();
+                for (int i = 0; i < TableauCount; i++)
+                    tableau[i] = state.Tableau[i].Select(c => c.Clone()).ToList();
+                for (int i = 0; i < FoundationCount; i++)
+                    foundations[i] = state.Foundations[i].Select(c => c.Clone()).ToList();
+                stock = new Stack<SolitaireCard>(state.Stock.Select(c => c.Clone()).Reverse());
+                waste = new Stack<SolitaireCard>(state.Waste.Select(c => c.Clone()).Reverse());
+                selectedTableauCol = state.SelectedTableauCol;
+                selectedTableauRow = state.SelectedTableauRow;
+                selectedWaste = state.SelectedWaste;
+                score = state.Score;
+                winLabel.Text = state.WinLabel;
+                UpdateScoreLabel();
+                UpdateDealButtonState();
+                Invalidate();
+            }
+        }
+
+        private void SaveStateForUndo()
+        {
+            undoStack.Push(new GameState
+            {
+                Tableau = tableau.Select(col => col.Select(c => c.Clone()).ToList()).ToArray(),
+                Foundations = foundations.Select(col => col.Select(c => c.Clone()).ToList()).ToArray(),
+                Stock = stock.Select(c => c.Clone()).ToList(),
+                Waste = waste.Select(c => c.Clone()).ToList(),
+                SelectedTableauCol = selectedTableauCol,
+                SelectedTableauRow = selectedTableauRow,
+                SelectedWaste = selectedWaste,
+                Score = score,
+                WinLabel = winLabel.Text
+            });
+        }
+
+        private void Solitaire_Paint(object sender, PaintEventArgs e)
+        {
+            var g = e.Graphics;
+            var font = new Font("Segoe UI", 11, FontStyle.Bold);
+
+            // Draw Stock
+            int stockX = LeftMargin;
+            int stockY = TopMargin;
+            g.FillRectangle(stock.Count > 0 ? Brushes.DarkGreen : Brushes.Gray, stockX, stockY, CardWidth, CardHeight);
+            g.DrawRectangle(Pens.Black, stockX, stockY, CardWidth, CardHeight);
+            g.DrawString("Stock", font, Brushes.White, stockX + 5, stockY + 5);
+
+            // Draw Waste as a fanned stack (up to 3 cards, rightmost is top)
+            // Draw Waste label FIRST
+            // Draw Waste label FIRST
+            int wasteX = LeftMargin + CardWidth + CardSpacing;
+            int wasteY = TopMargin;
+            g.DrawString("Waste", font, Brushes.White, wasteX + 5, wasteY -20);
+
+            // Now draw Waste cards (so they appear ON TOP of the label)
+            int wasteFanOffset = 12;
+            int maxFan = 3;
+            if (waste.Count > 0)
+            {
+                var wasteCards = waste.Reverse().Take(maxFan).Reverse().ToList(); // fix stacking order
+                int n = wasteCards.Count;
+                for (int i = 0; i < n; i++)
+                {
+                    int wx = wasteX + (i * wasteFanOffset);
+                    int wy = wasteY + (i * 2);
+                    bool isTop = (i == n - 1);
+                    if (isTop)
+                    {
+                        var card = wasteCards[i];
+                        DrawCard(g, card, wx, wy, font, selectedWaste && !isDragging, IsHintWaste(card));
+                        using (var pen = new Pen(Color.Black, 2))
+                            g.DrawRectangle(pen, wx, wy, CardWidth, CardHeight);
+                    }
+                    else
+                    {
+                        g.FillRectangle(Brushes.White, wx, wy, CardWidth, CardHeight);
+                        g.DrawRectangle(Pens.Black, wx, wy, CardWidth, CardHeight);
                     }
                 }
-                else if (dragFromWaste)
-                {
-                    waste.Pop();
-                    score += 10;
-                }
-                else if (dragFromFoundation != -1)
-                {
-                    foundation[dragFromFoundation].Pop();
-                    score -= 15;
-                }
-                foundation[destFoundation].Push(card);
             }
-            ResetDragState();
-            DrawGame();
-        }
-
-        // Tableau
-        private void TableauPanel_Click(object sender, EventArgs e)
-        {
-            // Not needed, handled by card events
-        }
-
-        private void TableauCard_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button != MouseButtons.Left) return;
-            var pb = sender as PictureBox;
-            var tag = (Tuple<int, int>)pb.Tag;
-            int pile = tag.Item1;
-            int index = tag.Item2;
-            var cards = tableau[pile].Reverse().ToList();
-            var card = cards[index];
-            if (!card.FaceUp) return;
-            dragCards = cards.Skip(index).ToList();
-            dragFromTableau = pile;
-            dragFromIndex = index;
-            pb.DoDragDrop("cards", DragDropEffects.Move);
-        }
-
-        private void TableauCard_MouseUp(object sender, MouseEventArgs e)
-        {
-            // Optional: highlight or feedback
-        }
-
-        private void TableauCard_MouseDoubleClick(object sender, MouseEventArgs e)
-        {
-            var pb = sender as PictureBox;
-            var tag = (Tuple<int, int>)pb.Tag;
-            int pile = tag.Item1;
-            int index = tag.Item2;
-            var cards = tableau[pile].Reverse().ToList();
-            var card = cards[index];
-            if (!card.FaceUp) return;
-            if (AutoMoveToFoundation(card, fromTableau: pile, tableauIndex: index)) return;
-            // Try tableau
-            for (int i = 0; i < 7; i++)
+            else
             {
-                if (i == pile) continue;
-                if (CanMoveToTableau(card, i))
-                {
-                    var movingCards = cards.Skip(index).ToList();
-                    for (int j = 0; j < movingCards.Count; j++)
-                        tableau[pile].Pop();
-                    foreach (var c in movingCards)
-                        tableau[i].Push(c);
-                    score += 5;
-                    DrawGame();
-                    return;
-                }
+                g.FillRectangle(Brushes.White, wasteX, wasteY, CardWidth, CardHeight);
+                g.DrawRectangle(Pens.Black, wasteX, wasteY, CardWidth, CardHeight);
             }
-        }
 
-        private void TableauPanel_DragEnter(object sender, DragEventArgs e)
-        {
-            if (dragCards != null && dragCards.Count > 0)
-                e.Effect = DragDropEffects.Move;
-        }
-
-        private void TableauPanel_DragDrop(object sender, DragEventArgs e)
-        {
-            var panel = sender as Panel;
-            int destPile = (int)panel.Tag;
-            if (dragCards == null || dragCards.Count == 0) return;
-            var card = dragCards[0];
-            if (CanMoveToTableau(card, destPile))
+            // Draw Foundations
+            for (int i = 0; i < FoundationCount; i++)
             {
-                if (dragFromTableau != -1)
+                int x = LeftMargin + (i + 3) * (CardWidth + CardSpacing);
+                int y = TopMargin;
+                SolitaireCard top = foundations[i].Count > 0 ? foundations[i].Last() : null;
+                bool highlight = IsHintFoundation(i);
+                DrawCard(g, top, x, y, font, highlight, false);
+                g.DrawRectangle(Pens.Black, x, y, CardWidth, CardHeight);
+                g.DrawString("Home", font, Brushes.White, x, y - 20);
+            }
+
+            // Draw Tableau
+            for (int i = 0; i < TableauCount; i++)
+            {
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 40;
+                for (int j = 0; j < tableau[i].Count; j++)
                 {
-                    for (int j = 0; j < dragCards.Count; j++)
-                        tableau[dragFromTableau].Pop();
-                    score += 5;
-                    // Flip next card if needed
-                    var srcCards = tableau[dragFromTableau].Reverse().ToList();
-                    if (srcCards.Count > 0 && !srcCards.Last().FaceUp)
+                    bool highlight = selectedTableauCol == i && selectedTableauRow == j && !isDragging;
+                    // Highlight hint if enabled and available
+                    if (hintsOnRadioBtn.Checked && currentHints.Count > 0 && currentHintIndex < currentHints.Count)
                     {
-                        srcCards.Last().FaceUp = true;
-                        tableau[dragFromTableau] = new Stack<Card>(srcCards.Reverse<Card>());
-                        score += 5;
+                        var hint = currentHints[currentHintIndex];
+                        if (hint.SourceType == HintSourceType.Tableau && hint.SourceCol == i && hint.SourceRow == j)
+                            highlight = true;
+                        if (hint.TargetType == HintTargetType.Tableau && hint.TargetCol == i && j == tableau[i].Count - 1)
+                            highlight = true;
+                    }
+                    // Don't draw cards being dragged
+                    if (isDragging && dragSourceCol == i && dragSourceRow.HasValue && j >= dragSourceRow.Value)
+                        continue;
+                    DrawCard(g, tableau[i][j], x, y + j * 25, font, highlight, highlight);
+                }
+                g.DrawRectangle(Pens.Black, x, y, CardWidth, CardHeight + Math.Max(0, (tableau[i].Count - 1) * 25));
+            }
+
+            // Draw animation cards if animating
+            if (currentAnimations.Count > 0)
+            {
+                foreach (var anim in currentAnimations)
+                {
+                    DrawCard(g, anim.Card, (int)anim.CurrentX, (int)anim.CurrentY, font, true, true);
+                }
+            }
+
+            // Draw dragging cards on top if dragging
+            if (isDragging && draggingCards != null)
+            {
+                for (int i = 0; i < draggingCards.Count; i++)
+                {
+                    int x = dragCurrentPoint.X;
+                    int y = dragCurrentPoint.Y + i * 25;
+                    DrawCard(g, draggingCards[i], x, y, font, true, true);
+                }
+            }
+
+            // Win detection
+            if (IsWin())
+            {
+                var winFont = new Font("Segoe UI", 32, FontStyle.Bold);
+                var text = "You Win!";
+                var size = g.MeasureString(text, winFont);
+                g.DrawString(text, winFont, Brushes.Green, (ClientSize.Width - size.Width) / 2, (ClientSize.Height - size.Height) / 2);
+            }
+        }
+
+        private void DrawCard(Graphics g, SolitaireCard card, int x, int y, Font font, bool highlight, bool visibleHighlight)
+        {
+            if (card == null)
+            {
+                g.FillRectangle(visibleHighlight ? Brushes.Orange : Brushes.White, x, y, CardWidth, CardHeight);
+                if (visibleHighlight)
+                {
+                    using (var pen = new Pen(Color.OrangeRed, 4))
+                        g.DrawRectangle(pen, x + 2, y + 2, CardWidth - 4, CardHeight - 4);
+                }
+                else
+                {
+                    g.DrawRectangle(Pens.Black, x, y, CardWidth, CardHeight);
+                }
+                return;
+            }
+            Color faceColor = card.FaceUp ? (highlight ? Color.LightYellow : Color.White) : Color.DarkGray;
+            using (var brush = new SolidBrush(visibleHighlight ? Color.Orange : faceColor))
+                g.FillRectangle(brush, x, y, CardWidth, CardHeight);
+            if (visibleHighlight)
+            {
+                using (var pen = new Pen(Color.OrangeRed, 4))
+                    g.DrawRectangle(pen, x + 2, y + 2, CardWidth - 4, CardHeight - 4);
+            }
+            else
+            {
+                g.DrawRectangle(Pens.Black, x, y, CardWidth, CardHeight);
+            }
+            if (card.FaceUp)
+            {
+                Brush brush = (card.Suit == SolitaireSuit.Hearts || card.Suit == SolitaireSuit.Diamonds) ? Brushes.Red : Brushes.Black;
+                g.DrawString(card.ToString(), font, brush, x + 5, y + 5);
+            }
+        }
+
+        private bool IsHintWaste(SolitaireCard card)
+        {
+            if (!hintsOnRadioBtn.Checked || currentHints.Count == 0 || currentHintIndex >= currentHints.Count)
+                return false;
+            var hint = currentHints[currentHintIndex];
+            return hint.SourceType == HintSourceType.Waste && waste.Count > 0 && waste.Peek() == card;
+        }
+
+        private bool IsHintFoundation(int foundationIndex)
+        {
+            if (!hintsOnRadioBtn.Checked || currentHints.Count == 0 || currentHintIndex >= currentHints.Count)
+                return false;
+            var hint = currentHints[currentHintIndex];
+            return hint.TargetType == HintTargetType.Foundation && hint.TargetCol == foundationIndex;
+        }
+
+        private void Solitaire_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (IsWin() || animationTimer.Enabled) return;
+
+            // Check Stock
+            int stockX = LeftMargin;
+            int stockY = TopMargin;
+            if (IsPointInRect(e.Location, stockX, stockY, CardWidth, CardHeight))
+            {
+                DealStock();
+                selectedTableauCol = null;
+                selectedTableauRow = null;
+                selectedWaste = false;
+                return;
+            }
+
+            // Check Waste
+            int wasteX = LeftMargin + CardWidth + CardSpacing;
+            int wasteY = TopMargin;
+            int wasteFanOffset = 12;
+            int maxFan = 3;
+            var wasteCards = waste.Reverse().TakeLast(maxFan).ToList();
+            int n = wasteCards.Count;
+            for (int i = 0; i < n; i++)
+            {
+                int wx = wasteX + (i * wasteFanOffset);
+                int wy = wasteY + (i * 2);
+                if (IsPointInRect(e.Location, wx, wy, CardWidth, CardHeight) && i == n - 1)
+                {
+                    if (waste.Count > 0)
+                    {
+                        isDragging = true;
+                        dragStartPoint = e.Location;
+                        dragCurrentPoint = e.Location;
+                        draggingCards = new List<SolitaireCard> { waste.Peek() };
+                        dragSourceWaste = true;
+                        dragSourceCol = null;
+                        dragSourceRow = null;
+                        Capture = true;
+                        Invalidate();
+                        return;
                     }
                 }
-                else if (dragFromWaste)
-                {
-                    waste.Pop();
-                    score += 5;
-                }
-                else if (dragFromFoundation != -1)
-                {
-                    foundation[dragFromFoundation].Pop();
-                    score -= 15;
-                }
-                foreach (var c in dragCards)
-                    tableau[destPile].Push(c);
             }
-            ResetDragState();
-            DrawGame();
+
+            // Check Tableau for drag
+            for (int i = 0; i < TableauCount; i++)
+            {
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 40;
+                for (int j = 0; j < tableau[i].Count; j++)
+                {
+                    int cardY = y + j * 25;
+                    if (IsPointInRect(e.Location, x, cardY, CardWidth, CardHeight))
+                    {
+                        var card = tableau[i][j];
+                        if (!card.FaceUp) continue;
+                        isDragging = true;
+                        dragStartPoint = e.Location;
+                        dragCurrentPoint = e.Location;
+                        draggingCards = tableau[i].Skip(j).ToList();
+                        dragSourceCol = i;
+                        dragSourceRow = j;
+                        dragSourceWaste = false;
+                        Capture = true;
+                        Invalidate();
+                        return;
+                    }
+                }
+            }
+
+            // Fallback to click-to-select
+            selectedTableauCol = null;
+            selectedTableauRow = null;
+            selectedWaste = false;
+            Invalidate();
         }
 
-        // Auto-move logic
-        private bool AutoMoveToFoundation(Card card, bool fromWaste = false, int fromTableau = -1, int tableauIndex = -1)
+        private void Solitaire_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            for (int i = 0; i < 4; i++)
+            if (IsWin() || animationTimer.Enabled) return;
+
+            // Waste double-click (top card only)
+            int wasteX = LeftMargin + CardWidth + CardSpacing;
+            int wasteY = TopMargin;
+            int wasteFanOffset = 12;
+            int maxFan = 3;
+            var wasteCards = waste.Reverse().TakeLast(maxFan).ToList();
+            int n = wasteCards.Count;
+            if (n > 0)
             {
-                if (CanMoveToFoundation(card, i))
+                int wx = wasteX + (n - 1) * wasteFanOffset;
+                int wy = wasteY + (n - 1) * 2;
+                if (IsPointInRect(e.Location, wx, wy, CardWidth, CardHeight))
                 {
-                    if (fromWaste)
+                    var card = waste.Peek();
+                    for (int f = 0; f < FoundationCount; f++)
                     {
-                        waste.Pop();
-                        score += 10;
-                    }
-                    else if (fromTableau != -1)
-                    {
-                        var cards = tableau[fromTableau].Reverse().ToList();
-                        if (tableauIndex == cards.Count - 1)
+                        if (CanMoveToFoundation(card, f))
                         {
-                            tableau[fromTableau].Pop();
-                            score += 10;
-                            // Flip next card if needed
-                            var srcCards = tableau[fromTableau].Reverse().ToList();
-                            if (srcCards.Count > 0 && !srcCards.Last().FaceUp)
+                            SaveStateForUndo();
+                            AnimateCardMove(card, new Point(wx, wy), new Point(LeftMargin + (f + 3) * (CardWidth + CardSpacing), TopMargin), () =>
                             {
-                                srcCards.Last().FaceUp = true;
-                                tableau[fromTableau] = new Stack<Card>(srcCards.Reverse<Card>());
-                                score += 5;
-                            }
+                                foundations[f].Add(waste.Pop());
+                                score += 10;
+                                UpdateScoreLabel();
+                                Invalidate();
+                            });
+                            return;
                         }
-                        else
+                    }
+                }
+            }
+
+            // Tableau double-click
+            for (int i = 0; i < TableauCount; i++)
+            {
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 40;
+                if (tableau[i].Count == 0) continue;
+                int j = tableau[i].Count - 1;
+                int cardY = y + j * 25;
+                if (IsPointInRect(e.Location, x, cardY, CardWidth, CardHeight))
+                {
+                    var card = tableau[i][j];
+                    if (!card.FaceUp) continue;
+                    for (int f = 0; f < FoundationCount; f++)
+                    {
+                        if (CanMoveToFoundation(card, f))
                         {
-                            return false;
+                            SaveStateForUndo();
+                            AnimateCardMove(card, new Point(x, cardY), new Point(LeftMargin + (f + 3) * (CardWidth + CardSpacing), TopMargin), () =>
+                            {
+                                foundations[f].Add(card);
+                                tableau[i].RemoveAt(j);
+                                if (tableau[i].Count > 0 && !tableau[i].Last().FaceUp)
+                                {
+                                    tableau[i].Last().FaceUp = true;
+                                    score += 5;
+                                }
+                                score += 10;
+                                UpdateScoreLabel();
+                                Invalidate();
+                            });
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+
+        private void Solitaire_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (isDragging)
+            {
+                dragCurrentPoint = e.Location;
+                Invalidate();
+            }
+        }
+
+        private void Solitaire_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (!isDragging || draggingCards == null || animationTimer.Enabled)
+                return;
+
+            // Try to drop on Foundations
+            for (int i = 0; i < FoundationCount; i++)
+            {
+                int x = LeftMargin + (i + 3) * (CardWidth + CardSpacing);
+                int y = TopMargin;
+                if (IsPointInRect(e.Location, x, y, CardWidth, CardHeight) && draggingCards.Count == 1)
+                {
+                    var card = draggingCards[0];
+                    if (CanMoveToFoundation(card, i))
+                    {
+                        SaveStateForUndo();
+                        Point from = dragSourceWaste
+                            ? new Point(LeftMargin + CardWidth + CardSpacing + 2 * 12, TopMargin + 2 * 2)
+                            : new Point(LeftMargin + dragSourceCol.Value * (CardWidth + CardSpacing),
+                                        TopMargin + CardHeight + 40 + dragSourceRow.Value * 25);
+                        Point to = new Point(x, y);
+                        AnimateCardMove(card, from, to, () =>
+                        {
+                            if (dragSourceWaste)
+                            {
+                                foundations[i].Add(waste.Pop());
+                                score += 10;
+                            }
+                            else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
+                            {
+                                foundations[i].Add(card);
+                                tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+                                if (tableau[dragSourceCol.Value].Count > 0 && !tableau[dragSourceCol.Value].Last().FaceUp)
+                                {
+                                    tableau[dragSourceCol.Value].Last().FaceUp = true;
+                                    score += 5;
+                                }
+                                score += 10;
+                            }
+                            EndDrag();
+                            UpdateScoreLabel();
+                            Invalidate();
+                        });
+                        return;
+                    }
+                }
+            }
+
+            // Try to drop on Tableau
+            for (int i = 0; i < TableauCount; i++)
+            {
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 40;
+                int colHeight = CardHeight + Math.Max(0, (tableau[i].Count - 1) * 25);
+                if (IsPointInRect(e.Location, x, y, CardWidth, colHeight))
+                {
+                    if (draggingCards.Count == 1)
+                    {
+                        var card = draggingCards[0];
+                        if (CanMoveToTableau(card, tableau[i]))
+                        {
+                            SaveStateForUndo();
+                            Point from = dragSourceWaste
+                                ? new Point(LeftMargin + CardWidth + CardSpacing + 2 * 12, TopMargin + 2 * 2)
+                                : new Point(LeftMargin + dragSourceCol.Value * (CardWidth + CardSpacing),
+                                            TopMargin + CardHeight + 40 + dragSourceRow.Value * 25);
+                            Point to = new Point(x, y + tableau[i].Count * 25);
+                            AnimateCardMove(card, from, to, () =>
+                            {
+                                if (dragSourceWaste)
+                                {
+                                    tableau[i].Add(waste.Pop());
+                                    score += 5;
+                                }
+                                else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
+                                {
+                                    tableau[i].Add(card);
+                                    tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+                                    if (tableau[dragSourceCol.Value].Count > 0 && !tableau[dragSourceCol.Value].Last().FaceUp)
+                                    {
+                                        tableau[dragSourceCol.Value].Last().FaceUp = true;
+                                        score += 5;
+                                    }
+                                    score += 5;
+                                }
+                                EndDrag();
+                                UpdateScoreLabel();
+                                Invalidate();
+                            });
+                            return;
                         }
                     }
                     else
                     {
-                        return false;
+                        // Multi-card drag (tableau sequence)
+                        if (CanMoveSequenceToTableau(draggingCards, tableau[i]))
+                        {
+                            SaveStateForUndo();
+                            var froms = new List<Point>();
+                            var tos = new List<Point>();
+                            for (int k = 0; k < draggingCards.Count; k++)
+                            {
+                                froms.Add(new Point(
+                                    LeftMargin + dragSourceCol.Value * (CardWidth + CardSpacing),
+                                    TopMargin + CardHeight + 40 + (dragSourceRow.Value + k) * 25));
+                                tos.Add(new Point(
+                                    x,
+                                    y + (tableau[i].Count + k) * 25));
+                            }
+                            AnimateMultiCardMove(draggingCards, froms, tos, () =>
+                            {
+                                tableau[i].AddRange(draggingCards);
+                                tableau[dragSourceCol.Value].RemoveRange(dragSourceRow.Value, draggingCards.Count);
+                                if (tableau[dragSourceCol.Value].Count > 0 && !tableau[dragSourceCol.Value].Last().FaceUp)
+                                {
+                                    tableau[dragSourceCol.Value].Last().FaceUp = true;
+                                    score += 5;
+                                }
+                                score += 5;
+                                EndDrag();
+                                UpdateScoreLabel();
+                                Invalidate();
+                            });
+                            return;
+                        }
                     }
-                    foundation[i].Push(card);
-                    DrawGame();
-                    return true;
                 }
             }
-            return false;
+
+            // Invalid drop
+            EndDrag();
+            score -= 5;
+            UpdateScoreLabel();
+            Invalidate();
         }
 
-        private void ResetDragState()
+        private void EndDrag()
         {
-            dragCards = null;
-            dragFromTableau = -1;
-            dragFromIndex = -1;
-            dragFromFoundation = -1;
-            dragFromWaste = false;
+            isDragging = false;
+            draggingCards = null;
+            dragSourceCol = null;
+            dragSourceRow = null;
+            dragSourceWaste = false;
+            Capture = false;
         }
 
-        // Game logic
-        private List<Card> CreateDeck()
+        private bool IsPointInRect(Point p, int x, int y, int w, int h)
         {
-            var deck = new List<Card>();
-            foreach (var suit in new[] { "♠", "♥", "♦", "♣" })
-                for (int v = 1; v <= 13; v++)
-                    deck.Add(new Card { Suit = suit, Value = v, FaceUp = false });
-            return deck;
+            return p.X >= x && p.X <= x + w && p.Y >= y && p.Y <= y + h;
         }
 
-        private void Shuffle(List<Card> deck)
+        private bool CanMoveToFoundation(SolitaireCard card, int foundationIndex)
         {
-            var rng = new Random();
-            for (int i = deck.Count - 1; i > 0; i--)
+            var foundation = foundations[foundationIndex];
+            if (foundation.Count == 0)
+                return card.Rank == 1; // Ace
+            var top = foundation.Last();
+            return card.Suit == top.Suit && card.Rank == top.Rank + 1;
+        }
+
+        private bool CanMoveToTableau(SolitaireCard card, List<SolitaireCard> col)
+        {
+            if (col.Count == 0)
+                return card.Rank == 13; // King
+            var top = col.Last();
+            return top.FaceUp && IsRed(card.Suit) != IsRed(top.Suit) && card.Rank == top.Rank - 1;
+        }
+
+        private bool CanMoveSequenceToTableau(List<SolitaireCard> moving, List<SolitaireCard> col)
+        {
+            if (moving == null || moving.Count == 0) return false;
+            if (col.Count == 0)
+                return moving[0].Rank == 13;
+            var top = col.Last();
+            return top.FaceUp && IsRed(moving[0].Suit) != IsRed(top.Suit) && moving[0].Rank == top.Rank - 1;
+        }
+
+        private bool IsRed(SolitaireSuit suit) => suit == SolitaireSuit.Hearts || suit == SolitaireSuit.Diamonds;
+
+        private bool IsWin()
+        {
+            return foundations.All(f => f.Count == 13);
+        }
+
+        // --- Animation helpers ---
+
+        private void AnimateCardMove(SolitaireCard card, Point from, Point to, Action onComplete)
+        {
+            currentAnimations.Clear();
+            currentAnimations.Add(new AnimationStep
             {
-                int j = rng.Next(i + 1);
-                var temp = deck[i];
-                deck[i] = deck[j];
-                deck[j] = temp;
-            }
+                Card = card,
+                From = from,
+                To = to,
+                CurrentX = from.X,
+                CurrentY = from.Y
+            });
+            animationOnComplete = onComplete;
+            animationTimer.Start();
         }
 
-        private bool CanMoveToFoundation(Card card, int foundationIndex)
+        private void AnimateMultiCardMove(List<SolitaireCard> cards, List<Point> froms, List<Point> tos, Action onComplete)
         {
-            var pile = foundation[foundationIndex];
-            if (pile.Count == 0)
-                return card.Value == 1; // Ace
-            var top = pile.Peek();
-            return top.Suit == card.Suit && card.Value == top.Value + 1;
-        }
-
-        private bool CanMoveToTableau(Card card, int tableauIndex)
-        {
-            var pile = tableau[tableauIndex];
-            if (pile.Count == 0)
-                return card.Value == 13; // King
-            var top = pile.Peek();
-            bool oppositeColor = (IsRed(card.Suit) != IsRed(top.Suit));
-            return oppositeColor && card.Value == top.Value - 1;
-        }
-
-        private bool IsRed(string suit) => suit == "♥" || suit == "♦";
-
-        private Image DrawCard(Card card)
-        {
-            Bitmap bmp = new Bitmap(70, 100);
-            using (Graphics g = Graphics.FromImage(bmp))
+            currentAnimations.Clear();
+            for (int i = 0; i < cards.Count; i++)
             {
-                g.Clear(Color.White);
-                var color = IsRed(card.Suit) ? Brushes.Red : Brushes.Black;
-                string valueStr = card.Value switch
+                currentAnimations.Add(new AnimationStep
                 {
-                    1 => "A",
-                    11 => "J",
-                    12 => "Q",
-                    13 => "K",
-                    _ => card.Value.ToString()
-                };
-                g.DrawString($"{valueStr}{card.Suit}", new Font("Segoe UI", 16, FontStyle.Bold), color, 5, 5);
+                    Card = cards[i],
+                    From = froms[i],
+                    To = tos[i],
+                    CurrentX = froms[i].X,
+                    CurrentY = froms[i].Y
+                });
             }
-            return bmp;
+            animationOnComplete = onComplete;
+            animationTimer.Start();
         }
 
-        private Image DrawCardBack()
+        private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            Bitmap bmp = new Bitmap(70, 100);
-            using (Graphics g = Graphics.FromImage(bmp))
+            if (currentAnimations.Count == 0)
             {
-                g.Clear(Color.DarkBlue);
-                g.DrawRectangle(Pens.White, 2, 2, 66, 96);
-                g.DrawString("🂠", new Font("Segoe UI", 24), Brushes.White, 10, 30);
+                animationTimer.Stop();
+                return;
             }
-            return bmp;
+            bool allArrived = true;
+            float speed = 20f;
+            foreach (var anim in currentAnimations)
+            {
+                float dx = anim.To.X - anim.CurrentX;
+                float dy = anim.To.Y - anim.CurrentY;
+                float dist = (float)Math.Sqrt(dx * dx + dy * dy);
+                if (dist < speed)
+                {
+                    anim.CurrentX = anim.To.X;
+                    anim.CurrentY = anim.To.Y;
+                }
+                else
+                {
+                    anim.CurrentX += dx / dist * speed;
+                    anim.CurrentY += dy / dist * speed;
+                    allArrived = false;
+                }
+            }
+            Invalidate();
+            if (allArrived)
+            {
+                animationTimer.Stop();
+                currentAnimations.Clear();
+                animationOnComplete?.Invoke();
+                animationOnComplete = null;
+            }
         }
 
-        private class Card
+        // --- Hint logic ---
+
+        private void ShowHint()
         {
-            public string Suit { get; set; }
-            public int Value { get; set; }
-            public bool FaceUp { get; set; }
+            if (!hintsOnRadioBtn.Checked)
+            {
+                currentHints.Clear();
+                currentHintIndex = 0;
+                Invalidate();
+                return;
+            }
+
+            // Only recalculate hints if the hint list is empty (so repeated clicks cycle through the same set until the board changes)
+            if (currentHints.Count == 0)
+                currentHints = FindAllHints();
+
+            if (currentHints.Count == 0)
+            {
+                currentHintIndex = 0;
+                // Show a message box if no hints are available
+                MessageBox.Show(this, "No available moves found.", "Hint", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Invalidate();
+                return;
+            }
+
+            // Cycle through hints
+            currentHintIndex = (currentHintIndex + 1) % currentHints.Count;
+            Invalidate();
+        }
+
+        private List<HintMove> FindAllHints()
+        {
+            var hints = new List<HintMove>();
+
+            // Waste to Foundation
+            if (waste.Count > 0)
+            {
+                var card = waste.Peek();
+                for (int f = 0; f < FoundationCount; f++)
+                {
+                    if (CanMoveToFoundation(card, f))
+                    {
+                        hints.Add(new HintMove
+                        {
+                            SourceType = HintSourceType.Waste,
+                            SourceCol = -1,
+                            SourceRow = -1,
+                            TargetType = HintTargetType.Foundation,
+                            TargetCol = f
+                        });
+                    }
+                }
+            }
+
+            // Waste to Tableau
+            if (waste.Count > 0)
+            {
+                var card = waste.Peek();
+                for (int t = 0; t < TableauCount; t++)
+                {
+                    if (CanMoveToTableau(card, tableau[t]))
+                    {
+                        hints.Add(new HintMove
+                        {
+                            SourceType = HintSourceType.Waste,
+                            SourceCol = -1,
+                            SourceRow = -1,
+                            TargetType = HintTargetType.Tableau,
+                            TargetCol = t
+                        });
+                    }
+                }
+            }
+
+            // Tableau to Foundation
+            for (int i = 0; i < TableauCount; i++)
+            {
+                if (tableau[i].Count == 0) continue;
+                var card = tableau[i].Last();
+                if (!card.FaceUp) continue;
+                for (int f = 0; f < FoundationCount; f++)
+                {
+                    if (CanMoveToFoundation(card, f))
+                    {
+                        hints.Add(new HintMove
+                        {
+                            SourceType = HintSourceType.Tableau,
+                            SourceCol = i,
+                            SourceRow = tableau[i].Count - 1,
+                            TargetType = HintTargetType.Foundation,
+                            TargetCol = f
+                        });
+                    }
+                }
+            }
+
+            // Tableau to Tableau (single card and sequences)
+            for (int i = 0; i < TableauCount; i++)
+            {
+                for (int j = 0; j < tableau[i].Count; j++)
+                {
+                    var card = tableau[i][j];
+                    if (!card.FaceUp) continue;
+                    var moving = tableau[i].Skip(j).ToList();
+                    for (int t = 0; t < TableauCount; t++)
+                    {
+                        if (i == t) continue;
+                        if (moving.Count == 1 && CanMoveToTableau(card, tableau[t]))
+                        {
+                            hints.Add(new HintMove
+                            {
+                                SourceType = HintSourceType.Tableau,
+                                SourceCol = i,
+                                SourceRow = j,
+                                TargetType = HintTargetType.Tableau,
+                                TargetCol = t
+                            });
+                        }
+                        else if (moving.Count > 1 && CanMoveSequenceToTableau(moving, tableau[t]))
+                        {
+                            hints.Add(new HintMove
+                            {
+                                SourceType = HintSourceType.Tableau,
+                                SourceCol = i,
+                                SourceRow = j,
+                                TargetType = HintTargetType.Tableau,
+                                TargetCol = t
+                            });
+                        }
+                    }
+                }
+            }
+
+            return hints;
+        }
+
+        // --- Data classes ---
+
+        private class AnimationStep
+        {
+            public SolitaireCard Card;
+            public Point From;
+            public Point To;
+            public float CurrentX;
+            public float CurrentY;
+        }
+
+        private class GameState
+        {
+            public List<SolitaireCard>[] Tableau { get; set; }
+            public List<SolitaireCard>[] Foundations { get; set; }
+            public List<SolitaireCard> Stock { get; set; }
+            public List<SolitaireCard> Waste { get; set; }
+            public int? SelectedTableauCol { get; set; }
+            public int? SelectedTableauRow { get; set; }
+            public bool SelectedWaste { get; set; }
+            public int Score { get; set; }
+            public string WinLabel { get; set; }
+        }
+
+        private class HintMove
+        {
+            public HintSourceType SourceType { get; set; }
+            public int SourceCol { get; set; }
+            public int SourceRow { get; set; }
+            public HintTargetType TargetType { get; set; }
+            public int TargetCol { get; set; }
+        }
+
+        private enum HintSourceType { Waste, Tableau }
+        private enum HintTargetType { Foundation, Tableau }
+
+        private void UpdateDealButtonState()
+        {
+            // Disable if there are 3 cards in the waste stack, enable otherwise
+            dealBtn.Enabled = waste.Count < 3;
         }
     }
+
+    public class SolitaireCard
+    {
+        public SolitaireSuit Suit { get; }
+        public int Rank { get; }
+        public bool FaceUp { get; set; }
+        public SolitaireCard(SolitaireSuit suit, int rank)
+        {
+            Suit = suit;
+            Rank = rank;
+            FaceUp = false;
+        }
+        public SolitaireCard Clone() => new SolitaireCard(Suit, Rank) { FaceUp = this.FaceUp };
+        public override string ToString()
+        {
+            string rankStr = Rank switch
+            {
+                1 => "A",
+                11 => "J",
+                12 => "Q",
+                13 => "K",
+                _ => Rank.ToString()
+            };
+            return $"{rankStr}{SuitToChar(Suit)}";
+        }
+        private char SuitToChar(SolitaireSuit suit) => suit switch
+        {
+            SolitaireSuit.Clubs => '♣',
+            SolitaireSuit.Diamonds => '♦',
+            SolitaireSuit.Hearts => '♥',
+            SolitaireSuit.Spades => '♠',
+            _ => '?'
+        };
+    }
+
+    public enum SolitaireSuit { Clubs, Diamonds, Hearts, Spades }
 }

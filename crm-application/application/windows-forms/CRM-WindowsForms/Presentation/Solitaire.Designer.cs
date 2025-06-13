@@ -32,9 +32,14 @@
             // 
             // Solitaire
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.ForestGreen;
+            ClientSize = new Size(940, 602);
+            Font = new Font("Segoe UI", 11F);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             Name = "Solitaire";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Solitaire";

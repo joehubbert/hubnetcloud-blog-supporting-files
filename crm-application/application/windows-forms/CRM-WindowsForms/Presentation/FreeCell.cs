@@ -64,7 +64,7 @@ namespace CRM_WindowsForms.Presentation
             this.MouseUp += FreeCell_MouseUp;
 
             // Restart button
-            var restartBtn = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 80, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            var restartBtn = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
             restartBtn.Click += (s, e) => StartNewGame();
             Controls.Add(restartBtn);
         }
@@ -104,7 +104,7 @@ namespace CRM_WindowsForms.Presentation
         private void FreeCell_Paint(object sender, PaintEventArgs e)
         {
             var g = e.Graphics;
-            var font = new Font("Segoe UI", 10, FontStyle.Bold);
+            var font = new Font("Segoe UI", 11, FontStyle.Bold);
 
             // Draw FreeCells
             for (int i = 0; i < 4; i++)

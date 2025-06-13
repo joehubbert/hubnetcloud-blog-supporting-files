@@ -32,11 +32,13 @@
             // 
             // FreeCell
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightSteelBlue;
-            ClientSize = new Size(729, 450);
+            ClientSize = new Size(738, 485);
+            Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "FreeCell";
             StartPosition = FormStartPosition.CenterScreen;

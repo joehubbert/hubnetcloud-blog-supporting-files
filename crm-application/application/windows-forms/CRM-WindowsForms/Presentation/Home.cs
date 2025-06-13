@@ -67,6 +67,12 @@
             solitaire.Show();
         }
 
+        private void homeMenuStripHelpEasterEggSpiderSolitaire_Click(object sender, EventArgs e)
+        {
+            SpiderSolitaire spiderSolitaire = new SpiderSolitaire();
+            spiderSolitaire.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagement_Click(object sender, EventArgs e)
         {
             CompanyManagement companyManagement = new CompanyManagement();

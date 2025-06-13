@@ -1045,6 +1045,7 @@
             homeMenuStripHelpEasterEggSpiderSolitaire.Name = "homeMenuStripHelpEasterEggSpiderSolitaire";
             homeMenuStripHelpEasterEggSpiderSolitaire.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggSpiderSolitaire.Text = "&Spider Solitaire";
+            homeMenuStripHelpEasterEggSpiderSolitaire.Click += homeMenuStripHelpEasterEggSpiderSolitaire_Click;
             // 
             // homeMenuStripHelpEasterEggSudoku
             // 

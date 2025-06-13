@@ -37,8 +37,8 @@
             // 
             moduleHomeTitleLabel.AutoSize = true;
             moduleHomeTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            moduleHomeTitleLabel.Location = new Point(13, 9);
-            moduleHomeTitleLabel.Margin = new Padding(4, 0, 4, 0);
+            moduleHomeTitleLabel.Location = new Point(15, 12);
+            moduleHomeTitleLabel.Margin = new Padding(5, 0, 5, 0);
             moduleHomeTitleLabel.Name = "moduleHomeTitleLabel";
             moduleHomeTitleLabel.Size = new Size(335, 32);
             moduleHomeTitleLabel.TabIndex = 11;
@@ -48,10 +48,10 @@
             // 
             moduleHomeViewAllButton.FlatStyle = FlatStyle.Flat;
             moduleHomeViewAllButton.Font = new Font("Segoe UI", 11F);
-            moduleHomeViewAllButton.Location = new Point(285, 78);
-            moduleHomeViewAllButton.Margin = new Padding(4);
+            moduleHomeViewAllButton.Location = new Point(326, 104);
+            moduleHomeViewAllButton.Margin = new Padding(5, 5, 5, 5);
             moduleHomeViewAllButton.Name = "moduleHomeViewAllButton";
-            moduleHomeViewAllButton.Size = new Size(212, 72);
+            moduleHomeViewAllButton.Size = new Size(242, 96);
             moduleHomeViewAllButton.TabIndex = 14;
             moduleHomeViewAllButton.Text = "View All";
             moduleHomeViewAllButton.UseVisualStyleBackColor = true;
@@ -61,10 +61,10 @@
             // 
             moduleHomeCreateButton.FlatStyle = FlatStyle.Flat;
             moduleHomeCreateButton.Font = new Font("Segoe UI", 11F);
-            moduleHomeCreateButton.Location = new Point(40, 78);
-            moduleHomeCreateButton.Margin = new Padding(4);
+            moduleHomeCreateButton.Location = new Point(46, 104);
+            moduleHomeCreateButton.Margin = new Padding(5, 5, 5, 5);
             moduleHomeCreateButton.Name = "moduleHomeCreateButton";
-            moduleHomeCreateButton.Size = new Size(212, 72);
+            moduleHomeCreateButton.Size = new Size(242, 96);
             moduleHomeCreateButton.TabIndex = 13;
             moduleHomeCreateButton.Text = "Create";
             moduleHomeCreateButton.UseVisualStyleBackColor = true;
@@ -72,13 +72,15 @@
             // 
             // ModuleHomeSimple
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(536, 196);
+            ClientSize = new Size(613, 261);
             Controls.Add(moduleHomeViewAllButton);
             Controls.Add(moduleHomeCreateButton);
             Controls.Add(moduleHomeTitleLabel);
+            Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
             MaximizeBox = false;
             Name = "ModuleHomeSimple";
             StartPosition = FormStartPosition.CenterScreen;

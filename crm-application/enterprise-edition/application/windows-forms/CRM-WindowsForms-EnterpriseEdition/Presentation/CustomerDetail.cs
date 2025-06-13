@@ -1488,59 +1488,60 @@ namespace CRM_WindowsForms.Presentation
 
         private void CustomerDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            customerDetailBillingInformationAddressLine1Textbox.Enabled = !customerDetailBillingInformationAddressLine1Textbox.Enabled;
-            customerDetailBillingInformationAddressLine2Textbox.Enabled = !customerDetailBillingInformationAddressLine2Textbox.Enabled;
-            customerDetailBillingInformationAddressLine3Textbox.Enabled = !customerDetailBillingInformationAddressLine3Textbox.Enabled;
-            customerDetailBillingInformationAddressLine4Textbox.Enabled = !customerDetailBillingInformationAddressLine4Textbox.Enabled;
-            customerDetailBillingInformationAddressLine5Textbox.Enabled = !customerDetailBillingInformationAddressLine5Textbox.Enabled;
-            customerDetailBillingInformationCompanyNameTextbox.Enabled = !customerDetailBillingInformationCompanyNameTextbox.Enabled;
-            customerDetailBillingInformationEmailAddressTextbox.Enabled = !customerDetailBillingInformationEmailAddressTextbox.Enabled;
-            customerDetailBillingInformationFirstNameTextbox.Enabled = !customerDetailBillingInformationFirstNameTextbox.Enabled;
-            customerDetailBillingInformationLastNameTextbox.Enabled = !customerDetailBillingInformationLastNameTextbox.Enabled;
-            customerDetailBillingInformationTelephoneNumberTextbox.Enabled = !customerDetailBillingInformationTelephoneNumberTextbox.Enabled;
+            customerDetailBillingInformationAddressLine1Textbox.ReadOnly = !customerDetailBillingInformationAddressLine1Textbox.ReadOnly;
+            customerDetailBillingInformationAddressLine2Textbox.ReadOnly = !customerDetailBillingInformationAddressLine2Textbox.ReadOnly;
+            customerDetailBillingInformationAddressLine3Textbox.ReadOnly = !customerDetailBillingInformationAddressLine3Textbox.ReadOnly;
+            customerDetailBillingInformationAddressLine4Textbox.ReadOnly = !customerDetailBillingInformationAddressLine4Textbox.ReadOnly;
+            customerDetailBillingInformationAddressLine5Textbox.ReadOnly = !customerDetailBillingInformationAddressLine5Textbox.ReadOnly;
+            customerDetailBillingInformationCompanyNameTextbox.ReadOnly = !customerDetailBillingInformationCompanyNameTextbox.ReadOnly;
+            customerDetailBillingInformationEmailAddressTextbox.ReadOnly = !customerDetailBillingInformationEmailAddressTextbox.ReadOnly;
+            customerDetailBillingInformationFirstNameTextbox.ReadOnly = !customerDetailBillingInformationFirstNameTextbox.ReadOnly;
+            customerDetailBillingInformationLastNameTextbox.ReadOnly = !customerDetailBillingInformationLastNameTextbox.ReadOnly;
+            customerDetailBillingInformationTelephoneNumberTextbox.ReadOnly = !customerDetailBillingInformationTelephoneNumberTextbox.ReadOnly;
             customerDetailFinanceCreditEnabledCheckbox.Enabled = !customerDetailFinanceCreditEnabledCheckbox.Enabled;
-            customerDetailFinanceCreditLimitTextboxA.Enabled = !customerDetailFinanceCreditLimitTextboxA.Enabled;
-            customerDetailFinanceCreditLimitTextboxB.Enabled = !customerDetailFinanceCreditLimitTextboxB.Enabled;
+            customerDetailFinanceCreditLimitTextboxA.ReadOnly = !customerDetailFinanceCreditLimitTextboxA.ReadOnly;
+            customerDetailFinanceCreditLimitTextboxB.ReadOnly = !customerDetailFinanceCreditLimitTextboxB.ReadOnly;
             customerDetailFinancePaymentCurrencyComboBox.Enabled = !customerDetailFinancePaymentCurrencyComboBox.Enabled;
-            customerDetailFinancePaymentDaysTextbox.Enabled = !customerDetailFinancePaymentDaysTextbox.Enabled;
-            customerDetailFinanceVATNumberTextbox.Enabled = !customerDetailFinanceVATNumberTextbox.Enabled;
+            customerDetailFinancePaymentDaysTextbox.ReadOnly = !customerDetailFinancePaymentDaysTextbox.ReadOnly;
+            customerDetailFinanceVATRegisteredCheckbox.Enabled = !customerDetailFinanceVATRegisteredCheckbox.Enabled;
+            customerDetailFinanceVATNumberTextbox.ReadOnly = !customerDetailFinanceVATNumberTextbox.ReadOnly;
             customerDetailOverviewAccountManagerComboBox.Enabled = !customerDetailOverviewAccountManagerComboBox.Enabled;
             customerDetailOverviewActiveStatusCheckbox.Enabled = !customerDetailOverviewActiveStatusCheckbox.Enabled;
-            customerDetailOverviewCompanyNameTextbox.Enabled = !customerDetailOverviewCompanyNameTextbox.Enabled;
+            customerDetailOverviewCompanyNameTextbox.ReadOnly = !customerDetailOverviewCompanyNameTextbox.ReadOnly;
             customerDetailOverviewCustomerSinceDatePicker.Enabled = !customerDetailOverviewCustomerSinceDatePicker.Enabled;
             customerDetailOverviewCustomerTierComboBox.Enabled = !customerDetailOverviewCustomerTierComboBox.Enabled;
             customerDetailOverviewCustomerTypeComboBox.Enabled = !customerDetailOverviewCustomerTypeComboBox.Enabled;
-            customerDetailOverviewEmailAddressTextbox.Enabled = !customerDetailOverviewEmailAddressTextbox.Enabled;
+            customerDetailOverviewEmailAddressTextbox.ReadOnly = !customerDetailOverviewEmailAddressTextbox.ReadOnly;
             customerDetailOverviewExistingCustomerIsParentNoRadioButton.Enabled = !customerDetailOverviewExistingCustomerIsParentNoRadioButton.Enabled;
             customerDetailOverviewExistingCustomerIsParentYesRadioButton.Enabled = !customerDetailOverviewExistingCustomerIsParentYesRadioButton.Enabled;
             customerDetailOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled = !customerDetailOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled;
             customerDetailOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled = !customerDetailOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled;
-            customerDetailOverviewFirstNameTextbox.Enabled = !customerDetailOverviewFirstNameTextbox.Enabled;
+            customerDetailOverviewFirstNameTextbox.ReadOnly = !customerDetailOverviewFirstNameTextbox.ReadOnly;
             customerDetailOverviewGlobalParentCustomerComboBox.Enabled = !customerDetailOverviewGlobalParentCustomerComboBox.Enabled;
-            customerDetailOverviewLastNameTextbox.Enabled = !customerDetailOverviewLastNameTextbox.Enabled;
+            customerDetailOverviewLastNameTextbox.ReadOnly = !customerDetailOverviewLastNameTextbox.ReadOnly;
             customerDetailOverviewSalesRegionComboBox.Enabled = !customerDetailOverviewSalesRegionComboBox.Enabled;
             customerDetailOverviewSalesSubRegionComboBox.Enabled = !customerDetailOverviewSalesSubRegionComboBox.Enabled;
-            customerDetailOverviewTelephoneNumberTextbox.Enabled = !customerDetailOverviewTelephoneNumberTextbox.Enabled;
+            customerDetailOverviewTelephoneNumberTextbox.ReadOnly = !customerDetailOverviewTelephoneNumberTextbox.ReadOnly;
             customerDetailOverviewTopParentCustomerComboBox.Enabled = !customerDetailOverviewTopParentCustomerComboBox.Enabled;
             customerDetailOverviewWillBeGlobalParentRadioButton.Enabled = !customerDetailOverviewWillBeGlobalParentRadioButton.Enabled;
             customerDetailOverviewWillBeTopParentRadioButton.Enabled = !customerDetailOverviewWillBeTopParentRadioButton.Enabled;
-            customerDetailShippingInformationAddressLine1Textbox.Enabled = !customerDetailShippingInformationAddressLine1Textbox.Enabled;
-            customerDetailShippingInformationAddressLine2Textbox.Enabled = !customerDetailShippingInformationAddressLine2Textbox.Enabled;
-            customerDetailShippingInformationAddressLine3Textbox.Enabled = !customerDetailShippingInformationAddressLine3Textbox.Enabled;
-            customerDetailShippingInformationAddressLine4Textbox.Enabled = !customerDetailShippingInformationAddressLine4Textbox.Enabled;
-            customerDetailShippingInformationAddressLine5Textbox.Enabled = !customerDetailShippingInformationAddressLine5Textbox.Enabled;
-            customerDetailShippingInformationCompanyNameTextbox.Enabled = !customerDetailShippingInformationCompanyNameTextbox.Enabled;
-            customerDetailShippingInformationEmailAddressTextbox.Enabled = !customerDetailShippingInformationEmailAddressTextbox.Enabled;
-            customerDetailShippingInformationFirstNameTextbox.Enabled = !customerDetailShippingInformationFirstNameTextbox.Enabled;
-            customerDetailShippingInformationLastNameTextbox.Enabled = !customerDetailShippingInformationLastNameTextbox.Enabled;
-            customerDetailShippingInformationTelephoneNumberTextbox.Enabled = !customerDetailShippingInformationTelephoneNumberTextbox.Enabled;
+            customerDetailShippingInformationAddressLine1Textbox.ReadOnly = !customerDetailShippingInformationAddressLine1Textbox.ReadOnly;
+            customerDetailShippingInformationAddressLine2Textbox.ReadOnly = !customerDetailShippingInformationAddressLine2Textbox.ReadOnly;
+            customerDetailShippingInformationAddressLine3Textbox.ReadOnly = !customerDetailShippingInformationAddressLine3Textbox.ReadOnly;
+            customerDetailShippingInformationAddressLine4Textbox.ReadOnly = !customerDetailShippingInformationAddressLine4Textbox.ReadOnly;
+            customerDetailShippingInformationAddressLine5Textbox.ReadOnly = !customerDetailShippingInformationAddressLine5Textbox.ReadOnly;
+            customerDetailShippingInformationCompanyNameTextbox.ReadOnly = !customerDetailShippingInformationCompanyNameTextbox.ReadOnly;
+            customerDetailShippingInformationEmailAddressTextbox.ReadOnly = !customerDetailShippingInformationEmailAddressTextbox.ReadOnly;
+            customerDetailShippingInformationFirstNameTextbox.ReadOnly = !customerDetailShippingInformationFirstNameTextbox.ReadOnly;
+            customerDetailShippingInformationLastNameTextbox.ReadOnly = !customerDetailShippingInformationLastNameTextbox.ReadOnly;
+            customerDetailShippingInformationTelephoneNumberTextbox.ReadOnly = !customerDetailShippingInformationTelephoneNumberTextbox.ReadOnly;
             customerDetailUpdateCustomerButton.Enabled = !customerDetailUpdateCustomerButton.Enabled;
         }
 
         private void CustomerDetailCustomerNotesCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
-            CreateCustomerNote createCustomerNoteForm = new CreateCustomerNote(_customerId);
-            createCustomerNoteForm.Show();
+            CreateNote createNote = new CreateNote(_customerId, "CustomerManagement");
+            createNote.Show();
         }
 
         private async void CustomerDetailCustomerNotesRefreshDataButton_Click(object sender, EventArgs e)

@@ -33,6 +33,7 @@ namespace CRM_WindowsForms.Presentation
         {
             supplierDetailFinanceVATRegisteredCheckbox.CheckedChanged += SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged;
             supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
+            supplierDetailSupplierNotesExistingSupplierNotesDataGridView.CellContentClick += SupplierDetailSupplierNotesExistingSupplierNotesDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -238,8 +239,8 @@ namespace CRM_WindowsForms.Presentation
                     if (supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Contains("Supplier Note Id"))
                     {
                         Guid supplierNoteId = (Guid)supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Rows[e.RowIndex].Cells["Supplier Note Id"].Value;
-                        SupplierNoteDetail supplierNoteDetailForm = new SupplierNoteDetail(supplierNoteId);
-                        supplierNoteDetailForm.Show();
+                        NoteDetail noteDetail = new NoteDetail("SupplierManagement", supplierNoteId);
+                        noteDetail.Show();
                     }
                     else
                     {
@@ -601,8 +602,8 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            CreateSupplierNote createSupplierNoteForm = new CreateSupplierNote(_supplierId);
-            createSupplierNoteForm.Show();
+            CreateNote createNote = new CreateNote(_supplierId, "SupplierManagement");
+            createNote.Show();
         }
 
         private async void supplierDetailSupplierNotesRefreshDataButton_Click(object sender, EventArgs e)

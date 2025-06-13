@@ -34,6 +34,7 @@ namespace CRM_WindowsForms.Presentation
         private void InitializeCustomComponents()
         {
             productDetailTabControl.SelectedIndexChanged += ProductDetailTabControl_SelectedIndexChanged;
+            productDetailProductNotesExistingProductNotesDataGridView.CellContentClick += ProductDetailProductNotesExistingProductNotesDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -269,8 +270,8 @@ namespace CRM_WindowsForms.Presentation
                     if (productDetailProductNotesExistingProductNotesDataGridView.Columns.Contains("Product Note Id"))
                     {
                         Guid productNoteId = (Guid)productDetailProductNotesExistingProductNotesDataGridView.Rows[e.RowIndex].Cells["Product Note Id"].Value;
-                        ProductNoteDetail productNoteDetailForm = new ProductNoteDetail(productNoteId);
-                        productNoteDetailForm.Show();
+                        NoteDetail noteDetail = new NoteDetail("ProductManagement", productNoteId);
+                        noteDetail.Show();
                     }
                     else
                     {
@@ -691,8 +692,8 @@ namespace CRM_WindowsForms.Presentation
 
         private void ProductDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
         {
-            CreateProductNote createProductNoteForm = new CreateProductNote(_productId);
-            createProductNoteForm.Show();
+            CreateNote createNote = new CreateNote(_productId, "ProductManagement");
+            createNote.Show();
         }
 
         private async void ProductDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)

@@ -93,6 +93,11 @@ namespace CRM_WindowsForms.Presentation
             currentAnimations.Clear();
             animationOnComplete = null;
             animationTimer.Stop();
+            isDragging = false;
+            draggingCards = null;
+            dragSourceCol = null;
+            dragSourceRow = null;
+            dragSourceFreeCell = null;
             Invalidate();
         }
 
@@ -316,16 +321,30 @@ namespace CRM_WindowsForms.Presentation
                 int y = TopMargin;
                 if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, FreeCellCardHeight) && freeCells[i] == null && draggingCards.Count == 1)
                 {
-                    if (dragSourceFreeCell.HasValue)
-                        freeCells[dragSourceFreeCell.Value] = null;
-                    else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
-                        tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+                    var card = draggingCards[0];
+                    Point from = dragSourceFreeCell.HasValue
+                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
+                        : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
+                                    TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
+                    Point to = new Point(x, y);
 
-                    freeCells[i] = draggingCards[0];
-                    EndDrag();
-                    score -= 1;
-                    UpdateScoreLabel();
-                    Invalidate();
+                    AnimateMultiFreeCellCardMove(
+                        new List<FreeCellCard> { card },
+                        new List<Point> { from },
+                        new List<Point> { to },
+                        () =>
+                        {
+                            if (dragSourceFreeCell.HasValue)
+                                freeCells[dragSourceFreeCell.Value] = null;
+                            else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
+                                tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+
+                            freeCells[i] = card;
+                            EndDrag();
+                            score -= 1;
+                            UpdateScoreLabel();
+                            Invalidate();
+                        });
                     return;
                 }
             }
@@ -337,16 +356,30 @@ namespace CRM_WindowsForms.Presentation
                 int y = TopMargin;
                 if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, FreeCellCardHeight) && draggingCards.Count == 1 && CanMoveToFoundation(draggingCards[0], i))
                 {
-                    if (dragSourceFreeCell.HasValue)
-                        freeCells[dragSourceFreeCell.Value] = null;
-                    else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
-                        tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+                    var card = draggingCards[0];
+                    Point from = dragSourceFreeCell.HasValue
+                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
+                        : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
+                                    TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
+                    Point to = new Point(x, y);
 
-                    foundations[i].Add(draggingCards[0]);
-                    EndDrag();
-                    score += 10;
-                    UpdateScoreLabel();
-                    Invalidate();
+                    AnimateMultiFreeCellCardMove(
+                        new List<FreeCellCard> { card },
+                        new List<Point> { from },
+                        new List<Point> { to },
+                        () =>
+                        {
+                            if (dragSourceFreeCell.HasValue)
+                                freeCells[dragSourceFreeCell.Value] = null;
+                            else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
+                                tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+
+                            foundations[i].Add(card);
+                            EndDrag();
+                            score += 10;
+                            UpdateScoreLabel();
+                            Invalidate();
+                        });
                     return;
                 }
             }
@@ -357,21 +390,72 @@ namespace CRM_WindowsForms.Presentation
                 int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
                 int y = TopMargin + FreeCellCardHeight + 40;
                 int colHeight = FreeCellCardHeight + Math.Max(0, (tableau[i].Count - 1) * 25);
+
                 if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, colHeight) && (dragSourceCol != i || dragSourceCol == null))
                 {
-                    if (CanMoveSequenceToTableau(draggingCards, i))
+                    if (draggingCards.Count == 1)
                     {
-                        if (dragSourceFreeCell.HasValue)
-                            freeCells[dragSourceFreeCell.Value] = null;
-                        else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
-                            tableau[dragSourceCol.Value].RemoveRange(dragSourceRow.Value, draggingCards.Count);
+                        // Use CanMoveToTableau for single card
+                        if (CanMoveToTableau(draggingCards[0], i))
+                        {
+                            var card = draggingCards[0];
+                            Point from = dragSourceFreeCell.HasValue
+                                ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
+                                : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
+                                            TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
+                            Point to = new Point(x, y + tableau[i].Count * 25);
 
-                        tableau[i].AddRange(draggingCards);
-                        EndDrag();
-                        score -= 1;
-                        UpdateScoreLabel();
-                        Invalidate();
-                        return;
+                            AnimateMultiFreeCellCardMove(
+                                new List<FreeCellCard> { card },
+                                new List<Point> { from },
+                                new List<Point> { to },
+                                () =>
+                                {
+                                    if (dragSourceFreeCell.HasValue)
+                                        freeCells[dragSourceFreeCell.Value] = null;
+                                    else if (dragSourceCol.HasValue && dragSourceRow.HasValue)
+                                        tableau[dragSourceCol.Value].RemoveAt(dragSourceRow.Value);
+
+                                    tableau[i].Add(card);
+                                    EndDrag();
+                                    score -= 1;
+                                    UpdateScoreLabel();
+                                    Invalidate();
+                                });
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        // Use CanMoveSequenceToTableau for multi-card
+                        if (CanMoveSequenceToTableau(draggingCards, i))
+                        {
+                            var froms = new List<Point>();
+                            var tos = new List<Point>();
+                            for (int k = 0; k < draggingCards.Count; k++)
+                            {
+                                froms.Add(new Point(
+                                    LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
+                                    TopMargin + FreeCellCardHeight + 40 + (dragSourceRow.Value + k) * 25));
+                                tos.Add(new Point(
+                                    x,
+                                    y + (tableau[i].Count + k) * 25));
+                            }
+                            AnimateMultiFreeCellCardMove(
+                                draggingCards,
+                                froms,
+                                tos,
+                                () =>
+                                {
+                                    tableau[dragSourceCol.Value].RemoveRange(dragSourceRow.Value, draggingCards.Count);
+                                    tableau[i].AddRange(draggingCards);
+                                    EndDrag();
+                                    score -= 1;
+                                    UpdateScoreLabel();
+                                    Invalidate();
+                                });
+                            return;
+                        }
                     }
                 }
             }

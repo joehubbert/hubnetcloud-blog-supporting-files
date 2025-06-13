@@ -55,6 +55,12 @@
             about.Show();
         }
 
+        private void homeMenuStripHelpEasterEggChess_Click(object sender, EventArgs e)
+        {
+            Chess chess = new Chess();
+            chess.Show();
+        }
+
         private void homeMenuStripHelpEasterEggFreeCell_Click(object sender, EventArgs e)
         {
             FreeCell freeCell = new FreeCell();

@@ -1019,6 +1019,7 @@
             homeMenuStripHelpEasterEggChess.Name = "homeMenuStripHelpEasterEggChess";
             homeMenuStripHelpEasterEggChess.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggChess.Text = "&Chess";
+            homeMenuStripHelpEasterEggChess.Click += homeMenuStripHelpEasterEggChess_Click;
             // 
             // homeMenuStripHelpEasterEggFreeCell
             // 

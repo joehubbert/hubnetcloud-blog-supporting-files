@@ -3,7 +3,7 @@
     @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
-    @addressLine5 NVARCHAR(50),
+    @addressLine5 UNIQUEIDENTIFIER,
 	@companyConfigurationId UNIQUEIDENTIFIER,
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
@@ -21,7 +21,7 @@
     @bankAddressLine2 NVARCHAR(50) = NULL,
     @bankAddressLine3 NVARCHAR(50),
     @bankAddressLine4 NVARCHAR(50),
-    @bankAddressLine5 NVARCHAR(50)
+    @bankAddressLine5 UNIQUEIDENTIFIER
 AS
 
 BEGIN

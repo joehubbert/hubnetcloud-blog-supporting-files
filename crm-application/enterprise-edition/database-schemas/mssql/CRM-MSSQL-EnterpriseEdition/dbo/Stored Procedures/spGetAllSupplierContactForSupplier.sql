@@ -15,11 +15,7 @@ BEGIN
 			[Supplier Contact Email Address],
 			[Supplier Contact Telephone Number],
 			[Supplier Contact Role],
-			[Active Status],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Active Status]
 			FROM [dbo].[vwSupplierContact]
 			WHERE [Supplier Id] = @supplierId
 

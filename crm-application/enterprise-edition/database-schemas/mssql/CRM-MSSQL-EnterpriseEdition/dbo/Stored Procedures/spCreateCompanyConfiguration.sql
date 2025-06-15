@@ -3,7 +3,7 @@
     @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
-    @addressLine5 NVARCHAR(50),
+    @addressLine5 UNIQUEIDENTIFIER,
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
@@ -22,7 +22,7 @@
     @bankAddressLine2 NVARCHAR(50) = NULL,
     @bankAddressLine3 NVARCHAR(50),
     @bankAddressLine4 NVARCHAR(50),
-    @bankAddressLine5 NVARCHAR(50)
+    @bankAddressLine5 UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -38,7 +38,7 @@ BEGIN
                 [AddressLine2] NVARCHAR(50) NULL,
                 [AddressLine3] NVARCHAR(50) NOT NULL,
                 [AddressLine4] NVARCHAR(50) NOT NULL,
-                [AddressLine5] NVARCHAR(50) NOT NULL,
+                [AddressLine5] UNIQUEIDENTIFIER NOT NULL,
                 [TelephoneNumber] NVARCHAR(50) NOT NULL,
                 [EmailAddress] NVARCHAR(50) NOT NULL,
                 [EmailTopLevelDomain] NVARCHAR(50) NOT NULL,
@@ -55,7 +55,7 @@ BEGIN
                 [BankAddressLine2] NVARCHAR(50) NULL,
                 [BankAddressLine3] NVARCHAR(50) NOT NULL,
                 [BankAddressLine4] NVARCHAR(50) NOT NULL,
-                [BankAddressLine5] NVARCHAR(50) NOT NULL
+                [BankAddressLine5] UNIQUEIDENTIFIER NOT NULL
             )
 
             INSERT INTO #CompanyConfigurationTemp

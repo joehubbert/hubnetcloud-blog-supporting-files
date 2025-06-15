@@ -12,11 +12,7 @@ BEGIN
 			[Promotion Id],
 			[Promotion Name],
 			[Product Category Id],
-			[Product Category],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Product Category]
 			FROM [dbo].[vwPromotionProductCategory]
 			WHERE [Product Category Id] = @productCategoryId
 

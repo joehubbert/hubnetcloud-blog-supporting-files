@@ -14,11 +14,7 @@ BEGIN
 			[Manufacturer Id],
 			[Manufacturer Name],
 			[Product Category Id],
-			[Product Category],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Product Category]
 			FROM [dbo].[vwPromotionManufacturerProductCategory]
 			WHERE [Manufacturer Id] = @manufacturerId
 

@@ -7,7 +7,7 @@
     [AddressLine2] NVARCHAR(50) NULL,
     [AddressLine3] NVARCHAR(50) NOT NULL,
     [AddressLine4] NVARCHAR(50) NOT NULL,
-    [AddressLine5] NVARCHAR(50) NOT NULL,
+    [AddressLine5] UNIQUEIDENTIFIER NOT NULL,
     [TelephoneNumber] NVARCHAR(50) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
     [PaymentDays] TINYINT NOT NULL,
@@ -18,6 +18,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    CONSTRAINT [FK_Supplier_AddressLine5] FOREIGN KEY ([AddressLine5]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [FK_Supplier_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
     CONSTRAINT [FK_Supplier_Currency] FOREIGN KEY ([PaymentCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId])
 )

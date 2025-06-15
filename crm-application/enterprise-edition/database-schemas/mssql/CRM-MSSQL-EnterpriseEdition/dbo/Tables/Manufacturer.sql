@@ -6,7 +6,7 @@
     [AddressLine2] NVARCHAR(50) NULL,
     [AddressLine3] NVARCHAR(50) NOT NULL,
     [AddressLine4] NVARCHAR(50) NOT NULL,
-    [AddressLine5] NVARCHAR(50) NOT NULL,
+    [AddressLine5] UNIQUEIDENTIFIER NOT NULL,
     [TelephoneNumber] NVARCHAR(50) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
@@ -15,6 +15,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    CONSTRAINT [FK_Manufacturer_AddressLine5] FOREIGN KEY ([AddressLine5]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [UC_Manufacturer_ManufacturerName] UNIQUE ([ManufacturerName])
 )
 GO

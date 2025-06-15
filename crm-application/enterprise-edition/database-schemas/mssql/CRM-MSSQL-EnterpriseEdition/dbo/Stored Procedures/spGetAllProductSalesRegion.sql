@@ -10,11 +10,7 @@ BEGIN
 			[Product Id],
 			[Product Name],
 			[Sales Region Id],
-			[Sales Region],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Sales Region]
 			FROM [dbo].[vwProductSalesRegion]
 
 		COMMIT TRANSACTION;

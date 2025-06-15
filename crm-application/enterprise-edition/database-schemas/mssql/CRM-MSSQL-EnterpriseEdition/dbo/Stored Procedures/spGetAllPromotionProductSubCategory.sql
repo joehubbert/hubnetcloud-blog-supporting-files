@@ -11,11 +11,7 @@ BEGIN
 			[Promotion Id],
 			[Promotion Name],
 			[Product Sub Category Id],
-			[Product Sub Category],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Product Sub Category]
 			FROM [dbo].[vwPromotionProductSubCategory]
 
 		COMMIT TRANSACTION;

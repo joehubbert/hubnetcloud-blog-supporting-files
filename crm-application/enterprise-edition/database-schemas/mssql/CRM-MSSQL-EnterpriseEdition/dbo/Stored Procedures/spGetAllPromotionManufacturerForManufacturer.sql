@@ -12,11 +12,7 @@ BEGIN
 			[Promotion Id],
 			[Promotion Name],
 			[Manufacturer Id],
-			[Manufacturer Name],
-			[Created Timestmap],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Manufacturer Name]
 			FROM [dbo].[vwPromotionManufacturer]
 			WHERE [Manufacturer Id] = @manufacturerId
 

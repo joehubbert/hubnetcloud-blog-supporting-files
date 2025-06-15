@@ -15,11 +15,7 @@ BEGIN
 			[Supplier Order Status],
 			[Payment Method],
 			[Total Order Value],
-			[Currency Code],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Currency Code]
 			FROM [dbo].[vwSupplierOrder]
 			WHERE [Supplier Id] = @supplierId
 

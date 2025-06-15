@@ -11,11 +11,7 @@ BEGIN
 			[Supplier Note Title],
 			[Supplier Note Type Id],
 			[Supplier Note Type],
-			[Supplier Note],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Supplier Note]
 			FROM [dbo].[vwSupplierNote]
 
 		COMMIT TRANSACTION;

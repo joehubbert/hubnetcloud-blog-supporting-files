@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllProductNote]
+﻿CREATE PROCEDURE [dbo].[spGetAllCountry]
 AS
 
 BEGIN
@@ -7,12 +7,11 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Product Note Id],
-			[Product Note Title],
-			[Product Note Type Id],
-			[Product Note Type],
-			[Product Note]
-			FROM [dbo].[vwProductNote]
+			[Country Id],
+			[ISO Country Code],
+			[Country Name],
+			[Active Status]
+			FROM [dbo].[vwCountry]
 
 		COMMIT TRANSACTION;
 	END TRY

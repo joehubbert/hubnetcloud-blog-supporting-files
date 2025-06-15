@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllOrderPaymentStatusHistory]
+﻿CREATE PROCEDURE [dbo].[spGetCountry]
+	@countryId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -7,16 +8,16 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Order Payment Status History Id],
-			[Order Id],
-			[Order Payment Id],
-			[Order Payment Status Id],
-			[Order Payment Status],
+			[Country Id],
+			[ISO Country Code],
+			[Country Name],
+			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By]
-			FROM [dbo].[vwOrderPaymentStatusHistory]
+			FROM [dbo].[vwCountry]
+			WHERE [Country Id] = @countryId
 
 		COMMIT TRANSACTION;
 	END TRY

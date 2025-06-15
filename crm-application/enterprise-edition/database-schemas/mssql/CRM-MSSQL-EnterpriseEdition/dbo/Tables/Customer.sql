@@ -21,7 +21,7 @@
     [BillingAddressLine2] NVARCHAR(50) NULL,
     [BillingAddressLine3] NVARCHAR(50) NOT NULL,
     [BillingAddressLine4] NVARCHAR(50) NOT NULL,
-    [BillingAddressLine5] NVARCHAR(50) NOT NULL,
+    [BillingAddressLine5] UNIQUEIDENTIFIER NOT NULL,
     [BillingTelephoneNumber] NVARCHAR(13) NOT NULL,
     [BillingEmailAddress] NVARCHAR(50) NOT NULL,
     [ShippingFirstName] NVARCHAR(30) NOT NULL,
@@ -31,7 +31,7 @@
     [ShippingAddressLine2] NVARCHAR(50) NULL,
     [ShippingAddressLine3] NVARCHAR(50) NOT NULL,
     [ShippingAddressLine4] NVARCHAR(50) NOT NULL,
-    [ShippingAddressLine5] NVARCHAR(50) NOT NULL,
+    [ShippingAddressLine5] UNIQUEIDENTIFIER NOT NULL,
     [ShippingTelephoneNumber] NVARCHAR(13) NOT NULL,
     [ShippingEmailAddress] NVARCHAR(50) NOT NULL,
     [CreditEnabled] BIT NOT NULL,
@@ -50,11 +50,13 @@
     CONSTRAINT [FK_Customer_GlobalParentCustomerId] FOREIGN KEY ([GlobalParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_AccountManager] FOREIGN KEY ([AccountManagerId]) REFERENCES [dbo].[AccountManager]([AccountManagerId]),
+    CONSTRAINT [FK_Customer_BillingAddressLine5] FOREIGN KEY ([BillingAddressLine5]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [FK_Customer_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
     CONSTRAINT [FK_Customer_CustomerTier] FOREIGN KEY ([CustomerTierId]) REFERENCES [dbo].[CustomerTier]([CustomerTierId]),
     CONSTRAINT [FK_Customer_CustomerType] FOREIGN KEY ([CustomerTypeId]) REFERENCES [dbo].[CustomerType]([CustomerTypeId]),
     CONSTRAINT [FK_Customer_PaymentCurrency] FOREIGN KEY ([PaymentCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
-    CONSTRAINT [FK_Customer_SalesSubRegion] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId])
+    CONSTRAINT [FK_Customer_SalesSubRegion] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId]),
+    CONSTRAINT [FK_Customer_ShippingAddressLine5] FOREIGN KEY ([ShippingAddressLine5]) REFERENCES [dbo].[Country]([CountryId])
 )
 GO
 

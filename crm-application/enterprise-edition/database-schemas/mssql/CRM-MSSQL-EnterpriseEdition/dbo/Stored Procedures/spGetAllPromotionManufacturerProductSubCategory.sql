@@ -13,11 +13,7 @@ BEGIN
 			[Manufacturer Id],
 			[Manufacturer Name],
 			[Product Sub Category Id],
-			[Product Sub Category],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Product Sub Category]
 			FROM [dbo].[vwPromotionManufacturerProductSubCategory]
 
 		COMMIT TRANSACTION;

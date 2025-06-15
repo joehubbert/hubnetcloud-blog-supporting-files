@@ -4,7 +4,7 @@
     @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
-    @addressLine5 NVARCHAR(50),
+    @addressLine5 UNIQUEIDENTIFIER,
     @emailAddress NVARCHAR(50),
     @manufacturerId UNIQUEIDENTIFIER,
     @manufacturerName NVARCHAR(50),

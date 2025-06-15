@@ -537,6 +537,8 @@
     <Build Include="dbo\Stored Procedures\spCompleteSupplierOrderLineItem.sql" />
     <Build Include="dbo\Stored Procedures\spCompleteOrder.sql" />
     <Build Include="dbo\Stored Procedures\spCompleteOrderLineItem.sql" />
+    <Build Include="dbo\Tables\Country.sql" />
+    <Build Include="dbo\Views\vwCountry.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -569,6 +571,7 @@
     <None Include="Post Deployment Scripts\Data Population\PromotionType.sql" />
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignType.sql" />
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignStatus.sql" />
+    <None Include="Post Deployment Scripts\Data Population\Country.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

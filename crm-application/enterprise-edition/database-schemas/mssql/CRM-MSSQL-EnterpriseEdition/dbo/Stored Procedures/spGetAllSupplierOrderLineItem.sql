@@ -15,9 +15,9 @@ BEGIN
 			[Wholesale Carton Quantity],
 			[Wholesale Unit Quantity Per Carton]
 			[Total Line Item Price],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierOrderLineItem]
 			WHERE [Supplier Order Id] = @supplierOrderId

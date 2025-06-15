@@ -11,9 +11,9 @@
 	[TaxProfileId] UNIQUEIDENTIFIER NOT NULL,
 	[PercentageDiscount] DECIMAL(5,2) NOT NULL,
 	[PromotionId] UNIQUEIDENTIFIER NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_OrderLineItem_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [dbo].[Order]([OrderId]),
 	CONSTRAINT [FK_OrderLineItem_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
@@ -36,7 +36,7 @@ BEGIN
 
     UPDATE [dbo].[OrderLineItem]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[OrderLineItem] oli

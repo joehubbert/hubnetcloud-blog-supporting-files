@@ -15,12 +15,12 @@ PT.[PromotionType] AS [Promotion Type],
 P.[PromotionValue] AS [Promotion Value],
 P.[PromotionBuyQuantity] AS [Promotion Buy Quantity],
 P.[PromotionGetQuantity] AS [Promotion Get Quantity],
-P.[PromotionStartTimestamp] AS [Promotion Start Timestamp],
-P.[PromotionEndTimestamp] AS [Promotion End Timestamp],
+P.[PromotionStartTimestampUTC] AS [Promotion Start Timestamp UTC],
+P.[PromotionEndTimestampUTC] AS [Promotion End Timestamp UTC],
 P.[ActiveStatus] AS [Active Status],
-P.[CreatedTimestamp] AS [Created Timestamp],
+P.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 P.[CreatedBy] AS [Created By],
-P.[ModifiedTimestamp] AS [Modified Timestamp],
+P.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 P.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Promotion] P
 INNER JOIN [dbo].[MarketingCampaign] MC ON P.[MarketingCampaignId] = MC.[MarketingCampaignId]

@@ -11,9 +11,9 @@ BEGIN
 			[Payment Method Id],
 			[Payment Method],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwPaymentMethod]
 			WHERE [Payment Method Id] = @paymentMethodId

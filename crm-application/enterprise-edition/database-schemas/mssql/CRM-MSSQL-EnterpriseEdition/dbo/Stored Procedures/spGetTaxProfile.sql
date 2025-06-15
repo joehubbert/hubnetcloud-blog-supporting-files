@@ -12,9 +12,9 @@ BEGIN
 			[Tax Profile],
 			[Tax Rate],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwTaxProfile]
 			WHERE [Tax Profile Id] = @taxProfileId

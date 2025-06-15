@@ -13,9 +13,9 @@ BEGIN
 			[Supplier Note Type Id],
 			[Supplier Note Type],
 			[Supplier Note],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierNote]
 			WHERE [Supplier Note Id] = @supplierNoteId

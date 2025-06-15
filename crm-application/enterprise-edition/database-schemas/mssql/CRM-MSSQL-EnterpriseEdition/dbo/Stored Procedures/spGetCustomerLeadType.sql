@@ -12,9 +12,9 @@ BEGIN
 			[Customer Lead Type],
 			[Customer Lead Type Description],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomerLeadType]
 			WHERE [Customer Lead Type Id] = @customerLeadTypeId

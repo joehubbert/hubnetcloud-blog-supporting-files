@@ -9,9 +9,9 @@ M.[ManufacturerId] AS [Manufacturer Id],
 M.[ManufacturerName] AS [Manufacturer Name],
 PC.[ProductCategoryId] AS [Product Category Id],
 PC.[ProductCategory] AS [Product Category],
-PMPC.[CreatedTimestamp] AS [Created Timestamp],
+PMPC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PMPC.[CreatedBy] AS [Created By],
-PMPC.[ModifiedTimestamp] AS [Modified Timestamp],
+PMPC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PMPC.[ModifiedBy] AS [Modified By]
 FROM [dbo].[PromotionManufacturerProductCategory] PMPC
 INNER JOIN [dbo].[Manufacturer] M ON PMPC.[ManufacturerId] = M.[ManufacturerId]

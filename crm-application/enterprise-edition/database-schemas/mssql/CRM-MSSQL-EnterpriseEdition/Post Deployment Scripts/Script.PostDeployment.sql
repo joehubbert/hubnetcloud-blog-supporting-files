@@ -4,11 +4,11 @@ Post-Deployment Script
 
 :r ".\Configuration\DatabaseVersion.sql"
 :r ".\Configuration\SoftwareEdition.sql"
+:r ".\Data Population\Country.sql"
 :r ".\Data Population\Currency.sql"
 :r ".\Data Population\CustomerLeadStatus.sql"
 :r ".\Data Population\CustomerLeadType.sql"
 :r ".\Data Population\CustomerNoteType.sql"
-:r ".\Data Population\CustomerType.sql"
 :r ".\Data Population\MarketingCampaignStatus.sql"
 :r ".\Data Population\MarketingCampaignType.sql"
 :r ".\Data Population\MarketingChannel.sql"

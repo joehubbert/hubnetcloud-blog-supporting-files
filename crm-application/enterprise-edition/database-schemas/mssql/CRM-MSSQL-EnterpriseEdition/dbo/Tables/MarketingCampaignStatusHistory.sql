@@ -3,9 +3,9 @@
 	[MarketingCampaignStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[MarketingCampaignId] UNIQUEIDENTIFIER NOT NULL,
 	[MarketingCampaignStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_MarketingCampaignStatusHistory_MarketingCampaignId] FOREIGN KEY ([MarketingCampaignId]) REFERENCES [dbo].[MarketingCampaign]([MarketingCampaignId]),
     CONSTRAINT [FK_MarketingCampaignStatusHistory_MarketingCampaignStatusId] FOREIGN KEY ([MarketingCampaignStatusId]) REFERENCES [dbo].[MarketingCampaignStatus]([MarketingCampaignStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[MarketingCampaignStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[MarketingCampaignStatusHistory] mcsh

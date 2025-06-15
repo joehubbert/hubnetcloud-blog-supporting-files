@@ -3,9 +3,9 @@
 	[SupplierOrderLineItemStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[SupplierOrderLineItemId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierOrderLineItemStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_SupplierOrderLineItemStatusHistory_SupplierOrderLineItemId] FOREIGN KEY ([SupplierOrderLineItemId]) REFERENCES [dbo].[SupplierOrderLineItem]([SupplierOrderLineItemId]),
 	CONSTRAINT [FK_SupplierOrderLineItemStatusHistory_SupplierOrderLineItemStatusId] FOREIGN KEY ([SupplierOrderLineItemStatusId]) REFERENCES [dbo].[SupplierOrderLineItemStatus]([SupplierOrderLineItemStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[SupplierOrderLineItemStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[SupplierOrderLineItemStatusHistory] solish

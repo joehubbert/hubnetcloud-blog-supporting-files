@@ -7,9 +7,9 @@ P.[PromotionId] AS [Promotion Id],
 P.[PromotionName] AS [Promotion Name],
 PROD.[ProductId] AS [Product Id],
 PROD.[ProductName] AS [Product Name],
-PP.[CreatedTimestamp] AS [Created Timestmap],
+PP.[CreatedTimestampUTC] AS [Created Timestmap],
 PP.[CreatedBy] AS [Created By],
-PP.[ModifiedTimestamp] AS [Modified Timestamp],
+PP.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PP.[ModifiedBy] AS [Modified By]
 FROM [dbo].[PromotionProduct] PP
 INNER JOIN [dbo].[Product] PROD ON PP.[ProductId] = PROD.[ProductId]

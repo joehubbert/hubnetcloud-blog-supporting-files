@@ -7,9 +7,9 @@ P.[PromotionId] AS [Promotion Id],
 P.[PromotionName] AS [Promotion Name],
 S.[SupplierId] AS [Supplier Id],
 S.[SupplierName] AS [Supplier Name],
-PS.[CreatedTimestamp] AS [Created Timestmap],
+PS.[CreatedTimestampUTC] AS [Created Timestmap],
 PS.[CreatedBy] AS [Created By],
-PS.[ModifiedTimestamp] AS [Modified Timestamp],
+PS.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PS.[ModifiedBy] AS [Modified By]
 FROM [dbo].[PromotionSupplier] PS
 INNER JOIN [dbo].[Supplier] S ON PS.[SupplierId] = S.[SupplierId]

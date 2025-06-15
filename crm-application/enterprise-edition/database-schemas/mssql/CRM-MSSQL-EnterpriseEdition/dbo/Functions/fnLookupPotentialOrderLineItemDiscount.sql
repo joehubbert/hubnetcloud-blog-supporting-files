@@ -18,7 +18,7 @@ RETURNS @result TABLE
 )
 AS
 BEGIN
-    DECLARE @currentUTCTimestamp DATETIME2 = GETUTCDATE();
+    DECLARE @currentUTCTimestampUTC DATETIME2 = GETUTCDATE();
     DECLARE @discount DECIMAL(5,2) = 0.00;
     DECLARE @finalLineItemTotal MONEY;
     DECLARE @numGroups INT;
@@ -68,7 +68,7 @@ BEGIN
     INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
     WHERE PP.[ProductId] = @productId
       AND P.[ActiveStatus] = 1
-      AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+      AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
     ORDER BY P.[PromotionValue] DESC;
 
     IF @discount > 0
@@ -104,7 +104,7 @@ BEGIN
     INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
     WHERE PPC.[ProductCategoryId] = @productCategoryId
       AND P.[ActiveStatus] = 1
-      AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+      AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
     ORDER BY P.[PromotionValue] DESC;
 
     IF @discount > 0
@@ -140,7 +140,7 @@ BEGIN
     INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
     WHERE PPSC.[ProductSubCategoryId] = @productSubCategoryId
       AND P.[ActiveStatus] = 1
-      AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+      AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
     ORDER BY P.[PromotionValue] DESC;
 
     IF @discount > 0
@@ -177,7 +177,7 @@ BEGIN
         INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
         WHERE PM.[ManufacturerId] = @productManufacturerId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0
@@ -216,7 +216,7 @@ BEGIN
         WHERE PMPC.[ManufacturerId] = @productManufacturerId
           AND PMPC.[ProductCategoryId] = @productCategoryId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0
@@ -255,7 +255,7 @@ BEGIN
         WHERE PMPSC.[ManufacturerId] = @productManufacturerId
           AND PMPSC.[ProductSubCategoryId] = @productSubCategoryId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0
@@ -301,7 +301,7 @@ BEGIN
         INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
         WHERE PS.[SupplierId] = @productSupplierId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0
@@ -355,7 +355,7 @@ BEGIN
         WHERE PSPC.[SupplierId] = @productSupplierId
           AND PSPC.[ProductCategoryId] = @productCategoryId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0
@@ -409,7 +409,7 @@ BEGIN
         WHERE PSPSC.[SupplierId] = @productSupplierId
           AND PSPSC.[ProductSubCategoryId] = @productSubCategoryId
           AND P.[ActiveStatus] = 1
-          AND @currentUTCTimestamp BETWEEN P.[PromotionStartTimestamp] AND P.[PromotionEndTimestamp]
+          AND @currentUTCTimestampUTC BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
         ORDER BY P.[PromotionValue] DESC;
 
         IF @discount > 0

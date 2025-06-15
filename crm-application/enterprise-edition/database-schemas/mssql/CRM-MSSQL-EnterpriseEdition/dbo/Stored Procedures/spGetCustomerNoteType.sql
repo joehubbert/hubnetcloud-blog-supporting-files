@@ -11,9 +11,9 @@ BEGIN
 			[Customer Note Type Id],
 			[Customer Note Type],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomerNoteType]
 			WHERE [Customer Note Type Id] = @customerNoteTypeId

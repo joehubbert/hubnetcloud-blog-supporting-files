@@ -5,9 +5,9 @@
     [ProductNoteTitle] NVARCHAR(50) NOT NULL,
     [ProductNoteTypeId] UNIQUEIDENTIFIER NOT NULL,
 	[ProductNote] NVARCHAR(4000) NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_ProductNote_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
 	CONSTRAINT [FK_ProductNote_ProductNoteTypeId] FOREIGN KEY ([ProductNoteTypeId]) REFERENCES [dbo].[ProductNoteType]([ProductNoteTypeId])
@@ -22,7 +22,7 @@ BEGIN
 	SET NOCOUNT ON;
 	UPDATE [dbo].[ProductNote]
 	SET 
-		[ModifiedTimestamp] = GETUTCDATE(),
+		[ModifiedTimestampUTC] = GETUTCDATE(),
 		[ModifiedBy] = SUSER_SNAME()
 	FROM 
 		[dbo].[ProductNote] pn

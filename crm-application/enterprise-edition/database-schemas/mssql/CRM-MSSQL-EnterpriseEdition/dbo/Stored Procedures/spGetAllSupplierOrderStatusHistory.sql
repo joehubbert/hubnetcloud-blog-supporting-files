@@ -12,9 +12,9 @@ BEGIN
 			[Supplier Order Id],
 			[Supplier Order Status Id],
 			[Supplier Order Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierOrderStatusHistory]
 			WHERE [Supplier Order Id] = @supplierOrderId

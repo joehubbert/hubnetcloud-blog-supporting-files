@@ -5,9 +5,9 @@
     [CustomerNoteTitle] NVARCHAR(50) NOT NULL,
     [CustomerNoteTypeId] UNIQUEIDENTIFIER NOT NULL,
 	[CustomerNote] NVARCHAR(4000) NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL
 	CONSTRAINT [FK_CustomerNote_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_CustomerNote_CustomerNoteTypeId] FOREIGN KEY ([CustomerNoteTypeId]) REFERENCES [dbo].[CustomerNoteType]([CustomerNoteTypeId])
@@ -23,7 +23,7 @@ BEGIN
 
     UPDATE [dbo].[CustomerNote]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[CustomerNote] cn

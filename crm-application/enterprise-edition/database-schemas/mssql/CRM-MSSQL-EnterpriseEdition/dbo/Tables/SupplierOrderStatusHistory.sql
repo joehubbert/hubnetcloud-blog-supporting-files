@@ -3,9 +3,9 @@
 	[SupplierOrderStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[SupplierOrderId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierOrderStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_SupplierOrderStatusHistory_SupplierOrderId] FOREIGN KEY ([SupplierOrderId]) REFERENCES [dbo].[SupplierOrder]([SupplierOrderId]),
     CONSTRAINT [FK_SupplierOrderStatusHistory_SupplierOrderStatusId] FOREIGN KEY ([SupplierOrderStatusId]) REFERENCES [dbo].[SupplierOrderStatus]([SupplierOrderStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[SupplierOrderStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[SupplierOrderStatusHistory] sosh

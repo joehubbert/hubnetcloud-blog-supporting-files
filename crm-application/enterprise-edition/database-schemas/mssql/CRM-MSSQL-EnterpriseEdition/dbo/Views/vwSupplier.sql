@@ -18,9 +18,9 @@ S.[VATNumber] AS [VAT Number],
 CC.[CompanyConfigurationId] AS [Company Configuration Id],
 CC.[CompanyName] AS [Company Name],
 S.[ActiveStatus] AS [Active Status],
-S.[CreatedTimestamp] AS [Created Timestamp],
+S.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 S.[CreatedBy] AS [Created By],
-S.[ModifiedTimestamp] AS [Modified Timestamp],
+S.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 S.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Supplier] S
 INNER JOIN [dbo].[CompanyConfiguration] CC ON S.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

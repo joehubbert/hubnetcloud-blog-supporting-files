@@ -16,9 +16,9 @@ BEGIN
 			[Customer Contact Telephone Number],
 			[Customer Contact Role],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomerContact]
 			WHERE [Customer Contact Id] = @customerContactId

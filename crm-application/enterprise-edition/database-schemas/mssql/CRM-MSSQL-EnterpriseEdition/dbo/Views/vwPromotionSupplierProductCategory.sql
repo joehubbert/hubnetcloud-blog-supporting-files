@@ -9,9 +9,9 @@ S.[SupplierId] AS [Supplier Id],
 S.[SupplierName] AS [Supplier Name],
 PC.[ProductCategoryId] AS [Product Category Id],
 PC.[ProductCategory] AS [Product Category],
-PSPC.[CreatedTimestamp] AS [Created Timestamp],
+PSPC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PSPC.[CreatedBy] AS [Created By],
-PSPC.[ModifiedTimestamp] AS [Modified Timestamp],
+PSPC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PSPC.[ModifiedBy] AS [Modified By]
 FROM [dbo].[PromotionSupplierProductCategory] PSPC
 INNER JOIN [dbo].[Supplier] S ON PSPC.[SupplierId] = S.[SupplierId]

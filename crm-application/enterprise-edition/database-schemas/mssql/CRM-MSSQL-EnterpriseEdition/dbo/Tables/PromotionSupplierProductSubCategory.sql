@@ -4,9 +4,9 @@
 	[PromotionId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierId] UNIQUEIDENTIFIER NOT NULL,
 	[ProductSubCategoryId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_PromotionSupplierProductSubCategory_ProductSubCategoryId] FOREIGN KEY ([ProductSubCategoryId]) REFERENCES [dbo].[ProductSubCategory]([ProductSubCategoryId]),
 	CONSTRAINT [FK_PromotionSupplierProductSubCategory_PromotionId] FOREIGN KEY ([PromotionId]) REFERENCES [dbo].[Promotion]([PromotionId]),
@@ -30,7 +30,7 @@ BEGIN
 
     UPDATE [dbo].[PromotionSupplierProductSubCategory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[PromotionSupplierProductSubCategory] pspsc

@@ -7,9 +7,9 @@ SR.[SalesRegionId] AS [Sales Region Id],
 SR.[SalesRegion] AS [Sales Region],
 SSR.[SalesSubRegion] AS [Sales Sub Region],
 SSR.ActiveStatus AS [Active Status],
-SSR.[CreatedTimestamp] AS [Created Timestamp],
+SSR.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SSR.[CreatedBy] AS [Created By],
-SSR.[ModifiedTimestamp] AS [Modified Timestamp],
+SSR.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 SSR.[ModifiedBy] AS [Modified By]
 FROM [dbo].[SalesSubRegion] SSR
 INNER JOIN [dbo].[SalesRegion] SR ON SSR.[SalesRegionId] = SR.[SalesRegionId]

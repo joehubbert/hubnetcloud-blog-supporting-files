@@ -4,9 +4,9 @@
 	[TaxProfile] NVARCHAR(50) NOT NULL,
 	[TaxRate] DECIMAL(5, 2) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [UC_TaxProfile_TaxProfile] UNIQUE ([TaxProfile])
 )
@@ -21,7 +21,7 @@ BEGIN
 
     UPDATE [dbo].[TaxProfile]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[TaxProfile] tp

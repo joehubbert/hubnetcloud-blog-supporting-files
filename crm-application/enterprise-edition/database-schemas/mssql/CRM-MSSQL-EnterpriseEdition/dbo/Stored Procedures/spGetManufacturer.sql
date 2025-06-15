@@ -19,9 +19,9 @@ BEGIN
 			[Email Address],
 			[VAT Number],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwManufacturer]
 			WHERE [Manufacturer Id] = @manufacturerId

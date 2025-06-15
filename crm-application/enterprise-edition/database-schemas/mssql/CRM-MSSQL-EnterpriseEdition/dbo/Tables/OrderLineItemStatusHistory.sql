@@ -3,9 +3,9 @@
 	[OrderLineItemStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[OrderLineItemId] UNIQUEIDENTIFIER NOT NULL,
 	[OrderLineItemStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_OrderLineItemStatusHistory_OrderLineItemId] FOREIGN KEY ([OrderLineItemId]) REFERENCES [dbo].[OrderLineItem]([OrderLineItemId]),
 	CONSTRAINT [FK_OrderLineItemStatusHistory_OrderLineItemStatusId] FOREIGN KEY ([OrderLineItemStatusId]) REFERENCES [dbo].[OrderLineItemStatus]([OrderLineItemStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[OrderLineItemStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[OrderLineItemStatusHistory] olish

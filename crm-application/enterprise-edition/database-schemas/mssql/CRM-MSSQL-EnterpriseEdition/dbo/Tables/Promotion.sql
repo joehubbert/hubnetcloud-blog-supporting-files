@@ -10,12 +10,12 @@
 	[PromotionValue] DECIMAL(18, 2) NOT NULL,
 	[PromotionBuyQuantity] INT NOT NULL,
 	[PromotionGetQuantity] INT NOT NULL,
-	[PromotionStartTimestamp] DATETIME2 NOT NULL,
-	[PromotionEndTimestamp] DATETIME2 NOT NULL,
+	[PromotionStartTimestampUTC] DATETIME2 NOT NULL,
+	[PromotionEndTimestampUTC] DATETIME2 NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_Promotion_MarketingCampaignId] FOREIGN KEY ([MarketingCampaignId]) REFERENCES [dbo].[MarketingCampaign]([MarketingCampaignId]),
 	CONSTRAINT [FK_Promotion_PromotionTargetTypeId] FOREIGN KEY ([PromotionTargetTypeId]) REFERENCES [dbo].[PromotionTargetType]([PromotionTargetTypeId]),
@@ -39,7 +39,7 @@ BEGIN
 
     UPDATE [dbo].[Promotion]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[Promotion] p

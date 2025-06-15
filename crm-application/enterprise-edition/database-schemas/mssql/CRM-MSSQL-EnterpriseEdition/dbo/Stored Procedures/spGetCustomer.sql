@@ -61,9 +61,9 @@ BEGIN
 			[Top Parent Customer],
 			[Active Status],
 			[Customer Since],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomer]
 			WHERE [Customer Id] = @customerId

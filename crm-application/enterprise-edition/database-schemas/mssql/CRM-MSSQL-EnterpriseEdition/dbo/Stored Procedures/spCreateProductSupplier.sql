@@ -2,6 +2,7 @@
 	@activeStatus BIT,
 	@productId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
+	@supplierProductCode NVARCHAR(50) = NULL,
 	@wholesalePricePerUnit MONEY
 AS
 
@@ -15,6 +16,7 @@ BEGIN
 				[ProductId] UNIQUEIDENTIFIER NOT NULL,
 				[SupplierId] UNIQUEIDENTIFIER NOT NULL,
 				[WholesalePricePerUnit] MONEY NOT NULL,
+				[SupplierProductCode] NVARCHAR(50) NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
@@ -23,6 +25,7 @@ BEGIN
 				[ProductId],
 				[SupplierId],
 				[WholesalePricePerUnit],
+				[SupplierProductCode],
 				[ActiveStatus]
 			)
 			VALUES
@@ -30,6 +33,7 @@ BEGIN
 				@productId,
 				@supplierId,
 				@wholesalePricePerUnit,
+				@supplierProductCode,
 				@activeStatus
 			)
 
@@ -43,6 +47,7 @@ BEGIN
 				[ProductId],
 				[SupplierId],
 				[WholesalePricePerUnit],
+				[SupplierProductCode],
 				[ActiveStatus]
 			)
 			VALUES
@@ -50,6 +55,7 @@ BEGIN
 				source.[ProductId],
 				source.[SupplierId],
 				source.[WholesalePricePerUnit],
+				source.[SupplierProductCode],
 				source.[ActiveStatus]
 			);
 

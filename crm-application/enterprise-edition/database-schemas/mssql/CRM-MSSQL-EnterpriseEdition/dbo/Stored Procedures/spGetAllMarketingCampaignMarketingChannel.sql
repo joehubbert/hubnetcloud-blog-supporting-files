@@ -12,9 +12,9 @@ BEGIN
 			[Marketing Campaign Name],
 			[Marketing Channel Id],
 			[Marketing Channel],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwMarketingCampaignMarketingChannel]
 

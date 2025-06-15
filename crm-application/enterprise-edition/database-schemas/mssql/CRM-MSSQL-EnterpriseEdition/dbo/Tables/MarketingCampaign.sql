@@ -6,15 +6,15 @@
 	[MarketingCampaignName] NVARCHAR(100) NOT NULL,
 	[MarketingCampaignDescription] NVARCHAR(255) NULL,
 	[MarketingCampaignGoal] NVARCHAR(255) NULL,
-	[MarketingCampaignStartTimestamp] DATETIME2 NOT NULL,
-	[MarketingCampaignEndTimestamp] DATETIME2 NULL,
+	[MarketingCampaignStartTimestampUTC] DATETIME2 NOT NULL,
+	[MarketingCampaignEndTimestampUTC] DATETIME2 NULL,
 	[Budget] MONEY NOT NULL,
 	[ActualCost] MONEY NULL,
 	[ForecastedRevenue] MONEY NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_MarketingCampaign_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
 	CONSTRAINT [FK_MarketingCampaign_MarketingCampaignTypeId] FOREIGN KEY ([MarketingCampaignTypeId]) REFERENCES [dbo].[MarketingCampaignType]([MarketingCampaignTypeId])
@@ -30,7 +30,7 @@ BEGIN
 
     UPDATE [dbo].[MarketingCampaign]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[MarketingCampaign] mc

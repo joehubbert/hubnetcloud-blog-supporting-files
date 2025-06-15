@@ -21,9 +21,9 @@ PROMO.[PromotionCode] AS [Promotion Code],
 PT.[PromotionTypeId] AS [Promotion Type Id],
 PT.[PromotionType] AS [Promotion Type],
 OLI.[LineItemTotal] AS [Total Line Item Price],
-OLI.[CreatedTimestamp] AS [Created Timestamp],
+OLI.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 OLI.[CreatedBy] AS [Created By],
-OLI.[ModifiedTimestamp] AS [Modified Timestamp],
+OLI.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 OLI.[ModifiedBy] AS [Modified By]
 FROM [dbo].[OrderLineItem] OLI
 INNER JOIN [dbo].[OrderLineItemStatusHistory] OLISH ON OLI.[OrderLineItemId] = OLISH.[OrderLineItemId]
@@ -52,7 +52,7 @@ PROMO.[PromotionCode],
 PT.[PromotionTypeId],
 PT.[PromotionType],
 OLI.[LineItemTotal],
-OLI.[CreatedTimestamp],
+OLI.[CreatedTimestampUTC],
 OLI.[CreatedBy],
-OLI.[ModifiedTimestamp],
+OLI.[ModifiedTimestampUTC],
 OLI.[ModifiedBy]

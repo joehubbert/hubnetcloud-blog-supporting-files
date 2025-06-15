@@ -3,9 +3,9 @@
 	[CustomerLeadStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[CustomerLeadId] UNIQUEIDENTIFIER NOT NULL,
 	[CustomerLeadStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_CustomerLeadStatusHistory_CustomerLeadId] FOREIGN KEY ([CustomerLeadId]) REFERENCES [dbo].[CustomerLead]([CustomerLeadId]),
     CONSTRAINT [FK_CustomerLeadStatusHistory_CustomerLeadStatusId] FOREIGN KEY ([CustomerLeadStatusId]) REFERENCES [dbo].[CustomerLeadStatus]([CustomerLeadStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[CustomerLeadStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[CustomerLeadStatusHistory] clsh

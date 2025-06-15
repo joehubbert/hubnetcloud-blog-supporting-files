@@ -58,9 +58,9 @@ C.[GlobalParentCustomer] AS [Global Parent Customer],
 C.[TopParentCustomer] AS [Top Parent Customer],
 C.[ActiveStatus] AS [Active Status],
 C.[CustomerSince] AS [Customer Since],
-C.[CreatedTimestamp] AS [Created Timestamp],
+C.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 C.[CreatedBy] AS [Created By],
-C.[ModifiedTimestamp] AS [Modified Timestamp],
+C.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 C.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Customer] C
 INNER JOIN [dbo].[AccountManager] AM ON C.[AccountManagerId] = AM.[AccountManagerId]
@@ -129,7 +129,7 @@ C.[GlobalParentCustomer],
 C.[TopParentCustomer],
 C.[ActiveStatus],
 C.[CustomerSince],
-C.[CreatedTimestamp],
+C.[CreatedTimestampUTC],
 C.[CreatedBy],
-C.[ModifiedTimestamp],
+C.[ModifiedTimestampUTC],
 C.[ModifiedBy]

@@ -3,9 +3,9 @@
 	[SupplierOrderPaymentStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[SupplierOrderPaymentId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierOrderPaymentStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_SupplierOrderPaymentStatusHistory_SupplierOrderPaymentId] FOREIGN KEY ([SupplierOrderPaymentId]) REFERENCES [dbo].[SupplierOrderPayment]([SupplierOrderPaymentId]),
 	CONSTRAINT [FK_SupplierOrderPaymentStatusHistory_SupplierOrderPaymentStatusId] FOREIGN KEY ([SupplierOrderPaymentStatusId]) REFERENCES [dbo].[SupplierOrderPaymentStatus]([SupplierOrderPaymentStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[SupplierOrderPaymentStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[SupplierOrderPaymentStatusHistory] sopsh

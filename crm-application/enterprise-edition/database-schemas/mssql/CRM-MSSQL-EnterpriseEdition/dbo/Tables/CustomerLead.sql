@@ -8,9 +8,9 @@
 	[CustomerLead] NVARCHAR(4000) NOT NULL,
 	[CustomerLeadTargetDate] DATE NULL,
 	[CustomerLeadMarketingChannelId] UNIQUEIDENTIFIER NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_CustomerLead_Customer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
 	CONSTRAINT [FK_CustomerLead_CustomerContact] FOREIGN KEY ([CustomerContactId]) REFERENCES [dbo].[CustomerContact]([CustomerContactId]),
@@ -36,7 +36,7 @@ BEGIN
 	SET NOCOUNT ON;
 	UPDATE [dbo].[CustomerLead]
 	SET 
-		[ModifiedTimestamp] = GETUTCDATE(),
+		[ModifiedTimestampUTC] = GETUTCDATE(),
 		[ModifiedBy] = SUSER_SNAME()
 	FROM 
 		[dbo].[CustomerLead] cl

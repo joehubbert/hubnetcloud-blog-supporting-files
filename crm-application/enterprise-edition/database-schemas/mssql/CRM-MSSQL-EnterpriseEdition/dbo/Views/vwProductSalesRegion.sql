@@ -6,9 +6,9 @@ P.[ProductId] AS [Product Id],
 P.[ProductName] AS [Product Name],
 SR.[SalesRegionId] AS [Sales Region Id],
 SR.[SalesRegion] AS [Sales Region],
-PSSR.[CreatedTimestamp] AS [Created Timestamp],
+PSSR.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PSSR.[CreatedBy] AS [Created By],
-PSSR.[ModifiedTimestamp] AS [Modified Timestamp],
+PSSR.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PSSR.[ModifiedBy] AS [Modified By]
 FROM [dbo].[ProductSalesSubRegion] PSSR
 INNER JOIN [dbo].[Product] P ON PSSR.[ProductId] = P.[ProductId]

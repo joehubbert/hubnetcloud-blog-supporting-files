@@ -21,12 +21,12 @@ BEGIN
 			[Promotion Value],
 			[Promotion Buy Quantity],
 			[Promotion Get Quantity],
-			[Promotion Start Timestamp],
-			[Promotion End Timestamp],
+			[Promotion Start Timestamp UTC],
+			[Promotion End Timestamp UTC],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwPromotion]
 			WHERE [Promotion Id] = @promotionId

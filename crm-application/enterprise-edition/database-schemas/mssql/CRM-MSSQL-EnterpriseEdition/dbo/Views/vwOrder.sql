@@ -10,9 +10,9 @@ SELECT
     PM.[PaymentMethod] AS [Payment Method],
     VOV.[TotalOrderValue] AS [Total Order Value],
     CUR.[CurrencyCode] AS [Currency Code],
-    O.[CreatedTimestamp] AS [Created Timestamp],
+    O.[CreatedTimestampUTC] AS [Created Timestamp UTC],
     O.[CreatedBy] AS [Created By],
-    O.[ModifiedTimestamp] AS [Modified Timestamp],
+    O.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
     O.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Order] O
 INNER JOIN [dbo].[Customer] CUS ON O.[CustomerId] = CUS.[CustomerId]
@@ -22,10 +22,10 @@ INNER JOIN (
     SELECT OSH1.[OrderId], OS.[OrderStatus]
     FROM [dbo].[OrderStatusHistory] OSH1
     INNER JOIN (
-        SELECT [OrderId], MAX([CreatedTimestamp]) AS [MaxCreatedTimestamp]
+        SELECT [OrderId], MAX([CreatedTimestampUTC]) AS [MaxCreatedTimestampUTC]
         FROM [dbo].[OrderStatusHistory]
         GROUP BY [OrderId]
-    ) OSH2 ON OSH1.[OrderId] = OSH2.[OrderId] AND OSH1.[CreatedTimestamp] = OSH2.[MaxCreatedTimestamp]
+    ) OSH2 ON OSH1.[OrderId] = OSH2.[OrderId] AND OSH1.[CreatedTimestampUTC] = OSH2.[MaxCreatedTimestampUTC]
     INNER JOIN [dbo].[OrderStatus] OS ON OSH1.[OrderStatusId] = OS.[OrderStatusId]
 ) OS ON O.[OrderId] = OS.[OrderId]
 INNER JOIN [dbo].[PaymentMethod] PM ON OP.[PaymentMethodId] = PM.[PaymentMethodId]

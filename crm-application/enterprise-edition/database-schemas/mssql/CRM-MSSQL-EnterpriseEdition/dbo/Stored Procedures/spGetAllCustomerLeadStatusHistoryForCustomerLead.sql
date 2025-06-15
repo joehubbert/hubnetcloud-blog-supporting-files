@@ -11,9 +11,9 @@ BEGIN
 			[Customer Lead Status History Id],
 			[Customer Lead Status Id],
 			[Customer Lead Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomerLeadStatusHistory]
 			WHERE [Customer Lead Id] = @customerLeadId

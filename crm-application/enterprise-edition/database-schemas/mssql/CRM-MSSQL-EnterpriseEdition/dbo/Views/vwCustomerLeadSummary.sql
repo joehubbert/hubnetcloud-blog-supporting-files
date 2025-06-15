@@ -9,9 +9,9 @@ CLT.[CustomerLeadType] AS [Customer Lead Type],
 LEFT(CL.[CustomerLead],50) AS [Customer Lead],
 CC.[FirstName] AS [Customer Contact First Name],
 CC.[LastName] AS [Customer Contact Last Name],
-CL.[CreatedTimestamp] AS [Created Timestamp],
+CL.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CL.[CreatedBy] AS [Created By],
-CL.[ModifiedTimestamp] AS [Modified Timestamp],
+CL.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 CL.[ModifiedBy] AS [Modified By]
 FROM [dbo].[CustomerLead] CL
 INNER JOIN [dbo].[CustomerLeadType] CLT ON CL.[CustomerLeadTypeId] = CLT.[CustomerLeadTypeId]

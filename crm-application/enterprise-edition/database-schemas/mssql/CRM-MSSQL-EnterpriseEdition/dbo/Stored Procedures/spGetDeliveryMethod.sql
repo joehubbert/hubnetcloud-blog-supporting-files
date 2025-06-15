@@ -15,9 +15,9 @@ BEGIN
 			[Tax Profile],
 			[Tax Rate],
 			[Delivery Method Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwDeliveryMethod]
 			WHERE [Delivery Method Id] = @deliveryMethodId

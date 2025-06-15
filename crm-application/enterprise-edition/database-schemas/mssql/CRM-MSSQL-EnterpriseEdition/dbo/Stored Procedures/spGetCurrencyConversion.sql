@@ -22,9 +22,9 @@ BEGIN
 			[Effective Date],
 			[Expiry Date],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCurrencyConversion]
 			WHERE [Currency Conversion Id] = @currencyConversionId

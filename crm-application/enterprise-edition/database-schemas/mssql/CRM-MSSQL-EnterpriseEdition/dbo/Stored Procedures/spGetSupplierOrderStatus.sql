@@ -11,9 +11,9 @@ BEGIN
 			[Supplier Order Status Id],
 			[Supplier Order Status],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierOrderStatus]
 			WHERE [Supplier Order Status Id] = @supplierOrderStatusId

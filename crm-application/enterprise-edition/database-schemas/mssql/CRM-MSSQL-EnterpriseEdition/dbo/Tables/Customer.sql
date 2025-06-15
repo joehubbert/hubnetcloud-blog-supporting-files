@@ -42,9 +42,9 @@
     [TopParentCustomer] BIT NOT NULL,
     [ActiveStatus] BIT NOT NULL,
     [CustomerSince] DATE NOT NULL,
-    [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [CC_Customer_GlobalParent_TopParent] CHECK (NOT ([GlobalParentCustomer] = 1 AND [TopParentCustomer] = 1)),
     CONSTRAINT [FK_Customer_GlobalParentCustomerId] FOREIGN KEY ([GlobalParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
@@ -87,7 +87,7 @@ BEGIN
 
     UPDATE [dbo].[Customer]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[Customer] c

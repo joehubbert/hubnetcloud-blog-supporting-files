@@ -15,7 +15,7 @@ BEGIN
 			[Product Name],
 			[Created Timestmap],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwPromotionProduct]
 			WHERE [Product Id] = @productId

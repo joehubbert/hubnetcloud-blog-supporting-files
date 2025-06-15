@@ -12,9 +12,9 @@ SOLI.[WholesalePricePerUnit] AS [Wholesale Price Per Unit],
 SOLI.[WholesaleCartonQuantity] AS [Wholesale Carton Quantity],
 P.[WholesaleUnitQuantityPerCarton] AS [Wholesale Unit Quantity Per Carton],
 SOLI.[LineItemTotal] AS [Total Line Item Price],
-SOLI.[CreatedTimestamp] AS [Created Timestamp],
+SOLI.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SOLI.[CreatedBy] AS [Created By],
-SOLI.[ModifiedTimestamp] AS [Modified Timestamp],
+SOLI.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 SOLI.[ModifiedBy] AS [Modified By]
 FROM [dbo].[SupplierOrderLineItem] SOLI
 INNER JOIN [dbo].[Product] P ON SOLI.[ProductId] = P.[ProductId]
@@ -31,7 +31,7 @@ SOLI.[WholesalePricePerUnit],
 SOLI.[WholesaleCartonQuantity],
 P.[WholesaleUnitQuantityPerCarton],
 SOLI.[LineItemTotal],
-SOLI.[CreatedTimestamp],
+SOLI.[CreatedTimestampUTC],
 SOLI.[CreatedBy],
-SOLI.[ModifiedTimestamp],
+SOLI.[ModifiedTimestampUTC],
 SOLI.[ModifiedBy]

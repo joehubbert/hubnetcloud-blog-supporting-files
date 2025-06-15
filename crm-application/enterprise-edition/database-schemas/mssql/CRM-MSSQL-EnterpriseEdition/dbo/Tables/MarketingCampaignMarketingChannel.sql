@@ -3,9 +3,9 @@
 	[MarketingCampaignMarketingChannelId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[MarketingCampaignId] UNIQUEIDENTIFIER NOT NULL,
 	[MarketingChannelId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_MarketingCampaignMarketingChannel_MarketingCampaignId] FOREIGN KEY ([MarketingCampaignId]) REFERENCES [dbo].[MarketingCampaign]([MarketingCampaignId]),
 	CONSTRAINT [FK_MarketingCampaignMarketingChannel_MarketingChannelId] FOREIGN KEY ([MarketingChannelId]) REFERENCES [dbo].[MarketingChannel]([MarketingChannelId]),
@@ -22,7 +22,7 @@ BEGIN
 
     UPDATE [dbo].[MarketingCampaignMarketingChannel]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[MarketingCampaignMarketingChannel] mcmc

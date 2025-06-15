@@ -11,9 +11,9 @@ BEGIN
 			[Order Line Item Status Id],
 			[Order Line Item Status],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwOrderLineItemStatus]
 			WHERE [Order Line Item Status Id] = @orderLineItemStatusId

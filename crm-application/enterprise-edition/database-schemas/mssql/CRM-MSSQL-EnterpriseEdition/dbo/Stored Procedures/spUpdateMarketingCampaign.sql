@@ -5,11 +5,11 @@
 	@companyConfigurationId UNIQUEIDENTIFIER,
 	@forecastedRevenue MONEY,
 	@marketingCampaignDescription NVARCHAR(255) = NULL,
-	@marketingCampaignEndTimestamp DATETIME2 = NULL,
+	@marketingCampaignEndTimestampUTC DATETIME2 = NULL,
 	@marketingCampaignGoal NVARCHAR(255) = NULL,
 	@marketingCampaignId UNIQUEIDENTIFIER OUTPUT,
 	@marketingCampaignName NVARCHAR(100),
-	@marketingCampaignStartTimestamp DATETIME2,
+	@marketingCampaignStartTimestampUTC DATETIME2,
 	@marketingCampaignTypeId UNIQUEIDENTIFIER
 AS
 
@@ -26,10 +26,10 @@ BEGIN
 				[CompanyConfigurationId] = @companyConfigurationId,
 				[ForecastedRevenue] = @forecastedRevenue,
 				[MarketingCampaignDescription] = @marketingCampaignDescription,
-				[MarketingCampaignEndTimestamp] = @marketingCampaignEndTimestamp,
+				[MarketingCampaignEndTimestampUTC] = @marketingCampaignEndTimestampUTC,
 				[MarketingCampaignGoal] = @marketingCampaignGoal,
 				[MarketingCampaignName] = @marketingCampaignName,
-				[MarketingCampaignStartTimestamp] = @marketingCampaignStartTimestamp,
+				[MarketingCampaignStartTimestampUTC] = @marketingCampaignStartTimestampUTC,
 				[MarketingCampaignTypeId] = @marketingCampaignTypeId
 			WHERE
 				[MarketingCampaignId] = @marketingCampaignId;

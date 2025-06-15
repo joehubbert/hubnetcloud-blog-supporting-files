@@ -6,8 +6,8 @@ SELECT
 [CustomerLeadType] AS [Customer Lead Type],
 [CustomerLeadTypeDescription] AS [Customer Lead Type Description],
 [ActiveStatus] AS [Active Status],
-[CreatedTimestamp] AS [Created Timestamp],
+[CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],
-[ModifiedTimestamp] AS [Modified Timestamp],
+[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 [ModifiedBy] AS [Modified By]
 FROM [dbo].[CustomerLeadType]

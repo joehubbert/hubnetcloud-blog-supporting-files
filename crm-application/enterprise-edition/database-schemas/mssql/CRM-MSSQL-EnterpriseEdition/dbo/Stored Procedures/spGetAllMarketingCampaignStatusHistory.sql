@@ -11,9 +11,9 @@ BEGIN
 			[Marketing Campaign Id],
 			[Marketing Campaign Status Id],
 			[Marketing Campaign Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwMarketingCampaignStatusHistory]
 

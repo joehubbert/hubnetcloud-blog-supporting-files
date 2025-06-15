@@ -29,9 +29,9 @@ CC.[BankAddressLine2] AS [Bank Address Line 2],
 CC.[BankAddressLine3] AS [Bank Address Line 3],
 CC.[BankAddressLine4] AS [Bank Address Line 4],
 CC.[BankAddressLine5] AS [Bank Address Line 5],
-CC.[CreatedTimestamp] AS [Created Timestamp],
+CC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CC.[CreatedBy] AS [Created By],
-CC.[ModifiedTimestamp] AS [Modified Timestamp],
+CC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 CC.[ModifiedBy] AS [Modified By]
 FROM [dbo].[CompanyConfiguration] CC
 INNER JOIN [dbo].[Currency] C ON CC.[BankAccountCurrencyId] = C.[CurrencyId]

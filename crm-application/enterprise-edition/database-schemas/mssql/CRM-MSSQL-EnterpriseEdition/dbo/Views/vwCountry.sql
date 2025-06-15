@@ -1,12 +1,13 @@
-﻿CREATE VIEW [dbo].[vwCurrency]
+﻿CREATE VIEW [dbo].[vwCountry]
 AS
+
 SELECT
-[CurrencyId] AS [Currency Id],
-[CurrencyCode] AS [Currency Code],
-[CurrencyName] AS [Currency Name],
+[CountryId] AS [Country Id],
+[ISOCountryCode] AS [ISO Country Code],
+[CountryName] AS [Country Name],
 [ActiveStatus] AS [Active Status],
 [CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],
 [ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 [ModifiedBy] AS [Modified By]
-FROM [dbo].[Currency]
+FROM [dbo].[Country]

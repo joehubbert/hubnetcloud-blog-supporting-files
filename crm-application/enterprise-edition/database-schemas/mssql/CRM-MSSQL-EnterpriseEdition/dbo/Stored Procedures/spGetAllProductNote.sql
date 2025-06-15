@@ -12,9 +12,9 @@ BEGIN
 			[Product Note Type Id],
 			[Product Note Type],
 			[Product Note],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwProductNote]
 

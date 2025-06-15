@@ -15,9 +15,9 @@ BEGIN
 			[Supplier Contact Telephone Number],
 			[Supplier Contact Role],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierContact]
 

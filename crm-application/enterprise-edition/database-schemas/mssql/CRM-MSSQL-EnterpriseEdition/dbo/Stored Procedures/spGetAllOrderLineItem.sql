@@ -23,9 +23,9 @@ BEGIN
 			[Promotion Type Id],
 			[Promotion Type],
 			[Total Line Item Price],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwOrderLineItem]
 

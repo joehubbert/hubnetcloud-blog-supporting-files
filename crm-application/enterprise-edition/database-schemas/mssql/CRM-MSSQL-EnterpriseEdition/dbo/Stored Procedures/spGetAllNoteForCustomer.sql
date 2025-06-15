@@ -12,9 +12,9 @@ BEGIN
 			[Customer Note Title],
 			[Customer Note Type],
 			[Customer Note],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCustomerNoteSummary]
 			WHERE [Customer Id] = @customerId

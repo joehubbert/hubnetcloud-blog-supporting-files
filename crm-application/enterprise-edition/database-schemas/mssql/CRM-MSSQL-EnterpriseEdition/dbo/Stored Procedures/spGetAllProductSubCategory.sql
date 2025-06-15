@@ -12,9 +12,9 @@ BEGIN
 			[Product Category Id],
 			[Product Category],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwProductSubCategory]
 

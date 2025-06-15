@@ -4,11 +4,11 @@
 	@promotionBuyQuantity INT,
 	@promotionCode NVARCHAR(15),
 	@promotionDescription NVARCHAR(255) ,
-	@promotionEndTimestamp DATETIME2 ,
+	@promotionEndTimestampUTC DATETIME2 ,
 	@promotionGetQuantity INT,
 	@promotionId UNIQUEIDENTIFIER OUTPUT,
 	@promotionName NVARCHAR(50),
-	@promotionStartTimestamp DATETIME2,
+	@promotionStartTimestampUTC DATETIME2,
 	@promotionTargetTypeId UNIQUEIDENTIFIER,
 	@promotionTypeId UNIQUEIDENTIFIER,
 	@promotionValue DECIMAL(18, 2)
@@ -35,8 +35,8 @@ BEGIN
 				[PromotionValue],
 				[PromotionBuyQuantity],
 				[PromotionGetQuantity],
-				[PromotionStartTimestamp],
-				[PromotionEndTimestamp],
+				[PromotionStartTimestampUTC],
+				[PromotionEndTimestampUTC],
 				[ActiveStatus]
 			)
 			OUTPUT INSERTED.[PromotionId] INTO #PromotionTempOutput
@@ -51,8 +51,8 @@ BEGIN
 				@promotionValue,
 				@promotionBuyQuantity,
 				@promotionGetQuantity,
-				@promotionStartTimestamp,
-				@promotionEndTimestamp,
+				@promotionStartTimestampUTC,
+				@promotionEndTimestampUTC,
 				@activeStatus
 			)
 

@@ -20,13 +20,9 @@ BEGIN
 			[Promotion Value],
 			[Promotion Buy Quantity],
 			[Promotion Get Quantity],
-			[Promotion Start Timestamp],
-			[Promotion End Timestamp],
-			[Active Status],
-			[Created Timestamp],
-			[Created By],
-			[Modified Timestamp],
-			[Modified By]
+			[Promotion Start Timestamp UTC],
+			[Promotion End Timestamp UTC],
+			[Active Status]
 			FROM [dbo].[vwPromotion]
 
 		COMMIT TRANSACTION;

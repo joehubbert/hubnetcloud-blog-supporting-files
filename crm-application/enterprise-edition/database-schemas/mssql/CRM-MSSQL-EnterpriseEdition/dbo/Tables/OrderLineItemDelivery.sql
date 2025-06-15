@@ -5,9 +5,9 @@
 	[DeliveryMethodId] UNIQUEIDENTIFIER NOT NULL,
 	[ShippingDate] DATE NOT NULL,
 	[DeliveryDate] DATE NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_OrderDelivery_OrderLineItemId] FOREIGN KEY ([OrderLineItemId]) REFERENCES [dbo].[OrderLineItem]([OrderLineItemId]),
 	CONSTRAINT [FK_OrderDelivery_DeliveryMethodId] FOREIGN KEY ([DeliveryMethodId]) REFERENCES [dbo].[DeliveryMethod]([DeliveryMethodId]),
@@ -27,7 +27,7 @@ BEGIN
 	SET NOCOUNT ON;
 	UPDATE [dbo].[OrderLineItemDelivery]
 	SET 
-		[ModifiedTimestamp] = GETUTCDATE(),
+		[ModifiedTimestampUTC] = GETUTCDATE(),
 		[ModifiedBy] = SUSER_SNAME()
 	FROM 
 		[dbo].[OrderLineItemDelivery] OLID

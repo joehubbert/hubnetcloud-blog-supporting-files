@@ -42,7 +42,7 @@ BEGIN TRY
 		SELECT TOP 1 [PaymentMethodId]
 		FROM [dbo].[OrderPayment]
 		WHERE [OrderId] = @orderId
-		ORDER BY [CreatedTimestamp] ASC
+		ORDER BY [CreatedTimestampUTC] ASC
 	)
 
 	-- Update OrderLineItem status to 'Cancelled'

@@ -25,9 +25,9 @@
     [BankAddressLine3] NVARCHAR(50) NOT NULL,
     [BankAddressLine4] NVARCHAR(50) NOT NULL,
     [BankAddressLine5] NVARCHAR(50) NOT NULL,
-    [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_CompanyConfiguration_BankAccountCurrencyId] FOREIGN KEY ([BankAccountCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
     CONSTRAINT [CC_CompanyConfiguration_BankSortCode_UK] CHECK (
@@ -48,7 +48,7 @@ BEGIN
 
     UPDATE [dbo].[CompanyConfiguration]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[CompanyConfiguration] c

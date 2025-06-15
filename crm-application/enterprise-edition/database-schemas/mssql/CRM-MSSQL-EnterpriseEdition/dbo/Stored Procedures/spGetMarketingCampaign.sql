@@ -16,8 +16,8 @@ BEGIN
 			[Marketing Campaign Name],
 			[Marketing Campaign Description],
 			[Marketing Campaign Goal],
-			[Marketing Campaign Start Timestamp],
-			[Marketing Campaign End Timestamp],
+			[Marketing Campaign Start TimestampUTC],
+			[Marketing Campaign End TimestampUTC],
 			[Marketing Campaign Start Date],
 			[Marketing Campaign End Date],
 			[Marketing Campaign Budget],
@@ -30,9 +30,9 @@ BEGIN
 			[Marketing Campaign Gross Revenue vs Net Revenue],
 			[Marketing Campaign Average Order Value],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwMarketingCampaign]
 			WHERE [Marketing Campaign Id] = @marketingCampaignId

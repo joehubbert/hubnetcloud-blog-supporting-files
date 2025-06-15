@@ -14,9 +14,10 @@ BEGIN
 			[Wholesale Price Per Unit],
 			[Supplier Id],
 			[Supplier Name],
-			[Created Timestamp],
+			[Supplier Product Code],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwProductSupplier]
 			WHERE [Supplier Id] = @supplierId

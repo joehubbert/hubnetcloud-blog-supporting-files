@@ -10,8 +10,8 @@ SELECT
 [TelephoneNumber] AS [Customer Contact Telephone Number],
 [Role] AS [Customer Contact Role],
 [ActiveStatus] AS [Active Status],
-[CreatedTimestamp] AS [Created Timestamp],
+[CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],
-[ModifiedTimestamp] AS [Modified Timestamp],
+[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 [ModifiedBy] AS [Modified By]
 FROM [dbo].[CustomerContact]

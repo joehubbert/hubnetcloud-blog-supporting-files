@@ -7,9 +7,9 @@ MCA.[MarketingCampaignId] AS [Marketing Campaign Id],
 MCA.[MarketingCampaignName] AS [Marketing Campaign Name],
 MCH.[MarketingChannelId] AS [Marketing Channel Id],
 MCH.[MarketingChannel] AS [Marketing Channel],
-MCAMCH.[CreatedTimestamp] AS [Created Timestamp],
+MCAMCH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 MCAMCH.[CreatedBy] AS [Created By],
-MCAMCH.[ModifiedTimestamp] AS [Modified Timestamp],
+MCAMCH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 MCAMCH.[ModifiedBy] AS [Modified By]
 FROM [dbo].[MarketingCampaignMarketingChannel] MCAMCH
 INNER JOIN [dbo].[MarketingChannel] MCH ON MCAMCH.[MarketingChannelId] = MCH.[MarketingChannelId]

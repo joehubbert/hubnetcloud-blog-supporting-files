@@ -13,9 +13,9 @@ BEGIN
 			[Sales Region],
 			[Sales Sub Region],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSalesSubRegion]
 			WHERE [Sales Sub Region Id] = @salesSubRegionId

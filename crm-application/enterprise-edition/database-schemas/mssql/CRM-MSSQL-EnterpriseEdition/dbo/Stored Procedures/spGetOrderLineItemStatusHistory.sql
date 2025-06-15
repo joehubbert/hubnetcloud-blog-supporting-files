@@ -12,9 +12,9 @@ BEGIN
 			[Order Line Item Id],
 			[Order Line Item Status Id],
 			[Order Line Item Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwOrderLineItemStatusHistory]
 			WHERE [Order Line Item Status History Id] = @orderLineItemStatusHistoryId

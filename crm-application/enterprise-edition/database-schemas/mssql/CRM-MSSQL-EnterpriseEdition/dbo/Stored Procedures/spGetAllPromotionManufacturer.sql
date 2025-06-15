@@ -14,7 +14,7 @@ BEGIN
 			[Manufacturer Name],
 			[Created Timestmap],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwPromotionManufacturer]
 

@@ -8,9 +8,10 @@ P.[ProductName] AS [Product Name],
 PS.[WholesalePricePerUnit] AS [Wholesale Price Per Unit],
 S.[SupplierId] AS [Supplier Id],
 S.[SupplierName] AS [Supplier Name],
-PS.[CreatedTimestamp] AS [Created Timestamp],
+PS.[SupplierProductCode] AS [Supplier Product Code],
+PS.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PS.[CreatedBy] AS [Created By],
-PS.[ModifiedTimestamp] AS [Modified Timestamp],
+PS.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PS.[ModifiedBy] AS [Modified By]
 FROM [dbo].[ProductSupplier] PS
 INNER JOIN [dbo].[Product] P ON PS.[ProductId] = P.[ProductId]

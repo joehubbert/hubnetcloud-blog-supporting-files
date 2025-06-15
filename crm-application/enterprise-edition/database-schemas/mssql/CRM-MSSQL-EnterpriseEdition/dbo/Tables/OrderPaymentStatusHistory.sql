@@ -3,9 +3,9 @@
 	[OrderPaymentStatusHistoryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[OrderPaymentId] UNIQUEIDENTIFIER NOT NULL,
 	[OrderPaymentStatusId] UNIQUEIDENTIFIER NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_OrderPaymentStatusHistory_OrderPaymentId] FOREIGN KEY ([OrderPaymentId]) REFERENCES [dbo].[OrderPayment]([OrderPaymentId]),
 	CONSTRAINT [FK_OrderPaymentStatusHistory_OrderPaymentStatusId] FOREIGN KEY ([OrderPaymentStatusId]) REFERENCES [dbo].[OrderPaymentStatus]([OrderPaymentStatusId])
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[OrderPaymentStatusHistory]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[OrderPaymentStatusHistory] opsh

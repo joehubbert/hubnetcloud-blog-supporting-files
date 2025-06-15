@@ -6,9 +6,9 @@
 	[EffectiveDate] DATE NOT NULL,
 	[ExpiryDate] DATE NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_ProductSalesSubRegion_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
 	CONSTRAINT [FK_ProductSalesSubRegion_SalesSubRegionId] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId]),
@@ -28,7 +28,7 @@ BEGIN
 	SET NOCOUNT ON;
 	UPDATE [dbo].[ProductSalesSubRegion]
 	SET 
-		[ModifiedTimestamp] = GETUTCDATE(),
+		[ModifiedTimestampUTC] = GETUTCDATE(),
 		[ModifiedBy] = SUSER_SNAME()
 	FROM 
 		[dbo].[ProductSalesSubRegion] pssr

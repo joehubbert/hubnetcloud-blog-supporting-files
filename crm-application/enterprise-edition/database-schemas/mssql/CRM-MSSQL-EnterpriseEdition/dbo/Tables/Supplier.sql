@@ -14,9 +14,9 @@
     [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL,
-    [CreatedTimestamp] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
-	[ModifiedTimestamp] DATETIME2 NULL,
+	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_Supplier_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
     CONSTRAINT [FK_Supplier_Currency] FOREIGN KEY ([PaymentCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId])
@@ -32,7 +32,7 @@ BEGIN
 
     UPDATE [dbo].[Supplier]
     SET 
-        [ModifiedTimestamp] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = GETUTCDATE(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[Supplier] s

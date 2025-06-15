@@ -10,9 +10,9 @@ AM.[LastName] AS [Last Name],
 AM.[EmailAddress] AS [Email Address],
 AM.[TelephoneNumber] AS [Telephone Number],
 AM.[ActiveStatus] AS [Active Status],
-AM.[CreatedTimestamp] AS [Created Timestamp],
+AM.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 AM.[CreatedBy] AS [Created By],
-AM.[ModifiedTimestamp] AS [Modified Timestamp],
+AM.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 AM.[ModifiedBy] AS [Modified By]
 FROM [dbo].[AccountManager] AM
 INNER JOIN [dbo].[CompanyConfiguration] CC ON AM.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

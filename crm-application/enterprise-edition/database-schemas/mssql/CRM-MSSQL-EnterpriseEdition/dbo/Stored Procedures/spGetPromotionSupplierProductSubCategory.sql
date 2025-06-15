@@ -15,9 +15,9 @@ BEGIN
 			[Supplier Name],
 			[Product Sub Category Id],
 			[Product Sub Category],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwPromotionSupplierProductSubCategory]
 			WHERE [Promotion Supplier Product Sub Category Id] = @promotionSuppliertProductSubCategoryId

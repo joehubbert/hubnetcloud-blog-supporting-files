@@ -3,6 +3,7 @@
 	@productId UNIQUEIDENTIFIER,
 	@productSupplierId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
+	@supplierProductCode NVARCHAR(50) = NULL,
 	@wholesalePricePerUnit MONEY
 AS
 
@@ -16,6 +17,7 @@ BEGIN
 					[ActiveStatus] = @activeStatus,
 					[ProductId] = @productId,
 					[SupplierId] = @supplierId,
+					[SupplierProductCode] = @supplierProductCode,
 					[WholesalePricePerUnit] = @wholesalePricePerUnit
 				WHERE [ProductSupplierId] = @productSupplierId
 

@@ -14,9 +14,9 @@ CL.[CustomerLead] AS [Customer Lead],
 CL.[CustomerLeadTargetDate] AS [Customer Lead Target Date],
 MC.[MarketingChannelId] AS [Marketing Channel Id],
 MC.[MarketingChannel] AS [Marketing Channel],
-CL.[CreatedTimestamp] AS [Created Timestamp],
+CL.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CL.[CreatedBy] AS [Created By],
-CL.[ModifiedTimestamp] AS [Modified Timestamp],
+CL.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 CL.[ModifiedBy] AS [Modified By]
 FROM [dbo].[CustomerLead] CL
 INNER JOIN [dbo].[CustomerLeadType] CLT ON CL.[CustomerLeadTypeId] = CLT.[CustomerLeadTypeId]

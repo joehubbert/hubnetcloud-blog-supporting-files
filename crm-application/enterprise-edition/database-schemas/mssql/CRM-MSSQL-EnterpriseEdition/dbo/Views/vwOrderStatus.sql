@@ -5,8 +5,8 @@ SELECT
 [OrderStatusId]	AS [Order Status Id],
 [OrderStatus] AS [Order Status],
 [ActiveStatus] AS [Active Status],
-[CreatedTimestamp] AS [Created Timestamp],
+[CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],
-[ModifiedTimestamp] AS [Modified Timestamp],
+[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 [ModifiedBy] AS [Modified By]
 FROM [dbo].[OrderStatus]

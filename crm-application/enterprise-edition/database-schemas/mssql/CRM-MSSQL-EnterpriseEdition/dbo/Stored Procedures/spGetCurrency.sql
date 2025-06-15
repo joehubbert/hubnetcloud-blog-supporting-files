@@ -12,9 +12,9 @@ BEGIN
 			[Currency Code],
 			[Currency Name],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCurrency]
 			WHERE [Currency Id] = @currencyId

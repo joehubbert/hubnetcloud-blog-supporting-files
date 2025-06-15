@@ -30,7 +30,7 @@ BEGIN TRY
         SELECT TOP 1 [PaymentAmount]
         FROM [dbo].[OrderPayment]
         WHERE [OrderId] = @orderId
-        ORDER BY [CreatedTimestamp] ASC
+        ORDER BY [CreatedTimestampUTC] ASC
     )
 
 	DECLARE @originalOrderPaymentMethodId UNIQUEIDENTIFIER
@@ -38,7 +38,7 @@ BEGIN TRY
 		SELECT TOP 1 [PaymentMethodId]
 		FROM [dbo].[OrderPayment]
 		WHERE [OrderId] = @orderId
-		ORDER BY [CreatedTimestamp] ASC
+		ORDER BY [CreatedTimestampUTC] ASC
 	)
 
 	-- Get order line items for the order

@@ -24,9 +24,9 @@ BEGIN
 			[Payment Currency Id],
 			[VAT Number],
 			[Active Status],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplier]
 			WHERE [Supplier Id] = @supplierId

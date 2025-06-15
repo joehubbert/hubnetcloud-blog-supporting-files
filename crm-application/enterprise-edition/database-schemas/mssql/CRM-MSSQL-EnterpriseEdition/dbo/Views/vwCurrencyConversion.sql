@@ -15,9 +15,9 @@ CC.[ConversionRate] AS [Conversion Rate],
 CC.[EffectiveDate] AS [Effective Date],
 CC.[ExpiryDate] AS [Expiry Date],
 CC.[ActiveStatus] AS [Active Status],
-CC.[CreatedTimestamp] AS [Created Timestamp],
+CC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CC.[CreatedBy] AS [Created By],
-CC.[ModifiedTimestamp] AS [Modified Timestamp],
+CC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 CC.[ModifiedBy] AS [Modified By]
 FROM [dbo].[CurrencyConversion] CC
 INNER JOIN [dbo].[Currency] CURA ON CC.[CurrencyAId] = CURA.[CurrencyId]

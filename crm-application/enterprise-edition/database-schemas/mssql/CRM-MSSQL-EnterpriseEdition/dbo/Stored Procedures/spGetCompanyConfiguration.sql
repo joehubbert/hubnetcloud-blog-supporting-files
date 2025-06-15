@@ -35,9 +35,9 @@ BEGIN
 			[Bank Address Line 3],
 			[Bank Address Line 4],
 			[Bank Address Line 5],
-			[Created Timestamp],
+			[Created Timestamp UTC],
 			[Created By],
-			[Modified Timestamp],
+			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwCompanyConfiguration]
 			WHERE [Company Configuration Id] = @companyConfigurationId

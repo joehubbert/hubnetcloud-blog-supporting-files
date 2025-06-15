@@ -10,7 +10,13 @@ BEGIN
 			[Customer Tier Id],
 			[Customer Tier Code],
 			[Customer Tier Description],
-			[Active Status]
+			[Company Configuration Id],
+			[Company Name],
+			[Active Status],
+			[Created Timestamp],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
 			FROM [dbo].[vwCustomerTier]
 
 		COMMIT TRANSACTION;

@@ -2,12 +2,15 @@
 AS
 
 SELECT
-[CustomerTypeId] AS [Customer Type Id],
-[CustomerType] AS [Customer Type],
-[CustomerTypeDescription] AS [Customer Type Description],
-[ActiveStatus] AS [Active Status],
-[CreatedTimestamp] AS [Created Timestamp],
-[CreatedBy] AS [Created By],
-[ModifiedTimestamp] AS [Modified Timestamp],
-[ModifiedBy] AS [Modified By]
+CT.[CustomerTypeId] AS [Customer Type Id],
+CT.[CustomerType] AS [Customer Type],
+CT.[CustomerTypeDescription] AS [Customer Type Description],
+CC.[CompanyConfigurationId] AS [Company Configuration Id],
+CC.[CompanyName] AS [Company Name],
+CT.[ActiveStatus] AS [Active Status],
+CT.[CreatedTimestamp] AS [Created Timestamp],
+CT.[CreatedBy] AS [Created By],
+CT.[ModifiedTimestamp] AS [Modified Timestamp],
+CT.[ModifiedBy] AS [Modified By]
 FROM [dbo].[CustomerType] CT
+INNER JOIN [dbo].[CompanyConfiguration] CC ON CT.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

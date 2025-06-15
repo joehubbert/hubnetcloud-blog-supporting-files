@@ -9,7 +9,7 @@ BEGIN
 			SELECT
 			[Currency Conversion Id],
 			[Company Configuration Id],
-			[Company Configuration Name],
+			[Company Name],
 			[Currency Conversion Friendly Name],
 			[Currency A Id],
 			[Currency A Code],

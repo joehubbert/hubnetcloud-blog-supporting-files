@@ -554,7 +554,6 @@
     <None Include="Post Deployment Scripts\Data Population\PaymentMethod.sql" />
     <None Include="Post Deployment Scripts\Data Population\Currency.sql" />
     <None Include="Post Deployment Scripts\Data Population\CustomerNoteType.sql" />
-    <None Include="Post Deployment Scripts\Data Population\CustomerType.sql" />
     <None Include="Post Deployment Scripts\Data Population\ProductNoteType.sql" />
     <None Include="Post Deployment Scripts\Data Population\SupplierNoteType.sql" />
     <None Include="Post Deployment Scripts\Data Population\SupplierOrderLineItemStatus.sql" />
@@ -572,7 +571,7 @@
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignStatus.sql" />
   </ItemGroup>
   <ItemGroup>
-    <SqlCmdVariable Include="BuildVersion">
+    <SqlCmdVariable Include="DatabaseVersion">
       <DefaultValue>'1.0.0'</DefaultValue>
       <Value>$(SqlCmdVar__1)</Value>
     </SqlCmdVariable>

@@ -11,6 +11,8 @@ BEGIN
 			[Customer Type Id],
 			[Customer Type],
 			[Customer Type Description],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status],
 			[Created Timestamp],
 			[Created By],

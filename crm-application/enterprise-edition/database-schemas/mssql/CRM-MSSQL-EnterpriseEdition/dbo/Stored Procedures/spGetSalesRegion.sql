@@ -11,7 +11,7 @@ BEGIN
 			[Sales Region Id],
 			[Sales Region],
 			[Company Configuration Id],
-			[Company Configuration Name],
+			[Company Name],
 			[Active Status],
 			[Created Timestamp],
 			[Created By],

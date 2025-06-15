@@ -11,6 +11,8 @@ BEGIN
 			[Customer Tier Id],
 			[Customer Tier Code],
 			[Customer Tier Description],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status],
 			[Created Timestamp],
 			[Created By],

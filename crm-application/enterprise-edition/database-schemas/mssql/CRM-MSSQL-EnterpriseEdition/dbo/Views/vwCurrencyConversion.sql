@@ -3,7 +3,7 @@ AS
 SELECT
 CC.[CurrencyConversionId] AS [Currency Conversion Id],
 CCFG.[CompanyConfigurationId] AS [Company Configuration Id],
-CCFG.[CompanyName] AS [Company Configuration Name],
+CCFG.[CompanyName] AS [Company Name],
 CONCAT(CURA.[CurrencyCode], ' - ', CURB.[CurrencyCode]) AS [Currency Conversion Friendly Name],
 CC.[CurrencyAId] AS [Currency A Id],
 CURA.[CurrencyCode] AS [Currency A Code],

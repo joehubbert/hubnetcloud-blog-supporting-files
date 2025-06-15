@@ -1,6 +1,7 @@
 ﻿CREATE TABLE [dbo].[CustomerTier]
 (
 	[CustomerTierId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+    [CompanyConfigurationId] UNIQUEIDENTIFIER NOT NULL,
 	[CustomerTierCode] NCHAR(1) NOT NULL,
 	[CustomerTierDescription] NVARCHAR(50) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
@@ -8,6 +9,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestamp] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    CONSTRAINT [FK_CustomerTier_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration] ([CompanyConfigurationId]),
     CONSTRAINT [UC_CustomerTier_CustomerTierCode] UNIQUE ([CustomerTierCode])
 )
 GO

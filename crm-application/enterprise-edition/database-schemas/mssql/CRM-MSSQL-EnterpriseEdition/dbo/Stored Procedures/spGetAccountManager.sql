@@ -10,7 +10,7 @@ BEGIN
 			SELECT
 			[Account Manager Id],
 			[Company Configuration Id],
-			[Company Configuration Name],
+			[Company Name],
 			[First Name],
 			[Last Name],
 			[Email Address],

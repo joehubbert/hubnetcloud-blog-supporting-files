@@ -10,7 +10,13 @@ BEGIN
 			[Customer Type Id],
 			[Customer Type],
 			[Customer Type Description],
-			[Active Status]
+			[Company Configuration Id],
+			[Company Name],
+			[Active Status],
+			[Created Timestamp],
+			[Created By],
+			[Modified Timestamp],
+			[Modified By]
 			FROM [dbo].[vwCustomerType]
 
 		COMMIT TRANSACTION;

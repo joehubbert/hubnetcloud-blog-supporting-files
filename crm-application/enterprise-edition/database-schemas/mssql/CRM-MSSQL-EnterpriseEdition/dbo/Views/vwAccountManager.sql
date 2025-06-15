@@ -4,7 +4,7 @@ AS
 SELECT
 AM.[AccountManagerId] AS [Account Manager Id],
 CC.[CompanyConfigurationId] AS [Company Configuration Id],
-CC.[CompanyName] AS [Company Configuration Name],
+CC.[CompanyName] AS [Company Name],
 AM.[FirstName] AS [First Name],
 AM.[LastName] AS [Last Name],
 AM.[EmailAddress] AS [Email Address],

@@ -10,7 +10,7 @@ BEGIN
 			[Supplier Id],
 			[Supplier Name],
 			[Company Configuration Id],
-			[Company Configuration Name],
+			[Company Name],
 			[Address Line 1],
 			[Address Line 2],
 			[Address Line 3],

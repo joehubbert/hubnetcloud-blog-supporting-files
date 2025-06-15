@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCustomerTier]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER,
 	@customerTier NVARCHAR(50),
 	@customerTierCode NCHAR(1),
 	@customerTierId UNIQUEIDENTIFIER
@@ -13,6 +14,7 @@ BEGIN
 			UPDATE [dbo].[CustomerTier]
 			SET 
 				[ActiveStatus] = @activeStatus,
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[CustomerTierCode] = @customerTierCode,
 				[CustomerTierDescription] = @customerTier
 			WHERE [CustomerTierId] = @customerTierId

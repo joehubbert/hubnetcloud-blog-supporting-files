@@ -5,7 +5,7 @@ SELECT
 SR.[SalesRegionId]	AS [Sales Region Id],
 SR.[SalesRegion] AS [Sales Region],
 CC.[CompanyConfigurationId] AS [Company Configuration Id],
-CC.[CompanyName] AS [Company Configuration Name],
+CC.[CompanyName] AS [Company Name],
 SR.[ActiveStatus] AS [Active Status],
 SR.[CreatedTimestamp] AS [Created Timestamp],
 SR.[CreatedBy] AS [Created By],

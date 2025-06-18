@@ -56,9 +56,9 @@ namespace CRM_WindowsForms.Presentation
                     currencyDetailCurrencyCodeTextbox.Text = currencyDataRow["Currency Code"].ToString();
                     currencyDetailCurrencyNameTextbox.Text = currencyDataRow["Currency Name"].ToString();
                     currencyDetailCreatedByTextbox.Text = currencyDataRow["Created By"].ToString();
-                    currencyDetailCreatedTimestampTextbox.Text = currencyDataRow["Created Timestamp"].ToString();
+                    currencyDetailCreatedTimestampTextbox.Text = currencyDataRow["Created Timestamp UTC"].ToString();
                     currencyDetailLastUpdatedByTextbox.Text = currencyDataRow["Modified By"].ToString();
-                    currencyDetailLastUpdatedTimestampTextbox.Text = currencyDataRow["Modified Timestamp"].ToString();
+                    currencyDetailLastUpdatedTimestampTextbox.Text = currencyDataRow["Modified Timestamp UTC"].ToString();
                     currencyDetailActiveStatusCheckbox.Checked = (bool)currencyDataRow["Active Status"];
 
                     currencyDetailCurrencyCodeOriginalValue = currencyDataRow["Currency Code"].ToString();

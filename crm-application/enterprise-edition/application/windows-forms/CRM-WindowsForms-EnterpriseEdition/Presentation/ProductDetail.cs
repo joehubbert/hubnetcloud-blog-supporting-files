@@ -140,9 +140,9 @@ namespace CRM_WindowsForms.Presentation
 
                     productDetailOverviewActiveStatusCheckbox.Checked = (bool)productDataRow["Active Status"];
                     productDetailOverviewCreatedByTextbox.Text = productDataRow["Created By"].ToString();
-                    productDetailOverviewCreatedTimestampTextbox.Text = productDataRow["Created Timestamp"].ToString();
+                    productDetailOverviewCreatedTimestampTextbox.Text = productDataRow["Created Timestamp UTC"].ToString();
                     productDetailOverviewLastUpdatedByTextbox.Text = productDataRow["Modified By"].ToString();
-                    productDetailOverviewLastUpdatedTimestampTextbox.Text = productDataRow["Modified Timestamp"].ToString();
+                    productDetailOverviewLastUpdatedTimestampTextbox.Text = productDataRow["Modified Timestamp UTC"].ToString();
                     Guid productCategoryId = (Guid)productDataRow["Product Category Id"];
                     await ProductDetailOverviewLoadProductCategoryDataAsync(productCategoryId);
                     productDetailOverviewProductIdTextbox.Text = productDataRow["Product Id"].ToString();

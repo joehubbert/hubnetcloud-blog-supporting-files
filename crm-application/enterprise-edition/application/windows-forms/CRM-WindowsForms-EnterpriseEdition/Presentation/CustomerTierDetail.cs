@@ -56,9 +56,9 @@ namespace CRM_WindowsForms.Presentation
                     customerTierDetailCustomerTierCodeTextbox.Text = customerTierDataRow["Customer Tier Code"].ToString();
                     customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier Description"].ToString();
                     customerTierDetailCreatedByTextbox.Text = customerTierDataRow["Created By"].ToString();
-                    customerTierDetailCreatedTimestampTextbox.Text = customerTierDataRow["Created Timestamp"].ToString();
+                    customerTierDetailCreatedTimestampTextbox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
                     customerTierDetailLastUpdatedByTextbox.Text = customerTierDataRow["Modified By"].ToString();
-                    customerTierDetailLastUpdatedTimestampTextbox.Text = customerTierDataRow["Modified Timestamp"].ToString();
+                    customerTierDetailLastUpdatedTimestampTextbox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
                     customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
 
                     customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();

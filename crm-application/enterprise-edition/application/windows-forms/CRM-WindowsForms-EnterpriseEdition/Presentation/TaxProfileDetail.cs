@@ -62,9 +62,9 @@ namespace CRM_WindowsForms.Presentation
                     taxProfileDetailTaxRateTextboxA.Text = taxRatePartA;
                     taxProfileDetailTaxRateTextboxB.Text = taxRatePartB;
                     taxProfileDetailCreatedByTextbox.Text = taxProfileDataRow["Created By"].ToString();
-                    taxProfileDetailCreatedTimestampTextbox.Text = taxProfileDataRow["Created Timestamp"].ToString();
+                    taxProfileDetailCreatedTimestampTextbox.Text = taxProfileDataRow["Created Timestamp UTC"].ToString();
                     taxProfileDetailLastUpdatedByTextbox.Text = taxProfileDataRow["Modified By"].ToString();
-                    taxProfileDetailLastUpdatedTimestampTextbox.Text = taxProfileDataRow["Modified Timestamp"].ToString();
+                    taxProfileDetailLastUpdatedTimestampTextbox.Text = taxProfileDataRow["Modified Timestamp UTC"].ToString();
                     taxProfileDetailActiveStatusCheckbox.Checked = (bool)taxProfileDataRow["Active Status"];
 
                     taxProfileDetailTaxProfileOriginalValue = taxProfileDataRow["Tax Profile"].ToString();

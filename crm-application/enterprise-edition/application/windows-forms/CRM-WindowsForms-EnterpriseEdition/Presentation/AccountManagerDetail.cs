@@ -61,9 +61,9 @@ namespace CRM_WindowsForms.Presentation
                     accountManagerDetailTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
                     accountManagerDetailAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
                     accountManagerDetailCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
-                    accountManagerDetailCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp"].ToString();
+                    accountManagerDetailCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
                     accountManagerDetailLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
-                    accountManagerDetailLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp"].ToString();
+                    accountManagerDetailLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
                     accountManagerDetailActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
 
                     accountManagerDetailFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();

@@ -122,10 +122,10 @@ namespace CRM_WindowsForms.Presentation
                     supplierDetailOverviewAddressLine4Textbox.Text = supplierDataRow["Address Line 4"].ToString();
                     supplierDetailOverviewAddressLine5Textbox.Text = supplierDataRow["Address Line 5"].ToString();
                     supplierDetailOverviewCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
-                    supplierDetailOverviewCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp"].ToString();
+                    supplierDetailOverviewCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp UTC"].ToString();
                     supplierDetailOverviewEmailAddressTextbox.Text = supplierDataRow["Email Address"].ToString();
                     supplierDetailOverviewLastUpdatedByTextbox.Text = supplierDataRow["Modified By"].ToString();
-                    supplierDetailOverviewLastUpdatedTimestampTextbox.Text = supplierDataRow["Modified Timestamp"].ToString();
+                    supplierDetailOverviewLastUpdatedTimestampTextbox.Text = supplierDataRow["Modified Timestamp UTC"].ToString();
                     supplierDetailOverviewSupplierIdTextbox.Text = supplierDataRow["Supplier Id"].ToString();
                     supplierDetailOverviewSupplierNameTextbox.Text = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailOverviewTelephoneNumberTextbox.Text = supplierDataRow["Telephone Number"].ToString();

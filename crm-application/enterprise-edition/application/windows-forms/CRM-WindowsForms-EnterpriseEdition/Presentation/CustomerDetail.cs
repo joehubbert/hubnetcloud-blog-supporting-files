@@ -630,7 +630,7 @@ namespace CRM_WindowsForms.Presentation
                     customerDetailOverviewActiveStatusCheckbox.Checked = (bool)customerDataRow["Active Status"];
                     customerDetailOverviewCompanyNameTextbox.Text = customerDataRow["Company Name"].ToString();
                     customerDetailOverviewCreatedByTextbox.Text = customerDataRow["Created By"].ToString();
-                    customerDetailOverviewCreatedTimestampTextbox.Text = customerDataRow["Created Timestamp"].ToString();
+                    customerDetailOverviewCreatedTimestampTextbox.Text = customerDataRow["Created Timestamp UTC"].ToString();
                     customerDetailOverviewCustomerIdTextbox.Text = customerDataRow["Customer Id"].ToString();
                     customerDetailOverviewCustomerSinceDatePicker.Value = (DateTime)customerDataRow["Customer Since"];
                     Guid customerTierId = (Guid)customerDataRow["Customer Tier Id"];
@@ -679,7 +679,7 @@ namespace CRM_WindowsForms.Presentation
                     customerDetailOverviewFirstNameTextbox.Text = customerDataRow["First Name"].ToString();
                     customerDetailOverviewLastNameTextbox.Text = customerDataRow["Last Name"].ToString();
                     customerDetailOverviewLastUpdatedByTextbox.Text = customerDataRow["Modified By"].ToString();
-                    customerDetailOverviewLastUpdatedTimestampTextbox.Text = customerDataRow["Modified Timestamp"].ToString();
+                    customerDetailOverviewLastUpdatedTimestampTextbox.Text = customerDataRow["Modified Timestamp UTC"].ToString();
                     Guid salesRegionId = (Guid)customerDataRow["Sales Region Id"];
                     await CustomerDetailOverviewLoadSalesRegionDataAsync(salesRegionId);
                     Guid salesSubRegionid = (Guid)customerDataRow["Sales Sub Region Id"];

@@ -112,9 +112,9 @@ namespace CRM_WindowsForms.Presentation
                     Guid taxProfileId = (Guid)deliveryMethodDataRow["Tax Profile Id"];
                     await DeliveryMethodDetailLoadTaxProfileAsync(taxProfileId);
                     deliveryMethodDetailCreatedByTextbox.Text = deliveryMethodDataRow["Created By"].ToString();
-                    deliveryMethodDetailCreatedTimestampTextbox.Text = deliveryMethodDataRow["Created Timestamp"].ToString();
+                    deliveryMethodDetailCreatedTimestampTextbox.Text = deliveryMethodDataRow["Created Timestamp UTC"].ToString();
                     deliveryMethodDetailLastUpdatedByTextbox.Text = deliveryMethodDataRow["Modified By"].ToString();
-                    deliveryMethodDetailLastUpdatedTimestampTextbox.Text = deliveryMethodDataRow["Modified Timestamp"].ToString();
+                    deliveryMethodDetailLastUpdatedTimestampTextbox.Text = deliveryMethodDataRow["Modified Timestamp UTC"].ToString();
                     deliveryMethodDetailActiveStatusCheckbox.Checked = (bool)deliveryMethodDataRow["Active Status"];
 
                     deliveryMethodDetailDeliveryMethodOriginalValue = deliveryMethodDataRow["Delivery Method"].ToString();

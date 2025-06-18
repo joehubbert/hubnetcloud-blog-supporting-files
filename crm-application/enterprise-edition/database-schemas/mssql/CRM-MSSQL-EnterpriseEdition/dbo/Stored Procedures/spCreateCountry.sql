@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCountry]
     @activeStatus BIT,
-	@countryName NVARCHAR(100),
-	@isoCountryCode NCHAR(2)
+	@countryEnglishName NVARCHAR(100),
+	@iso31661A2CountryCode NCHAR(2)
 AS
 
 BEGIN
@@ -11,21 +11,21 @@ BEGIN
 
 			CREATE TABLE #CountryTemp
 			(
-				[ISOCountryCode] NCHAR(2) NOT NULL,
-				[CountryName] NVARCHAR(100) NOT NULL,
+				[ISO31661A2CountryCode] NCHAR(2) NOT NULL,
+				[CountryEnglishName] NVARCHAR(100) NOT NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #CountryTemp
 			(
-				[ISOCountryCode],
-				[CountryName],
+				[ISO31661A2CountryCode],
+				[CountryEnglishName],
 				[ActiveStatus]
 			)
 			VALUES
 			(
-				@isoCountryCode,
-				@countryName,
+				@iso31661A2CountryCode,
+				@countryEnglishName,
 				@activeStatus
 			)
 
@@ -33,28 +33,28 @@ BEGIN
 			(
 			SELECT *
 			FROM [dbo].[Country] C
-			INNER JOIN #CountryTemp CT ON C.[ISOCountryCode] = CT.[ISOCountryCode]
-			AND C.[CountryName] = CT.[CountryName]
-			WHERE C.[ISOCountryCode] = CT.[ISOCountryCode]
-			AND C.[CountryName] = CT.[CountryName]
+			INNER JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
+			AND C.[CountryEnglishName] = CT.[CountryEnglishName]
+			WHERE C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
+			AND C.[CountryEnglishName] = CT.[CountryEnglishName]
 			)
 			THROW 50000, 'Country already exists, please update the existing record.', 1;
 			ELSE
 			MERGE INTO [dbo].[Country] AS target
 			USING #CountryTemp AS source
-			ON target.[ISOCountryCode] = source.[ISOCountryCode]
-			AND target.[CountryName] = source.[CountryName]
+			ON target.[ISO31661A2CountryCode] = source.[ISO31661A2CountryCode]
+			AND target.[CountryEnglishName] = source.[CountryEnglishName]
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
-				[ISOCountryCode],
-				[CountryName],
+				[ISO31661A2CountryCode],
+				[CountryEnglishName],
 				[ActiveStatus]
 			)
 			VALUES
 			(
-				source.[ISOCountryCode],
-				source.[CountryName],
+				source.[ISO31661A2CountryCode],
+				source.[CountryEnglishName],
 				source.[ActiveStatus]
 			);
 

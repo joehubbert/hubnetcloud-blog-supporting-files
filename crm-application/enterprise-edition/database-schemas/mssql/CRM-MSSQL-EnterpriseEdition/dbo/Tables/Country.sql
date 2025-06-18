@@ -1,8 +1,8 @@
 ﻿CREATE TABLE [dbo].[Country]
 (
 	[CountryId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
-	[ISOCountryCode] NCHAR(2) NOT NULL,
-	[CountryName] NVARCHAR(100) NOT NULL,
+	[ISO31661A2CountryCode] NCHAR(2) NOT NULL,
+	[CountryEnglishName] NVARCHAR(100) NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
@@ -11,7 +11,7 @@
 )
 GO
 
-CREATE UNIQUE INDEX [IX_Country_ISOCountryCode] ON [dbo].[Country] ([ISOCountryCode])
+CREATE UNIQUE INDEX [IX_Country_ISO31661A2CountryCode] ON [dbo].[Country] ([ISO31661A2CountryCode])
 GO
 
 CREATE TRIGGER [TRG_UpdateCountry]

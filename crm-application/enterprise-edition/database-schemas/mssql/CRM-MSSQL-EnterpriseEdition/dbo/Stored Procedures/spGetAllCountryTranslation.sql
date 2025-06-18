@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllCountry]
+﻿CREATE PROCEDURE [dbo].[spGetAllCountryTranslation]
 AS
 
 BEGIN
@@ -7,11 +7,13 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
+			[Country Translation Id],
+			[BCP 47 Language Tag Code],
+			[Localised Country Name],
 			[Country Id],
-			[ISO 3166-1 Alpha 2 Country Code],
 			[Country English Name],
 			[Active Status]
-			FROM [dbo].[vwCountry]
+			FROM [dbo].[vwCountryTranslation]
 
 		COMMIT TRANSACTION;
 	END TRY

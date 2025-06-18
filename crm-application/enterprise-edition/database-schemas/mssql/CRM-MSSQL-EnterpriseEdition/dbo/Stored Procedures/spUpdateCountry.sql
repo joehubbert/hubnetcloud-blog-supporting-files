@@ -1,8 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCountry]
     @activeStatus BIT,
 	@countryId UNIQUEIDENTIFIER,
-	@countryName NVARCHAR(100),
-	@isoCountryCode NCHAR(2)
+	@countryEnglishName NVARCHAR(100),
+	@iso31661A2CountryCode NCHAR(2)
 AS
 
 BEGIN
@@ -13,8 +13,8 @@ BEGIN
 			UPDATE [dbo].[Country]
 			SET
 				[ActiveStatus] = @activeStatus,
-				[CountryName] = @countryName,
-				[ISOCountryCode] = @isoCountryCode
+				[CountryEnglishName] = @countryEnglishName,
+				[ISO31661A2CountryCode] = @iso31661A2CountryCode
 			WHERE [CountryId] = @countryId
 
 		COMMIT TRANSACTION;

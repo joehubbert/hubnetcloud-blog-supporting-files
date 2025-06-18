@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetCountry]
-	@countryId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetCountryTranslation]
+	@countryTranslationId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -8,16 +8,18 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
+			[Country Translation Id],
+			[BCP 47 Language Tag Code],
+			[Localised Country Name],
 			[Country Id],
-			[ISO 3166-1 Alpha 2 Country Code],
 			[Country English Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By]
-			FROM [dbo].[vwCountry]
-			WHERE [Country Id] = @countryId
+			FROM [dbo].[vwCountryTranslation]
+			WHERE [Country Translation Id] = @countryTranslationId
 
 		COMMIT TRANSACTION;
 	END TRY

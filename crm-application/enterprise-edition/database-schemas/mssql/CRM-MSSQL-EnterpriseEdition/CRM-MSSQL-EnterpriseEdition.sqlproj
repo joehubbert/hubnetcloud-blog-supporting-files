@@ -544,6 +544,13 @@
     <Build Include="dbo\Stored Procedures\spGetCountry.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateCountry.sql" />
     <Build Include="dbo\Functions\fnGetUnitedKingdomCountryId.sql" />
+    <Build Include="dbo\Tables\CountryTranslation.sql" />
+    <Build Include="dbo\Views\vwCountryTranslation.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateCountryTranslation.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllCountryTranslation.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllCountryTranslationForCountry.sql" />
+    <Build Include="dbo\Stored Procedures\spGetCountryTranslation.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateCountryTranslation.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -577,6 +584,7 @@
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignType.sql" />
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignStatus.sql" />
     <None Include="Post Deployment Scripts\Data Population\Country.sql" />
+    <None Include="Post Deployment Scripts\Data Population\CountryTranslation.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

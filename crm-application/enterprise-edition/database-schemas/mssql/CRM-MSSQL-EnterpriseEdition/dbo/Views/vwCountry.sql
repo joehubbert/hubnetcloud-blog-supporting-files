@@ -3,8 +3,8 @@ AS
 
 SELECT
 [CountryId] AS [Country Id],
-[ISOCountryCode] AS [ISO Country Code],
-[CountryName] AS [Country Name],
+[ISO31661A2CountryCode] AS [ISO 3166-1 Alpha 2 Country Code],
+[CountryEnglishName] AS [Country English Name],
 [ActiveStatus] AS [Active Status],
 [CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],

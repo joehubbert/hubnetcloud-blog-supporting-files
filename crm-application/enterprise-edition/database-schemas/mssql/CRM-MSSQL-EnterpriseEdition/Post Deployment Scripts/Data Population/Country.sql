@@ -1,11 +1,11 @@
 ﻿CREATE TABLE #CountryTemp
 (
-    [ISOCountryCode] NCHAR(2) NOT NULL,
-    [CountryName] NVARCHAR(100) NOT NULL,
+    [ISO31661A2CountryCode] NCHAR(2) NOT NULL,
+    [CountryEnglishName] NVARCHAR(100) NOT NULL,
     [ActiveStatus] BIT NOT NULL
 );
 
-INSERT INTO #CountryTemp ([ISOCountryCode], [CountryName], [ActiveStatus]) VALUES
+INSERT INTO #CountryTemp ([ISO31661A2CountryCode], [CountryEnglishName], [ActiveStatus]) VALUES
 ('AF', 'Afghanistan', 1),
 ('AL', 'Albania', 1),
 ('DZ', 'Algeria', 1),
@@ -257,9 +257,9 @@ INSERT INTO #CountryTemp ([ISOCountryCode], [CountryName], [ActiveStatus]) VALUE
 
 MERGE INTO [dbo].[Country] AS target
 USING #CountryTemp AS source
-    ON target.[ISOCountryCode] = source.[ISOCountryCode]
+    ON target.[ISO31661A2CountryCode] = source.[ISO31661A2CountryCode]
 WHEN NOT MATCHED THEN
-    INSERT ([ISOCountryCode], [CountryName], [ActiveStatus])
-    VALUES (source.[ISOCountryCode], source.[CountryName], source.[ActiveStatus]);
+    INSERT ([ISO31661A2CountryCode], [CountryEnglishName], [ActiveStatus])
+    VALUES (source.[ISO31661A2CountryCode], source.[CountryEnglishName], source.[ActiveStatus]);
 
 DROP TABLE #CountryTemp;

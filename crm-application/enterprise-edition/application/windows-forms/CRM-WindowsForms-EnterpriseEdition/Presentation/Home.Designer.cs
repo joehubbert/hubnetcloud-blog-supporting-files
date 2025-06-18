@@ -140,7 +140,7 @@
             homeNavOrderManagement.FlatStyle = FlatStyle.Flat;
             homeNavOrderManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavOrderManagement.ForeColor = Color.Black;
-            homeNavOrderManagement.Location = new Point(242, 153);
+            homeNavOrderManagement.Location = new Point(477, 252);
             homeNavOrderManagement.Margin = new Padding(4);
             homeNavOrderManagement.Name = "homeNavOrderManagement";
             homeNavOrderManagement.Size = new Size(208, 73);
@@ -170,7 +170,7 @@
             homeNavProductManagement.FlatStyle = FlatStyle.Flat;
             homeNavProductManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavProductManagement.ForeColor = Color.Black;
-            homeNavProductManagement.Location = new Point(242, 252);
+            homeNavProductManagement.Location = new Point(242, 351);
             homeNavProductManagement.Margin = new Padding(4);
             homeNavProductManagement.Name = "homeNavProductManagement";
             homeNavProductManagement.Size = new Size(208, 73);
@@ -185,7 +185,7 @@
             homeNavCompanyManagement.FlatStyle = FlatStyle.Flat;
             homeNavCompanyManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavCompanyManagement.ForeColor = Color.Black;
-            homeNavCompanyManagement.Location = new Point(477, 252);
+            homeNavCompanyManagement.Location = new Point(242, 153);
             homeNavCompanyManagement.Margin = new Padding(4);
             homeNavCompanyManagement.Name = "homeNavCompanyManagement";
             homeNavCompanyManagement.Size = new Size(208, 73);
@@ -226,7 +226,7 @@
             homeNavSupplierManagementButton.FlatStyle = FlatStyle.Flat;
             homeNavSupplierManagementButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavSupplierManagementButton.ForeColor = Color.Black;
-            homeNavSupplierManagementButton.Location = new Point(242, 351);
+            homeNavSupplierManagementButton.Location = new Point(477, 351);
             homeNavSupplierManagementButton.Margin = new Padding(4);
             homeNavSupplierManagementButton.Name = "homeNavSupplierManagementButton";
             homeNavSupplierManagementButton.Size = new Size(208, 73);
@@ -999,7 +999,7 @@
             homeMenuStripHelpAbout.BackColor = Color.Transparent;
             homeMenuStripHelpAbout.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpAbout.Name = "homeMenuStripHelpAbout";
-            homeMenuStripHelpAbout.Size = new Size(180, 22);
+            homeMenuStripHelpAbout.Size = new Size(145, 22);
             homeMenuStripHelpAbout.Text = "&About";
             homeMenuStripHelpAbout.Click += homeMenuStripHelpAbout_Click;
             // 
@@ -1009,7 +1009,7 @@
             homeMenuStripHelpEasterEgg.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEgg.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripHelpEasterEggChess, homeMenuStripHelpEasterEggFreeCell, homeMenuStripHelpEasterEggSolitaire, homeMenuStripHelpEasterEggSpiderSolitaire, homeMenuStripHelpEasterEggSudoku });
             homeMenuStripHelpEasterEgg.Name = "homeMenuStripHelpEasterEgg";
-            homeMenuStripHelpEasterEgg.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEgg.Size = new Size(145, 22);
             homeMenuStripHelpEasterEgg.Text = "&Easter Eggs";
             // 
             // homeMenuStripHelpEasterEggChess
@@ -1017,7 +1017,7 @@
             homeMenuStripHelpEasterEggChess.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggChess.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggChess.Name = "homeMenuStripHelpEasterEggChess";
-            homeMenuStripHelpEasterEggChess.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggChess.Size = new Size(165, 22);
             homeMenuStripHelpEasterEggChess.Text = "&Chess";
             homeMenuStripHelpEasterEggChess.Click += homeMenuStripHelpEasterEggChess_Click;
             // 
@@ -1026,7 +1026,7 @@
             homeMenuStripHelpEasterEggFreeCell.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggFreeCell.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggFreeCell.Name = "homeMenuStripHelpEasterEggFreeCell";
-            homeMenuStripHelpEasterEggFreeCell.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggFreeCell.Size = new Size(165, 22);
             homeMenuStripHelpEasterEggFreeCell.Text = "&FreeCell";
             homeMenuStripHelpEasterEggFreeCell.Click += homeMenuStripHelpEasterEggFreeCell_Click;
             // 
@@ -1035,7 +1035,7 @@
             homeMenuStripHelpEasterEggSolitaire.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSolitaire.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSolitaire.Name = "homeMenuStripHelpEasterEggSolitaire";
-            homeMenuStripHelpEasterEggSolitaire.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggSolitaire.Size = new Size(165, 22);
             homeMenuStripHelpEasterEggSolitaire.Text = "&Solitaire";
             homeMenuStripHelpEasterEggSolitaire.Click += homeMenuStripHelpEasterEggSolitaire_Click;
             // 
@@ -1044,7 +1044,7 @@
             homeMenuStripHelpEasterEggSpiderSolitaire.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSpiderSolitaire.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSpiderSolitaire.Name = "homeMenuStripHelpEasterEggSpiderSolitaire";
-            homeMenuStripHelpEasterEggSpiderSolitaire.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggSpiderSolitaire.Size = new Size(165, 22);
             homeMenuStripHelpEasterEggSpiderSolitaire.Text = "&Spider Solitaire";
             homeMenuStripHelpEasterEggSpiderSolitaire.Click += homeMenuStripHelpEasterEggSpiderSolitaire_Click;
             // 
@@ -1053,7 +1053,7 @@
             homeMenuStripHelpEasterEggSudoku.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSudoku.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSudoku.Name = "homeMenuStripHelpEasterEggSudoku";
-            homeMenuStripHelpEasterEggSudoku.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggSudoku.Size = new Size(165, 22);
             homeMenuStripHelpEasterEggSudoku.Text = "&Sudoku";
             homeMenuStripHelpEasterEggSudoku.Click += homeMenuStripHelpEasterEggSudoku_Click;
             // 
@@ -1063,7 +1063,7 @@
             homeNavMarketingManagement.FlatStyle = FlatStyle.Flat;
             homeNavMarketingManagement.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavMarketingManagement.ForeColor = Color.Black;
-            homeNavMarketingManagement.Location = new Point(477, 351);
+            homeNavMarketingManagement.Location = new Point(242, 252);
             homeNavMarketingManagement.Margin = new Padding(4);
             homeNavMarketingManagement.Name = "homeNavMarketingManagement";
             homeNavMarketingManagement.Size = new Size(208, 73);

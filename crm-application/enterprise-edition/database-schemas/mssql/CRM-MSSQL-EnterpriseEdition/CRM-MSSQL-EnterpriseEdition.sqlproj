@@ -551,6 +551,20 @@
     <Build Include="dbo\Stored Procedures\spGetAllCountryTranslationForCountry.sql" />
     <Build Include="dbo\Stored Procedures\spGetCountryTranslation.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateCountryTranslation.sql" />
+    <Build Include="dbo\Tables\CustomerLeadNote.sql" />
+    <Build Include="dbo\Tables\CustomerLeadNoteType.sql" />
+    <Build Include="dbo\Views\vwCustomerLeadNote.sql" />
+    <Build Include="dbo\Views\vwCustomerLeadNoteType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateCustomerLeadNote.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateCustomerLeadNoteType.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateCustomerLeadNote.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateCustomerLeadNoteType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllNoteForCustomerLead.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllCustomerLeadNote.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllCustomerLeadNoteType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetCustomerLeadNote.sql" />
+    <Build Include="dbo\Stored Procedures\spGetCustomerLeadNoteType.sql" />
+    <Build Include="dbo\Views\vwCustomerLeadNoteSummary.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -585,6 +599,7 @@
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignStatus.sql" />
     <None Include="Post Deployment Scripts\Data Population\Country.sql" />
     <None Include="Post Deployment Scripts\Data Population\CountryTranslation.sql" />
+    <None Include="Post Deployment Scripts\Data Population\CustomerLeadNoteType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

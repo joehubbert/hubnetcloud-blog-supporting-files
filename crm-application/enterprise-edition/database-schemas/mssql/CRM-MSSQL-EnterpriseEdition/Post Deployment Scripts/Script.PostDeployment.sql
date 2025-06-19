@@ -7,6 +7,7 @@ Post-Deployment Script
 :r ".\Data Population\Country.sql"
 :r ".\Data Population\CountryTranslation.sql"
 :r ".\Data Population\Currency.sql"
+:r ".\Data Population\CustomerLeadNoteType.sql"
 :r ".\Data Population\CustomerLeadStatus.sql"
 :r ".\Data Population\CustomerLeadType.sql"
 :r ".\Data Population\CustomerNoteType.sql"

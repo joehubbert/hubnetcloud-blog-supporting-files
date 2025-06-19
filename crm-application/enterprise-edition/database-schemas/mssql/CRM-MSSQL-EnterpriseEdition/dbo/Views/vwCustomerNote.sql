@@ -1,5 +1,6 @@
 ﻿CREATE VIEW [dbo].[vwCustomerNote]
 AS
+
 SELECT
 CN.[CustomerNoteId] AS [Customer Note Id],
 CN.[CustomerNoteTitle] AS [Customer Note Title],

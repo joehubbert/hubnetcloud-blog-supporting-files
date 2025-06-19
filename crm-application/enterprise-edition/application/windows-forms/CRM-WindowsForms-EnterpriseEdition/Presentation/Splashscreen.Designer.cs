@@ -40,7 +40,7 @@
             // 
             splashscreenSoftwareTitle1Label.AutoSize = true;
             splashscreenSoftwareTitle1Label.Font = new Font("Segoe UI", 48F, FontStyle.Bold);
-            splashscreenSoftwareTitle1Label.ForeColor = Color.Salmon;
+            splashscreenSoftwareTitle1Label.ForeColor = Color.LightSalmon;
             splashscreenSoftwareTitle1Label.Location = new Point(68, 60);
             splashscreenSoftwareTitle1Label.Name = "splashscreenSoftwareTitle1Label";
             splashscreenSoftwareTitle1Label.Size = new Size(77, 86);

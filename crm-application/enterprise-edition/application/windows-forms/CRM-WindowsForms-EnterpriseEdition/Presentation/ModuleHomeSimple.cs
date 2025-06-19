@@ -39,7 +39,7 @@
                     moduleFriendlyName = "Marketing Management";
                     break;
                 case "OrderManagement":
-                    this.BackColor = Color.Salmon;
+                    this.BackColor = Color.LightSalmon;
                     dataSubjectPluralName = "Orders";
                     dataSubjectSingularName = "Order";
                     moduleFriendlyName = "Order Management";

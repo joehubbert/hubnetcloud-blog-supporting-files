@@ -1,4 +1,6 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿using CRM_WindowsForms_EnterpriseEdition.Presentation;
+
+namespace CRM_WindowsForms.Presentation
 {
     public partial class Home : Form
     {
@@ -75,8 +77,12 @@
 
         private void homeMenuStripHelpEasterEggSpiderSolitaire_Click(object sender, EventArgs e)
         {
-            SpiderSolitaire spiderSolitaire = new SpiderSolitaire();
-            spiderSolitaire.Show();
+            using var dlg = new SpiderSolitaireDifficulty(1); // or your default suit count
+            if (dlg.ShowDialog(this) == DialogResult.OK)
+            {
+                var spiderSolitaire = new SpiderSolitaire(dlg.SelectedSuitCount);
+                spiderSolitaire.Show();
+            }
         }
 
         private void homeMenuStripHelpEasterEggSudoku_Click(object sender, EventArgs e)

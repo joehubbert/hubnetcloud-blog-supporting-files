@@ -1,4 +1,6 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿using CRM_WindowsForms_EnterpriseEdition.Presentation;
+
+namespace CRM_WindowsForms.Presentation
 {
     public partial class SpiderSolitaire : Form
     {
@@ -10,7 +12,7 @@
         private const int TableauCount = 10;
         private const int StockDealCount = 10;
 
-        private int suitCount = 4; // Set to 1, 2, or 4 for Spider difficulty
+        private int suitCount;
 
         private List<SpiderSolitaireCard>[] tableau = new List<SpiderSolitaireCard>[TableauCount];
         private Stack<SpiderSolitaireCard> stock = new Stack<SpiderSolitaireCard>();
@@ -20,9 +22,9 @@
         private int? selectedCol = null;
         private int? selectedRow = null;
 
-        private Button restartBtn;
-        private Button undoBtn;
-        private Button dealBtn;
+        private Button restartButton;
+        private Button undoButton;
+        private Button dealButton;
         private Label winLabel;
         private Label suitLabel;
         private Label scoreLabel;
@@ -43,26 +45,27 @@
         private int? dragSourceCol = null;
         private int? dragSourceRow = null;
 
-        public SpiderSolitaire()
+        public SpiderSolitaire(int suitCount)
         {
             InitializeComponent();
             DoubleBuffered = true;
+            this.suitCount = suitCount;
             this.Paint += SpiderSolitaire_Paint;
             this.MouseDown += SpiderSolitaire_MouseDown;
             this.MouseMove += SpiderSolitaire_MouseMove;
             this.MouseUp += SpiderSolitaire_MouseUp;
 
-            restartBtn = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
-            restartBtn.Click += (s, e) => StartNewGame();
-            Controls.Add(restartBtn);
+            restartButton = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            restartButton.Click += RestartButton_Click;
+            Controls.Add(restartButton);
 
-            undoBtn = new Button { Text = "Undo", Location = new Point(LeftMargin + 95, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
-            undoBtn.Click += (s, e) => Undo();
-            Controls.Add(undoBtn);
+            undoButton = new Button { Text = "Undo", Location = new Point(LeftMargin + 95, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            undoButton.Click += (s, e) => Undo();
+            Controls.Add(undoButton);
 
-            dealBtn = new Button { Text = "Deal", Location = new Point(LeftMargin + 195, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
-            dealBtn.Click += (s, e) => DealStock();
-            Controls.Add(dealBtn);
+            dealButton = new Button { Text = "Deal", Location = new Point(LeftMargin + 195, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
+            dealButton.Click += (s, e) => DealStock();
+            Controls.Add(dealButton);
 
             winLabel = new Label { Text = "", Location = new Point(LeftMargin + 280, 10), AutoSize = true, Font = new Font("Segoe UI", 14, FontStyle.Bold), ForeColor = Color.Green };
             Controls.Add(winLabel);
@@ -80,28 +83,56 @@
             StartNewGame();
         }
 
+        private void RestartButton_Click(object? sender, EventArgs e)
+        {
+            using var difficultyDialog = new SpiderSolitaireDifficulty(suitCount);
+            var dialogResult = difficultyDialog.ShowDialog(this);
+            if (dialogResult == DialogResult.OK)
+            {
+                suitCount = difficultyDialog.SelectedSuitCount;
+                suitLabel.Text = $"SpiderSolitaireSuits: {suitCount}";
+                StartNewGame();
+            }
+            // If cancelled, do nothing (game continues as is)
+        }
+
         private void UpdateDealButtonState()
         {
-            dealBtn.Enabled = stock.Count >= StockDealCount;
+            dealButton.Enabled = stock.Count >= StockDealCount;
         }
 
         private void StartNewGame()
         {
-            var cards = new List<SpiderSolitaireCard>();
             var suits = suitCount switch
             {
                 1 => new[] { SpiderSolitaireSuit.Spades },
                 2 => new[] { SpiderSolitaireSuit.Spades, SpiderSolitaireSuit.Hearts },
+                3 => new[] { SpiderSolitaireSuit.Spades, SpiderSolitaireSuit.Hearts, SpiderSolitaireSuit.Diamonds },
                 4 => new[] { SpiderSolitaireSuit.Spades, SpiderSolitaireSuit.Hearts, SpiderSolitaireSuit.Diamonds, SpiderSolitaireSuit.Clubs },
                 _ => new[] { SpiderSolitaireSuit.Spades }
             };
-            int decksPerSpiderSolitaireSuit = 8 / suits.Length;
-            foreach (var suit in suits)
-                for (int d = 0; d < decksPerSpiderSolitaireSuit; d++)
+
+            // Distribute 8 decks as evenly as possible among the suits
+            int[] decksPerSuit = new int[suits.Length];
+            int baseDecks = 8 / suits.Length;
+            int remainder = 8 % suits.Length;
+            for (int i = 0; i < suits.Length; i++)
+                decksPerSuit[i] = baseDecks + (i < remainder ? 1 : 0);
+
+            var cards = new List<SpiderSolitaireCard>();
+            for (int i = 0; i < suits.Length; i++)
+            {
+                for (int d = 0; d < decksPerSuit[i]; d++)
+                {
                     for (int r = 1; r <= 13; r++)
-                        cards.Add(new SpiderSolitaireCard(suit, r));
-            var rnd = new Random();
-            cards = cards.OrderBy(_ => rnd.Next()).ToList();
+                    {
+                        cards.Add(new SpiderSolitaireCard(suits[i], r));
+                    }
+                }
+            }
+
+            var round = new Random();
+            cards = cards.OrderBy(_ => round.Next()).ToList();
 
             for (int i = 0; i < TableauCount; i++)
                 tableau[i] = new List<SpiderSolitaireCard>();

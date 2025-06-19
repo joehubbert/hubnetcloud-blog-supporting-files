@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Data;
 
-namespace CRM_WindowsForms.Model
+namespace CRM_WindowsForms_EnterpriseEdition.Model
 {
     internal class ExecuteStoredProcedure
     {

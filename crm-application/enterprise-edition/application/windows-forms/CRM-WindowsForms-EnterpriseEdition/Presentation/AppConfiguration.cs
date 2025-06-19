@@ -1,4 +1,4 @@
-﻿using CRM_WindowsForms.Interface;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Windows.Forms;

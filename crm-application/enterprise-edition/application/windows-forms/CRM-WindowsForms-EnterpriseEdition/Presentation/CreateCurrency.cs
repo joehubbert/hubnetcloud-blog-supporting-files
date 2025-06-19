@@ -1,4 +1,4 @@
-﻿using CRM_WindowsForms.Interface;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation

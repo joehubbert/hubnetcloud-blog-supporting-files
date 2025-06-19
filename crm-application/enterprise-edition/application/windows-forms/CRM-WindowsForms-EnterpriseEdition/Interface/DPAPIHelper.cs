@@ -1,7 +1,7 @@
 ﻿using System.Security.Cryptography;
 using System.Text;
 
-namespace CRM_WindowsForms.Interface
+namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
     public static class DPAPIHelper
     {

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.Text.Json;
 
-namespace CRM_WindowsForms.Interface
+namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
     public class DatabaseConnectionSettings
     {

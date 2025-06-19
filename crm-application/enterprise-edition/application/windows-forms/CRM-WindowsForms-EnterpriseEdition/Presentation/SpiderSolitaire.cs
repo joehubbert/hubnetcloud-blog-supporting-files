@@ -1,6 +1,4 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Presentation;
-
-namespace CRM_WindowsForms_EnterpriseEdition.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class SpiderSolitaire : Form
     {

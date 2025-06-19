@@ -127,12 +127,12 @@
             homeMenuStripHelpEasterEgg = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggChess = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggFreeCell = new ToolStripMenuItem();
+            homeMenuStripHelpEasterEggHearts = new ToolStripMenuItem();
+            homeMenuStripHelpEasterEggMinesweeper = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripHelpEasterEggHearts = new ToolStripMenuItem();
-            homeMenuStripHelpEasterEggMinesweeper = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -1032,6 +1032,24 @@
             homeMenuStripHelpEasterEggFreeCell.Text = "&FreeCell";
             homeMenuStripHelpEasterEggFreeCell.Click += homeMenuStripHelpEasterEggFreeCell_Click;
             // 
+            // homeMenuStripHelpEasterEggHearts
+            // 
+            homeMenuStripHelpEasterEggHearts.BackColor = Color.Transparent;
+            homeMenuStripHelpEasterEggHearts.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripHelpEasterEggHearts.Name = "homeMenuStripHelpEasterEggHearts";
+            homeMenuStripHelpEasterEggHearts.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggHearts.Text = "&Hearts";
+            homeMenuStripHelpEasterEggHearts.Click += homeMenuStripHelpEasterEggHearts_Click;
+            // 
+            // homeMenuStripHelpEasterEggMinesweeper
+            // 
+            homeMenuStripHelpEasterEggMinesweeper.BackColor = Color.Transparent;
+            homeMenuStripHelpEasterEggMinesweeper.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripHelpEasterEggMinesweeper.Name = "homeMenuStripHelpEasterEggMinesweeper";
+            homeMenuStripHelpEasterEggMinesweeper.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggMinesweeper.Text = "&Minesweeper";
+            homeMenuStripHelpEasterEggMinesweeper.Click += homeMenuStripHelpEasterEggMinesweeper_Click;
+            // 
             // homeMenuStripHelpEasterEggSolitaire
             // 
             homeMenuStripHelpEasterEggSolitaire.BackColor = Color.Transparent;
@@ -1073,23 +1091,6 @@
             homeNavMarketingManagement.Text = "Marketing Management";
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
-            // 
-            // homeMenuStripHelpEasterEggHearts
-            // 
-            homeMenuStripHelpEasterEggHearts.BackColor = Color.Transparent;
-            homeMenuStripHelpEasterEggHearts.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripHelpEasterEggHearts.Name = "homeMenuStripHelpEasterEggHearts";
-            homeMenuStripHelpEasterEggHearts.Size = new Size(180, 22);
-            homeMenuStripHelpEasterEggHearts.Text = "&Hearts";
-            homeMenuStripHelpEasterEggHearts.Click += homeMenuStripHelpEasterEggHearts_Click;
-            // 
-            // homeMenuStripHelpEasterEggMinesweeper
-            // 
-            homeMenuStripHelpEasterEggMinesweeper.BackColor = Color.Transparent;
-            homeMenuStripHelpEasterEggMinesweeper.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripHelpEasterEggMinesweeper.Name = "homeMenuStripHelpEasterEggMinesweeper";
-            homeMenuStripHelpEasterEggMinesweeper.Size = new Size(180, 22);
-            homeMenuStripHelpEasterEggMinesweeper.Text = "&Minesweeper";
             // 
             // Home
             // 

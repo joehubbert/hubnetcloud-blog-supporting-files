@@ -75,6 +75,12 @@ namespace CRM_WindowsForms.Presentation
             hearts.Show();
         }
 
+        private void homeMenuStripHelpEasterEggMinesweeper_Click(object sender, EventArgs e)
+        {
+            Minesweeper mineSweeper = new Minesweeper();
+            mineSweeper.Show();
+        }
+
         private void homeMenuStripHelpEasterEggSolitaire_Click(object sender, EventArgs e)
         {
             Solitaire solitaire = new Solitaire();

@@ -182,9 +182,9 @@ namespace CRM_WindowsForms.Presentation
                     await NoteDetailLoadNoteTypeAsync((Guid)noteDataRow[noteDetailNoteTypeIdFriendlyName]);
                     noteDetailNoteTextbox.Text = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
                     noteDetailCreatedByTextbox.Text = noteDataRow["Created By"].ToString();
-                    noteDetailCreatedTimestampTextbox.Text = noteDataRow["Created Timestamp"].ToString();
+                    noteDetailCreatedTimestampTextbox.Text = noteDataRow["Created Timestamp UTC"].ToString();
                     noteDetailLastUpdatedByTextbox.Text = noteDataRow["Modified By"].ToString();
-                    noteDetailLastUpdatedTimestampTextbox.Text = noteDataRow["Modified Timestamp"].ToString();
+                    noteDetailLastUpdatedTimestampTextbox.Text = noteDataRow["Modified Timestamp UTC"].ToString();
 
                     noteDetailNoteOriginalValue = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
                     noteDetailNoteTitleOriginalValue = noteDataRow[noteDetailNoteTitleFriendlyName].ToString();

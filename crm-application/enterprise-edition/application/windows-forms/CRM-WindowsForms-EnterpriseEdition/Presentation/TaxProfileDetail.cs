@@ -1,8 +1,8 @@
 ﻿using CRM_WindowsForms.Interface;
-using CRM_WindowsForms.Presentation.Functions;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class TaxProfileDetail : Form
     {

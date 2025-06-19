@@ -3,7 +3,7 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Windows.Forms;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class AppConfiguration : Form
     {

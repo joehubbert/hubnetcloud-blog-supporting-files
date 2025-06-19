@@ -1,4 +1,4 @@
-namespace CRM_WindowsForms.Presentation.Functions
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
     public class ChessBoard
     {

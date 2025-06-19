@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class Sudoku : Form
     {

@@ -1,4 +1,4 @@
-using CRM_WindowsForms.Presentation;
+using CRM_WindowsForms_EnterpriseEdition.Presentation;
 
 namespace CRM_WindowsForms
 {

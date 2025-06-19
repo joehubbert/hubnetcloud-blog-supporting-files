@@ -2,7 +2,7 @@
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CRM_WindowsForms.Presentation.Functions
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
     public static class ValidateDataInput
     {

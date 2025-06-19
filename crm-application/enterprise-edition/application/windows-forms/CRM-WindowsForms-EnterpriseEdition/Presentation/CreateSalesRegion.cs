@@ -1,7 +1,7 @@
 ﻿using CRM_WindowsForms.Interface;
-using CRM_WindowsForms.Presentation.Functions;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateSalesRegion : Form
     {

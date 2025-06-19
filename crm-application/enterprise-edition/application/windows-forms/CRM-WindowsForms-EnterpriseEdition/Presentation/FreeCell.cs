@@ -4,7 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class FreeCell : Form
     {

@@ -1540,7 +1540,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void CustomerDetailCustomerNotesCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_customerId, "CustomerManagement");
+            CreateNote createNote = new CreateNote(_customerId, "CustomerNote");
             createNote.Show();
         }
 

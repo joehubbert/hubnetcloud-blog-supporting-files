@@ -270,7 +270,7 @@ namespace CRM_WindowsForms.Presentation
                     if (productDetailProductNotesExistingProductNotesDataGridView.Columns.Contains("Product Note Id"))
                     {
                         Guid productNoteId = (Guid)productDetailProductNotesExistingProductNotesDataGridView.Rows[e.RowIndex].Cells["Product Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("ProductManagement", productNoteId);
+                        NoteDetail noteDetail = new NoteDetail("Product", productNoteId);
                         noteDetail.Show();
                     }
                     else
@@ -692,7 +692,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void ProductDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_productId, "ProductManagement");
+            CreateNote createNote = new CreateNote(_productId, "ProductNote");
             createNote.Show();
         }
 

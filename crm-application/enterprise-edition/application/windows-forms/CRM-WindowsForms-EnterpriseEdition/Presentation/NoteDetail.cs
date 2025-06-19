@@ -7,7 +7,7 @@ namespace CRM_WindowsForms.Presentation
     public partial class NoteDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private readonly string _moduleGroup;
+        private readonly string _functionTitle;
         private readonly Guid _noteId;
         private readonly string applicationTitlePrefix = "CRM - ";
         private string noteDetailModuleNoteTypeFriendlyName;
@@ -16,6 +16,7 @@ namespace CRM_WindowsForms.Presentation
         private string noteDetailNoteIdFriendlyName;
         private string noteDetailNoteIdName;
         private string? noteDetailNoteOriginalValue;
+        private string noteDetailNoteStoredProcedureParameterPrefix;
         private string? noteDetailNoteTitleFriendlyName;
         private string noteDetailNoteTitleName;
         private string? noteDetailNoteTitleOriginalValue;
@@ -28,12 +29,12 @@ namespace CRM_WindowsForms.Presentation
         private string noteDetailNoteUpdateStoredProcedureName;
         private readonly string titleLabelSuffix = " Detail";
 
-        public NoteDetail(string moduleGroup, Guid noteId)
+        public NoteDetail(string functionTitle, Guid noteId)
         {
             InitializeComponent();
-            _moduleGroup = moduleGroup;
+            _functionTitle = functionTitle;
             _noteId = noteId;
-            SetModuleTheme(_moduleGroup);
+            SetModuleTheme(_functionTitle);
             noteDetailToggleEditModeButton.Click += noteDetailToggleEditModeButton_Click;
         }
 
@@ -42,17 +43,18 @@ namespace CRM_WindowsForms.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SetModuleTheme(string moduleGroup)
+        private void SetModuleTheme(string functionTitle)
         {
-            switch (moduleGroup)
+            switch (functionTitle)
             {
-                case "CustomerManagement":
+                case "Customer":
                     this.BackColor = Color.LightGreen;
                     noteDetailModuleNoteTypeFriendlyName = "Customer Note";
                     noteDetailModuleNoteTypeName = "CustomerNote";
                     noteDetailNoteGetStoredProcedureName = "[dbo].[spGetCustomerNote]";
                     noteDetailNoteIdFriendlyName = "Customer Note Id";
                     noteDetailNoteIdName = "CustomerNoteId";
+                    noteDetailNoteStoredProcedureParameterPrefix = "customerNote";
                     noteDetailNoteTitleFriendlyName = "Customer Note Title";
                     noteDetailNoteTitleName = "CustomerNoteTitle";
                     noteDetailNoteTypeFriendlyName = "Customer Note Type";
@@ -61,13 +63,30 @@ namespace CRM_WindowsForms.Presentation
                     noteDetailNoteTypeIdName = "CustomerNoteTypeId";
                     noteDetailNoteTypeName = "CustomerNoteType";
                     break;
-                case "ProductManagement":
+                case "CustomerLead":
+                    this.BackColor = Color.LightGreen;
+                    noteDetailModuleNoteTypeFriendlyName = "Customer Lead Note";
+                    noteDetailModuleNoteTypeName = "CustomerLeadNote";
+                    noteDetailNoteGetStoredProcedureName = "[dbo].[spGetCustomerLeadNote]";
+                    noteDetailNoteIdFriendlyName = "Customer Lead Note Id";
+                    noteDetailNoteIdName = "CustomerLeadNoteId";
+                    noteDetailNoteStoredProcedureParameterPrefix = "customerLeadNote";
+                    noteDetailNoteTitleFriendlyName = "Customer Lead Note Title";
+                    noteDetailNoteTitleName = "CustomerLeadNoteTitle";
+                    noteDetailNoteTypeFriendlyName = "Customer Lead Note Type";
+                    noteDetailNoteTypeGetStoredProcedureName = "[dbo].[spGetAllCustomerLeadNoteType]";
+                    noteDetailNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
+                    noteDetailNoteTypeIdName = "CustomerLeadNoteTypeId";
+                    noteDetailNoteTypeName = "CustomerLeadNoteType";
+                    break;
+                case "Product":
                     this.BackColor = Color.SkyBlue;
                     noteDetailModuleNoteTypeFriendlyName = "Product Note";
                     noteDetailModuleNoteTypeName = "ProductNote";
                     noteDetailNoteGetStoredProcedureName = "[dbo].[spGetProductNote]";
                     noteDetailNoteIdFriendlyName = "Product Note Id";
                     noteDetailNoteIdName = "ProductNoteId";
+                    noteDetailNoteStoredProcedureParameterPrefix = "productNote";
                     noteDetailNoteTitleFriendlyName = "Product Note Title";
                     noteDetailNoteTitleName = "ProductNoteTitle";
                     noteDetailNoteTypeFriendlyName = "Product Note Type";
@@ -76,13 +95,14 @@ namespace CRM_WindowsForms.Presentation
                     noteDetailNoteTypeIdName = "ProductNoteTypeId";
                     noteDetailNoteTypeName = "ProductNoteType";
                     break;
-                case "SupplierManagement":
+                case "Supplier":
                     this.BackColor = Color.MediumAquamarine;
                     noteDetailModuleNoteTypeFriendlyName = "Supplier Note";
                     noteDetailModuleNoteTypeName = "SupplierNote";
                     noteDetailNoteGetStoredProcedureName = "[dbo].[spGetSupplierNote]";
                     noteDetailNoteIdFriendlyName = "Supplier Note Id";
                     noteDetailNoteIdName = "SupplierNoteId";
+                    noteDetailNoteStoredProcedureParameterPrefix = "supplierNote";
                     noteDetailNoteTitleFriendlyName = "Supplier Note Title";
                     noteDetailNoteTitleName = "SupplierNoteTitle";
                     noteDetailNoteTypeFriendlyName = "Supplier Note Type";
@@ -138,32 +158,14 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var parameters = new List<Parameter>();
-
-            switch (_moduleGroup)
+            var parameters = new[]
             {
-                case "CustomerManagement":
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@customerNoteId",
-                        ParameterValue = _noteId
-                    });
-                    break;
-                case "ProductManagement":
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@productNoteId",
-                        ParameterValue = _noteId
-                    });
-                    break;
-                case "SupplierManagement":
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@supplierNoteId",
-                        ParameterValue = _noteId
-                    });
-                    break;
-            }
+                new Parameter
+                {
+                    ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
+                    ParameterValue = _noteId
+                } 
+            };
 
             try
             {
@@ -281,62 +283,24 @@ namespace CRM_WindowsForms.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>();
-
-                    switch (_moduleGroup)
+                    var parameters = new[]
                     {
-                        case "CustomerManagement":
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@customerNoteId",
-                                ParameterValue = _noteId
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@customerNoteTitle",
-                                ParameterValue = noteTitle
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@customerNoteTypeId",
-                                ParameterValue = noteTypeId
-                            });
-                            break;
-                        case "ProductManagement":
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@productNoteId",
-                                ParameterValue = _noteId
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@productNoteTitle",
-                                ParameterValue = noteTitle
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@productNoteTypeId",
-                                ParameterValue = noteTypeId
-                            });
-                            break;
-                        case "SupplierManagement":
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@supplierNoteId",
-                                ParameterValue = _noteId
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@supplierNoteTitle",
-                                ParameterValue = noteTitle
-                            });
-                            parameters.Add(new Parameter
-                            {
-                                ParameterName = "@supplierNoteTypeId",
-                                ParameterValue = noteTypeId
-                            });
-                            break;
-                    }
+                        new Parameter
+                        {
+                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
+                            ParameterValue = _noteId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Title",
+                            ParameterValue = noteTitle
+                        },
+                        new Parameter
+                        {
+                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}TypeId",
+                            ParameterValue = noteTypeId
+                        }
+                    };
 
                     string operationType = "update";
 

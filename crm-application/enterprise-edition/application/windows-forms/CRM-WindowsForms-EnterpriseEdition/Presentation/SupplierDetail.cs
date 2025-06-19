@@ -239,7 +239,7 @@ namespace CRM_WindowsForms.Presentation
                     if (supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Contains("Supplier Note Id"))
                     {
                         Guid supplierNoteId = (Guid)supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Rows[e.RowIndex].Cells["Supplier Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("SupplierManagement", supplierNoteId);
+                        NoteDetail noteDetail = new NoteDetail("Supplier", supplierNoteId);
                         noteDetail.Show();
                     }
                     else
@@ -602,7 +602,7 @@ namespace CRM_WindowsForms.Presentation
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_supplierId, "SupplierManagement");
+            CreateNote createNote = new CreateNote(_supplierId, "SupplierNote");
             createNote.Show();
         }
 

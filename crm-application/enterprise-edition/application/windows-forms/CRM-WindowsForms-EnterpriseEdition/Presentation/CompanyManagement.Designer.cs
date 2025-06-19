@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     partial class CompanyManagement
     {
@@ -40,9 +40,18 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPageViewAllAccountManagerButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl = new TabControl();
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage = new TabPage();
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageViewAllCustomerTierButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageCreateCustomerTierButton = new Button();
@@ -70,17 +79,40 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControlDeliveryMethodTabPageViewAllDeliveryMethodButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl = new TabControl();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageCreateMarketingChannelButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl = new TabControl();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl = new TabControl();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage = new TabPage();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageViewAllOrderLineItemStatusButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl = new TabControl();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage = new TabPage();
@@ -105,6 +137,15 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageCreateSupplierNoteTypeButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton = new Button();
             companyManagementTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControl.SuspendLayout();
@@ -113,7 +154,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.SuspendLayout();
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPage.SuspendLayout();
@@ -127,11 +171,20 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.SuspendLayout();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.SuspendLayout();
@@ -144,6 +197,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // companyManagementTitleLabel
@@ -180,7 +236,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPage.BackColor = SystemColors.Control;
             companyManagementTabControlMasterDataManagementTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControl);
             companyManagementTabControlMasterDataManagementTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPage.Name = "companyManagementTabControlMasterDataManagementTabPage";
@@ -197,6 +253,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPage);
@@ -274,7 +331,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.BackColor = Color.LightGreen;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage";
@@ -286,7 +343,10 @@
             // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Appearance = TabAppearance.FlatButtons;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Dock = DockStyle.Fill;
@@ -297,47 +357,158 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.TabIndex = 10;
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.BackColor = Color.LemonChiffon;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Location = new Point(4, 32);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Size = new Size(1167, 630);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.TabIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.Text = "Customer Note";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.BackColor = Color.LightGreen;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Size = new Size(1167, 630);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Text = "Customer Lead Note Type";
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Location = new Point(193, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Size = new Size(170, 52);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.TabIndex = 5;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Text = "View All Customer Note Types";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton_Click;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.TabIndex = 7;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Text = "View All Customer Lead Note Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType_Click;
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Location = new Point(15, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Size = new Size(170, 52);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.TabIndex = 4;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Text = "Create Customer Note Type";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton_Click;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.TabIndex = 6;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Text = "Create Customer Lead Note Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.BackColor = Color.LightGreen;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Size = new Size(1167, 635);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.TabIndex = 3;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Text = "Customer Lead Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.TabIndex = 7;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Text = "View All Customer Lead Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.TabIndex = 6;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Text = "Create Customer Lead Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.BackColor = Color.LightGreen;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Size = new Size(1167, 635);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.Text = "Customer Lead Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.TabIndex = 7;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Text = "View All Customer Lead Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.TabIndex = 6;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Text = "Create Customer Lead Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.BackColor = Color.LightGreen;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Padding = new Padding(3);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Size = new Size(1167, 635);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.TabIndex = 0;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.Text = "Customer Note Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Text = "View All Customer Note Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Text = "Create Customer Note Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton_Click;
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.BackColor = Color.LightGreen;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageViewAllCustomerTierButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageCreateCustomerTierButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.Location = new Point(4, 27);
@@ -374,7 +545,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.BackColor = Color.LightGreen;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPageCreateCustomerTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPageViewAllCustomerTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.Location = new Point(4, 27);
@@ -656,7 +827,11 @@
             // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Appearance = TabAppearance.FlatButtons;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl";
@@ -665,15 +840,89 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.TabIndex = 5;
             // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.BackColor = Color.NavajoWhite;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Text = "Marketing Campaign Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Text = "Create Marketing Campaign Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Text = "View All Marketing Campaign Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.BackColor = Color.NavajoWhite;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.TabIndex = 1;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.Text = "Marketing Campaign Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Text = "Create Marketing Campaign Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Text = "View All Marketing Campaign Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton_Click;
+            // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.BackColor = Color.NavajoWhite;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageCreateMarketingChannelButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Size = new Size(1173, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.Text = "Marketing Channel";
             // 
@@ -703,6 +952,178 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton_Click;
             // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.BackColor = Color.NavajoWhite;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.TabIndex = 2;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.Text = "Promotion Target Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Text = "Create Promotion Target Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType";
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Text = "View All Promotion Target Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType.Click += companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.BackColor = Color.NavajoWhite;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.TabIndex = 3;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.Text = "Promotion Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Text = "Create Promotion Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Text = "View All Promotion Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.TabIndex = 9;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.Text = "Miscellaneous";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Appearance = TabAppearance.FlatButtons;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Dock = DockStyle.Fill;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Location = new Point(0, 0);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.SelectedIndex = 0;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.TabIndex = 5;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Padding = new Padding(3);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.TabIndex = 0;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Text = "Country";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.TabIndex = 2;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Text = "Create Country";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.TabIndex = 3;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Text = "View All Countries";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.TabIndex = 1;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.Text = "Country Translation";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Text = "Create Country Translation";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Text = "View All Country Translations";
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton_Click;
+            // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage.BackColor = Color.LemonChiffon;
@@ -716,8 +1137,9 @@
             // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Appearance = TabAppearance.FlatButtons;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl";
@@ -726,52 +1148,14 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.TabIndex = 20;
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.BackColor = Color.LemonChiffon;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Location = new Point(4, 32);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Size = new Size(1173, 636);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.TabIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Text = "Order Status";
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Location = new Point(193, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Size = new Size(170, 50);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.TabIndex = 19;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Text = "View All Order Statuses";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton_Click;
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Location = new Point(15, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Size = new Size(170, 50);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.TabIndex = 18;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Text = "Create Order Status";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton_Click;
-            // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.BackColor = Color.LightSalmon;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageViewAllOrderLineItemStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Size = new Size(1173, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.TabIndex = 1;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Text = "Order Line Item Status";
             // 
@@ -801,6 +1185,81 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton_Click;
             // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.BackColor = Color.LightSalmon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.TabIndex = 2;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Text = "Order Payment Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.TabIndex = 23;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Text = "View All Order Payment Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.TabIndex = 22;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Text = "Create Order Payment Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.BackColor = Color.LightSalmon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Padding = new Padding(3);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.TabIndex = 0;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Text = "Order Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.TabIndex = 19;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Text = "View All Order Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.TabIndex = 18;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Text = "Create Order Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton_Click;
+            // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage.BackColor = Color.LemonChiffon;
@@ -827,7 +1286,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.BackColor = Color.SkyBlue;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPageViewAllProductCategoryButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPageCreateProductCategoryButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Location = new Point(4, 32);
@@ -865,7 +1324,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.BackColor = Color.SkyBlue;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Location = new Point(4, 27);
@@ -902,7 +1361,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.BackColor = Color.SkyBlue;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageCreateProductNoteTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Location = new Point(4, 27);
@@ -1049,6 +1508,9 @@
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Appearance = TabAppearance.FlatButtons;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl";
@@ -1059,7 +1521,7 @@
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage
             // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.BackColor = Color.LemonChiffon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.BackColor = Color.MediumAquamarine;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageCreateSupplierNoteTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Location = new Point(4, 32);
@@ -1095,11 +1557,122 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton_Click;
             // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.BackColor = Color.MediumAquamarine;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.TabIndex = 2;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.Text = "Supplier Order Line Item Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Size = new Size(178, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Text = "Create Supplier Order Line Item Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Location = new Point(201, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Size = new Size(178, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Text = "View All Supplier Order Line Item Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.BackColor = Color.MediumAquamarine;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.TabIndex = 1;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.Text = "Supplier Order Payment Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Size = new Size(178, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Text = "Create Supplier Order Payment Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Location = new Point(201, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Size = new Size(178, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Text = "View All Supplier Order Payment Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.BackColor = Color.MediumAquamarine;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Size = new Size(1173, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.TabIndex = 3;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.Text = "Supplier Order Status";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.TabIndex = 4;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Text = "Create Supplier Order Status";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.TabIndex = 5;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Text = "View All Supplier Order Statuses";
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton_Click;
+            // 
             // CompanyManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.LemonChiffon;
+            BackColor = SystemColors.Control;
             ClientSize = new Size(1228, 807);
             Controls.Add(companyManagementTabControl);
             Controls.Add(companyManagementTitleLabel);
@@ -1118,7 +1691,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.ResumeLayout(false);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPage.ResumeLayout(false);
@@ -1132,11 +1708,20 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.ResumeLayout(false);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.ResumeLayout(false);
@@ -1149,6 +1734,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1169,8 +1757,8 @@
         private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPage;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPageViewAllAccountManagerButton;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPageCreateAccountManagerButton;
-        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton;
-        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPageViewAllCurrencyButton;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPageCreateCurrencyButton;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControlDeliveryMethodTabPageCreateDeliveryMethodButton;
@@ -1189,7 +1777,7 @@
         private TabControl companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl;
         private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage;
         private TabControl companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl;
-        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage;
         private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage;
         private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageViewAllCustomerTierButton;
@@ -1233,5 +1821,46 @@
         private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageCreateMarketingChannelButton;
         private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPage;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPage;
+        private TabControl companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPage;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton;
+        private TabPage companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType;
+        private Button companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType;
     }
 }

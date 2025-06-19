@@ -1,14 +1,15 @@
-﻿using CRM_WindowsForms.Interface;
-using CRM_WindowsForms.Presentation.Functions;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
-    public partial class MetadataAdvancedDetail : Form
+    public partial class MasterDataAdvancedDetail : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _dataSubjectId;
         private readonly string _functionTitle;
+        private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
         private string dataParentSubjectFriendlyName;
         private string dataParentSubjectIdFriendlyName;
@@ -24,14 +25,19 @@ namespace CRM_WindowsForms.Presentation
         private string dataSubjectName;
         private string? dataSubjectOriginalValue;
         private string dataSubjectUpdateStoredProcedureName;
+        private string dataSubjectUpdateStoredProcedureParameterPrefix;
+        private string dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix;
         private readonly string titleLabelSuffix = " Detail";
 
-        public MetadataAdvancedDetail(Guid dataSubjectId, string functionTitle)
+        public MasterDataAdvancedDetail(Guid dataSubjectId, string functionTitle, string moduleGroup)
         {
             InitializeComponent();
+            InitializeCustomComponents();
             _dataSubjectId = dataSubjectId;
             _functionTitle = functionTitle;
-            metadataAdvancedDetailToggleEditModeButton.Click += metadataAdvancedDetailToggleEditModeButton_Click;
+            _moduleGroup = moduleGroup;
+            SetModuleTheme(_moduleGroup);
+            masterDataAdvancedDetailToggleEditModeButton.Click += masterDataAdvancedDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -41,7 +47,35 @@ namespace CRM_WindowsForms.Presentation
 
         private void InitializeCustomComponents()
         {
-            metadataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(MetadataAdvancedDetailDataParentSubjectComboBox_DropDown);
+            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(MasterDataAdvancedDetailDataParentSubjectComboBox_DropDown);
+        }
+
+        private void SetModuleTheme(string moduleGroup)
+        {
+            switch (moduleGroup)
+            {
+                case "CompanyManagement":
+                    this.BackColor = Color.LemonChiffon;
+                    break;
+                case "CustomerManagement":
+                    this.BackColor = Color.LightGreen;
+                    break;
+                case "MarketingManagement":
+                    this.BackColor = Color.NavajoWhite;
+                    break;
+                case "OrderManagement":
+                    this.BackColor = Color.LightSalmon;
+                    break;
+                case "ProductManagement":
+                    this.BackColor = Color.SkyBlue;
+                    break;
+                case "SupplierManagement":
+                    this.BackColor = Color.MediumAquamarine;
+                    break;
+                default:
+                    MessageBox.Show($"Unrecognised module group - {moduleGroup} passed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    break;
+            }
         }
 
         private void SetParameters(string functionTitle)
@@ -59,6 +93,8 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectIdFriendlyName = "Product Sub Category Id";
                     dataSubjectIdName = "ProductSubCategoryId";
                     dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductSubCategory]";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "productSubCategory";
+                    dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix = "productCategory";
                     break;
                 case "SalesSubRegion":
                     dataParentSubjectFriendlyName = "Sales Region";
@@ -71,21 +107,27 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectIdFriendlyName = "Sales Sub Region Id";
                     dataSubjectIdName = "SalesSubRegionId";
                     dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSalesSubRegion]";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "salesSubRegion";
+                    dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix = "salesRegion";
+                    break;
+                default:
+                    this.Text = functionTitle;
+                    MessageBox.Show($"{functionTitle} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
 
             dataSubjectName = functionTitle;
 
-            metadataAdvancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
-            metadataAdvancedDetailDataSubjectIdTextboxLabel.Text = dataSubjectIdFriendlyName;
-            metadataAdvancedDetailDataParentSubjectComboBoxLabel.Text = dataParentSubjectFriendlyName;
-            metadataAdvancedDetailDataSubjectTextboxLabel.Text = dataSubjectFriendlyName;
-            metadataAdvancedDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
-            metadataAdvancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
+            masterDataAdvancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
+            masterDataAdvancedDetailDataSubjectIdTextboxLabel.Text = dataSubjectIdFriendlyName;
+            masterDataAdvancedDetailDataParentSubjectComboBoxLabel.Text = dataParentSubjectFriendlyName;
+            masterDataAdvancedDetailDataSubjectTextboxLabel.Text = dataSubjectFriendlyName;
+            masterDataAdvancedDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
+            masterDataAdvancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
 
-        private async Task MetadataAdvancedDetailLoadDataParentSubjectAsync(Guid dataParentSubjectId)
+        private async Task MasterDataAdvancedDetailLoadDataParentSubjectAsync(Guid dataParentSubjectId)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -108,10 +150,10 @@ namespace CRM_WindowsForms.Presentation
                     .OrderBy(item => item.Name)
                     .ToList();
 
-                metadataAdvancedDetailDataParentSubjectComboBox.DataSource = dataList;
-                metadataAdvancedDetailDataParentSubjectComboBox.DisplayMember = "Name";
-                metadataAdvancedDetailDataParentSubjectComboBox.ValueMember = "Id";
-                metadataAdvancedDetailDataParentSubjectComboBox.SelectedValue = dataParentSubjectId;
+                masterDataAdvancedDetailDataParentSubjectComboBox.DataSource = dataList;
+                masterDataAdvancedDetailDataParentSubjectComboBox.DisplayMember = "Name";
+                masterDataAdvancedDetailDataParentSubjectComboBox.ValueMember = "Id";
+                masterDataAdvancedDetailDataParentSubjectComboBox.SelectedValue = dataParentSubjectId;
             }
             catch (Exception ex)
             {
@@ -119,12 +161,12 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private void MetadataAdvancedDetailDataParentSubjectComboBox_DropDown(object sender, EventArgs e)
+        private void MasterDataAdvancedDetailDataParentSubjectComboBox_DropDown(object sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void ViewMetadataAdvancedDetailMetadataInformation_Load(object sender, EventArgs e)
+        private async void ViewMasterDataAdvancedDetailMasterDataInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -132,49 +174,38 @@ namespace CRM_WindowsForms.Presentation
                 return;
             }
 
-            var parameters = new List<Parameter>();
-
-            switch (_functionTitle)
+            var parameters = new[]
             {
-                case "ProductSubCategory":
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@productSubCategoryId",
-                        ParameterValue = _dataSubjectId
-                    });
-                    break;
-                case "SalesSubRegion":
-                    parameters.Add(new Parameter
-                    {
-                        ParameterName = "@salesSubRegionId",
-                        ParameterValue = _dataSubjectId
-                    });
-                    break;
-            }
+                new Parameter
+                {
+                    ParameterName = $"@{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
+                    ParameterValue = _dataSubjectId
+                }
+            };
 
             try
             {
-                DataTable? metadataAdvancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                DataTable? masterDataAdvancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     dataSubjectGetStoredProcedureName,
                     parameters.ToArray(),
                     dataSubjectName,
                     _databaseConnectionSettings.DatabaseConnectionString);
 
-                if (metadataAdvancedDetailDataTable != null)
+                if (masterDataAdvancedDetailDataTable != null)
                 {
-                    DataRow metadataAdvancedDetailDataRow = metadataAdvancedDetailDataTable.Rows[0];
-                    metadataAdvancedDetailDataSubjectIdTextbox.Text = metadataAdvancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
-                    await MetadataAdvancedDetailLoadDataParentSubjectAsync((Guid)metadataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName]);
-                    metadataAdvancedDetailDataSubjectTextbox.Text = metadataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
-                    metadataAdvancedDetailCreatedByTextbox.Text = metadataAdvancedDetailDataRow["Created By"].ToString();
-                    metadataAdvancedDetailCreatedTimestampTextbox.Text = metadataAdvancedDetailDataRow["Created Timestamp"].ToString();
-                    metadataAdvancedDetailLastUpdatedByTextbox.Text = metadataAdvancedDetailDataRow["Modified By"].ToString();
-                    metadataAdvancedDetailLastUpdatedTimestampTextbox.Text = metadataAdvancedDetailDataRow["Modified Timestamp"].ToString();
-                    metadataAdvancedDetailActiveStatusCheckbox.Checked = (bool)metadataAdvancedDetailDataRow["Active Status"];
+                    DataRow masterDataAdvancedDetailDataRow = masterDataAdvancedDetailDataTable.Rows[0];
+                    masterDataAdvancedDetailDataSubjectIdTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
+                    await MasterDataAdvancedDetailLoadDataParentSubjectAsync((Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName]);
+                    masterDataAdvancedDetailDataSubjectTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
+                    masterDataAdvancedDetailCreatedByTextbox.Text = masterDataAdvancedDetailDataRow["Created By"].ToString();
+                    masterDataAdvancedDetailCreatedTimestampTextbox.Text = masterDataAdvancedDetailDataRow["Created Timestamp UTC"].ToString();
+                    masterDataAdvancedDetailLastUpdatedByTextbox.Text = masterDataAdvancedDetailDataRow["Modified By"].ToString();
+                    masterDataAdvancedDetailLastUpdatedTimestampTextbox.Text = masterDataAdvancedDetailDataRow["Modified Timestamp UTC"].ToString();
+                    masterDataAdvancedDetailActiveStatusCheckbox.Checked = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
-                    dataParentSubjectOriginalValue = (Guid)metadataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
-                    dataSubjectOriginalValue = metadataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
-                    dataSubjectActiveStatusOriginalValue = (bool)metadataAdvancedDetailDataRow["Active Status"];
+                    dataParentSubjectOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
+                    dataSubjectOriginalValue = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
+                    dataSubjectActiveStatusOriginalValue = (bool)masterDataAdvancedDetailDataRow["Active Status"];
                 }
                 else
                 {
@@ -187,11 +218,11 @@ namespace CRM_WindowsForms.Presentation
             }
         }
 
-        private async void metadataAdvancedDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
+        private async void masterDataAdvancedDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = metadataAdvancedDetailActiveStatusCheckbox.Checked;
-            Guid dataParentSubjectIdValue = (Guid)metadataAdvancedDetailDataParentSubjectComboBox.SelectedValue;
-            string dataSubjectValue = metadataAdvancedDetailDataSubjectTextbox.Text.TrimEnd();
+            bool activeStatus = masterDataAdvancedDetailActiveStatusCheckbox.Checked;
+            Guid dataParentSubjectIdValue = (Guid)masterDataAdvancedDetailDataParentSubjectComboBox.SelectedValue;
+            string dataSubjectValue = masterDataAdvancedDetailDataSubjectTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -272,46 +303,18 @@ namespace CRM_WindowsForms.Presentation
                         {
                             ParameterName = "@activeStatus",
                             ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = $"@{dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix}Id",
+                            ParameterValue = dataParentSubjectIdValue
+                        },
+                        new Parameter
+                        {
+                            ParameterName = $"@{dataSubjectUpdateStoredProcedureParameterPrefix}",
+                            ParameterValue = dataSubjectValue
                         }
                     };
-
-                    switch (_functionTitle)
-                    {
-                        case "ProductSubCategory":
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@productCategoryId",
-                                ParameterValue = dataParentSubjectIdValue
-                            }).ToArray();
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@productSubCategory",
-                                ParameterValue = dataSubjectValue
-                            }).ToArray();
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@productSubCategoryId",
-                                ParameterValue = _dataSubjectId
-                            }).ToArray();
-                            break;
-                        case "SalesSubRegion":
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@salesRegionId",
-                                ParameterValue = dataParentSubjectIdValue
-                            }).ToArray();
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@salesSubRegion",
-                                ParameterValue = dataSubjectValue
-                            }).ToArray();
-                            parameters = parameters.Append(new Parameter
-                            {
-                                ParameterName = "@salesSubRegionId",
-                                ParameterValue = _dataSubjectId
-                            }).ToArray();
-                            break;
-                    }
 
                     string operationType = "update";
 
@@ -331,15 +334,15 @@ namespace CRM_WindowsForms.Presentation
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
             SetParameters(_functionTitle);
-            ViewMetadataAdvancedDetailMetadataInformation_Load(this, EventArgs.Empty);
+            ViewMasterDataAdvancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
         }
 
-        private void metadataAdvancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        private void masterDataAdvancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            metadataAdvancedDetailDataParentSubjectComboBox.Enabled = !metadataAdvancedDetailDataParentSubjectComboBox.Enabled;
-            metadataAdvancedDetailDataSubjectTextbox.ReadOnly = !metadataAdvancedDetailDataSubjectTextbox.ReadOnly;
-            metadataAdvancedDetailActiveStatusCheckbox.Enabled = !metadataAdvancedDetailActiveStatusCheckbox.Enabled;
-            metadataAdvancedDetailUpdateDataSubjectButton.Enabled = !metadataAdvancedDetailUpdateDataSubjectButton.Enabled;
+            masterDataAdvancedDetailDataParentSubjectComboBox.Enabled = !masterDataAdvancedDetailDataParentSubjectComboBox.Enabled;
+            masterDataAdvancedDetailDataSubjectTextbox.ReadOnly = !masterDataAdvancedDetailDataSubjectTextbox.ReadOnly;
+            masterDataAdvancedDetailActiveStatusCheckbox.Enabled = !masterDataAdvancedDetailActiveStatusCheckbox.Enabled;
+            masterDataAdvancedDetailUpdateDataSubjectButton.Enabled = !masterDataAdvancedDetailUpdateDataSubjectButton.Enabled;
         }
     }
 }

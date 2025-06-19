@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CompanyManagement : Form
     {
@@ -19,15 +19,51 @@
             viewAllData.Show();
         }
 
-        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageCreateCustomerNoteTypeButton_Click(object sender, EventArgs e)
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("CustomerNoteType");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerLeadNoteType", "CustomerManagement");
+            createMasterDataSimple.Show();
         }
 
-        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTabPageViewAllCustomerNoteTypeButton_Click(object sender, EventArgs e)
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerLeadStatus", "CustomerManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageCreateCustomerLeadTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("CustomerLeadType", "CustomerManagement");
+            createMasterDataEnhanced.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageCreateCustomerNoteTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerNoteType", "CustomerManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement");
             viewAllData.Show();
         }
 
@@ -39,19 +75,19 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageViewAllCustomerTierButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPageCreateCustomerTypeButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("CustomerType");
-            createMetadataSimple.Show();
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("CustomerType", "CustomerManagement");
+            createMasterDataEnhanced.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPageViewAllCustomerTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerType", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement");
             viewAllData.Show();
         }
 
@@ -81,8 +117,8 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlPaymentMethodTabPageCreatePaymentMethodButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("PaymentMethod");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("PaymentMethod", "CompanyManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlPaymentMethodTabPageViewAllPaymentMethodButton_Click(object sender, EventArgs e)
@@ -115,82 +151,166 @@
             viewAllData.Show();
         }
 
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageCreateMarketingCampaignStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingCampaignStatus", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageCreateMarketingCampaignTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingCampaignType", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageCreateMarketingChannelButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("MarketingChannel");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingChannel", "MarketingManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageCreatePromotionTargetTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("PromotionTargetType", "MarketingManagement");
+            createMasterDataEnhanced.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageCreatePromotionTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("PromotionType", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageCreateCountryButton_Click(object sender, EventArgs e)
+        {
+            CreateCountry createCountry = new CreateCountry();
+            createCountry.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton_Click(object sender, EventArgs e)
+        {
+            CreateCountryTranslation createCountryTranslation = new CreateCountryTranslation();
+            createCountryTranslation.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("OrderLineItemStatus");
-            createMetadataSimple.Show();
-        }
-
-        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton_Click(object sender, EventArgs e)
-        {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("OrderStatus");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderLineItemStatus", "OrderManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageViewAllOrderLineItemStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement");
             viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderPaymentStatus", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderStatus", "OrderManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderStatus", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPageCreateProductCategoryButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("ProductCategory");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("ProductCategory", "ProductManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPageViewAllProductCategoryButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductCategory", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataAdvanced createMetadataAdvanced = new CreateMetadataAdvanced("ProductSubCategory");
-            createMetadataAdvanced.Show();
+            CreateMasterDataAdvanced createMasterDataAdvanced = new CreateMasterDataAdvanced("ProductSubCategory", "ProductManagement");
+            createMasterDataAdvanced.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageCreateProductNoteTypeButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("ProductNoteType");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("ProductNoteType", "ProductManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement");
             viewAllData.Show();
         }
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPageCreateSalesRegionButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("SalesRegion");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SalesRegion", "CompanyManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPageViewAllSalesRegionButton_Click(object sender, EventArgs e)
@@ -201,8 +321,8 @@
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesSubRegionTabPageCreateSalesSubRegionButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataAdvanced createMetadataAdvanced = new CreateMetadataAdvanced("SalesSubRegion");
-            createMetadataAdvanced.Show();
+            CreateMasterDataAdvanced createMasterDataAdvanced = new CreateMasterDataAdvanced("SalesSubRegion", "CompanyManagement");
+            createMasterDataAdvanced.Show();
         }
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesSubRegionTabPageViewAllSalesSubRegionButton_Click(object sender, EventArgs e)
@@ -213,13 +333,49 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageCreateSupplierNoteTypeButton_Click(object sender, EventArgs e)
         {
-            CreateMetadataSimple createMetadataSimple = new CreateMetadataSimple("SupplierNoteType");
-            createMetadataSimple.Show();
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierNoteType", "SupplierManagement");
+            createMasterDataSimple.Show();
         }
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageCreateSupplierOrderLineItemStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderLineItemStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageCreateSupplierOrderPaymentStatusButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderPaymentStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement");
             viewAllData.Show();
         }
     }

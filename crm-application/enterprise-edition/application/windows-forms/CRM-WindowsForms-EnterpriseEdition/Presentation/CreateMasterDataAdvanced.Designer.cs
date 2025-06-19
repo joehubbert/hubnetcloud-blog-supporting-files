@@ -1,0 +1,149 @@
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
+{
+    partial class CreateMasterDataAdvanced
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            createMasterDataAdvancedTitleLabel = new Label();
+            createMasterDataAdvancedMasterDataTypeTextbox = new TextBox();
+            createMasterDataAdvancedMasterDataTypeTextboxLabel = new Label();
+            createMasterDataAdvancedSubmitButton = new Button();
+            createMasterDataAdvancedActiveStatusCheckbox = new CheckBox();
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel = new Label();
+            createMasterDataAdvancedDataParentSubjectComboBox = new ComboBox();
+            SuspendLayout();
+            // 
+            // createMasterDataAdvancedTitleLabel
+            // 
+            createMasterDataAdvancedTitleLabel.AutoSize = true;
+            createMasterDataAdvancedTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createMasterDataAdvancedTitleLabel.Location = new Point(14, 9);
+            createMasterDataAdvancedTitleLabel.Margin = new Padding(5, 0, 5, 0);
+            createMasterDataAdvancedTitleLabel.Name = "createMasterDataAdvancedTitleLabel";
+            createMasterDataAdvancedTitleLabel.Size = new Size(342, 32);
+            createMasterDataAdvancedTitleLabel.TabIndex = 8;
+            createMasterDataAdvancedTitleLabel.Text = "{MasterData Type Placeholder}";
+            // 
+            // createMasterDataAdvancedMasterDataTypeTextbox
+            // 
+            createMasterDataAdvancedMasterDataTypeTextbox.Location = new Point(237, 101);
+            createMasterDataAdvancedMasterDataTypeTextbox.Margin = new Padding(3, 4, 3, 4);
+            createMasterDataAdvancedMasterDataTypeTextbox.MaxLength = 50;
+            createMasterDataAdvancedMasterDataTypeTextbox.Name = "createMasterDataAdvancedMasterDataTypeTextbox";
+            createMasterDataAdvancedMasterDataTypeTextbox.Size = new Size(272, 27);
+            createMasterDataAdvancedMasterDataTypeTextbox.TabIndex = 1;
+            // 
+            // createMasterDataAdvancedMasterDataTypeTextboxLabel
+            // 
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Location = new Point(14, 104);
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Name = "createMasterDataAdvancedMasterDataTypeTextboxLabel";
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Size = new Size(210, 20);
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.TabIndex = 23;
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // createMasterDataAdvancedSubmitButton
+            // 
+            createMasterDataAdvancedSubmitButton.FlatStyle = FlatStyle.Flat;
+            createMasterDataAdvancedSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createMasterDataAdvancedSubmitButton.Location = new Point(166, 205);
+            createMasterDataAdvancedSubmitButton.Margin = new Padding(4);
+            createMasterDataAdvancedSubmitButton.Name = "createMasterDataAdvancedSubmitButton";
+            createMasterDataAdvancedSubmitButton.Size = new Size(198, 66);
+            createMasterDataAdvancedSubmitButton.TabIndex = 3;
+            createMasterDataAdvancedSubmitButton.Text = "Submit";
+            createMasterDataAdvancedSubmitButton.UseVisualStyleBackColor = true;
+            createMasterDataAdvancedSubmitButton.Click += createMasterDataAdvancedSubmitButton_Click;
+            // 
+            // createMasterDataAdvancedActiveStatusCheckbox
+            // 
+            createMasterDataAdvancedActiveStatusCheckbox.Checked = true;
+            createMasterDataAdvancedActiveStatusCheckbox.CheckState = CheckState.Checked;
+            createMasterDataAdvancedActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createMasterDataAdvancedActiveStatusCheckbox.Location = new Point(136, 157);
+            createMasterDataAdvancedActiveStatusCheckbox.Margin = new Padding(5);
+            createMasterDataAdvancedActiveStatusCheckbox.Name = "createMasterDataAdvancedActiveStatusCheckbox";
+            createMasterDataAdvancedActiveStatusCheckbox.Size = new Size(265, 24);
+            createMasterDataAdvancedActiveStatusCheckbox.TabIndex = 2;
+            createMasterDataAdvancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
+            createMasterDataAdvancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // createMasterDataAdvancedDataParentSubjectComboBoxLabel
+            // 
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Location = new Point(14, 60);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Name = "createMasterDataAdvancedDataParentSubjectComboBoxLabel";
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Size = new Size(210, 20);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.TabIndex = 24;
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = "{MasterData Parent Placeholder}";
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // createMasterDataAdvancedDataParentSubjectComboBox
+            // 
+            createMasterDataAdvancedDataParentSubjectComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createMasterDataAdvancedDataParentSubjectComboBox.FormattingEnabled = true;
+            createMasterDataAdvancedDataParentSubjectComboBox.Location = new Point(237, 57);
+            createMasterDataAdvancedDataParentSubjectComboBox.Name = "createMasterDataAdvancedDataParentSubjectComboBox";
+            createMasterDataAdvancedDataParentSubjectComboBox.Size = new Size(272, 28);
+            createMasterDataAdvancedDataParentSubjectComboBox.TabIndex = 0;
+            // 
+            // CreateMasterDataAdvanced
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(537, 298);
+            Controls.Add(createMasterDataAdvancedDataParentSubjectComboBox);
+            Controls.Add(createMasterDataAdvancedDataParentSubjectComboBoxLabel);
+            Controls.Add(createMasterDataAdvancedMasterDataTypeTextbox);
+            Controls.Add(createMasterDataAdvancedMasterDataTypeTextboxLabel);
+            Controls.Add(createMasterDataAdvancedSubmitButton);
+            Controls.Add(createMasterDataAdvancedActiveStatusCheckbox);
+            Controls.Add(createMasterDataAdvancedTitleLabel);
+            Font = new Font("Segoe UI", 11F);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "CreateMasterDataAdvanced";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CreateMasterDataAdvanced";
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label createMasterDataAdvancedTitleLabel;
+        private TextBox createMasterDataAdvancedMasterDataTypeTextbox;
+        private Label createMasterDataAdvancedMasterDataTypeTextboxLabel;
+        private Button createMasterDataAdvancedSubmitButton;
+        private CheckBox createMasterDataAdvancedActiveStatusCheckbox;
+        private Label createMasterDataAdvancedDataParentSubjectComboBoxLabel;
+        private ComboBox createMasterDataAdvancedDataParentSubjectComboBox;
+    }
+}

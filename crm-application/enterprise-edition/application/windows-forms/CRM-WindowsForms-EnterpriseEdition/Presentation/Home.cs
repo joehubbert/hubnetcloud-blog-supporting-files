@@ -1,6 +1,4 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Presentation;
-
-namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class Home : Form
     {
@@ -107,6 +105,378 @@ namespace CRM_WindowsForms.Presentation
         {
             CompanyManagement companyManagement = new CompanyManagement();
             companyManagement.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager_Click(object sender, EventArgs e)
+        {
+            CreateAccountManager createAccountManager = new CreateAccountManager();
+            createAccountManager.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("AccountManager", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadNoteTypeCreateCustomerLeadNoteType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerLeadNoteType", "CustomerManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadNoteTypeViewAllCustomerLeadNoteType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadStatusCreateCustomerLeadStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerLeadStatus", "CustomerManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadStatusViewAllCustomerLeadStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadTypeCreateCustomerLeadType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("CustomerLeadType", "CustomerManagement");
+            createMasterDataEnhanced.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadTypeViewAllCustomerLeadType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeCreateCustomerNoteType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("CustomerNoteType", "CustomerManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierCreateCustomerTier_Click(object sender, EventArgs e)
+        {
+            CreateCustomerTier createCustomerTier = new CreateCustomerTier();
+            createCustomerTier.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeCreateCustomerType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("CustomerType", "CustomerManagement");
+            createMasterDataEnhanced.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyCreateCurrency_Click(object sender, EventArgs e)
+        {
+            CreateCurrency createCurrency = new CreateCurrency();
+            createCurrency.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("Currency", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionCreateCurrencyConversion_Click(object sender, EventArgs e)
+        {
+            CreateCurrencyConversion createCurrencyConversion = new CreateCurrencyConversion();
+            createCurrencyConversion.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CurrencyConversion", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodCreatePaymentMethod_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("PaymentMethod", "CompanyManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("PaymentMethod", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileCreateTaxProfile_Click(object sender, EventArgs e)
+        {
+            CreateTaxProfile createTaxProfile = new CreateTaxProfile();
+            createTaxProfile.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("TaxProfile", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodCreateDeliveryMethod_Click(object sender, EventArgs e)
+        {
+            CreateDeliveryMethod createDeliveryMethod = new CreateDeliveryMethod();
+            createDeliveryMethod.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("DeliveryMethod", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignStatusCreateMarketingCampaignStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingCampaignStatus", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignStatusViewAllMarketingCampaignStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignTypeCreateMarketingCampaignType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingCampaignType", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignTypeViewAllMarketingCampaignType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelCreateMarketingChannel_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("MarketingChannel", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTargetTypeCreatePromotionTargetType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataEnhanced createMasterDataEnhanced = new CreateMasterDataEnhanced("PromotionTargetType", "MarketingManagement");
+            createMasterDataEnhanced.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTargetTypeViewAllPromotionTargetType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTypeCreatePromotionType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("PromotionType", "MarketingManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTypeViewAllPromotionType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryCreateCountry_Click(object sender, EventArgs e)
+        {
+            CreateCountry createCountry = new CreateCountry();
+            createCountry.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation_Click(object sender, EventArgs e)
+        {
+            CreateCountryTranslation createCountryTranslation = new CreateCountryTranslation();
+            createCountryTranslation.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderLineItemStatus", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatusCreateOrderPaymentStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderPaymentStatus", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatusViewAllOrderPaymentStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderStatus", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("ProductCategory", "ProductManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryCreateProductSubCategory_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataAdvanced createMasterDataAdvanced = new CreateMasterDataAdvanced("ProductSubCategory", "ProductManagement");
+            createMasterDataAdvanced.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryViewAllProductSubCategory_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeCreateProductNoteType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("ProductNoteType", "ProductManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionCreateSalesRegion_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SalesRegion", "CompanyManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SalesRegion", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionCreateSalesSubRegion_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataAdvanced createMasterDataAdvanced = new CreateMasterDataAdvanced("SalesSubRegion", "CompanyManagement");
+            createMasterDataAdvanced.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SalesSubRegion", "CompanyManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeCreateSupplierNoteType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierNoteType", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderLineItemStatusCreateSupplierOrderLineItemStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderLineItemStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderLineItemStatusViewAllSupplierOrderLineItemStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderPaymentStatusCreateSupplierOrderPaymentStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderPaymentStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderPaymentStatusViewAllSupplierOrderPaymentStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement");
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusCreateSupplierOrderStatus_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("SupplierOrderStatus", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement");
+            viewAllData.Show();
         }
 
         private void homeMenuStripModuleCustomerManagement_Click(object sender, EventArgs e)

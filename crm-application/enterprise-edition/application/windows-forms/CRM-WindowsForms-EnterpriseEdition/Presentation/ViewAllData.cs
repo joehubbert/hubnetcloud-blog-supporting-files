@@ -1,8 +1,8 @@
-﻿using CRM_WindowsForms.Interface;
-using CRM_WindowsForms.Presentation.Functions;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
 
-namespace CRM_WindowsForms.Presentation
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ViewAllData : Form
     {
@@ -51,8 +51,8 @@ namespace CRM_WindowsForms.Presentation
                     viewAllDataDataGridView.BackgroundColor = Color.NavajoWhite;
                     break;
                 case "OrderManagement":
-                    this.BackColor = Color.Salmon;
-                    viewAllDataDataGridView.BackgroundColor = Color.Salmon;
+                    this.BackColor = Color.LightSalmon;
+                    viewAllDataDataGridView.BackgroundColor = Color.LightSalmon;
                     break;
                 case "ProductManagement":
                     this.BackColor = Color.SkyBlue;
@@ -85,6 +85,22 @@ namespace CRM_WindowsForms.Presentation
                     functionFriendlyName = "Company Configurations";
                     storedProcedureName = "[dbo].[spGetAllCompanyConfiguration]";
                     break;
+                case "Country":
+                    dataSortingColumnName = "Country";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Country Id";
+                    dataSubjectFriendlyName = "Country";
+                    functionFriendlyName = "Countries";
+                    storedProcedureName = "[dbo].[spGetAllCountry]";
+                    break;
+                case "CountryTranslation":
+                    dataSortingColumnName = "Country English Name";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Country Translation Id";
+                    dataSubjectFriendlyName = "Country Translation";
+                    functionFriendlyName = "Country Translations";
+                    storedProcedureName = "[dbo].[spGetAllCountryTranslation]";
+                    break;
                 case "Currency":
                     dataSortingColumnName = "Currency Code";
                     dataSortingColumnOrder = "ASC";
@@ -108,6 +124,46 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectFriendlyName = "Customer";
                     functionFriendlyName = "Customers";
                     storedProcedureName = "[dbo].[spGetAllCustomer]";
+                    break;
+                case "CustomerLeadNote":
+                    dataSortingColumnName = "Customer Lead Note";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Lead Note Id";
+                    dataSubjectFriendlyName = "Customer Lead Note";
+                    functionFriendlyName = "Customer Lead Notes";
+                    storedProcedureName = "[dbo].[spGetAllNoteForCustomerLead]";
+                    break;
+                case "CustomerLeadNoteType":
+                    dataSortingColumnName = "Customer Lead Note Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Lead Note Type Id";
+                    dataSubjectFriendlyName = "Customer Lead Note Type";
+                    functionFriendlyName = "Customer Lead Note Types";
+                    storedProcedureName = "[dbo].[spGetAllCustomerLeadNoteType]";
+                    break;
+                case "CustomerLeadStatus":
+                    dataSortingColumnName = "Customer Lead Status";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Lead Status Id";
+                    dataSubjectFriendlyName = "Customer Lead Status";
+                    functionFriendlyName = "Customer Lead Statuses";
+                    storedProcedureName = "[dbo].[spGetAllCustomerLeadStatus]";
+                    break;
+                case "CustomerLeadType":
+                    dataSortingColumnName = "Customer Lead Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Lead Type Id";
+                    dataSubjectFriendlyName = "Customer Lead Type";
+                    functionFriendlyName = "Customer Lead Types";
+                    storedProcedureName = "[dbo].[spGetAllCustomerLeadType]";
+                    break;
+                case "CustomerNote":
+                    dataSortingColumnName = "Customer Note";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Note Id";
+                    dataSubjectFriendlyName = "Customer Note";
+                    functionFriendlyName = "Customer Notes";
+                    storedProcedureName = "[dbo].[spGetAllNoteForCustomer]";
                     break;
                 case "CustomerNoteType":
                     dataSortingColumnName = "Customer Note Type";
@@ -149,6 +205,22 @@ namespace CRM_WindowsForms.Presentation
                     functionFriendlyName = "Marketing Campaigns";
                     storedProcedureName = "[dbo].[spGetAllMarketingCampaign]";
                     break;
+                case "MarketingCampaignStatus":
+                    dataSortingColumnName = "Marketing Campaign Status Id";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Marketing Campaign Status Id";
+                    dataSubjectFriendlyName = "Marketing Campaign Status";
+                    functionFriendlyName = "Marketing Campaign Statuses";
+                    storedProcedureName = "[dbo].[spGetAllMarketingCampaignStatus]";
+                    break;
+                case "MarketingCampaignType":
+                    dataSortingColumnName = "Marketing Campaign Type Id";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Marketing Campaign Type Id";
+                    dataSubjectFriendlyName = "Marketing Campaign Type";
+                    functionFriendlyName = "Marketing Campaign Types";
+                    storedProcedureName = "[dbo].[spGetAllMarketingCampaignType]";
+                    break;
                 case "MarketingChannel":
                     dataSortingColumnName = "Marketing Channel Id";
                     dataSortingColumnOrder = "ASC";
@@ -172,6 +244,14 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectFriendlyName = "Order Line Item Status";
                     functionFriendlyName = "Order Line Item Statuses";
                     storedProcedureName = "[dbo].[spGetAllOrderLineItemStatus]";
+                    break;
+                case "OrderPaymentStatus":
+                    dataSortingColumnName = "Order Payment Status";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Order Payment Status Id";
+                    dataSubjectFriendlyName = "Order Payment Status";
+                    functionFriendlyName = "Order Payment Statuses";
+                    storedProcedureName = "[dbo].[spGetAllOrderPaymentStatus]";
                     break;
                 case "OrderStatus":
                     dataSortingColumnName = "Order Status";
@@ -205,6 +285,14 @@ namespace CRM_WindowsForms.Presentation
                     functionFriendlyName = "Product Categories";
                     storedProcedureName = "[dbo].[spGetAllProductCategory]";
                     break;
+                case "ProductNote":
+                    dataSortingColumnName = "Product Note";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Product Note Id";
+                    dataSubjectFriendlyName = "Product Note";
+                    functionFriendlyName = "Product Notes";
+                    storedProcedureName = "[dbo].[spGetAllNoteForProduct]";
+                    break;
                 case "ProductNoteType":
                     dataSortingColumnName = "Product Note Type";
                     dataSortingColumnOrder = "ASC";
@@ -220,6 +308,22 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectFriendlyName = "Product Sub Category";
                     functionFriendlyName = "Product Sub Categories";
                     storedProcedureName = "[dbo].[spGetAllProductSubCategory]";
+                    break;
+                case "PromotionTargetType":
+                    dataSortingColumnName = "Promotion Target Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Promotion Target Type Id";
+                    dataSubjectFriendlyName = "Promotion Target Type";
+                    functionFriendlyName = "Promotion Target Types";
+                    storedProcedureName = "[dbo].[spGetAllPromotionTargetType]";
+                    break;
+                case "PromotionType":
+                    dataSortingColumnName = "Promotion Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Promotion Type Id";
+                    dataSubjectFriendlyName = "Promotion Type";
+                    functionFriendlyName = "Promotion Types";
+                    storedProcedureName = "[dbo].[spGetAllPromotionType]";
                     break;
                 case "SalesRegion":
                     dataSortingColumnName = "Sales Region";
@@ -245,6 +349,14 @@ namespace CRM_WindowsForms.Presentation
                     functionFriendlyName = "Suppliers";
                     storedProcedureName = "[dbo].[spGetAllSupplier]";
                     break;
+                case "SupplierNote":
+                    dataSortingColumnName = "Supplier Note";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Note Id";
+                    dataSubjectFriendlyName = "Supplier Note";
+                    functionFriendlyName = "Supplier Notes";
+                    storedProcedureName = "[dbo].[spGetAllNoteForSupplier]";
+                    break;
                 case "SupplierNoteType":
                     dataSortingColumnName = "Supplier Note Type";
                     dataSortingColumnOrder = "ASC";
@@ -252,6 +364,38 @@ namespace CRM_WindowsForms.Presentation
                     dataSubjectFriendlyName = "Supplier Note Type";
                     functionFriendlyName = "Supplier Note Types";
                     storedProcedureName = "[dbo].[spGetAllSupplierNoteType]";
+                    break;
+                case "SupplierOrder":
+                    dataSortingColumnName = "Supplier Order Id";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Order Id";
+                    dataSubjectFriendlyName = "Supplier Order";
+                    functionFriendlyName = "Supplier Orders";
+                    storedProcedureName = "[dbo].[spGetAllSupplierOrder]";
+                    break;
+                case "SupplierOrderLineItemStatus":
+                    dataSortingColumnName = "Supplier Order Line Item Status";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Order Line Item Status Id";
+                    dataSubjectFriendlyName = "Supplier Order Line Item Status";
+                    functionFriendlyName = "Supplier Order Line Item Statuses";
+                    storedProcedureName = "[dbo].[spGetAllSupplierOrderLineItemStatus]";
+                    break;
+                case "SupplierOrderPaymentStatus":
+                    dataSortingColumnName = "Supplier Order Payment Status";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Order Payment Status Id";
+                    dataSubjectFriendlyName = "Supplier Order Payment Status";
+                    functionFriendlyName = "Supplier Order Payment Statuses";
+                    storedProcedureName = "[dbo].[spGetAllSupplierOrderPaymentStatus]";
+                    break;
+                case "SupplierOrderStatus":
+                    dataSortingColumnName = "Supplier Order Status";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Order Status Id";
+                    dataSubjectFriendlyName = "Supplier Order Status";
+                    functionFriendlyName = "Supplier Order Statuses";
+                    storedProcedureName = "[dbo].[spGetAllSupplierOrderStatus]";
                     break;
                 case "TaxProfile":
                     dataSortingColumnName = "Tax Profile";
@@ -263,6 +407,7 @@ namespace CRM_WindowsForms.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
+                    MessageBox.Show($"{functionTitle} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
 
@@ -364,6 +509,30 @@ namespace CRM_WindowsForms.Presentation
                                 MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             break;
+                        case "Country":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid countryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                CountryDetail countryDetail = new CountryDetail(countryId);
+                                countryDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "CountryTranslation":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid countryTranslationId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                CountryTranslationDetail countryTranslationDetail = new CountryTranslationDetail(countryTranslationId);
+                                countryTranslationDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
                         case "Currency":
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
@@ -400,12 +569,48 @@ namespace CRM_WindowsForms.Presentation
                                 MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             break;
+                        case "CustomerLeadNoteType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid customerLeadNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerLeadNoteTypeId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "CustomerLeadStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid customerLeadStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerLeadStatusId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "CustomerLeadType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid customerLeadTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(customerLeadTypeId, _functionTitle, "CustomerManagement");
+                                masterDataEnhancedDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
                         case "CustomerNoteType":
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid customerNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(customerNoteTypeId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerNoteTypeId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -428,8 +633,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid customerTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(customerTypeId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(customerTypeId, _functionTitle, "CustomerManagement");
+                                masterDataEnhancedDetail.Show();
                             }
                             else
                             {
@@ -460,12 +665,36 @@ namespace CRM_WindowsForms.Presentation
                                 MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             break;
+                        case "MarketingCampaignStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid marketingCampaignStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingCampaignStatusId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "MarketingCampaignType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid marketingCampaignTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingCampaignTypeId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
                         case "MarketingChannel":
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid marketingChannelId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(marketingChannelId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingChannelId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -488,8 +717,20 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid orderLineItemStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(orderLineItemStatusId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderLineItemStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "OrderPaymentStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid orderPaymentStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderPaymentStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -500,8 +741,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid orderStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(orderStatusId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -512,8 +753,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid paymentMethodId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(paymentMethodId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(paymentMethodId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -536,8 +777,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid productCategoryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(productCategoryId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productCategoryId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -548,8 +789,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid productNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(productNoteTypeId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productNoteTypeId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -560,8 +801,32 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid productSubCategoryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataAdvancedDetail metadataAdvancedDetail = new MetadataAdvancedDetail(productSubCategoryId, _functionTitle);
-                                metadataAdvancedDetail.Show();
+                                MasterDataAdvancedDetail masterDataAdvancedDetail = new MasterDataAdvancedDetail(productSubCategoryId, _functionTitle, "ProductManagement");
+                                masterDataAdvancedDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "PromotionTargetType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid promotionTargetTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(promotionTargetTypeId, _functionTitle, "MarketingManagement");
+                                masterDataEnhancedDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "PromotionType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid promotionTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(promotionTypeId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -572,8 +837,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid salesRegionId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(salesRegionId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(salesRegionId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {
@@ -584,8 +849,8 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid salesSubRegionId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataAdvancedDetail metadataAdvancedDetail = new MetadataAdvancedDetail(salesSubRegionId, _functionTitle);
-                                metadataAdvancedDetail.Show();
+                                MasterDataAdvancedDetail masterDataAdvancedDetail = new MasterDataAdvancedDetail(salesSubRegionId, _functionTitle, "CompanyManagement");
+                                masterDataAdvancedDetail.Show();
                             }
                             else
                             {
@@ -608,8 +873,56 @@ namespace CRM_WindowsForms.Presentation
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
                                 Guid supplierNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MetadataSimpleDetail metadataSimpleDetail = new MetadataSimpleDetail(supplierNoteTypeId, _functionTitle);
-                                metadataSimpleDetail.Show();
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierNoteTypeId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "SupplierOrder":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid supplierOrderId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                SupplierOrderDetail supplierOrderDetail = new SupplierOrderDetail(supplierOrderId);
+                                supplierOrderDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "SupplierOrderLineItemStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid supplierOrderLineItemStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderLineItemStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "SupplierOrderPaymentStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid supplierOrderPaymentStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderPaymentStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "SupplierOrderStatus":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid supplierOrderStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {

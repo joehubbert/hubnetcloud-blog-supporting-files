@@ -69,6 +69,12 @@ namespace CRM_WindowsForms.Presentation
             freeCell.Show();
         }
 
+        private void homeMenuStripHelpEasterEggHearts_Click(object sender, EventArgs e)
+        {
+            Hearts hearts = new Hearts();
+            hearts.Show();
+        }
+
         private void homeMenuStripHelpEasterEggSolitaire_Click(object sender, EventArgs e)
         {
             Solitaire solitaire = new Solitaire();

@@ -70,7 +70,7 @@ namespace CRM_WindowsForms.Presentation
             winLabel = new Label { Text = "", Location = new Point(LeftMargin + 280, 10), AutoSize = true, Font = new Font("Segoe UI", 14, FontStyle.Bold), ForeColor = Color.Green };
             Controls.Add(winLabel);
 
-            suitLabel = new Label { Text = $"SpiderSolitaireSuits: {suitCount}", Location = new Point(LeftMargin + 350, 10), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Bold), ForeColor = Color.White };
+            suitLabel = new Label { Text = $"Spider Solitaire Suits: {suitCount}", Location = new Point(LeftMargin + 340, 10), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Bold), ForeColor = Color.White };
             Controls.Add(suitLabel);
 
             scoreLabel = new Label { Text = $"Score: {score}", Location = new Point(LeftMargin + 540, 10), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Bold), ForeColor = Color.White };
@@ -521,7 +521,6 @@ namespace CRM_WindowsForms.Presentation
             for (int i = startRow; i < col.Count - 1; i++)
             {
                 if (!col[i].FaceUp || !col[i + 1].FaceUp) return false;
-                if (col[i].SpiderSolitaireSuit != col[i + 1].SpiderSolitaireSuit) return false;
                 if (col[i].Rank != col[i + 1].Rank + 1) return false;
             }
             return col[startRow].FaceUp;
@@ -534,7 +533,7 @@ namespace CRM_WindowsForms.Presentation
             if (col.Count == 0)
                 return moving[0].Rank == 13;
             var top = col.Last();
-            return top.FaceUp && moving[0].SpiderSolitaireSuit == top.SpiderSolitaireSuit && moving[0].Rank == top.Rank - 1;
+            return top.FaceUp && moving[0].Rank == top.Rank - 1;
         }
 
         private void TryMoveToFoundationWithAnimation(int tableauIndex)

@@ -133,7 +133,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow masterDataEnhancedDetailDataRow = masterDataEnhancedDetailDataTable.Rows[0];
                     masterDataEnhancedDetailDataSubjectIdTextbox.Text = masterDataEnhancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
                     masterDataEnhancedDetailDataSubjectTextbox.Text = masterDataEnhancedDetailDataRow[dataSubjectFriendlyName].ToString();
-                    masterDataEnhancedDetailDataSubjectDescriptionTextbox.Text = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName}Description"].ToString();
+                    masterDataEnhancedDetailDataSubjectDescriptionTextbox.Text = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName} Description"].ToString();
                     masterDataEnhancedDetailCreatedByTextbox.Text = masterDataEnhancedDetailDataRow["Created By"].ToString();
                     masterDataEnhancedDetailCreatedTimestampTextbox.Text = masterDataEnhancedDetailDataRow["Created Timestamp UTC"].ToString();
                     masterDataEnhancedDetailLastUpdatedByTextbox.Text = masterDataEnhancedDetailDataRow["Modified By"].ToString();
@@ -141,7 +141,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataEnhancedDetailActiveStatusCheckbox.Checked = (bool)masterDataEnhancedDetailDataRow["Active Status"];
 
                     dataSubjectOriginalValue = masterDataEnhancedDetailDataRow[dataSubjectFriendlyName].ToString();
-                    dataSubjectDescriptionOriginalValue = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName}Description"].ToString();
+                    dataSubjectDescriptionOriginalValue = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName} Description"].ToString();
                     dataSubjectActiveStatusOriginalValue = (bool)masterDataEnhancedDetailDataRow["Active Status"];
                 }
                 else

@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms.Presentation
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ModuleHomeSimple : Form
     {
@@ -55,6 +55,10 @@
                     dataSubjectPluralName = "Suppliers";
                     dataSubjectSingularName = "Supplier";
                     moduleFriendlyName = "Supplier Management";
+                    break;
+                default:
+                    this.Text = moduleName;
+                    MessageBox.Show($"{moduleName} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     break;
             }
             moduleHomeTitleLabel.Text = moduleFriendlyName;

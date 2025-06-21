@@ -115,6 +115,7 @@
             createManufacturerOverviewAddressLine2Label.Size = new Size(105, 20);
             createManufacturerOverviewAddressLine2Label.TabIndex = 57;
             createManufacturerOverviewAddressLine2Label.Text = "Address Line 2";
+            createManufacturerOverviewAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewAddressLine3Label
             // 
@@ -124,6 +125,7 @@
             createManufacturerOverviewAddressLine3Label.Size = new Size(111, 20);
             createManufacturerOverviewAddressLine3Label.TabIndex = 56;
             createManufacturerOverviewAddressLine3Label.Text = "Address Line 3*";
+            createManufacturerOverviewAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewAddressLine4Label
             // 
@@ -133,6 +135,7 @@
             createManufacturerOverviewAddressLine4Label.Size = new Size(111, 20);
             createManufacturerOverviewAddressLine4Label.TabIndex = 55;
             createManufacturerOverviewAddressLine4Label.Text = "Address Line 4*";
+            createManufacturerOverviewAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewAddressLine5Label
             // 
@@ -142,6 +145,7 @@
             createManufacturerOverviewAddressLine5Label.Size = new Size(111, 20);
             createManufacturerOverviewAddressLine5Label.TabIndex = 54;
             createManufacturerOverviewAddressLine5Label.Text = "Address Line 5*";
+            createManufacturerOverviewAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewAddressLine1Label
             // 
@@ -151,6 +155,7 @@
             createManufacturerOverviewAddressLine1Label.Size = new Size(111, 20);
             createManufacturerOverviewAddressLine1Label.TabIndex = 53;
             createManufacturerOverviewAddressLine1Label.Text = "Address Line 1*";
+            createManufacturerOverviewAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewAddressLine4Textbox
             // 
@@ -200,6 +205,7 @@
             createManufacturerOverviewEmailAddressLabel.Size = new Size(109, 20);
             createManufacturerOverviewEmailAddressLabel.TabIndex = 52;
             createManufacturerOverviewEmailAddressLabel.Text = "Email Address*";
+            createManufacturerOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewTelephoneNumberLabel
             // 
@@ -209,6 +215,7 @@
             createManufacturerOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             createManufacturerOverviewTelephoneNumberLabel.TabIndex = 51;
             createManufacturerOverviewTelephoneNumberLabel.Text = "Telephone Number*";
+            createManufacturerOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewEmailAddressTextbox
             // 
@@ -234,6 +241,7 @@
             createManufacturerOverviewManufacturerNameLabel.Size = new Size(147, 20);
             createManufacturerOverviewManufacturerNameLabel.TabIndex = 28;
             createManufacturerOverviewManufacturerNameLabel.Text = "Manufacturer Name*";
+            createManufacturerOverviewManufacturerNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerOverviewManufacturerNameTextbox
             // 
@@ -277,6 +285,7 @@
             createManufacturerFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
             createManufacturerFinanceVATNumberTextboxLabel.TabIndex = 23;
             createManufacturerFinanceVATNumberTextboxLabel.Text = "VAT Number";
+            createManufacturerFinanceVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerFinanceVATNumberTextbox
             // 

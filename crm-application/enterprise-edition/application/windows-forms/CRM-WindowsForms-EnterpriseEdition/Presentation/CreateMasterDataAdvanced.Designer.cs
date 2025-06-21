@@ -44,7 +44,7 @@
             createMasterDataAdvancedTitleLabel.Location = new Point(14, 9);
             createMasterDataAdvancedTitleLabel.Margin = new Padding(5, 0, 5, 0);
             createMasterDataAdvancedTitleLabel.Name = "createMasterDataAdvancedTitleLabel";
-            createMasterDataAdvancedTitleLabel.Size = new Size(342, 32);
+            createMasterDataAdvancedTitleLabel.Size = new Size(366, 32);
             createMasterDataAdvancedTitleLabel.TabIndex = 8;
             createMasterDataAdvancedTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
@@ -59,13 +59,14 @@
             // 
             // createMasterDataAdvancedMasterDataTypeTextboxLabel
             // 
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.AutoSize = true;
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Location = new Point(14, 104);
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Name = "createMasterDataAdvancedMasterDataTypeTextboxLabel";
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Size = new Size(210, 20);
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Size = new Size(213, 20);
             createMasterDataAdvancedMasterDataTypeTextboxLabel.TabIndex = 23;
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.MiddleRight;
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataAdvancedSubmitButton
             // 
@@ -95,13 +96,14 @@
             // 
             // createMasterDataAdvancedDataParentSubjectComboBoxLabel
             // 
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.AutoSize = true;
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Location = new Point(14, 60);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Location = new Point(4, 60);
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Name = "createMasterDataAdvancedDataParentSubjectComboBoxLabel";
-            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Size = new Size(210, 20);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Size = new Size(223, 20);
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.TabIndex = 24;
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = "{MasterData Parent Placeholder}";
-            createMasterDataAdvancedDataParentSubjectComboBoxLabel.TextAlign = ContentAlignment.MiddleRight;
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataAdvancedDataParentSubjectComboBox
             // 

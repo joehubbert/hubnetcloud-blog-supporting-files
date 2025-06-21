@@ -73,6 +73,7 @@
             deliveryMethodDetailDeliveryMethodIdLabel.Size = new Size(136, 20);
             deliveryMethodDetailDeliveryMethodIdLabel.TabIndex = 8;
             deliveryMethodDetailDeliveryMethodIdLabel.Text = "Delivery Method Id";
+            deliveryMethodDetailDeliveryMethodIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailDeliveryMethodLabel
             // 
@@ -82,6 +83,7 @@
             deliveryMethodDetailDeliveryMethodLabel.Size = new Size(119, 20);
             deliveryMethodDetailDeliveryMethodLabel.TabIndex = 9;
             deliveryMethodDetailDeliveryMethodLabel.Text = "Delivery Method";
+            deliveryMethodDetailDeliveryMethodLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailDeliveryCostLabel
             // 
@@ -91,33 +93,37 @@
             deliveryMethodDetailDeliveryCostLabel.Size = new Size(96, 20);
             deliveryMethodDetailDeliveryCostLabel.TabIndex = 10;
             deliveryMethodDetailDeliveryCostLabel.Text = "Delivery Cost";
+            deliveryMethodDetailDeliveryCostLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailCreatedByTextboxLabel
             // 
             deliveryMethodDetailCreatedByTextboxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            deliveryMethodDetailCreatedByTextboxLabel.Location = new Point(763, 141);
             deliveryMethodDetailCreatedByTextboxLabel.Name = "deliveryMethodDetailCreatedByTextboxLabel";
             deliveryMethodDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             deliveryMethodDetailCreatedByTextboxLabel.TabIndex = 11;
             deliveryMethodDetailCreatedByTextboxLabel.Text = "Created By";
+            deliveryMethodDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailCreatedTimestampTextboxLabel
             // 
             deliveryMethodDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            deliveryMethodDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
             deliveryMethodDetailCreatedTimestampTextboxLabel.Name = "deliveryMethodDetailCreatedTimestampTextboxLabel";
             deliveryMethodDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             deliveryMethodDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             deliveryMethodDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            deliveryMethodDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailLastUpdatedByTextboxLabel
             // 
             deliveryMethodDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            deliveryMethodDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
             deliveryMethodDetailLastUpdatedByTextboxLabel.Name = "deliveryMethodDetailLastUpdatedByTextboxLabel";
             deliveryMethodDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             deliveryMethodDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             deliveryMethodDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            deliveryMethodDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailLastUpdatedTimestampTextboxLabel
             // 
@@ -127,6 +133,7 @@
             deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             deliveryMethodDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailLastUpdatedByTextbox
             // 
@@ -260,6 +267,7 @@
             deliveryMethodDetailTaxProfileLabel.Size = new Size(77, 20);
             deliveryMethodDetailTaxProfileLabel.TabIndex = 33;
             deliveryMethodDetailTaxProfileLabel.Text = "Tax Profile";
+            deliveryMethodDetailTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailTaxProfileComboBox
             // 
@@ -292,6 +300,7 @@
             deliveryMethodDetailDeliveryTimeLabel.Size = new Size(146, 20);
             deliveryMethodDetailDeliveryTimeLabel.TabIndex = 30;
             deliveryMethodDetailDeliveryTimeLabel.Text = "Delivery Time (Days)";
+            deliveryMethodDetailDeliveryTimeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // DeliveryMethodDetail
             // 

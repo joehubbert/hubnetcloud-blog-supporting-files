@@ -172,6 +172,7 @@
             supplierDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             supplierDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 54;
             supplierDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            supplierDetailOverviewLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewLastUpdatedByTextboxLabel
             // 
@@ -181,6 +182,7 @@
             supplierDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             supplierDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 53;
             supplierDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            supplierDetailOverviewLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewCreatedTimestampTextboxLabel
             // 
@@ -190,6 +192,7 @@
             supplierDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             supplierDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 52;
             supplierDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            supplierDetailOverviewCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewCreatedByTextboxLabel
             // 
@@ -199,15 +202,17 @@
             supplierDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
             supplierDetailOverviewCreatedByTextboxLabel.TabIndex = 49;
             supplierDetailOverviewCreatedByTextboxLabel.Text = "Created By";
+            supplierDetailOverviewCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailSupplierIdLabel
             // 
             supplierDetailSupplierIdLabel.AutoSize = true;
-            supplierDetailSupplierIdLabel.Location = new Point(73, 30);
+            supplierDetailSupplierIdLabel.Location = new Point(79, 33);
             supplierDetailSupplierIdLabel.Name = "supplierDetailSupplierIdLabel";
             supplierDetailSupplierIdLabel.Size = new Size(81, 20);
             supplierDetailSupplierIdLabel.TabIndex = 43;
             supplierDetailSupplierIdLabel.Text = "Supplier Id";
+            supplierDetailSupplierIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailTitleLabel
             // 
@@ -277,42 +282,47 @@
             supplierDetailOverviewAddressLine2Label.Size = new Size(105, 20);
             supplierDetailOverviewAddressLine2Label.TabIndex = 57;
             supplierDetailOverviewAddressLine2Label.Text = "Address Line 2";
+            supplierDetailOverviewAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewAddressLine3Label
             // 
             supplierDetailOverviewAddressLine3Label.AutoSize = true;
             supplierDetailOverviewAddressLine3Label.Location = new Point(697, 123);
             supplierDetailOverviewAddressLine3Label.Name = "supplierDetailOverviewAddressLine3Label";
-            supplierDetailOverviewAddressLine3Label.Size = new Size(105, 20);
+            supplierDetailOverviewAddressLine3Label.Size = new Size(111, 20);
             supplierDetailOverviewAddressLine3Label.TabIndex = 56;
-            supplierDetailOverviewAddressLine3Label.Text = "Address Line 3";
+            supplierDetailOverviewAddressLine3Label.Text = "Address Line 3*";
+            supplierDetailOverviewAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewAddressLine4Label
             // 
             supplierDetailOverviewAddressLine4Label.AutoSize = true;
             supplierDetailOverviewAddressLine4Label.Location = new Point(697, 168);
             supplierDetailOverviewAddressLine4Label.Name = "supplierDetailOverviewAddressLine4Label";
-            supplierDetailOverviewAddressLine4Label.Size = new Size(105, 20);
+            supplierDetailOverviewAddressLine4Label.Size = new Size(111, 20);
             supplierDetailOverviewAddressLine4Label.TabIndex = 55;
-            supplierDetailOverviewAddressLine4Label.Text = "Address Line 4";
+            supplierDetailOverviewAddressLine4Label.Text = "Address Line 4*";
+            supplierDetailOverviewAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewAddressLine5Label
             // 
             supplierDetailOverviewAddressLine5Label.AutoSize = true;
             supplierDetailOverviewAddressLine5Label.Location = new Point(697, 213);
             supplierDetailOverviewAddressLine5Label.Name = "supplierDetailOverviewAddressLine5Label";
-            supplierDetailOverviewAddressLine5Label.Size = new Size(105, 20);
+            supplierDetailOverviewAddressLine5Label.Size = new Size(111, 20);
             supplierDetailOverviewAddressLine5Label.TabIndex = 54;
-            supplierDetailOverviewAddressLine5Label.Text = "Address Line 5";
+            supplierDetailOverviewAddressLine5Label.Text = "Address Line 5*";
+            supplierDetailOverviewAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewAddressLine1Label
             // 
             supplierDetailOverviewAddressLine1Label.AutoSize = true;
             supplierDetailOverviewAddressLine1Label.Location = new Point(697, 33);
             supplierDetailOverviewAddressLine1Label.Name = "supplierDetailOverviewAddressLine1Label";
-            supplierDetailOverviewAddressLine1Label.Size = new Size(105, 20);
+            supplierDetailOverviewAddressLine1Label.Size = new Size(111, 20);
             supplierDetailOverviewAddressLine1Label.TabIndex = 53;
-            supplierDetailOverviewAddressLine1Label.Text = "Address Line 1";
+            supplierDetailOverviewAddressLine1Label.Text = "Address Line 1*";
+            supplierDetailOverviewAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewAddressLine4Textbox
             // 
@@ -367,6 +377,7 @@
             supplierDetailOverviewEmailAddressLabel.Size = new Size(109, 20);
             supplierDetailOverviewEmailAddressLabel.TabIndex = 52;
             supplierDetailOverviewEmailAddressLabel.Text = "Email Address*";
+            supplierDetailOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewTelephoneNumberLabel
             // 
@@ -376,6 +387,7 @@
             supplierDetailOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             supplierDetailOverviewTelephoneNumberLabel.TabIndex = 51;
             supplierDetailOverviewTelephoneNumberLabel.Text = "Telephone Number*";
+            supplierDetailOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewEmailAddressTextbox
             // 
@@ -403,6 +415,7 @@
             supplierDetailOverviewSupplierNameLabel.Size = new Size(114, 20);
             supplierDetailOverviewSupplierNameLabel.TabIndex = 28;
             supplierDetailOverviewSupplierNameLabel.Text = "Supplier Name*";
+            supplierDetailOverviewSupplierNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailOverviewSupplierNameTextbox
             // 
@@ -437,6 +450,7 @@
             supplierDetailFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
             supplierDetailFinanceVATNumberTextboxLabel.TabIndex = 23;
             supplierDetailFinanceVATNumberTextboxLabel.Text = "VAT Number";
+            supplierDetailFinanceVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailFinanceVATNumberTextbox
             // 
@@ -468,6 +482,7 @@
             supplierDetailFinancePaymentDaysTextboxLabel.Size = new Size(101, 20);
             supplierDetailFinancePaymentDaysTextboxLabel.TabIndex = 20;
             supplierDetailFinancePaymentDaysTextboxLabel.Text = "Payment Days";
+            supplierDetailFinancePaymentDaysTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailFinancePaymentCurrencyComboBoxLabel
             // 
@@ -477,6 +492,7 @@
             supplierDetailFinancePaymentCurrencyComboBoxLabel.Size = new Size(126, 20);
             supplierDetailFinancePaymentCurrencyComboBoxLabel.TabIndex = 19;
             supplierDetailFinancePaymentCurrencyComboBoxLabel.Text = "Payment Currency";
+            supplierDetailFinancePaymentCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailFinancePaymentDaysTextbox
             // 
@@ -503,9 +519,9 @@
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesRefreshDataButton);
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesCreateNewSupplierNoteButton);
             supplierDetailTabControlSupplierNotesPage.Controls.Add(supplierDetailSupplierNotesExistingSupplierNotesDataGridView);
-            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 27);
+            supplierDetailTabControlSupplierNotesPage.Location = new Point(4, 32);
             supplierDetailTabControlSupplierNotesPage.Name = "supplierDetailTabControlSupplierNotesPage";
-            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 490);
+            supplierDetailTabControlSupplierNotesPage.Size = new Size(1256, 485);
             supplierDetailTabControlSupplierNotesPage.TabIndex = 4;
             supplierDetailTabControlSupplierNotesPage.Text = "Supplier Notes";
             // 

@@ -115,6 +115,7 @@
             createAccountManagerFirstNameLabel.Size = new Size(80, 20);
             createAccountManagerFirstNameLabel.TabIndex = 6;
             createAccountManagerFirstNameLabel.Text = "First Name";
+            createAccountManagerFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerLastNameLabel
             // 
@@ -126,6 +127,7 @@
             createAccountManagerLastNameLabel.Size = new Size(79, 20);
             createAccountManagerLastNameLabel.TabIndex = 7;
             createAccountManagerLastNameLabel.Text = "Last Name";
+            createAccountManagerLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerEmailAddressLabel
             // 
@@ -137,6 +139,7 @@
             createAccountManagerEmailAddressLabel.Size = new Size(103, 20);
             createAccountManagerEmailAddressLabel.TabIndex = 8;
             createAccountManagerEmailAddressLabel.Text = "Email Address";
+            createAccountManagerEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerTelephoneNumberLabel
             // 
@@ -148,6 +151,7 @@
             createAccountManagerTelephoneNumberLabel.Size = new Size(136, 20);
             createAccountManagerTelephoneNumberLabel.TabIndex = 9;
             createAccountManagerTelephoneNumberLabel.Text = "Telephone Number";
+            createAccountManagerTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerActiveStatusCheckbox
             // 

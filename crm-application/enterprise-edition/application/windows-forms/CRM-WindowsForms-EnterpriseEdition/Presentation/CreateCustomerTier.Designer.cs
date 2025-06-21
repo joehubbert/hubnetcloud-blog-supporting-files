@@ -52,11 +52,12 @@
             // 
             createCustomerTierCustomerTierCodeLabel.AutoSize = true;
             createCustomerTierCustomerTierCodeLabel.Font = new Font("Segoe UI", 11F);
-            createCustomerTierCustomerTierCodeLabel.Location = new Point(75, 74);
+            createCustomerTierCustomerTierCodeLabel.Location = new Point(90, 74);
             createCustomerTierCustomerTierCodeLabel.Name = "createCustomerTierCustomerTierCodeLabel";
             createCustomerTierCustomerTierCodeLabel.Size = new Size(140, 20);
             createCustomerTierCustomerTierCodeLabel.TabIndex = 7;
             createCustomerTierCustomerTierCodeLabel.Text = "Customer Tier Code";
+            createCustomerTierCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerTierCustomerTierCodeTextbox
             // 
@@ -98,11 +99,12 @@
             // 
             createCustomerTierCustomerTierDescriptionLabel.AutoSize = true;
             createCustomerTierCustomerTierDescriptionLabel.Font = new Font("Segoe UI", 11F);
-            createCustomerTierCustomerTierDescriptionLabel.Location = new Point(34, 109);
+            createCustomerTierCustomerTierDescriptionLabel.Location = new Point(49, 109);
             createCustomerTierCustomerTierDescriptionLabel.Name = "createCustomerTierCustomerTierDescriptionLabel";
             createCustomerTierCustomerTierDescriptionLabel.Size = new Size(181, 20);
             createCustomerTierCustomerTierDescriptionLabel.TabIndex = 13;
             createCustomerTierCustomerTierDescriptionLabel.Text = "Customer Tier Description";
+            createCustomerTierCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerTierCustomerTierDescriptionTextbox
             // 

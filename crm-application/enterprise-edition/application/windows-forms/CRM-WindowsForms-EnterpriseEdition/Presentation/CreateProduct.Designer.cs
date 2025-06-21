@@ -97,6 +97,7 @@
             createProductWholesalePricePerUnitLabel.Size = new Size(175, 20);
             createProductWholesalePricePerUnitLabel.TabIndex = 57;
             createProductWholesalePricePerUnitLabel.Text = "Wholesale Price Per Unit*";
+            createProductWholesalePricePerUnitLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductUnitStockQuantityHeldLabel
             // 
@@ -107,6 +108,7 @@
             createProductUnitStockQuantityHeldLabel.Size = new Size(178, 20);
             createProductUnitStockQuantityHeldLabel.TabIndex = 56;
             createProductUnitStockQuantityHeldLabel.Text = "Unit Stock Quantity Held*";
+            createProductUnitStockQuantityHeldLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductWholesaleUnitQuantityPerCartonLabel
             // 
@@ -117,6 +119,7 @@
             createProductWholesaleUnitQuantityPerCartonLabel.Size = new Size(247, 20);
             createProductWholesaleUnitQuantityPerCartonLabel.TabIndex = 55;
             createProductWholesaleUnitQuantityPerCartonLabel.Text = "Wholesale Unit Quantity Per Carton*";
+            createProductWholesaleUnitQuantityPerCartonLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductWholesaleCartonQuantityLabel
             // 
@@ -127,6 +130,7 @@
             createProductWholesaleCartonQuantityLabel.Size = new Size(192, 20);
             createProductWholesaleCartonQuantityLabel.TabIndex = 54;
             createProductWholesaleCartonQuantityLabel.Text = "Wholesale Carton Quantity*";
+            createProductWholesaleCartonQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductUnitPriceLabel
             // 
@@ -137,6 +141,7 @@
             createProductUnitPriceLabel.Size = new Size(78, 20);
             createProductUnitPriceLabel.TabIndex = 53;
             createProductUnitPriceLabel.Text = "Unit Price*";
+            createProductUnitPriceLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductUnitStockQuantityHeldTextbox
             // 
@@ -193,6 +198,7 @@
             createProductSupplierLabel.Size = new Size(70, 20);
             createProductSupplierLabel.TabIndex = 52;
             createProductSupplierLabel.Text = "Supplier*";
+            createProductSupplierLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductProductCategoryLabel
             // 
@@ -202,6 +208,7 @@
             createProductProductCategoryLabel.Size = new Size(130, 20);
             createProductProductCategoryLabel.TabIndex = 51;
             createProductProductCategoryLabel.Text = "Product Category*";
+            createProductProductCategoryLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductProductNameLabel
             // 
@@ -211,6 +218,7 @@
             createProductProductNameLabel.Size = new Size(110, 20);
             createProductProductNameLabel.TabIndex = 28;
             createProductProductNameLabel.Text = "Product Name*";
+            createProductProductNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductProductNameTextbox
             // 
@@ -333,6 +341,7 @@
             createProductWholesaleReorderFlagLabel.Size = new Size(148, 20);
             createProductWholesaleReorderFlagLabel.TabIndex = 72;
             createProductWholesaleReorderFlagLabel.Text = "Wholesale Reorder?*";
+            createProductWholesaleReorderFlagLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductWholesalePricePerUnitTextboxSeparator
             // 
@@ -402,6 +411,7 @@
             createProductUnitMinimumStockQuantityLabel.Size = new Size(203, 20);
             createProductUnitMinimumStockQuantityLabel.TabIndex = 73;
             createProductUnitMinimumStockQuantityLabel.Text = "Unit Minimum Stock Quantity";
+            createProductUnitMinimumStockQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductUnitMinimumOrderQuantityTextbox
             // 
@@ -422,6 +432,7 @@
             createProductUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
             createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
             createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
+            createProductUnitMinimumOrderQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductProductImagePictureBox
             // 
@@ -455,6 +466,7 @@
             createProductProductImagePictureBoxLabel.Size = new Size(106, 20);
             createProductProductImagePictureBoxLabel.TabIndex = 78;
             createProductProductImagePictureBoxLabel.Text = "Product Image";
+            createProductProductImagePictureBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductTabControl
             // 

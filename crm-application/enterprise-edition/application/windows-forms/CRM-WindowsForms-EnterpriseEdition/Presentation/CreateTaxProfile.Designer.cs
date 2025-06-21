@@ -59,6 +59,7 @@
             createTaxProfileTaxProfileLabel.Size = new Size(77, 20);
             createTaxProfileTaxProfileLabel.TabIndex = 7;
             createTaxProfileTaxProfileLabel.Text = "Tax Profile";
+            createTaxProfileTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createTaxProfileTaxProfileTextbox
             // 
@@ -105,6 +106,7 @@
             createTaxProfileTaxRateLabel.Size = new Size(64, 20);
             createTaxProfileTaxRateLabel.TabIndex = 13;
             createTaxProfileTaxRateLabel.Text = "Tax Rate";
+            createTaxProfileTaxRateLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createTaxProfileTaxRateTextboxA
             // 

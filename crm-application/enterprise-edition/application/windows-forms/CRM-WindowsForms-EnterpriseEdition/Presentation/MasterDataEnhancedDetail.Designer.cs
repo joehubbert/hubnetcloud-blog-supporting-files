@@ -55,7 +55,7 @@
             masterDataEnhancedDetailTitleLabel.Location = new Point(13, 9);
             masterDataEnhancedDetailTitleLabel.Margin = new Padding(4, 0, 4, 0);
             masterDataEnhancedDetailTitleLabel.Name = "masterDataEnhancedDetailTitleLabel";
-            masterDataEnhancedDetailTitleLabel.Size = new Size(342, 32);
+            masterDataEnhancedDetailTitleLabel.Size = new Size(366, 32);
             masterDataEnhancedDetailTitleLabel.TabIndex = 8;
             masterDataEnhancedDetailTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
@@ -81,7 +81,7 @@
             masterDataEnhancedDetailActiveStatusCheckbox.Location = new Point(239, 310);
             masterDataEnhancedDetailActiveStatusCheckbox.Margin = new Padding(4);
             masterDataEnhancedDetailActiveStatusCheckbox.Name = "masterDataEnhancedDetailActiveStatusCheckbox";
-            masterDataEnhancedDetailActiveStatusCheckbox.Size = new Size(264, 24);
+            masterDataEnhancedDetailActiveStatusCheckbox.Size = new Size(277, 24);
             masterDataEnhancedDetailActiveStatusCheckbox.TabIndex = 2;
             masterDataEnhancedDetailActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             masterDataEnhancedDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -160,50 +160,56 @@
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.TabIndex = 34;
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailLastUpdatedByTextboxLabel
             // 
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailLastUpdatedByTextboxLabel.Location = new Point(757, 224);
+            masterDataEnhancedDetailLastUpdatedByTextboxLabel.Location = new Point(815, 221);
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.Name = "masterDataEnhancedDetailLastUpdatedByTextboxLabel";
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.TabIndex = 33;
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            masterDataEnhancedDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailCreatedTimestampTextboxLabel
             // 
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailCreatedTimestampTextboxLabel.Location = new Point(757, 180);
+            masterDataEnhancedDetailCreatedTimestampTextboxLabel.Location = new Point(793, 181);
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.Name = "masterDataEnhancedDetailCreatedTimestampTextboxLabel";
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.TabIndex = 32;
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            masterDataEnhancedDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailCreatedByTextboxLabel
             // 
             masterDataEnhancedDetailCreatedByTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailCreatedByTextboxLabel.Location = new Point(757, 141);
+            masterDataEnhancedDetailCreatedByTextboxLabel.Location = new Point(851, 141);
             masterDataEnhancedDetailCreatedByTextboxLabel.Name = "masterDataEnhancedDetailCreatedByTextboxLabel";
             masterDataEnhancedDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             masterDataEnhancedDetailCreatedByTextboxLabel.TabIndex = 31;
             masterDataEnhancedDetailCreatedByTextboxLabel.Text = "Created By";
+            masterDataEnhancedDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailDataSubjectTextboxLabel
             // 
+            masterDataEnhancedDetailDataSubjectTextboxLabel.AutoSize = true;
             masterDataEnhancedDetailDataSubjectTextboxLabel.ImageAlign = ContentAlignment.MiddleRight;
-            masterDataEnhancedDetailDataSubjectTextboxLabel.Location = new Point(13, 180);
+            masterDataEnhancedDetailDataSubjectTextboxLabel.Location = new Point(78, 180);
             masterDataEnhancedDetailDataSubjectTextboxLabel.Name = "masterDataEnhancedDetailDataSubjectTextboxLabel";
-            masterDataEnhancedDetailDataSubjectTextboxLabel.Size = new Size(275, 20);
+            masterDataEnhancedDetailDataSubjectTextboxLabel.Size = new Size(213, 20);
             masterDataEnhancedDetailDataSubjectTextboxLabel.TabIndex = 30;
             masterDataEnhancedDetailDataSubjectTextboxLabel.Text = "{MasterData Type Placeholder}";
             masterDataEnhancedDetailDataSubjectTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailDataSubjectIdTextboxLabel
             // 
+            masterDataEnhancedDetailDataSubjectIdTextboxLabel.AutoSize = true;
             masterDataEnhancedDetailDataSubjectIdTextboxLabel.ImageAlign = ContentAlignment.MiddleRight;
-            masterDataEnhancedDetailDataSubjectIdTextboxLabel.Location = new Point(13, 141);
+            masterDataEnhancedDetailDataSubjectIdTextboxLabel.Location = new Point(61, 141);
             masterDataEnhancedDetailDataSubjectIdTextboxLabel.Name = "masterDataEnhancedDetailDataSubjectIdTextboxLabel";
-            masterDataEnhancedDetailDataSubjectIdTextboxLabel.Size = new Size(275, 20);
+            masterDataEnhancedDetailDataSubjectIdTextboxLabel.Size = new Size(230, 20);
             masterDataEnhancedDetailDataSubjectIdTextboxLabel.TabIndex = 28;
             masterDataEnhancedDetailDataSubjectIdTextboxLabel.Text = "{MasterData Type Placeholder Id}";
             masterDataEnhancedDetailDataSubjectIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
@@ -219,10 +225,11 @@
             // 
             // masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel
             // 
+            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.AutoSize = true;
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.ImageAlign = ContentAlignment.MiddleRight;
-            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Location = new Point(13, 224);
+            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Location = new Point(33, 224);
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Name = "masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel";
-            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Size = new Size(275, 20);
+            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Size = new Size(258, 20);
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.TabIndex = 36;
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Text = "{MasterData Description Placeholder}";
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.TextAlign = ContentAlignment.TopRight;

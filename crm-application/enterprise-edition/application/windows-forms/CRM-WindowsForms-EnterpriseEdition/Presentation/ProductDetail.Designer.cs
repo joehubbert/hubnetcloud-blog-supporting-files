@@ -75,6 +75,7 @@
             productDetailOverviewProductCategoryLabel = new Label();
             productDetailOverviewSupplierLabel = new Label();
             productDetailTabControlProductImagePage = new TabPage();
+            productDetailProductImageRemoveProductImageButton = new Button();
             productDetailProductImagePictureBox = new PictureBox();
             productDetailProductImagePictureBoxLabel = new Label();
             productDetailProductImageChooseProductImageButton = new Button();
@@ -82,7 +83,6 @@
             productDetailProductNotesRefreshDataButton = new Button();
             productDetailProductNotesCreateNewProductNoteButton = new Button();
             productDetailProductNotesExistingProductNotesDataGridView = new DataGridView();
-            productDetailProductImageRemoveProductImageButton = new Button();
             productDetailTabControl.SuspendLayout();
             productDetailTabControlOverviewPage.SuspendLayout();
             productDetailOverviewPerUnitGroupBox.SuspendLayout();
@@ -187,6 +187,7 @@
             productDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             productDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 54;
             productDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewLastUpdatedByTextboxLabel
             // 
@@ -196,6 +197,7 @@
             productDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             productDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 53;
             productDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            productDetailOverviewLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewCreatedTimestampTextboxLabel
             // 
@@ -205,6 +207,7 @@
             productDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             productDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 52;
             productDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            productDetailOverviewCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewCreatedByTextboxLabel
             // 
@@ -214,6 +217,7 @@
             productDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
             productDetailOverviewCreatedByTextboxLabel.TabIndex = 49;
             productDetailOverviewCreatedByTextboxLabel.Text = "Created By";
+            productDetailOverviewCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailProductIdLabel
             // 
@@ -223,6 +227,7 @@
             productDetailProductIdLabel.Size = new Size(77, 20);
             productDetailProductIdLabel.TabIndex = 43;
             productDetailProductIdLabel.Text = "Product Id";
+            productDetailProductIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailTitleLabel
             // 
@@ -316,6 +321,7 @@
             productDetailOverviewUnitMinimumStockQuantityLabel.Size = new Size(203, 20);
             productDetailOverviewUnitMinimumStockQuantityLabel.TabIndex = 73;
             productDetailOverviewUnitMinimumStockQuantityLabel.Text = "Unit Minimum Stock Quantity";
+            productDetailOverviewUnitMinimumStockQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewUnitMinimumOrderQuantityTextbox
             // 
@@ -336,6 +342,7 @@
             productDetailOverviewUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
             productDetailOverviewUnitMinimumOrderQuantityLabel.TabIndex = 71;
             productDetailOverviewUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
+            productDetailOverviewUnitMinimumOrderQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewUnitPriceTextboxB
             // 
@@ -356,6 +363,7 @@
             productDetailOverviewUnitPriceLabel.Size = new Size(78, 20);
             productDetailOverviewUnitPriceLabel.TabIndex = 53;
             productDetailOverviewUnitPriceLabel.Text = "Unit Price*";
+            productDetailOverviewUnitPriceLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewUnitPriceTextboxSeparatorLabel
             // 
@@ -396,6 +404,7 @@
             productDetailOverviewUnitStockQuantityHeldLabel.Size = new Size(172, 20);
             productDetailOverviewUnitStockQuantityHeldLabel.TabIndex = 56;
             productDetailOverviewUnitStockQuantityHeldLabel.Text = "Unit Stock Quantity Held";
+            productDetailOverviewUnitStockQuantityHeldLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewWholesaleGroupBox
             // 
@@ -446,6 +455,7 @@
             productDetailOverviewWholesaleReorderFlagLabel.Size = new Size(149, 20);
             productDetailOverviewWholesaleReorderFlagLabel.TabIndex = 72;
             productDetailOverviewWholesaleReorderFlagLabel.Text = "Wbolesale Reorder?*";
+            productDetailOverviewWholesaleReorderFlagLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewWholesalePricePerUnitTextboxSeparator
             // 
@@ -466,6 +476,7 @@
             productDetailOverviewWholesalePricePerUnitLabel.Size = new Size(175, 20);
             productDetailOverviewWholesalePricePerUnitLabel.TabIndex = 57;
             productDetailOverviewWholesalePricePerUnitLabel.Text = "Wholesale Price Per Unit*";
+            productDetailOverviewWholesalePricePerUnitLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewWholesaleReorderFlagPanel
             // 
@@ -528,6 +539,7 @@
             productDetailOverviewWholesaleCartonQuantityLabel.Size = new Size(192, 20);
             productDetailOverviewWholesaleCartonQuantityLabel.TabIndex = 54;
             productDetailOverviewWholesaleCartonQuantityLabel.Text = "Wholesale Carton Quantity*";
+            productDetailOverviewWholesaleCartonQuantityLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewWholesaleUnitQuantityPerCartonLabel
             // 
@@ -538,6 +550,7 @@
             productDetailOverviewWholesaleUnitQuantityPerCartonLabel.Size = new Size(247, 20);
             productDetailOverviewWholesaleUnitQuantityPerCartonLabel.TabIndex = 55;
             productDetailOverviewWholesaleUnitQuantityPerCartonLabel.Text = "Wholesale Unit Quantity Per Carton*";
+            productDetailOverviewWholesaleUnitQuantityPerCartonLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewSupplierComboBox
             // 
@@ -574,6 +587,7 @@
             productDetailOverviewProductNameLabel.Size = new Size(110, 20);
             productDetailOverviewProductNameLabel.TabIndex = 66;
             productDetailOverviewProductNameLabel.Text = "Product Name*";
+            productDetailOverviewProductNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewProductCategoryLabel
             // 
@@ -583,6 +597,7 @@
             productDetailOverviewProductCategoryLabel.Size = new Size(130, 20);
             productDetailOverviewProductCategoryLabel.TabIndex = 67;
             productDetailOverviewProductCategoryLabel.Text = "Product Category*";
+            productDetailOverviewProductCategoryLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailOverviewSupplierLabel
             // 
@@ -592,6 +607,7 @@
             productDetailOverviewSupplierLabel.Size = new Size(70, 20);
             productDetailOverviewSupplierLabel.TabIndex = 68;
             productDetailOverviewSupplierLabel.Text = "Supplier*";
+            productDetailOverviewSupplierLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailTabControlProductImagePage
             // 
@@ -605,6 +621,19 @@
             productDetailTabControlProductImagePage.Size = new Size(1256, 589);
             productDetailTabControlProductImagePage.TabIndex = 5;
             productDetailTabControlProductImagePage.Text = "Product Image";
+            // 
+            // productDetailProductImageRemoveProductImageButton
+            // 
+            productDetailProductImageRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
+            productDetailProductImageRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            productDetailProductImageRemoveProductImageButton.Location = new Point(301, 12);
+            productDetailProductImageRemoveProductImageButton.Margin = new Padding(4);
+            productDetailProductImageRemoveProductImageButton.Name = "productDetailProductImageRemoveProductImageButton";
+            productDetailProductImageRemoveProductImageButton.Size = new Size(159, 51);
+            productDetailProductImageRemoveProductImageButton.TabIndex = 82;
+            productDetailProductImageRemoveProductImageButton.Text = "Remove Product Image";
+            productDetailProductImageRemoveProductImageButton.UseVisualStyleBackColor = true;
+            productDetailProductImageRemoveProductImageButton.Click += productDetailProductImageRemoveProductImageButton_Click;
             // 
             // productDetailProductImagePictureBox
             // 
@@ -625,6 +654,7 @@
             productDetailProductImagePictureBoxLabel.Size = new Size(106, 20);
             productDetailProductImagePictureBoxLabel.TabIndex = 81;
             productDetailProductImagePictureBoxLabel.Text = "Product Image";
+            productDetailProductImagePictureBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // productDetailProductImageChooseProductImageButton
             // 
@@ -646,9 +676,9 @@
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesRefreshDataButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesCreateNewProductNoteButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
-            productDetailTabControlProductNotesPage.Location = new Point(4, 27);
+            productDetailTabControlProductNotesPage.Location = new Point(4, 32);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 594);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 589);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 
@@ -689,19 +719,6 @@
             productDetailProductNotesExistingProductNotesDataGridView.ReadOnly = true;
             productDetailProductNotesExistingProductNotesDataGridView.Size = new Size(1059, 523);
             productDetailProductNotesExistingProductNotesDataGridView.TabIndex = 21;
-            // 
-            // productDetailProductImageRemoveProductImageButton
-            // 
-            productDetailProductImageRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
-            productDetailProductImageRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            productDetailProductImageRemoveProductImageButton.Location = new Point(301, 12);
-            productDetailProductImageRemoveProductImageButton.Margin = new Padding(4);
-            productDetailProductImageRemoveProductImageButton.Name = "productDetailProductImageRemoveProductImageButton";
-            productDetailProductImageRemoveProductImageButton.Size = new Size(159, 51);
-            productDetailProductImageRemoveProductImageButton.TabIndex = 82;
-            productDetailProductImageRemoveProductImageButton.Text = "Remove Product Image";
-            productDetailProductImageRemoveProductImageButton.UseVisualStyleBackColor = true;
-            productDetailProductImageRemoveProductImageButton.Click += productDetailProductImageRemoveProductImageButton_Click;
             // 
             // ProductDetail
             // 

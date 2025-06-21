@@ -216,6 +216,7 @@
             createCustomerOverviewEmailAddressLabel.Size = new Size(109, 20);
             createCustomerOverviewEmailAddressLabel.TabIndex = 52;
             createCustomerOverviewEmailAddressLabel.Text = "Email Address*";
+            createCustomerOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewTelephoneNumberLabel
             // 
@@ -225,6 +226,7 @@
             createCustomerOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerOverviewTelephoneNumberLabel.TabIndex = 51;
             createCustomerOverviewTelephoneNumberLabel.Text = "Telephone Number*";
+            createCustomerOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewEmailAddressTextbox
             // 
@@ -290,6 +292,7 @@
             createCustomerOverviewSalesSubRegionLabel.Size = new Size(129, 20);
             createCustomerOverviewSalesSubRegionLabel.TabIndex = 46;
             createCustomerOverviewSalesSubRegionLabel.Text = "Sales Sub Region*";
+            createCustomerOverviewSalesSubRegionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewSalesSubRegionComboBox
             // 
@@ -410,6 +413,7 @@
             createCustomerOverviewSalesRegionLabel.Size = new Size(100, 20);
             createCustomerOverviewSalesRegionLabel.TabIndex = 34;
             createCustomerOverviewSalesRegionLabel.Text = "Sales Region*";
+            createCustomerOverviewSalesRegionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewSalesRegionComboBox
             // 
@@ -428,6 +432,7 @@
             createCustomerOverviewGlobalParentCustomerLabel.Size = new Size(165, 20);
             createCustomerOverviewGlobalParentCustomerLabel.TabIndex = 32;
             createCustomerOverviewGlobalParentCustomerLabel.Text = "Global Parent Customer";
+            createCustomerOverviewGlobalParentCustomerLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewTopParentCustomerLabel
             // 
@@ -437,6 +442,7 @@
             createCustomerOverviewTopParentCustomerLabel.Size = new Size(146, 20);
             createCustomerOverviewTopParentCustomerLabel.TabIndex = 31;
             createCustomerOverviewTopParentCustomerLabel.Text = "Top Parent Customer";
+            createCustomerOverviewTopParentCustomerLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewAccountManagerLabel
             // 
@@ -446,6 +452,7 @@
             createCustomerOverviewAccountManagerLabel.Size = new Size(132, 20);
             createCustomerOverviewAccountManagerLabel.TabIndex = 30;
             createCustomerOverviewAccountManagerLabel.Text = "Account Manager*";
+            createCustomerOverviewAccountManagerLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewAccountManagerComboBox
             // 
@@ -464,6 +471,7 @@
             createCustomerOverviewFirstNameLabel.Size = new Size(86, 20);
             createCustomerOverviewFirstNameLabel.TabIndex = 28;
             createCustomerOverviewFirstNameLabel.Text = "First Name*";
+            createCustomerOverviewFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewLastNameLabel
             // 
@@ -473,6 +481,7 @@
             createCustomerOverviewLastNameLabel.Size = new Size(85, 20);
             createCustomerOverviewLastNameLabel.TabIndex = 27;
             createCustomerOverviewLastNameLabel.Text = "Last Name*";
+            createCustomerOverviewLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewCompanyNameLabel
             // 
@@ -482,6 +491,7 @@
             createCustomerOverviewCompanyNameLabel.Size = new Size(122, 20);
             createCustomerOverviewCompanyNameLabel.TabIndex = 26;
             createCustomerOverviewCompanyNameLabel.Text = "Company Name*";
+            createCustomerOverviewCompanyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewLastNameTextbox
             // 
@@ -515,6 +525,7 @@
             createCustomerOverviewCustomerTierLabel.Size = new Size(107, 20);
             createCustomerOverviewCustomerTierLabel.TabIndex = 22;
             createCustomerOverviewCustomerTierLabel.Text = "Customer Tier*";
+            createCustomerOverviewCustomerTierLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewCustomerTypeLabel
             // 
@@ -524,6 +535,7 @@
             createCustomerOverviewCustomerTypeLabel.Size = new Size(113, 20);
             createCustomerOverviewCustomerTypeLabel.TabIndex = 21;
             createCustomerOverviewCustomerTypeLabel.Text = "Customer Type*";
+            createCustomerOverviewCustomerTypeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewCustomerSinceLabel
             // 
@@ -533,6 +545,7 @@
             createCustomerOverviewCustomerSinceLabel.Size = new Size(117, 20);
             createCustomerOverviewCustomerSinceLabel.TabIndex = 20;
             createCustomerOverviewCustomerSinceLabel.Text = "Customer Since*";
+            createCustomerOverviewCustomerSinceLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerOverviewExistingParentCompanyLabel
             // 
@@ -640,6 +653,7 @@
             createCustomerBillingInformationEmailAddressLabel.Size = new Size(109, 20);
             createCustomerBillingInformationEmailAddressLabel.TabIndex = 20;
             createCustomerBillingInformationEmailAddressLabel.Text = "Email Address*";
+            createCustomerBillingInformationEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationTelephoneNumberLabel
             // 
@@ -649,6 +663,7 @@
             createCustomerBillingInformationTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerBillingInformationTelephoneNumberLabel.TabIndex = 19;
             createCustomerBillingInformationTelephoneNumberLabel.Text = "Telephone Number*";
+            createCustomerBillingInformationTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine2Label
             // 
@@ -658,6 +673,7 @@
             createCustomerBillingInformationAddressLine2Label.Size = new Size(105, 20);
             createCustomerBillingInformationAddressLine2Label.TabIndex = 18;
             createCustomerBillingInformationAddressLine2Label.Text = "Address Line 2";
+            createCustomerBillingInformationAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine3Label
             // 
@@ -667,6 +683,7 @@
             createCustomerBillingInformationAddressLine3Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine3Label.TabIndex = 17;
             createCustomerBillingInformationAddressLine3Label.Text = "Address Line 3*";
+            createCustomerBillingInformationAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine4Label
             // 
@@ -676,6 +693,7 @@
             createCustomerBillingInformationAddressLine4Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine4Label.TabIndex = 16;
             createCustomerBillingInformationAddressLine4Label.Text = "Address Line 4*";
+            createCustomerBillingInformationAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine5Label
             // 
@@ -685,6 +703,7 @@
             createCustomerBillingInformationAddressLine5Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine5Label.TabIndex = 15;
             createCustomerBillingInformationAddressLine5Label.Text = "Address Line 5*";
+            createCustomerBillingInformationAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine1Label
             // 
@@ -694,6 +713,7 @@
             createCustomerBillingInformationAddressLine1Label.Size = new Size(111, 20);
             createCustomerBillingInformationAddressLine1Label.TabIndex = 14;
             createCustomerBillingInformationAddressLine1Label.Text = "Address Line 1*";
+            createCustomerBillingInformationAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationCompanyNameLabel
             // 
@@ -703,6 +723,7 @@
             createCustomerBillingInformationCompanyNameLabel.Size = new Size(122, 20);
             createCustomerBillingInformationCompanyNameLabel.TabIndex = 13;
             createCustomerBillingInformationCompanyNameLabel.Text = "Company Name*";
+            createCustomerBillingInformationCompanyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationLastNameLabel
             // 
@@ -712,6 +733,7 @@
             createCustomerBillingInformationLastNameLabel.Size = new Size(85, 20);
             createCustomerBillingInformationLastNameLabel.TabIndex = 12;
             createCustomerBillingInformationLastNameLabel.Text = "Last Name*";
+            createCustomerBillingInformationLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationFirstNameLabel
             // 
@@ -721,6 +743,7 @@
             createCustomerBillingInformationFirstNameLabel.Size = new Size(86, 20);
             createCustomerBillingInformationFirstNameLabel.TabIndex = 11;
             createCustomerBillingInformationFirstNameLabel.Text = "First Name*";
+            createCustomerBillingInformationFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerBillingInformationAddressLine4Textbox
             // 
@@ -839,6 +862,7 @@
             createCustomerShippingInformationEmailAddressLabel.Size = new Size(109, 20);
             createCustomerShippingInformationEmailAddressLabel.TabIndex = 40;
             createCustomerShippingInformationEmailAddressLabel.Text = "Email Address*";
+            createCustomerShippingInformationEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationTelephoneNumberLabel
             // 
@@ -848,6 +872,7 @@
             createCustomerShippingInformationTelephoneNumberLabel.Size = new Size(142, 20);
             createCustomerShippingInformationTelephoneNumberLabel.TabIndex = 39;
             createCustomerShippingInformationTelephoneNumberLabel.Text = "Telephone Number*";
+            createCustomerShippingInformationTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine2Label
             // 
@@ -857,6 +882,7 @@
             createCustomerShippingInformationAddressLine2Label.Size = new Size(105, 20);
             createCustomerShippingInformationAddressLine2Label.TabIndex = 38;
             createCustomerShippingInformationAddressLine2Label.Text = "Address Line 2";
+            createCustomerShippingInformationAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine3Label
             // 
@@ -866,6 +892,7 @@
             createCustomerShippingInformationAddressLine3Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine3Label.TabIndex = 37;
             createCustomerShippingInformationAddressLine3Label.Text = "Address Line 3*";
+            createCustomerShippingInformationAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine4Label
             // 
@@ -875,6 +902,7 @@
             createCustomerShippingInformationAddressLine4Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine4Label.TabIndex = 36;
             createCustomerShippingInformationAddressLine4Label.Text = "Address Line 4*";
+            createCustomerShippingInformationAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine5Label
             // 
@@ -884,6 +912,7 @@
             createCustomerShippingInformationAddressLine5Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine5Label.TabIndex = 35;
             createCustomerShippingInformationAddressLine5Label.Text = "Address Line 5*";
+            createCustomerShippingInformationAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine1Label
             // 
@@ -893,6 +922,7 @@
             createCustomerShippingInformationAddressLine1Label.Size = new Size(111, 20);
             createCustomerShippingInformationAddressLine1Label.TabIndex = 34;
             createCustomerShippingInformationAddressLine1Label.Text = "Address Line 1*";
+            createCustomerShippingInformationAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationCompanyNameLabel
             // 
@@ -902,6 +932,7 @@
             createCustomerShippingInformationCompanyNameLabel.Size = new Size(122, 20);
             createCustomerShippingInformationCompanyNameLabel.TabIndex = 33;
             createCustomerShippingInformationCompanyNameLabel.Text = "Company Name*";
+            createCustomerShippingInformationCompanyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationLastNameLabel
             // 
@@ -911,6 +942,7 @@
             createCustomerShippingInformationLastNameLabel.Size = new Size(85, 20);
             createCustomerShippingInformationLastNameLabel.TabIndex = 32;
             createCustomerShippingInformationLastNameLabel.Text = "Last Name*";
+            createCustomerShippingInformationLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationFirstNameLabel
             // 
@@ -920,6 +952,7 @@
             createCustomerShippingInformationFirstNameLabel.Size = new Size(86, 20);
             createCustomerShippingInformationFirstNameLabel.TabIndex = 31;
             createCustomerShippingInformationFirstNameLabel.Text = "First Name*";
+            createCustomerShippingInformationFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerShippingInformationAddressLine4Textbox
             // 
@@ -1030,6 +1063,7 @@
             createCustomerFinanceVATNumberLabel.Size = new Size(92, 20);
             createCustomerFinanceVATNumberLabel.TabIndex = 23;
             createCustomerFinanceVATNumberLabel.Text = "VAT Number";
+            createCustomerFinanceVATNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerFinanceVATNumberTextbox
             // 
@@ -1061,6 +1095,7 @@
             createCustomerFinancePaymentDaysLabel.Size = new Size(107, 20);
             createCustomerFinancePaymentDaysLabel.TabIndex = 20;
             createCustomerFinancePaymentDaysLabel.Text = "Payment Days*";
+            createCustomerFinancePaymentDaysLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerFinancePaymentCurrencyLabel
             // 
@@ -1070,6 +1105,7 @@
             createCustomerFinancePaymentCurrencyLabel.Size = new Size(132, 20);
             createCustomerFinancePaymentCurrencyLabel.TabIndex = 19;
             createCustomerFinancePaymentCurrencyLabel.Text = "Payment Currency*";
+            createCustomerFinancePaymentCurrencyLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerFinanceCreditLimitLabel
             // 
@@ -1079,6 +1115,7 @@
             createCustomerFinanceCreditLimitLabel.Size = new Size(86, 20);
             createCustomerFinanceCreditLimitLabel.TabIndex = 18;
             createCustomerFinanceCreditLimitLabel.Text = "Credit Limit";
+            createCustomerFinanceCreditLimitLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerFinancePaymentDaysTextbox
             // 

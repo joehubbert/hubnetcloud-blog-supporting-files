@@ -63,6 +63,7 @@
             createDeliveryMethodDeliveryMethodLabel.Size = new Size(119, 20);
             createDeliveryMethodDeliveryMethodLabel.TabIndex = 7;
             createDeliveryMethodDeliveryMethodLabel.Text = "Delivery Method";
+            createDeliveryMethodDeliveryMethodLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryMethodTextbox
             // 
@@ -109,6 +110,7 @@
             createDeliveryMethodDeliveryCostLabel.Size = new Size(96, 20);
             createDeliveryMethodDeliveryCostLabel.TabIndex = 13;
             createDeliveryMethodDeliveryCostLabel.Text = "Delivery Cost";
+            createDeliveryMethodDeliveryCostLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryCostTextboxA
             // 
@@ -146,6 +148,7 @@
             createDeliveryMethodDeliveryTimeLabel.Size = new Size(146, 20);
             createDeliveryMethodDeliveryTimeLabel.TabIndex = 17;
             createDeliveryMethodDeliveryTimeLabel.Text = "Delivery Time (Days)";
+            createDeliveryMethodDeliveryTimeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryTimeTextbox
             // 
@@ -174,6 +177,7 @@
             createDeliveryMethodTaxProfileLabel.Size = new Size(77, 20);
             createDeliveryMethodTaxProfileLabel.TabIndex = 20;
             createDeliveryMethodTaxProfileLabel.Text = "Tax Profile";
+            createDeliveryMethodTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // CreateDeliveryMethod
             // 

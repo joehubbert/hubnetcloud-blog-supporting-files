@@ -69,6 +69,7 @@
             taxProfileDetailTaxProfileIdLabel.Size = new Size(94, 20);
             taxProfileDetailTaxProfileIdLabel.TabIndex = 8;
             taxProfileDetailTaxProfileIdLabel.Text = "Tax Profile Id";
+            taxProfileDetailTaxProfileIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailTaxProfileLabel
             // 
@@ -78,6 +79,7 @@
             taxProfileDetailTaxProfileLabel.Size = new Size(77, 20);
             taxProfileDetailTaxProfileLabel.TabIndex = 9;
             taxProfileDetailTaxProfileLabel.Text = "Tax Profile";
+            taxProfileDetailTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailTaxRateLabel
             // 
@@ -87,33 +89,37 @@
             taxProfileDetailTaxRateLabel.Size = new Size(64, 20);
             taxProfileDetailTaxRateLabel.TabIndex = 10;
             taxProfileDetailTaxRateLabel.Text = "Tax Rate";
+            taxProfileDetailTaxRateLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailCreatedByTextboxLabel
             // 
             taxProfileDetailCreatedByTextboxLabel.AutoSize = true;
-            taxProfileDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            taxProfileDetailCreatedByTextboxLabel.Location = new Point(763, 141);
             taxProfileDetailCreatedByTextboxLabel.Name = "taxProfileDetailCreatedByTextboxLabel";
             taxProfileDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             taxProfileDetailCreatedByTextboxLabel.TabIndex = 11;
             taxProfileDetailCreatedByTextboxLabel.Text = "Created By";
+            taxProfileDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailCreatedTimestampTextboxLabel
             // 
             taxProfileDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            taxProfileDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            taxProfileDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
             taxProfileDetailCreatedTimestampTextboxLabel.Name = "taxProfileDetailCreatedTimestampTextboxLabel";
             taxProfileDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             taxProfileDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             taxProfileDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            taxProfileDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailLastUpdatedByTextboxLabel
             // 
             taxProfileDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            taxProfileDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            taxProfileDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
             taxProfileDetailLastUpdatedByTextboxLabel.Name = "taxProfileDetailLastUpdatedByTextboxLabel";
             taxProfileDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             taxProfileDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             taxProfileDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            taxProfileDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailLastUpdatedTimestampTextboxLabel
             // 
@@ -123,6 +129,7 @@
             taxProfileDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             taxProfileDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             taxProfileDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            taxProfileDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailLastUpdatedByTextbox
             // 

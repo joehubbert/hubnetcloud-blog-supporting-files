@@ -67,6 +67,7 @@
             customerTierDetailCustomerTierIdLabel.Size = new Size(118, 20);
             customerTierDetailCustomerTierIdLabel.TabIndex = 8;
             customerTierDetailCustomerTierIdLabel.Text = "Customer Tier Id";
+            customerTierDetailCustomerTierIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCustomerTierCodeLabel
             // 
@@ -76,6 +77,7 @@
             customerTierDetailCustomerTierCodeLabel.Size = new Size(140, 20);
             customerTierDetailCustomerTierCodeLabel.TabIndex = 9;
             customerTierDetailCustomerTierCodeLabel.Text = "Customer Tier Code";
+            customerTierDetailCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCustomerTierDescriptionLabel
             // 
@@ -85,42 +87,47 @@
             customerTierDetailCustomerTierDescriptionLabel.Size = new Size(181, 20);
             customerTierDetailCustomerTierDescriptionLabel.TabIndex = 10;
             customerTierDetailCustomerTierDescriptionLabel.Text = "Customer Tier Description";
+            customerTierDetailCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCreatedByTextboxLabel
             // 
             customerTierDetailCreatedByTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            customerTierDetailCreatedByTextboxLabel.Location = new Point(763, 141);
             customerTierDetailCreatedByTextboxLabel.Name = "customerTierDetailCreatedByTextboxLabel";
             customerTierDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             customerTierDetailCreatedByTextboxLabel.TabIndex = 11;
             customerTierDetailCreatedByTextboxLabel.Text = "Created By";
+            customerTierDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCreatedTimestampTextboxLabel
             // 
             customerTierDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
             customerTierDetailCreatedTimestampTextboxLabel.Name = "customerTierDetailCreatedTimestampTextboxLabel";
             customerTierDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             customerTierDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             customerTierDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            customerTierDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailLastUpdatedByTextboxLabel
             // 
             customerTierDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
             customerTierDetailLastUpdatedByTextboxLabel.Name = "customerTierDetailLastUpdatedByTextboxLabel";
             customerTierDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             customerTierDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             customerTierDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            customerTierDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailLastUpdatedTimestampTextboxLabel
             // 
             customerTierDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 261);
             customerTierDetailLastUpdatedTimestampTextboxLabel.Name = "customerTierDetailLastUpdatedTimestampTextboxLabel";
             customerTierDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             customerTierDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             customerTierDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            customerTierDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailLastUpdatedByTextbox
             // 

@@ -124,6 +124,7 @@
             accountManagerDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             accountManagerDetailLastUpdatedTimestampTextboxLabel.TabIndex = 32;
             accountManagerDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailCreatedTimestampTextboxLabel
             // 
@@ -135,6 +136,7 @@
             accountManagerDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             accountManagerDetailCreatedTimestampTextboxLabel.TabIndex = 31;
             accountManagerDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            accountManagerDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailLastUpdatedByTextboxLabel
             // 
@@ -146,6 +148,7 @@
             accountManagerDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             accountManagerDetailLastUpdatedByTextboxLabel.TabIndex = 30;
             accountManagerDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            accountManagerDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailCreatedByTextboxLabel
             // 
@@ -157,6 +160,7 @@
             accountManagerDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             accountManagerDetailCreatedByTextboxLabel.TabIndex = 29;
             accountManagerDetailCreatedByTextboxLabel.Text = "Created By";
+            accountManagerDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailLastUpdatedByTextbox
             // 
@@ -225,6 +229,7 @@
             accountManagerDetailAccountManagerIdLabel.Size = new Size(143, 20);
             accountManagerDetailAccountManagerIdLabel.TabIndex = 23;
             accountManagerDetailAccountManagerIdLabel.Text = "Account Manager Id";
+            accountManagerDetailAccountManagerIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailAccountManagerIdTextbox
             // 
@@ -274,6 +279,7 @@
             accountManagerDetailTelephoneNumberLabel.Size = new Size(136, 20);
             accountManagerDetailTelephoneNumberLabel.TabIndex = 18;
             accountManagerDetailTelephoneNumberLabel.Text = "Telephone Number";
+            accountManagerDetailTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailEmailAddressLabel
             // 
@@ -285,6 +291,7 @@
             accountManagerDetailEmailAddressLabel.Size = new Size(103, 20);
             accountManagerDetailEmailAddressLabel.TabIndex = 17;
             accountManagerDetailEmailAddressLabel.Text = "Email Address";
+            accountManagerDetailEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailLastNameLabel
             // 
@@ -296,6 +303,7 @@
             accountManagerDetailLastNameLabel.Size = new Size(79, 20);
             accountManagerDetailLastNameLabel.TabIndex = 16;
             accountManagerDetailLastNameLabel.Text = "Last Name";
+            accountManagerDetailLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailFirstNameLabel
             // 
@@ -307,6 +315,7 @@
             accountManagerDetailFirstNameLabel.Size = new Size(80, 20);
             accountManagerDetailFirstNameLabel.TabIndex = 15;
             accountManagerDetailFirstNameLabel.Text = "First Name";
+            accountManagerDetailFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailLastNameTextbox
             // 

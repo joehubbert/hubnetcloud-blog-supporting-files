@@ -44,7 +44,7 @@
             createMasterDataEnhancedTitleLabel.Location = new Point(14, 9);
             createMasterDataEnhancedTitleLabel.Margin = new Padding(5, 0, 5, 0);
             createMasterDataEnhancedTitleLabel.Name = "createMasterDataEnhancedTitleLabel";
-            createMasterDataEnhancedTitleLabel.Size = new Size(342, 32);
+            createMasterDataEnhancedTitleLabel.Size = new Size(366, 32);
             createMasterDataEnhancedTitleLabel.TabIndex = 8;
             createMasterDataEnhancedTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
@@ -59,13 +59,14 @@
             // 
             // createMasterDataEnhancedMasterDataTypeTextboxLabel
             // 
+            createMasterDataEnhancedMasterDataTypeTextboxLabel.AutoSize = true;
             createMasterDataEnhancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Location = new Point(29, 66);
+            createMasterDataEnhancedMasterDataTypeTextboxLabel.Location = new Point(86, 66);
             createMasterDataEnhancedMasterDataTypeTextboxLabel.Name = "createMasterDataEnhancedMasterDataTypeTextboxLabel";
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Size = new Size(259, 20);
+            createMasterDataEnhancedMasterDataTypeTextboxLabel.Size = new Size(213, 20);
             createMasterDataEnhancedMasterDataTypeTextboxLabel.TabIndex = 23;
             createMasterDataEnhancedMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.MiddleRight;
+            createMasterDataEnhancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataEnhancedSubmitButton
             // 
@@ -104,13 +105,14 @@
             // 
             // createMasterDataEnhancedMasterDataDescriptionTextboxLabel
             // 
+            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.AutoSize = true;
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Location = new Point(29, 107);
+            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Location = new Point(41, 107);
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Name = "createMasterDataEnhancedMasterDataDescriptionTextboxLabel";
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Size = new Size(259, 20);
+            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Size = new Size(258, 20);
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TabIndex = 25;
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Text = "{MasterData Description Placeholder}";
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TextAlign = ContentAlignment.MiddleRight;
+            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // CreateMasterDataEnhanced
             // 

@@ -162,6 +162,7 @@
             manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 54;
             manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewLastUpdatedByTextboxLabel
             // 
@@ -171,6 +172,7 @@
             manufacturerDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             manufacturerDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 53;
             manufacturerDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewCreatedTimestampTextboxLabel
             // 
@@ -180,6 +182,7 @@
             manufacturerDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             manufacturerDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 52;
             manufacturerDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewCreatedByTextboxLabel
             // 
@@ -189,6 +192,7 @@
             manufacturerDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
             manufacturerDetailOverviewCreatedByTextboxLabel.TabIndex = 49;
             manufacturerDetailOverviewCreatedByTextboxLabel.Text = "Created By";
+            manufacturerDetailOverviewCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailManufacturerIdLabel
             // 
@@ -198,6 +202,7 @@
             manufacturerDetailManufacturerIdLabel.Size = new Size(114, 20);
             manufacturerDetailManufacturerIdLabel.TabIndex = 43;
             manufacturerDetailManufacturerIdLabel.Text = "Manufacturer Id";
+            manufacturerDetailManufacturerIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailTitleLabel
             // 
@@ -266,42 +271,47 @@
             manufacturerDetailOverviewAddressLine2Label.Size = new Size(105, 20);
             manufacturerDetailOverviewAddressLine2Label.TabIndex = 57;
             manufacturerDetailOverviewAddressLine2Label.Text = "Address Line 2";
+            manufacturerDetailOverviewAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewAddressLine3Label
             // 
             manufacturerDetailOverviewAddressLine3Label.AutoSize = true;
             manufacturerDetailOverviewAddressLine3Label.Location = new Point(697, 123);
             manufacturerDetailOverviewAddressLine3Label.Name = "manufacturerDetailOverviewAddressLine3Label";
-            manufacturerDetailOverviewAddressLine3Label.Size = new Size(105, 20);
+            manufacturerDetailOverviewAddressLine3Label.Size = new Size(111, 20);
             manufacturerDetailOverviewAddressLine3Label.TabIndex = 56;
-            manufacturerDetailOverviewAddressLine3Label.Text = "Address Line 3";
+            manufacturerDetailOverviewAddressLine3Label.Text = "Address Line 3*";
+            manufacturerDetailOverviewAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewAddressLine4Label
             // 
             manufacturerDetailOverviewAddressLine4Label.AutoSize = true;
             manufacturerDetailOverviewAddressLine4Label.Location = new Point(697, 168);
             manufacturerDetailOverviewAddressLine4Label.Name = "manufacturerDetailOverviewAddressLine4Label";
-            manufacturerDetailOverviewAddressLine4Label.Size = new Size(105, 20);
+            manufacturerDetailOverviewAddressLine4Label.Size = new Size(111, 20);
             manufacturerDetailOverviewAddressLine4Label.TabIndex = 55;
-            manufacturerDetailOverviewAddressLine4Label.Text = "Address Line 4";
+            manufacturerDetailOverviewAddressLine4Label.Text = "Address Line 4*";
+            manufacturerDetailOverviewAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewAddressLine5Label
             // 
             manufacturerDetailOverviewAddressLine5Label.AutoSize = true;
             manufacturerDetailOverviewAddressLine5Label.Location = new Point(697, 213);
             manufacturerDetailOverviewAddressLine5Label.Name = "manufacturerDetailOverviewAddressLine5Label";
-            manufacturerDetailOverviewAddressLine5Label.Size = new Size(105, 20);
+            manufacturerDetailOverviewAddressLine5Label.Size = new Size(111, 20);
             manufacturerDetailOverviewAddressLine5Label.TabIndex = 54;
-            manufacturerDetailOverviewAddressLine5Label.Text = "Address Line 5";
+            manufacturerDetailOverviewAddressLine5Label.Text = "Address Line 5*";
+            manufacturerDetailOverviewAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewAddressLine1Label
             // 
             manufacturerDetailOverviewAddressLine1Label.AutoSize = true;
             manufacturerDetailOverviewAddressLine1Label.Location = new Point(697, 33);
             manufacturerDetailOverviewAddressLine1Label.Name = "manufacturerDetailOverviewAddressLine1Label";
-            manufacturerDetailOverviewAddressLine1Label.Size = new Size(105, 20);
+            manufacturerDetailOverviewAddressLine1Label.Size = new Size(111, 20);
             manufacturerDetailOverviewAddressLine1Label.TabIndex = 53;
-            manufacturerDetailOverviewAddressLine1Label.Text = "Address Line 1";
+            manufacturerDetailOverviewAddressLine1Label.Text = "Address Line 1*";
+            manufacturerDetailOverviewAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewAddressLine4Textbox
             // 
@@ -356,6 +366,7 @@
             manufacturerDetailOverviewEmailAddressLabel.Size = new Size(109, 20);
             manufacturerDetailOverviewEmailAddressLabel.TabIndex = 52;
             manufacturerDetailOverviewEmailAddressLabel.Text = "Email Address*";
+            manufacturerDetailOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewTelephoneNumberLabel
             // 
@@ -365,6 +376,7 @@
             manufacturerDetailOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             manufacturerDetailOverviewTelephoneNumberLabel.TabIndex = 51;
             manufacturerDetailOverviewTelephoneNumberLabel.Text = "Telephone Number*";
+            manufacturerDetailOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewEmailAddressTextbox
             // 
@@ -392,6 +404,7 @@
             manufacturerDetailOverviewManufacturerNameLabel.Size = new Size(147, 20);
             manufacturerDetailOverviewManufacturerNameLabel.TabIndex = 28;
             manufacturerDetailOverviewManufacturerNameLabel.Text = "Manufacturer Name*";
+            manufacturerDetailOverviewManufacturerNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailOverviewManufacturerNameTextbox
             // 
@@ -422,6 +435,7 @@
             manufacturerDetailFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
             manufacturerDetailFinanceVATNumberTextboxLabel.TabIndex = 23;
             manufacturerDetailFinanceVATNumberTextboxLabel.Text = "VAT Number";
+            manufacturerDetailFinanceVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailFinanceVATNumberTextbox
             // 

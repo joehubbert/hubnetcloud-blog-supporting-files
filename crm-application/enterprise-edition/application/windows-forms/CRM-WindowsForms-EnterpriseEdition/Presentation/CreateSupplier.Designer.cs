@@ -119,6 +119,7 @@
             createSupplierOverviewAddressLine2Label.Size = new Size(105, 20);
             createSupplierOverviewAddressLine2Label.TabIndex = 57;
             createSupplierOverviewAddressLine2Label.Text = "Address Line 2";
+            createSupplierOverviewAddressLine2Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewAddressLine3Label
             // 
@@ -128,6 +129,7 @@
             createSupplierOverviewAddressLine3Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine3Label.TabIndex = 56;
             createSupplierOverviewAddressLine3Label.Text = "Address Line 3*";
+            createSupplierOverviewAddressLine3Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewAddressLine4Label
             // 
@@ -137,6 +139,7 @@
             createSupplierOverviewAddressLine4Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine4Label.TabIndex = 55;
             createSupplierOverviewAddressLine4Label.Text = "Address Line 4*";
+            createSupplierOverviewAddressLine4Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewAddressLine5Label
             // 
@@ -146,6 +149,7 @@
             createSupplierOverviewAddressLine5Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine5Label.TabIndex = 54;
             createSupplierOverviewAddressLine5Label.Text = "Address Line 5*";
+            createSupplierOverviewAddressLine5Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewAddressLine1Label
             // 
@@ -155,6 +159,7 @@
             createSupplierOverviewAddressLine1Label.Size = new Size(111, 20);
             createSupplierOverviewAddressLine1Label.TabIndex = 53;
             createSupplierOverviewAddressLine1Label.Text = "Address Line 1*";
+            createSupplierOverviewAddressLine1Label.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewAddressLine4Textbox
             // 
@@ -199,11 +204,12 @@
             // createSupplierOverviewEmailAddressLabel
             // 
             createSupplierOverviewEmailAddressLabel.AutoSize = true;
-            createSupplierOverviewEmailAddressLabel.Location = new Point(41, 115);
+            createSupplierOverviewEmailAddressLabel.Location = new Point(45, 117);
             createSupplierOverviewEmailAddressLabel.Name = "createSupplierOverviewEmailAddressLabel";
             createSupplierOverviewEmailAddressLabel.Size = new Size(109, 20);
             createSupplierOverviewEmailAddressLabel.TabIndex = 52;
             createSupplierOverviewEmailAddressLabel.Text = "Email Address*";
+            createSupplierOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewTelephoneNumberLabel
             // 
@@ -213,6 +219,7 @@
             createSupplierOverviewTelephoneNumberLabel.Size = new Size(142, 20);
             createSupplierOverviewTelephoneNumberLabel.TabIndex = 51;
             createSupplierOverviewTelephoneNumberLabel.Text = "Telephone Number*";
+            createSupplierOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewEmailAddressTextbox
             // 
@@ -238,6 +245,7 @@
             createSupplierOverviewSupplierNameLabel.Size = new Size(114, 20);
             createSupplierOverviewSupplierNameLabel.TabIndex = 28;
             createSupplierOverviewSupplierNameLabel.Text = "Supplier Name*";
+            createSupplierOverviewSupplierNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierOverviewSupplierNameTextbox
             // 
@@ -285,6 +293,7 @@
             createSupplierFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
             createSupplierFinanceVATNumberTextboxLabel.TabIndex = 23;
             createSupplierFinanceVATNumberTextboxLabel.Text = "VAT Number";
+            createSupplierFinanceVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierFinanceVATNumberTextbox
             // 
@@ -316,6 +325,7 @@
             createSupplierFinancePaymentDaysTextboxLabel.Size = new Size(107, 20);
             createSupplierFinancePaymentDaysTextboxLabel.TabIndex = 20;
             createSupplierFinancePaymentDaysTextboxLabel.Text = "Payment Days*";
+            createSupplierFinancePaymentDaysTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierFinancePaymentCurrencyComboBoxLabel
             // 
@@ -325,6 +335,7 @@
             createSupplierFinancePaymentCurrencyComboBoxLabel.Size = new Size(132, 20);
             createSupplierFinancePaymentCurrencyComboBoxLabel.TabIndex = 19;
             createSupplierFinancePaymentCurrencyComboBoxLabel.Text = "Payment Currency*";
+            createSupplierFinancePaymentCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierFinancePaymentDaysTextbox
             // 

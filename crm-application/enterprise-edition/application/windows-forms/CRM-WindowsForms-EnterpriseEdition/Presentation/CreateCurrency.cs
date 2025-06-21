@@ -45,7 +45,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     AllowNullValue = false,
                     Name = "CurrencyCode",
                     Value = currencyCode,
-                    MaxLength = 1,
+                    MaxLength = 3,
                     ValueType = typeof(string)
                 },
                 new ValidateDataInput.DataProperty

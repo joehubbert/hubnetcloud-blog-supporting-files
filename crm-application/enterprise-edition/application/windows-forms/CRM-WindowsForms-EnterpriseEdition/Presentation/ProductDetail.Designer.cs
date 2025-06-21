@@ -36,10 +36,10 @@
             productDetailOverviewLastUpdatedTimestampTextbox = new TextBox();
             productDetailOverviewCreatedByTextbox = new TextBox();
             productDetailOverviewLastUpdatedByTextbox = new TextBox();
-            productDetailOverviewLastUpdatedTimestampLabel = new Label();
-            productDetailOverviewLastUpdatedByLabel = new Label();
-            productDetailOverviewCreatedTimestampLabel = new Label();
-            productDetailOverviewCreatedByLabel = new Label();
+            productDetailOverviewLastUpdatedTimestampTextboxLabel = new Label();
+            productDetailOverviewLastUpdatedByTextboxLabel = new Label();
+            productDetailOverviewCreatedTimestampTextboxLabel = new Label();
+            productDetailOverviewCreatedByTextboxLabel = new Label();
             productDetailProductIdLabel = new Label();
             productDetailTitleLabel = new Label();
             productDetailTabControl = new TabControl();
@@ -179,41 +179,41 @@
             productDetailOverviewLastUpdatedByTextbox.Size = new Size(370, 27);
             productDetailOverviewLastUpdatedByTextbox.TabIndex = 19;
             // 
-            // productDetailOverviewLastUpdatedTimestampLabel
+            // productDetailOverviewLastUpdatedTimestampTextboxLabel
             // 
-            productDetailOverviewLastUpdatedTimestampLabel.AutoSize = true;
-            productDetailOverviewLastUpdatedTimestampLabel.Location = new Point(627, 421);
-            productDetailOverviewLastUpdatedTimestampLabel.Name = "productDetailOverviewLastUpdatedTimestampLabel";
-            productDetailOverviewLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            productDetailOverviewLastUpdatedTimestampLabel.TabIndex = 54;
-            productDetailOverviewLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.Location = new Point(627, 421);
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.Name = "productDetailOverviewLastUpdatedTimestampTextboxLabel";
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 54;
+            productDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
-            // productDetailOverviewLastUpdatedByLabel
+            // productDetailOverviewLastUpdatedByTextboxLabel
             // 
-            productDetailOverviewLastUpdatedByLabel.AutoSize = true;
-            productDetailOverviewLastUpdatedByLabel.Location = new Point(685, 375);
-            productDetailOverviewLastUpdatedByLabel.Name = "productDetailOverviewLastUpdatedByLabel";
-            productDetailOverviewLastUpdatedByLabel.Size = new Size(117, 20);
-            productDetailOverviewLastUpdatedByLabel.TabIndex = 53;
-            productDetailOverviewLastUpdatedByLabel.Text = "Last Updated By";
+            productDetailOverviewLastUpdatedByTextboxLabel.AutoSize = true;
+            productDetailOverviewLastUpdatedByTextboxLabel.Location = new Point(685, 375);
+            productDetailOverviewLastUpdatedByTextboxLabel.Name = "productDetailOverviewLastUpdatedByTextboxLabel";
+            productDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            productDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 53;
+            productDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // productDetailOverviewCreatedTimestampLabel
+            // productDetailOverviewCreatedTimestampTextboxLabel
             // 
-            productDetailOverviewCreatedTimestampLabel.AutoSize = true;
-            productDetailOverviewCreatedTimestampLabel.Location = new Point(663, 330);
-            productDetailOverviewCreatedTimestampLabel.Name = "productDetailOverviewCreatedTimestampLabel";
-            productDetailOverviewCreatedTimestampLabel.Size = new Size(139, 20);
-            productDetailOverviewCreatedTimestampLabel.TabIndex = 52;
-            productDetailOverviewCreatedTimestampLabel.Text = "Created Timestamp";
+            productDetailOverviewCreatedTimestampTextboxLabel.AutoSize = true;
+            productDetailOverviewCreatedTimestampTextboxLabel.Location = new Point(663, 330);
+            productDetailOverviewCreatedTimestampTextboxLabel.Name = "productDetailOverviewCreatedTimestampTextboxLabel";
+            productDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            productDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 52;
+            productDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // productDetailOverviewCreatedByLabel
+            // productDetailOverviewCreatedByTextboxLabel
             // 
-            productDetailOverviewCreatedByLabel.AutoSize = true;
-            productDetailOverviewCreatedByLabel.Location = new Point(721, 285);
-            productDetailOverviewCreatedByLabel.Name = "productDetailOverviewCreatedByLabel";
-            productDetailOverviewCreatedByLabel.Size = new Size(81, 20);
-            productDetailOverviewCreatedByLabel.TabIndex = 49;
-            productDetailOverviewCreatedByLabel.Text = "Created By";
+            productDetailOverviewCreatedByTextboxLabel.AutoSize = true;
+            productDetailOverviewCreatedByTextboxLabel.Location = new Point(721, 285);
+            productDetailOverviewCreatedByTextboxLabel.Name = "productDetailOverviewCreatedByTextboxLabel";
+            productDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
+            productDetailOverviewCreatedByTextboxLabel.TabIndex = 49;
+            productDetailOverviewCreatedByTextboxLabel.Text = "Created By";
             // 
             // productDetailProductIdLabel
             // 
@@ -264,10 +264,10 @@
             productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewSupplierLabel);
             productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewCreatedByTextbox);
             productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewLastUpdatedByTextbox);
-            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewLastUpdatedTimestampLabel);
-            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewLastUpdatedByLabel);
-            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewCreatedTimestampLabel);
-            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewCreatedByLabel);
+            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewLastUpdatedTimestampTextboxLabel);
+            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewLastUpdatedByTextboxLabel);
+            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewCreatedTimestampTextboxLabel);
+            productDetailTabControlOverviewPage.Controls.Add(productDetailOverviewCreatedByTextboxLabel);
             productDetailTabControlOverviewPage.Controls.Add(productDetailProductIdLabel);
             productDetailTabControlOverviewPage.Location = new Point(4, 32);
             productDetailTabControlOverviewPage.Name = "productDetailTabControlOverviewPage";
@@ -747,10 +747,10 @@
         private TextBox productDetailOverviewLastUpdatedTimestampTextbox;
         private TextBox productDetailOverviewCreatedByTextbox;
         private TextBox productDetailOverviewLastUpdatedByTextbox;
-        private Label productDetailOverviewLastUpdatedTimestampLabel;
-        private Label productDetailOverviewLastUpdatedByLabel;
-        private Label productDetailOverviewCreatedTimestampLabel;
-        private Label productDetailOverviewCreatedByLabel;
+        private Label productDetailOverviewLastUpdatedTimestampTextboxLabel;
+        private Label productDetailOverviewLastUpdatedByTextboxLabel;
+        private Label productDetailOverviewCreatedTimestampTextboxLabel;
+        private Label productDetailOverviewCreatedByTextboxLabel;
         private Label productDetailProductIdLabel;
         private Label productDetailTitleLabel;
         private TabControl productDetailTabControl;

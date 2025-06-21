@@ -32,10 +32,10 @@
             deliveryMethodDetailDeliveryMethodIdLabel = new Label();
             deliveryMethodDetailDeliveryMethodLabel = new Label();
             deliveryMethodDetailDeliveryCostLabel = new Label();
-            deliveryMethodDetailCreatedByLabel = new Label();
-            deliveryMethodDetailCreatedTimestampLabel = new Label();
-            deliveryMethodDetailLastUpdatedByLabel = new Label();
-            deliveryMethodDetailLastUpdatedTimestampLabel = new Label();
+            deliveryMethodDetailCreatedByTextboxLabel = new Label();
+            deliveryMethodDetailCreatedTimestampTextboxLabel = new Label();
+            deliveryMethodDetailLastUpdatedByTextboxLabel = new Label();
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel = new Label();
             deliveryMethodDetailLastUpdatedByTextbox = new TextBox();
             deliveryMethodDetailCreatedByTextbox = new TextBox();
             deliveryMethodDetailLastUpdatedTimestampTextbox = new TextBox();
@@ -92,41 +92,41 @@
             deliveryMethodDetailDeliveryCostLabel.TabIndex = 10;
             deliveryMethodDetailDeliveryCostLabel.Text = "Delivery Cost";
             // 
-            // deliveryMethodDetailCreatedByLabel
+            // deliveryMethodDetailCreatedByTextboxLabel
             // 
-            deliveryMethodDetailCreatedByLabel.AutoSize = true;
-            deliveryMethodDetailCreatedByLabel.Location = new Point(669, 141);
-            deliveryMethodDetailCreatedByLabel.Name = "deliveryMethodDetailCreatedByLabel";
-            deliveryMethodDetailCreatedByLabel.Size = new Size(81, 20);
-            deliveryMethodDetailCreatedByLabel.TabIndex = 11;
-            deliveryMethodDetailCreatedByLabel.Text = "Created By";
+            deliveryMethodDetailCreatedByTextboxLabel.AutoSize = true;
+            deliveryMethodDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            deliveryMethodDetailCreatedByTextboxLabel.Name = "deliveryMethodDetailCreatedByTextboxLabel";
+            deliveryMethodDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            deliveryMethodDetailCreatedByTextboxLabel.TabIndex = 11;
+            deliveryMethodDetailCreatedByTextboxLabel.Text = "Created By";
             // 
-            // deliveryMethodDetailCreatedTimestampLabel
+            // deliveryMethodDetailCreatedTimestampTextboxLabel
             // 
-            deliveryMethodDetailCreatedTimestampLabel.AutoSize = true;
-            deliveryMethodDetailCreatedTimestampLabel.Location = new Point(669, 180);
-            deliveryMethodDetailCreatedTimestampLabel.Name = "deliveryMethodDetailCreatedTimestampLabel";
-            deliveryMethodDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            deliveryMethodDetailCreatedTimestampLabel.TabIndex = 12;
-            deliveryMethodDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            deliveryMethodDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            deliveryMethodDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            deliveryMethodDetailCreatedTimestampTextboxLabel.Name = "deliveryMethodDetailCreatedTimestampTextboxLabel";
+            deliveryMethodDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            deliveryMethodDetailCreatedTimestampTextboxLabel.TabIndex = 12;
+            deliveryMethodDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // deliveryMethodDetailLastUpdatedByLabel
+            // deliveryMethodDetailLastUpdatedByTextboxLabel
             // 
-            deliveryMethodDetailLastUpdatedByLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedByLabel.Location = new Point(669, 224);
-            deliveryMethodDetailLastUpdatedByLabel.Name = "deliveryMethodDetailLastUpdatedByLabel";
-            deliveryMethodDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            deliveryMethodDetailLastUpdatedByLabel.TabIndex = 13;
-            deliveryMethodDetailLastUpdatedByLabel.Text = "Last Updated By";
+            deliveryMethodDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            deliveryMethodDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            deliveryMethodDetailLastUpdatedByTextboxLabel.Name = "deliveryMethodDetailLastUpdatedByTextboxLabel";
+            deliveryMethodDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            deliveryMethodDetailLastUpdatedByTextboxLabel.TabIndex = 13;
+            deliveryMethodDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // deliveryMethodDetailLastUpdatedTimestampLabel
+            // deliveryMethodDetailLastUpdatedTimestampTextboxLabel
             // 
-            deliveryMethodDetailLastUpdatedTimestampLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedTimestampLabel.Location = new Point(669, 265);
-            deliveryMethodDetailLastUpdatedTimestampLabel.Name = "deliveryMethodDetailLastUpdatedTimestampLabel";
-            deliveryMethodDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            deliveryMethodDetailLastUpdatedTimestampLabel.TabIndex = 14;
-            deliveryMethodDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Name = "deliveryMethodDetailLastUpdatedTimestampTextboxLabel";
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
+            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
             // deliveryMethodDetailLastUpdatedByTextbox
             // 
@@ -315,10 +315,10 @@
             Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextbox);
             Controls.Add(deliveryMethodDetailCreatedByTextbox);
             Controls.Add(deliveryMethodDetailLastUpdatedByTextbox);
-            Controls.Add(deliveryMethodDetailLastUpdatedTimestampLabel);
-            Controls.Add(deliveryMethodDetailLastUpdatedByLabel);
-            Controls.Add(deliveryMethodDetailCreatedTimestampLabel);
-            Controls.Add(deliveryMethodDetailCreatedByLabel);
+            Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextboxLabel);
+            Controls.Add(deliveryMethodDetailLastUpdatedByTextboxLabel);
+            Controls.Add(deliveryMethodDetailCreatedTimestampTextboxLabel);
+            Controls.Add(deliveryMethodDetailCreatedByTextboxLabel);
             Controls.Add(deliveryMethodDetailDeliveryCostLabel);
             Controls.Add(deliveryMethodDetailDeliveryMethodLabel);
             Controls.Add(deliveryMethodDetailDeliveryMethodIdLabel);
@@ -340,10 +340,10 @@
         private Label deliveryMethodDetailDeliveryMethodIdLabel;
         private Label deliveryMethodDetailDeliveryMethodLabel;
         private Label deliveryMethodDetailDeliveryCostLabel;
-        private Label deliveryMethodDetailCreatedByLabel;
-        private Label deliveryMethodDetailCreatedTimestampLabel;
-        private Label deliveryMethodDetailLastUpdatedByLabel;
-        private Label deliveryMethodDetailLastUpdatedTimestampLabel;
+        private Label deliveryMethodDetailCreatedByTextboxLabel;
+        private Label deliveryMethodDetailCreatedTimestampTextboxLabel;
+        private Label deliveryMethodDetailLastUpdatedByTextboxLabel;
+        private Label deliveryMethodDetailLastUpdatedTimestampTextboxLabel;
         private TextBox deliveryMethodDetailLastUpdatedByTextbox;
         private TextBox deliveryMethodDetailCreatedByTextbox;
         private TextBox deliveryMethodDetailLastUpdatedTimestampTextbox;

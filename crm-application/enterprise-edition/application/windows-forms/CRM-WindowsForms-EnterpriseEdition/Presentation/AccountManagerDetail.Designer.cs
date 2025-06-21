@@ -31,10 +31,10 @@
             accountManagerDetailTitleLabel = new Label();
             accountManagerDetailTabControl = new TabControl();
             accountManagerInformation = new TabPage();
-            accountManagerDetailLastUpdatedTimestampLabel = new Label();
-            accountManagerDetailCreatedTimestampLabel = new Label();
-            accountManagerDetailLastUpdatedByLabel = new Label();
-            accountManagerDetailCreatedByLabel = new Label();
+            accountManagerDetailLastUpdatedTimestampTextboxLabel = new Label();
+            accountManagerDetailCreatedTimestampTextboxLabel = new Label();
+            accountManagerDetailLastUpdatedByTextboxLabel = new Label();
+            accountManagerDetailCreatedByTextboxLabel = new Label();
             accountManagerDetailLastUpdatedByTextbox = new TextBox();
             accountManagerDetailCreatedTimestampTextbox = new TextBox();
             accountManagerDetailLastUpdatedTimestampTextbox = new TextBox();
@@ -86,10 +86,10 @@
             // accountManagerInformation
             // 
             accountManagerInformation.BackColor = Color.LemonChiffon;
-            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedTimestampLabel);
-            accountManagerInformation.Controls.Add(accountManagerDetailCreatedTimestampLabel);
-            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedByLabel);
-            accountManagerInformation.Controls.Add(accountManagerDetailCreatedByLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedTimestampTextboxLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedTimestampTextboxLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedByTextboxLabel);
+            accountManagerInformation.Controls.Add(accountManagerDetailCreatedByTextboxLabel);
             accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedByTextbox);
             accountManagerInformation.Controls.Add(accountManagerDetailCreatedTimestampTextbox);
             accountManagerInformation.Controls.Add(accountManagerDetailLastUpdatedTimestampTextbox);
@@ -114,49 +114,49 @@
             accountManagerInformation.TabIndex = 0;
             accountManagerInformation.Text = "Account Manager Information";
             // 
-            // accountManagerDetailLastUpdatedTimestampLabel
+            // accountManagerDetailLastUpdatedTimestampTextboxLabel
             // 
-            accountManagerDetailLastUpdatedTimestampLabel.AutoSize = true;
-            accountManagerDetailLastUpdatedTimestampLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailLastUpdatedTimestampLabel.Location = new Point(700, 180);
-            accountManagerDetailLastUpdatedTimestampLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailLastUpdatedTimestampLabel.Name = "accountManagerDetailLastUpdatedTimestampLabel";
-            accountManagerDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            accountManagerDetailLastUpdatedTimestampLabel.TabIndex = 32;
-            accountManagerDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Location = new Point(700, 180);
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Name = "accountManagerDetailLastUpdatedTimestampTextboxLabel";
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.TabIndex = 32;
+            accountManagerDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
-            // accountManagerDetailCreatedTimestampLabel
+            // accountManagerDetailCreatedTimestampTextboxLabel
             // 
-            accountManagerDetailCreatedTimestampLabel.AutoSize = true;
-            accountManagerDetailCreatedTimestampLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailCreatedTimestampLabel.Location = new Point(735, 106);
-            accountManagerDetailCreatedTimestampLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailCreatedTimestampLabel.Name = "accountManagerDetailCreatedTimestampLabel";
-            accountManagerDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            accountManagerDetailCreatedTimestampLabel.TabIndex = 31;
-            accountManagerDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            accountManagerDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            accountManagerDetailCreatedTimestampTextboxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedTimestampTextboxLabel.Location = new Point(735, 106);
+            accountManagerDetailCreatedTimestampTextboxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailCreatedTimestampTextboxLabel.Name = "accountManagerDetailCreatedTimestampTextboxLabel";
+            accountManagerDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            accountManagerDetailCreatedTimestampTextboxLabel.TabIndex = 31;
+            accountManagerDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // accountManagerDetailLastUpdatedByLabel
+            // accountManagerDetailLastUpdatedByTextboxLabel
             // 
-            accountManagerDetailLastUpdatedByLabel.AutoSize = true;
-            accountManagerDetailLastUpdatedByLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailLastUpdatedByLabel.Location = new Point(757, 143);
-            accountManagerDetailLastUpdatedByLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailLastUpdatedByLabel.Name = "accountManagerDetailLastUpdatedByLabel";
-            accountManagerDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            accountManagerDetailLastUpdatedByLabel.TabIndex = 30;
-            accountManagerDetailLastUpdatedByLabel.Text = "Last Updated By";
+            accountManagerDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            accountManagerDetailLastUpdatedByTextboxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailLastUpdatedByTextboxLabel.Location = new Point(757, 143);
+            accountManagerDetailLastUpdatedByTextboxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailLastUpdatedByTextboxLabel.Name = "accountManagerDetailLastUpdatedByTextboxLabel";
+            accountManagerDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            accountManagerDetailLastUpdatedByTextboxLabel.TabIndex = 30;
+            accountManagerDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // accountManagerDetailCreatedByLabel
+            // accountManagerDetailCreatedByTextboxLabel
             // 
-            accountManagerDetailCreatedByLabel.AutoSize = true;
-            accountManagerDetailCreatedByLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailCreatedByLabel.Location = new Point(794, 69);
-            accountManagerDetailCreatedByLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailCreatedByLabel.Name = "accountManagerDetailCreatedByLabel";
-            accountManagerDetailCreatedByLabel.Size = new Size(81, 20);
-            accountManagerDetailCreatedByLabel.TabIndex = 29;
-            accountManagerDetailCreatedByLabel.Text = "Created By";
+            accountManagerDetailCreatedByTextboxLabel.AutoSize = true;
+            accountManagerDetailCreatedByTextboxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailCreatedByTextboxLabel.Location = new Point(794, 69);
+            accountManagerDetailCreatedByTextboxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailCreatedByTextboxLabel.Name = "accountManagerDetailCreatedByTextboxLabel";
+            accountManagerDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            accountManagerDetailCreatedByTextboxLabel.TabIndex = 29;
+            accountManagerDetailCreatedByTextboxLabel.Text = "Created By";
             // 
             // accountManagerDetailLastUpdatedByTextbox
             // 
@@ -420,10 +420,10 @@
         private Label accountManagerDetailAccountManagerIdLabel;
         private TextBox accountManagerDetailAccountManagerIdTextbox;
         private Button accountManagerDetailToggleEditModeButton;
-        private Label accountManagerDetailLastUpdatedTimestampLabel;
-        private Label accountManagerDetailCreatedTimestampLabel;
-        private Label accountManagerDetailLastUpdatedByLabel;
-        private Label accountManagerDetailCreatedByLabel;
+        private Label accountManagerDetailLastUpdatedTimestampTextboxLabel;
+        private Label accountManagerDetailCreatedTimestampTextboxLabel;
+        private Label accountManagerDetailLastUpdatedByTextboxLabel;
+        private Label accountManagerDetailCreatedByTextboxLabel;
         private TextBox accountManagerDetailLastUpdatedByTextbox;
         private TextBox accountManagerDetailCreatedTimestampTextbox;
         private TextBox accountManagerDetailLastUpdatedTimestampTextbox;

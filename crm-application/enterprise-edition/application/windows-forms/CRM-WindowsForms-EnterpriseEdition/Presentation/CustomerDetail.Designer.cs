@@ -37,10 +37,10 @@
             customerDetailOverviewLastUpdatedTimestampTextbox = new TextBox();
             customerDetailOverviewCreatedByTextbox = new TextBox();
             customerDetailOverviewLastUpdatedByTextbox = new TextBox();
-            customerDetailOverviewLastUpdatedTimestampLabel = new Label();
-            customerDetailOverviewLastUpdatedByLabel = new Label();
-            customerDetailOverviewCreatedTimestampLabel = new Label();
-            customerDetailOverviewCreatedByLabel = new Label();
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel = new Label();
+            customerDetailOverviewLastUpdatedByTextboxLabel = new Label();
+            customerDetailOverviewCreatedTimestampTextboxLabel = new Label();
+            customerDetailOverviewCreatedByTextboxLabel = new Label();
             customerDetailOverviewEmailAddressLabel = new Label();
             customerDetailOverviewTelephoneNumberLabel = new Label();
             customerDetailOverviewEmailAddressTextbox = new TextBox();
@@ -200,10 +200,10 @@
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedTimestampTextbox);
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewCreatedByTextbox);
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedByTextbox);
-            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedTimestampLabel);
-            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedByLabel);
-            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewCreatedTimestampLabel);
-            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewCreatedByLabel);
+            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedTimestampTextboxLabel);
+            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewLastUpdatedByTextboxLabel);
+            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewCreatedTimestampTextboxLabel);
+            customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewCreatedByTextboxLabel);
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewEmailAddressLabel);
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewTelephoneNumberLabel);
             customerDetailTabControlOverviewPage.Controls.Add(customerDetailOverviewEmailAddressTextbox);
@@ -299,41 +299,41 @@
             customerDetailOverviewLastUpdatedByTextbox.Size = new Size(370, 27);
             customerDetailOverviewLastUpdatedByTextbox.TabIndex = 25;
             // 
-            // customerDetailOverviewLastUpdatedTimestampLabel
+            // customerDetailOverviewLastUpdatedTimestampTextboxLabel
             // 
-            customerDetailOverviewLastUpdatedTimestampLabel.AutoSize = true;
-            customerDetailOverviewLastUpdatedTimestampLabel.Location = new Point(486, 679);
-            customerDetailOverviewLastUpdatedTimestampLabel.Name = "customerDetailOverviewLastUpdatedTimestampLabel";
-            customerDetailOverviewLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            customerDetailOverviewLastUpdatedTimestampLabel.TabIndex = 62;
-            customerDetailOverviewLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.Location = new Point(486, 679);
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.Name = "customerDetailOverviewLastUpdatedTimestampTextboxLabel";
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 62;
+            customerDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
-            // customerDetailOverviewLastUpdatedByLabel
+            // customerDetailOverviewLastUpdatedByTextboxLabel
             // 
-            customerDetailOverviewLastUpdatedByLabel.AutoSize = true;
-            customerDetailOverviewLastUpdatedByLabel.Location = new Point(544, 633);
-            customerDetailOverviewLastUpdatedByLabel.Name = "customerDetailOverviewLastUpdatedByLabel";
-            customerDetailOverviewLastUpdatedByLabel.Size = new Size(117, 20);
-            customerDetailOverviewLastUpdatedByLabel.TabIndex = 61;
-            customerDetailOverviewLastUpdatedByLabel.Text = "Last Updated By";
+            customerDetailOverviewLastUpdatedByTextboxLabel.AutoSize = true;
+            customerDetailOverviewLastUpdatedByTextboxLabel.Location = new Point(544, 633);
+            customerDetailOverviewLastUpdatedByTextboxLabel.Name = "customerDetailOverviewLastUpdatedByTextboxLabel";
+            customerDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            customerDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 61;
+            customerDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // customerDetailOverviewCreatedTimestampLabel
+            // customerDetailOverviewCreatedTimestampTextboxLabel
             // 
-            customerDetailOverviewCreatedTimestampLabel.AutoSize = true;
-            customerDetailOverviewCreatedTimestampLabel.Location = new Point(522, 588);
-            customerDetailOverviewCreatedTimestampLabel.Name = "customerDetailOverviewCreatedTimestampLabel";
-            customerDetailOverviewCreatedTimestampLabel.Size = new Size(139, 20);
-            customerDetailOverviewCreatedTimestampLabel.TabIndex = 60;
-            customerDetailOverviewCreatedTimestampLabel.Text = "Created Timestamp";
+            customerDetailOverviewCreatedTimestampTextboxLabel.AutoSize = true;
+            customerDetailOverviewCreatedTimestampTextboxLabel.Location = new Point(522, 588);
+            customerDetailOverviewCreatedTimestampTextboxLabel.Name = "customerDetailOverviewCreatedTimestampTextboxLabel";
+            customerDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            customerDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 60;
+            customerDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // customerDetailOverviewCreatedByLabel
+            // customerDetailOverviewCreatedByTextboxLabel
             // 
-            customerDetailOverviewCreatedByLabel.AutoSize = true;
-            customerDetailOverviewCreatedByLabel.Location = new Point(580, 543);
-            customerDetailOverviewCreatedByLabel.Name = "customerDetailOverviewCreatedByLabel";
-            customerDetailOverviewCreatedByLabel.Size = new Size(81, 20);
-            customerDetailOverviewCreatedByLabel.TabIndex = 59;
-            customerDetailOverviewCreatedByLabel.Text = "Created By";
+            customerDetailOverviewCreatedByTextboxLabel.AutoSize = true;
+            customerDetailOverviewCreatedByTextboxLabel.Location = new Point(580, 543);
+            customerDetailOverviewCreatedByTextboxLabel.Name = "customerDetailOverviewCreatedByTextboxLabel";
+            customerDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
+            customerDetailOverviewCreatedByTextboxLabel.TabIndex = 59;
+            customerDetailOverviewCreatedByTextboxLabel.Text = "Created By";
             // 
             // customerDetailOverviewEmailAddressLabel
             // 
@@ -1607,10 +1607,10 @@
         private TextBox customerDetailOverviewLastUpdatedTimestampTextbox;
         private TextBox customerDetailOverviewCreatedByTextbox;
         private TextBox customerDetailOverviewLastUpdatedByTextbox;
-        private Label customerDetailOverviewLastUpdatedTimestampLabel;
-        private Label customerDetailOverviewLastUpdatedByLabel;
-        private Label customerDetailOverviewCreatedTimestampLabel;
-        private Label customerDetailOverviewCreatedByLabel;
+        private Label customerDetailOverviewLastUpdatedTimestampTextboxLabel;
+        private Label customerDetailOverviewLastUpdatedByTextboxLabel;
+        private Label customerDetailOverviewCreatedTimestampTextboxLabel;
+        private Label customerDetailOverviewCreatedByTextboxLabel;
         private TabPage customerDetailTabControlCustomerNotesPage;
         private Button customerDetailCustomerNotesRefreshDataButton;
         private Button customerDetailCustomerNotesCreateNewCustomerNoteButton;

@@ -36,10 +36,10 @@
             manufacturerDetailOverviewLastUpdatedTimestampTextbox = new TextBox();
             manufacturerDetailOverviewCreatedByTextbox = new TextBox();
             manufacturerDetailOverviewLastUpdatedByTextbox = new TextBox();
-            manufacturerDetailOverviewLastUpdatedTimestampLabel = new Label();
-            manufacturerDetailOverviewLastUpdatedByLabel = new Label();
-            manufacturerDetailOverviewCreatedTimestampLabel = new Label();
-            manufacturerDetailOverviewCreatedByLabel = new Label();
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel = new Label();
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel = new Label();
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel = new Label();
+            manufacturerDetailOverviewCreatedByTextboxLabel = new Label();
             manufacturerDetailManufacturerIdLabel = new Label();
             manufacturerDetailTitleLabel = new Label();
             manufacturerDetailTabControl = new TabControl();
@@ -154,41 +154,41 @@
             manufacturerDetailOverviewLastUpdatedByTextbox.Size = new Size(370, 27);
             manufacturerDetailOverviewLastUpdatedByTextbox.TabIndex = 13;
             // 
-            // manufacturerDetailOverviewLastUpdatedTimestampLabel
+            // manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel
             // 
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.AutoSize = true;
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.Location = new Point(627, 399);
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.Name = "manufacturerDetailOverviewLastUpdatedTimestampLabel";
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.TabIndex = 54;
-            manufacturerDetailOverviewLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Location = new Point(627, 399);
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Name = "manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel";
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.TabIndex = 54;
+            manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
-            // manufacturerDetailOverviewLastUpdatedByLabel
+            // manufacturerDetailOverviewLastUpdatedByTextboxLabel
             // 
-            manufacturerDetailOverviewLastUpdatedByLabel.AutoSize = true;
-            manufacturerDetailOverviewLastUpdatedByLabel.Location = new Point(685, 353);
-            manufacturerDetailOverviewLastUpdatedByLabel.Name = "manufacturerDetailOverviewLastUpdatedByLabel";
-            manufacturerDetailOverviewLastUpdatedByLabel.Size = new Size(117, 20);
-            manufacturerDetailOverviewLastUpdatedByLabel.TabIndex = 53;
-            manufacturerDetailOverviewLastUpdatedByLabel.Text = "Last Updated By";
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.AutoSize = true;
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.Location = new Point(685, 353);
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.Name = "manufacturerDetailOverviewLastUpdatedByTextboxLabel";
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.TabIndex = 53;
+            manufacturerDetailOverviewLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // manufacturerDetailOverviewCreatedTimestampLabel
+            // manufacturerDetailOverviewCreatedTimestampTextboxLabel
             // 
-            manufacturerDetailOverviewCreatedTimestampLabel.AutoSize = true;
-            manufacturerDetailOverviewCreatedTimestampLabel.Location = new Point(663, 308);
-            manufacturerDetailOverviewCreatedTimestampLabel.Name = "manufacturerDetailOverviewCreatedTimestampLabel";
-            manufacturerDetailOverviewCreatedTimestampLabel.Size = new Size(139, 20);
-            manufacturerDetailOverviewCreatedTimestampLabel.TabIndex = 52;
-            manufacturerDetailOverviewCreatedTimestampLabel.Text = "Created Timestamp";
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.AutoSize = true;
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.Location = new Point(663, 308);
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.Name = "manufacturerDetailOverviewCreatedTimestampTextboxLabel";
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.TabIndex = 52;
+            manufacturerDetailOverviewCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // manufacturerDetailOverviewCreatedByLabel
+            // manufacturerDetailOverviewCreatedByTextboxLabel
             // 
-            manufacturerDetailOverviewCreatedByLabel.AutoSize = true;
-            manufacturerDetailOverviewCreatedByLabel.Location = new Point(721, 263);
-            manufacturerDetailOverviewCreatedByLabel.Name = "manufacturerDetailOverviewCreatedByLabel";
-            manufacturerDetailOverviewCreatedByLabel.Size = new Size(81, 20);
-            manufacturerDetailOverviewCreatedByLabel.TabIndex = 49;
-            manufacturerDetailOverviewCreatedByLabel.Text = "Created By";
+            manufacturerDetailOverviewCreatedByTextboxLabel.AutoSize = true;
+            manufacturerDetailOverviewCreatedByTextboxLabel.Location = new Point(721, 263);
+            manufacturerDetailOverviewCreatedByTextboxLabel.Name = "manufacturerDetailOverviewCreatedByTextboxLabel";
+            manufacturerDetailOverviewCreatedByTextboxLabel.Size = new Size(81, 20);
+            manufacturerDetailOverviewCreatedByTextboxLabel.TabIndex = 49;
+            manufacturerDetailOverviewCreatedByTextboxLabel.Text = "Created By";
             // 
             // manufacturerDetailManufacturerIdLabel
             // 
@@ -236,13 +236,13 @@
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewCreatedByTextbox);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewLastUpdatedByTextbox);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewAddressLine4Textbox);
-            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewLastUpdatedTimestampLabel);
+            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewAddressLine5Textbox);
-            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewLastUpdatedByLabel);
+            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewLastUpdatedByTextboxLabel);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewAddressLine3Textbox);
-            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewCreatedTimestampLabel);
+            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewCreatedTimestampTextboxLabel);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewAddressLine2Textbox);
-            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewCreatedByLabel);
+            manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewCreatedByTextboxLabel);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewAddressLine1Textbox);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewEmailAddressLabel);
             manufacturerDetailTabControlOverviewPage.Controls.Add(manufacturerDetailOverviewTelephoneNumberLabel);
@@ -480,10 +480,10 @@
         private TextBox manufacturerDetailOverviewLastUpdatedTimestampTextbox;
         private TextBox manufacturerDetailOverviewCreatedByTextbox;
         private TextBox manufacturerDetailOverviewLastUpdatedByTextbox;
-        private Label manufacturerDetailOverviewLastUpdatedTimestampLabel;
-        private Label manufacturerDetailOverviewLastUpdatedByLabel;
-        private Label manufacturerDetailOverviewCreatedTimestampLabel;
-        private Label manufacturerDetailOverviewCreatedByLabel;
+        private Label manufacturerDetailOverviewLastUpdatedTimestampTextboxLabel;
+        private Label manufacturerDetailOverviewLastUpdatedByTextboxLabel;
+        private Label manufacturerDetailOverviewCreatedTimestampTextboxLabel;
+        private Label manufacturerDetailOverviewCreatedByTextboxLabel;
         private Label manufacturerDetailManufacturerIdLabel;
         private Label manufacturerDetailTitleLabel;
         private TabControl manufacturerDetailTabControl;

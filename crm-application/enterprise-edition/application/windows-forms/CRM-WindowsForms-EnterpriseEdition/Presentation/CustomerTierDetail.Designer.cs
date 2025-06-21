@@ -32,10 +32,10 @@
             customerTierDetailCustomerTierIdLabel = new Label();
             customerTierDetailCustomerTierCodeLabel = new Label();
             customerTierDetailCustomerTierDescriptionLabel = new Label();
-            customerTierDetailCreatedByLabel = new Label();
-            customerTierDetailCreatedTimestampLabel = new Label();
-            customerTierDetailLastUpdatedByLabel = new Label();
-            customerTierDetailLastUpdatedTimestampLabel = new Label();
+            customerTierDetailCreatedByTextboxLabel = new Label();
+            customerTierDetailCreatedTimestampTextboxLabel = new Label();
+            customerTierDetailLastUpdatedByTextboxLabel = new Label();
+            customerTierDetailLastUpdatedTimestampTextboxLabel = new Label();
             customerTierDetailLastUpdatedByTextbox = new TextBox();
             customerTierDetailCreatedByTextbox = new TextBox();
             customerTierDetailLastUpdatedTimestampTextbox = new TextBox();
@@ -86,41 +86,41 @@
             customerTierDetailCustomerTierDescriptionLabel.TabIndex = 10;
             customerTierDetailCustomerTierDescriptionLabel.Text = "Customer Tier Description";
             // 
-            // customerTierDetailCreatedByLabel
+            // customerTierDetailCreatedByTextboxLabel
             // 
-            customerTierDetailCreatedByLabel.AutoSize = true;
-            customerTierDetailCreatedByLabel.Location = new Point(669, 141);
-            customerTierDetailCreatedByLabel.Name = "customerTierDetailCreatedByLabel";
-            customerTierDetailCreatedByLabel.Size = new Size(81, 20);
-            customerTierDetailCreatedByLabel.TabIndex = 11;
-            customerTierDetailCreatedByLabel.Text = "Created By";
+            customerTierDetailCreatedByTextboxLabel.AutoSize = true;
+            customerTierDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            customerTierDetailCreatedByTextboxLabel.Name = "customerTierDetailCreatedByTextboxLabel";
+            customerTierDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            customerTierDetailCreatedByTextboxLabel.TabIndex = 11;
+            customerTierDetailCreatedByTextboxLabel.Text = "Created By";
             // 
-            // customerTierDetailCreatedTimestampLabel
+            // customerTierDetailCreatedTimestampTextboxLabel
             // 
-            customerTierDetailCreatedTimestampLabel.AutoSize = true;
-            customerTierDetailCreatedTimestampLabel.Location = new Point(669, 180);
-            customerTierDetailCreatedTimestampLabel.Name = "customerTierDetailCreatedTimestampLabel";
-            customerTierDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            customerTierDetailCreatedTimestampLabel.TabIndex = 12;
-            customerTierDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            customerTierDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            customerTierDetailCreatedTimestampTextboxLabel.Name = "customerTierDetailCreatedTimestampTextboxLabel";
+            customerTierDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            customerTierDetailCreatedTimestampTextboxLabel.TabIndex = 12;
+            customerTierDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // customerTierDetailLastUpdatedByLabel
+            // customerTierDetailLastUpdatedByTextboxLabel
             // 
-            customerTierDetailLastUpdatedByLabel.AutoSize = true;
-            customerTierDetailLastUpdatedByLabel.Location = new Point(669, 224);
-            customerTierDetailLastUpdatedByLabel.Name = "customerTierDetailLastUpdatedByLabel";
-            customerTierDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            customerTierDetailLastUpdatedByLabel.TabIndex = 13;
-            customerTierDetailLastUpdatedByLabel.Text = "Last Updated By";
+            customerTierDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            customerTierDetailLastUpdatedByTextboxLabel.Name = "customerTierDetailLastUpdatedByTextboxLabel";
+            customerTierDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            customerTierDetailLastUpdatedByTextboxLabel.TabIndex = 13;
+            customerTierDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // customerTierDetailLastUpdatedTimestampLabel
+            // customerTierDetailLastUpdatedTimestampTextboxLabel
             // 
-            customerTierDetailLastUpdatedTimestampLabel.AutoSize = true;
-            customerTierDetailLastUpdatedTimestampLabel.Location = new Point(669, 265);
-            customerTierDetailLastUpdatedTimestampLabel.Name = "customerTierDetailLastUpdatedTimestampLabel";
-            customerTierDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            customerTierDetailLastUpdatedTimestampLabel.TabIndex = 14;
-            customerTierDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            customerTierDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Name = "customerTierDetailLastUpdatedTimestampTextboxLabel";
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            customerTierDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
             // customerTierDetailLastUpdatedByTextbox
             // 
@@ -240,10 +240,10 @@
             Controls.Add(customerTierDetailLastUpdatedTimestampTextbox);
             Controls.Add(customerTierDetailCreatedByTextbox);
             Controls.Add(customerTierDetailLastUpdatedByTextbox);
-            Controls.Add(customerTierDetailLastUpdatedTimestampLabel);
-            Controls.Add(customerTierDetailLastUpdatedByLabel);
-            Controls.Add(customerTierDetailCreatedTimestampLabel);
-            Controls.Add(customerTierDetailCreatedByLabel);
+            Controls.Add(customerTierDetailLastUpdatedTimestampTextboxLabel);
+            Controls.Add(customerTierDetailLastUpdatedByTextboxLabel);
+            Controls.Add(customerTierDetailCreatedTimestampTextboxLabel);
+            Controls.Add(customerTierDetailCreatedByTextboxLabel);
             Controls.Add(customerTierDetailCustomerTierDescriptionLabel);
             Controls.Add(customerTierDetailCustomerTierCodeLabel);
             Controls.Add(customerTierDetailCustomerTierIdLabel);
@@ -265,10 +265,10 @@
         private Label customerTierDetailCustomerTierIdLabel;
         private Label customerTierDetailCustomerTierCodeLabel;
         private Label customerTierDetailCustomerTierDescriptionLabel;
-        private Label customerTierDetailCreatedByLabel;
-        private Label customerTierDetailCreatedTimestampLabel;
-        private Label customerTierDetailLastUpdatedByLabel;
-        private Label customerTierDetailLastUpdatedTimestampLabel;
+        private Label customerTierDetailCreatedByTextboxLabel;
+        private Label customerTierDetailCreatedTimestampTextboxLabel;
+        private Label customerTierDetailLastUpdatedByTextboxLabel;
+        private Label customerTierDetailLastUpdatedTimestampTextboxLabel;
         private TextBox customerTierDetailLastUpdatedByTextbox;
         private TextBox customerTierDetailCreatedByTextbox;
         private TextBox customerTierDetailLastUpdatedTimestampTextbox;

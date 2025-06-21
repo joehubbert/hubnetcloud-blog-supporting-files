@@ -32,10 +32,10 @@
             noteDetailNoteIdLabel = new Label();
             noteDetailNoteTitleLabel = new Label();
             noteDetailNoteLabel = new Label();
-            noteDetailCreatedByLabel = new Label();
-            noteDetailCreatedTimestampLabel = new Label();
-            noteDetailLastUpdatedByLabel = new Label();
-            noteDetailLastUpdatedTimestampLabel = new Label();
+            noteDetailCreatedByTextboxLabel = new Label();
+            noteDetailCreatedTimestampTextboxLabel = new Label();
+            noteDetailLastUpdatedByTextboxLabel = new Label();
+            noteDetailLastUpdatedTimestampTextboxLabel = new Label();
             noteDetailLastUpdatedByTextbox = new TextBox();
             noteDetailCreatedByTextbox = new TextBox();
             noteDetailLastUpdatedTimestampTextbox = new TextBox();
@@ -87,41 +87,41 @@
             noteDetailNoteLabel.TabIndex = 10;
             noteDetailNoteLabel.Text = " Note*";
             // 
-            // noteDetailCreatedByLabel
+            // noteDetailCreatedByTextboxLabel
             // 
-            noteDetailCreatedByLabel.AutoSize = true;
-            noteDetailCreatedByLabel.Location = new Point(787, 141);
-            noteDetailCreatedByLabel.Name = "noteDetailCreatedByLabel";
-            noteDetailCreatedByLabel.Size = new Size(81, 20);
-            noteDetailCreatedByLabel.TabIndex = 11;
-            noteDetailCreatedByLabel.Text = "Created By";
+            noteDetailCreatedByTextboxLabel.AutoSize = true;
+            noteDetailCreatedByTextboxLabel.Location = new Point(787, 141);
+            noteDetailCreatedByTextboxLabel.Name = "noteDetailCreatedByTextboxLabel";
+            noteDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            noteDetailCreatedByTextboxLabel.TabIndex = 11;
+            noteDetailCreatedByTextboxLabel.Text = "Created By";
             // 
-            // noteDetailCreatedTimestampLabel
+            // noteDetailCreatedTimestampTextboxLabel
             // 
-            noteDetailCreatedTimestampLabel.AutoSize = true;
-            noteDetailCreatedTimestampLabel.Location = new Point(787, 180);
-            noteDetailCreatedTimestampLabel.Name = "noteDetailCreatedTimestampLabel";
-            noteDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            noteDetailCreatedTimestampLabel.TabIndex = 12;
-            noteDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            noteDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            noteDetailCreatedTimestampTextboxLabel.Location = new Point(787, 180);
+            noteDetailCreatedTimestampTextboxLabel.Name = "noteDetailCreatedTimestampTextboxLabel";
+            noteDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            noteDetailCreatedTimestampTextboxLabel.TabIndex = 12;
+            noteDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // noteDetailLastUpdatedByLabel
+            // noteDetailLastUpdatedByTextboxLabel
             // 
-            noteDetailLastUpdatedByLabel.AutoSize = true;
-            noteDetailLastUpdatedByLabel.Location = new Point(787, 224);
-            noteDetailLastUpdatedByLabel.Name = "noteDetailLastUpdatedByLabel";
-            noteDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            noteDetailLastUpdatedByLabel.TabIndex = 13;
-            noteDetailLastUpdatedByLabel.Text = "Last Updated By";
+            noteDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            noteDetailLastUpdatedByTextboxLabel.Location = new Point(787, 224);
+            noteDetailLastUpdatedByTextboxLabel.Name = "noteDetailLastUpdatedByTextboxLabel";
+            noteDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            noteDetailLastUpdatedByTextboxLabel.TabIndex = 13;
+            noteDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // noteDetailLastUpdatedTimestampLabel
+            // noteDetailLastUpdatedTimestampTextboxLabel
             // 
-            noteDetailLastUpdatedTimestampLabel.AutoSize = true;
-            noteDetailLastUpdatedTimestampLabel.Location = new Point(787, 265);
-            noteDetailLastUpdatedTimestampLabel.Name = "noteDetailLastUpdatedTimestampLabel";
-            noteDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            noteDetailLastUpdatedTimestampLabel.TabIndex = 14;
-            noteDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            noteDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            noteDetailLastUpdatedTimestampTextboxLabel.Location = new Point(787, 265);
+            noteDetailLastUpdatedTimestampTextboxLabel.Name = "noteDetailLastUpdatedTimestampTextboxLabel";
+            noteDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            noteDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
+            noteDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
             // noteDetailLastUpdatedByTextbox
             // 
@@ -254,10 +254,10 @@
             Controls.Add(noteDetailLastUpdatedTimestampTextbox);
             Controls.Add(noteDetailCreatedByTextbox);
             Controls.Add(noteDetailLastUpdatedByTextbox);
-            Controls.Add(noteDetailLastUpdatedTimestampLabel);
-            Controls.Add(noteDetailLastUpdatedByLabel);
-            Controls.Add(noteDetailCreatedTimestampLabel);
-            Controls.Add(noteDetailCreatedByLabel);
+            Controls.Add(noteDetailLastUpdatedTimestampTextboxLabel);
+            Controls.Add(noteDetailLastUpdatedByTextboxLabel);
+            Controls.Add(noteDetailCreatedTimestampTextboxLabel);
+            Controls.Add(noteDetailCreatedByTextboxLabel);
             Controls.Add(noteDetailNoteLabel);
             Controls.Add(noteDetailNoteTitleLabel);
             Controls.Add(noteDetailNoteIdLabel);
@@ -279,10 +279,10 @@
         private Label noteDetailNoteIdLabel;
         private Label noteDetailNoteTitleLabel;
         private Label noteDetailNoteLabel;
-        private Label noteDetailCreatedByLabel;
-        private Label noteDetailCreatedTimestampLabel;
-        private Label noteDetailLastUpdatedByLabel;
-        private Label noteDetailLastUpdatedTimestampLabel;
+        private Label noteDetailCreatedByTextboxLabel;
+        private Label noteDetailCreatedTimestampTextboxLabel;
+        private Label noteDetailLastUpdatedByTextboxLabel;
+        private Label noteDetailLastUpdatedTimestampTextboxLabel;
         private TextBox noteDetailLastUpdatedByTextbox;
         private TextBox noteDetailCreatedByTextbox;
         private TextBox noteDetailLastUpdatedTimestampTextbox;

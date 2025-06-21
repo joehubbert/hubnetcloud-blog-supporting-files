@@ -38,10 +38,10 @@
             masterDataSimpleDetailLastUpdatedTimestampTextbox = new TextBox();
             masterDataSimpleDetailCreatedByTextbox = new TextBox();
             masterDataSimpleDetailLastUpdatedByTextbox = new TextBox();
-            masterDataSimpleDetailLastUpdatedTimestampLabel = new Label();
-            masterDataSimpleDetailLastUpdatedByLabel = new Label();
-            masterDataSimpleDetailCreatedTimestampLabel = new Label();
-            masterDataSimpleDetailCreatedByLabel = new Label();
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel = new Label();
+            masterDataSimpleDetailLastUpdatedByTextboxLabel = new Label();
+            masterDataSimpleDetailCreatedTimestampTextboxLabel = new Label();
+            masterDataSimpleDetailCreatedByTextboxLabel = new Label();
             masterDataSimpleDetailDataSubjectTextboxLabel = new Label();
             masterDataSimpleDetailDataSubjectIdTextboxLabel = new Label();
             SuspendLayout();
@@ -150,41 +150,41 @@
             masterDataSimpleDetailLastUpdatedByTextbox.Size = new Size(370, 27);
             masterDataSimpleDetailLastUpdatedByTextbox.TabIndex = 5;
             // 
-            // masterDataSimpleDetailLastUpdatedTimestampLabel
+            // masterDataSimpleDetailLastUpdatedTimestampTextboxLabel
             // 
-            masterDataSimpleDetailLastUpdatedTimestampLabel.AutoSize = true;
-            masterDataSimpleDetailLastUpdatedTimestampLabel.Location = new Point(658, 265);
-            masterDataSimpleDetailLastUpdatedTimestampLabel.Name = "masterDataSimpleDetailLastUpdatedTimestampLabel";
-            masterDataSimpleDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            masterDataSimpleDetailLastUpdatedTimestampLabel.TabIndex = 34;
-            masterDataSimpleDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Location = new Point(658, 265);
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Name = "masterDataSimpleDetailLastUpdatedTimestampTextboxLabel";
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.TabIndex = 34;
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
-            // masterDataSimpleDetailLastUpdatedByLabel
+            // masterDataSimpleDetailLastUpdatedByTextboxLabel
             // 
-            masterDataSimpleDetailLastUpdatedByLabel.AutoSize = true;
-            masterDataSimpleDetailLastUpdatedByLabel.Location = new Point(658, 224);
-            masterDataSimpleDetailLastUpdatedByLabel.Name = "masterDataSimpleDetailLastUpdatedByLabel";
-            masterDataSimpleDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            masterDataSimpleDetailLastUpdatedByLabel.TabIndex = 33;
-            masterDataSimpleDetailLastUpdatedByLabel.Text = "Last Updated By";
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.Location = new Point(658, 224);
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.Name = "masterDataSimpleDetailLastUpdatedByTextboxLabel";
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.TabIndex = 33;
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // masterDataSimpleDetailCreatedTimestampLabel
+            // masterDataSimpleDetailCreatedTimestampTextboxLabel
             // 
-            masterDataSimpleDetailCreatedTimestampLabel.AutoSize = true;
-            masterDataSimpleDetailCreatedTimestampLabel.Location = new Point(658, 180);
-            masterDataSimpleDetailCreatedTimestampLabel.Name = "masterDataSimpleDetailCreatedTimestampLabel";
-            masterDataSimpleDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            masterDataSimpleDetailCreatedTimestampLabel.TabIndex = 32;
-            masterDataSimpleDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.Location = new Point(658, 180);
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.Name = "masterDataSimpleDetailCreatedTimestampTextboxLabel";
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.TabIndex = 32;
+            masterDataSimpleDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // masterDataSimpleDetailCreatedByLabel
+            // masterDataSimpleDetailCreatedByTextboxLabel
             // 
-            masterDataSimpleDetailCreatedByLabel.AutoSize = true;
-            masterDataSimpleDetailCreatedByLabel.Location = new Point(658, 141);
-            masterDataSimpleDetailCreatedByLabel.Name = "masterDataSimpleDetailCreatedByLabel";
-            masterDataSimpleDetailCreatedByLabel.Size = new Size(81, 20);
-            masterDataSimpleDetailCreatedByLabel.TabIndex = 31;
-            masterDataSimpleDetailCreatedByLabel.Text = "Created By";
+            masterDataSimpleDetailCreatedByTextboxLabel.AutoSize = true;
+            masterDataSimpleDetailCreatedByTextboxLabel.Location = new Point(658, 141);
+            masterDataSimpleDetailCreatedByTextboxLabel.Name = "masterDataSimpleDetailCreatedByTextboxLabel";
+            masterDataSimpleDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            masterDataSimpleDetailCreatedByTextboxLabel.TabIndex = 31;
+            masterDataSimpleDetailCreatedByTextboxLabel.Text = "Created By";
             // 
             // masterDataSimpleDetailDataSubjectTextboxLabel
             // 
@@ -221,10 +221,10 @@
             Controls.Add(masterDataSimpleDetailLastUpdatedTimestampTextbox);
             Controls.Add(masterDataSimpleDetailCreatedByTextbox);
             Controls.Add(masterDataSimpleDetailLastUpdatedByTextbox);
-            Controls.Add(masterDataSimpleDetailLastUpdatedTimestampLabel);
-            Controls.Add(masterDataSimpleDetailLastUpdatedByLabel);
-            Controls.Add(masterDataSimpleDetailCreatedTimestampLabel);
-            Controls.Add(masterDataSimpleDetailCreatedByLabel);
+            Controls.Add(masterDataSimpleDetailLastUpdatedTimestampTextboxLabel);
+            Controls.Add(masterDataSimpleDetailLastUpdatedByTextboxLabel);
+            Controls.Add(masterDataSimpleDetailCreatedTimestampTextboxLabel);
+            Controls.Add(masterDataSimpleDetailCreatedByTextboxLabel);
             Controls.Add(masterDataSimpleDetailDataSubjectTextboxLabel);
             Controls.Add(masterDataSimpleDetailDataSubjectIdTextboxLabel);
             Controls.Add(masterDataSimpleDetailTitleLabel);
@@ -251,10 +251,10 @@
         private TextBox masterDataSimpleDetailLastUpdatedTimestampTextbox;
         private TextBox masterDataSimpleDetailCreatedByTextbox;
         private TextBox masterDataSimpleDetailLastUpdatedByTextbox;
-        private Label masterDataSimpleDetailLastUpdatedTimestampLabel;
-        private Label masterDataSimpleDetailLastUpdatedByLabel;
-        private Label masterDataSimpleDetailCreatedTimestampLabel;
-        private Label masterDataSimpleDetailCreatedByLabel;
+        private Label masterDataSimpleDetailLastUpdatedTimestampTextboxLabel;
+        private Label masterDataSimpleDetailLastUpdatedByTextboxLabel;
+        private Label masterDataSimpleDetailCreatedTimestampTextboxLabel;
+        private Label masterDataSimpleDetailCreatedByTextboxLabel;
         private Label masterDataSimpleDetailDataSubjectTextboxLabel;
         private Label masterDataSimpleDetailDataSubjectIdTextboxLabel;
     }

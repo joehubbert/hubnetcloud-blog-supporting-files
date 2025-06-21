@@ -32,10 +32,10 @@
             currencyDetailCurrencyIdLabel = new Label();
             currencyDetailCurrencyCodeLabel = new Label();
             currencyDetailCurrencyNameLabel = new Label();
-            currencyDetailCreatedByLabel = new Label();
-            currencyDetailCreatedTimestampLabel = new Label();
-            currencyDetailLastUpdatedByLabel = new Label();
-            currencyDetailLastUpdatedTimestampLabel = new Label();
+            currencyDetailCreatedByTextboxLabel = new Label();
+            currencyDetailCreatedTimestampTextboxLabel = new Label();
+            currencyDetailLastUpdatedByTextboxLabel = new Label();
+            currencyDetailLastUpdatedTimestampTextboxLabel = new Label();
             currencyDetailLastUpdatedByTextbox = new TextBox();
             currencyDetailCreatedByTextbox = new TextBox();
             currencyDetailLastUpdatedTimestampTextbox = new TextBox();
@@ -86,41 +86,41 @@
             currencyDetailCurrencyNameLabel.TabIndex = 10;
             currencyDetailCurrencyNameLabel.Text = "Currency Name";
             // 
-            // currencyDetailCreatedByLabel
+            // currencyDetailCreatedByTextboxLabel
             // 
-            currencyDetailCreatedByLabel.AutoSize = true;
-            currencyDetailCreatedByLabel.Location = new Point(669, 141);
-            currencyDetailCreatedByLabel.Name = "currencyDetailCreatedByLabel";
-            currencyDetailCreatedByLabel.Size = new Size(81, 20);
-            currencyDetailCreatedByLabel.TabIndex = 11;
-            currencyDetailCreatedByLabel.Text = "Created By";
+            currencyDetailCreatedByTextboxLabel.AutoSize = true;
+            currencyDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            currencyDetailCreatedByTextboxLabel.Name = "currencyDetailCreatedByTextboxLabel";
+            currencyDetailCreatedByTextboxLabel.Size = new Size(81, 20);
+            currencyDetailCreatedByTextboxLabel.TabIndex = 11;
+            currencyDetailCreatedByTextboxLabel.Text = "Created By";
             // 
-            // currencyDetailCreatedTimestampLabel
+            // currencyDetailCreatedTimestampTextboxLabel
             // 
-            currencyDetailCreatedTimestampLabel.AutoSize = true;
-            currencyDetailCreatedTimestampLabel.Location = new Point(669, 180);
-            currencyDetailCreatedTimestampLabel.Name = "currencyDetailCreatedTimestampLabel";
-            currencyDetailCreatedTimestampLabel.Size = new Size(139, 20);
-            currencyDetailCreatedTimestampLabel.TabIndex = 12;
-            currencyDetailCreatedTimestampLabel.Text = "Created Timestamp";
+            currencyDetailCreatedTimestampTextboxLabel.AutoSize = true;
+            currencyDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            currencyDetailCreatedTimestampTextboxLabel.Name = "currencyDetailCreatedTimestampTextboxLabel";
+            currencyDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
+            currencyDetailCreatedTimestampTextboxLabel.TabIndex = 12;
+            currencyDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
             // 
-            // currencyDetailLastUpdatedByLabel
+            // currencyDetailLastUpdatedByTextboxLabel
             // 
-            currencyDetailLastUpdatedByLabel.AutoSize = true;
-            currencyDetailLastUpdatedByLabel.Location = new Point(669, 224);
-            currencyDetailLastUpdatedByLabel.Name = "currencyDetailLastUpdatedByLabel";
-            currencyDetailLastUpdatedByLabel.Size = new Size(117, 20);
-            currencyDetailLastUpdatedByLabel.TabIndex = 13;
-            currencyDetailLastUpdatedByLabel.Text = "Last Updated By";
+            currencyDetailLastUpdatedByTextboxLabel.AutoSize = true;
+            currencyDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            currencyDetailLastUpdatedByTextboxLabel.Name = "currencyDetailLastUpdatedByTextboxLabel";
+            currencyDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
+            currencyDetailLastUpdatedByTextboxLabel.TabIndex = 13;
+            currencyDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
             // 
-            // currencyDetailLastUpdatedTimestampLabel
+            // currencyDetailLastUpdatedTimestampTextboxLabel
             // 
-            currencyDetailLastUpdatedTimestampLabel.AutoSize = true;
-            currencyDetailLastUpdatedTimestampLabel.Location = new Point(669, 265);
-            currencyDetailLastUpdatedTimestampLabel.Name = "currencyDetailLastUpdatedTimestampLabel";
-            currencyDetailLastUpdatedTimestampLabel.Size = new Size(175, 20);
-            currencyDetailLastUpdatedTimestampLabel.TabIndex = 14;
-            currencyDetailLastUpdatedTimestampLabel.Text = "Last Updated Timestamp";
+            currencyDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
+            currencyDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            currencyDetailLastUpdatedTimestampTextboxLabel.Name = "currencyDetailLastUpdatedTimestampTextboxLabel";
+            currencyDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
+            currencyDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
+            currencyDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
             // 
             // currencyDetailLastUpdatedByTextbox
             // 
@@ -240,10 +240,10 @@
             Controls.Add(currencyDetailLastUpdatedTimestampTextbox);
             Controls.Add(currencyDetailCreatedByTextbox);
             Controls.Add(currencyDetailLastUpdatedByTextbox);
-            Controls.Add(currencyDetailLastUpdatedTimestampLabel);
-            Controls.Add(currencyDetailLastUpdatedByLabel);
-            Controls.Add(currencyDetailCreatedTimestampLabel);
-            Controls.Add(currencyDetailCreatedByLabel);
+            Controls.Add(currencyDetailLastUpdatedTimestampTextboxLabel);
+            Controls.Add(currencyDetailLastUpdatedByTextboxLabel);
+            Controls.Add(currencyDetailCreatedTimestampTextboxLabel);
+            Controls.Add(currencyDetailCreatedByTextboxLabel);
             Controls.Add(currencyDetailCurrencyNameLabel);
             Controls.Add(currencyDetailCurrencyCodeLabel);
             Controls.Add(currencyDetailCurrencyIdLabel);
@@ -265,10 +265,10 @@
         private Label currencyDetailCurrencyIdLabel;
         private Label currencyDetailCurrencyCodeLabel;
         private Label currencyDetailCurrencyNameLabel;
-        private Label currencyDetailCreatedByLabel;
-        private Label currencyDetailCreatedTimestampLabel;
-        private Label currencyDetailLastUpdatedByLabel;
-        private Label currencyDetailLastUpdatedTimestampLabel;
+        private Label currencyDetailCreatedByTextboxLabel;
+        private Label currencyDetailCreatedTimestampTextboxLabel;
+        private Label currencyDetailLastUpdatedByTextboxLabel;
+        private Label currencyDetailLastUpdatedTimestampTextboxLabel;
         private TextBox currencyDetailLastUpdatedByTextbox;
         private TextBox currencyDetailCreatedByTextbox;
         private TextBox currencyDetailLastUpdatedTimestampTextbox;

@@ -91,18 +91,20 @@
             // 
             // createCountryISO31661A2CountryCodeTextboxLabel
             // 
-            createCountryISO31661A2CountryCodeTextboxLabel.Location = new Point(7, 72);
+            createCountryISO31661A2CountryCodeTextboxLabel.AutoSize = true;
+            createCountryISO31661A2CountryCodeTextboxLabel.Location = new Point(26, 72);
             createCountryISO31661A2CountryCodeTextboxLabel.Name = "createCountryISO31661A2CountryCodeTextboxLabel";
-            createCountryISO31661A2CountryCodeTextboxLabel.Size = new Size(243, 24);
+            createCountryISO31661A2CountryCodeTextboxLabel.Size = new Size(231, 20);
             createCountryISO31661A2CountryCodeTextboxLabel.TabIndex = 12;
             createCountryISO31661A2CountryCodeTextboxLabel.Text = "ISO 3166-1 Alpha 2 Country Code";
             createCountryISO31661A2CountryCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCountryCountryEnglishNameTextboxLabel
             // 
-            createCountryCountryEnglishNameTextboxLabel.Location = new Point(14, 114);
+            createCountryCountryEnglishNameTextboxLabel.AutoSize = true;
+            createCountryCountryEnglishNameTextboxLabel.Location = new Point(102, 114);
             createCountryCountryEnglishNameTextboxLabel.Name = "createCountryCountryEnglishNameTextboxLabel";
-            createCountryCountryEnglishNameTextboxLabel.Size = new Size(236, 24);
+            createCountryCountryEnglishNameTextboxLabel.Size = new Size(155, 20);
             createCountryCountryEnglishNameTextboxLabel.TabIndex = 13;
             createCountryCountryEnglishNameTextboxLabel.Text = "Country English Name";
             createCountryCountryEnglishNameTextboxLabel.TextAlign = ContentAlignment.TopRight;

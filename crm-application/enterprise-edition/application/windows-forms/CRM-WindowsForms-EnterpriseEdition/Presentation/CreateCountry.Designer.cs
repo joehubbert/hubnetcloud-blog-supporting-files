@@ -45,7 +45,7 @@
             createCountrySubmitButton.Margin = new Padding(4);
             createCountrySubmitButton.Name = "createCountrySubmitButton";
             createCountrySubmitButton.Size = new Size(198, 66);
-            createCountrySubmitButton.TabIndex = 8;
+            createCountrySubmitButton.TabIndex = 3;
             createCountrySubmitButton.Text = "Submit";
             createCountrySubmitButton.UseVisualStyleBackColor = true;
             // 
@@ -59,7 +59,7 @@
             createCountryActiveStatusCheckbox.Margin = new Padding(5);
             createCountryActiveStatusCheckbox.Name = "createCountryActiveStatusCheckbox";
             createCountryActiveStatusCheckbox.Size = new Size(124, 24);
-            createCountryActiveStatusCheckbox.TabIndex = 7;
+            createCountryActiveStatusCheckbox.TabIndex = 2;
             createCountryActiveStatusCheckbox.Text = "Active Country";
             createCountryActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -80,14 +80,14 @@
             createCountryISO31661A2CountryCodeTextbox.MaxLength = 2;
             createCountryISO31661A2CountryCodeTextbox.Name = "createCountryISO31661A2CountryCodeTextbox";
             createCountryISO31661A2CountryCodeTextbox.Size = new Size(39, 27);
-            createCountryISO31661A2CountryCodeTextbox.TabIndex = 10;
+            createCountryISO31661A2CountryCodeTextbox.TabIndex = 0;
             // 
             // createCountryCountryEnglishNameTextbox
             // 
             createCountryCountryEnglishNameTextbox.Location = new Point(263, 111);
             createCountryCountryEnglishNameTextbox.Name = "createCountryCountryEnglishNameTextbox";
             createCountryCountryEnglishNameTextbox.Size = new Size(285, 27);
-            createCountryCountryEnglishNameTextbox.TabIndex = 11;
+            createCountryCountryEnglishNameTextbox.TabIndex = 1;
             // 
             // createCountryISO31661A2CountryCodeTextboxLabel
             // 

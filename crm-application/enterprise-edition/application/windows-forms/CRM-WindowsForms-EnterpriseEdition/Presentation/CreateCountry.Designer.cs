@@ -55,7 +55,7 @@
             createCountryActiveStatusCheckbox.Checked = true;
             createCountryActiveStatusCheckbox.CheckState = CheckState.Checked;
             createCountryActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCountryActiveStatusCheckbox.Location = new Point(226, 166);
+            createCountryActiveStatusCheckbox.Location = new Point(232, 166);
             createCountryActiveStatusCheckbox.Margin = new Padding(5);
             createCountryActiveStatusCheckbox.Name = "createCountryActiveStatusCheckbox";
             createCountryActiveStatusCheckbox.Size = new Size(124, 24);

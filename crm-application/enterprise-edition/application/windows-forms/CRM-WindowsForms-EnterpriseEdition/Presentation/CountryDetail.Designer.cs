@@ -168,7 +168,7 @@
             // countryDetailCountryEnglishNameTextbox
             // 
             countryDetailCountryEnglishNameTextbox.Location = new Point(261, 217);
-            countryDetailCountryEnglishNameTextbox.MaxLength = 50;
+            countryDetailCountryEnglishNameTextbox.MaxLength = 100;
             countryDetailCountryEnglishNameTextbox.Name = "countryDetailCountryEnglishNameTextbox";
             countryDetailCountryEnglishNameTextbox.ReadOnly = true;
             countryDetailCountryEnglishNameTextbox.Size = new Size(370, 27);

@@ -85,6 +85,7 @@
             // createCountryCountryEnglishNameTextbox
             // 
             createCountryCountryEnglishNameTextbox.Location = new Point(263, 111);
+            createCountryCountryEnglishNameTextbox.MaxLength = 100;
             createCountryCountryEnglishNameTextbox.Name = "createCountryCountryEnglishNameTextbox";
             createCountryCountryEnglishNameTextbox.Size = new Size(285, 27);
             createCountryCountryEnglishNameTextbox.TabIndex = 1;

@@ -86,7 +86,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     storedProcedureName = "[dbo].[spGetAllCompanyConfiguration]";
                     break;
                 case "Country":
-                    dataSortingColumnName = "Country";
+                    dataSortingColumnName = "Country English Name";
                     dataSortingColumnOrder = "ASC";
                     dataSubjectIdentityColumn = "Country Id";
                     dataSubjectFriendlyName = "Country";

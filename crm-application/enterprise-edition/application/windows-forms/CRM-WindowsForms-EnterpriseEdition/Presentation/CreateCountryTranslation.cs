@@ -42,12 +42,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .Select(row => new
                     {
                         CountryId = row.Field<Guid>("Country Id"),
-                        CountryEnglishName = row.Field<string>("Country English Name")
+                        DisplayText = $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}"
                     })
-                    .OrderBy(item => item.CountryEnglishName)
+                    .OrderBy(item => item.DisplayText)
                     .ToList();
                 createCountryTranslationCountryComboBox.DataSource = countryList;
-                createCountryTranslationCountryComboBox.DisplayMember = "CountryEnglishName";
+                createCountryTranslationCountryComboBox.DisplayMember = "DisplayText";
                 createCountryTranslationCountryComboBox.ValueMember = "CountryId";
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createCountryTranslationSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCountryTranslationActiveStatusCheckbox.Checked;
-            string bcp47LanguageTagCode = createCountryTranslationBCP47LanguageTagCodeTextbox.Text.TrimEnd();
+            string bcp47LanguageTagCode = createCountryTranslationBCP47LanguageTagCodeTextbox.Text.TrimEnd().ToLower();
             Guid countryId = (Guid)createCountryTranslationCountryComboBox.SelectedValue;
             string localisedCountryName = createCountryTranslationLocalisedCountryNameTextbox.Text.TrimEnd();
 

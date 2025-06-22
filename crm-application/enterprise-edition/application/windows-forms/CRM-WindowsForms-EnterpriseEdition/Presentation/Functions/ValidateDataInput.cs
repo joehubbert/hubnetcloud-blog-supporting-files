@@ -41,6 +41,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         validationErrors.AppendLine($"{property.Name} cannot be empty.");
                     }
 
+                    if (property.Name.Equals("BCP47LanguageTagCode"))
+                    {
+                        if (value.Length == 2)
+                        {
+                            // Valid: exactly 2 characters (e.g., "en")
+                        }
+                        else if (value.Length == 5)
+                        {
+                            // Must match pattern: 2 letters, '-', 2 letters (e.g., "en-US")
+                            if (!Regex.IsMatch(value, @"^[a-zA-Z]{2}-[a-zA-Z]{2}$"))
+                            {
+                                validationErrors.AppendLine("BCP47LanguageTagCode must be in the format 'xx' or 'xx-xx' (where x is a letter).");
+                            }
+                        }
+                        else
+                        {
+                            validationErrors.AppendLine("BCP47LanguageTagCode must be either 2 letters or in the format 'xx-xx' (total 5 characters).");
+                        }
+                    }
+
                     if (property.Name.Contains("EmailAddress"))
                     {
                         if (!value.Contains("@"))

@@ -11,20 +11,17 @@ BEGIN
 			[Company Configuration Id],
 			[Company Name],
 			[Currency Conversion Friendly Name],
-			[Currency A Id],
-			[Currency A Code],
-			[Currency A Name],
-			[Currency B Id],
-			[Currency B Code],
-			[Currency B Name],
-			[Conversion Rate],
+			[Base Currency Id],
+			[Base Currency Code],
+			[Base Currency Name],
+			[Target Currency Id],
+			[Target Currency Code],
+			[Target Currency Name],
+			[Base Currency Conversion Rate],
+			[Target Currency Conversion Rate],
 			[Effective Date],
 			[Expiry Date],
-			[Active Status],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Active Status]
 			FROM [dbo].[vwCurrencyConversion]
 
 		COMMIT TRANSACTION;

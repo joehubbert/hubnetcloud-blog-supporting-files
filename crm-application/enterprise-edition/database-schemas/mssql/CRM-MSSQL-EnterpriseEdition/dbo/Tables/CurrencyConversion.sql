@@ -2,9 +2,10 @@
 (
 	[CurrencyConversionId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[CompanyConfigurationId] UNIQUEIDENTIFIER NOT NULL,
-	[CurrencyAId] UNIQUEIDENTIFIER NOT NULL,
-	[CurrencyBId] UNIQUEIDENTIFIER NOT NULL,
-	[ConversionRate] DECIMAL(18, 8) NOT NULL,
+	[BaseCurrencyId] UNIQUEIDENTIFIER NOT NULL,
+	[TargetCurrencyId] UNIQUEIDENTIFIER NOT NULL,
+	[BaseCurrencyConversionRate] DECIMAL(18, 8) NOT NULL,
+	[TargetCurrencyConversionRate] DECIMAL(18, 8) NOT NULL,
 	[EffectiveDate] DATE NOT NULL,
 	[ExpiryDate] DATE NULL,
 	[ActiveStatus] BIT NOT NULL,
@@ -13,19 +14,20 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	CONSTRAINT [FK_CurrencyConversion_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [FK_CurrencyConversion_CurrencyAId] FOREIGN KEY ([CurrencyAId]) REFERENCES [dbo].[Currency]([CurrencyId]),
-	CONSTRAINT [FK_CurrencyConversion_CurrencyBId] FOREIGN KEY ([CurrencyBId]) REFERENCES [dbo].[Currency]([CurrencyId]),
-	CONSTRAINT [CC_CurrencyConversion_ConversionRate] CHECK ([ConversionRate] > 0),
+	CONSTRAINT [FK_CurrencyConversion_BaseCurrencyId] FOREIGN KEY ([BaseCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
+	CONSTRAINT [FK_CurrencyConversion_TargetCurrencyId] FOREIGN KEY ([TargetCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
+	CONSTRAINT [CC_CurrencyConversion_BaseCurrencyConversionRate] CHECK ([BaseCurrencyConversionRate] = 1),
+	CONSTRAINT [CC_CurrencyConversion_TargetCurrencyConversionRate] CHECK ([TargetCurrencyConversionRate] > 0),
 	CONSTRAINT [CC_CurrencyConversion_EffectiveDate] CHECK ([EffectiveDate] <= GETUTCDATE()),
 	CONSTRAINT [CC_CurrencyConversion_ExpiryDate] CHECK (
 		([ExpiryDate] IS NULL OR [ExpiryDate] > GETUTCDATE())
 		AND ([EffectiveDate] < [ExpiryDate])),
 	CONSTRAINT [UC_CurrencyConversion_Unique] UNIQUE (
-		[CurrencyAId], [CurrencyBId], [EffectiveDate], [ExpiryDate]
+		[BaseCurrencyId], [TargetCurrencyId], [EffectiveDate], [ExpiryDate]
 	),
-	INDEX [IX_CurrencyConversion_CurrencyAId_CurrencyBId] NONCLUSTERED
+	INDEX [IX_CurrencyConversion_BaseCurrencyId_TargetCurrencyId] NONCLUSTERED
 	(
-		[CurrencyAId], [CurrencyBId]
+		[BaseCurrencyId], [TargetCurrencyId]
 	)
 )
 GO

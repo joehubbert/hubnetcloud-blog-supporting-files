@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCurrencyConversion]
 	@activeStatus BIT,
 	@companyConfigurationId UNIQUEIDENTIFIER,
-	@conversionRate DECIMAL(18, 6),
+	@conversionRate DECIMAL(18, 8),
 	@currencyConversionId UNIQUEIDENTIFIER,
 	@effectiveDate DATE,
 	@expiryDate DATE = NULL

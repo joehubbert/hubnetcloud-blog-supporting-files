@@ -4,7 +4,7 @@
 	[CompanyConfigurationId] UNIQUEIDENTIFIER NOT NULL,
 	[CurrencyAId] UNIQUEIDENTIFIER NOT NULL,
 	[CurrencyBId] UNIQUEIDENTIFIER NOT NULL,
-	[ConversionRate] DECIMAL(18, 6) NOT NULL,
+	[ConversionRate] DECIMAL(18, 8) NOT NULL,
 	[EffectiveDate] DATE NOT NULL,
 	[ExpiryDate] DATE NULL,
 	[ActiveStatus] BIT NOT NULL,

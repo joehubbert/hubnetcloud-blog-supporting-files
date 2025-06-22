@@ -2,7 +2,7 @@
     @companyConfigurationId UNIQUEIDENTIFIER,
     @currencyAId UNIQUEIDENTIFIER,
     @currencyBId UNIQUEIDENTIFIER,
-    @conversionRate DECIMAL(18, 6),
+    @conversionRate DECIMAL(18, 8),
     @effectiveDate DATE,
     @expiryDate DATE = NULL,
     @activeStatus BIT

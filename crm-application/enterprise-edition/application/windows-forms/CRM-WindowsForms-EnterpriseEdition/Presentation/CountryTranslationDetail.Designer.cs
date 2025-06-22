@@ -138,7 +138,7 @@
             countryTranslationDetailLastUpdatedByTextbox.Name = "countryTranslationDetailLastUpdatedByTextbox";
             countryTranslationDetailLastUpdatedByTextbox.ReadOnly = true;
             countryTranslationDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLastUpdatedByTextbox.TabIndex = 6;
+            countryTranslationDetailLastUpdatedByTextbox.TabIndex = 7;
             // 
             // countryTranslationDetailCreatedByTextbox
             // 
@@ -147,7 +147,7 @@
             countryTranslationDetailCreatedByTextbox.Name = "countryTranslationDetailCreatedByTextbox";
             countryTranslationDetailCreatedByTextbox.ReadOnly = true;
             countryTranslationDetailCreatedByTextbox.Size = new Size(370, 27);
-            countryTranslationDetailCreatedByTextbox.TabIndex = 4;
+            countryTranslationDetailCreatedByTextbox.TabIndex = 5;
             // 
             // countryTranslationDetailLastUpdatedTimestampTextbox
             // 
@@ -156,7 +156,7 @@
             countryTranslationDetailLastUpdatedTimestampTextbox.Name = "countryTranslationDetailLastUpdatedTimestampTextbox";
             countryTranslationDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             countryTranslationDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLastUpdatedTimestampTextbox.TabIndex = 7;
+            countryTranslationDetailLastUpdatedTimestampTextbox.TabIndex = 8;
             // 
             // countryTranslationDetailCreatedTimestampTextbox
             // 
@@ -165,7 +165,7 @@
             countryTranslationDetailCreatedTimestampTextbox.Name = "countryTranslationDetailCreatedTimestampTextbox";
             countryTranslationDetailCreatedTimestampTextbox.ReadOnly = true;
             countryTranslationDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            countryTranslationDetailCreatedTimestampTextbox.TabIndex = 5;
+            countryTranslationDetailCreatedTimestampTextbox.TabIndex = 6;
             // 
             // countryTranslationDetailLocalisedCountryNameTextbox
             // 
@@ -174,7 +174,7 @@
             countryTranslationDetailLocalisedCountryNameTextbox.Name = "countryTranslationDetailLocalisedCountryNameTextbox";
             countryTranslationDetailLocalisedCountryNameTextbox.ReadOnly = true;
             countryTranslationDetailLocalisedCountryNameTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLocalisedCountryNameTextbox.TabIndex = 2;
+            countryTranslationDetailLocalisedCountryNameTextbox.TabIndex = 3;
             // 
             // countryTranslationDetailCountryTranslationIdTextbox
             // 
@@ -192,7 +192,7 @@
             countryTranslationDetailBCP47LanguageTagCodeTextbox.Name = "countryTranslationDetailBCP47LanguageTagCodeTextbox";
             countryTranslationDetailBCP47LanguageTagCodeTextbox.ReadOnly = true;
             countryTranslationDetailBCP47LanguageTagCodeTextbox.Size = new Size(66, 27);
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.TabIndex = 1;
+            countryTranslationDetailBCP47LanguageTagCodeTextbox.TabIndex = 2;
             // 
             // countryTranslationDetailToggleEditModeButton
             // 
@@ -202,7 +202,7 @@
             countryTranslationDetailToggleEditModeButton.Margin = new Padding(4);
             countryTranslationDetailToggleEditModeButton.Name = "countryTranslationDetailToggleEditModeButton";
             countryTranslationDetailToggleEditModeButton.Size = new Size(108, 92);
-            countryTranslationDetailToggleEditModeButton.TabIndex = 8;
+            countryTranslationDetailToggleEditModeButton.TabIndex = 9;
             countryTranslationDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             countryTranslationDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -215,7 +215,7 @@
             countryTranslationDetailActiveStatusCheckbox.Margin = new Padding(4);
             countryTranslationDetailActiveStatusCheckbox.Name = "countryTranslationDetailActiveStatusCheckbox";
             countryTranslationDetailActiveStatusCheckbox.Size = new Size(200, 24);
-            countryTranslationDetailActiveStatusCheckbox.TabIndex = 3;
+            countryTranslationDetailActiveStatusCheckbox.TabIndex = 4;
             countryTranslationDetailActiveStatusCheckbox.Text = "Active Country Translation";
             countryTranslationDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -228,7 +228,7 @@
             countryTranslationDetailUpdateCountryTranslationButton.Margin = new Padding(4);
             countryTranslationDetailUpdateCountryTranslationButton.Name = "countryTranslationDetailUpdateCountryTranslationButton";
             countryTranslationDetailUpdateCountryTranslationButton.Size = new Size(185, 70);
-            countryTranslationDetailUpdateCountryTranslationButton.TabIndex = 9;
+            countryTranslationDetailUpdateCountryTranslationButton.TabIndex = 10;
             countryTranslationDetailUpdateCountryTranslationButton.Text = "Update Country Translation";
             countryTranslationDetailUpdateCountryTranslationButton.UseVisualStyleBackColor = true;
             countryTranslationDetailUpdateCountryTranslationButton.Click += countryTranslationDetailUpdateCountryTranslationButton_Click;
@@ -251,7 +251,7 @@
             countryTranslationDetailCountryComboBox.Location = new Point(262, 178);
             countryTranslationDetailCountryComboBox.Name = "countryTranslationDetailCountryComboBox";
             countryTranslationDetailCountryComboBox.Size = new Size(369, 28);
-            countryTranslationDetailCountryComboBox.TabIndex = 16;
+            countryTranslationDetailCountryComboBox.TabIndex = 1;
             // 
             // CountryTranslationDetail
             // 

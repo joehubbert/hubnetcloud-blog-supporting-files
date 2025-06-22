@@ -54,7 +54,7 @@
             viewAllDataRefreshDataButton.Margin = new Padding(2, 3, 2, 3);
             viewAllDataRefreshDataButton.Name = "viewAllDataRefreshDataButton";
             viewAllDataRefreshDataButton.Size = new Size(230, 59);
-            viewAllDataRefreshDataButton.TabIndex = 13;
+            viewAllDataRefreshDataButton.TabIndex = 3;
             viewAllDataRefreshDataButton.Text = "Refresh Data";
             viewAllDataRefreshDataButton.UseVisualStyleBackColor = true;
             viewAllDataRefreshDataButton.Click += viewAllDataRefreshDataButton_Click;
@@ -76,14 +76,14 @@
             viewAllDataDataGridView.RowHeadersWidth = 62;
             viewAllDataDataGridView.ShowEditingIcon = false;
             viewAllDataDataGridView.Size = new Size(1162, 441);
-            viewAllDataDataGridView.TabIndex = 14;
+            viewAllDataDataGridView.TabIndex = 1;
             // 
             // viewAllDataQuickFilterTextbox
             // 
             viewAllDataQuickFilterTextbox.Location = new Point(104, 75);
             viewAllDataQuickFilterTextbox.Name = "viewAllDataQuickFilterTextbox";
             viewAllDataQuickFilterTextbox.Size = new Size(843, 27);
-            viewAllDataQuickFilterTextbox.TabIndex = 15;
+            viewAllDataQuickFilterTextbox.TabIndex = 0;
             // 
             // viewAllDataQuickFilterTextboxLabel
             // 

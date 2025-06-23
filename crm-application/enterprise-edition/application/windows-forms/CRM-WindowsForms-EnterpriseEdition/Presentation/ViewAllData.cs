@@ -470,8 +470,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var filterConditions = dataTable.Columns
                         .Cast<DataColumn>()
-                        .Where(col => col.DataType == typeof(string) || col.DataType == typeof(object))
-                        .Select(col => $"CONVERT([{col.ColumnName}], 'System.String') LIKE '%{filterText}%'");
+                        .Where(col =>
+                            col.DataType == typeof(string) ||
+                            col.DataType == typeof(object) ||
+                            col.DataType == typeof(Guid))
+                        .Select(col =>
+                            $"CONVERT([{col.ColumnName}], 'System.String') LIKE '%{filterText}%'"
+                        );
                     dataTable.DefaultView.RowFilter = string.Join(" OR ", filterConditions);
                 }
             }

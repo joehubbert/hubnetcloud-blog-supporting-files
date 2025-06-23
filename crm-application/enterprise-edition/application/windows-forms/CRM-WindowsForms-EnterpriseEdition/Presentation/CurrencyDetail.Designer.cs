@@ -92,29 +92,32 @@
             // currencyDetailCreatedByTextboxLabel
             // 
             currencyDetailCreatedByTextboxLabel.AutoSize = true;
-            currencyDetailCreatedByTextboxLabel.Location = new Point(669, 141);
+            currencyDetailCreatedByTextboxLabel.Location = new Point(763, 141);
             currencyDetailCreatedByTextboxLabel.Name = "currencyDetailCreatedByTextboxLabel";
             currencyDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             currencyDetailCreatedByTextboxLabel.TabIndex = 11;
             currencyDetailCreatedByTextboxLabel.Text = "Created By";
+            currencyDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailCreatedTimestampTextboxLabel
             // 
             currencyDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            currencyDetailCreatedTimestampTextboxLabel.Location = new Point(669, 180);
+            currencyDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
             currencyDetailCreatedTimestampTextboxLabel.Name = "currencyDetailCreatedTimestampTextboxLabel";
             currencyDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             currencyDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             currencyDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            currencyDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailLastUpdatedByTextboxLabel
             // 
             currencyDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            currencyDetailLastUpdatedByTextboxLabel.Location = new Point(669, 224);
+            currencyDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
             currencyDetailLastUpdatedByTextboxLabel.Name = "currencyDetailLastUpdatedByTextboxLabel";
             currencyDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             currencyDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             currencyDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            currencyDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailLastUpdatedTimestampTextboxLabel
             // 
@@ -124,6 +127,7 @@
             currencyDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             currencyDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             currencyDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            currencyDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailLastUpdatedByTextbox
             // 

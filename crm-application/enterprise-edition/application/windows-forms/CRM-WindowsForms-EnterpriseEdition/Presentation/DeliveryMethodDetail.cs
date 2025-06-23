@@ -72,7 +72,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void ViewDeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)
+        private async void DeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -297,7 +297,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewDeliveryMethodDetailDeliveryMethodInformation_Load(this, EventArgs.Empty);
+            DeliveryMethodDetailDeliveryMethodInformation_Load(this, EventArgs.Empty);
         }
 
         private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)

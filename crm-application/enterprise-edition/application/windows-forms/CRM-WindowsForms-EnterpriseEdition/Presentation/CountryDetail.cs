@@ -26,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewCountryDetailCountryInformation_Load(object sender, EventArgs e)
+        private async void CountryDetailCountryInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -197,7 +197,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCountryDetailCountryInformation_Load(this, EventArgs.Empty);
+            CountryDetailCountryInformation_Load(this, EventArgs.Empty);
         }
 
         private void countryDetailToggleEditModeButton_Click(object? sender, EventArgs e)

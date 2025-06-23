@@ -229,7 +229,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
 
-        private async void ViewMasterDataSimpleDetailMasterDataInformation_Load(object sender, EventArgs e)
+        private async void MasterDataSimpleDetailMasterDataInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -380,7 +380,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
             SetParameters(_functionTitle);
-            ViewMasterDataSimpleDetailMasterDataInformation_Load(this, EventArgs.Empty);
+            MasterDataSimpleDetailMasterDataInformation_Load(this, EventArgs.Empty);
         }
 
         private void masterDataSimpleDetailToggleEditModeButton_Click(object? sender, EventArgs e)

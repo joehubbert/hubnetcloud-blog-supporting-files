@@ -150,7 +150,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void ViewNoteDetailNoteInformation_Load(object sender, EventArgs e)
+        private async void NoteDetailNoteInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -325,7 +325,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewNoteDetailNoteInformation_Load(this, EventArgs.Empty);
+            NoteDetailNoteInformation_Load(this, EventArgs.Empty);
         }
 
         private void noteDetailToggleEditModeButton_Click(object? sender, EventArgs e)

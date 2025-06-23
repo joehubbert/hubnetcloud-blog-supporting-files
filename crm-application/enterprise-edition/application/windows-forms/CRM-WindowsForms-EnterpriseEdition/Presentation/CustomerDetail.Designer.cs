@@ -1436,7 +1436,7 @@
             customerDetailCustomerNotesRefreshDataButton.TabIndex = 56;
             customerDetailCustomerNotesRefreshDataButton.Text = "Refresh Customer Note Data";
             customerDetailCustomerNotesRefreshDataButton.UseVisualStyleBackColor = true;
-            customerDetailCustomerNotesRefreshDataButton.Click += CustomerDetailCustomerNotesRefreshDataButton_Click;
+            customerDetailCustomerNotesRefreshDataButton.Click += customerDetailCustomerNotesRefreshDataButton_Click;
             // 
             // customerDetailCustomerNotesCreateNewCustomerNoteButton
             // 
@@ -1449,7 +1449,7 @@
             customerDetailCustomerNotesCreateNewCustomerNoteButton.TabIndex = 55;
             customerDetailCustomerNotesCreateNewCustomerNoteButton.Text = "Create New Customer Note";
             customerDetailCustomerNotesCreateNewCustomerNoteButton.UseVisualStyleBackColor = true;
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Click += CustomerDetailCustomerNotesCreateNewCustomerNoteButton_Click;
+            customerDetailCustomerNotesCreateNewCustomerNoteButton.Click += customerDetailCustomerNotesCreateNewCustomerNoteButton_Click;
             // 
             // customerDetailCustomerNotesExistingCustomerNotesDataGridView
             // 
@@ -1475,7 +1475,7 @@
             customerDetailUpdateCustomerButton.TabIndex = 58;
             customerDetailUpdateCustomerButton.Text = "Update Customer";
             customerDetailUpdateCustomerButton.UseVisualStyleBackColor = true;
-            customerDetailUpdateCustomerButton.Click += customerDetailSubmitButton_Click;
+            customerDetailUpdateCustomerButton.Click += customerDetailUpdateCustomerButton_Click;
             // 
             // customerDetailToggleEditModeButton
             // 
@@ -1488,7 +1488,7 @@
             customerDetailToggleEditModeButton.TabIndex = 57;
             customerDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            customerDetailToggleEditModeButton.Click += CustomerDetailToggleEditModeButton_Click;
+            customerDetailToggleEditModeButton.Click += customerDetailToggleEditModeButton_Click;
             // 
             // customerDetailRefreshDataButton
             // 

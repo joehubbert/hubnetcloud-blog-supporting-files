@@ -549,7 +549,7 @@
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.TabIndex = 20;
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.Text = "Create New Supplier Note";
             supplierDetailSupplierNotesCreateNewSupplierNoteButton.UseVisualStyleBackColor = true;
-            supplierDetailSupplierNotesCreateNewSupplierNoteButton.Click += supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click;
+            supplierDetailSupplierNotesCreateNewSupplierNoteButton.Click += SupplierDetailSupplierNotesCreateNewSupplierNoteButton_Click;
             // 
             // supplierDetailSupplierNotesExistingSupplierNotesDataGridView
             // 

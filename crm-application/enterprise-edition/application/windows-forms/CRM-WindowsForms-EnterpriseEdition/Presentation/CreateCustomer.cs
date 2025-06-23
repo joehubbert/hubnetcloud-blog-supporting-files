@@ -573,7 +573,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerOverviewAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
             string? customerOverviewCompanyName = createCustomerOverviewCompanyNameTextbox.Text.TrimEnd();
-            DateTime customerOverviewCustomerSince = createCustomerOverviewCustomerSinceDatePicker.Value;
+            DateTime customerOverviewCustomerSince = createCustomerOverviewCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerOverviewCustomerTierComboBox.SelectedValue.ToString());
             Guid customerOverviewCustomerTypeId = Guid.Parse(createCustomerOverviewCustomerTypeComboBox.SelectedValue.ToString());
             string customerOverviewEmailAddress = createCustomerOverviewEmailAddressTextbox.Text.TrimEnd();
@@ -615,7 +615,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
-
                 new ValidateDataInput.DataProperty
                 {
                     AllowNullValue = false,

@@ -111,7 +111,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void ViewProductDetailProductInformation_Load(object sender, EventArgs e)
+        private async void ProductDetailProductInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -210,11 +210,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (productDetailTabControl.SelectedTab == productDetailTabControl.TabPages["productDetailTabControlProductNotesPage"])
             {
-                await ViewProductDetailExistingProductNote_Load(sender, e);
+                await ProductDetailExistingProductNote_Load(sender, e);
             }
         }
 
-        private async Task ViewProductDetailExistingProductNote_Load(object sender, EventArgs e)
+        private async Task ProductDetailExistingProductNote_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -667,10 +667,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewProductDetailProductInformation_Load(this, EventArgs.Empty);
+            ProductDetailProductInformation_Load(this, EventArgs.Empty);
         }
 
-        private void ProductDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void productDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
             productDetailOverviewActiveStatusCheckbox.Enabled = !productDetailOverviewActiveStatusCheckbox.Enabled;
             productDetailOverviewProductCategoryComboBox.Enabled = !productDetailOverviewProductCategoryComboBox.Enabled;
@@ -690,15 +690,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             productDetailUpdateProductButton.Enabled = !productDetailUpdateProductButton.Enabled;
         }
 
-        private void ProductDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
+        private void productDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
         {
             CreateNote createNote = new CreateNote(_productId, "ProductNote");
             createNote.Show();
         }
 
-        private async void ProductDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)
+        private async void productDetailProductNotesRefreshDataButton_Click(object sender, EventArgs e)
         {
-            await ViewProductDetailExistingProductNote_Load(sender, e);
+            await ProductDetailExistingProductNote_Load(sender, e);
         }
     }
 }

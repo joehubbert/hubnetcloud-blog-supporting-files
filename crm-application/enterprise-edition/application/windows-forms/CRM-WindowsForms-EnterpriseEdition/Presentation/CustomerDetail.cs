@@ -567,7 +567,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void ViewCustomerDetailCustomerInformation_Load(object sender, EventArgs e)
+        private async void CustomerDetailCustomerInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -778,11 +778,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNotesPage"])
             {
-                await ViewCustomerDetailExistingCustomerNote_Load(sender, e);
+                await CustomerDetailExistingCustomerNote_Load(sender, e);
             }
         }
 
-        private async Task ViewCustomerDetailExistingCustomerNote_Load(object sender, EventArgs e)
+        private async Task CustomerDetailExistingCustomerNote_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -829,7 +829,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void customerDetailSubmitButton_Click(object sender, EventArgs e)
+        private async void customerDetailUpdateCustomerButton_Click(object sender, EventArgs e)
         {
             string customerBillingInformationAddressLine1 = customerDetailBillingInformationAddressLine1Textbox.Text.TrimEnd();
             string? customerBillingInformationAddressLine2 = customerDetailBillingInformationAddressLine2Textbox.Text.TrimEnd();
@@ -851,7 +851,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid customerOverviewAccountManagerId = Guid.Parse(customerDetailOverviewAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = customerDetailOverviewActiveStatusCheckbox.Checked;
             string? customerOverviewCompanyName = customerDetailOverviewCompanyNameTextbox.Text.TrimEnd();
-            DateTime customerOverviewCustomerSince = customerDetailOverviewCustomerSinceDatePicker.Value;
+            DateTime customerOverviewCustomerSince = customerDetailOverviewCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(customerDetailOverviewCustomerTierComboBox.SelectedValue.ToString());
             Guid customerOverviewCustomerTypeId = Guid.Parse(customerDetailOverviewCustomerTypeComboBox.SelectedValue.ToString());
             string customerOverviewEmailAddress = customerDetailOverviewEmailAddressTextbox.Text.TrimEnd();
@@ -1483,10 +1483,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCustomerDetailCustomerInformation_Load(this, EventArgs.Empty);
+            CustomerDetailCustomerInformation_Load(this, EventArgs.Empty);
         }
 
-        private void CustomerDetailToggleEditModeButton_Click(object sender, EventArgs e)
+        private void customerDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
             customerDetailBillingInformationAddressLine1Textbox.ReadOnly = !customerDetailBillingInformationAddressLine1Textbox.ReadOnly;
             customerDetailBillingInformationAddressLine2Textbox.ReadOnly = !customerDetailBillingInformationAddressLine2Textbox.ReadOnly;
@@ -1538,15 +1538,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailUpdateCustomerButton.Enabled = !customerDetailUpdateCustomerButton.Enabled;
         }
 
-        private void CustomerDetailCustomerNotesCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
+        private void customerDetailCustomerNotesCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
             CreateNote createNote = new CreateNote(_customerId, "CustomerNote");
             createNote.Show();
         }
 
-        private async void CustomerDetailCustomerNotesRefreshDataButton_Click(object sender, EventArgs e)
+        private async void customerDetailCustomerNotesRefreshDataButton_Click(object sender, EventArgs e)
         {
-            await ViewCustomerDetailExistingCustomerNote_Load(sender, e);
+            await CustomerDetailExistingCustomerNote_Load(sender, e);
         }
     }
 }

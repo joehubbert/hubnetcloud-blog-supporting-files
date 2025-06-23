@@ -26,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewCustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)
+        private async void CustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -197,7 +197,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCustomerTierDetailCustomerTierInformation_Load(this, EventArgs.Empty);
+            CustomerTierDetailCustomerTierInformation_Load(this, EventArgs.Empty);
         }
 
         private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)

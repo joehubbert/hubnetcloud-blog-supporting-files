@@ -81,7 +81,7 @@
             manufacturerDetailUpdateManufacturerButton.TabIndex = 23;
             manufacturerDetailUpdateManufacturerButton.Text = "Update Manufacturer";
             manufacturerDetailUpdateManufacturerButton.UseVisualStyleBackColor = true;
-            manufacturerDetailUpdateManufacturerButton.Click += manufacturerDetailUpdateManufacturerButton_Click;
+            manufacturerDetailUpdateManufacturerButton.Click += ManufacturerDetailUpdateManufacturerButton_Click;
             // 
             // manufacturerDetailOverviewActiveStatusCheckbox
             // 
@@ -107,7 +107,7 @@
             manufacturerDetailToggleEditModeButton.TabIndex = 22;
             manufacturerDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             manufacturerDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            manufacturerDetailToggleEditModeButton.Click += manufacturerDetailToggleEditModeButton_Click;
+            manufacturerDetailToggleEditModeButton.Click += ManufacturerDetailToggleEditModeButton_Click;
             // 
             // manufacturerDetailOverviewManufacturerIdTextbox
             // 

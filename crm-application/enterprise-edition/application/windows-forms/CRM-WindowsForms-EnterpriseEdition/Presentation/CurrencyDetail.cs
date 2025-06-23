@@ -6,11 +6,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CurrencyDetail : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _currencyId;
-        private string ?currencyDetailCurrencyCodeOriginalValue;
-        private string ?currencyDetailCurrencyNameOriginalValue;
-        private bool ?currencyDetailActiveStatusOriginalValue;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private bool? currencyDetailActiveStatusOriginalValue;
+        private string? currencyDetailCurrencyCodeOriginalValue;
+        private string? currencyDetailCurrencyNameOriginalValue;
         private readonly string dataSubject = "Currency";
 
         public CurrencyDetail(Guid currencyId)
@@ -26,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewCurrencyDetailCurrencyInformation_Load(object sender, EventArgs e)
+        private async void CurrencyDetailCurrencyInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -197,7 +197,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewCurrencyDetailCurrencyInformation_Load(this, EventArgs.Empty);
+            CurrencyDetailCurrencyInformation_Load(this, EventArgs.Empty);
         }
 
         private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)

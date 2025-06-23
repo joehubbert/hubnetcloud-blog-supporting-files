@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             _accountManagerId = accountManagerId;
-            accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += accountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
+            accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
             accountManagerDetailTabControl.SelectedIndexChanged += AccountManagerDetailTabControl_SelectedIndexChanged;
             LoadDatabaseConnectionSettingsAsync();
         }
@@ -29,7 +29,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewAccountManagerDetailAccountManagerInformation_Load(object sender, EventArgs e)
+        private async void AccountManagerDetailAccountManagerInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -88,11 +88,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (accountManagerDetailTabControl.SelectedTab == accountManagerDetailTabControl.TabPages["associatedCustomers"])
             {
-                await ViewAccountManagerDetailAssociatedCustomer_Load(sender, e);
+                await AccountManagerDetailAssociatedCustomer_Load(sender, e);
             }
         }
 
-        private async Task ViewAccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
+        private async Task AccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -139,7 +139,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void accountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == accountManagerDetailAssociatedCustomerDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -328,8 +328,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewAccountManagerDetailAccountManagerInformation_Load(this, EventArgs.Empty);
-            ViewAccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
+            AccountManagerDetailAccountManagerInformation_Load(this, EventArgs.Empty);
+            AccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
         }
 
         private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)

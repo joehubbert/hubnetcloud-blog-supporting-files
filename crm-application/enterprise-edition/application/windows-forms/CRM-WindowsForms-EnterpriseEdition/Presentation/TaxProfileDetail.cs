@@ -26,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewTaxProfileDetailTaxProfileInformation_Load(object sender, EventArgs e)
+        private async void TaxProfileDetailTaxProfileInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -202,7 +202,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewTaxProfileDetailTaxProfileInformation_Load(this, EventArgs.Empty);
+            TaxProfileDetailTaxProfileInformation_Load(this, EventArgs.Empty);
         }
 
         private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)

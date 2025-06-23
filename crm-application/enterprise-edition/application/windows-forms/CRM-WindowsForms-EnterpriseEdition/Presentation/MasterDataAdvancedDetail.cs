@@ -166,7 +166,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async void ViewMasterDataAdvancedDetailMasterDataInformation_Load(object sender, EventArgs e)
+        private async void MasterDataAdvancedDetailMasterDataInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -334,7 +334,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
             SetParameters(_functionTitle);
-            ViewMasterDataAdvancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
+            MasterDataAdvancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
         }
 
         private void masterDataAdvancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)

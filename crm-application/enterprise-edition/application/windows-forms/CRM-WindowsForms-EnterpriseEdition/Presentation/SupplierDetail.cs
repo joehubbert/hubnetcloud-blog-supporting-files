@@ -76,7 +76,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void ViewSupplierDetailSupplierInformation_Load(object sender, EventArgs e)
+        private async void SupplierDetailSupplierInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -158,11 +158,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (supplierDetailTabControl.SelectedTab == supplierDetailTabControl.TabPages["supplierDetailTabControlSupplierNotesPage"])
             {
-                await ViewSupplierDetailExistingSupplierNote_Load(sender, e);
+                await SupplierDetailExistingSupplierNote_Load(sender, e);
             }
         }
 
-        private async Task ViewSupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
+        private async Task SupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -574,7 +574,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewSupplierDetailSupplierInformation_Load(this, EventArgs.Empty);
+            SupplierDetailSupplierInformation_Load(this, EventArgs.Empty);
         }
 
         private void supplierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
@@ -600,7 +600,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailUpdateSupplierButton.Enabled = !supplierDetailUpdateSupplierButton.Enabled;
         }
 
-        private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
+        private void SupplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
             CreateNote createNote = new CreateNote(_supplierId, "SupplierNote");
             createNote.Show();
@@ -608,7 +608,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void supplierDetailSupplierNotesRefreshDataButton_Click(object sender, EventArgs e)
         {
-            await ViewSupplierDetailExistingSupplierNote_Load(sender, e);
+            await SupplierDetailExistingSupplierNote_Load(sender, e);
         }
     }
 }

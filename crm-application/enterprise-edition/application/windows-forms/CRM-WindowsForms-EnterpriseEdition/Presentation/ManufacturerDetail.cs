@@ -37,7 +37,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void ViewManufacturerDetailManufacturerInformation_Load(object sender, EventArgs e)
+        private async void ManufacturerDetailManufacturerInformation_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
             {
@@ -132,7 +132,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void manufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
+        private async void ManufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
         {
             string? manufacturerDetailFinanceVATNumber = manufacturerDetailFinanceVATNumberTextbox.Text.TrimEnd();
 
@@ -412,10 +412,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            ViewManufacturerDetailManufacturerInformation_Load(this, EventArgs.Empty);
+            ManufacturerDetailManufacturerInformation_Load(this, EventArgs.Empty);
         }
 
-        private void manufacturerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        private void ManufacturerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             manufacturerDetailOverviewCreatedByTextbox.ReadOnly = !manufacturerDetailOverviewCreatedByTextbox.ReadOnly;
             manufacturerDetailOverviewCreatedTimestampTextbox.ReadOnly = !manufacturerDetailOverviewCreatedTimestampTextbox.ReadOnly;

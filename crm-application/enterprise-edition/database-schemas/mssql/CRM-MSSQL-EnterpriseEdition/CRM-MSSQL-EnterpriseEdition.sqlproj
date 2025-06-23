@@ -600,6 +600,7 @@
     <None Include="Post Deployment Scripts\Data Population\Country.sql" />
     <None Include="Post Deployment Scripts\Data Population\CountryTranslation.sql" />
     <None Include="Post Deployment Scripts\Data Population\CustomerLeadNoteType.sql" />
+    <None Include="Post Deployment Scripts\Configuration\SchemaPublishTimestamp.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

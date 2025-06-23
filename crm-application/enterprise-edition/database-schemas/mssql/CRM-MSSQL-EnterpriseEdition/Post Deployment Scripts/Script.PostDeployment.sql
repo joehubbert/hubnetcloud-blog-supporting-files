@@ -3,6 +3,7 @@ Post-Deployment Script
 */
 
 :r ".\Configuration\DatabaseVersion.sql"
+:r ".\Configuration\SchemaPublishTimestamp.sql"
 :r ".\Configuration\SoftwareEdition.sql"
 :r ".\Data Population\Country.sql"
 :r ".\Data Population\CountryTranslation.sql"

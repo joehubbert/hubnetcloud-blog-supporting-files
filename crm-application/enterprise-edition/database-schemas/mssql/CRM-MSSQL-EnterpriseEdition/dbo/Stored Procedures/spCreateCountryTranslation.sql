@@ -1,7 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCountryTranslation]
     @activeStatus BIT,
-	@countryId UNIQUEIDENTIFIER,
 	@bcp47LanguageTagCode NVARCHAR(5),
+	@countryId UNIQUEIDENTIFIER,
 	@localisedCountryName NVARCHAR(100)
 AS
 

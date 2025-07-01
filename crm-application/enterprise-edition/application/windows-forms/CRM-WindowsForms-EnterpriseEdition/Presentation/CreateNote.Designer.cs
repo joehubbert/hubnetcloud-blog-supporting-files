@@ -78,24 +78,27 @@
             // 
             // createNoteNoteTitleLabel
             // 
+            createNoteNoteTitleLabel.AutoSize = true;
             createNoteNoteTitleLabel.Location = new Point(12, 68);
             createNoteNoteTitleLabel.Name = "createNoteNoteTitleLabel";
-            createNoteNoteTitleLabel.Size = new Size(170, 20);
+            createNoteNoteTitleLabel.Size = new Size(167, 20);
             createNoteNoteTitleLabel.TabIndex = 11;
             createNoteNoteTitleLabel.Text = "{Note Title Placeholder}";
             createNoteNoteTitleLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createNoteNoteTypeLabel
             // 
+            createNoteNoteTypeLabel.AutoSize = true;
             createNoteNoteTypeLabel.Location = new Point(12, 107);
             createNoteNoteTypeLabel.Name = "createNoteNoteTypeLabel";
-            createNoteNoteTypeLabel.Size = new Size(170, 20);
+            createNoteNoteTypeLabel.Size = new Size(169, 20);
             createNoteNoteTypeLabel.TabIndex = 12;
             createNoteNoteTypeLabel.Text = "{Note Type Placeholder}";
             createNoteNoteTypeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createNoteNoteLabel
             // 
+            createNoteNoteLabel.AutoSize = true;
             createNoteNoteLabel.Location = new Point(130, 150);
             createNoteNoteLabel.Name = "createNoteNoteLabel";
             createNoteNoteLabel.Size = new Size(52, 20);

@@ -62,6 +62,7 @@
             // 
             // noteDetailNoteIdLabel
             // 
+            noteDetailNoteIdLabel.AutoSize = true;
             noteDetailNoteIdLabel.Location = new Point(6, 145);
             noteDetailNoteIdLabel.Name = "noteDetailNoteIdLabel";
             noteDetailNoteIdLabel.Size = new Size(223, 20);
@@ -71,9 +72,10 @@
             // 
             // noteDetailNoteTitleLabel
             // 
-            noteDetailNoteTitleLabel.Location = new Point(13, 184);
+            noteDetailNoteTitleLabel.AutoSize = true;
+            noteDetailNoteTitleLabel.Location = new Point(62, 181);
             noteDetailNoteTitleLabel.Name = "noteDetailNoteTitleLabel";
-            noteDetailNoteTitleLabel.Size = new Size(216, 20);
+            noteDetailNoteTitleLabel.Size = new Size(167, 20);
             noteDetailNoteTitleLabel.TabIndex = 9;
             noteDetailNoteTitleLabel.Text = "{Note Title Placeholder}";
             noteDetailNoteTitleLabel.TextAlign = ContentAlignment.TopRight;
@@ -86,6 +88,7 @@
             noteDetailNoteLabel.Size = new Size(52, 20);
             noteDetailNoteLabel.TabIndex = 10;
             noteDetailNoteLabel.Text = " Note*";
+            noteDetailNoteLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailCreatedByTextboxLabel
             // 
@@ -218,10 +221,11 @@
             // 
             // noteDetailNoteTypeLabel
             // 
+            noteDetailNoteTypeLabel.AutoSize = true;
             noteDetailNoteTypeLabel.Font = new Font("Segoe UI", 11F);
-            noteDetailNoteTypeLabel.Location = new Point(13, 221);
+            noteDetailNoteTypeLabel.Location = new Point(60, 221);
             noteDetailNoteTypeLabel.Name = "noteDetailNoteTypeLabel";
-            noteDetailNoteTypeLabel.Size = new Size(216, 20);
+            noteDetailNoteTypeLabel.Size = new Size(169, 20);
             noteDetailNoteTypeLabel.TabIndex = 35;
             noteDetailNoteTypeLabel.Text = "{Note Type Placeholder}";
             noteDetailNoteTypeLabel.TextAlign = ContentAlignment.TopRight;

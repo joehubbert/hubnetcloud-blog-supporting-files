@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateOrder]
 	@customerId UNIQUEIDENTIFIER,
+	@internalReference NVARCHAR(50) = NULL,
 	@orderId UNIQUEIDENTIFIER OUTPUT,
+	@orderTypeId UNIQUEIDENTIFIER,
 	@purchaseOrderNumber NVARCHAR(50) = NULL
 AS
 
@@ -29,17 +31,21 @@ BEGIN
 			INSERT INTO [dbo].[Order]
 			(
 				[CustomerId],
+				[OrderTypeId],
 				[OrderDate],
 				[OrderFriendlyId],
-				[PurchaseOrderNumber]
+				[PurchaseOrderNumber],
+				[InternalReference]
 			)
 			OUTPUT INSERTED.[OrderId] INTO #OrderTempOutput
 			VALUES
 			(
 				@customerId,
+				@orderTypeId,
 				@orderDate,
 				@orderFriendlyId,
-				@purchaseOrderNumber
+				@purchaseOrderNumber,
+				@internalReference
 			);
 
 			SET @orderId = (SELECT [OrderId] FROM #OrderTempOutput);

@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllOrderForProduct]
-	@productId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetAllOrderType]
 AS
 
 BEGIN
@@ -8,14 +7,10 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Product Id],
-			[Order Id],
 			[Order Type Id],
 			[Order Type],
-			[Product Quantity],
-			[Product Order Value]
-			FROM [dbo].[vwOrderProduct]
-			WHERE [Product Id] = @productId
+			[Active Status]
+			FROM [dbo].[vwOrderType]
 
 		COMMIT TRANSACTION;
 	END TRY

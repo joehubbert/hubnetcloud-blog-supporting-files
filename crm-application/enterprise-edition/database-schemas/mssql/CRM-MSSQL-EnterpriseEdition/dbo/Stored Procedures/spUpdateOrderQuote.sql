@@ -1,0 +1,24 @@
+﻿CREATE PROCEDURE [dbo].[spUpdateOrderQuote]
+	@orderQuoteId UNIQUEIDENTIFIER,
+	@orderQuote VARBINARY(MAX)
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			UPDATE [dbo].[OrderQuote]
+			SET 
+				[OrderQuote] = @orderQuote
+			WHERE [OrderQuoteId] = @orderQuoteId;
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

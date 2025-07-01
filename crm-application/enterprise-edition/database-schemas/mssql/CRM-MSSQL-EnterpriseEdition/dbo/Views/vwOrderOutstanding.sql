@@ -10,5 +10,7 @@ FROM [dbo].[Order] O
 INNER JOIN [dbo].[vwOrderValue] OV ON O.[OrderId] = OV.[OrderId]
 INNER JOIN [dbo].[OrderStatusHistory] OSH ON O.[OrderId] = OSH.[OrderId]
 INNER JOIN [dbo].[OrderStatus] OS ON OSH.[OrderStatusId] = OS.[OrderStatusId]
+INNER JOIN [dbo].[OrderType] OT ON O.[OrderTypeId] = OT.[OrderTypeId]
 WHERE OS.[OrderStatus] != 'Complete'
 AND OS.[OrderStatus] != 'Cancelled'
+AND OT.[OrderType] = 'Final'

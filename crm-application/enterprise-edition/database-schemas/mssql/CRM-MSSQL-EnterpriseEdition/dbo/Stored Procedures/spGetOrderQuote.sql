@@ -1,0 +1,25 @@
+﻿CREATE PROCEDURE [dbo].[spGetOrderQuote]
+	@orderQuoteId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Order Quote Id],
+			[Order Id],
+			[Order Quote]
+			FROM [dbo].[vwOrderQuote]
+			WHERE [Order Quote Id] = @orderQuoteId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

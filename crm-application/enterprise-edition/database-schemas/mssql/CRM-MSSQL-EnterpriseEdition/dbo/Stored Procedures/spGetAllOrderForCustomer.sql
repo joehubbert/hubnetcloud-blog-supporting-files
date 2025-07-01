@@ -9,12 +9,16 @@ BEGIN
 
 			SELECT
 			[Order Id],
+			[Order Type Id],
+			[Order Type],
 			[Customer Id],
 			[Customer Name],
 			[Order Status],
 			[Payment Method],
 			[Total Order Value],
 			[Currency Code],
+			[Purchase Order Number],
+			[Internal Reference],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],

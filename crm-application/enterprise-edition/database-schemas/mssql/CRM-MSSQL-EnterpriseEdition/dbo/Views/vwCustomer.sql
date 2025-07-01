@@ -45,11 +45,17 @@ C.[ShippingEmailAddress] AS [Shipping Email Address],
 C.[CreditEnabled] AS [Credit Enabled],
 C.[CreditLimit] AS [Credit Limit],
 ISNULL(
-    (SUM(CASE WHEN OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN VOV.[TotalOrderValue] ELSE 0 END) / NULLIF(C.[CreditLimit], 0)) * 100,
+    (SUM(CASE 
+        WHEN OT.[OrderType] = 'Final' AND OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' 
+        THEN VOV.[TotalOrderValue] ELSE 0 END) / NULLIF(C.[CreditLimit], 0)) * 100,
     0
 ) AS [Credit Limit Used Percentage],
-(SUM(CASE WHEN OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN VOV.[TotalOrderValue] ELSE 0 END)) AS [Credit Limit Used],
-(SUM(CASE WHEN OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' THEN C.[CreditLimit] - VOV.[TotalOrderValue] ELSE 0 END)) AS [Remaining Credit Limit],
+(SUM(CASE 
+    WHEN OT.[OrderType] = 'Final' AND OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' 
+    THEN VOV.[TotalOrderValue] ELSE 0 END)) AS [Credit Limit Used],
+(SUM(CASE 
+    WHEN OT.[OrderType] = 'Final' AND OPS.[OrderPaymentStatus] != 'Settled' AND PM.[PaymentMethod] = 'Account Credit' 
+    THEN C.[CreditLimit] - VOV.[TotalOrderValue] ELSE 0 END)) AS [Remaining Credit Limit],
 C.[PaymentDays] AS [Payment Days],
 CUR.[CurrencyId] AS [Payment Currency Id],
 CUR.[CurrencyCode] AS [Payment Currency Code],
@@ -71,6 +77,7 @@ LEFT JOIN [dbo].[Order] O ON C.[CustomerId] = O.[CustomerId]
 LEFT JOIN [dbo].[OrderPayment] OP ON O.[OrderId] = OP.[OrderId]
 LEFT JOIN [dbo].[OrderPaymentStatusHistory] OPSH ON OP.[OrderPaymentId] = OPSH.[OrderPaymentId]
 LEFT JOIN [dbo].[OrderPaymentStatus] OPS ON OPSH.[OrderPaymentStatusId] = OPS.[OrderPaymentStatusId]
+INNER JOIN [dbo].[OrderType] OT ON O.[OrderTypeId] = OT.[OrderTypeId]
 INNER JOIN [dbo].[Currency] CUR ON C.[PaymentCurrencyId] = CUR.[CurrencyId]
 LEFT JOIN [dbo].[PaymentMethod] PM ON OP.[PaymentMethodId] = PM.[PaymentMethodId]
 INNER JOIN [dbo].[SalesSubRegion] SSR ON C.[SalesSubRegionId] = SSR.[SalesSubRegionId]

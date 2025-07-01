@@ -18,6 +18,7 @@ Post-Deployment Script
 :r ".\Data Population\OrderLineItemStatus.sql"
 :r ".\Data Population\OrderPaymentStatus.sql"
 :r ".\Data Population\OrderStatus.sql"
+:r ".\Data Population\OrderType.sql"
 :r ".\Data Population\PaymentMethod.sql"
 :r ".\Data Population\ProductNoteType.sql"
 :r ".\Data Population\PromotionTargetType.sql"

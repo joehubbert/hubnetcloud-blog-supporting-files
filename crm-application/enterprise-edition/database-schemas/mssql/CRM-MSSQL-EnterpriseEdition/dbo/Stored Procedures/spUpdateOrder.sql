@@ -1,7 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateOrder]
 	@customerId UNIQUEIDENTIFIER,
+	@internalReference NVARCHAR(50),
 	@orderId UNIQUEIDENTIFIER,
-	@purchaseOrderNumber UNIQUEIDENTIFIER
+	@purchaseOrderNumber NVARCHAR(50)
 AS
 
 BEGIN
@@ -12,6 +13,7 @@ BEGIN
 			UPDATE [dbo].[Order]
 			SET 
 				[CustomerId] = @customerId,
+				[InternalReference] = @internalReference,
 				[PurchaseOrderNumber] = @purchaseOrderNumber
 			WHERE [OrderId] = @orderId
 

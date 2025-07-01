@@ -2,14 +2,17 @@
 (
 	[OrderId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
     [CustomerId] UNIQUEIDENTIFIER NOT NULL,
+    [OrderTypeId] UNIQUEIDENTIFIER NOT NULL,
     [OrderDate] DATE NOT NULL,
     [OrderFriendlyId] NVARCHAR(20) NOT NULL,
     [PurchaseOrderNumber] NVARCHAR(50) NULL,
+    [InternalReference] NVARCHAR(50) NULL,
     [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     CONSTRAINT [FK_Order_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
+    CONSTRAINT [FK_Order_OrderTypeId] FOREIGN KEY ([OrderTypeId]) REFERENCES [dbo].[OrderType]([OrderTypeId]),
     CONSTRAINT [UC_Order_OrderFriendlyId] UNIQUE ([OrderFriendlyId])
 )
 GO

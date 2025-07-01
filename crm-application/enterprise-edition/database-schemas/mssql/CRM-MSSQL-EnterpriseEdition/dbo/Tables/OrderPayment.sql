@@ -8,9 +8,28 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
-	CONSTRAINT [FK_OrderPayment_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [dbo].[Order]([OrderId]),
+    CONSTRAINT [FK_OrderPayment_OrderId] FOREIGN KEY ([OrderId]) REFERENCES [dbo].[Order]([OrderId]),
     CONSTRAINT [FK_OrderPayment_PaymentMethodId] FOREIGN KEY ([PaymentMethodId]) REFERENCES [dbo].[PaymentMethod]([PaymentMethodId])
 )
+GO
+
+CREATE TRIGGER [TRG_CheckOrderPaymentValidOrderType]
+ON [dbo].[OrderPayment]
+AFTER INSERT
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1
+        FROM inserted i
+        INNER JOIN [dbo].[Order] o ON o.[OrderId] = i.[OrderId]
+        INNER JOIN [dbo].[OrderType] ot ON ot.[OrderTypeId] = o.[OrderTypeId]
+        WHERE ot.[OrderType] = 'Final' -- assuming [OrderType] is a string like 'Final'
+    )
+    BEGIN
+        RAISERROR('Payments can only be added to orders with OrderType = Final.', 16, 1);
+        ROLLBACK TRANSACTION;
+    END
+END
 GO
 
 CREATE TRIGGER [TRG_UpdateOrderPayment]

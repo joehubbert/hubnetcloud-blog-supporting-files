@@ -565,6 +565,20 @@
     <Build Include="dbo\Stored Procedures\spGetCustomerLeadNote.sql" />
     <Build Include="dbo\Stored Procedures\spGetCustomerLeadNoteType.sql" />
     <Build Include="dbo\Views\vwCustomerLeadNoteSummary.sql" />
+    <Build Include="dbo\Tables\OrderQuote.sql" />
+    <Build Include="dbo\Tables\OrderType.sql" />
+    <Build Include="dbo\Views\vwOrderQuote.sql" />
+    <Build Include="dbo\Views\vwOrderType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateOrderType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateOrderQuote.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderType.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderType.sql" />
+    <Build Include="dbo\Functions\fnGenerateFriendlyOrderQuoteId.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderQuote.sql" />
+    <Build Include="dbo\Stored Procedures\spGetOrderQuote.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateOrderQuote.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllOrderQuoteForCustomer.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -601,6 +615,7 @@
     <None Include="Post Deployment Scripts\Data Population\CountryTranslation.sql" />
     <None Include="Post Deployment Scripts\Data Population\CustomerLeadNoteType.sql" />
     <None Include="Post Deployment Scripts\Configuration\SchemaPublishTimestamp.sql" />
+    <None Include="Post Deployment Scripts\Data Population\OrderType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

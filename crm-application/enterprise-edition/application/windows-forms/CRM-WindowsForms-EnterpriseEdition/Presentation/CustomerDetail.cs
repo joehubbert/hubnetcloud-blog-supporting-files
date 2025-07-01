@@ -776,9 +776,60 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void CustomerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNotesPage"])
+            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerContactPage"])
+            {
+                await CustomerDetailExistingCustomerContact_Load(sender, e);
+            }
+            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNotePage"])
             {
                 await CustomerDetailExistingCustomerNote_Load(sender, e);
+            }
+        }
+
+        private async Task CustomerDetailExistingCustomerContact_Load(object sender, EventArgs e)
+        {
+            if (_databaseConnectionSettings == null)
+            {
+                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
+            string dataSubject = "Existing Customer Contacts";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@customerId",
+                    ParameterValue = _customerId
+                }
+            };
+
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No Existing Customer Contacts found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dataTable.DefaultView.Sort = "Created Timestamp DESC";
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.AutoGenerateColumns = true;
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.DataSource = dataTable;
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Contains("Details"))
+                {
+                    customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Remove("Details");
+                }
+                DataGridViewLinkColumn customerNoteDetailLink = new DataGridViewLinkColumn
+                {
+                    HeaderText = "Details",
+                    Text = "View Customer Contact",
+                    UseColumnTextForLinkValue = true,
+                    Name = "Details"
+                };
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Add(customerNoteDetailLink);
             }
         }
 
@@ -811,12 +862,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerDetailCustomerNotesExistingCustomerNotesDataGridView.AutoGenerateColumns = true;
-                customerDetailCustomerNotesExistingCustomerNotesDataGridView.DataSource = dataTable;
-                customerDetailCustomerNotesExistingCustomerNotesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerDetailCustomerNotesExistingCustomerNotesDataGridView.Columns.Contains("Details"))
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.AutoGenerateColumns = true;
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.DataSource = dataTable;
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Contains("Details"))
                 {
-                    customerDetailCustomerNotesExistingCustomerNotesDataGridView.Columns.Remove("Details");
+                    customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Remove("Details");
                 }
                 DataGridViewLinkColumn customerNoteDetailLink = new DataGridViewLinkColumn
                 {
@@ -825,7 +876,55 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     UseColumnTextForLinkValue = true,
                     Name = "Details"
                 };
-                customerDetailCustomerNotesExistingCustomerNotesDataGridView.Columns.Add(customerNoteDetailLink);
+                customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Add(customerNoteDetailLink);
+            }
+        }
+
+        private void customerDetailCustomerContactExistingCustomerContactDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == customerDetailCustomerContactExistingCustomerContactDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    if (customerDetailCustomerContactExistingCustomerContactDataGridView.Columns.Contains("Customer Contact Id"))
+                    {
+                        Guid customerContactId = (Guid)customerDetailCustomerContactExistingCustomerContactDataGridView.Rows[e.RowIndex].Cells["Customer Contact Id"].Value;
+                        ContactDetail contactDetail = new ContactDetail("Customer", customerContactId);
+                        contactDetail.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer Contact Id column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to open Customer Contact details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void customerDetailCustomerNoteExistingCustomerNoteDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    if (customerDetailCustomerNoteExistingCustomerNoteDataGridView.Columns.Contains("Customer Note Id"))
+                    {
+                        Guid customerNoteId = (Guid)customerDetailCustomerNoteExistingCustomerNoteDataGridView.Rows[e.RowIndex].Cells["Customer Note Id"].Value;
+                        NoteDetail noteDetail = new NoteDetail("Customer", customerNoteId);
+                        noteDetail.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Customer Note Id column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to open Customer Note details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -1538,15 +1637,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailUpdateCustomerButton.Enabled = !customerDetailUpdateCustomerButton.Enabled;
         }
 
-        private void customerDetailCustomerNotesCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
+        private void customerDetailCustomerNoteCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
             CreateNote createNote = new CreateNote(_customerId, "CustomerNote");
             createNote.Show();
         }
 
-        private async void customerDetailCustomerNotesRefreshDataButton_Click(object sender, EventArgs e)
+        private async void customerDetailCustomerNoteRefreshDataButton_Click(object sender, EventArgs e)
         {
             await CustomerDetailExistingCustomerNote_Load(sender, e);
+        }
+
+        private void customerDetailCustomerContactCreateNewCustomerContactButton_Click(object sender, EventArgs e)
+        {
+            CreateContact createContact = new CreateContact(_customerId, "Customer");
+            createContact.Show();
+        }
+
+        private async void customerDetailCustomerContactRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await CustomerDetailExistingCustomerContact_Load(sender, e);
         }
     }
 }

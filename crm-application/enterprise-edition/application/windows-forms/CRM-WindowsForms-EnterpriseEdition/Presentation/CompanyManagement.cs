@@ -15,7 +15,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPageViewAllAccountManagerButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("AccountManager", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("AccountManager", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -27,7 +27,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageViewAllCustomerLeadNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -39,7 +39,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -51,7 +51,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadTypeTabPageViewAllCustomerLeadTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -63,7 +63,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPageViewAllCustomerNoteTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -75,7 +75,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPageViewAllCustomerTierButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -87,7 +87,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPageViewAllCustomerTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -99,7 +99,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPageViewAllCurrencyButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("Currency", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("Currency", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -111,7 +111,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyConversionTabPageViewAllCurrencyConversionButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CurrencyConversion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CurrencyConversion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -123,7 +123,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlPaymentMethodTabPageViewAllPaymentMethodButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PaymentMethod", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("PaymentMethod", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -135,7 +135,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlTaxProfileTabPageViewAllTaxProfileButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("TaxProfile", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("TaxProfile", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -147,7 +147,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControlDeliveryMethodTabPageViewAllDeliveryMethodButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("DeliveryMethod", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("DeliveryMethod", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -159,7 +159,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -171,7 +171,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignTypeTabPageViewAllMarketingCampaignTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -183,7 +183,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPageViewAllMarketingChannelButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -195,7 +195,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPageViewAllPromotionTargetType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -207,7 +207,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPageViewAllPromotionTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -219,7 +219,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPageViewAllCountryButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -231,7 +231,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -243,7 +243,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageViewAllOrderLineItemStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -255,7 +255,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -267,7 +267,19 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement", null);
+            viewAllData.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderType", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderType", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -279,7 +291,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPageViewAllProductCategoryButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -291,7 +303,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -303,7 +315,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -315,7 +327,7 @@
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPageViewAllSalesRegionButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SalesRegion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("SalesRegion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -327,7 +339,7 @@
 
         private void companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesSubRegionTabPageViewAllSalesSubRegionButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SalesSubRegion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("SalesSubRegion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -339,7 +351,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPageViewAllSupplierNoteTypeButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -351,7 +363,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPageViewAllSupplierOrderLineItemStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -363,7 +375,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPageViewAllSupplierOrderPaymentStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -375,7 +387,7 @@
 
         private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
     }

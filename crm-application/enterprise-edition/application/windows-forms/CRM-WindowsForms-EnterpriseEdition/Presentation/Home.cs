@@ -115,7 +115,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerViewAllAccountManager_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("AccountManager", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("AccountManager", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -127,7 +127,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadNoteTypeViewAllCustomerLeadNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadNoteType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -139,7 +139,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadStatusViewAllCustomerLeadStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadStatus", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -151,7 +151,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerLeadTypeViewAllCustomerLeadType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerLeadType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -163,7 +163,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerNoteTypeViewAllCustomerNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerNoteType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -175,7 +175,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTierViewAllCustomerTier_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerTier", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -187,7 +187,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementCustomerCustomerTypeViewAllCustomerType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("CustomerType", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -199,7 +199,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyViewAllCurrency_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("Currency", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("Currency", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -211,7 +211,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceCurrencyConversionViewAllCurrencyConversion_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CurrencyConversion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CurrencyConversion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -223,7 +223,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementFinancePaymentMethodViewAllPaymentMethod_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PaymentMethod", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("PaymentMethod", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -235,7 +235,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementFinanceTaxProfileViewAllTaxProfile_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("TaxProfile", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("TaxProfile", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -247,7 +247,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementLogisticsDeliveryMethodViewAllDeliveryMethod_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("DeliveryMethod", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("DeliveryMethod", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -259,7 +259,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignStatusViewAllMarketingCampaignStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignStatus", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -271,7 +271,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingCampaignTypeViewAllMarketingCampaignType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingCampaignType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -283,7 +283,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingMarketingChannelViewAllMarketingChannel_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("MarketingChannel", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -295,7 +295,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTargetTypeViewAllPromotionTargetType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("PromotionTargetType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -307,7 +307,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMarketingPromotionTypeViewAllPromotionType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("PromotionType", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -319,7 +319,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("Country", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -331,7 +331,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -343,7 +343,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusViewAllOrderLineItemStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderLineItemStatus", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -355,7 +355,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatusViewAllOrderPaymentStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderPaymentStatus", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -367,7 +367,19 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement");
+            ViewAllData viewAllData = new ViewAllData("OrderStatus", "OrderManagement", null);
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderType", "OrderManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("OrderType", "OrderManagement", null);
             viewAllData.Show();
         }
 
@@ -379,7 +391,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductCategory", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -391,7 +403,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryViewAllProductSubCategory_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductSubCategory", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -403,7 +415,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductNoteTypeViewAllProductNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ProductNoteType", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -415,7 +427,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesRegionViewAllSalesRegion_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SalesRegion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("SalesRegion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -427,7 +439,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSalesGeographySalesSubRegionViewAllSalesSubRegion_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SalesSubRegion", "CompanyManagement");
+            ViewAllData viewAllData = new ViewAllData("SalesSubRegion", "CompanyManagement", null);
             viewAllData.Show();
         }
 
@@ -439,7 +451,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierNoteTypeViewAllSupplierNoteType_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierNoteType", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -451,7 +463,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderLineItemStatusViewAllSupplierOrderLineItemStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderLineItemStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -463,7 +475,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderPaymentStatusViewAllSupplierOrderPaymentStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderPaymentStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -475,7 +487,7 @@
 
         private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement", null);
             viewAllData.Show();
         }
 
@@ -493,7 +505,7 @@
 
         private void homeMenuStripModuleCustomerManagementViewAllCustomer_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ViewAllCustomer", "CustomerManagement");
+            ViewAllData viewAllData = new ViewAllData("ViewAllCustomer", "CustomerManagement", null);
             viewAllData.Show();
         }
 
@@ -511,7 +523,7 @@
 
         private void homeMenuStripModuleMarketingManagementViewAllMarketingCampaign_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ViewAllMarketingCampaign", "MarketingManagement");
+            ViewAllData viewAllData = new ViewAllData("ViewAllMarketingCampaign", "MarketingManagement", null);
             viewAllData.Show();
         }
 
@@ -535,7 +547,7 @@
 
         private void homeMenuStripModuleProductManagementViewAllProduct_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ViewAllProduct", "ProductManagement");
+            ViewAllData viewAllData = new ViewAllData("ViewAllProduct", "ProductManagement", null);
             viewAllData.Show();
         }
 
@@ -553,7 +565,7 @@
 
         private void homeMenuStripModuleSupplierManagementViewAllSupplier_Click(object sender, EventArgs e)
         {
-            ViewAllData viewAllData = new ViewAllData("ViewAllSupplier", "SupplierManagement");
+            ViewAllData viewAllData = new ViewAllData("ViewAllSupplier", "SupplierManagement", null);
             viewAllData.Show();
         }
 

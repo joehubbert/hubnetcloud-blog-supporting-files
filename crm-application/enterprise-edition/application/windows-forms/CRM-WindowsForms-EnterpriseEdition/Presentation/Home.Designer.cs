@@ -173,6 +173,9 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -886,7 +889,7 @@
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrder.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType });
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrder";
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Size = new Size(203, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder.Text = "&Order";
@@ -1528,6 +1531,33 @@
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
             // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Text = "&Order Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Text = "&Create Order Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Text = "&View All Order Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1705,5 +1735,8 @@
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatus;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusCreateSupplierOrderStatus;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType;
     }
 }

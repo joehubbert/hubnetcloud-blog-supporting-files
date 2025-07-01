@@ -146,10 +146,14 @@
             customerDetailFinanceCreditLimitTextboxB = new TextBox();
             customerDetailFinanceCreditLimitTextboxA = new TextBox();
             customerDetailFinanceCreditEnabledCheckbox = new CheckBox();
-            customerDetailTabControlCustomerNotesPage = new TabPage();
-            customerDetailCustomerNotesRefreshDataButton = new Button();
-            customerDetailCustomerNotesCreateNewCustomerNoteButton = new Button();
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView = new DataGridView();
+            customerDetailTabControlCustomerContactPage = new TabPage();
+            customerDetailCustomerContactRefreshDataButton = new Button();
+            customerDetailCustomerContactCreateNewCustomerContactButton = new Button();
+            customerDetailCustomerContactExistingCustomerContactDataGridView = new DataGridView();
+            customerDetailTabControlCustomerNotePage = new TabPage();
+            customerDetailCustomerNoteRefreshDataButton = new Button();
+            customerDetailCustomerNoteCreateNewCustomerNoteButton = new Button();
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView = new DataGridView();
             customerDetailUpdateCustomerButton = new Button();
             customerDetailToggleEditModeButton = new Button();
             customerDetailRefreshDataButton = new Button();
@@ -162,8 +166,10 @@
             customerDetailTabControlBillingPage.SuspendLayout();
             customerDetailTabControlShippingPage.SuspendLayout();
             customerDetailTabControlFinancePage.SuspendLayout();
-            customerDetailTabControlCustomerNotesPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerNotesExistingCustomerNotesDataGridView).BeginInit();
+            customerDetailTabControlCustomerContactPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerContactExistingCustomerContactDataGridView).BeginInit();
+            customerDetailTabControlCustomerNotePage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerNoteExistingCustomerNoteDataGridView).BeginInit();
             SuspendLayout();
             // 
             // customerDetailTitleLabel
@@ -184,7 +190,8 @@
             customerDetailTabControl.Controls.Add(customerDetailTabControlBillingPage);
             customerDetailTabControl.Controls.Add(customerDetailTabControlShippingPage);
             customerDetailTabControl.Controls.Add(customerDetailTabControlFinancePage);
-            customerDetailTabControl.Controls.Add(customerDetailTabControlCustomerNotesPage);
+            customerDetailTabControl.Controls.Add(customerDetailTabControlCustomerContactPage);
+            customerDetailTabControl.Controls.Add(customerDetailTabControlCustomerNotePage);
             customerDetailTabControl.Location = new Point(13, 111);
             customerDetailTabControl.Name = "customerDetailTabControl";
             customerDetailTabControl.SelectedIndex = 0;
@@ -780,10 +787,10 @@
             customerDetailTabControlBillingPage.Controls.Add(customerDetailBillingInformationCompanyNameTextbox);
             customerDetailTabControlBillingPage.Controls.Add(customerDetailBillingInformationLastNameTextbox);
             customerDetailTabControlBillingPage.Controls.Add(customerDetailBillingInformationFirstNameTextbox);
-            customerDetailTabControlBillingPage.Location = new Point(4, 32);
+            customerDetailTabControlBillingPage.Location = new Point(4, 27);
             customerDetailTabControlBillingPage.Name = "customerDetailTabControlBillingPage";
             customerDetailTabControlBillingPage.Padding = new Padding(3);
-            customerDetailTabControlBillingPage.Size = new Size(1247, 716);
+            customerDetailTabControlBillingPage.Size = new Size(1247, 721);
             customerDetailTabControlBillingPage.TabIndex = 1;
             customerDetailTabControlBillingPage.Text = "Billing Information";
             // 
@@ -1000,9 +1007,9 @@
             customerDetailTabControlShippingPage.Controls.Add(customerDetailShippingInformationCompanyNameTextbox);
             customerDetailTabControlShippingPage.Controls.Add(customerDetailShippingInformationLastNameTextbox);
             customerDetailTabControlShippingPage.Controls.Add(customerDetailShippingInformationFirstNameTextbox);
-            customerDetailTabControlShippingPage.Location = new Point(4, 32);
+            customerDetailTabControlShippingPage.Location = new Point(4, 27);
             customerDetailTabControlShippingPage.Name = "customerDetailTabControlShippingPage";
-            customerDetailTabControlShippingPage.Size = new Size(1247, 716);
+            customerDetailTabControlShippingPage.Size = new Size(1247, 721);
             customerDetailTabControlShippingPage.TabIndex = 2;
             customerDetailTabControlShippingPage.Text = "Shipping Information";
             // 
@@ -1219,9 +1226,9 @@
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditLimitTextboxB);
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditLimitTextboxA);
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditEnabledCheckbox);
-            customerDetailTabControlFinancePage.Location = new Point(4, 32);
+            customerDetailTabControlFinancePage.Location = new Point(4, 27);
             customerDetailTabControlFinancePage.Name = "customerDetailTabControlFinancePage";
-            customerDetailTabControlFinancePage.Size = new Size(1247, 716);
+            customerDetailTabControlFinancePage.Size = new Size(1247, 721);
             customerDetailTabControlFinancePage.TabIndex = 3;
             customerDetailTabControlFinancePage.Text = "Finance";
             // 
@@ -1413,55 +1420,105 @@
             customerDetailFinanceCreditEnabledCheckbox.Text = "Credit Enabled";
             customerDetailFinanceCreditEnabledCheckbox.UseVisualStyleBackColor = true;
             // 
-            // customerDetailTabControlCustomerNotesPage
+            // customerDetailTabControlCustomerContactPage
             // 
-            customerDetailTabControlCustomerNotesPage.BackColor = Color.LightGreen;
-            customerDetailTabControlCustomerNotesPage.Controls.Add(customerDetailCustomerNotesRefreshDataButton);
-            customerDetailTabControlCustomerNotesPage.Controls.Add(customerDetailCustomerNotesCreateNewCustomerNoteButton);
-            customerDetailTabControlCustomerNotesPage.Controls.Add(customerDetailCustomerNotesExistingCustomerNotesDataGridView);
-            customerDetailTabControlCustomerNotesPage.Location = new Point(4, 32);
-            customerDetailTabControlCustomerNotesPage.Name = "customerDetailTabControlCustomerNotesPage";
-            customerDetailTabControlCustomerNotesPage.Size = new Size(1247, 716);
-            customerDetailTabControlCustomerNotesPage.TabIndex = 4;
-            customerDetailTabControlCustomerNotesPage.Text = "Customer Notes";
+            customerDetailTabControlCustomerContactPage.BackColor = Color.LightGreen;
+            customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactRefreshDataButton);
+            customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactCreateNewCustomerContactButton);
+            customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactExistingCustomerContactDataGridView);
+            customerDetailTabControlCustomerContactPage.Location = new Point(4, 32);
+            customerDetailTabControlCustomerContactPage.Name = "customerDetailTabControlCustomerContactPage";
+            customerDetailTabControlCustomerContactPage.Size = new Size(1247, 716);
+            customerDetailTabControlCustomerContactPage.TabIndex = 5;
+            customerDetailTabControlCustomerContactPage.Text = "Customer Contacts";
             // 
-            // customerDetailCustomerNotesRefreshDataButton
+            // customerDetailCustomerContactRefreshDataButton
             // 
-            customerDetailCustomerNotesRefreshDataButton.FlatStyle = FlatStyle.Flat;
-            customerDetailCustomerNotesRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customerDetailCustomerNotesRefreshDataButton.Location = new Point(1084, 98);
-            customerDetailCustomerNotesRefreshDataButton.Margin = new Padding(4);
-            customerDetailCustomerNotesRefreshDataButton.Name = "customerDetailCustomerNotesRefreshDataButton";
-            customerDetailCustomerNotesRefreshDataButton.Size = new Size(151, 70);
-            customerDetailCustomerNotesRefreshDataButton.TabIndex = 56;
-            customerDetailCustomerNotesRefreshDataButton.Text = "Refresh Customer Note Data";
-            customerDetailCustomerNotesRefreshDataButton.UseVisualStyleBackColor = true;
-            customerDetailCustomerNotesRefreshDataButton.Click += customerDetailCustomerNotesRefreshDataButton_Click;
+            customerDetailCustomerContactRefreshDataButton.FlatStyle = FlatStyle.Flat;
+            customerDetailCustomerContactRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerDetailCustomerContactRefreshDataButton.Location = new Point(1084, 98);
+            customerDetailCustomerContactRefreshDataButton.Margin = new Padding(4);
+            customerDetailCustomerContactRefreshDataButton.Name = "customerDetailCustomerContactRefreshDataButton";
+            customerDetailCustomerContactRefreshDataButton.Size = new Size(151, 70);
+            customerDetailCustomerContactRefreshDataButton.TabIndex = 59;
+            customerDetailCustomerContactRefreshDataButton.Text = "Refresh Customer Contact Data";
+            customerDetailCustomerContactRefreshDataButton.UseVisualStyleBackColor = true;
+            customerDetailCustomerContactRefreshDataButton.Click += customerDetailCustomerContactRefreshDataButton_Click;
             // 
-            // customerDetailCustomerNotesCreateNewCustomerNoteButton
+            // customerDetailCustomerContactCreateNewCustomerContactButton
             // 
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.FlatStyle = FlatStyle.Flat;
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Location = new Point(1084, 20);
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Margin = new Padding(4);
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Name = "customerDetailCustomerNotesCreateNewCustomerNoteButton";
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Size = new Size(151, 70);
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.TabIndex = 55;
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Text = "Create New Customer Note";
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.UseVisualStyleBackColor = true;
-            customerDetailCustomerNotesCreateNewCustomerNoteButton.Click += customerDetailCustomerNotesCreateNewCustomerNoteButton_Click;
+            customerDetailCustomerContactCreateNewCustomerContactButton.FlatStyle = FlatStyle.Flat;
+            customerDetailCustomerContactCreateNewCustomerContactButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerDetailCustomerContactCreateNewCustomerContactButton.Location = new Point(1084, 20);
+            customerDetailCustomerContactCreateNewCustomerContactButton.Margin = new Padding(4);
+            customerDetailCustomerContactCreateNewCustomerContactButton.Name = "customerDetailCustomerContactCreateNewCustomerContactButton";
+            customerDetailCustomerContactCreateNewCustomerContactButton.Size = new Size(151, 70);
+            customerDetailCustomerContactCreateNewCustomerContactButton.TabIndex = 58;
+            customerDetailCustomerContactCreateNewCustomerContactButton.Text = "Create New Customer Contact";
+            customerDetailCustomerContactCreateNewCustomerContactButton.UseVisualStyleBackColor = true;
+            customerDetailCustomerContactCreateNewCustomerContactButton.Click += customerDetailCustomerContactCreateNewCustomerContactButton_Click;
             // 
-            // customerDetailCustomerNotesExistingCustomerNotesDataGridView
+            // customerDetailCustomerContactExistingCustomerContactDataGridView
             // 
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.AllowUserToAddRows = false;
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.AllowUserToDeleteRows = false;
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.BackgroundColor = Color.LightGreen;
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.Location = new Point(12, 20);
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.Name = "customerDetailCustomerNotesExistingCustomerNotesDataGridView";
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.ReadOnly = true;
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.Size = new Size(1059, 677);
-            customerDetailCustomerNotesExistingCustomerNotesDataGridView.TabIndex = 54;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.AllowUserToAddRows = false;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.AllowUserToDeleteRows = false;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.BackgroundColor = Color.LightGreen;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.Location = new Point(12, 20);
+            customerDetailCustomerContactExistingCustomerContactDataGridView.Name = "customerDetailCustomerContactExistingCustomerContactDataGridView";
+            customerDetailCustomerContactExistingCustomerContactDataGridView.ReadOnly = true;
+            customerDetailCustomerContactExistingCustomerContactDataGridView.Size = new Size(1059, 677);
+            customerDetailCustomerContactExistingCustomerContactDataGridView.TabIndex = 57;
+            // 
+            // customerDetailTabControlCustomerNotePage
+            // 
+            customerDetailTabControlCustomerNotePage.BackColor = Color.LightGreen;
+            customerDetailTabControlCustomerNotePage.Controls.Add(customerDetailCustomerNoteRefreshDataButton);
+            customerDetailTabControlCustomerNotePage.Controls.Add(customerDetailCustomerNoteCreateNewCustomerNoteButton);
+            customerDetailTabControlCustomerNotePage.Controls.Add(customerDetailCustomerNoteExistingCustomerNoteDataGridView);
+            customerDetailTabControlCustomerNotePage.Location = new Point(4, 27);
+            customerDetailTabControlCustomerNotePage.Name = "customerDetailTabControlCustomerNotePage";
+            customerDetailTabControlCustomerNotePage.Size = new Size(1247, 721);
+            customerDetailTabControlCustomerNotePage.TabIndex = 4;
+            customerDetailTabControlCustomerNotePage.Text = "Customer Notes";
+            // 
+            // customerDetailCustomerNoteRefreshDataButton
+            // 
+            customerDetailCustomerNoteRefreshDataButton.FlatStyle = FlatStyle.Flat;
+            customerDetailCustomerNoteRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerDetailCustomerNoteRefreshDataButton.Location = new Point(1084, 98);
+            customerDetailCustomerNoteRefreshDataButton.Margin = new Padding(4);
+            customerDetailCustomerNoteRefreshDataButton.Name = "customerDetailCustomerNoteRefreshDataButton";
+            customerDetailCustomerNoteRefreshDataButton.Size = new Size(151, 70);
+            customerDetailCustomerNoteRefreshDataButton.TabIndex = 56;
+            customerDetailCustomerNoteRefreshDataButton.Text = "Refresh Customer Note Data";
+            customerDetailCustomerNoteRefreshDataButton.UseVisualStyleBackColor = true;
+            customerDetailCustomerNoteRefreshDataButton.Click += customerDetailCustomerNoteRefreshDataButton_Click;
+            // 
+            // customerDetailCustomerNoteCreateNewCustomerNoteButton
+            // 
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.FlatStyle = FlatStyle.Flat;
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Location = new Point(1084, 20);
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Margin = new Padding(4);
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Name = "customerDetailCustomerNoteCreateNewCustomerNoteButton";
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Size = new Size(151, 70);
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.TabIndex = 55;
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Text = "Create New Customer Note";
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.UseVisualStyleBackColor = true;
+            customerDetailCustomerNoteCreateNewCustomerNoteButton.Click += customerDetailCustomerNoteCreateNewCustomerNoteButton_Click;
+            // 
+            // customerDetailCustomerNoteExistingCustomerNoteDataGridView
+            // 
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.AllowUserToAddRows = false;
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.AllowUserToDeleteRows = false;
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.BackgroundColor = Color.LightGreen;
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.Location = new Point(12, 20);
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.Name = "customerDetailCustomerNoteExistingCustomerNoteDataGridView";
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.ReadOnly = true;
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.Size = new Size(1059, 677);
+            customerDetailCustomerNoteExistingCustomerNoteDataGridView.TabIndex = 54;
             // 
             // customerDetailUpdateCustomerButton
             // 
@@ -1537,8 +1594,10 @@
             customerDetailTabControlShippingPage.PerformLayout();
             customerDetailTabControlFinancePage.ResumeLayout(false);
             customerDetailTabControlFinancePage.PerformLayout();
-            customerDetailTabControlCustomerNotesPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerNotesExistingCustomerNotesDataGridView).EndInit();
+            customerDetailTabControlCustomerContactPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerContactExistingCustomerContactDataGridView).EndInit();
+            customerDetailTabControlCustomerNotePage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)customerDetailCustomerNoteExistingCustomerNoteDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1655,10 +1714,10 @@
         private Label customerDetailOverviewLastUpdatedByTextboxLabel;
         private Label customerDetailOverviewCreatedTimestampTextboxLabel;
         private Label customerDetailOverviewCreatedByTextboxLabel;
-        private TabPage customerDetailTabControlCustomerNotesPage;
-        private Button customerDetailCustomerNotesRefreshDataButton;
-        private Button customerDetailCustomerNotesCreateNewCustomerNoteButton;
-        private DataGridView customerDetailCustomerNotesExistingCustomerNotesDataGridView;
+        private TabPage customerDetailTabControlCustomerNotePage;
+        private Button customerDetailCustomerNoteRefreshDataButton;
+        private Button customerDetailCustomerNoteCreateNewCustomerNoteButton;
+        private DataGridView customerDetailCustomerNoteExistingCustomerNoteDataGridView;
         private Label label3;
         private Label label1;
         private Label customerDetailFinanceCreditLimitUsedTextboxSeparatorLabel;
@@ -1670,5 +1729,9 @@
         private TextBox customerDetailFinanceCreditLimitUsedPercentageTextboxA;
         private TextBox customerDetailOverviewCustomerIdTextbox;
         private Label customerDetailOverviewCustomerIdTextboxLabel;
+        private TabPage customerDetailTabControlCustomerContactPage;
+        private Button customerDetailCustomerContactRefreshDataButton;
+        private Button customerDetailCustomerContactCreateNewCustomerContactButton;
+        private DataGridView customerDetailCustomerContactExistingCustomerContactDataGridView;
     }
 }

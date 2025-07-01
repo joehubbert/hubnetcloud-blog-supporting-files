@@ -141,6 +141,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderStatus]";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "orderStatus";
                     break;
+                case "OrderType":
+                    dataSubjectFriendlyName = "Order Type";
+                    dataSubjectGetStoredProcedureName = "[dbo].[spGetOrderType]";
+                    dataSubjectIdFriendlyName = "Order Type Id";
+                    dataSubjectIdName = "OrderTypeId";
+                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderType]";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderType";
+                    break;
                 case "PaymentMethod":
                     dataSubjectFriendlyName = "Payment Method";
                     dataSubjectGetStoredProcedureName = "[dbo].[spGetPaymentMethod]";

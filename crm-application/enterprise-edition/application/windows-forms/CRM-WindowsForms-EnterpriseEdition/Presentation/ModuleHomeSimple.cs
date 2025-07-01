@@ -100,31 +100,31 @@
             {
                 case "CustomerManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("Customer", "CustomerManagement");
+                    ViewAllData viewAllData = new ViewAllData("Customer", "CustomerManagement", null);
                     viewAllData.Show();
                     break;
                 }
                 case "MarketingManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("MarketingCampaign", "MarketingManagement");
+                    ViewAllData viewAllData = new ViewAllData("MarketingCampaign", "MarketingManagement", null);
                     viewAllData.Show();
                     break;
                 }
                 case "OrderManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("Order", "OrderManagement");
+                    ViewAllData viewAllData = new ViewAllData("Order", "OrderManagement", null);
                     viewAllData.Show();
                     break;
                 }
                 case "ProductManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("Product", "ProductManagement");
+                    ViewAllData viewAllData = new ViewAllData("Product", "ProductManagement", null);
                     viewAllData.Show();
                     break;
                 }
                 case "SupplierManagement":
                 {
-                    ViewAllData viewAllData = new ViewAllData("Supplier", "SupplierManagement");
+                    ViewAllData viewAllData = new ViewAllData("Supplier", "SupplierManagement", null);
                     viewAllData.Show();
                     break;
                 }

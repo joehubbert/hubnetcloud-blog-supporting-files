@@ -1,6 +1,8 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+using PdfSharp.Charting;
 using System.Data;
+using System.Net.Mail;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
@@ -12,15 +14,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string dataSortingColumnName;
         private string dataSortingColumnOrder;
+        private readonly Guid? _dataSubjectFilterId;
         private string dataSubjectFriendlyName;
         private string dataSubjectIdentityColumn;
+        private string? dataSubjectParentIdentityId;
         private string functionFriendlyName;
         private string storedProcedureName;
         private readonly string viewAllPrefix = "View All ";
 
-        public ViewAllData(string functionTitle, string moduleGroup)
+        public ViewAllData(string functionTitle, string moduleGroup, Guid? dataSubjectFilterId = null)
         {
             InitializeComponent();
+            _dataSubjectFilterId = dataSubjectFilterId;
             _functionTitle = functionTitle;
             _moduleGroup = moduleGroup;
             SetModuleTheme(_moduleGroup);
@@ -124,6 +129,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "Customer";
                     functionFriendlyName = "Customers";
                     storedProcedureName = "[dbo].[spGetAllCustomer]";
+                    break;
+                case "CustomerContact":
+                    dataSortingColumnName = "Customer Contact Id";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Customer Contact Id";
+                    dataSubjectFriendlyName = "Customer Contact";
+                    dataSubjectParentIdentityId = "customerId;";
+                    functionFriendlyName = "Customer Contacts";
+                    storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
                     break;
                 case "CustomerLeadNote":
                     dataSortingColumnName = "Customer Lead Note";
@@ -261,6 +275,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Order Statuses";
                     storedProcedureName = "[dbo].[spGetAllOrderStatus]";
                     break;
+                case "OrderType":
+                    dataSortingColumnName = "Order Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Order Type Id";
+                    dataSubjectFriendlyName = "Order Type";
+                    functionFriendlyName = "Order Types";
+                    storedProcedureName = "[dbo].[spGetAllOrderType]";
+                    break;
                 case "PaymentMethod":
                     dataSortingColumnName = "Payment Method";
                     dataSortingColumnOrder = "ASC";
@@ -349,6 +371,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Suppliers";
                     storedProcedureName = "[dbo].[spGetAllSupplier]";
                     break;
+                case "SupplierContact":
+                    dataSortingColumnName = "Supplier Contact Id";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Supplier Contact Id";
+                    dataSubjectFriendlyName = "Supplier Contact";
+                    dataSubjectParentIdentityId = "supplierId;";
+                    functionFriendlyName = "Supplier Contacts";
+                    storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
+                    break;
                 case "SupplierNote":
                     dataSortingColumnName = "Supplier Note";
                     dataSortingColumnOrder = "ASC";
@@ -425,7 +456,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? dataTable;
+
+                if (_dataSubjectFilterId != null)
+                {
+                    var parameters = new[]
+                    {
+                        new Parameter
+                        {
+                            ParameterName = $"@{dataSubjectParentIdentityId}",
+                            ParameterValue = dataSubjectParentIdentityId
+                        }
+                    };
+
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName, _databaseConnectionSettings.DatabaseConnectionString);
+                }
+
+                else
+                {
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName, _databaseConnectionSettings.DatabaseConnectionString);
+                }
 
                 if (dataTable.Rows.Count == 0)
                 {
@@ -568,6 +618,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid customerId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CustomerDetail customerDetail = new CustomerDetail(customerId);
                                 customerDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "CustomerContact":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid customerContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                ContactDetail contactDetail = new ContactDetail("Customer", customerContactId);
+                                contactDetail.Show();
                             }
                             else
                             {
@@ -754,6 +816,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                             break;
+                        case "OrderType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid orderTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderTypeId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
                         case "PaymentMethod":
                             if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                             {
@@ -868,6 +942,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid supplierId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 SupplierDetail supplierDetail = new SupplierDetail(supplierId);
                                 supplierDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "SupplierContact":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid supplierContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                ContactDetail contactDetail = new ContactDetail("Supplier", supplierContactId);
+                                contactDetail.Show();
                             }
                             else
                             {

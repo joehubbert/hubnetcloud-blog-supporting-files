@@ -33,7 +33,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             supplierDetailFinanceVATRegisteredCheckbox.CheckedChanged += SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged;
             supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
-            supplierDetailSupplierNotesExistingSupplierNotesDataGridView.CellContentClick += SupplierDetailSupplierNotesExistingSupplierNotesDataGridView_CellContentClick;
+            supplierDetailSupplierNoteExistingSupplierNoteDataGridView.CellContentClick += supplierDetailSupplierNoteExistingSupplierNoteDataGridView_CellContentClick;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -107,7 +107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailFinancePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailFinanceVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
-                    if(supplierDetailFinanceVATNumberTextbox.Text.Length > 0)
+                    if (supplierDetailFinanceVATNumberTextbox.Text.Length > 0)
                     {
                         supplierDetailFinanceVATRegisteredCheckbox.Checked = true;
                     }
@@ -162,6 +162,53 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private async Task SupplierDetailExistingSupplierContact_Load(object sender, EventArgs e)
+        {
+            if (_databaseConnectionSettings == null)
+            {
+                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
+            string dataSubject = "Existing Supplier Contacts";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@supplierId",
+                    ParameterValue = _supplierId
+                }
+            };
+
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                MessageBox.Show("No Existing Supplier Contacts found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                dataTable.DefaultView.Sort = "Created Timestamp DESC";
+                supplierDetailSupplierContactExistingSupplierContactDataGridView.AutoGenerateColumns = true;
+                supplierDetailSupplierContactExistingSupplierContactDataGridView.DataSource = dataTable;
+                supplierDetailSupplierContactExistingSupplierContactDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Contains("Details"))
+                {
+                    supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Remove("Details");
+                }
+                DataGridViewLinkColumn supplierContactDetailLink = new DataGridViewLinkColumn
+                {
+                    HeaderText = "Details",
+                    Text = "View Supplier Contact",
+                    UseColumnTextForLinkValue = true,
+                    Name = "Details"
+                };
+                supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Add(supplierContactDetailLink);
+            }
+        }
+
         private async Task SupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
         {
             if (_databaseConnectionSettings == null)
@@ -191,12 +238,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                supplierDetailSupplierNotesExistingSupplierNotesDataGridView.AutoGenerateColumns = true;
-                supplierDetailSupplierNotesExistingSupplierNotesDataGridView.DataSource = dataTable;
-                supplierDetailSupplierNotesExistingSupplierNotesDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Contains("Details"))
+                supplierDetailSupplierNoteExistingSupplierNoteDataGridView.AutoGenerateColumns = true;
+                supplierDetailSupplierNoteExistingSupplierNoteDataGridView.DataSource = dataTable;
+                supplierDetailSupplierNoteExistingSupplierNoteDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Columns.Contains("Details"))
                 {
-                    supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Remove("Details");
+                    supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Columns.Remove("Details");
                 }
                 DataGridViewLinkColumn supplierNoteDetailLink = new DataGridViewLinkColumn
                 {
@@ -205,7 +252,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     UseColumnTextForLinkValue = true,
                     Name = "Details"
                 };
-                supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Add(supplierNoteDetailLink);
+                supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Columns.Add(supplierNoteDetailLink);
             }
         }
 
@@ -230,15 +277,39 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void SupplierDetailSupplierNotesExistingSupplierNotesDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void supplierDetailSupplierContactExistingSupplierContactDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
                 try
                 {
-                    if (supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Columns.Contains("Supplier Note Id"))
+                    if (supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Contains("Supplier Contact Id"))
                     {
-                        Guid supplierNoteId = (Guid)supplierDetailSupplierNotesExistingSupplierNotesDataGridView.Rows[e.RowIndex].Cells["Supplier Note Id"].Value;
+                        Guid supplierContactId = (Guid)supplierDetailSupplierContactExistingSupplierContactDataGridView.Rows[e.RowIndex].Cells["Supplier Contact Id"].Value;
+                        ContactDetail contactDetail = new ContactDetail("Supplier", supplierContactId);
+                        contactDetail.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Supplier Contact Id column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Failed to open Supplier Contact details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void supplierDetailSupplierNoteExistingSupplierNoteDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            {
+                try
+                {
+                    if (supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Columns.Contains("Supplier Note Id"))
+                    {
+                        Guid supplierNoteId = (Guid)supplierDetailSupplierNoteExistingSupplierNoteDataGridView.Rows[e.RowIndex].Cells["Supplier Note Id"].Value;
                         NoteDetail noteDetail = new NoteDetail("Supplier", supplierNoteId);
                         noteDetail.Show();
                     }
@@ -600,7 +671,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailUpdateSupplierButton.Enabled = !supplierDetailUpdateSupplierButton.Enabled;
         }
 
-        private void SupplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
+        private void supplierDetailSupplierContactCreateNewSupplierContactButton_Click(object sender, EventArgs e)
+        {
+            CreateContact createContact = new CreateContact(_supplierId, "Supplier");
+            createContact.Show();
+        }
+
+        private async void supplierDetailSupplierContactRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await SupplierDetailExistingSupplierContact_Load(sender, e);
+        }
+
+        private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
             CreateNote createNote = new CreateNote(_supplierId, "SupplierNote");
             createNote.Show();

@@ -115,9 +115,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
             noteDetailTitleLabel.Text = $"{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
-            noteDetailNoteIdLabel.Text = noteDetailNoteIdFriendlyName;
-            noteDetailNoteTitleLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
-            noteDetailNoteTypeLabel.Text = $"{noteDetailNoteTypeFriendlyName}*";
+            noteDetailNoteIdTextboxLabel.Text = noteDetailNoteIdFriendlyName;
+            noteDetailNoteTitleTextboxLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
+            noteDetailNoteTypeComboBoxLabel.Text = $"{noteDetailNoteTypeFriendlyName}*";
             noteDetailUpdateNoteButton.Text = $"Update {noteDetailModuleNoteTypeFriendlyName}";
         }
 

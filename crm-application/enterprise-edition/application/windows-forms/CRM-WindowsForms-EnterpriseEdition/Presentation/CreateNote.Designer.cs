@@ -32,9 +32,9 @@
             createNoteNoteTypeComboBox = new ComboBox();
             createNoteNoteTitleTextbox = new TextBox();
             createNoteNoteTextbox = new TextBox();
-            createNoteNoteTitleLabel = new Label();
-            createNoteNoteTypeLabel = new Label();
-            createNoteNoteLabel = new Label();
+            createNoteNoteTitleTextboxLabel = new Label();
+            createNoteNoteTypeComboBoxLabel = new Label();
+            createNoteNoteTextboxLabel = new Label();
             createNoteSubmitButton = new Button();
             SuspendLayout();
             // 
@@ -76,35 +76,35 @@
             createNoteNoteTextbox.Size = new Size(558, 259);
             createNoteNoteTextbox.TabIndex = 2;
             // 
-            // createNoteNoteTitleLabel
+            // createNoteNoteTitleTextboxLabel
             // 
-            createNoteNoteTitleLabel.AutoSize = true;
-            createNoteNoteTitleLabel.Location = new Point(12, 68);
-            createNoteNoteTitleLabel.Name = "createNoteNoteTitleLabel";
-            createNoteNoteTitleLabel.Size = new Size(167, 20);
-            createNoteNoteTitleLabel.TabIndex = 11;
-            createNoteNoteTitleLabel.Text = "{Note Title Placeholder}";
-            createNoteNoteTitleLabel.TextAlign = ContentAlignment.TopRight;
+            createNoteNoteTitleTextboxLabel.AutoSize = true;
+            createNoteNoteTitleTextboxLabel.Location = new Point(12, 68);
+            createNoteNoteTitleTextboxLabel.Name = "createNoteNoteTitleTextboxLabel";
+            createNoteNoteTitleTextboxLabel.Size = new Size(167, 20);
+            createNoteNoteTitleTextboxLabel.TabIndex = 11;
+            createNoteNoteTitleTextboxLabel.Text = "{Note Title Placeholder}";
+            createNoteNoteTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createNoteNoteTypeLabel
+            // createNoteNoteTypeComboBoxLabel
             // 
-            createNoteNoteTypeLabel.AutoSize = true;
-            createNoteNoteTypeLabel.Location = new Point(12, 107);
-            createNoteNoteTypeLabel.Name = "createNoteNoteTypeLabel";
-            createNoteNoteTypeLabel.Size = new Size(169, 20);
-            createNoteNoteTypeLabel.TabIndex = 12;
-            createNoteNoteTypeLabel.Text = "{Note Type Placeholder}";
-            createNoteNoteTypeLabel.TextAlign = ContentAlignment.TopRight;
+            createNoteNoteTypeComboBoxLabel.AutoSize = true;
+            createNoteNoteTypeComboBoxLabel.Location = new Point(12, 107);
+            createNoteNoteTypeComboBoxLabel.Name = "createNoteNoteTypeComboBoxLabel";
+            createNoteNoteTypeComboBoxLabel.Size = new Size(169, 20);
+            createNoteNoteTypeComboBoxLabel.TabIndex = 12;
+            createNoteNoteTypeComboBoxLabel.Text = "{Note Type Placeholder}";
+            createNoteNoteTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createNoteNoteLabel
+            // createNoteNoteTextboxLabel
             // 
-            createNoteNoteLabel.AutoSize = true;
-            createNoteNoteLabel.Location = new Point(130, 150);
-            createNoteNoteLabel.Name = "createNoteNoteLabel";
-            createNoteNoteLabel.Size = new Size(52, 20);
-            createNoteNoteLabel.TabIndex = 13;
-            createNoteNoteLabel.Text = " Note*";
-            createNoteNoteLabel.TextAlign = ContentAlignment.TopRight;
+            createNoteNoteTextboxLabel.AutoSize = true;
+            createNoteNoteTextboxLabel.Location = new Point(130, 150);
+            createNoteNoteTextboxLabel.Name = "createNoteNoteTextboxLabel";
+            createNoteNoteTextboxLabel.Size = new Size(52, 20);
+            createNoteNoteTextboxLabel.TabIndex = 13;
+            createNoteNoteTextboxLabel.Text = " Note*";
+            createNoteNoteTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createNoteSubmitButton
             // 
@@ -126,9 +126,9 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(771, 499);
             Controls.Add(createNoteSubmitButton);
-            Controls.Add(createNoteNoteLabel);
-            Controls.Add(createNoteNoteTypeLabel);
-            Controls.Add(createNoteNoteTitleLabel);
+            Controls.Add(createNoteNoteTextboxLabel);
+            Controls.Add(createNoteNoteTypeComboBoxLabel);
+            Controls.Add(createNoteNoteTitleTextboxLabel);
             Controls.Add(createNoteNoteTextbox);
             Controls.Add(createNoteNoteTitleTextbox);
             Controls.Add(createNoteNoteTypeComboBox);
@@ -150,9 +150,9 @@
         private ComboBox createNoteNoteTypeComboBox;
         private TextBox createNoteNoteTitleTextbox;
         private TextBox createNoteNoteTextbox;
-        private Label createNoteNoteTitleLabel;
-        private Label createNoteNoteTypeLabel;
-        private Label createNoteNoteLabel;
+        private Label createNoteNoteTitleTextboxLabel;
+        private Label createNoteNoteTypeComboBoxLabel;
+        private Label createNoteNoteTextboxLabel;
         private Button createNoteSubmitButton;
     }
 }

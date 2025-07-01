@@ -117,8 +117,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{createNoteModuleNoteTypeFriendlyName}";
             createNoteTitleLabel.Text = createNoteModuleNoteTypeFriendlyName;
-            createNoteNoteTitleLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
-            createNoteNoteTypeLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
+            createNoteNoteTitleTextboxLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
+            createNoteNoteTypeComboBoxLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
         }
 
         private async void CreateNoteLoadNoteTypeAsync()

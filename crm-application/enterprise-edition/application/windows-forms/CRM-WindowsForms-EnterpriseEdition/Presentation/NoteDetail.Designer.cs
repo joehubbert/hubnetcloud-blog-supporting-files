@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             noteDetailTitleLabel = new Label();
-            noteDetailNoteIdLabel = new Label();
-            noteDetailNoteTitleLabel = new Label();
-            noteDetailNoteLabel = new Label();
+            noteDetailNoteIdTextboxLabel = new Label();
+            noteDetailNoteTitleTextboxLabel = new Label();
+            noteDetailNoteTextboxLabel = new Label();
             noteDetailCreatedByTextboxLabel = new Label();
             noteDetailCreatedTimestampTextboxLabel = new Label();
             noteDetailLastUpdatedByTextboxLabel = new Label();
@@ -45,7 +45,7 @@
             noteDetailNoteTitleTextbox = new TextBox();
             noteDetailToggleEditModeButton = new Button();
             noteDetailUpdateNoteButton = new Button();
-            noteDetailNoteTypeLabel = new Label();
+            noteDetailNoteTypeComboBoxLabel = new Label();
             noteDetailNoteTypeComboBox = new ComboBox();
             SuspendLayout();
             // 
@@ -60,35 +60,35 @@
             noteDetailTitleLabel.TabIndex = 7;
             noteDetailTitleLabel.Text = "{Note Detail Placeholder}";
             // 
-            // noteDetailNoteIdLabel
+            // noteDetailNoteIdTextboxLabel
             // 
-            noteDetailNoteIdLabel.AutoSize = true;
-            noteDetailNoteIdLabel.Location = new Point(6, 145);
-            noteDetailNoteIdLabel.Name = "noteDetailNoteIdLabel";
-            noteDetailNoteIdLabel.Size = new Size(223, 20);
-            noteDetailNoteIdLabel.TabIndex = 8;
-            noteDetailNoteIdLabel.Text = "{Note Type Note Id Placeholder}";
-            noteDetailNoteIdLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteIdTextboxLabel.AutoSize = true;
+            noteDetailNoteIdTextboxLabel.Location = new Point(6, 145);
+            noteDetailNoteIdTextboxLabel.Name = "noteDetailNoteIdTextboxLabel";
+            noteDetailNoteIdTextboxLabel.Size = new Size(223, 20);
+            noteDetailNoteIdTextboxLabel.TabIndex = 8;
+            noteDetailNoteIdTextboxLabel.Text = "{Note Type Note Id Placeholder}";
+            noteDetailNoteIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailNoteTitleLabel
+            // noteDetailNoteTitleTextboxLabel
             // 
-            noteDetailNoteTitleLabel.AutoSize = true;
-            noteDetailNoteTitleLabel.Location = new Point(62, 181);
-            noteDetailNoteTitleLabel.Name = "noteDetailNoteTitleLabel";
-            noteDetailNoteTitleLabel.Size = new Size(167, 20);
-            noteDetailNoteTitleLabel.TabIndex = 9;
-            noteDetailNoteTitleLabel.Text = "{Note Title Placeholder}";
-            noteDetailNoteTitleLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteTitleTextboxLabel.AutoSize = true;
+            noteDetailNoteTitleTextboxLabel.Location = new Point(62, 181);
+            noteDetailNoteTitleTextboxLabel.Name = "noteDetailNoteTitleTextboxLabel";
+            noteDetailNoteTitleTextboxLabel.Size = new Size(167, 20);
+            noteDetailNoteTitleTextboxLabel.TabIndex = 9;
+            noteDetailNoteTitleTextboxLabel.Text = "{Note Title Placeholder}";
+            noteDetailNoteTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailNoteLabel
+            // noteDetailNoteTextboxLabel
             // 
-            noteDetailNoteLabel.AutoSize = true;
-            noteDetailNoteLabel.Location = new Point(177, 258);
-            noteDetailNoteLabel.Name = "noteDetailNoteLabel";
-            noteDetailNoteLabel.Size = new Size(52, 20);
-            noteDetailNoteLabel.TabIndex = 10;
-            noteDetailNoteLabel.Text = " Note*";
-            noteDetailNoteLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteTextboxLabel.AutoSize = true;
+            noteDetailNoteTextboxLabel.Location = new Point(177, 258);
+            noteDetailNoteTextboxLabel.Name = "noteDetailNoteTextboxLabel";
+            noteDetailNoteTextboxLabel.Size = new Size(52, 20);
+            noteDetailNoteTextboxLabel.TabIndex = 10;
+            noteDetailNoteTextboxLabel.Text = " Note*";
+            noteDetailNoteTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailCreatedByTextboxLabel
             // 
@@ -219,16 +219,16 @@
             noteDetailUpdateNoteButton.UseVisualStyleBackColor = true;
             noteDetailUpdateNoteButton.Click += noteDetailUpdateNoteButton_Click;
             // 
-            // noteDetailNoteTypeLabel
+            // noteDetailNoteTypeComboBoxLabel
             // 
-            noteDetailNoteTypeLabel.AutoSize = true;
-            noteDetailNoteTypeLabel.Font = new Font("Segoe UI", 11F);
-            noteDetailNoteTypeLabel.Location = new Point(60, 221);
-            noteDetailNoteTypeLabel.Name = "noteDetailNoteTypeLabel";
-            noteDetailNoteTypeLabel.Size = new Size(169, 20);
-            noteDetailNoteTypeLabel.TabIndex = 35;
-            noteDetailNoteTypeLabel.Text = "{Note Type Placeholder}";
-            noteDetailNoteTypeLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteTypeComboBoxLabel.AutoSize = true;
+            noteDetailNoteTypeComboBoxLabel.Font = new Font("Segoe UI", 11F);
+            noteDetailNoteTypeComboBoxLabel.Location = new Point(60, 221);
+            noteDetailNoteTypeComboBoxLabel.Name = "noteDetailNoteTypeComboBoxLabel";
+            noteDetailNoteTypeComboBoxLabel.Size = new Size(169, 20);
+            noteDetailNoteTypeComboBoxLabel.TabIndex = 35;
+            noteDetailNoteTypeComboBoxLabel.Text = "{Note Type Placeholder}";
+            noteDetailNoteTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailNoteTypeComboBox
             // 
@@ -247,7 +247,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1438, 643);
-            Controls.Add(noteDetailNoteTypeLabel);
+            Controls.Add(noteDetailNoteTypeComboBoxLabel);
             Controls.Add(noteDetailNoteTypeComboBox);
             Controls.Add(noteDetailUpdateNoteButton);
             Controls.Add(noteDetailToggleEditModeButton);
@@ -262,9 +262,9 @@
             Controls.Add(noteDetailLastUpdatedByTextboxLabel);
             Controls.Add(noteDetailCreatedTimestampTextboxLabel);
             Controls.Add(noteDetailCreatedByTextboxLabel);
-            Controls.Add(noteDetailNoteLabel);
-            Controls.Add(noteDetailNoteTitleLabel);
-            Controls.Add(noteDetailNoteIdLabel);
+            Controls.Add(noteDetailNoteTextboxLabel);
+            Controls.Add(noteDetailNoteTitleTextboxLabel);
+            Controls.Add(noteDetailNoteIdTextboxLabel);
             Controls.Add(noteDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -280,9 +280,9 @@
         #endregion
 
         private Label noteDetailTitleLabel;
-        private Label noteDetailNoteIdLabel;
-        private Label noteDetailNoteTitleLabel;
-        private Label noteDetailNoteLabel;
+        private Label noteDetailNoteIdTextboxLabel;
+        private Label noteDetailNoteTitleTextboxLabel;
+        private Label noteDetailNoteTextboxLabel;
         private Label noteDetailCreatedByTextboxLabel;
         private Label noteDetailCreatedTimestampTextboxLabel;
         private Label noteDetailLastUpdatedByTextboxLabel;
@@ -296,7 +296,7 @@
         private TextBox noteDetailNoteTitleTextbox;
         private Button noteDetailToggleEditModeButton;
         private Button noteDetailUpdateNoteButton;
-        private Label noteDetailNoteTypeLabel;
+        private Label noteDetailNoteTypeComboBoxLabel;
         private ComboBox noteDetailNoteTypeComboBox;
     }
 }

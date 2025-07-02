@@ -29,7 +29,7 @@ BEGIN
 			[Bank Account Name],
 			[Bank Sort Code],
 			[Bank IBAN],
-			[Bank SWIFT],
+			[Bank SWIFT Code],
 			[Bank Address Line 1],
 			[Bank Address Line 2],
 			[Bank Address Line 3],

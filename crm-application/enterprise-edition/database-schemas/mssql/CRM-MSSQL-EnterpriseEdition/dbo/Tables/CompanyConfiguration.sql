@@ -19,7 +19,7 @@
     [BankAccountName] NVARCHAR(50) NOT NULL,
     [BankSortCode] NVARCHAR(8) NULL,
     [BankIBAN] NVARCHAR(50) NULL,
-    [BankSWIFT] NVARCHAR(50) NULL,
+    [BankSWIFTCode] NVARCHAR(50) NULL,
     [BankAddressLine1] NVARCHAR(50) NOT NULL,
     [BankAddressLine2] NVARCHAR(50) NULL,
     [BankAddressLine3] NVARCHAR(50) NOT NULL,

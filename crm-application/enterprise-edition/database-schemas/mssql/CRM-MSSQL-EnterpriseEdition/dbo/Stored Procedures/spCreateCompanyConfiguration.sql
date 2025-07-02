@@ -15,7 +15,7 @@
     @bankAddressLine5 UNIQUEIDENTIFIER,
     @bankIBAN NVARCHAR(50),
     @bankSortCode NVARCHAR(50) = NULL,    
-    @bankSWIFT NVARCHAR(50),
+    @bankSWIFTCode NVARCHAR(50),
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
@@ -51,7 +51,7 @@ BEGIN
                 [BankAccountName] NVARCHAR(50) NOT NULL,
                 [BankSortCode] NVARCHAR(50) NULL,
                 [BankIBAN] NVARCHAR(50) NULL,
-                [BankSWIFT] NVARCHAR(50) NULL,
+                [BankSWIFTCode] NVARCHAR(50) NULL,
                 [BankAddressLine1] NVARCHAR(50) NOT NULL,
                 [BankAddressLine2] NVARCHAR(50) NULL,
                 [BankAddressLine3] NVARCHAR(50) NOT NULL,
@@ -80,7 +80,7 @@ BEGIN
                 [BankAccountName],
                 [BankSortCode],
                 [BankIBAN],
-                [BankSWIFT],
+                [BankSWIFTCode],
                 [BankAddressLine1],
                 [BankAddressLine2],
                 [BankAddressLine3],
@@ -108,7 +108,7 @@ BEGIN
                 @bankAccountName,
                 @bankSortCode,
                 @bankIBAN,
-                @bankSWIFT,
+                @bankSWIFTCode,
                 @bankAddressLine1,
                 @bankAddressLine2,
                 @bankAddressLine3,
@@ -147,7 +147,7 @@ BEGIN
             AND target.[BankAccountName] = source.[BankAccountName]
             AND target.[BankSortCode] = source.[BankSortCode]
             AND target.[BankIBAN] = source.[BankIBAN]
-            AND target.[BankSWIFT] = source.[BankSWIFT]
+            AND target.[BankSWIFTCode] = source.[BankSWIFTCode]
             AND target.[BankAddressLine1] = source.[BankAddressLine1]
             AND target.[BankAddressLine2] = source.[BankAddressLine2]
             AND target.[BankAddressLine3] = source.[BankAddressLine3]
@@ -175,7 +175,7 @@ BEGIN
                 [BankAccountName],
                 [BankSortCode],
                 [BankIBAN],
-                [BankSWIFT],
+                [BankSWIFTCode],
                 [BankAddressLine1],
                 [BankAddressLine2],
                 [BankAddressLine3],
@@ -203,7 +203,7 @@ BEGIN
                 source.[BankAccountName],
                 source.[BankSortCode],
                 source.[BankIBAN],
-                source.[BankSWIFT],
+                source.[BankSWIFTCode],
                 source.[BankAddressLine1],
                 source.[BankAddressLine2],
                 source.[BankAddressLine3],

@@ -9,7 +9,6 @@ BEGIN
 			SELECT
 			[Company Configuration Id],
 			[Company Name],
-			[Company Logo],
 			[Address Line 1],
 			[Address Line 2],
 			[Address Line 3],
@@ -33,7 +32,8 @@ BEGIN
 			[Bank Address Line 2],
 			[Bank Address Line 3],
 			[Bank Address Line 4],
-			[Bank Address Line 5]
+			[Bank Address Line 5],
+			[Vipps Id]
 			FROM [dbo].[vwCompanyConfiguration]
 
 		COMMIT TRANSACTION;

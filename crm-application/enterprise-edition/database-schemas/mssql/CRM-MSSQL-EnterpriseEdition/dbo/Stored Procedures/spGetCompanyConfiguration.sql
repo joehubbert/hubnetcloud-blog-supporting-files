@@ -35,6 +35,7 @@ BEGIN
 			[Bank Address Line 3],
 			[Bank Address Line 4],
 			[Bank Address Line 5],
+			[Vipps Id]
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],

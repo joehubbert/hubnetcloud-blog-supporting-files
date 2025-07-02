@@ -4,25 +4,26 @@
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
     @addressLine5 UNIQUEIDENTIFIER,
+    @bankAccountBalance MONEY,
+    @bankAccountCurrencyId UNIQUEIDENTIFIER,
+    @bankAccountNumber NVARCHAR(50),
+    @bankAccountName NVARCHAR(50),
+    @bankAddressLine1 NVARCHAR(50),
+    @bankAddressLine2 NVARCHAR(50) = NULL,
+    @bankAddressLine3 NVARCHAR(50),
+    @bankAddressLine4 NVARCHAR(50),
+    @bankAddressLine5 UNIQUEIDENTIFIER,
+    @bankIBAN NVARCHAR(50),
+    @bankSortCode NVARCHAR(50) = NULL,    
+    @bankSWIFT NVARCHAR(50),
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @emailTopLevelDomain NVARCHAR(50)NULL,
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL,
-    @websiteURL NVARCHAR(50) = NULL,
-    @bankAccountBalance MONEY,
-    @bankAccountCurrencyId UNIQUEIDENTIFIER,
-    @bankAccountNumber NVARCHAR(50),
-    @bankAccountName NVARCHAR(50),
-    @bankSortCode NVARCHAR(50) = NULL,
-    @bankIBAN NVARCHAR(50),
-    @bankSWIFT NVARCHAR(50),
-    @bankAddressLine1 NVARCHAR(50),
-    @bankAddressLine2 NVARCHAR(50) = NULL,
-    @bankAddressLine3 NVARCHAR(50),
-    @bankAddressLine4 NVARCHAR(50),
-    @bankAddressLine5 UNIQUEIDENTIFIER
+    @vippsId NVARCHAR(20) = NULL,
+    @websiteURL NVARCHAR(50) = NULL
 AS
 
 BEGIN
@@ -55,7 +56,8 @@ BEGIN
                 [BankAddressLine2] NVARCHAR(50) NULL,
                 [BankAddressLine3] NVARCHAR(50) NOT NULL,
                 [BankAddressLine4] NVARCHAR(50) NOT NULL,
-                [BankAddressLine5] UNIQUEIDENTIFIER NOT NULL
+                [BankAddressLine5] UNIQUEIDENTIFIER NOT NULL,
+                [VippsId] NVARCHAR(20) NULL
             )
 
             INSERT INTO #CompanyConfigurationTemp
@@ -83,7 +85,8 @@ BEGIN
                 [BankAddressLine2],
                 [BankAddressLine3],
                 [BankAddressLine4],
-                [BankAddressLine5]
+                [BankAddressLine5],
+                [VippsId]
             )
             VALUES
             (
@@ -110,7 +113,8 @@ BEGIN
                 @bankAddressLine2,
                 @bankAddressLine3,
                 @bankAddressLine4,
-                @bankAddressLine5
+                @bankAddressLine5,
+                @vippsId
             )
 
             IF EXISTS
@@ -149,6 +153,7 @@ BEGIN
             AND target.[BankAddressLine3] = source.[BankAddressLine3]
             AND target.[BankAddressLine4] = source.[BankAddressLine4]
             AND target.[BankAddressLine5] = source.[BankAddressLine5]
+            AND target.[VippsId] = source.[VippsId]
             WHEN NOT MATCHED THEN
             INSERT
             (
@@ -175,7 +180,8 @@ BEGIN
                 [BankAddressLine2],
                 [BankAddressLine3],
                 [BankAddressLine4],
-                [BankAddressLine5]
+                [BankAddressLine5],
+                [VippsId]
             )
             VALUES
             (
@@ -202,7 +208,8 @@ BEGIN
                 source.[BankAddressLine2],
                 source.[BankAddressLine3],
                 source.[BankAddressLine4],
-                source.[BankAddressLine5]
+                source.[BankAddressLine5],
+                source.[VippsId]
             );
 
             DROP TABLE #CompanyConfigurationTemp;

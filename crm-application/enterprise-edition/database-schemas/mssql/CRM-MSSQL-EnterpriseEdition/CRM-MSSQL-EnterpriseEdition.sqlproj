@@ -579,6 +579,10 @@
     <Build Include="dbo\Stored Procedures\spGetOrderQuote.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateOrderQuote.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllOrderQuoteForCustomer.sql" />
+    <Build Include="dbo\Functions\fnGetNorwayCountryId.sql" />
+    <Build Include="dbo\Functions\fnGetSwedenCountryId.sql" />
+    <Build Include="dbo\Functions\fnGetDenmarkCountryId.sql" />
+    <Build Include="dbo\Functions\fnGetFinlandCountryId.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

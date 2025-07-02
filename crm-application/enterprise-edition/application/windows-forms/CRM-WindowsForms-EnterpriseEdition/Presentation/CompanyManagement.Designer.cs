@@ -113,6 +113,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl = new TabControl();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage = new TabPage();
@@ -146,9 +149,6 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageCreateSupplierOrderStatusButtom = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage = new TabPage();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton = new Button();
             companyManagementTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControl.SuspendLayout();
@@ -188,6 +188,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.SuspendLayout();
@@ -203,7 +204,6 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.SuspendLayout();
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // companyManagementTitleLabel
@@ -1195,9 +1195,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.BackColor = Color.LightSalmon;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageViewAllOrderPaymentStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPageCreateOrderPaymentStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Size = new Size(1173, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.TabIndex = 2;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.Text = "Order Payment Status";
             // 
@@ -1232,10 +1232,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.BackColor = Color.LightSalmon;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageViewAllOrderStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Size = new Size(1173, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.Text = "Order Status";
             // 
@@ -1264,6 +1264,43 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Text = "Create Order Status";
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPageCreateOrderStatusButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.BackColor = Color.LightSalmon;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.TabIndex = 3;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Text = "Order Type";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.TabIndex = 21;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Text = "View All Order Types";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Size = new Size(170, 50);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.TabIndex = 20;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Text = "Create Order Type";
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton_Click;
             // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage
             // 
@@ -1673,43 +1710,6 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPageViewAllSupplierOrderStatusButton_Click;
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.BackColor = Color.LightSalmon;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Location = new Point(4, 32);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Size = new Size(1173, 636);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.TabIndex = 3;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.Text = "Order Type";
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Location = new Point(193, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Size = new Size(170, 50);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.TabIndex = 21;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Text = "View All Order Types";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageViewAllOrderTypeButton_Click;
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Location = new Point(15, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Size = new Size(170, 50);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.TabIndex = 20;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Text = "Create Order Type";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPageCreateOrderTypeButton_Click;
-            // 
             // CompanyManagement
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1764,6 +1764,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.ResumeLayout(false);
@@ -1779,7 +1780,6 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderLineItemStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage.ResumeLayout(false);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -25,6 +25,7 @@
     [BankAddressLine3] NVARCHAR(50) NOT NULL,
     [BankAddressLine4] NVARCHAR(50) NOT NULL,
     [BankAddressLine5] UNIQUEIDENTIFIER NOT NULL,
+    [VippsId] NVARCHAR(20) NULL,
     [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
@@ -36,6 +37,23 @@
         ([BankAddressLine5] = [dbo].[fnGetUnitedKingdomCountryId]() AND [BankSortCode] IS NOT NULL AND LTRIM(RTRIM([BankSortCode])) <> '')
         OR
         ([BankAddressLine5] <> [dbo].[fnGetUnitedKingdomCountryId]() AND ([BankSortCode] IS NULL OR LTRIM(RTRIM([BankSortCode])) = ''))
+    ),
+    CONSTRAINT [CC_CompanyConfiguration_VippsId_NO_SE_DK_FI] CHECK (
+        ([BankAddressLine5] = [dbo].[fnGetNorwayCountryId]() AND [VippsId] IS NOT NULL AND LTRIM(RTRIM([VippsId])) <> '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetNorwayCountryId]() AND [VippsId] IS NULL OR LTRIM(RTRIM([VippsId])) = '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetSwedenCountryId]() AND [VippsId] IS NOT NULL AND LTRIM(RTRIM([VippsId])) <> '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetSwedenCountryId]() AND [VippsId] IS NULL OR LTRIM(RTRIM([VippsId])) = '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetDenmarkCountryId]() AND [VippsId] IS NOT NULL AND LTRIM(RTRIM([VippsId])) <> '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetDenmarkCountryId]() AND [VippsId] IS NULL OR LTRIM(RTRIM([VippsId])) = '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetFinlandCountryId]() AND [VippsId] IS NOT NULL AND LTRIM(RTRIM([VippsId])) <> '')
+        OR
+        ([BankAddressLine5] = [dbo].[fnGetFinlandCountryId]() AND [VippsId] IS NULL OR LTRIM(RTRIM([VippsId])) = '')
     ),
     CONSTRAINT [UC_CompanyConfiguration_CompanyName] UNIQUE ([CompanyName])
 )

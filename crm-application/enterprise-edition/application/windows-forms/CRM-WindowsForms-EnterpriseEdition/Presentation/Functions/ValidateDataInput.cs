@@ -61,6 +61,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         }
                     }
 
+                    if (property.Name.Equals("EmailTopLevelDomain"))
+                    {
+                        if (!value.StartsWith("@"))
+                        {
+                            validationErrors.AppendLine("EmailTopLevelDomain must begin with a @ character.");
+                        }
+
+                        if (value.Length > 50)
+                        {
+                            validationErrors.AppendLine("EmailTopLevelDomain cannot be longer than 50 characters.");
+                        }
+                    }
+
                     if (property.Name.Contains("EmailAddress"))
                     {
                         if (!value.Contains("@"))

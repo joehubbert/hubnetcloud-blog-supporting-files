@@ -18,6 +18,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             public string Name { get; set; } = string.Empty;
             public object Value { get; set; } = string.Empty;
             public int MaxLength { get; set; } = 0;
+            public int MaxPixelHeight { get; set; } = 0;
+            public int MaxPixelWidth { get; set; } = 0;
             public Type ValueType { get; set; } = typeof(string);
         }
 
@@ -39,6 +41,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     if (property.AllowNullValue == false && string.IsNullOrWhiteSpace(value))
                     {
                         validationErrors.AppendLine($"{property.Name} cannot be empty.");
+                    }
+
+                    if (property.Name.Equals("BankAccountSortCode"))
+                    {
+                        if (!string.IsNullOrWhiteSpace(value))
+                        {
+                            if (!Regex.IsMatch(value, "^[0-9]{2}-[0-9]{2}-[0-9]{2}$"))
+                            {
+                                validationErrors.AppendLine("BankAccountSortCode must follow UK Bank Account Sort Code Format of 00-00-00.");
+                            }
+                            if (value.Length > 8)
+                            {
+                                validationErrors.AppendLine("BankAccountSortCode cannot be longer than 8 characters.");
+                            }
+                        }
                     }
 
                     if (property.Name.Equals("BCP47LanguageTagCode"))
@@ -144,21 +161,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 {
                     if (property.Value is byte[] imageBytes)
                     {
-                        if (!IsValidImageBytes(imageBytes, out string error))
+                        if (!IsValidImageBytes(imageBytes, property.MaxPixelHeight, property.MaxPixelWidth, out string error))
                         {
                             validationErrors.AppendLine($"{property.Name}: {error}");
                         }
                     }
                     else if (property.Value is string imagePath && !string.IsNullOrWhiteSpace(imagePath))
                     {
-                        if (!IsValidImageFile(imagePath, out string error))
+                        if (!IsValidImageFile(imagePath, property.MaxPixelHeight, property.MaxPixelWidth, out string error))
                         {
                             validationErrors.AppendLine($"{property.Name}: {error}");
                         }
                     }
                 }
 
-                if (SQLInjectionRiskCheck.ContainsSqlInjectionRisk(value))
+                if (!string.IsNullOrWhiteSpace(value) && SQLInjectionRiskCheck.ContainsSqlInjectionRisk(value))
                 {
                     validationErrors.AppendLine($"{property.Name} contains potentially dangerous characters that could lead to SQL injection.");
                 }
@@ -177,7 +194,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             return new ValidationResult { IsValid = true };
         }
 
-        public static bool IsValidImageFile(string filePath, out string errorMessage)
+        public static bool IsValidImageFile(string filePath, int maxPixelHeight, int maxPixelWidth, out string errorMessage)
         {
             errorMessage = string.Empty;
             string extension = Path.GetExtension(filePath).ToLower();
@@ -192,9 +209,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             {
                 using (var img = Image.FromFile(filePath))
                 {
-                    if (img.Width > 1000 || img.Height > 1000)
+                    if (img.Width > maxPixelWidth || img.Height > maxPixelHeight)
                     {
-                        errorMessage = "Image dimensions must not exceed 1000x1000 pixels.";
+                        errorMessage = $"Image dimensions must not exceed {maxPixelWidth}x{maxPixelHeight} pixels.";
                         return false;
                     }
                 }
@@ -208,7 +225,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             return true;
         }
 
-        public static bool IsValidImageBytes(byte[] imageBytes, out string errorMessage)
+        public static bool IsValidImageBytes(byte[] imageBytes, int maxPixelHeight, int maxPixelWidth, out string errorMessage)
         {
             errorMessage = string.Empty;
             try
@@ -223,9 +240,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         errorMessage = "Only PNG and JPG images are allowed.";
                         return false;
                     }
-                    if (img.Width > 1000 || img.Height > 1000)
+                    if (img.Width > maxPixelWidth || img.Height > maxPixelHeight)
                     {
-                        errorMessage = "Image dimensions must not exceed 1000x1000 pixels.";
+                        errorMessage = $"Image dimensions must not exceed {maxPixelWidth}x{maxPixelHeight} pixels.";
                         return false;
                     }
                 }

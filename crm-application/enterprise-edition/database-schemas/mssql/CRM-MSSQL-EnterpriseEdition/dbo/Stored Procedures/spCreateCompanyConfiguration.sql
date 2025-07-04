@@ -4,25 +4,25 @@
     @addressLine3 NVARCHAR(50),
     @addressLine4 NVARCHAR(50),
     @addressLine5 UNIQUEIDENTIFIER,
-    @bankAccountBalance MONEY,
+    @bankAccountAddressLine1 NVARCHAR(50),
+    @bankAccountAddressLine2 NVARCHAR(50) = NULL,
+    @bankAccountAddressLine3 NVARCHAR(50),
+    @bankAccountAddressLine4 NVARCHAR(50),
+    @bankAccountAddressLine5 UNIQUEIDENTIFIER,
     @bankAccountCurrencyId UNIQUEIDENTIFIER,
+    @bankAccountIBAN NVARCHAR(50),
     @bankAccountNumber NVARCHAR(50),
     @bankAccountName NVARCHAR(50),
-    @bankAddressLine1 NVARCHAR(50),
-    @bankAddressLine2 NVARCHAR(50) = NULL,
-    @bankAddressLine3 NVARCHAR(50),
-    @bankAddressLine4 NVARCHAR(50),
-    @bankAddressLine5 UNIQUEIDENTIFIER,
-    @bankIBAN NVARCHAR(50),
-    @bankSortCode NVARCHAR(50) = NULL,    
-    @bankSWIFTCode NVARCHAR(50),
+    @bankAccountOpeningBalance MONEY, 
+    @bankAccountSortCode NVARCHAR(50) = NULL,    
+    @bankAccountSWIFTCode NVARCHAR(50),
+    @bankAccountVippsId NVARCHAR(20) = NULL,
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
     @emailAddress NVARCHAR(50),
     @emailTopLevelDomain NVARCHAR(50)NULL,
     @telephoneNumber NVARCHAR(50),
-    @vatNumber NVARCHAR(50) = NULL,
-    @vippsId NVARCHAR(20) = NULL,
+    @vatNumber NVARCHAR(50) = NULL,    
     @websiteURL NVARCHAR(50) = NULL
 AS
 
@@ -49,15 +49,15 @@ BEGIN
                 [BankAccountCurrencyId] UNIQUEIDENTIFIER NOT NULL,
                 [BankAccountNumber] NVARCHAR(50) NOT NULL,
                 [BankAccountName] NVARCHAR(50) NOT NULL,
-                [BankSortCode] NVARCHAR(50) NULL,
-                [BankIBAN] NVARCHAR(50) NULL,
-                [BankSWIFTCode] NVARCHAR(50) NULL,
-                [BankAddressLine1] NVARCHAR(50) NOT NULL,
-                [BankAddressLine2] NVARCHAR(50) NULL,
-                [BankAddressLine3] NVARCHAR(50) NOT NULL,
-                [BankAddressLine4] NVARCHAR(50) NOT NULL,
-                [BankAddressLine5] UNIQUEIDENTIFIER NOT NULL,
-                [VippsId] NVARCHAR(20) NULL
+                [BankAccountSortCode] NVARCHAR(50) NULL,
+                [BankAccountIBAN] NVARCHAR(50) NULL,
+                [BankAccountSWIFTCode] NVARCHAR(50) NULL,
+                [BankAccountAddressLine1] NVARCHAR(50) NOT NULL,
+                [BankAccountAddressLine2] NVARCHAR(50) NULL,
+                [BankAccountAddressLine3] NVARCHAR(50) NOT NULL,
+                [BankAccountAddressLine4] NVARCHAR(50) NOT NULL,
+                [BankAccountAddressLine5] UNIQUEIDENTIFIER NOT NULL,
+                [BankAccountVippsId] NVARCHAR(20) NULL
             )
 
             INSERT INTO #CompanyConfigurationTemp
@@ -78,15 +78,15 @@ BEGIN
                 [BankAccountCurrencyId],
                 [BankAccountNumber],
                 [BankAccountName],
-                [BankSortCode],
-                [BankIBAN],
-                [BankSWIFTCode],
-                [BankAddressLine1],
-                [BankAddressLine2],
-                [BankAddressLine3],
-                [BankAddressLine4],
-                [BankAddressLine5],
-                [VippsId]
+                [BankAccountSortCode],
+                [BankAccountIBAN],
+                [BankAccountSWIFTCode],
+                [BankAccountAddressLine1],
+                [BankAccountAddressLine2],
+                [BankAccountAddressLine3],
+                [BankAccountAddressLine4],
+                [BankAccountAddressLine5],
+                [BankAccountVippsId]
             )
             VALUES
             (
@@ -102,19 +102,19 @@ BEGIN
                 @emailTopLevelDomain,
                 @vatNumber,
                 @websiteURL,
-                @bankAccountBalance,
+                @bankAccountOpeningBalance,
                 @bankAccountCurrencyId,
                 @bankAccountNumber,
                 @bankAccountName,
-                @bankSortCode,
-                @bankIBAN,
-                @bankSWIFTCode,
-                @bankAddressLine1,
-                @bankAddressLine2,
-                @bankAddressLine3,
-                @bankAddressLine4,
-                @bankAddressLine5,
-                @vippsId
+                @bankAccountSortCode,
+                @bankAccountIBAN,
+                @bankAccountSWIFTCode,
+                @bankAccountAddressLine1,
+                @bankAccountAddressLine2,
+                @bankAccountAddressLine3,
+                @bankAccountAddressLine4,
+                @bankAccountAddressLine5,
+                @bankAccountVippsId
             )
 
             IF EXISTS
@@ -145,15 +145,15 @@ BEGIN
             AND target.[BankAccountCurrencyId] = source.[BankAccountCurrencyId]
             AND target.[BankAccountNumber] = source.[BankAccountNumber]
             AND target.[BankAccountName] = source.[BankAccountName]
-            AND target.[BankSortCode] = source.[BankSortCode]
-            AND target.[BankIBAN] = source.[BankIBAN]
-            AND target.[BankSWIFTCode] = source.[BankSWIFTCode]
-            AND target.[BankAddressLine1] = source.[BankAddressLine1]
-            AND target.[BankAddressLine2] = source.[BankAddressLine2]
-            AND target.[BankAddressLine3] = source.[BankAddressLine3]
-            AND target.[BankAddressLine4] = source.[BankAddressLine4]
-            AND target.[BankAddressLine5] = source.[BankAddressLine5]
-            AND target.[VippsId] = source.[VippsId]
+            AND target.[BankAccountSortCode] = source.[BankAccountSortCode]
+            AND target.[BankAccountIBAN] = source.[BankAccountIBAN]
+            AND target.[BankAccountSWIFTCode] = source.[BankAccountSWIFTCode]
+            AND target.[BankAccountAddressLine1] = source.[BankAccountAddressLine1]
+            AND target.[BankAccountAddressLine2] = source.[BankAccountAddressLine2]
+            AND target.[BankAccountAddressLine3] = source.[BankAccountAddressLine3]
+            AND target.[BankAccountAddressLine4] = source.[BankAccountAddressLine4]
+            AND target.[BankAccountAddressLine5] = source.[BankAccountAddressLine5]
+            AND target.[BankAccountVippsId] = source.[BankAccountVippsId]
             WHEN NOT MATCHED THEN
             INSERT
             (
@@ -173,15 +173,15 @@ BEGIN
                 [BankAccountCurrencyId],
                 [BankAccountNumber],
                 [BankAccountName],
-                [BankSortCode],
-                [BankIBAN],
-                [BankSWIFTCode],
-                [BankAddressLine1],
-                [BankAddressLine2],
-                [BankAddressLine3],
-                [BankAddressLine4],
-                [BankAddressLine5],
-                [VippsId]
+                [BankAccountSortCode],
+                [BankAccountIBAN],
+                [BankAccountSWIFTCode],
+                [BankAccountAddressLine1],
+                [BankAccountAddressLine2],
+                [BankAccountAddressLine3],
+                [BankAccountAddressLine4],
+                [BankAccountAddressLine5],
+                [BankAccountVippsId]
             )
             VALUES
             (
@@ -201,15 +201,15 @@ BEGIN
                 source.[BankAccountCurrencyId],
                 source.[BankAccountNumber],
                 source.[BankAccountName],
-                source.[BankSortCode],
-                source.[BankIBAN],
-                source.[BankSWIFTCode],
-                source.[BankAddressLine1],
-                source.[BankAddressLine2],
-                source.[BankAddressLine3],
-                source.[BankAddressLine4],
-                source.[BankAddressLine5],
-                source.[VippsId]
+                source.[BankAccountSortCode],
+                source.[BankAccountIBAN],
+                source.[BankAccountSWIFTCode],
+                source.[BankAccountAddressLine1],
+                source.[BankAccountAddressLine2],
+                source.[BankAccountAddressLine3],
+                source.[BankAccountAddressLine4],
+                source.[BankAccountAddressLine5],
+                source.[BankAccountVippsId]
             );
 
             DROP TABLE #CompanyConfigurationTemp;

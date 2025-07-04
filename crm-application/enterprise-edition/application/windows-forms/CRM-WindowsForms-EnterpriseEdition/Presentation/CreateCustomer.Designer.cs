@@ -638,10 +638,10 @@
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationCompanyNameTextbox);
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationLastNameTextbox);
             createCustomerTabControlBillingPage.Controls.Add(createCustomerBillingInformationFirstNameTextbox);
-            createCustomerTabControlBillingPage.Location = new Point(4, 32);
+            createCustomerTabControlBillingPage.Location = new Point(4, 27);
             createCustomerTabControlBillingPage.Name = "createCustomerTabControlBillingPage";
             createCustomerTabControlBillingPage.Padding = new Padding(3);
-            createCustomerTabControlBillingPage.Size = new Size(1067, 570);
+            createCustomerTabControlBillingPage.Size = new Size(1067, 575);
             createCustomerTabControlBillingPage.TabIndex = 1;
             createCustomerTabControlBillingPage.Text = "Billing Information";
             // 
@@ -1146,6 +1146,7 @@
             // createCustomerFinanceCreditLimitTextboxB
             // 
             createCustomerFinanceCreditLimitTextboxB.Location = new Point(293, 64);
+            createCustomerFinanceCreditLimitTextboxB.MaxLength = 5;
             createCustomerFinanceCreditLimitTextboxB.Name = "createCustomerFinanceCreditLimitTextboxB";
             createCustomerFinanceCreditLimitTextboxB.Size = new Size(38, 27);
             createCustomerFinanceCreditLimitTextboxB.TabIndex = 45;
@@ -1153,6 +1154,7 @@
             // createCustomerFinanceCreditLimitTextboxA
             // 
             createCustomerFinanceCreditLimitTextboxA.Location = new Point(172, 64);
+            createCustomerFinanceCreditLimitTextboxA.MaxLength = 10;
             createCustomerFinanceCreditLimitTextboxA.Name = "createCustomerFinanceCreditLimitTextboxA";
             createCustomerFinanceCreditLimitTextboxA.Size = new Size(103, 27);
             createCustomerFinanceCreditLimitTextboxA.TabIndex = 44;

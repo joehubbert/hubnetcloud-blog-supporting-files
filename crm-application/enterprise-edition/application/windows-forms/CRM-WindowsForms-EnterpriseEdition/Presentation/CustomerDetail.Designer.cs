@@ -1226,9 +1226,9 @@
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditLimitTextboxB);
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditLimitTextboxA);
             customerDetailTabControlFinancePage.Controls.Add(customerDetailFinanceCreditEnabledCheckbox);
-            customerDetailTabControlFinancePage.Location = new Point(4, 27);
+            customerDetailTabControlFinancePage.Location = new Point(4, 32);
             customerDetailTabControlFinancePage.Name = "customerDetailTabControlFinancePage";
-            customerDetailTabControlFinancePage.Size = new Size(1247, 721);
+            customerDetailTabControlFinancePage.Size = new Size(1247, 716);
             customerDetailTabControlFinancePage.TabIndex = 3;
             customerDetailTabControlFinancePage.Text = "Finance";
             // 
@@ -1244,6 +1244,7 @@
             // customerDetailFinanceCreditLimitUsedPercentageTextboxB
             // 
             customerDetailFinanceCreditLimitUsedPercentageTextboxB.Location = new Point(293, 143);
+            customerDetailFinanceCreditLimitUsedPercentageTextboxB.MaxLength = 5;
             customerDetailFinanceCreditLimitUsedPercentageTextboxB.Name = "customerDetailFinanceCreditLimitUsedPercentageTextboxB";
             customerDetailFinanceCreditLimitUsedPercentageTextboxB.ReadOnly = true;
             customerDetailFinanceCreditLimitUsedPercentageTextboxB.Size = new Size(38, 27);
@@ -1252,6 +1253,7 @@
             // customerDetailFinanceCreditLimitUsedPercentageTextboxA
             // 
             customerDetailFinanceCreditLimitUsedPercentageTextboxA.Location = new Point(172, 143);
+            customerDetailFinanceCreditLimitUsedPercentageTextboxA.MaxLength = 10;
             customerDetailFinanceCreditLimitUsedPercentageTextboxA.Name = "customerDetailFinanceCreditLimitUsedPercentageTextboxA";
             customerDetailFinanceCreditLimitUsedPercentageTextboxA.ReadOnly = true;
             customerDetailFinanceCreditLimitUsedPercentageTextboxA.Size = new Size(103, 27);
@@ -1288,6 +1290,7 @@
             // customerDetailFinanceCreditLimitUsedTextboxB
             // 
             customerDetailFinanceCreditLimitUsedTextboxB.Location = new Point(293, 105);
+            customerDetailFinanceCreditLimitUsedTextboxB.MaxLength = 5;
             customerDetailFinanceCreditLimitUsedTextboxB.Name = "customerDetailFinanceCreditLimitUsedTextboxB";
             customerDetailFinanceCreditLimitUsedTextboxB.ReadOnly = true;
             customerDetailFinanceCreditLimitUsedTextboxB.Size = new Size(38, 27);
@@ -1296,6 +1299,7 @@
             // customerDetailFinanceCreditLimitUsedTextboxA
             // 
             customerDetailFinanceCreditLimitUsedTextboxA.Location = new Point(172, 105);
+            customerDetailFinanceCreditLimitUsedTextboxA.MaxLength = 10;
             customerDetailFinanceCreditLimitUsedTextboxA.Name = "customerDetailFinanceCreditLimitUsedTextboxA";
             customerDetailFinanceCreditLimitUsedTextboxA.ReadOnly = true;
             customerDetailFinanceCreditLimitUsedTextboxA.Size = new Size(103, 27);
@@ -1394,6 +1398,7 @@
             // customerDetailFinanceCreditLimitTextboxB
             // 
             customerDetailFinanceCreditLimitTextboxB.Location = new Point(293, 64);
+            customerDetailFinanceCreditLimitTextboxB.MaxLength = 5;
             customerDetailFinanceCreditLimitTextboxB.Name = "customerDetailFinanceCreditLimitTextboxB";
             customerDetailFinanceCreditLimitTextboxB.ReadOnly = true;
             customerDetailFinanceCreditLimitTextboxB.Size = new Size(38, 27);
@@ -1402,6 +1407,7 @@
             // customerDetailFinanceCreditLimitTextboxA
             // 
             customerDetailFinanceCreditLimitTextboxA.Location = new Point(172, 64);
+            customerDetailFinanceCreditLimitTextboxA.MaxLength = 10;
             customerDetailFinanceCreditLimitTextboxA.Name = "customerDetailFinanceCreditLimitTextboxA";
             customerDetailFinanceCreditLimitTextboxA.ReadOnly = true;
             customerDetailFinanceCreditLimitTextboxA.Size = new Size(103, 27);
@@ -1426,9 +1432,9 @@
             customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactRefreshDataButton);
             customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactCreateNewCustomerContactButton);
             customerDetailTabControlCustomerContactPage.Controls.Add(customerDetailCustomerContactExistingCustomerContactDataGridView);
-            customerDetailTabControlCustomerContactPage.Location = new Point(4, 32);
+            customerDetailTabControlCustomerContactPage.Location = new Point(4, 27);
             customerDetailTabControlCustomerContactPage.Name = "customerDetailTabControlCustomerContactPage";
-            customerDetailTabControlCustomerContactPage.Size = new Size(1247, 716);
+            customerDetailTabControlCustomerContactPage.Size = new Size(1247, 721);
             customerDetailTabControlCustomerContactPage.TabIndex = 5;
             customerDetailTabControlCustomerContactPage.Text = "Customer Contacts";
             // 

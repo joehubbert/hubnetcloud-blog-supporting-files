@@ -299,7 +299,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInput.IsValidImageFile(filePath, out string errorMessage))
+                    if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         productDetailProductImagePictureBox.Image = Image.FromFile(filePath);
                         productDetailProductImageRuntimeValue = File.ReadAllBytes(filePath);

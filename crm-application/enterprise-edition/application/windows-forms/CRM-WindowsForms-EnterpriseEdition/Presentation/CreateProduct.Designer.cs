@@ -167,7 +167,7 @@
             // 
             createProductWholesalePricePerUnitTextboxB.Font = new Font("Segoe UI", 11F);
             createProductWholesalePricePerUnitTextboxB.Location = new Point(402, 36);
-            createProductWholesalePricePerUnitTextboxB.MaxLength = 50;
+            createProductWholesalePricePerUnitTextboxB.MaxLength = 5;
             createProductWholesalePricePerUnitTextboxB.Name = "createProductWholesalePricePerUnitTextboxB";
             createProductWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
             createProductWholesalePricePerUnitTextboxB.TabIndex = 6;
@@ -176,7 +176,7 @@
             // 
             createProductWholesalePricePerUnitTextboxA.Font = new Font("Segoe UI", 11F);
             createProductWholesalePricePerUnitTextboxA.Location = new Point(284, 36);
-            createProductWholesalePricePerUnitTextboxA.MaxLength = 50;
+            createProductWholesalePricePerUnitTextboxA.MaxLength = 10;
             createProductWholesalePricePerUnitTextboxA.Name = "createProductWholesalePricePerUnitTextboxA";
             createProductWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
             createProductWholesalePricePerUnitTextboxA.TabIndex = 5;
@@ -185,7 +185,7 @@
             // 
             createProductUnitPriceTextboxA.Font = new Font("Segoe UI", 11F);
             createProductUnitPriceTextboxA.Location = new Point(283, 26);
-            createProductUnitPriceTextboxA.MaxLength = 50;
+            createProductUnitPriceTextboxA.MaxLength = 10;
             createProductUnitPriceTextboxA.Name = "createProductUnitPriceTextboxA";
             createProductUnitPriceTextboxA.Size = new Size(99, 27);
             createProductUnitPriceTextboxA.TabIndex = 11;
@@ -308,7 +308,7 @@
             // 
             createProductUnitPriceTextboxB.Font = new Font("Segoe UI", 11F);
             createProductUnitPriceTextboxB.Location = new Point(402, 26);
-            createProductUnitPriceTextboxB.MaxLength = 50;
+            createProductUnitPriceTextboxB.MaxLength = 5;
             createProductUnitPriceTextboxB.Name = "createProductUnitPriceTextboxB";
             createProductUnitPriceTextboxB.Size = new Size(45, 27);
             createProductUnitPriceTextboxB.TabIndex = 12;
@@ -505,10 +505,10 @@
             createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBox);
             createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBoxLabel);
             createProductTabControlProductImage.Controls.Add(createProductChooseProductImageButton);
-            createProductTabControlProductImage.Location = new Point(4, 32);
+            createProductTabControlProductImage.Location = new Point(4, 27);
             createProductTabControlProductImage.Name = "createProductTabControlProductImage";
             createProductTabControlProductImage.Padding = new Padding(3);
-            createProductTabControlProductImage.Size = new Size(1171, 595);
+            createProductTabControlProductImage.Size = new Size(1171, 600);
             createProductTabControlProductImage.TabIndex = 1;
             createProductTabControlProductImage.Text = "Product Image";
             // 

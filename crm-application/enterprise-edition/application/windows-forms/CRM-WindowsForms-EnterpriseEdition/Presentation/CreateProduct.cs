@@ -22,8 +22,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             createProductProductCategoryComboBox.DropDown += new EventHandler(CreateProductProductCategoryComboBox_DropDown);
             createProductSupplierComboBox.DropDown += new EventHandler(CreateProductSupplierComboBox_DropDown);
-            createProductWholesaleCartonQuantityTextbox.TextChanged += new EventHandler(CalulateUnitStockQuantityHeld);
-            createProductWholesaleUnitQuantityPerCartonTextbox.TextChanged += new EventHandler(CalulateUnitStockQuantityHeld);
+            createProductWholesaleCartonQuantityTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
+            createProductWholesaleUnitQuantityPerCartonTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -118,7 +118,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private void CalulateUnitStockQuantityHeld(object? sender, EventArgs e)
+        private void CalculateUnitStockQuantityHeld(object? sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(createProductWholesaleCartonQuantityTextbox.Text) &&
                 !string.IsNullOrWhiteSpace(createProductWholesaleUnitQuantityPerCartonTextbox.Text))
@@ -148,7 +148,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInput.IsValidImageFile(filePath, out string errorMessage))
+                    if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         createProductProductImagePictureBox.Image = Image.FromFile(filePath);
                         _productImageBytes = File.ReadAllBytes(filePath);

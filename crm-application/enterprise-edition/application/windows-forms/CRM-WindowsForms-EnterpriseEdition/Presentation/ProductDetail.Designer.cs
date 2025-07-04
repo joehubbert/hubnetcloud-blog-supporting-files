@@ -348,7 +348,7 @@
             // 
             productDetailOverviewUnitPriceTextboxB.Font = new Font("Segoe UI", 11F);
             productDetailOverviewUnitPriceTextboxB.Location = new Point(402, 26);
-            productDetailOverviewUnitPriceTextboxB.MaxLength = 50;
+            productDetailOverviewUnitPriceTextboxB.MaxLength = 5;
             productDetailOverviewUnitPriceTextboxB.Name = "productDetailOverviewUnitPriceTextboxB";
             productDetailOverviewUnitPriceTextboxB.ReadOnly = true;
             productDetailOverviewUnitPriceTextboxB.Size = new Size(45, 27);
@@ -379,7 +379,7 @@
             // 
             productDetailOverviewUnitPriceTextboxA.Font = new Font("Segoe UI", 11F);
             productDetailOverviewUnitPriceTextboxA.Location = new Point(283, 26);
-            productDetailOverviewUnitPriceTextboxA.MaxLength = 50;
+            productDetailOverviewUnitPriceTextboxA.MaxLength = 10;
             productDetailOverviewUnitPriceTextboxA.Name = "productDetailOverviewUnitPriceTextboxA";
             productDetailOverviewUnitPriceTextboxA.ReadOnly = true;
             productDetailOverviewUnitPriceTextboxA.Size = new Size(99, 27);
@@ -430,7 +430,7 @@
             // 
             productDetailOverviewWholesalePricePerUnitTextboxB.Font = new Font("Segoe UI", 11F);
             productDetailOverviewWholesalePricePerUnitTextboxB.Location = new Point(402, 36);
-            productDetailOverviewWholesalePricePerUnitTextboxB.MaxLength = 50;
+            productDetailOverviewWholesalePricePerUnitTextboxB.MaxLength = 5;
             productDetailOverviewWholesalePricePerUnitTextboxB.Name = "productDetailOverviewWholesalePricePerUnitTextboxB";
             productDetailOverviewWholesalePricePerUnitTextboxB.ReadOnly = true;
             productDetailOverviewWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
@@ -440,7 +440,7 @@
             // 
             productDetailOverviewWholesalePricePerUnitTextboxA.Font = new Font("Segoe UI", 11F);
             productDetailOverviewWholesalePricePerUnitTextboxA.Location = new Point(284, 36);
-            productDetailOverviewWholesalePricePerUnitTextboxA.MaxLength = 50;
+            productDetailOverviewWholesalePricePerUnitTextboxA.MaxLength = 10;
             productDetailOverviewWholesalePricePerUnitTextboxA.Name = "productDetailOverviewWholesalePricePerUnitTextboxA";
             productDetailOverviewWholesalePricePerUnitTextboxA.ReadOnly = true;
             productDetailOverviewWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
@@ -616,9 +616,9 @@
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBox);
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImagePictureBoxLabel);
             productDetailTabControlProductImagePage.Controls.Add(productDetailProductImageChooseProductImageButton);
-            productDetailTabControlProductImagePage.Location = new Point(4, 32);
+            productDetailTabControlProductImagePage.Location = new Point(4, 27);
             productDetailTabControlProductImagePage.Name = "productDetailTabControlProductImagePage";
-            productDetailTabControlProductImagePage.Size = new Size(1256, 589);
+            productDetailTabControlProductImagePage.Size = new Size(1256, 594);
             productDetailTabControlProductImagePage.TabIndex = 5;
             productDetailTabControlProductImagePage.Text = "Product Image";
             // 
@@ -676,9 +676,9 @@
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesRefreshDataButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesCreateNewProductNoteButton);
             productDetailTabControlProductNotesPage.Controls.Add(productDetailProductNotesExistingProductNotesDataGridView);
-            productDetailTabControlProductNotesPage.Location = new Point(4, 32);
+            productDetailTabControlProductNotesPage.Location = new Point(4, 27);
             productDetailTabControlProductNotesPage.Name = "productDetailTabControlProductNotesPage";
-            productDetailTabControlProductNotesPage.Size = new Size(1256, 589);
+            productDetailTabControlProductNotesPage.Size = new Size(1256, 594);
             productDetailTabControlProductNotesPage.TabIndex = 4;
             productDetailTabControlProductNotesPage.Text = "Product Notes";
             // 

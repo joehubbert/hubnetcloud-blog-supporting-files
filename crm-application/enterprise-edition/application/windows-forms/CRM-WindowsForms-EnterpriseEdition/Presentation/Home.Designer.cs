@@ -112,6 +112,9 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusCreateOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProduct = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory = new ToolStripMenuItem();
@@ -173,9 +176,6 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -975,6 +975,33 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Text = "&View All Order Statuses";
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderStatusViewAllOrderStaus_Click;
             // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Size = new Size(206, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Text = "&Order Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Text = "&Create Order Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Size = new Size(191, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Text = "&View All Order Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType_Click;
+            // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementProduct
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagementProduct.BackColor = Color.Transparent;
@@ -1261,6 +1288,7 @@
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(269, 22);
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration_Click;
             // 
             // homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration
             // 
@@ -1269,6 +1297,7 @@
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(269, 22);
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click;
             // 
             // homeMenuStripModuleCustomerManagement
             // 
@@ -1530,33 +1559,6 @@
             homeNavMarketingManagement.Text = "Marketing Management";
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType, homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType });
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Size = new Size(206, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderType.Text = "&Order Type";
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Size = new Size(191, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Text = "&Create Order Type";
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeCreateOrderType_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Size = new Size(191, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Text = "&View All Order Type";
-            homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderTypeViewAllOrderType_Click;
             // 
             // Home
             // 

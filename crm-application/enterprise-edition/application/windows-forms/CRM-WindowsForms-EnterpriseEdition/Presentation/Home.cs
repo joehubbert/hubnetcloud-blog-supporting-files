@@ -107,6 +107,18 @@
             companyManagement.Show();
         }
 
+        private void homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration_Click(object sender, EventArgs e)
+        {
+            CreateCompanyConfiguration createCompanyConfiguration = new CreateCompanyConfiguration();
+            createCompanyConfiguration.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CompanyConfiguration", "CompanyManagement", null);
+            viewAllData.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManagerCreateAccountManager_Click(object sender, EventArgs e)
         {
             CreateAccountManager createAccountManager = new CreateAccountManager();

@@ -7,6 +7,18 @@
             InitializeComponent();
         }
 
+        private void companyManagementTabControlCompanyConfigurationTabPageTabControlCompanyConfigurationTabPageCreateCompanyConfigurationButton_Click(object sender, EventArgs e)
+        {
+            CreateCompanyConfiguration createCompanyConfiguration = new CreateCompanyConfiguration();
+            createCompanyConfiguration.Show();
+        }
+
+        private void companyManagementTabControlCompanyConfigurationTabPageTabControlCompanyConfigurationTabPageViewAllCompanyConfigurationButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("CompanyConfiguration", "CompanyManagement", null);
+            viewAllData.Show();
+        }
+
         private void companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPageCreateAccountManagerButton_Click(object sender, EventArgs e)
         {
             CreateAccountManager createAccountManager = new CreateAccountManager();

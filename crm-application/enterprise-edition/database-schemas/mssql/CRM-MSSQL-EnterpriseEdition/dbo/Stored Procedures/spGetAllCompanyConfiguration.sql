@@ -33,7 +33,8 @@ BEGIN
 			[Bank Account Address Line 3],
 			[Bank Account Address Line 4],
 			[Bank Account Address Line 5],
-			[Bank Account Vipps Id]
+			[Bank Account Vipps Id],
+			[Active Status]
 			FROM [dbo].[vwCompanyConfiguration]
 
 		COMMIT TRANSACTION;

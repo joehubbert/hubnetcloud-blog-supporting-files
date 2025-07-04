@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCompanyConfiguration]
+    @activeStatus BIT,
     @addressLine1 NVARCHAR(50),
     @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
@@ -9,14 +10,13 @@
     @bankAccountAddressLine3 NVARCHAR(50),
     @bankAccountAddressLine4 NVARCHAR(50),
     @bankAccountAddressLine5 UNIQUEIDENTIFIER,
-    @bankAccountBalance MONEY = NULL,
     @bankAccountCurrencyId UNIQUEIDENTIFIER,
-    @bankAccountIBAN NVARCHAR(50),
+    @bankAccountIBAN NVARCHAR(34),
     @bankAccountNumber NVARCHAR(50),
     @bankAccountName NVARCHAR(50),
     @bankAccountVippsId NVARCHAR(20) = NULL,   
-    @bankAccountSortCode NVARCHAR(50) = NULL,    
-    @bankAccountSWIFTCode NVARCHAR(50),
+    @bankAccountSortCode NVARCHAR(8) = NULL,    
+    @bankAccountSWIFTCode NVARCHAR(11),
     @companyConfigurationId UNIQUEIDENTIFIER,
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
@@ -34,6 +34,7 @@ BEGIN
 
             UPDATE [dbo].[CompanyConfiguration]
             SET
+                [ActiveStatus] = @activeStatus,
                 [AddressLine1] = @addressLine1,
                 [AddressLine2] = @addressLine2,
                 [AddressLine3] = @addressLine3,

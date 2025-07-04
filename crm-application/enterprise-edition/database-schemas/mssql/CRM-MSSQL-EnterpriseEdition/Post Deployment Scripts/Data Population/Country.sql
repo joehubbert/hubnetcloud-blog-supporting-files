@@ -246,7 +246,7 @@ INSERT INTO #CountryTemp ([ISO31661A2CountryCode], [CountryEnglishName], [Active
 ('UZ', 'Uzbekistan', 1),
 ('VU', 'Vanuatu', 1),
 ('VE', 'Venezuela', 1),
-('VN', 'Viet Nam', 1),
+('VN', 'Vietnam', 1),
 ('VG', 'Virgin Islands (British)', 1),
 ('VI', 'Virgin Islands (U.S.)', 1),
 ('WF', 'Wallis and Futuna', 1),

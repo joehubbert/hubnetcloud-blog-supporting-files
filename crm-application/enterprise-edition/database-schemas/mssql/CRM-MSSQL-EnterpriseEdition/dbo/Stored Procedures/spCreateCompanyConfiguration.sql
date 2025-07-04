@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCompanyConfiguration]
+    @activeStatus BIT,
     @addressLine1 NVARCHAR(50),
     @addressLine2 NVARCHAR(50) = NULL,
     @addressLine3 NVARCHAR(50),
@@ -10,12 +11,12 @@
     @bankAccountAddressLine4 NVARCHAR(50),
     @bankAccountAddressLine5 UNIQUEIDENTIFIER,
     @bankAccountCurrencyId UNIQUEIDENTIFIER,
-    @bankAccountIBAN NVARCHAR(50),
+    @bankAccountIBAN NVARCHAR(34),
     @bankAccountNumber NVARCHAR(50),
     @bankAccountName NVARCHAR(50),
     @bankAccountOpeningBalance MONEY, 
-    @bankAccountSortCode NVARCHAR(50) = NULL,    
-    @bankAccountSWIFTCode NVARCHAR(50),
+    @bankAccountSortCode NVARCHAR(8) = NULL,    
+    @bankAccountSWIFTCode NVARCHAR(11),
     @bankAccountVippsId NVARCHAR(20) = NULL,
     @companyLogo VARBINARY(MAX) = NULL,
 	@companyName NVARCHAR(50),
@@ -57,7 +58,8 @@ BEGIN
                 [BankAccountAddressLine3] NVARCHAR(50) NOT NULL,
                 [BankAccountAddressLine4] NVARCHAR(50) NOT NULL,
                 [BankAccountAddressLine5] UNIQUEIDENTIFIER NOT NULL,
-                [BankAccountVippsId] NVARCHAR(20) NULL
+                [BankAccountVippsId] NVARCHAR(20) NULL,
+                [ActiveStatus] BIT NOT NULL
             )
 
             INSERT INTO #CompanyConfigurationTemp
@@ -86,7 +88,8 @@ BEGIN
                 [BankAccountAddressLine3],
                 [BankAccountAddressLine4],
                 [BankAccountAddressLine5],
-                [BankAccountVippsId]
+                [BankAccountVippsId],
+                [ActiveStatus]
             )
             VALUES
             (
@@ -114,7 +117,8 @@ BEGIN
                 @bankAccountAddressLine3,
                 @bankAccountAddressLine4,
                 @bankAccountAddressLine5,
-                @bankAccountVippsId
+                @bankAccountVippsId,
+                @activeStatus
             )
 
             IF EXISTS
@@ -181,7 +185,8 @@ BEGIN
                 [BankAccountAddressLine3],
                 [BankAccountAddressLine4],
                 [BankAccountAddressLine5],
-                [BankAccountVippsId]
+                [BankAccountVippsId],
+                [ActiveStatus]
             )
             VALUES
             (
@@ -209,7 +214,8 @@ BEGIN
                 source.[BankAccountAddressLine3],
                 source.[BankAccountAddressLine4],
                 source.[BankAccountAddressLine5],
-                source.[BankAccountVippsId]
+                source.[BankAccountVippsId],
+                source.[ActiveStatus]
             );
 
             DROP TABLE #CompanyConfigurationTemp;

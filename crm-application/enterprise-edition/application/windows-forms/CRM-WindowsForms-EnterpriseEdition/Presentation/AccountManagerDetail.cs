@@ -81,7 +81,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Account Manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
         }
 
         private async void AccountManagerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)

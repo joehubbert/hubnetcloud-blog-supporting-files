@@ -583,6 +583,15 @@
     <Build Include="dbo\Functions\fnGetSwedenCountryId.sql" />
     <Build Include="dbo\Functions\fnGetDenmarkCountryId.sql" />
     <Build Include="dbo\Functions\fnGetFinlandCountryId.sql" />
+    <Build Include="dbo\Tables\ProductFamily.sql" />
+    <Build Include="dbo\Views\vwProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductForProductFamily.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductForProductSubCategory.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductForProductCategory.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

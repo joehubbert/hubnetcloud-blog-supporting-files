@@ -12,6 +12,8 @@ BEGIN
 			[Product Category],
 			[Product Sub Category Id],
 			[Product Sub Category],
+			[Product Family Id],
+			[Product Family],
 			[Product Name],
 			[Product Description],
 			[Manufacturer Id],

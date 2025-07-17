@@ -7,6 +7,8 @@ PSC.[ProductSubCategoryId] AS [Product Sub Category Id],
 PSC.[ProductSubCategory] AS [Product Sub Category],
 PC.[ProductCategoryId] AS [Product Category Id],
 PC.[ProductCategory] AS [Product Category],
+PF.[ProductFamilyId] AS [Product Family Id],
+PF.[ProductFamily] AS [Product Family],
 P.[ProductName] AS [Product Name],
 P.[ProductDescription] AS [Product Description],
 M.[ManufacturerId] AS [Manufacturer Id],
@@ -40,5 +42,6 @@ P.[ModifiedBy] AS [Modified By]
 FROM [dbo].[Product] P
 INNER JOIN [dbo].[Country] C ON P.[ProductCountryOfOriginId] = C.[CountryId]
 INNER JOIN [dbo].[Manufacturer] M ON P.[ManufacturerId] = M.[ManufacturerId]
+INNER JOIN [dbo].[ProductFamily] PF ON P.[ProductFamilyId] = PF.[ProductFamilyId]
 INNER JOIN [dbo].[ProductSubCategory] PSC ON P.[ProductSubCategoryId] = PSC.[ProductSubCategoryId]
 INNER JOIN [dbo].[ProductCategory] PC ON PSC.[ProductCategoryId] = PC.[ProductCategoryId]

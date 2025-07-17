@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetProduct]
-	@productId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetAllProductForProductFamily]
+	@productFamilyId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -20,7 +20,6 @@ BEGIN
 			[Manufacturer Id],
 			[Manufacturer Name],
 			[Manufacturer Part Number],
-			[Product Image],
 			[Product Country Of Origin Id],
 			[Product Country Of Origin],
 			[Wholesale Carton Barcode],
@@ -42,7 +41,7 @@ BEGIN
 			[Unit Depth Centimeter],
 			[Active Status]
 			FROM [dbo].[vwProduct]
-			WHERE [Product Id] = @productId
+			WHERE [Product Family Id] = @productFamilyId
 
 		COMMIT TRANSACTION;
 	END TRY

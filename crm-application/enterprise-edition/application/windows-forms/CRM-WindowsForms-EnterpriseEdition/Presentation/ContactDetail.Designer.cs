@@ -174,7 +174,7 @@
             contactDetailUpdateContactButton.Enabled = false;
             contactDetailUpdateContactButton.FlatStyle = FlatStyle.Flat;
             contactDetailUpdateContactButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            contactDetailUpdateContactButton.Location = new Point(670, 435);
+            contactDetailUpdateContactButton.Location = new Point(638, 432);
             contactDetailUpdateContactButton.Margin = new Padding(4);
             contactDetailUpdateContactButton.Name = "contactDetailUpdateContactButton";
             contactDetailUpdateContactButton.Size = new Size(185, 70);

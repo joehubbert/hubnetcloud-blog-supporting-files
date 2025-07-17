@@ -41,12 +41,12 @@
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextbox = new TextBox();
             createCompanyConfigurationTabControl = new TabControl();
             createCompanyConfigurationTabControlGeneralInformationTabPage = new TabPage();
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel = new Label();
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel = new Label();
             createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextboxLabel = new Label();
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextboxLabel = new Label();
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextboxLabel = new Label();
             createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextboxLabel = new Label();
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox = new TextBox();
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox = new TextBox();
             createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextbox = new TextBox();
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBoxLabel = new Label();
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextboxLabel = new Label();
@@ -216,13 +216,13 @@
             // createCompanyConfigurationTabControlGeneralInformationTabPage
             // 
             createCompanyConfigurationTabControlGeneralInformationTabPage.BackColor = Color.LemonChiffon;
-            createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel);
+            createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextboxLabel);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageActiveStatusCheckbox);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextboxLabel);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextboxLabel);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextboxLabel);
-            createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox);
+            createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextbox);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBoxLabel);
             createCompanyConfigurationTabControlGeneralInformationTabPage.Controls.Add(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextboxLabel);
@@ -244,15 +244,15 @@
             createCompanyConfigurationTabControlGeneralInformationTabPage.TabIndex = 0;
             createCompanyConfigurationTabControlGeneralInformationTabPage.Text = "General Information";
             // 
-            // createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel
+            // createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel
             // 
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.AutoSize = true;
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.Location = new Point(639, 200);
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.Name = "createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel";
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.Size = new Size(92, 20);
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.TabIndex = 32;
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.Text = "Website URL";
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.AutoSize = true;
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.Location = new Point(639, 200);
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.Name = "createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel";
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.Size = new Size(92, 20);
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.TabIndex = 32;
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.Text = "Website URL";
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextboxLabel
             // 
@@ -294,13 +294,13 @@
             createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextboxLabel.Text = "Company Name*";
             createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox
+            // createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox
             // 
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.Location = new Point(737, 197);
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.MaxLength = 50;
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.Name = "createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox";
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.Size = new Size(288, 27);
-            createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.TabIndex = 10;
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.Location = new Point(737, 197);
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.MaxLength = 50;
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.Name = "createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox";
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.Size = new Size(288, 27);
+            createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.TabIndex = 10;
             // 
             // createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextbox
             // 
@@ -866,12 +866,12 @@
         private ComboBox createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextboxLabel;
         private TabPage createCompanyConfigurationTabControlCompanyLogoTabPage;
-        private Label createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextboxLabel;
+        private Label createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextboxLabel;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextboxLabel;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextboxLabel;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextboxLabel;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextboxLabel;
-        private TextBox createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox;
+        private TextBox createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox;
         private TextBox createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextbox;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBoxLabel;
         private Label createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextboxLabel;

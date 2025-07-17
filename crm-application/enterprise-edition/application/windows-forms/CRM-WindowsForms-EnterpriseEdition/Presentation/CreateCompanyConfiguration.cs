@@ -408,7 +408,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailTopLevelDomain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Text.TrimEnd();
             string telephoneNumber = createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
             string vatNumber = createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextbox.Text.TrimEnd();
-            string websiteURL = createCompanyConfigurationTabControlGeneralInformationTabPagWebsiteURLTextbox.Text.TrimEnd();
+            string websiteURL = createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextbox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";
 

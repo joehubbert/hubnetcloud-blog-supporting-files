@@ -165,6 +165,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductCategory]";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "productCategory";
                     break;
+                case "ProductFamily":
+                    dataSubjectFriendlyName = "Product Family";
+                    dataSubjectGetStoredProcedureName = "[dbo].[spGetProductFamily]";
+                    dataSubjectIdFriendlyName = "Product Family Id";
+                    dataSubjectIdName = "ProductFamilyId";
+                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductFamily]";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "productFamily";
+                    break;
                 case "ProductNoteType":
                     dataSubjectFriendlyName = "Product Note Type";
                     dataSubjectGetStoredProcedureName = "[dbo].[spGetProductNoteType]";

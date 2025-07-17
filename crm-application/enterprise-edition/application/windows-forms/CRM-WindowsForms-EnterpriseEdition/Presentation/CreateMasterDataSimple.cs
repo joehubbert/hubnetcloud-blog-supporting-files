@@ -123,6 +123,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectStoredProcedureName = "[dbo].[spCreateProductCategory]";
                     dataSubjectStoredProcedureParameterPrefix = "productCategory";
                     break;
+                case "ProductFamily":
+                    dataSubjectFriendlyName = "Product Family";
+                    dataSubjectStoredProcedureName = "[dbo].[spCreateProductFamily]";
+                    dataSubjectStoredProcedureParameterPrefix = "productFamily";
+                    break;
                 case "ProductNoteType":
                     dataSubjectFriendlyName = "Product Note Type";
                     dataSubjectStoredProcedureName = "[dbo].[spCreateProductNoteType]";

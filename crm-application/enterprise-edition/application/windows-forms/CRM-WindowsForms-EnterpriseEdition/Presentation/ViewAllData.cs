@@ -307,6 +307,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Product Categories";
                     storedProcedureName = "[dbo].[spGetAllProductCategory]";
                     break;
+                case "ProductFamily":
+                    dataSortingColumnName = "Product Family";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Product Family Id";
+                    dataSubjectFriendlyName = "Product Family";
+                    functionFriendlyName = "Product Families";
+                    storedProcedureName = "[dbo].[spGetAllProductFamily]";
+                    break;
                 case "ProductNote":
                     dataSortingColumnName = "Product Note";
                     dataSortingColumnOrder = "ASC";
@@ -857,6 +865,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             {
                                 Guid productCategoryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productCategoryId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "ProductFamily":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid productFamilyId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productFamilyId, _functionTitle, "ProductManagement");
                                 masterDataSimpleDetail.Show();
                             }
                             else

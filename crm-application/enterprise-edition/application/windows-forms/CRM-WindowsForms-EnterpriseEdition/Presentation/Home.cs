@@ -407,6 +407,18 @@
             viewAllData.Show();
         }
 
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("ProductFamily", "ProductManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("ProductFamily", "ProductManagement", null);
+            viewAllData.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryCreateProductSubCategory_Click(object sender, EventArgs e)
         {
             CreateMasterDataAdvanced createMasterDataAdvanced = new CreateMasterDataAdvanced("ProductSubCategory", "ProductManagement");

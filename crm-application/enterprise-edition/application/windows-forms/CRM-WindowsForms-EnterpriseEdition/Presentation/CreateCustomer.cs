@@ -410,7 +410,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
             }
 
-
             if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
             {
                 var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;

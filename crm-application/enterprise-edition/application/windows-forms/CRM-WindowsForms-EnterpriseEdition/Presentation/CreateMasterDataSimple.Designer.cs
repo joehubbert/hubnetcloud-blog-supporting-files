@@ -87,7 +87,7 @@
             createMasterDataSimpleActiveStatusCheckbox.Location = new Point(136, 117);
             createMasterDataSimpleActiveStatusCheckbox.Margin = new Padding(5);
             createMasterDataSimpleActiveStatusCheckbox.Name = "createMasterDataSimpleActiveStatusCheckbox";
-            createMasterDataSimpleActiveStatusCheckbox.Size = new Size(265, 24);
+            createMasterDataSimpleActiveStatusCheckbox.Size = new Size(281, 24);
             createMasterDataSimpleActiveStatusCheckbox.TabIndex = 1;
             createMasterDataSimpleActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             createMasterDataSimpleActiveStatusCheckbox.UseVisualStyleBackColor = true;

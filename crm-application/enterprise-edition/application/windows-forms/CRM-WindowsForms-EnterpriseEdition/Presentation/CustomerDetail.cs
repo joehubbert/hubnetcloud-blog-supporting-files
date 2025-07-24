@@ -64,11 +64,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void InitializeCustomComponents()
         {
             customerDetailFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged);
-            customerDetailFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CustomerDetailFinancePaymentCurrencyComboBox_DropDown);
+            customerDetailFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailFinanceVATRegisteredCheckbox.CheckedChanged += CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
-            customerDetailOverviewAccountManagerComboBox.DropDown += new EventHandler(CustomerDetailOverviewAccountManagerComboBox_DropDown);
-            customerDetailOverviewCustomerTierComboBox.DropDown += new EventHandler(CustomerDetailOverviewCustomerTierComboBox_DropDown);
-            customerDetailOverviewCustomerTypeComboBox.DropDown += new EventHandler(CustomerDetailOverviewCustomerTypeComboBox_DropDown);
+            customerDetailOverviewAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            customerDetailOverviewCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            customerDetailOverviewCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged);
             customerDetailOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged);
             customerDetailOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewExistingParentCompanyType_CheckedChanged);
@@ -120,7 +120,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CustomerDetailOverviewCustomerTypeComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -156,11 +156,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Customer Tier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CustomerDetailOverviewCustomerTierComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async Task CustomerDetailOverviewLoadSalesRegionDataAsync(Guid salesRegionId)
@@ -272,11 +267,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CustomerDetailOverviewAccountManagerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private void CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (customerDetailOverviewExistingCustomerIsParentNoRadioButton.Checked)
@@ -366,11 +356,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CustomerDetailOverviewGlobalParentCustomerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private async Task CustomerDetailOverviewLoadTopParentCustomerDataAsync(Guid topParentCustomerId)
         {
             if (_databaseConnectionSettings == null)
@@ -401,11 +386,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Top Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CustomerDetailOverviewTopParentCustomerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CustomerDetailOverviewRadioButtonValidation_CheckedChanged(object? sender, EventArgs e)
@@ -539,11 +519,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CustomerDetailFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)

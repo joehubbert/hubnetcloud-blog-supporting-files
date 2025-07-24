@@ -47,7 +47,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(MasterDataAdvancedDetailDataParentSubjectComboBox_DropDown);
+            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private void SetModuleTheme(string moduleGroup)
@@ -161,7 +161,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void MasterDataAdvancedDetailDataParentSubjectComboBox_DropDown(object sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

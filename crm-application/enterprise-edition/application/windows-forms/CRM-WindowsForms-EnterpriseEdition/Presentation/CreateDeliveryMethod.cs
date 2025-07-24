@@ -18,7 +18,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createDeliveryMethodTaxProfileComboBox.DropDown += new EventHandler(CreateDeliveryMethodTaxProfileComboBox_DropDown);
+            createDeliveryMethodTaxProfileComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -58,7 +58,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateDeliveryMethodTaxProfileComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

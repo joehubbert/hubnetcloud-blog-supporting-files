@@ -18,7 +18,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createCountryTranslationCountryComboBox.DropDown += new EventHandler(CreateCountryTranslationCountryComboBox_DropDown);
+            createCountryTranslationCountryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -56,7 +56,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCountryTranslationCountryComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

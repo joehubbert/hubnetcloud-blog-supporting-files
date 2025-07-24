@@ -23,16 +23,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateBankAccountAddressInformation;
-            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(CreateCompanyConfigurationGeneralInformationAddressLine5ComboBox_DropDown);
+            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TextChanged += AutoPopulateEmailAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.KeyPress += EmailTopLevelDomainTextbox_KeyPress;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.MouseDown += EmailTopLevelDomainTextbox_MouseDown;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.SelectionStart = 1;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Text = "@";
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TextChanged += EmailTopLevelDomainTextbox_TextChanged;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += new EventHandler(CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_DropDown);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += new EventHandler(CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += new EventHandler(CreateCompanyConfigurationFinancialInformationBankAccountCurrencyComboBox_DropDown);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextboxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged);
@@ -87,12 +87,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCompanyConfigurationGeneralInformationAddressLine5ComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
-        private void CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -129,11 +124,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CreateCompanyConfigurationFinancialInformationBankAccountCurrencyComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)

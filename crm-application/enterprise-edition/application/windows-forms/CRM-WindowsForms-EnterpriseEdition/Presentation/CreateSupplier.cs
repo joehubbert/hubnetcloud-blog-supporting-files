@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createSupplierFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateSupplierFinancePaymentCurrencyComboBox_DropDown);
+            createSupplierFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createSupplierFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged);
         }
 
@@ -84,7 +84,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateSupplierFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

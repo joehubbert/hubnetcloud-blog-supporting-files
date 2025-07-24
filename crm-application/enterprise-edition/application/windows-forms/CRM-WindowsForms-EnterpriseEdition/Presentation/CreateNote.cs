@@ -37,7 +37,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createNoteNoteTypeComboBox.DropDown += new EventHandler(CreateNoteNoteTypeComboBox_DropDown);
+            createNoteNoteTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -149,7 +149,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateNoteNoteTypeComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }

@@ -20,8 +20,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createProductProductCategoryComboBox.DropDown += new EventHandler(CreateProductProductCategoryComboBox_DropDown);
-            createProductSupplierComboBox.DropDown += new EventHandler(CreateProductSupplierComboBox_DropDown);
+            createProductProductCategoryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createProductSupplierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createProductWholesaleCartonQuantityTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
             createProductWholesaleUnitQuantityPerCartonTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
         }
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateProductProductCategoryComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -111,11 +111,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Supplier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CreateProductSupplierComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CalculateUnitStockQuantityHeld(object? sender, EventArgs e)

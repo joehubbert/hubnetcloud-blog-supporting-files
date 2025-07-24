@@ -29,12 +29,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCustomerBillingInformationLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerBillingInformationTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
             createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
-            createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(CreateCustomerFinancePaymentCurrencyComboBox_DropDown);
+            createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
-            createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(CreateCustomerOverviewAccountManagerComboBox_DropDown);
+            createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCustomerOverviewCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTierComboBox_DropDown);
-            createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(CreateCustomerOverviewCustomerTypeComboBox_DropDown);
+            createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCustomerOverviewEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
             createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
             createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
@@ -44,7 +44,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
             createCustomerOverviewFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
             createCustomerOverviewLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_DropDown);
+            createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
             createCustomerOverviewTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
             createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
@@ -107,7 +107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerOverviewCustomerTypeComboBox_DropDown(object? sender, EventArgs e)
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
             ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
@@ -144,11 +144,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerOverviewCustomerTierComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private async Task CreateCustomerOverviewLoadSalesRegionDataAsync()
         {
             if (_databaseConnectionSettings == null)
@@ -177,12 +172,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Sales Region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private async void CreateCustomerOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-            await CreateCustomernLoadSalesSubRegionAsync((Guid)createCustomerOverviewSalesRegionComboBox.SelectedValue);
         }
 
         private async Task CreateCustomernLoadSalesSubRegionAsync(Guid salesRegionId)
@@ -267,11 +256,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerOverviewAccountManagerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private void CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
@@ -346,11 +330,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerOverviewGlobalParentCustomerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private async Task CreateCustomerOverviewLoadTopParentCustomerDataAsync()
         {
             if (_databaseConnectionSettings == null)
@@ -380,11 +359,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Top Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CreateCustomerOverviewTopParentCustomerComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCustomerOverviewRadioButtonValidation_CheckedChanged(object? sender, EventArgs e)
@@ -539,11 +513,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void CreateCustomerFinancePaymentCurrencyComboBox_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createCustomerSubmitButton_Click(object sender, EventArgs e)

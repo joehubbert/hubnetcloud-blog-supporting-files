@@ -20,7 +20,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             _accountManagerId = accountManagerId;
             accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
-            accountManagerDetailTabControl.SelectedIndexChanged += AccountManagerDetailTabControl_SelectedIndexChanged;
+            accountManagerDetailTabControl.SelectedIndexChanged += new EventHandler(AccountManagerDetailTabControl_SelectedIndexChanged);
             LoadDatabaseConnectionSettingsAsync();
         }
 

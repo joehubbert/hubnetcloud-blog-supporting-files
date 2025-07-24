@@ -65,7 +65,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             customerDetailFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged);
             customerDetailFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            customerDetailFinanceVATRegisteredCheckbox.CheckedChanged += CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
+            customerDetailFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged);
             customerDetailOverviewAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailOverviewCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailOverviewCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);

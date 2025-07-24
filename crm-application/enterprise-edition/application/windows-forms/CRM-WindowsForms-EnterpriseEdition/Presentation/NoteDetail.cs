@@ -35,7 +35,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _functionTitle = functionTitle;
             _noteId = noteId;
             SetModuleTheme(_functionTitle);
-            noteDetailToggleEditModeButton.Click += noteDetailToggleEditModeButton_Click;
+            noteDetailToggleEditModeButton.Click += new EventHandler(noteDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

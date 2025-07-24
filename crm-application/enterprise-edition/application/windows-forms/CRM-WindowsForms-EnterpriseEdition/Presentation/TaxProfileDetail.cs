@@ -17,7 +17,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             _taxProfileId = taxProfileId;
-            taxProfileDetailToggleEditModeButton.Click += taxProfileDetailToggleEditModeButton_Click;
+            taxProfileDetailToggleEditModeButton.Click += new EventHandler(taxProfileDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 

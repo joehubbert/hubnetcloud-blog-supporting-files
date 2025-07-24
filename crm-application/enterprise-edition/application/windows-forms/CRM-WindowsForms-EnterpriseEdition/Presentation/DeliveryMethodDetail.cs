@@ -20,7 +20,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeCustomComponents();
             _deliveryMethodId = deliveryMethodId;
-            deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
+            deliveryMethodDetailToggleEditModeButton.Click += new EventHandler(deliveryMethodDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 

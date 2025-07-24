@@ -30,7 +30,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _functionTitle = functionTitle;
             _moduleGroup = moduleGroup;
             SetModuleTheme(_moduleGroup);
-            masterDataEnhancedDetailToggleEditModeButton.Click += masterDataEnhancedDetailToggleEditModeButton_Click;
+            masterDataEnhancedDetailToggleEditModeButton.Click += new EventHandler(masterDataEnhancedDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

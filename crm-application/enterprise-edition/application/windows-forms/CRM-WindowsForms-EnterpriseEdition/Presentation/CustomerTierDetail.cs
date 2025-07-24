@@ -17,7 +17,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             _customerTierId = customerTierId;
-            customerTierDetailToggleEditModeButton.Click += customerTierDetailToggleEditModeButton_Click;
+            customerTierDetailToggleEditModeButton.Click += new EventHandler(customerTierDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 

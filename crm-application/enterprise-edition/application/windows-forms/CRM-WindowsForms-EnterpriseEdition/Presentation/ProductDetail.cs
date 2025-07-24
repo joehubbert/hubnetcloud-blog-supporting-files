@@ -33,7 +33,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            productDetailTabControl.SelectedIndexChanged += ProductDetailTabControl_SelectedIndexChanged;
+            productDetailTabControl.SelectedIndexChanged += new EventHandler(ProductDetailTabControl_SelectedIndexChanged);
             productDetailProductNotesExistingProductNotesDataGridView.CellContentClick += ProductDetailProductNotesExistingProductNotesDataGridView_CellContentClick;
         }
 

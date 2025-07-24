@@ -29,7 +29,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            manufacturerDetailFinanceVATRegisteredCheckbox.CheckedChanged += ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
+            manufacturerDetailFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

@@ -31,8 +31,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            supplierDetailFinanceVATRegisteredCheckbox.CheckedChanged += SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged;
-            supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
+            supplierDetailFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged);
+            supplierDetailTabControl.SelectedIndexChanged += new EventHandler(SupplierDetailTabControl_SelectedIndexChanged);
             supplierDetailSupplierNoteExistingSupplierNoteDataGridView.CellContentClick += supplierDetailSupplierNoteExistingSupplierNoteDataGridView_CellContentClick;
         }
 

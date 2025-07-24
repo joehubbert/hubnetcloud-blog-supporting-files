@@ -18,7 +18,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeCustomComponents();
             _countryTranslationId = countryTranslationId;
-            countryTranslationDetailToggleEditModeButton.Click += countryTranslationDetailToggleEditModeButton_Click;
+            countryTranslationDetailToggleEditModeButton.Click += new EventHandler(countryTranslationDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 

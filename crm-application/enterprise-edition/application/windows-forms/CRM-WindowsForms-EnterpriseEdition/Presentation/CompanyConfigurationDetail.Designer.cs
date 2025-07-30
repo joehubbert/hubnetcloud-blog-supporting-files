@@ -106,12 +106,12 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel = new Label();
             companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox = new TextBox();
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox = new CheckBox();
-            companyConfigurationDetailToggleEditModeButton = new Button();
-            companyConfigurationDetailUpdateCompanyConfigurationButton = new Button();
             companyConfigurationDetailTabControlHTMLTemplateTabPage = new TabPage();
             companyConfigurationDetailTabControlHTMLTemplateTabPageRefreshDataButton = new Button();
             companyConfigurationDetailTabControlHTMLTemplateTabPageCreateHTMLTemplateButton = new Button();
             companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView = new DataGridView();
+            companyConfigurationDetailToggleEditModeButton = new Button();
+            companyConfigurationDetailUpdateCompanyConfigurationButton = new Button();
             companyConfigurationDetailTabControl.SuspendLayout();
             companyConfigurationDetailTabControlGeneralInformationTabPage.SuspendLayout();
             companyConfigurationDetailTabControlCompanyLogoTabPage.SuspendLayout();
@@ -194,7 +194,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.Size = new Size(285, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.TabIndex = 41;
+            companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.TabIndex = 0;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextboxLabel
             // 
@@ -213,7 +213,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox.TabIndex = 34;
+            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox.TabIndex = 13;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox
             // 
@@ -222,7 +222,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox.TabIndex = 36;
+            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox.TabIndex = 15;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox
             // 
@@ -231,7 +231,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.TabIndex = 33;
+            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.TabIndex = 12;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox
             // 
@@ -240,7 +240,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox.TabIndex = 35;
+            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextbox.TabIndex = 14;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextboxLabel
             // 
@@ -309,7 +309,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Margin = new Padding(5);
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Size = new Size(231, 24);
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.TabIndex = 11;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.TabIndex = 6;
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Text = "Active Company Configuration";
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -350,7 +350,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.TabIndex = 10;
+            companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.TabIndex = 11;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox
             // 
@@ -359,7 +359,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.TabIndex = 9;
+            companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.TabIndex = 10;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBoxLabel
             // 
@@ -437,7 +437,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.TabIndex = 8;
+            companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.TabIndex = 9;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2Textbox
             // 
@@ -455,7 +455,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TabIndex = 7;
+            companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TabIndex = 8;
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Text = "@";
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3Textbox
@@ -474,7 +474,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox";
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.TabIndex = 6;
+            companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.TabIndex = 7;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine4Textbox
             // 
@@ -507,7 +507,7 @@
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Margin = new Padding(4);
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Name = "companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton";
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Size = new Size(159, 51);
-            companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.TabIndex = 13;
+            companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.TabIndex = 17;
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Text = "Remove Company Logo Image";
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.UseVisualStyleBackColor = true;
             // 
@@ -541,7 +541,7 @@
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Margin = new Padding(4);
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Name = "companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton";
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Size = new Size(159, 51);
-            companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.TabIndex = 13;
+            companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.TabIndex = 16;
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Text = "Choose Company Logo Image";
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.UseVisualStyleBackColor = true;
             // 
@@ -569,7 +569,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Margin = new Padding(4);
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton";
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Size = new Size(185, 70);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.TabIndex = 56;
+            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.TabIndex = 37;
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Text = "Accounts Receivable";
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.UseVisualStyleBackColor = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Click += companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton_Click;
@@ -582,7 +582,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Margin = new Padding(4);
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton";
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Size = new Size(185, 70);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.TabIndex = 12;
+            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.TabIndex = 36;
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Text = "Accounts Payable";
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.UseVisualStyleBackColor = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Click += companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton_Click;
@@ -654,7 +654,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.TabIndex = 28;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.TabIndex = 32;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB
             // 
@@ -664,7 +664,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.TabIndex = 27;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.TabIndex = 31;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel
             // 
@@ -738,7 +738,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.TabIndex = 26;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.TabIndex = 30;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox
             // 
@@ -747,7 +747,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Size = new Size(290, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.TabIndex = 29;
+            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.TabIndex = 33;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox
             // 
@@ -756,7 +756,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.TabIndex = 25;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.TabIndex = 29;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox
             // 
@@ -765,7 +765,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.TabIndex = 24;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.TabIndex = 28;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox
             // 
@@ -774,7 +774,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Size = new Size(290, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.TabIndex = 23;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.TabIndex = 27;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox
             // 
@@ -783,7 +783,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.TabIndex = 22;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.TabIndex = 26;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB
             // 
@@ -793,7 +793,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Size = new Size(45, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.TabIndex = 21;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.TabIndex = 25;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA
             // 
@@ -803,7 +803,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Size = new Size(99, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.TabIndex = 20;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.TabIndex = 24;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel
             // 
@@ -822,7 +822,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.TabIndex = 14;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.TabIndex = 18;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox
             // 
@@ -831,7 +831,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.TabIndex = 15;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.TabIndex = 19;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel
             // 
@@ -870,7 +870,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.TabIndex = 16;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.TabIndex = 20;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox
             // 
@@ -880,7 +880,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Location = new Point(227, 242);
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Size = new Size(288, 28);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.TabIndex = 19;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.TabIndex = 23;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox
             // 
@@ -889,7 +889,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.TabIndex = 17;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.TabIndex = 21;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel
             // 
@@ -919,7 +919,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Location = new Point(227, 198);
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox";
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Size = new Size(288, 28);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.TabIndex = 18;
+            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.TabIndex = 22;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel
             // 
@@ -948,7 +948,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.ReadOnly = true;
             companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Size = new Size(208, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.TabIndex = 31;
+            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.TabIndex = 35;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox
             // 
@@ -961,36 +961,9 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Margin = new Padding(4);
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox";
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.TabIndex = 30;
+            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.TabIndex = 34;
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Text = "VAT Registered";
             companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
-            // 
-            // companyConfigurationDetailToggleEditModeButton
-            // 
-            companyConfigurationDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
-            companyConfigurationDetailToggleEditModeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            companyConfigurationDetailToggleEditModeButton.Location = new Point(1053, 9);
-            companyConfigurationDetailToggleEditModeButton.Margin = new Padding(4);
-            companyConfigurationDetailToggleEditModeButton.Name = "companyConfigurationDetailToggleEditModeButton";
-            companyConfigurationDetailToggleEditModeButton.Size = new Size(108, 92);
-            companyConfigurationDetailToggleEditModeButton.TabIndex = 10;
-            companyConfigurationDetailToggleEditModeButton.Text = "Toggle Edit Mode";
-            companyConfigurationDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
-            // 
-            // companyConfigurationDetailUpdateCompanyConfigurationButton
-            // 
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Enabled = false;
-            companyConfigurationDetailUpdateCompanyConfigurationButton.FlatStyle = FlatStyle.Flat;
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Location = new Point(509, 614);
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Margin = new Padding(4);
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Name = "companyConfigurationDetailUpdateCompanyConfigurationButton";
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Size = new Size(185, 70);
-            companyConfigurationDetailUpdateCompanyConfigurationButton.TabIndex = 11;
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Text = "Update Company Configuration";
-            companyConfigurationDetailUpdateCompanyConfigurationButton.UseVisualStyleBackColor = true;
-            companyConfigurationDetailUpdateCompanyConfigurationButton.Click += companyConfigurationDetailUpdateCompanyConfigurationButton_Click;
             // 
             // companyConfigurationDetailTabControlHTMLTemplateTabPage
             // 
@@ -1041,6 +1014,33 @@
             companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView.ReadOnly = true;
             companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView.Size = new Size(955, 437);
             companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView.TabIndex = 22;
+            // 
+            // companyConfigurationDetailToggleEditModeButton
+            // 
+            companyConfigurationDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
+            companyConfigurationDetailToggleEditModeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            companyConfigurationDetailToggleEditModeButton.Location = new Point(1053, 9);
+            companyConfigurationDetailToggleEditModeButton.Margin = new Padding(4);
+            companyConfigurationDetailToggleEditModeButton.Name = "companyConfigurationDetailToggleEditModeButton";
+            companyConfigurationDetailToggleEditModeButton.Size = new Size(108, 92);
+            companyConfigurationDetailToggleEditModeButton.TabIndex = 38;
+            companyConfigurationDetailToggleEditModeButton.Text = "Toggle Edit Mode";
+            companyConfigurationDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
+            // 
+            // companyConfigurationDetailUpdateCompanyConfigurationButton
+            // 
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Enabled = false;
+            companyConfigurationDetailUpdateCompanyConfigurationButton.FlatStyle = FlatStyle.Flat;
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Location = new Point(509, 614);
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Margin = new Padding(4);
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Name = "companyConfigurationDetailUpdateCompanyConfigurationButton";
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Size = new Size(185, 70);
+            companyConfigurationDetailUpdateCompanyConfigurationButton.TabIndex = 39;
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Text = "Update Company Configuration";
+            companyConfigurationDetailUpdateCompanyConfigurationButton.UseVisualStyleBackColor = true;
+            companyConfigurationDetailUpdateCompanyConfigurationButton.Click += companyConfigurationDetailUpdateCompanyConfigurationButton_Click;
             // 
             // CompanyConfigurationDetail
             // 

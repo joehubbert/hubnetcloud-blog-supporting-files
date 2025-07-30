@@ -68,10 +68,10 @@
             supplierDetailFinancePaymentCurrencyComboBoxLabel = new Label();
             supplierDetailFinancePaymentDaysTextbox = new TextBox();
             supplierDetailFinancePaymentCurrencyComboBox = new ComboBox();
-            supplierDetailTabControlSupplierContactPage = new TabPage();
-            supplierDetailSupplierContactRefreshDataButton = new Button();
-            supplierDetailSupplierContactCreateNewSupplierContactButton = new Button();
-            supplierDetailSupplierContactExistingSupplierContactDataGridView = new DataGridView();
+            supplierDetailTabControlSupplierContactTabPage = new TabPage();
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton = new Button();
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton = new Button();
+            supplierDetailTabControlSupplierContactTabPageDataGridView = new DataGridView();
             supplierDetailTabControlSupplierNotePage = new TabPage();
             supplierDetailSupplierNoteRefreshDataButton = new Button();
             supplierDetailSupplierNoteCreateNewSupplierNoteButton = new Button();
@@ -79,8 +79,8 @@
             supplierDetailTabControl.SuspendLayout();
             supplierDetailTabControlOverviewPage.SuspendLayout();
             supplierDetailTabControlFinancePage.SuspendLayout();
-            supplierDetailTabControlSupplierContactPage.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)supplierDetailSupplierContactExistingSupplierContactDataGridView).BeginInit();
+            supplierDetailTabControlSupplierContactTabPage.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)supplierDetailTabControlSupplierContactTabPageDataGridView).BeginInit();
             supplierDetailTabControlSupplierNotePage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)supplierDetailSupplierNoteExistingSupplierNoteDataGridView).BeginInit();
             SuspendLayout();
@@ -236,7 +236,7 @@
             supplierDetailTabControl.Appearance = TabAppearance.FlatButtons;
             supplierDetailTabControl.Controls.Add(supplierDetailTabControlOverviewPage);
             supplierDetailTabControl.Controls.Add(supplierDetailTabControlFinancePage);
-            supplierDetailTabControl.Controls.Add(supplierDetailTabControlSupplierContactPage);
+            supplierDetailTabControl.Controls.Add(supplierDetailTabControlSupplierContactTabPage);
             supplierDetailTabControl.Controls.Add(supplierDetailTabControlSupplierNotePage);
             supplierDetailTabControl.Location = new Point(13, 121);
             supplierDetailTabControl.Name = "supplierDetailTabControl";
@@ -443,9 +443,9 @@
             supplierDetailTabControlFinancePage.Controls.Add(supplierDetailFinancePaymentCurrencyComboBoxLabel);
             supplierDetailTabControlFinancePage.Controls.Add(supplierDetailFinancePaymentDaysTextbox);
             supplierDetailTabControlFinancePage.Controls.Add(supplierDetailFinancePaymentCurrencyComboBox);
-            supplierDetailTabControlFinancePage.Location = new Point(4, 32);
+            supplierDetailTabControlFinancePage.Location = new Point(4, 27);
             supplierDetailTabControlFinancePage.Name = "supplierDetailTabControlFinancePage";
-            supplierDetailTabControlFinancePage.Size = new Size(1256, 485);
+            supplierDetailTabControlFinancePage.Size = new Size(1256, 490);
             supplierDetailTabControlFinancePage.TabIndex = 3;
             supplierDetailTabControlFinancePage.Text = "Finance";
             // 
@@ -520,55 +520,55 @@
             supplierDetailFinancePaymentCurrencyComboBox.Size = new Size(208, 28);
             supplierDetailFinancePaymentCurrencyComboBox.TabIndex = 15;
             // 
-            // supplierDetailTabControlSupplierContactPage
+            // supplierDetailTabControlSupplierContactTabPage
             // 
-            supplierDetailTabControlSupplierContactPage.BackColor = Color.MediumAquamarine;
-            supplierDetailTabControlSupplierContactPage.Controls.Add(supplierDetailSupplierContactRefreshDataButton);
-            supplierDetailTabControlSupplierContactPage.Controls.Add(supplierDetailSupplierContactCreateNewSupplierContactButton);
-            supplierDetailTabControlSupplierContactPage.Controls.Add(supplierDetailSupplierContactExistingSupplierContactDataGridView);
-            supplierDetailTabControlSupplierContactPage.Location = new Point(4, 32);
-            supplierDetailTabControlSupplierContactPage.Name = "supplierDetailTabControlSupplierContactPage";
-            supplierDetailTabControlSupplierContactPage.Size = new Size(1256, 485);
-            supplierDetailTabControlSupplierContactPage.TabIndex = 5;
-            supplierDetailTabControlSupplierContactPage.Text = "Supplier Contacts";
+            supplierDetailTabControlSupplierContactTabPage.BackColor = Color.MediumAquamarine;
+            supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageRefreshDataButton);
+            supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton);
+            supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageDataGridView);
+            supplierDetailTabControlSupplierContactTabPage.Location = new Point(4, 32);
+            supplierDetailTabControlSupplierContactTabPage.Name = "supplierDetailTabControlSupplierContactTabPage";
+            supplierDetailTabControlSupplierContactTabPage.Size = new Size(1256, 485);
+            supplierDetailTabControlSupplierContactTabPage.TabIndex = 5;
+            supplierDetailTabControlSupplierContactTabPage.Text = "Supplier Contacts";
             // 
-            // supplierDetailSupplierContactRefreshDataButton
+            // supplierDetailTabControlSupplierContactTabPageRefreshDataButton
             // 
-            supplierDetailSupplierContactRefreshDataButton.FlatStyle = FlatStyle.Flat;
-            supplierDetailSupplierContactRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            supplierDetailSupplierContactRefreshDataButton.Location = new Point(1093, 95);
-            supplierDetailSupplierContactRefreshDataButton.Margin = new Padding(4);
-            supplierDetailSupplierContactRefreshDataButton.Name = "supplierDetailSupplierContactRefreshDataButton";
-            supplierDetailSupplierContactRefreshDataButton.Size = new Size(151, 70);
-            supplierDetailSupplierContactRefreshDataButton.TabIndex = 24;
-            supplierDetailSupplierContactRefreshDataButton.Text = "Refresh Data";
-            supplierDetailSupplierContactRefreshDataButton.UseVisualStyleBackColor = true;
-            supplierDetailSupplierContactRefreshDataButton.Click += supplierDetailSupplierContactRefreshDataButton_Click;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.FlatStyle = FlatStyle.Flat;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Location = new Point(1093, 95);
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Margin = new Padding(4);
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Name = "supplierDetailTabControlSupplierContactTabPageRefreshDataButton";
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Size = new Size(151, 70);
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.TabIndex = 24;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Text = "Refresh Data";
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.UseVisualStyleBackColor = true;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Click += supplierDetailSupplierContactRefreshDataButton_Click;
             // 
-            // supplierDetailSupplierContactCreateNewSupplierContactButton
+            // supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton
             // 
-            supplierDetailSupplierContactCreateNewSupplierContactButton.FlatStyle = FlatStyle.Flat;
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Location = new Point(1093, 17);
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Margin = new Padding(4);
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Name = "supplierDetailSupplierContactCreateNewSupplierContactButton";
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Size = new Size(151, 70);
-            supplierDetailSupplierContactCreateNewSupplierContactButton.TabIndex = 23;
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Text = "Create New Supplier Contact";
-            supplierDetailSupplierContactCreateNewSupplierContactButton.UseVisualStyleBackColor = true;
-            supplierDetailSupplierContactCreateNewSupplierContactButton.Click += supplierDetailSupplierContactCreateNewSupplierContactButton_Click;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.FlatStyle = FlatStyle.Flat;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Location = new Point(1093, 17);
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Margin = new Padding(4);
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Name = "supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton";
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Size = new Size(151, 70);
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.TabIndex = 23;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Text = "Create New Supplier Contact";
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.UseVisualStyleBackColor = true;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Click += supplierDetailSupplierContactCreateNewSupplierContactButton_Click;
             // 
-            // supplierDetailSupplierContactExistingSupplierContactDataGridView
+            // supplierDetailTabControlSupplierContactTabPageDataGridView
             // 
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.AllowUserToAddRows = false;
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.AllowUserToDeleteRows = false;
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.BackgroundColor = Color.MediumAquamarine;
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.Location = new Point(21, 17);
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.Name = "supplierDetailSupplierContactExistingSupplierContactDataGridView";
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.ReadOnly = true;
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.Size = new Size(1059, 453);
-            supplierDetailSupplierContactExistingSupplierContactDataGridView.TabIndex = 22;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.AllowUserToAddRows = false;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.AllowUserToDeleteRows = false;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.BackgroundColor = Color.MediumAquamarine;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.Location = new Point(21, 17);
+            supplierDetailTabControlSupplierContactTabPageDataGridView.Name = "supplierDetailTabControlSupplierContactTabPageDataGridView";
+            supplierDetailTabControlSupplierContactTabPageDataGridView.ReadOnly = true;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.Size = new Size(1059, 453);
+            supplierDetailTabControlSupplierContactTabPageDataGridView.TabIndex = 22;
             // 
             // supplierDetailTabControlSupplierNotePage
             // 
@@ -642,8 +642,8 @@
             supplierDetailTabControlOverviewPage.PerformLayout();
             supplierDetailTabControlFinancePage.ResumeLayout(false);
             supplierDetailTabControlFinancePage.PerformLayout();
-            supplierDetailTabControlSupplierContactPage.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)supplierDetailSupplierContactExistingSupplierContactDataGridView).EndInit();
+            supplierDetailTabControlSupplierContactTabPage.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)supplierDetailTabControlSupplierContactTabPageDataGridView).EndInit();
             supplierDetailTabControlSupplierNotePage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)supplierDetailSupplierNoteExistingSupplierNoteDataGridView).EndInit();
             ResumeLayout(false);
@@ -695,9 +695,9 @@
         private Button supplierDetailSupplierNoteCreateNewSupplierNoteButton;
         private DataGridView supplierDetailSupplierNoteExistingSupplierNoteDataGridView;
         private Button supplierDetailSupplierNoteRefreshDataButton;
-        private TabPage supplierDetailTabControlSupplierContactPage;
-        private Button supplierDetailSupplierContactRefreshDataButton;
-        private Button supplierDetailSupplierContactCreateNewSupplierContactButton;
-        private DataGridView supplierDetailSupplierContactExistingSupplierContactDataGridView;
+        private TabPage supplierDetailTabControlSupplierContactTabPage;
+        private Button supplierDetailTabControlSupplierContactTabPageRefreshDataButton;
+        private Button supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton;
+        private DataGridView supplierDetailTabControlSupplierContactTabPageDataGridView;
     }
 }

@@ -51,6 +51,7 @@
             // 
             // createHTMLTemplateHTMLTemplateTypeComboBox
             // 
+            createHTMLTemplateHTMLTemplateTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createHTMLTemplateHTMLTemplateTypeComboBox.FormattingEnabled = true;
             createHTMLTemplateHTMLTemplateTypeComboBox.Location = new Point(193, 107);
             createHTMLTemplateHTMLTemplateTypeComboBox.Name = "createHTMLTemplateHTMLTemplateTypeComboBox";

@@ -156,6 +156,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void SupplierDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
         {
+            if (supplierDetailTabControl.SelectedTab == supplierDetailTabControl.TabPages["supplierDetailTabControlSupplierContactTabPage"])
+            {
+                await SupplierDetailExistingSupplierContact_Load(sender, e);
+            }
             if (supplierDetailTabControl.SelectedTab == supplierDetailTabControl.TabPages["supplierDetailTabControlSupplierNotesPage"])
             {
                 await SupplierDetailExistingSupplierNote_Load(sender, e);
@@ -170,8 +174,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
             string dataSubject = "Existing Supplier Contacts";
+            string storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
 
             var parameters = new[]
             {
@@ -191,12 +195,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                supplierDetailSupplierContactExistingSupplierContactDataGridView.AutoGenerateColumns = true;
-                supplierDetailSupplierContactExistingSupplierContactDataGridView.DataSource = dataTable;
-                supplierDetailSupplierContactExistingSupplierContactDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Contains("Details"))
+                supplierDetailTabControlSupplierContactTabPageDataGridView.AutoGenerateColumns = true;
+                supplierDetailTabControlSupplierContactTabPageDataGridView.DataSource = dataTable;
+                supplierDetailTabControlSupplierContactTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Contains("Details"))
                 {
-                    supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Remove("Details");
+                    supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Remove("Details");
                 }
                 DataGridViewLinkColumn supplierContactDetailLink = new DataGridViewLinkColumn
                 {
@@ -205,7 +209,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     UseColumnTextForLinkValue = true,
                     Name = "Details"
                 };
-                supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Add(supplierContactDetailLink);
+                supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Add(supplierContactDetailLink);
             }
         }
 
@@ -217,8 +221,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllNoteForSupplier]";
             string dataSubject = "Existing Supplier Notes";
+            string storedProcedureName = "[dbo].[spGetAllNoteForSupplier]";           
 
             var parameters = new[]
             {
@@ -279,13 +283,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void supplierDetailSupplierContactExistingSupplierContactDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == supplierDetailTabControlSupplierContactTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
                 try
                 {
-                    if (supplierDetailSupplierContactExistingSupplierContactDataGridView.Columns.Contains("Supplier Contact Id"))
+                    if (supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Contains("Supplier Contact Id"))
                     {
-                        Guid supplierContactId = (Guid)supplierDetailSupplierContactExistingSupplierContactDataGridView.Rows[e.RowIndex].Cells["Supplier Contact Id"].Value;
+                        Guid supplierContactId = (Guid)supplierDetailTabControlSupplierContactTabPageDataGridView.Rows[e.RowIndex].Cells["Supplier Contact Id"].Value;
                         ContactDetail contactDetail = new ContactDetail("Supplier", supplierContactId);
                         contactDetail.Show();
                     }

@@ -51,6 +51,7 @@
             // 
             // createNoteNoteTypeComboBox
             // 
+            createNoteNoteTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createNoteNoteTypeComboBox.FormattingEnabled = true;
             createNoteNoteTypeComboBox.Location = new Point(193, 104);
             createNoteNoteTypeComboBox.Name = "createNoteNoteTypeComboBox";

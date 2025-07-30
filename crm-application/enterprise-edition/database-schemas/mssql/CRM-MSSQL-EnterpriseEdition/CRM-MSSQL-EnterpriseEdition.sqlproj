@@ -599,6 +599,19 @@
     <Build Include="dbo\Stored Procedures\spGetPromotionProductFamily.sql" />
     <Build Include="dbo\Stored Procedures\spUpdatePromotionProductFamily.sql" />
     <Build Include="dbo\Stored Procedures\spGetAllPromotionProductFamilyForProductFamily.sql" />
+    <Build Include="dbo\Tables\HTMLTemplateType.sql" />
+    <Build Include="dbo\Tables\HTMLTemplate.sql" />
+    <Build Include="dbo\Views\vwHTMLTemplate.sql" />
+    <Build Include="dbo\Views\vwHTMLTemplateType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateHTMLTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateHTMLTemplateType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllHTMLTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllHTMLTemplateForCompanyConfiguration.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllHTMLTemplateType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetHTMLTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\spGetHTMLTemplateType.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateHTMLTemplate.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateHTMLTemplateType.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -636,6 +649,7 @@
     <None Include="Post Deployment Scripts\Data Population\CustomerLeadNoteType.sql" />
     <None Include="Post Deployment Scripts\Configuration\SchemaPublishTimestamp.sql" />
     <None Include="Post Deployment Scripts\Data Population\OrderType.sql" />
+    <None Include="Post Deployment Scripts\Data Population\HTMLTemplateType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

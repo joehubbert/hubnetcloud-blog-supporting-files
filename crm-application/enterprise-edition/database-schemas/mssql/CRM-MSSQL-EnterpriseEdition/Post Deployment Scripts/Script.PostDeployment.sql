@@ -12,6 +12,7 @@ Post-Deployment Script
 :r ".\Data Population\CustomerLeadStatus.sql"
 :r ".\Data Population\CustomerLeadType.sql"
 :r ".\Data Population\CustomerNoteType.sql"
+:r ".\Data Population\HTMLTemplateType.sql"
 :r ".\Data Population\MarketingCampaignStatus.sql"
 :r ".\Data Population\MarketingCampaignType.sql"
 :r ".\Data Population\MarketingChannel.sql"

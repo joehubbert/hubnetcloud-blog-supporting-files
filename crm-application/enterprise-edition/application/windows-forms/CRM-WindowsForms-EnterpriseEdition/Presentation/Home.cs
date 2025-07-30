@@ -347,6 +347,18 @@
             viewAllData.Show();
         }
 
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("HTMLTemplateType", "CompanyManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("HTMLTemplateType", "CompanyManagement", null);
+            viewAllData.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus_Click(object sender, EventArgs e)
         {
             CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderLineItemStatus", "OrderManagement");

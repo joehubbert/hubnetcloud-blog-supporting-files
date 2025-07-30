@@ -247,6 +247,18 @@
             viewAllData.Show();
         }
 
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPageCreateHTMLTemplateTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("HTMLTemplateType", "CompanyManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPageViewAllHTMLTemplateTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("HTMLTemplateType", "CompanyManagement", null);
+            viewAllData.Show();
+        }
+
         private void companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton_Click(object sender, EventArgs e)
         {
             CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("OrderLineItemStatus", "OrderManagement");

@@ -93,38 +93,42 @@
             // noteDetailCreatedByTextboxLabel
             // 
             noteDetailCreatedByTextboxLabel.AutoSize = true;
-            noteDetailCreatedByTextboxLabel.Location = new Point(787, 141);
+            noteDetailCreatedByTextboxLabel.Location = new Point(891, 141);
             noteDetailCreatedByTextboxLabel.Name = "noteDetailCreatedByTextboxLabel";
             noteDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             noteDetailCreatedByTextboxLabel.TabIndex = 11;
             noteDetailCreatedByTextboxLabel.Text = "Created By";
+            noteDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailCreatedTimestampTextboxLabel
             // 
             noteDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            noteDetailCreatedTimestampTextboxLabel.Location = new Point(787, 180);
+            noteDetailCreatedTimestampTextboxLabel.Location = new Point(833, 181);
             noteDetailCreatedTimestampTextboxLabel.Name = "noteDetailCreatedTimestampTextboxLabel";
             noteDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             noteDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             noteDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            noteDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailLastUpdatedByTextboxLabel
             // 
             noteDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            noteDetailLastUpdatedByTextboxLabel.Location = new Point(787, 224);
+            noteDetailLastUpdatedByTextboxLabel.Location = new Point(855, 221);
             noteDetailLastUpdatedByTextboxLabel.Name = "noteDetailLastUpdatedByTextboxLabel";
             noteDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             noteDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             noteDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            noteDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailLastUpdatedTimestampTextboxLabel
             // 
             noteDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            noteDetailLastUpdatedTimestampTextboxLabel.Location = new Point(787, 265);
+            noteDetailLastUpdatedTimestampTextboxLabel.Location = new Point(797, 261);
             noteDetailLastUpdatedTimestampTextboxLabel.Name = "noteDetailLastUpdatedTimestampTextboxLabel";
             noteDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             noteDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             noteDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            noteDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // noteDetailLastUpdatedByTextbox
             // 

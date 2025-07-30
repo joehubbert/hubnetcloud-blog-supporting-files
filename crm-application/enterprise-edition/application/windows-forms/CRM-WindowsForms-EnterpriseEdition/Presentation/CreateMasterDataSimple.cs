@@ -78,6 +78,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectStoredProcedureName = "[dbo].[spCreateCustomerNoteType]";
                     dataSubjectStoredProcedureParameterPrefix = "customerNoteType";
                     break;
+                case "HTMLTemplateType":
+                    dataSubjectFriendlyName = "HTML Template Type";
+                    dataSubjectStoredProcedureName = "[dbo].[spCreateHTMLTemplateType]";
+                    dataSubjectStoredProcedureParameterPrefix = "htmlTemplateType";
+                    break;
                 case "MarketingCampaignStatus":
                     dataSubjectFriendlyName = "Marketing Campaign Status";
                     dataSubjectStoredProcedureName = "[dbo].[spCreateMarketingCampaignStatus]";

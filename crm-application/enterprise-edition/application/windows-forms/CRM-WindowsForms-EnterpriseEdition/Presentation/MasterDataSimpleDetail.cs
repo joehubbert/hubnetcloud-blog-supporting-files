@@ -93,6 +93,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerNoteType]";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerNoteType";
                     break;
+                case "HTMLTemplateType":
+                    dataSubjectFriendlyName = "HTML Template Type";
+                    dataSubjectGetStoredProcedureName = "[dbo].[spGetHTMLTemplateType]";
+                    dataSubjectIdFriendlyName = "HTML Template Type Id";
+                    dataSubjectIdName = "HTMLTemplateTypeId";
+                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateHTMLTemplateType]";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "htmlTemplateType";
+                    break;
                 case "MarketingCampaignStatus":
                     dataSubjectFriendlyName = "Marketing Campaign Status";
                     dataSubjectGetStoredProcedureName = "[dbo].[spGetMarketingCampaignStatus]";

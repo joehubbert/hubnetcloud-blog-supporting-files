@@ -119,6 +119,9 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategory = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryCreateProductCategory = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategory = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryCreateProductSubCategory = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategoryViewAllProductSubCategory = new ToolStripMenuItem();
@@ -176,9 +179,9 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -829,7 +832,7 @@
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType });
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous";
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Size = new Size(203, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Text = "&Miscellaneous";
@@ -840,7 +843,7 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryCreateCountry, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry });
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.Size = new Size(188, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.Size = new Size(198, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry.Text = "&Country";
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryCreateCountry
@@ -867,7 +870,7 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation });
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Size = new Size(188, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Size = new Size(198, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Text = "&Country Translation";
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation
@@ -1040,6 +1043,33 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Size = new Size(237, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Text = "&View All Product Categories";
             homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory.Click += homeMenuStripModuleCompanyManagementMasterDataManagementProductProductCategoryViewAllProductCategory_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily });
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Size = new Size(204, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Text = "&Product Family";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Size = new Size(220, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Text = "&Create Product Family";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Click += homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Size = new Size(220, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Text = "&View All Product Families";
+            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Click += homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily_Click;
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductSubCategory
             // 
@@ -1563,32 +1593,32 @@
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
             // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType
             // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily, homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily });
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily";
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Size = new Size(204, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily.Text = "&Product Family";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Size = new Size(198, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Text = "&HTML Template Type";
             // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType
             // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily";
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Size = new Size(220, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Text = "&Create Product Family";
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily.Click += homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily_Click;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Size = new Size(253, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Text = "&Create HTML Template Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType_Click;
             // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType
             // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily";
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Size = new Size(220, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Text = "&View All Product Families";
-            homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily.Click += homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily_Click;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Size = new Size(253, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Text = "&View All HTML Template Types";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType_Click;
             // 
             // Home
             // 
@@ -1773,5 +1803,8 @@
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamily;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyCreateProductFamily;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementProductProductFamilyViewAllProductFamily;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType;
     }
 }

@@ -1,8 +1,6 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
-using PdfSharp.Charting;
 using System.Data;
-using System.Net.Mail;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
@@ -210,6 +208,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "Delivery Method";
                     functionFriendlyName = "Delivery Methods";
                     storedProcedureName = "[dbo].[spGetAllDeliveryMethod]";
+                    break;
+                case "HTMLTemplate":
+                    dataSortingColumnName = "HTML Template";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "HTML Template Id";
+                    dataSubjectFriendlyName = "HTML Template";
+                    functionFriendlyName = "HTML Templates";
+                    storedProcedureName = "[dbo].[spGetAllHTMLTemplateTypeForCompanyConfiguration]";
+                    break;
+                case "HTMLTemplateType":
+                    dataSortingColumnName = "HTML Template Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "HTML Template Type Id";
+                    dataSubjectFriendlyName = "HTML Template Type";
+                    functionFriendlyName = "HTML Template Types";
+                    storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
                     break;
                 case "MarketingCampaign":
                     dataSortingColumnName = "Marketing Campaign Id";
@@ -722,6 +736,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid deliveryMethodId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 DeliveryMethodDetail deliveryMethodDetail = new DeliveryMethodDetail(deliveryMethodId);
                                 deliveryMethodDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "HTMLTemplate":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid htmlTemplateId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(htmlTemplateId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetail.Show();
+                            }
+                            else
+                            {
+                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+                            break;
+                        case "HTMLTemplateType":
+                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
+                            {
+                                Guid htmlTemplateTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(htmlTemplateTypeId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetail.Show();
                             }
                             else
                             {

@@ -804,6 +804,36 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void viewAllDataExportCSVButton_Click(object sender, EventArgs e)
+        {
+            var exportDataGridView = new DataGridView();
+
+            foreach (DataGridViewColumn col in viewAllDataDataGridView.Columns)
+            {
+                if (col.Name != "Details")
+                {
+                    exportDataGridView.Columns.Add((DataGridViewColumn)col.Clone());
+                }
+            }
+
+            foreach (DataGridViewRow row in viewAllDataDataGridView.Rows)
+            {
+                if (!row.IsNewRow)
+                {
+                    var newRow = new DataGridViewRow();
+                    foreach (DataGridViewColumn col in exportDataGridView.Columns)
+                    {
+                        var cell = new DataGridViewTextBoxCell();
+                        cell.Value = row.Cells[col.Name].Value;
+                        newRow.Cells.Add(cell);
+                    }
+                    exportDataGridView.Rows.Add(newRow);
+                }
+            }
+
+            CSVExportService.ExportDataGridViewToCSV(exportDataGridView, functionFriendlyName);
+        }
+
         private async void viewAllDataRefreshDataButton_Click(object sender, EventArgs e)
         {
             await PopulateDataGrid_Load();

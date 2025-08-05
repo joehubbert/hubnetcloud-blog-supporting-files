@@ -11,159 +11,183 @@
         {
             switch (errorType)
             {
+                case "Error.CSVExport.ExportFailure":
+                    CSVExportExportFailureError(dataSubject ?? "unknown", errorType, exceptionMessage ?? "No exception message provided.");
+                    break;
                 case "Error.CurrencyConversion.BaseCurrencyTargetCurrencyDifference":
-                    CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError();
+                    CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError(errorType);
                     break;
                 case "Error.CurrencyConversion.EffectiveDateValidation":
-                    CurrencyConversionEffectiveDateValidationError();
+                    CurrencyConversionEffectiveDateValidationError(errorType);
                     break;
                 case "Error.CurrencyConversion.MissingValues":
-                    CurrencyConversionMissingValuesError();
+                    CurrencyConversionMissingValuesError(errorType);
                     break;
                 case "Error.Customer.CustomerType.MultinationalValidation":
-                    CustomerCustomerTypeMultinationalValidationError();
+                    CustomerCustomerTypeMultinationalValidationError(errorType);
                     break;
                 case "Error.Customer.GlobalParent.GlobalParentRelationshipValidation":
-                    CustomerGlobalParentGlobalParentRelationshipValidationError();
+                    CustomerGlobalParentGlobalParentRelationshipValidationError(errorType);
                     break;
                 case "Error.Customer.GlobalParentType.CustomerTypeValidation":
-                    CustomerGlobalParentTypeCustomerTypeValidationError();
+                    CustomerGlobalParentTypeCustomerTypeValidationError(errorType);
                     break;
                 case "Error.Customer.TopParent.TopParentRelationshipValidation":
-                    CustomerTopParentTopParentRelationshipValidationError();
+                    CustomerTopParentTopParentRelationshipValidationError(errorType);
                     break;
                 case "Error.Data.IdColumnNotFound":
-                    DataIdColumnNotFoundError(dataSubject ?? "unknown");
+                    DataIdColumnNotFoundError(dataSubject ?? "unknown", errorType);
                     break;
                 case "Error.Data.Retrieval":
-                    DataRetrievalError(dataSubject ?? "unknown", exceptionMessage ?? "No exception message provided.");
+                    DataRetrievalError(dataSubject ?? "unknown", errorType, exceptionMessage ?? "No exception message provided.");
                     break;
                 case "Error.DataValidation.InvalidValue":
-                    DataValidationInvalidValueError(dataSubject ?? "unknown");
+                    DataValidationInvalidValueError(dataSubject ?? "unknown", errorType);
                     break;
                 case "Error.DataValidation.Selection":
-                    DataValidationSelectionError(dataSubject ?? "unknown");
+                    DataValidationSelectionError(dataSubject ?? "unknown", errorType);
                     break;
                 case "Error.Database.ConnectionSettingsNotLoaded":
-                    DatabaseConnectionSettingsNotLoadedError();
+                    DatabaseConnectionSettingsNotLoadedError(errorType);
                     break;
                 case "Error.Module.Function.NotImplemented":
-                    ModuleFunctionNotImplementedError(dataSubject ?? "unknown");
+                    ModuleFunctionNotImplementedError(dataSubject ?? "unknown", errorType);
                     break;
                 case "Error.Module.NotImplemented":
-                    ModuleNotImplementedError(dataSubject ?? "unknown");
+                    ModuleNotImplementedError(dataSubject ?? "unknown", errorType);
+                    break;
+                case "Information.CSVExport.ExportSuccessful":
+                    CSVExportExportSuccessfulInformation(dataSubject ?? "unknown", errorType);
                     break;
                 case "Information.NoDataFound":
-                    NoDataFoundError(dataSubject ?? "unknown");
+                    NoDataFoundError(dataSubject ?? "unknown", errorType);
                     break;
                 case "Information.UpdateCancelled":
-                    UpdateCancelled();
+                    UpdateCancelled(errorType);
+                    break;
+                case "Warning.CSVExport.NoData":
+                    CSVExportNoDataWarning(dataSubject ?? "unknown", errorType);
                     break;
                 case "Warning.Data.Validation.DataType":
-                    DataValidationDataTypeWarning(dataSubject ?? "unknown");
+                    DataValidationDataTypeWarning(dataSubject ?? "unknown", errorType);
                     break;
                 case "Warning.DataValidation.Dynamic":
-                    DataValidationDynamicWarning(dataSubject ?? "unknown");
+                    DataValidationDynamicWarning(dataSubject ?? "unknown", errorType);
                     break;
                 case "Warning.DataValidation.Selection":
-                    DataValidationSelectionWarning(dataSubject ?? "unknown");
+                    DataValidationSelectionWarning(dataSubject ?? "unknown", errorType);
                     break;
                 default:
                     throw new ArgumentException("Invalid error type specified.");
             }
         }
 
-        private void CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError()
+        private void CSVExportExportFailureError(string dataSubject, string errorType, string exceptionMessage)
+        {
+            MessageBox.Show($"Export failed for {dataSubject}: {exceptionMessage}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void CSVExportExportSuccessfulInformation(string dataSubject, string errorType)
+        {
+            MessageBox.Show($"Export successful for {dataSubject}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void CSVExportNoDataWarning(string dataSubject, string errorType)
+        {
+            MessageBox.Show($"No data available to export for {dataSubject}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
+        private void CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError(string errorType)
         {
             MessageBox.Show("Base Currency and Target Currency must be different.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CurrencyConversionEffectiveDateValidationError()
+        private void CurrencyConversionEffectiveDateValidationError(string errorType)
         {
             MessageBox.Show("Expiry Date must be after Effective Date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CurrencyConversionMissingValuesError()
+        private void CurrencyConversionMissingValuesError(string errorType)
         {
             MessageBox.Show("Please enter all required currency conversion values.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CustomerCustomerTypeMultinationalValidationError()
+        private void CustomerCustomerTypeMultinationalValidationError(string errorType)
         {
             MessageBox.Show("'Business - Multinational' can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CustomerGlobalParentGlobalParentRelationshipValidationError()
+        private void CustomerGlobalParentGlobalParentRelationshipValidationError(string errorType)
         {
             MessageBox.Show("Cannot select 'Global Parent' as customer parent type when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CustomerGlobalParentTypeCustomerTypeValidationError()
+        private void CustomerGlobalParentTypeCustomerTypeValidationError(string errorType)
         {
             MessageBox.Show("The 'Global Parent' option can only be selected for a customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void CustomerTopParentTopParentRelationshipValidationError()
+        private void CustomerTopParentTopParentRelationshipValidationError(string errorType)
         {
             MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void DataIdColumnNotFoundError(string dataSubject)
+        private void DataIdColumnNotFoundError(string dataSubject, string errorType)
         {
             MessageBox.Show($"The ID column for {dataSubject} was not found in the data source.", "Data Id Not Found Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void DataRetrievalError(string dataSubject, string exceptionMessage)
+        private void DataRetrievalError(string dataSubject, string errorType, string exceptionMessage)
         {
             MessageBox.Show($"Failed to load {dataSubject} data: {exceptionMessage}", "Data Retrieval Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void DataValidationDataTypeWarning(string dataSubject)
+        private void DataValidationDataTypeWarning(string dataSubject, string errorType)
         {
             MessageBox.Show($"Invalid {dataSubject}.", "Validation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
-        private void DataValidationDynamicWarning(string dataSubject)
+        private void DataValidationDynamicWarning(string dataSubject, string errorType)
         {
             MessageBox.Show($"{dataSubject}.", "Validation Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
 
-        private void DataValidationInvalidValueError(string dataSubject)
+        private void DataValidationInvalidValueError(string dataSubject, string errorType)
         {
             MessageBox.Show($"Invalid {dataSubject}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void DataValidationSelectionError(string dataSubject)
+        private void DataValidationSelectionError(string dataSubject, string errorType)
         {
             MessageBox.Show($"Please select a valid {dataSubject}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void DataValidationSelectionWarning(string dataSubject)
+        private void DataValidationSelectionWarning(string dataSubject, string errorType)
         {
             MessageBox.Show($"Please ensure a valid {dataSubject} is selected.", "Validation Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
         }
 
-        private void DatabaseConnectionSettingsNotLoadedError()
+        private void DatabaseConnectionSettingsNotLoadedError(string errorType)
         {
             MessageBox.Show("Database connection settings are not loaded.", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ModuleFunctionNotImplementedError(string dataSubject)
+        private void ModuleFunctionNotImplementedError(string dataSubject, string errorType)
         {
             MessageBox.Show($"{dataSubject} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void ModuleNotImplementedError(string dataSubject)
+        private void ModuleNotImplementedError(string dataSubject, string errorType)
         {
             MessageBox.Show($"Unrecognised module group - {dataSubject} passed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void NoDataFoundError(string dataSubject)
+        private void NoDataFoundError(string dataSubject, string errorType)
         {
             MessageBox.Show($"No data found for the specified {dataSubject}.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
-        private void UpdateCancelled()
+        private void UpdateCancelled(string errorType)
         {
             MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

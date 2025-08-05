@@ -33,6 +33,7 @@
             viewAllDataDataGridView = new DataGridView();
             viewAllDataQuickFilterTextbox = new TextBox();
             viewAllDataQuickFilterTextboxLabel = new Label();
+            viewAllDataExportCSVButton = new Button();
             ((System.ComponentModel.ISupportInitialize)viewAllDataDataGridView).BeginInit();
             SuspendLayout();
             // 
@@ -50,10 +51,10 @@
             // 
             viewAllDataRefreshDataButton.FlatStyle = FlatStyle.Flat;
             viewAllDataRefreshDataButton.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            viewAllDataRefreshDataButton.Location = new Point(947, 9);
+            viewAllDataRefreshDataButton.Location = new Point(1028, 9);
             viewAllDataRefreshDataButton.Margin = new Padding(2, 3, 2, 3);
             viewAllDataRefreshDataButton.Name = "viewAllDataRefreshDataButton";
-            viewAllDataRefreshDataButton.Size = new Size(230, 59);
+            viewAllDataRefreshDataButton.Size = new Size(149, 59);
             viewAllDataRefreshDataButton.TabIndex = 3;
             viewAllDataRefreshDataButton.Text = "Refresh Data";
             viewAllDataRefreshDataButton.UseVisualStyleBackColor = true;
@@ -94,11 +95,25 @@
             viewAllDataQuickFilterTextboxLabel.TabIndex = 16;
             viewAllDataQuickFilterTextboxLabel.Text = "Quick Filter";
             // 
+            // viewAllDataExportCSVButton
+            // 
+            viewAllDataExportCSVButton.FlatStyle = FlatStyle.Flat;
+            viewAllDataExportCSVButton.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            viewAllDataExportCSVButton.Location = new Point(863, 9);
+            viewAllDataExportCSVButton.Margin = new Padding(2, 3, 2, 3);
+            viewAllDataExportCSVButton.Name = "viewAllDataExportCSVButton";
+            viewAllDataExportCSVButton.Size = new Size(149, 59);
+            viewAllDataExportCSVButton.TabIndex = 4;
+            viewAllDataExportCSVButton.Text = "Export CSV";
+            viewAllDataExportCSVButton.UseVisualStyleBackColor = true;
+            viewAllDataExportCSVButton.Click += viewAllDataExportCSVButton_Click;
+            // 
             // ViewAllData
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1190, 583);
+            Controls.Add(viewAllDataExportCSVButton);
             Controls.Add(viewAllDataQuickFilterTextboxLabel);
             Controls.Add(viewAllDataQuickFilterTextbox);
             Controls.Add(viewAllDataDataGridView);
@@ -123,5 +138,6 @@
         private DataGridView viewAllDataDataGridView;
         private TextBox viewAllDataQuickFilterTextbox;
         private Label viewAllDataQuickFilterTextboxLabel;
+        private Button viewAllDataExportCSVButton;
     }
 }

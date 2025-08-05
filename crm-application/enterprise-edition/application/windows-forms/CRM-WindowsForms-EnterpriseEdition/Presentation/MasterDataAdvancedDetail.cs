@@ -73,7 +73,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.BackColor = Color.MediumAquamarine;
                     break;
                 default:
-                    MessageBox.Show($"Unrecognised module group - {moduleGroup} passed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
                     break;
             }
         }
@@ -112,7 +112,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
-                    MessageBox.Show($"{functionTitle} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
                     break;
             }
 
@@ -157,7 +157,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load {dataParentSubjectFriendlyName} data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataParentSubjectFriendlyName, ex.Message);
             }
         }
 
@@ -170,7 +170,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -206,15 +206,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataParentSubjectOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
                     dataSubjectOriginalValue = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
                     dataSubjectActiveStatusOriginalValue = (bool)masterDataAdvancedDetailDataRow["Active Status"];
+
+                    this.Text += $" ({dataSubjectOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show($"No data found for the specified {dataSubjectFriendlyName}.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubjectFriendlyName);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load {dataSubjectFriendlyName} details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubjectFriendlyName, ex.Message);
             }
         }
 
@@ -226,7 +228,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -323,7 +325,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

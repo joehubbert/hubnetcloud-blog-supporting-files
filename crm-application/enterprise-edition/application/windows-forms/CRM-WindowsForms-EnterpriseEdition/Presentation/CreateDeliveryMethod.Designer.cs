@@ -80,7 +80,7 @@
             createDeliveryMethodActiveStatusCheckbox.Checked = true;
             createDeliveryMethodActiveStatusCheckbox.CheckState = CheckState.Checked;
             createDeliveryMethodActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createDeliveryMethodActiveStatusCheckbox.Location = new Point(202, 223);
+            createDeliveryMethodActiveStatusCheckbox.Location = new Point(202, 252);
             createDeliveryMethodActiveStatusCheckbox.Margin = new Padding(5);
             createDeliveryMethodActiveStatusCheckbox.Name = "createDeliveryMethodActiveStatusCheckbox";
             createDeliveryMethodActiveStatusCheckbox.Size = new Size(183, 24);
@@ -92,7 +92,7 @@
             // 
             createDeliveryMethodSubmitButton.FlatStyle = FlatStyle.Flat;
             createDeliveryMethodSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createDeliveryMethodSubmitButton.Location = new Point(194, 256);
+            createDeliveryMethodSubmitButton.Location = new Point(194, 285);
             createDeliveryMethodSubmitButton.Margin = new Padding(4);
             createDeliveryMethodSubmitButton.Name = "createDeliveryMethodSubmitButton";
             createDeliveryMethodSubmitButton.Size = new Size(198, 66);
@@ -105,7 +105,7 @@
             // 
             createDeliveryMethodDeliveryCostLabel.AutoSize = true;
             createDeliveryMethodDeliveryCostLabel.Font = new Font("Segoe UI", 11F);
-            createDeliveryMethodDeliveryCostLabel.Location = new Point(80, 105);
+            createDeliveryMethodDeliveryCostLabel.Location = new Point(80, 111);
             createDeliveryMethodDeliveryCostLabel.Name = "createDeliveryMethodDeliveryCostLabel";
             createDeliveryMethodDeliveryCostLabel.Size = new Size(96, 20);
             createDeliveryMethodDeliveryCostLabel.TabIndex = 13;
@@ -114,7 +114,7 @@
             // 
             // createDeliveryMethodDeliveryCostTextboxA
             // 
-            createDeliveryMethodDeliveryCostTextboxA.Location = new Point(182, 102);
+            createDeliveryMethodDeliveryCostTextboxA.Location = new Point(182, 108);
             createDeliveryMethodDeliveryCostTextboxA.Margin = new Padding(3, 4, 3, 4);
             createDeliveryMethodDeliveryCostTextboxA.MaxLength = 10;
             createDeliveryMethodDeliveryCostTextboxA.Name = "createDeliveryMethodDeliveryCostTextboxA";
@@ -124,7 +124,7 @@
             // createDeliveryMethodDeliveryCostTextboxSeparatorLabel
             // 
             createDeliveryMethodDeliveryCostTextboxSeparatorLabel.AutoSize = true;
-            createDeliveryMethodDeliveryCostTextboxSeparatorLabel.Location = new Point(306, 105);
+            createDeliveryMethodDeliveryCostTextboxSeparatorLabel.Location = new Point(306, 111);
             createDeliveryMethodDeliveryCostTextboxSeparatorLabel.Name = "createDeliveryMethodDeliveryCostTextboxSeparatorLabel";
             createDeliveryMethodDeliveryCostTextboxSeparatorLabel.Size = new Size(12, 20);
             createDeliveryMethodDeliveryCostTextboxSeparatorLabel.TabIndex = 16;
@@ -132,7 +132,7 @@
             // 
             // createDeliveryMethodDeliveryCostTextboxB
             // 
-            createDeliveryMethodDeliveryCostTextboxB.Location = new Point(324, 102);
+            createDeliveryMethodDeliveryCostTextboxB.Location = new Point(324, 108);
             createDeliveryMethodDeliveryCostTextboxB.Margin = new Padding(3, 4, 3, 4);
             createDeliveryMethodDeliveryCostTextboxB.MaxLength = 4;
             createDeliveryMethodDeliveryCostTextboxB.Name = "createDeliveryMethodDeliveryCostTextboxB";
@@ -143,7 +143,7 @@
             // 
             createDeliveryMethodDeliveryTimeLabel.AutoSize = true;
             createDeliveryMethodDeliveryTimeLabel.Font = new Font("Segoe UI", 11F);
-            createDeliveryMethodDeliveryTimeLabel.Location = new Point(30, 138);
+            createDeliveryMethodDeliveryTimeLabel.Location = new Point(30, 155);
             createDeliveryMethodDeliveryTimeLabel.Name = "createDeliveryMethodDeliveryTimeLabel";
             createDeliveryMethodDeliveryTimeLabel.Size = new Size(146, 20);
             createDeliveryMethodDeliveryTimeLabel.TabIndex = 17;
@@ -152,7 +152,7 @@
             // 
             // createDeliveryMethodDeliveryTimeTextbox
             // 
-            createDeliveryMethodDeliveryTimeTextbox.Location = new Point(182, 135);
+            createDeliveryMethodDeliveryTimeTextbox.Location = new Point(182, 152);
             createDeliveryMethodDeliveryTimeTextbox.Margin = new Padding(3, 4, 3, 4);
             createDeliveryMethodDeliveryTimeTextbox.MaxLength = 3;
             createDeliveryMethodDeliveryTimeTextbox.Name = "createDeliveryMethodDeliveryTimeTextbox";
@@ -163,7 +163,7 @@
             // 
             createDeliveryMethodTaxProfileComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createDeliveryMethodTaxProfileComboBox.FormattingEnabled = true;
-            createDeliveryMethodTaxProfileComboBox.Location = new Point(182, 169);
+            createDeliveryMethodTaxProfileComboBox.Location = new Point(182, 197);
             createDeliveryMethodTaxProfileComboBox.Name = "createDeliveryMethodTaxProfileComboBox";
             createDeliveryMethodTaxProfileComboBox.Size = new Size(284, 28);
             createDeliveryMethodTaxProfileComboBox.TabIndex = 4;
@@ -172,7 +172,7 @@
             // 
             createDeliveryMethodTaxProfileLabel.AutoSize = true;
             createDeliveryMethodTaxProfileLabel.Font = new Font("Segoe UI", 11F);
-            createDeliveryMethodTaxProfileLabel.Location = new Point(99, 172);
+            createDeliveryMethodTaxProfileLabel.Location = new Point(99, 200);
             createDeliveryMethodTaxProfileLabel.Name = "createDeliveryMethodTaxProfileLabel";
             createDeliveryMethodTaxProfileLabel.Size = new Size(77, 20);
             createDeliveryMethodTaxProfileLabel.TabIndex = 20;
@@ -184,7 +184,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(588, 335);
+            ClientSize = new Size(588, 362);
             Controls.Add(createDeliveryMethodTaxProfileLabel);
             Controls.Add(createDeliveryMethodTaxProfileComboBox);
             Controls.Add(createDeliveryMethodDeliveryTimeTextbox);

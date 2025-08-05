@@ -127,6 +127,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
             try
             {
                 DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(createNoteNoteTypeGetStoredProcedureName, createNoteNoteTypeName, _databaseConnectionSettings.DatabaseConnectionString);
@@ -145,7 +146,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load {createNoteNoteTypeFriendlyName} data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", createNoteNoteTypeFriendlyName, ex.Message);
             }
         }
 
@@ -162,7 +163,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

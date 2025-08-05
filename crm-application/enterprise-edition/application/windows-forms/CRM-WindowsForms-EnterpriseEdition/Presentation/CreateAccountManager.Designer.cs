@@ -65,7 +65,7 @@
             // createAccountManagerTelephoneNumberTextbox
             // 
             createAccountManagerTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerTelephoneNumberTextbox.Location = new Point(165, 166);
+            createAccountManagerTelephoneNumberTextbox.Location = new Point(164, 184);
             createAccountManagerTelephoneNumberTextbox.Margin = new Padding(4);
             createAccountManagerTelephoneNumberTextbox.MaxLength = 13;
             createAccountManagerTelephoneNumberTextbox.Name = "createAccountManagerTelephoneNumberTextbox";
@@ -75,7 +75,7 @@
             // createAccountManagerEmailAddressTextbox
             // 
             createAccountManagerEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerEmailAddressTextbox.Location = new Point(165, 131);
+            createAccountManagerEmailAddressTextbox.Location = new Point(165, 143);
             createAccountManagerEmailAddressTextbox.Margin = new Padding(4);
             createAccountManagerEmailAddressTextbox.MaxLength = 50;
             createAccountManagerEmailAddressTextbox.Name = "createAccountManagerEmailAddressTextbox";
@@ -85,7 +85,7 @@
             // createAccountManagerLastNameTextbox
             // 
             createAccountManagerLastNameTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerLastNameTextbox.Location = new Point(165, 96);
+            createAccountManagerLastNameTextbox.Location = new Point(165, 101);
             createAccountManagerLastNameTextbox.Margin = new Padding(4);
             createAccountManagerLastNameTextbox.MaxLength = 50;
             createAccountManagerLastNameTextbox.Name = "createAccountManagerLastNameTextbox";
@@ -109,7 +109,7 @@
             // 
             createAccountManagerFirstNameLabel.AutoSize = true;
             createAccountManagerFirstNameLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerFirstNameLabel.Location = new Point(73, 64);
+            createAccountManagerFirstNameLabel.Location = new Point(77, 64);
             createAccountManagerFirstNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerFirstNameLabel.Name = "createAccountManagerFirstNameLabel";
             createAccountManagerFirstNameLabel.Size = new Size(80, 20);
@@ -121,7 +121,7 @@
             // 
             createAccountManagerLastNameLabel.AutoSize = true;
             createAccountManagerLastNameLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerLastNameLabel.Location = new Point(74, 99);
+            createAccountManagerLastNameLabel.Location = new Point(78, 104);
             createAccountManagerLastNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerLastNameLabel.Name = "createAccountManagerLastNameLabel";
             createAccountManagerLastNameLabel.Size = new Size(79, 20);
@@ -133,7 +133,7 @@
             // 
             createAccountManagerEmailAddressLabel.AutoSize = true;
             createAccountManagerEmailAddressLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerEmailAddressLabel.Location = new Point(50, 134);
+            createAccountManagerEmailAddressLabel.Location = new Point(54, 146);
             createAccountManagerEmailAddressLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerEmailAddressLabel.Name = "createAccountManagerEmailAddressLabel";
             createAccountManagerEmailAddressLabel.Size = new Size(103, 20);
@@ -145,7 +145,7 @@
             // 
             createAccountManagerTelephoneNumberLabel.AutoSize = true;
             createAccountManagerTelephoneNumberLabel.Font = new Font("Segoe UI", 11F);
-            createAccountManagerTelephoneNumberLabel.Location = new Point(17, 169);
+            createAccountManagerTelephoneNumberLabel.Location = new Point(20, 187);
             createAccountManagerTelephoneNumberLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerTelephoneNumberLabel.Name = "createAccountManagerTelephoneNumberLabel";
             createAccountManagerTelephoneNumberLabel.Size = new Size(136, 20);

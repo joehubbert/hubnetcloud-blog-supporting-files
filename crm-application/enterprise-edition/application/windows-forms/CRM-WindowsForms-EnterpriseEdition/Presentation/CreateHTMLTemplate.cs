@@ -34,9 +34,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "HTML Template Type";
+
             try
             {
-                string dataSubject = "HTML Template Type";
+                
                 string storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
 
                 DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
@@ -55,7 +58,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load HTML Template Type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -72,7 +75,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

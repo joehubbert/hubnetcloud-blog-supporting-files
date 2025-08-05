@@ -13,7 +13,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             closeTimer.Interval = 3000; // Set timer interval to 5 seconds
             closeTimer.Tick += (s, e) => { closeTimer.Stop(); this.Close(); };
-            this.splashscreenAuthorLabel.Text = $"{new AssemblyAccessor().GetAssemblyCompany()} © {DateTime.Now.Year}";
+            this.splashscreenAuthorLabel.Text = $"{new AssemblyAccessorService().GetAssemblyCompany()} © {DateTime.Now.Year}";
 
             animationTimer.Interval = 300; // 0.3 seconds
             animationTimer.Tick += timer_Tick;

@@ -1,6 +1,7 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
@@ -30,9 +31,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "HTML Template Type";
+
             try
-            {
-                string dataSubject = "HTML Template Type";
+            {               
                 string storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
 
                 DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
@@ -52,7 +55,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load HTML Template Type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -60,9 +63,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
+
+            string dataSubject = "HTML Template";
 
             var parameters = new[]
             {
@@ -75,7 +80,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string dataSubject = "HTML Template";
                 string storedProcedureName = "[dbo].[spGetHTMLTemplate]";
 
                 DataTable? htmlTemplateDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
@@ -101,15 +105,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     htmlTemplateDetailHTMLTemplateOriginalValue = htmlTemplateDataRow["HTML Template"].ToString();
                     htmlTemplateDetailHTMLTemplateTitleOriginalValue = htmlTemplateDataRow["HTML Template Title"].ToString();
                     htmlTemplateDetailHTMLTemplateTypeIdOriginalValue = (Guid)htmlTemplateDataRow["HTML Template Type Id"];
+
+                    this.Text += $" ({htmlTemplateDetailHTMLTemplateTitleOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show($"No data found for the specified HTML Template.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load HTML Template details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -123,7 +129,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -228,7 +234,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

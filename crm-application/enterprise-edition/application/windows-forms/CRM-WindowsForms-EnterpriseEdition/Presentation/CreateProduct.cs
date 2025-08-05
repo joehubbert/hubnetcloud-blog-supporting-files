@@ -20,10 +20,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createProductProductCategoryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createProductSupplierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createProductWholesaleCartonQuantityTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
-            createProductWholesaleUnitQuantityPerCartonTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createProductTabControlProductDetailTabPageSupplierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.TextChanged += new EventHandler(CalculateUnitStockQuantityHeld);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -48,10 +48,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
 
+            string dataSubject = "Product Category";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllProductCategory]";
-                string dataSubject = "Product Category";
+                string storedProcedureName = "[dbo].[spGetAllProductCategory]";               
                 DataTable? productCategoryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var productCategoryList = productCategoryData.AsEnumerable()
@@ -63,13 +64,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .OrderBy(item => item.ProductCategory)
                     .ToList();
 
-                createProductProductCategoryComboBox.DataSource = productCategoryList;
-                createProductProductCategoryComboBox.DisplayMember = "ProductCategory";
-                createProductProductCategoryComboBox.ValueMember = "ProductCategoryId";
+                createProductTabControlProductDetailTabPageProductCategoryComboBox.DataSource = productCategoryList;
+                createProductTabControlProductDetailTabPageProductCategoryComboBox.DisplayMember = "ProductCategory";
+                createProductTabControlProductDetailTabPageProductCategoryComboBox.ValueMember = "ProductCategoryId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Product Category data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -85,10 +86,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
 
+            string dataSubject = "Supplier";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSupplier]";
-                string dataSubject = "Supplier";
+                string storedProcedureName = "[dbo].[spGetAllSupplier]";           
                 DataTable? supplierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var supplierList = supplierData.AsEnumerable()
@@ -103,34 +105,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .OrderBy(item => item.DisplayText)
                     .ToList();
 
-                createProductSupplierComboBox.DataSource = supplierList;
-                createProductSupplierComboBox.DisplayMember = "DisplayText";
-                createProductSupplierComboBox.ValueMember = "SupplierId";
+                createProductTabControlProductDetailTabPageSupplierComboBox.DataSource = supplierList;
+                createProductTabControlProductDetailTabPageSupplierComboBox.DisplayMember = "DisplayText";
+                createProductTabControlProductDetailTabPageSupplierComboBox.ValueMember = "SupplierId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Supplier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
         private void CalculateUnitStockQuantityHeld(object? sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(createProductWholesaleCartonQuantityTextbox.Text) &&
-                !string.IsNullOrWhiteSpace(createProductWholesaleUnitQuantityPerCartonTextbox.Text))
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text))
             {
-                if (int.TryParse(createProductWholesaleCartonQuantityTextbox.Text, out int cartonQty) &&
-                    int.TryParse(createProductWholesaleUnitQuantityPerCartonTextbox.Text, out int unitPerCarton))
+                if (int.TryParse(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text, out int cartonQty) &&
+                    int.TryParse(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text, out int unitPerCarton))
                 {
-                    createProductUnitStockQuantityHeldTextbox.Text = (cartonQty * unitPerCarton).ToString();
+                    createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Text = (cartonQty * unitPerCarton).ToString();
                 }
                 else
                 {
-                    createProductUnitStockQuantityHeldTextbox.Text = string.Empty;
+                    createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Text = string.Empty;
                 }
             }
             else
             {
-                createProductUnitStockQuantityHeldTextbox.Text = string.Empty;
+                createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Text = string.Empty;
             }
         }
 
@@ -145,13 +147,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
-                        createProductProductImagePictureBox.Image = Image.FromFile(filePath);
+                        createProductTabControlProductImageTabPageProductImagePictureBox.Image = Image.FromFile(filePath);
                         _productImageBytes = File.ReadAllBytes(filePath);
                     }
                     else
                     {
-                        MessageBox.Show(errorMessage, "Invalid Image", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                        createProductProductImagePictureBox.Image = null;
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.DataType", "Image");
+                        createProductTabControlProductImageTabPageProductImagePictureBox.Image = null;
                         _productImageBytes = null;
                     }
                 }
@@ -160,19 +162,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void createProductRemoveProductImageButton_Click(object sender, EventArgs e)
         {
-            createProductProductImagePictureBox.Image = null;
+            createProductTabControlProductImageTabPageProductImagePictureBox.Image = null;
             _productImageBytes = null;
         }
 
         private async void createProductSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createProductActiveStatusCheckbox.Checked;
-            Guid productCategoryId = Guid.Parse(createProductProductCategoryComboBox.SelectedValue.ToString());
+            bool activeStatus = createProductTabControlProductDetailTabPageActiveStatusCheckbox.Checked;
+            Guid productCategoryId = Guid.Parse(createProductTabControlProductDetailTabPageProductCategoryComboBox.SelectedValue.ToString());
             byte[] productImage = _productImageBytes ?? Array.Empty<byte>();
-            string productName = createProductProductNameTextbox.Text.TrimEnd();
-            int unitMinimumOrderQuantity = int.Parse(createProductUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
+            string productName = createProductTabControlProductDetailTabPageProductNameTextbox.Text.TrimEnd();
+            int unitMinimumOrderQuantity = int.Parse(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
             int unitMinimumStockQuantity;
-            if (int.TryParse(createProductUnitMinimumStockQuantityTextbox.Text.Trim(), out unitMinimumStockQuantity))
+            if (int.TryParse(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.Text.Trim(), out unitMinimumStockQuantity))
             {
 
             }
@@ -180,11 +182,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 unitMinimumStockQuantity = 0;
             }
-            decimal unitPrice = decimal.Parse($"{createProductWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
-            int unitStockQuantityHeld = int.Parse(createProductUnitStockQuantityHeldTextbox.Text.TrimEnd());
-            decimal wholesalePricePerUnit = decimal.Parse($"{createProductWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
+            decimal unitPrice = decimal.Parse($"{createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
+            int unitStockQuantityHeld = int.Parse(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Text.TrimEnd());
+            decimal wholesalePricePerUnit = decimal.Parse($"{createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
             bool wholesaleReorderFlag;
-            if (createProductWholesaleReorderFlagYesRadioButton.Checked)
+            if (createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Checked)
             {
                 wholesaleReorderFlag = true;
             }
@@ -192,15 +194,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 wholesaleReorderFlag = false;
             }
-            int wholesaleUnitQuantityPerCarton = int.Parse(createProductWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
-            int wholesaleCartonStockQuantityHeld = int.Parse(createProductWholesaleCartonQuantityTextbox.Text.TrimEnd());
-            Guid supplierId = Guid.Parse(createProductSupplierComboBox.SelectedValue.ToString());
+            int wholesaleUnitQuantityPerCarton = int.Parse(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
+            int wholesaleCartonStockQuantityHeld = int.Parse(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text.TrimEnd());
+            Guid supplierId = Guid.Parse(createProductTabControlProductDetailTabPageSupplierComboBox.SelectedValue.ToString());
 
             string dataSubject = "Product";
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

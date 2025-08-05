@@ -18,8 +18,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             board[toX, toY] = piece;
             board[fromX, fromY] = null;
             // Pawn promotion (to queen for simplicity)
-            if (piece is Pawn && (toY == 0 || toY == 7))
-                board[toX, toY] = new Queen(piece.Color);
+            if (piece is ChessPiecePawn && (toY == 0 || toY == 7))
+                board[toX, toY] = new ChessPieceQueen(piece.Color);
             CurrentTurn = CurrentTurn == ChessColor.White ? ChessColor.Black : ChessColor.White;
         }
 
@@ -79,22 +79,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             // Pawns
             for (int i = 0; i < 8; i++)
             {
-                board[i, 1] = new Pawn(ChessColor.Black);
-                board[i, 6] = new Pawn(ChessColor.White);
+                board[i, 1] = new ChessPiecePawn(ChessColor.Black);
+                board[i, 6] = new ChessPiecePawn(ChessColor.White);
             }
             // Rooks
-            board[0, 0] = new Rook(ChessColor.Black); board[7, 0] = new Rook(ChessColor.Black);
-            board[0, 7] = new Rook(ChessColor.White); board[7, 7] = new Rook(ChessColor.White);
+            board[0, 0] = new ChessPieceRook(ChessColor.Black); board[7, 0] = new ChessPieceRook(ChessColor.Black);
+            board[0, 7] = new ChessPieceRook(ChessColor.White); board[7, 7] = new ChessPieceRook(ChessColor.White);
             // Knights
-            board[1, 0] = new Knight(ChessColor.Black); board[6, 0] = new Knight(ChessColor.Black);
-            board[1, 7] = new Knight(ChessColor.White); board[6, 7] = new Knight(ChessColor.White);
+            board[1, 0] = new ChessPieceKnight(ChessColor.Black); board[6, 0] = new ChessPieceKnight(ChessColor.Black);
+            board[1, 7] = new ChessPieceKnight(ChessColor.White); board[6, 7] = new ChessPieceKnight(ChessColor.White);
             // Bishops
-            board[2, 0] = new Bishop(ChessColor.Black); board[5, 0] = new Bishop(ChessColor.Black);
-            board[2, 7] = new Bishop(ChessColor.White); board[5, 7] = new Bishop(ChessColor.White);
+            board[2, 0] = new ChessPieceBishop(ChessColor.Black); board[5, 0] = new ChessPieceBishop(ChessColor.Black);
+            board[2, 7] = new ChessPieceBishop(ChessColor.White); board[5, 7] = new ChessPieceBishop(ChessColor.White);
             // Queens
-            board[3, 0] = new Queen(ChessColor.Black); board[3, 7] = new Queen(ChessColor.White);
+            board[3, 0] = new ChessPieceQueen(ChessColor.Black); board[3, 7] = new ChessPieceQueen(ChessColor.White);
             // Kings
-            board[4, 0] = new King(ChessColor.Black); board[4, 7] = new King(ChessColor.White);
+            board[4, 0] = new ChessPieceKing(ChessColor.Black); board[4, 7] = new ChessPieceKing(ChessColor.White);
             // Empty
             for (int x = 0; x < 8; x++)
                 for (int y = 2; y < 6; y++)

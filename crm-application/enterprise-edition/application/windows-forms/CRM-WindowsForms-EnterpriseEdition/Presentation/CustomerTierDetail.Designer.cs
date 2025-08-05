@@ -62,7 +62,7 @@
             // customerTierDetailCustomerTierIdLabel
             // 
             customerTierDetailCustomerTierIdLabel.AutoSize = true;
-            customerTierDetailCustomerTierIdLabel.Location = new Point(101, 141);
+            customerTierDetailCustomerTierIdLabel.Location = new Point(111, 141);
             customerTierDetailCustomerTierIdLabel.Name = "customerTierDetailCustomerTierIdLabel";
             customerTierDetailCustomerTierIdLabel.Size = new Size(118, 20);
             customerTierDetailCustomerTierIdLabel.TabIndex = 8;
@@ -72,7 +72,7 @@
             // customerTierDetailCustomerTierCodeLabel
             // 
             customerTierDetailCustomerTierCodeLabel.AutoSize = true;
-            customerTierDetailCustomerTierCodeLabel.Location = new Point(79, 180);
+            customerTierDetailCustomerTierCodeLabel.Location = new Point(89, 180);
             customerTierDetailCustomerTierCodeLabel.Name = "customerTierDetailCustomerTierCodeLabel";
             customerTierDetailCustomerTierCodeLabel.Size = new Size(140, 20);
             customerTierDetailCustomerTierCodeLabel.TabIndex = 9;
@@ -82,7 +82,7 @@
             // customerTierDetailCustomerTierDescriptionLabel
             // 
             customerTierDetailCustomerTierDescriptionLabel.AutoSize = true;
-            customerTierDetailCustomerTierDescriptionLabel.Location = new Point(38, 220);
+            customerTierDetailCustomerTierDescriptionLabel.Location = new Point(48, 221);
             customerTierDetailCustomerTierDescriptionLabel.Name = "customerTierDetailCustomerTierDescriptionLabel";
             customerTierDetailCustomerTierDescriptionLabel.Size = new Size(181, 20);
             customerTierDetailCustomerTierDescriptionLabel.TabIndex = 10;
@@ -92,7 +92,7 @@
             // customerTierDetailCreatedByTextboxLabel
             // 
             customerTierDetailCreatedByTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedByTextboxLabel.Location = new Point(763, 141);
+            customerTierDetailCreatedByTextboxLabel.Location = new Point(773, 141);
             customerTierDetailCreatedByTextboxLabel.Name = "customerTierDetailCreatedByTextboxLabel";
             customerTierDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             customerTierDetailCreatedByTextboxLabel.TabIndex = 11;
@@ -102,7 +102,7 @@
             // customerTierDetailCreatedTimestampTextboxLabel
             // 
             customerTierDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
+            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(715, 181);
             customerTierDetailCreatedTimestampTextboxLabel.Name = "customerTierDetailCreatedTimestampTextboxLabel";
             customerTierDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             customerTierDetailCreatedTimestampTextboxLabel.TabIndex = 12;
@@ -112,7 +112,7 @@
             // customerTierDetailLastUpdatedByTextboxLabel
             // 
             customerTierDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
+            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(737, 221);
             customerTierDetailLastUpdatedByTextboxLabel.Name = "customerTierDetailLastUpdatedByTextboxLabel";
             customerTierDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             customerTierDetailLastUpdatedByTextboxLabel.TabIndex = 13;
@@ -122,7 +122,7 @@
             // customerTierDetailLastUpdatedTimestampTextboxLabel
             // 
             customerTierDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 261);
+            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(679, 261);
             customerTierDetailLastUpdatedTimestampTextboxLabel.Name = "customerTierDetailLastUpdatedTimestampTextboxLabel";
             customerTierDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             customerTierDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;

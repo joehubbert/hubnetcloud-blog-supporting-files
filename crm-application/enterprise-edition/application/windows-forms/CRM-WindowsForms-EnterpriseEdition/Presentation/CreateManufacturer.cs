@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createManufacturerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -34,34 +34,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createManufacturerFinanceVATRegisteredCheckbox.Checked)
+            if (createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createManufacturerFinanceVATNumberTextbox.Enabled = true;
+                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
             }
             else
             {
-                createManufacturerFinanceVATNumberTextbox.Enabled = false;
-                createManufacturerFinanceVATNumberTextbox.Text = string.Empty;
+                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
+                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
             }
         }
 
         private async void createManufacturerSubmitButton_Click(object sender, EventArgs e)
         {
-            string? manufacturerFinanceVATNumber = createManufacturerFinanceVATNumberTextbox.Text.TrimEnd();
+            string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
 
-            bool manufacturerOverviewActiveStatus = createManufacturerOverviewActiveStatusCheckbox.Checked;
-            string manufacturerOverviewAddressLine1 = createManufacturerOverviewAddressLine1Textbox.Text.TrimEnd();
-            string? manufacturerOverviewAddressLine2 = createManufacturerOverviewAddressLine2Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine3 = createManufacturerOverviewAddressLine3Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine4 = createManufacturerOverviewAddressLine4Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine5 = createManufacturerOverviewAddressLine5Textbox.Text.TrimEnd();
-            string manufacturerOverviewManufacturerName = createManufacturerOverviewManufacturerNameTextbox.Text.TrimEnd();
-            string manufacturerOverviewEmailAddress = createManufacturerOverviewEmailAddressTextbox.Text.TrimEnd();
-            string manufacturerOverviewTelephoneNumber = createManufacturerOverviewTelephoneNumberTextbox.Text.TrimEnd();
+            bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
+            string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine4 = createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine5 = createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            string manufacturerOverviewManufacturerName = createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Text.TrimEnd();
+            string manufacturerOverviewEmailAddress = createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
+            string manufacturerOverviewTelephoneNumber = createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

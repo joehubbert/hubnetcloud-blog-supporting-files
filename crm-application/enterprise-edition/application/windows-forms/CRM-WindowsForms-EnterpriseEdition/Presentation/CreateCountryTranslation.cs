@@ -32,10 +32,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Country";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCountry]";
-                string dataSubject = "Country";
+                string storedProcedureName = "[dbo].[spGetAllCountry]";                
                 DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var countryList = countryData.AsEnumerable()
@@ -52,7 +54,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Country data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -72,7 +74,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

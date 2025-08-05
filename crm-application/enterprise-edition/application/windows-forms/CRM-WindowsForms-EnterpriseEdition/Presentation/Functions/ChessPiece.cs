@@ -10,9 +10,9 @@
         public abstract string GetUnicodeSymbol();
     }
 
-    public class King : ChessPiece
+    public class ChessPieceKing : ChessPiece
     {
-        public King(ChessColor color) : base(color) { }
+        public ChessPieceKing(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             var moves = new List<Point>();
@@ -33,9 +33,9 @@
         public override string GetUnicodeSymbol() => Color == ChessColor.White ? "♚" : "♚";
     }
 
-    public class Queen : ChessPiece
+    public class ChessPieceQueen : ChessPiece
     {
-        public Queen(ChessColor color) : base(color) { }
+        public ChessPieceQueen(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             var moves = new List<Point>();
@@ -45,9 +45,9 @@
         public override string GetUnicodeSymbol() => Color == ChessColor.White ? "♛" : "♛";
     }
 
-    public class Rook : ChessPiece
+    public class ChessPieceRook : ChessPiece
     {
-        public Rook(ChessColor color) : base(color) { }
+        public ChessPieceRook(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             return board.GetSlidingMoves(x, y, Color, new[] { (1, 0), (0, 1), (-1, 0), (0, -1) });
@@ -55,9 +55,9 @@
         public override string GetUnicodeSymbol() => Color == ChessColor.White ? "♜" : "♜";
     }
 
-    public class Bishop : ChessPiece
+    public class ChessPieceBishop : ChessPiece
     {
-        public Bishop(ChessColor color) : base(color) { }
+        public ChessPieceBishop(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             return board.GetSlidingMoves(x, y, Color, new[] { (1, 1), (-1, 1), (1, -1), (-1, -1) });
@@ -65,9 +65,9 @@
         public override string GetUnicodeSymbol() => Color == ChessColor.White ? "♝" : "♝";
     }
 
-    public class Knight : ChessPiece
+    public class ChessPieceKnight : ChessPiece
     {
-        public Knight(ChessColor color) : base(color) { }
+        public ChessPieceKnight(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             var moves = new List<Point>();
@@ -88,9 +88,9 @@
         public override string GetUnicodeSymbol() => Color == ChessColor.White ? "♞" : "♞";
     }
 
-    public class Pawn : ChessPiece
+    public class ChessPiecePawn : ChessPiece
     {
-        public Pawn(ChessColor color) : base(color) { }
+        public ChessPiecePawn(ChessColor color) : base(color) { }
         public override List<Point> GetMoves(int x, int y, ChessBoard board)
         {
             var moves = new List<Point>();

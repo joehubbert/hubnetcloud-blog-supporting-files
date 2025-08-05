@@ -99,7 +99,7 @@
             // 
             createCustomerTierCustomerTierDescriptionLabel.AutoSize = true;
             createCustomerTierCustomerTierDescriptionLabel.Font = new Font("Segoe UI", 11F);
-            createCustomerTierCustomerTierDescriptionLabel.Location = new Point(49, 109);
+            createCustomerTierCustomerTierDescriptionLabel.Location = new Point(49, 114);
             createCustomerTierCustomerTierDescriptionLabel.Name = "createCustomerTierCustomerTierDescriptionLabel";
             createCustomerTierCustomerTierDescriptionLabel.Size = new Size(181, 20);
             createCustomerTierCustomerTierDescriptionLabel.TabIndex = 13;
@@ -108,7 +108,7 @@
             // 
             // createCustomerTierCustomerTierDescriptionTextbox
             // 
-            createCustomerTierCustomerTierDescriptionTextbox.Location = new Point(236, 106);
+            createCustomerTierCustomerTierDescriptionTextbox.Location = new Point(236, 111);
             createCustomerTierCustomerTierDescriptionTextbox.Margin = new Padding(3, 4, 3, 4);
             createCustomerTierCustomerTierDescriptionTextbox.MaxLength = 50;
             createCustomerTierCustomerTierDescriptionTextbox.Name = "createCustomerTierCustomerTierDescriptionTextbox";

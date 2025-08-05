@@ -8,20 +8,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _accountManagerId;
-        private string ?accountManagerDetailFirstNameOriginalValue;
-        private string ?accountManagerDetailLastNameOriginalValue;
-        private string ?accountManagerDetailEmailAddressOriginalValue;
-        private string ?accountManagerDetailTelephoneNumberOriginalValue;
-        private bool ?accountManagerDetailActiveStatusOriginalValue;
+        private bool? accountManagerInformationActiveStatusOriginalValue;
+        private string? accountManagerInformationEmailAddressOriginalValue;
+        private string? accountManagerInformationFirstNameOriginalValue;
+        private string? accountManagerInformationLastNameOriginalValue;      
+        private string? accountManagerInformationTelephoneNumberOriginalValue;
         private readonly string dataSubject = "Account Manager";
 
         public AccountManagerDetail(Guid accountManagerId)
         {
             InitializeComponent();
             _accountManagerId = accountManagerId;
-            accountManagerDetailAssociatedCustomerDataGridView.CellContentClick += AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
-            accountManagerDetailTabControl.SelectedIndexChanged += new EventHandler(AccountManagerDetailTabControl_SelectedIndexChanged);
+            InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private void InitializeCustomComponents()
+        {
+            accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
+            accountManagerDetailTabControl.SelectedIndexChanged += new EventHandler(AccountManagerDetailTabControl_SelectedIndexChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -33,7 +38,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -55,31 +60,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (accountManagerDataTable != null)
                 {
                     DataRow accountManagerDataRow = accountManagerDataTable.Rows[0];
-                    accountManagerDetailFirstNameTextbox.Text = accountManagerDataRow["First Name"].ToString();
-                    accountManagerDetailLastNameTextbox.Text = accountManagerDataRow["Last Name"].ToString();
-                    accountManagerDetailEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
-                    accountManagerDetailTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
-                    accountManagerDetailAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
-                    accountManagerDetailCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
-                    accountManagerDetailCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
-                    accountManagerDetailLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
-                    accountManagerDetailLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
-                    accountManagerDetailActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
+                    accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Text = accountManagerDataRow["First Name"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Text = accountManagerDataRow["Last Name"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
 
-                    accountManagerDetailFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
-                    accountManagerDetailLastNameOriginalValue = accountManagerDataRow["Last Name"].ToString();
-                    accountManagerDetailEmailAddressOriginalValue = accountManagerDataRow["Email Address"].ToString();
-                    accountManagerDetailTelephoneNumberOriginalValue = accountManagerDataRow["Telephone Number"].ToString();
-                    accountManagerDetailActiveStatusOriginalValue = (bool)accountManagerDataRow["Active Status"];
+                    accountManagerInformationFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
+                    accountManagerInformationLastNameOriginalValue = accountManagerDataRow["Last Name"].ToString();
+                    accountManagerInformationEmailAddressOriginalValue = accountManagerDataRow["Email Address"].ToString();
+                    accountManagerInformationTelephoneNumberOriginalValue = accountManagerDataRow["Telephone Number"].ToString();
+                    accountManagerInformationActiveStatusOriginalValue = (bool)accountManagerDataRow["Active Status"];
+
+                    this.Text += $" - ({accountManagerInformationLastNameOriginalValue}, {accountManagerInformationFirstNameOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show("No data found for the specified Account Manager.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Account Manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -87,20 +94,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (accountManagerDetailTabControl.SelectedTab == accountManagerDetailTabControl.TabPages["associatedCustomers"])
             {
-                await AccountManagerDetailAssociatedCustomer_Load(sender, e);
+                await AccountManagerDetailAssociatedCustomer_Load();
             }
         }
 
-        private async Task AccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
+        private async Task AccountManagerDetailAssociatedCustomer_Load()
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
             string storedProcedureName = "[dbo].[spGetAssociatedCustomerToAccountManager]";
-            string dataSubject = "Associated Customers to Account Manager";
+            string dataSubject = "Associated Customers";
 
             var parameters = new[]
             {
@@ -115,17 +122,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("No Associated Customers found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
             }
             else
             {
                 dataTable.DefaultView.Sort = "Company Tier ASC";
-                accountManagerDetailAssociatedCustomerDataGridView.AutoGenerateColumns = true;
-                accountManagerDetailAssociatedCustomerDataGridView.DataSource = dataTable;
-                accountManagerDetailAssociatedCustomerDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (accountManagerDetailAssociatedCustomerDataGridView.Columns.Contains("Details"))
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.AutoGenerateColumns = true;
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.DataSource = dataTable;
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Contains("Details"))
                 {
-                    accountManagerDetailAssociatedCustomerDataGridView.Columns.Remove("Details");
+                    accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Remove("Details");
                 }
                 DataGridViewLinkColumn customerDetailLink = new DataGridViewLinkColumn
                 {
@@ -134,30 +141,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     UseColumnTextForLinkValue = true,
                     Name = "Details"
                 };
-                accountManagerDetailAssociatedCustomerDataGridView.Columns.Add(customerDetailLink);
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Add(customerDetailLink);
             }
         }
 
         private void AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == accountManagerDetailAssociatedCustomerDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            if (e.ColumnIndex == accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
                 try
                 {
-                    if (accountManagerDetailAssociatedCustomerDataGridView.Columns.Contains("Customer Id"))
+                    if (accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Contains("Customer Id"))
                     {
-                        Guid customerId = (Guid)accountManagerDetailAssociatedCustomerDataGridView.Rows[e.RowIndex].Cells["Customer Id"].Value;
+                        Guid customerId = (Guid)accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Id"].Value;
                         CustomerDetail customerDetailForm = new CustomerDetail(customerId);
                         customerDetailForm.Show();
                     }
                     else
                     {
-                        MessageBox.Show("Account Manager Id column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to open account manager details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
                 }
             }
         }
@@ -166,15 +173,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
-            bool activeStatus = accountManagerDetailActiveStatusCheckbox.Checked;
-            string firstName = accountManagerDetailFirstNameTextbox.Text.TrimEnd();
-            string lastName = accountManagerDetailLastNameTextbox.Text.TrimEnd();
-            string emailAddress = accountManagerDetailEmailAddressTextbox.Text.TrimEnd();
-            string telephoneNumber = accountManagerDetailTelephoneNumberTextbox.Text.TrimEnd();
+            bool activeStatus = accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked;
+            string firstName = accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Text.TrimEnd();
+            string lastName = accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Text.TrimEnd();
+            string emailAddress = accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text.TrimEnd();
+            string telephoneNumber = accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
 
             var dataToValidate = new List<ValidateDataInput.DataProperty>
             {
@@ -236,35 +243,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         VariableName = "Active Status",
                         VariableType = "bool",
-                        OriginalValue = accountManagerDetailActiveStatusOriginalValue,
+                        OriginalValue = accountManagerInformationActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
-                    new ChangeDetail 
-                    { 
+                    new ChangeDetail
+                    {
                         VariableName = "First Name",
                         VariableType = "string",
-                        OriginalValue = accountManagerDetailFirstNameOriginalValue,
+                        OriginalValue = accountManagerInformationFirstNameOriginalValue,
                         NewValue = firstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Last Name",
                         VariableType = "string",
-                        OriginalValue = accountManagerDetailLastNameOriginalValue,
+                        OriginalValue = accountManagerInformationLastNameOriginalValue,
                         NewValue = lastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Email Address",
                         VariableType = "string",
-                        OriginalValue = accountManagerDetailEmailAddressOriginalValue,
+                        OriginalValue = accountManagerInformationEmailAddressOriginalValue,
                         NewValue = emailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Telephone Number",
                         VariableType = "string",
-                        OriginalValue = accountManagerDetailTelephoneNumberOriginalValue,
+                        OriginalValue = accountManagerInformationTelephoneNumberOriginalValue,
                         NewValue = telephoneNumber
                     }
                 };
@@ -275,10 +282,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new []
+                    var parameters = new[]
                     {
-                        new Parameter 
-                        { 
+                        new Parameter
+                        {
                             ParameterName = "@accountManagerId",
                             ParameterValue = _accountManagerId
                         },
@@ -317,10 +324,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }
+        }
+
+        private async void accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await AccountManagerDetailAssociatedCustomer_Load();
         }
 
         protected override async void OnLoad(EventArgs e)
@@ -328,16 +340,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
             AccountManagerDetailAccountManagerInformation_Load(this, EventArgs.Empty);
-            AccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
         }
 
         private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            accountManagerDetailFirstNameTextbox.ReadOnly = !accountManagerDetailFirstNameTextbox.ReadOnly;
-            accountManagerDetailLastNameTextbox.ReadOnly = !accountManagerDetailLastNameTextbox.ReadOnly;
-            accountManagerDetailEmailAddressTextbox.ReadOnly = !accountManagerDetailEmailAddressTextbox.ReadOnly;
-            accountManagerDetailTelephoneNumberTextbox.ReadOnly = !accountManagerDetailTelephoneNumberTextbox.ReadOnly;
-            accountManagerDetailActiveStatusCheckbox.Enabled = !accountManagerDetailActiveStatusCheckbox.Enabled;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled;
             accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
         }
     }

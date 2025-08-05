@@ -78,38 +78,42 @@
             // contactDetailCreatedByTextboxLabel
             // 
             contactDetailCreatedByTextboxLabel.AutoSize = true;
-            contactDetailCreatedByTextboxLabel.Location = new Point(841, 141);
+            contactDetailCreatedByTextboxLabel.Location = new Point(945, 141);
             contactDetailCreatedByTextboxLabel.Name = "contactDetailCreatedByTextboxLabel";
             contactDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             contactDetailCreatedByTextboxLabel.TabIndex = 11;
             contactDetailCreatedByTextboxLabel.Text = "Created By";
+            contactDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailCreatedTimestampTextboxLabel
             // 
             contactDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            contactDetailCreatedTimestampTextboxLabel.Location = new Point(841, 180);
+            contactDetailCreatedTimestampTextboxLabel.Location = new Point(887, 181);
             contactDetailCreatedTimestampTextboxLabel.Name = "contactDetailCreatedTimestampTextboxLabel";
             contactDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             contactDetailCreatedTimestampTextboxLabel.TabIndex = 12;
             contactDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            contactDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailLastUpdatedByTextboxLabel
             // 
             contactDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            contactDetailLastUpdatedByTextboxLabel.Location = new Point(841, 224);
+            contactDetailLastUpdatedByTextboxLabel.Location = new Point(909, 222);
             contactDetailLastUpdatedByTextboxLabel.Name = "contactDetailLastUpdatedByTextboxLabel";
             contactDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             contactDetailLastUpdatedByTextboxLabel.TabIndex = 13;
             contactDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            contactDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailLastUpdatedTimestampTextboxLabel
             // 
             contactDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            contactDetailLastUpdatedTimestampTextboxLabel.Location = new Point(841, 265);
+            contactDetailLastUpdatedTimestampTextboxLabel.Location = new Point(851, 261);
             contactDetailLastUpdatedTimestampTextboxLabel.Name = "contactDetailLastUpdatedTimestampTextboxLabel";
             contactDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             contactDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
             contactDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            contactDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailLastUpdatedByTextbox
             // 

@@ -62,7 +62,7 @@
             // currencyDetailCurrencyIdLabel
             // 
             currencyDetailCurrencyIdLabel.AutoSize = true;
-            currencyDetailCurrencyIdLabel.Location = new Point(101, 141);
+            currencyDetailCurrencyIdLabel.Location = new Point(112, 141);
             currencyDetailCurrencyIdLabel.Name = "currencyDetailCurrencyIdLabel";
             currencyDetailCurrencyIdLabel.Size = new Size(83, 20);
             currencyDetailCurrencyIdLabel.TabIndex = 8;
@@ -72,7 +72,7 @@
             // currencyDetailCurrencyCodeLabel
             // 
             currencyDetailCurrencyCodeLabel.AutoSize = true;
-            currencyDetailCurrencyCodeLabel.Location = new Point(79, 180);
+            currencyDetailCurrencyCodeLabel.Location = new Point(90, 181);
             currencyDetailCurrencyCodeLabel.Name = "currencyDetailCurrencyCodeLabel";
             currencyDetailCurrencyCodeLabel.Size = new Size(105, 20);
             currencyDetailCurrencyCodeLabel.TabIndex = 9;
@@ -82,7 +82,7 @@
             // currencyDetailCurrencyNameLabel
             // 
             currencyDetailCurrencyNameLabel.AutoSize = true;
-            currencyDetailCurrencyNameLabel.Location = new Point(74, 220);
+            currencyDetailCurrencyNameLabel.Location = new Point(85, 221);
             currencyDetailCurrencyNameLabel.Name = "currencyDetailCurrencyNameLabel";
             currencyDetailCurrencyNameLabel.Size = new Size(110, 20);
             currencyDetailCurrencyNameLabel.TabIndex = 10;
@@ -92,7 +92,7 @@
             // currencyDetailCreatedByTextboxLabel
             // 
             currencyDetailCreatedByTextboxLabel.AutoSize = true;
-            currencyDetailCreatedByTextboxLabel.Location = new Point(763, 141);
+            currencyDetailCreatedByTextboxLabel.Location = new Point(773, 141);
             currencyDetailCreatedByTextboxLabel.Name = "currencyDetailCreatedByTextboxLabel";
             currencyDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             currencyDetailCreatedByTextboxLabel.TabIndex = 11;
@@ -102,7 +102,7 @@
             // currencyDetailCreatedTimestampTextboxLabel
             // 
             currencyDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            currencyDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
+            currencyDetailCreatedTimestampTextboxLabel.Location = new Point(715, 181);
             currencyDetailCreatedTimestampTextboxLabel.Name = "currencyDetailCreatedTimestampTextboxLabel";
             currencyDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             currencyDetailCreatedTimestampTextboxLabel.TabIndex = 12;
@@ -112,7 +112,7 @@
             // currencyDetailLastUpdatedByTextboxLabel
             // 
             currencyDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            currencyDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
+            currencyDetailLastUpdatedByTextboxLabel.Location = new Point(737, 221);
             currencyDetailLastUpdatedByTextboxLabel.Name = "currencyDetailLastUpdatedByTextboxLabel";
             currencyDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             currencyDetailLastUpdatedByTextboxLabel.TabIndex = 13;
@@ -122,7 +122,7 @@
             // currencyDetailLastUpdatedTimestampTextboxLabel
             // 
             currencyDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            currencyDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            currencyDetailLastUpdatedTimestampTextboxLabel.Location = new Point(679, 261);
             currencyDetailLastUpdatedTimestampTextboxLabel.Name = "currencyDetailLastUpdatedTimestampTextboxLabel";
             currencyDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             currencyDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;

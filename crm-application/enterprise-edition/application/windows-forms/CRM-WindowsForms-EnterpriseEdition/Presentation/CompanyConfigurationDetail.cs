@@ -70,10 +70,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Country";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCountry]";
-                string dataSubject = "Country";
                 DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var countryList = countryData.AsEnumerable()
@@ -99,12 +101,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedValue = countryId;
                         break;
                     default:
-                        throw new ArgumentException("Invalid country context specified.");
+                        throw new ArgumentException("Invalid Country context specified.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Country data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -115,10 +117,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
 
+            string dataSubject = "Currency";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCurrency]";
-                string dataSubject = "Currency";
+                string storedProcedureName = "[dbo].[spGetAllCurrency]";               
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var currencyList = currencyData.AsEnumerable()
@@ -139,7 +142,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -253,7 +256,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -392,15 +395,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     generalInformationEmailTopLevelDomainOriginalValue = companyConfigurationDataRow["Email Top Level Domain"].ToString();
                     generalInformationTelephoneNumberOriginalValue = companyConfigurationDataRow["Telephone Number"].ToString();
                     generalInformationWebsiteURLOriginalValue = companyConfigurationDataRow["Website URL"].ToString();
+
+                    this.Text += $" ({generalInformationCompanyNameOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show("No data found for the specified Company Configuration.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Company Configuration details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -416,7 +421,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -436,7 +441,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (dataTable.Rows.Count == 0)
             {
-                MessageBox.Show("No Existing HTML Templates found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
             }
             else
             {
@@ -526,7 +531,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -1115,7 +1120,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

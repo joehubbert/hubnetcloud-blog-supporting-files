@@ -94,7 +94,7 @@
             // countryTranslationDetailCreatedByTextboxLabel
             // 
             countryTranslationDetailCreatedByTextboxLabel.AutoSize = true;
-            countryTranslationDetailCreatedByTextboxLabel.Location = new Point(763, 141);
+            countryTranslationDetailCreatedByTextboxLabel.Location = new Point(773, 141);
             countryTranslationDetailCreatedByTextboxLabel.Name = "countryTranslationDetailCreatedByTextboxLabel";
             countryTranslationDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             countryTranslationDetailCreatedByTextboxLabel.TabIndex = 11;
@@ -104,7 +104,7 @@
             // countryTranslationDetailCreatedTimestampTextboxLabel
             // 
             countryTranslationDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            countryTranslationDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
+            countryTranslationDetailCreatedTimestampTextboxLabel.Location = new Point(715, 181);
             countryTranslationDetailCreatedTimestampTextboxLabel.Name = "countryTranslationDetailCreatedTimestampTextboxLabel";
             countryTranslationDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             countryTranslationDetailCreatedTimestampTextboxLabel.TabIndex = 12;
@@ -114,7 +114,7 @@
             // countryTranslationDetailLastUpdatedByTextboxLabel
             // 
             countryTranslationDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            countryTranslationDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
+            countryTranslationDetailLastUpdatedByTextboxLabel.Location = new Point(737, 221);
             countryTranslationDetailLastUpdatedByTextboxLabel.Name = "countryTranslationDetailLastUpdatedByTextboxLabel";
             countryTranslationDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             countryTranslationDetailLastUpdatedByTextboxLabel.TabIndex = 13;
@@ -124,7 +124,7 @@
             // countryTranslationDetailLastUpdatedTimestampTextboxLabel
             // 
             countryTranslationDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
+            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Location = new Point(679, 261);
             countryTranslationDetailLastUpdatedTimestampTextboxLabel.Name = "countryTranslationDetailLastUpdatedTimestampTextboxLabel";
             countryTranslationDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             countryTranslationDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;

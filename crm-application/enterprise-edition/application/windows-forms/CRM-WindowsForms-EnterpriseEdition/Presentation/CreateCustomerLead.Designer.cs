@@ -29,31 +29,31 @@
         private void InitializeComponent()
         {
             createCustomerLeadTitleLabel = new Label();
-            createCustomerLeadCustomerContactComboBox = new ComboBox();
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox = new ComboBox();
             createCustomerLeadCustomerLeadTypeComboBox = new ComboBox();
             createCustomerLeadCustomerLeadTitleTextbox = new TextBox();
             createCustomerLeadCustomerLeadTextbox = new TextBox();
-            createCustomerLeadMarketingChannelComboBox = new ComboBox();
-            createCustomerLeadCustomerLeadTargetDatePicker = new DateTimePicker();
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox = new ComboBox();
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker = new DateTimePicker();
             createCustomerLeadCustomerContactPanel = new Panel();
-            createCustomerLeadCustomerContactComboBoxLabel = new Label();
-            createCustomerLeadCustomerContactChoiceYesRadioButton = new RadioButton();
-            createCustomerLeadCustomerContactChoiceLabel = new Label();
-            createCustomerLeadCustomerContactChoiceNoRadioButton = new RadioButton();
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel = new Label();
+            createCustomerLeadCustomerContactPanelYesRadioButton = new RadioButton();
+            createCustomerLeadCustomerContactPanelLabel = new Label();
+            createCustomerLeadCustomerContactPanelNoRadioButton = new RadioButton();
             createCustomerLeadSubmitButton = new Button();
             createCustomerLeadCustomerLeadTextboxLabel = new Label();
             createCustomerLeadCustomerLeadTitleTextboxLabel = new Label();
             createCustomerLeadCustomerLeadTypeComboBoxLabel = new Label();
-            createCustomerLeadMarketingChannelComboBoxLabel = new Label();
-            createCustomerLeadCustomerLeadTargetDatePickerLabel = new Label();
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel = new Label();
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel = new Label();
             createCustomerLeadMarketingChannelPanel = new Panel();
-            createCustomerLeadMarketingChannelChoiceYesRadioButton = new RadioButton();
-            createCustomerLeadMarketingChannelChoiceLabel = new Label();
-            createCustomerLeadMarketingChannelChoiceNoRadioButton = new RadioButton();
+            createCustomerLeadMarketingChannelPanelYesRadioButton = new RadioButton();
+            createCustomerLeadMarketingChannelPanelLabel = new Label();
+            createCustomerLeadMarketingChannelPanelNoRadioButton = new RadioButton();
             createCustomerLeadCustomerLeadTargetDatePanel = new Panel();
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton = new RadioButton();
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel = new Label();
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton = new RadioButton();
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton = new RadioButton();
+            createCustomerLeadCustomerLeadTargetDatePanelLabel = new Label();
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton = new RadioButton();
             createCustomerLeadActiveStatusCheckbox = new CheckBox();
             createCustomerLeadCustomerContactPanel.SuspendLayout();
             createCustomerLeadMarketingChannelPanel.SuspendLayout();
@@ -71,15 +71,15 @@
             createCustomerLeadTitleLabel.TabIndex = 8;
             createCustomerLeadTitleLabel.Text = "Create Customer Lead";
             // 
-            // createCustomerLeadCustomerContactComboBox
+            // createCustomerLeadCustomerContactPanelCustomerContactComboBox
             // 
-            createCustomerLeadCustomerContactComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            createCustomerLeadCustomerContactComboBox.Enabled = false;
-            createCustomerLeadCustomerContactComboBox.FormattingEnabled = true;
-            createCustomerLeadCustomerContactComboBox.Location = new Point(213, 62);
-            createCustomerLeadCustomerContactComboBox.Name = "createCustomerLeadCustomerContactComboBox";
-            createCustomerLeadCustomerContactComboBox.Size = new Size(301, 28);
-            createCustomerLeadCustomerContactComboBox.TabIndex = 11;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = false;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.FormattingEnabled = true;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.Location = new Point(213, 43);
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.Name = "createCustomerLeadCustomerContactPanelCustomerContactComboBox";
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.Size = new Size(301, 28);
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.TabIndex = 11;
             // 
             // createCustomerLeadCustomerLeadTypeComboBox
             // 
@@ -109,76 +109,75 @@
             createCustomerLeadCustomerLeadTextbox.Size = new Size(427, 274);
             createCustomerLeadCustomerLeadTextbox.TabIndex = 2;
             // 
-            // createCustomerLeadMarketingChannelComboBox
+            // createCustomerLeadMarketingChannelPanelMarketingChannelComboBox
             // 
-            createCustomerLeadMarketingChannelComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            createCustomerLeadMarketingChannelComboBox.Enabled = false;
-            createCustomerLeadMarketingChannelComboBox.FormattingEnabled = true;
-            createCustomerLeadMarketingChannelComboBox.Location = new Point(213, 62);
-            createCustomerLeadMarketingChannelComboBox.Name = "createCustomerLeadMarketingChannelComboBox";
-            createCustomerLeadMarketingChannelComboBox.Size = new Size(301, 28);
-            createCustomerLeadMarketingChannelComboBox.TabIndex = 5;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Enabled = false;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.FormattingEnabled = true;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Location = new Point(213, 42);
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Name = "createCustomerLeadMarketingChannelPanelMarketingChannelComboBox";
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Size = new Size(301, 28);
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.TabIndex = 5;
             // 
-            // createCustomerLeadCustomerLeadTargetDatePicker
+            // createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker
             // 
-            createCustomerLeadCustomerLeadTargetDatePicker.Enabled = false;
-            createCustomerLeadCustomerLeadTargetDatePicker.Location = new Point(213, 62);
-            createCustomerLeadCustomerLeadTargetDatePicker.Name = "createCustomerLeadCustomerLeadTargetDatePicker";
-            createCustomerLeadCustomerLeadTargetDatePicker.Size = new Size(301, 27);
-            createCustomerLeadCustomerLeadTargetDatePicker.TabIndex = 8;
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Location = new Point(213, 38);
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Name = "createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker";
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Size = new Size(301, 27);
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.TabIndex = 8;
             // 
             // createCustomerLeadCustomerContactPanel
             // 
-            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactComboBoxLabel);
-            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactChoiceYesRadioButton);
-            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactChoiceLabel);
-            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactComboBox);
-            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactChoiceNoRadioButton);
-            createCustomerLeadCustomerContactPanel.Location = new Point(13, 672);
+            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel);
+            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelYesRadioButton);
+            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelCustomerContactComboBox);
+            createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelNoRadioButton);
+            createCustomerLeadCustomerContactPanel.Location = new Point(13, 684);
             createCustomerLeadCustomerContactPanel.Name = "createCustomerLeadCustomerContactPanel";
-            createCustomerLeadCustomerContactPanel.Size = new Size(640, 103);
+            createCustomerLeadCustomerContactPanel.Size = new Size(640, 83);
             createCustomerLeadCustomerContactPanel.TabIndex = 15;
             // 
-            // createCustomerLeadCustomerContactComboBoxLabel
+            // createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel
             // 
-            createCustomerLeadCustomerContactComboBoxLabel.AutoSize = true;
-            createCustomerLeadCustomerContactComboBoxLabel.Location = new Point(80, 65);
-            createCustomerLeadCustomerContactComboBoxLabel.Name = "createCustomerLeadCustomerContactComboBoxLabel";
-            createCustomerLeadCustomerContactComboBoxLabel.Size = new Size(127, 20);
-            createCustomerLeadCustomerContactComboBoxLabel.TabIndex = 53;
-            createCustomerLeadCustomerContactComboBoxLabel.Text = "Customer Contact";
-            createCustomerLeadCustomerContactComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.AutoSize = true;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.Location = new Point(80, 46);
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.Name = "createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel";
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.Size = new Size(127, 20);
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.TabIndex = 53;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.Text = "Customer Contact";
+            createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerLeadCustomerContactChoiceYesRadioButton
+            // createCustomerLeadCustomerContactPanelYesRadioButton
             // 
-            createCustomerLeadCustomerContactChoiceYesRadioButton.AutoSize = true;
-            createCustomerLeadCustomerContactChoiceYesRadioButton.Location = new Point(251, 32);
-            createCustomerLeadCustomerContactChoiceYesRadioButton.Name = "createCustomerLeadCustomerContactChoiceYesRadioButton";
-            createCustomerLeadCustomerContactChoiceYesRadioButton.Size = new Size(48, 24);
-            createCustomerLeadCustomerContactChoiceYesRadioButton.TabIndex = 10;
-            createCustomerLeadCustomerContactChoiceYesRadioButton.Text = "Yes";
-            createCustomerLeadCustomerContactChoiceYesRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadCustomerContactPanelYesRadioButton.AutoSize = true;
+            createCustomerLeadCustomerContactPanelYesRadioButton.Location = new Point(251, 13);
+            createCustomerLeadCustomerContactPanelYesRadioButton.Name = "createCustomerLeadCustomerContactPanelYesRadioButton";
+            createCustomerLeadCustomerContactPanelYesRadioButton.Size = new Size(48, 24);
+            createCustomerLeadCustomerContactPanelYesRadioButton.TabIndex = 10;
+            createCustomerLeadCustomerContactPanelYesRadioButton.Text = "Yes";
+            createCustomerLeadCustomerContactPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadCustomerContactChoiceLabel
+            // createCustomerLeadCustomerContactPanelLabel
             // 
-            createCustomerLeadCustomerContactChoiceLabel.AutoSize = true;
-            createCustomerLeadCustomerContactChoiceLabel.Location = new Point(177, 9);
-            createCustomerLeadCustomerContactChoiceLabel.Name = "createCustomerLeadCustomerContactChoiceLabel";
-            createCustomerLeadCustomerContactChoiceLabel.Size = new Size(274, 20);
-            createCustomerLeadCustomerContactChoiceLabel.TabIndex = 52;
-            createCustomerLeadCustomerContactChoiceLabel.Text = "Associate to Existing Customer Contact?";
+            createCustomerLeadCustomerContactPanelLabel.AutoSize = true;
+            createCustomerLeadCustomerContactPanelLabel.Location = new Point(13, 661);
+            createCustomerLeadCustomerContactPanelLabel.Name = "createCustomerLeadCustomerContactPanelLabel";
+            createCustomerLeadCustomerContactPanelLabel.Size = new Size(274, 20);
+            createCustomerLeadCustomerContactPanelLabel.TabIndex = 52;
+            createCustomerLeadCustomerContactPanelLabel.Text = "Associate to Existing Customer Contact?";
             // 
-            // createCustomerLeadCustomerContactChoiceNoRadioButton
+            // createCustomerLeadCustomerContactPanelNoRadioButton
             // 
-            createCustomerLeadCustomerContactChoiceNoRadioButton.AutoSize = true;
-            createCustomerLeadCustomerContactChoiceNoRadioButton.Checked = true;
-            createCustomerLeadCustomerContactChoiceNoRadioButton.Location = new Point(177, 32);
-            createCustomerLeadCustomerContactChoiceNoRadioButton.Name = "createCustomerLeadCustomerContactChoiceNoRadioButton";
-            createCustomerLeadCustomerContactChoiceNoRadioButton.Size = new Size(47, 24);
-            createCustomerLeadCustomerContactChoiceNoRadioButton.TabIndex = 9;
-            createCustomerLeadCustomerContactChoiceNoRadioButton.TabStop = true;
-            createCustomerLeadCustomerContactChoiceNoRadioButton.Text = "No";
-            createCustomerLeadCustomerContactChoiceNoRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadCustomerContactPanelNoRadioButton.AutoSize = true;
+            createCustomerLeadCustomerContactPanelNoRadioButton.Checked = true;
+            createCustomerLeadCustomerContactPanelNoRadioButton.Location = new Point(177, 13);
+            createCustomerLeadCustomerContactPanelNoRadioButton.Name = "createCustomerLeadCustomerContactPanelNoRadioButton";
+            createCustomerLeadCustomerContactPanelNoRadioButton.Size = new Size(47, 24);
+            createCustomerLeadCustomerContactPanelNoRadioButton.TabIndex = 9;
+            createCustomerLeadCustomerContactPanelNoRadioButton.TabStop = true;
+            createCustomerLeadCustomerContactPanelNoRadioButton.Text = "No";
+            createCustomerLeadCustomerContactPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
             // createCustomerLeadSubmitButton
             // 
@@ -223,111 +222,109 @@
             createCustomerLeadCustomerLeadTypeComboBoxLabel.Text = "Customer Lead Type*";
             createCustomerLeadCustomerLeadTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerLeadMarketingChannelComboBoxLabel
+            // createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel
             // 
-            createCustomerLeadMarketingChannelComboBoxLabel.AutoSize = true;
-            createCustomerLeadMarketingChannelComboBoxLabel.Location = new Point(74, 65);
-            createCustomerLeadMarketingChannelComboBoxLabel.Name = "createCustomerLeadMarketingChannelComboBoxLabel";
-            createCustomerLeadMarketingChannelComboBoxLabel.Size = new Size(133, 20);
-            createCustomerLeadMarketingChannelComboBoxLabel.TabIndex = 56;
-            createCustomerLeadMarketingChannelComboBoxLabel.Text = "Marketing Channel";
-            createCustomerLeadMarketingChannelComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.AutoSize = true;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.Location = new Point(74, 45);
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.Name = "createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel";
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.Size = new Size(133, 20);
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.TabIndex = 56;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.Text = "Marketing Channel";
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerLeadCustomerLeadTargetDatePickerLabel
+            // createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel
             // 
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.Location = new Point(121, 67);
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.Name = "createCustomerLeadCustomerLeadTargetDatePickerLabel";
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.Size = new Size(86, 20);
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.TabIndex = 57;
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.Text = "Target Date";
-            createCustomerLeadCustomerLeadTargetDatePickerLabel.TextAlign = ContentAlignment.TopRight;
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.AutoSize = true;
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.Location = new Point(121, 43);
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.Name = "createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel";
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.Size = new Size(86, 20);
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.TabIndex = 57;
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.Text = "Target Date";
+            createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerLeadMarketingChannelPanel
             // 
-            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelChoiceYesRadioButton);
-            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelChoiceLabel);
-            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelChoiceNoRadioButton);
-            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelComboBoxLabel);
-            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelComboBox);
-            createCustomerLeadMarketingChannelPanel.Location = new Point(13, 431);
+            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelYesRadioButton);
+            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelNoRadioButton);
+            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel);
+            createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox);
+            createCustomerLeadMarketingChannelPanel.Location = new Point(13, 452);
             createCustomerLeadMarketingChannelPanel.Name = "createCustomerLeadMarketingChannelPanel";
-            createCustomerLeadMarketingChannelPanel.Size = new Size(640, 103);
+            createCustomerLeadMarketingChannelPanel.Size = new Size(640, 83);
             createCustomerLeadMarketingChannelPanel.TabIndex = 58;
             // 
-            // createCustomerLeadMarketingChannelChoiceYesRadioButton
+            // createCustomerLeadMarketingChannelPanelYesRadioButton
             // 
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.AutoSize = true;
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.Location = new Point(251, 32);
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.Name = "createCustomerLeadMarketingChannelChoiceYesRadioButton";
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.Size = new Size(48, 24);
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.TabIndex = 4;
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.Text = "Yes";
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadMarketingChannelPanelYesRadioButton.AutoSize = true;
+            createCustomerLeadMarketingChannelPanelYesRadioButton.Location = new Point(251, 12);
+            createCustomerLeadMarketingChannelPanelYesRadioButton.Name = "createCustomerLeadMarketingChannelPanelYesRadioButton";
+            createCustomerLeadMarketingChannelPanelYesRadioButton.Size = new Size(48, 24);
+            createCustomerLeadMarketingChannelPanelYesRadioButton.TabIndex = 4;
+            createCustomerLeadMarketingChannelPanelYesRadioButton.Text = "Yes";
+            createCustomerLeadMarketingChannelPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadMarketingChannelChoiceLabel
+            // createCustomerLeadMarketingChannelPanelLabel
             // 
-            createCustomerLeadMarketingChannelChoiceLabel.AutoSize = true;
-            createCustomerLeadMarketingChannelChoiceLabel.Location = new Point(177, 9);
-            createCustomerLeadMarketingChannelChoiceLabel.Name = "createCustomerLeadMarketingChannelChoiceLabel";
-            createCustomerLeadMarketingChannelChoiceLabel.Size = new Size(221, 20);
-            createCustomerLeadMarketingChannelChoiceLabel.TabIndex = 52;
-            createCustomerLeadMarketingChannelChoiceLabel.Text = "Attribute to Marketing Channel?";
+            createCustomerLeadMarketingChannelPanelLabel.AutoSize = true;
+            createCustomerLeadMarketingChannelPanelLabel.Location = new Point(13, 429);
+            createCustomerLeadMarketingChannelPanelLabel.Name = "createCustomerLeadMarketingChannelPanelLabel";
+            createCustomerLeadMarketingChannelPanelLabel.Size = new Size(221, 20);
+            createCustomerLeadMarketingChannelPanelLabel.TabIndex = 52;
+            createCustomerLeadMarketingChannelPanelLabel.Text = "Attribute to Marketing Channel?";
             // 
-            // createCustomerLeadMarketingChannelChoiceNoRadioButton
+            // createCustomerLeadMarketingChannelPanelNoRadioButton
             // 
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.AutoSize = true;
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.Checked = true;
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.Location = new Point(177, 32);
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.Name = "createCustomerLeadMarketingChannelChoiceNoRadioButton";
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.Size = new Size(47, 24);
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.TabIndex = 3;
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.TabStop = true;
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.Text = "No";
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.AutoSize = true;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.Checked = true;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.Location = new Point(177, 12);
+            createCustomerLeadMarketingChannelPanelNoRadioButton.Name = "createCustomerLeadMarketingChannelPanelNoRadioButton";
+            createCustomerLeadMarketingChannelPanelNoRadioButton.Size = new Size(47, 24);
+            createCustomerLeadMarketingChannelPanelNoRadioButton.TabIndex = 3;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.TabStop = true;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.Text = "No";
+            createCustomerLeadMarketingChannelPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
             // createCustomerLeadCustomerLeadTargetDatePanel
             // 
-            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton);
-            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDateChoiceLabel);
-            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePickerLabel);
-            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton);
-            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePicker);
-            createCustomerLeadCustomerLeadTargetDatePanel.Location = new Point(13, 552);
+            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton);
+            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel);
+            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton);
+            createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker);
+            createCustomerLeadCustomerLeadTargetDatePanel.Location = new Point(13, 568);
             createCustomerLeadCustomerLeadTargetDatePanel.Name = "createCustomerLeadCustomerLeadTargetDatePanel";
-            createCustomerLeadCustomerLeadTargetDatePanel.Size = new Size(640, 103);
+            createCustomerLeadCustomerLeadTargetDatePanel.Size = new Size(640, 83);
             createCustomerLeadCustomerLeadTargetDatePanel.TabIndex = 59;
             // 
-            // createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton
+            // createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton
             // 
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.AutoSize = true;
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Location = new Point(251, 32);
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Name = "createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton";
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Size = new Size(48, 24);
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.TabIndex = 7;
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Text = "Yes";
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.AutoSize = true;
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Location = new Point(251, 8);
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Name = "createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton";
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Size = new Size(48, 24);
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.TabIndex = 7;
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Text = "Yes";
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadCustomerLeadTargetDateChoiceLabel
+            // createCustomerLeadCustomerLeadTargetDatePanelLabel
             // 
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.Location = new Point(177, 9);
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.Name = "createCustomerLeadCustomerLeadTargetDateChoiceLabel";
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.Size = new Size(149, 20);
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.TabIndex = 52;
-            createCustomerLeadCustomerLeadTargetDateChoiceLabel.Text = "Specific Target Date?";
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.AutoSize = true;
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Location = new Point(13, 545);
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Name = "createCustomerLeadCustomerLeadTargetDatePanelLabel";
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Size = new Size(149, 20);
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.TabIndex = 52;
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Text = "Specific Target Date?";
             // 
-            // createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton
+            // createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton
             // 
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.AutoSize = true;
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Checked = true;
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Location = new Point(177, 32);
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Name = "createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton";
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Size = new Size(47, 24);
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.TabIndex = 6;
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.TabStop = true;
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Text = "No";
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.UseVisualStyleBackColor = true;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.AutoSize = true;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Checked = true;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Location = new Point(177, 8);
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Name = "createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton";
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Size = new Size(47, 24);
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.TabIndex = 6;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.TabStop = true;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Text = "No";
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
             // createCustomerLeadActiveStatusCheckbox
             // 
@@ -348,6 +345,9 @@
             BackColor = Color.LightGreen;
             ClientSize = new Size(671, 931);
             Controls.Add(createCustomerLeadActiveStatusCheckbox);
+            Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelLabel);
+            Controls.Add(createCustomerLeadCustomerContactPanelLabel);
+            Controls.Add(createCustomerLeadMarketingChannelPanelLabel);
             Controls.Add(createCustomerLeadCustomerLeadTargetDatePanel);
             Controls.Add(createCustomerLeadMarketingChannelPanel);
             Controls.Add(createCustomerLeadCustomerLeadTypeComboBoxLabel);
@@ -379,31 +379,31 @@
         #endregion
 
         private Label createCustomerLeadTitleLabel;
-        private ComboBox createCustomerLeadCustomerContactComboBox;
+        private ComboBox createCustomerLeadCustomerContactPanelCustomerContactComboBox;
         private ComboBox createCustomerLeadCustomerLeadTypeComboBox;
         private TextBox createCustomerLeadCustomerLeadTitleTextbox;
         private TextBox createCustomerLeadCustomerLeadTextbox;
-        private ComboBox createCustomerLeadMarketingChannelComboBox;
-        private DateTimePicker createCustomerLeadCustomerLeadTargetDatePicker;
+        private ComboBox createCustomerLeadMarketingChannelPanelMarketingChannelComboBox;
+        private DateTimePicker createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker;
         private Panel createCustomerLeadCustomerContactPanel;
         private Button createCustomerLeadSubmitButton;
-        private RadioButton createCustomerLeadCustomerContactChoiceNoRadioButton;
-        private RadioButton createCustomerLeadCustomerContactChoiceYesRadioButton;
-        private Label createCustomerLeadCustomerContactComboBoxLabel;
-        private Label createCustomerLeadCustomerContactChoiceLabel;
+        private RadioButton createCustomerLeadCustomerContactPanelNoRadioButton;
+        private RadioButton createCustomerLeadCustomerContactPanelYesRadioButton;
+        private Label createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel;
+        private Label createCustomerLeadCustomerContactPanelLabel;
         private Label createCustomerLeadCustomerLeadTextboxLabel;
         private Label createCustomerLeadCustomerLeadTitleTextboxLabel;
         private Label createCustomerLeadCustomerLeadTypeComboBoxLabel;
-        private Label createCustomerLeadMarketingChannelComboBoxLabel;
-        private Label createCustomerLeadCustomerLeadTargetDatePickerLabel;
+        private Label createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel;
+        private Label createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel;
         private Panel createCustomerLeadMarketingChannelPanel;
-        private RadioButton createCustomerLeadMarketingChannelChoiceYesRadioButton;
-        private Label createCustomerLeadMarketingChannelChoiceLabel;
-        private RadioButton createCustomerLeadMarketingChannelChoiceNoRadioButton;
+        private RadioButton createCustomerLeadMarketingChannelPanelYesRadioButton;
+        private Label createCustomerLeadMarketingChannelPanelLabel;
+        private RadioButton createCustomerLeadMarketingChannelPanelNoRadioButton;
         private Panel createCustomerLeadCustomerLeadTargetDatePanel;
-        private RadioButton createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton;
-        private Label createCustomerLeadCustomerLeadTargetDateChoiceLabel;
-        private RadioButton createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton;
+        private RadioButton createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton;
+        private Label createCustomerLeadCustomerLeadTargetDatePanelLabel;
+        private RadioButton createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton;
         private CheckBox createCustomerLeadActiveStatusCheckbox;
     }
 }

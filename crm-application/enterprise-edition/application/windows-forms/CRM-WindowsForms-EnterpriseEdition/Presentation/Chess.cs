@@ -202,12 +202,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             return piece switch
             {
-                Pawn => 1,
-                Knight => 3,
-                Bishop => 3,
-                Rook => 5,
-                Queen => 9,
-                King => 0,
+                ChessPiecePawn => 1,
+                ChessPieceKnight => 3,
+                ChessPieceBishop => 3,
+                ChessPieceRook => 5,
+                ChessPieceQueen => 9,
+                ChessPieceKing => 0,
                 _ => 0
             };
         }
@@ -262,7 +262,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         UpdateScoreboard();
 
                         // If a king is captured, end the game immediately
-                        if (captured is King)
+                        if (captured is ChessPieceKing)
                         {
                             string winner = captured.Color == ChessColor.White ? "Black" : "White";
                             MessageBox.Show($"Checkmate! {winner} wins by capturing the king.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -397,7 +397,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 UpdateScoreboard();
 
                 // If a king is captured, end the game immediately
-                if (captured is King)
+                if (captured is ChessPieceKing)
                 {
                     string winner = captured.Color == ChessColor.White ? "Black" : "White";
                     MessageBox.Show($"Checkmate! {winner} wins by capturing the king.", "Game Over", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -501,7 +501,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 for (int y = 0; y < BoardSize; y++)
                 {
                     var p = board.GetPiece(x, y);
-                    if (p is King && p.Color == kingColor)
+                    if (p is ChessPieceKing && p.Color == kingColor)
                         kingPos = new Point(x, y);
                 }
             if (kingPos == null) return false;

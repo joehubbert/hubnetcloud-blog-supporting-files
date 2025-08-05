@@ -65,6 +65,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.BackColor = Color.MediumAquamarine;
                     viewAllDataDataGridView.BackgroundColor = Color.MediumAquamarine;
                     break;
+                default:
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
+                    break;
             }
         }
 
@@ -460,7 +463,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
-                    MessageBox.Show($"{functionTitle} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
                     break;
             }
 
@@ -472,7 +475,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -501,7 +504,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (dataTable.Rows.Count == 0)
                 {
-                    MessageBox.Show("No data found.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", functionFriendlyName);
                 }
                 else
                 {
@@ -525,7 +528,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load {functionFriendlyName}: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", functionFriendlyName, ex.Message);
             }
         }
 
@@ -560,544 +563,243 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 try
                 {
-                    switch(_functionTitle)
+                    if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
                     {
-                        case "AccountManager":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                        switch (_functionTitle)
+                        {
+                            case "AccountManager":
                                 Guid accountManagerId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 AccountManagerDetail accountManagerDetail = new AccountManagerDetail(accountManagerId);
                                 accountManagerDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CompanyConfiguration":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "CompanyConfiguration":
                                 Guid companyConfigurationId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CompanyConfigurationDetail companyConfigurationDetail = new CompanyConfigurationDetail(companyConfigurationId);
                                 companyConfigurationDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Country":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "Country":
                                 Guid countryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CountryDetail countryDetail = new CountryDetail(countryId);
                                 countryDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CountryTranslation":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "CountryTranslation":
                                 Guid countryTranslationId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CountryTranslationDetail countryTranslationDetail = new CountryTranslationDetail(countryTranslationId);
                                 countryTranslationDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Currency":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "Currency":
                                 Guid currencyId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CurrencyDetail currencyDetail = new CurrencyDetail(currencyId);
                                 currencyDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CurrencyConversion":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "CurrencyConversion":
                                 Guid currencyConversionId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CurrencyConversionDetail currencyConversionDetail = new CurrencyConversionDetail(currencyConversionId);
                                 currencyConversionDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Customer":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "Customer":
                                 Guid customerId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CustomerDetail customerDetail = new CustomerDetail(customerId);
                                 customerDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerContact":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "CustomerContact":
                                 Guid customerContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                ContactDetail contactDetail = new ContactDetail("Customer", customerContactId);
-                                contactDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerLeadNoteType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                ContactDetail contactDetailCustomer = new ContactDetail("Customer", customerContactId);
+                                contactDetailCustomer.Show();
+                                break;
+                            case "CustomerLeadNoteType":
                                 Guid customerLeadNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerLeadNoteTypeId, _functionTitle, "CustomerManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerLeadStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailCustomerLeadNoteType = new MasterDataSimpleDetail(customerLeadNoteTypeId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetailCustomerLeadNoteType.Show();
+                                break;
+                            case "CustomerLeadStatus":
                                 Guid customerLeadStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerLeadStatusId, _functionTitle, "CustomerManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerLeadType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailCustomerLeadStatus = new MasterDataSimpleDetail(customerLeadStatusId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetailCustomerLeadStatus.Show();
+                                break;
+                            case "CustomerLeadType":
                                 Guid customerLeadTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(customerLeadTypeId, _functionTitle, "CustomerManagement");
-                                masterDataEnhancedDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerNoteType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataEnhancedDetail masterDataEnhancedDetailCustomerLeadType = new MasterDataEnhancedDetail(customerLeadTypeId, _functionTitle, "CustomerManagement");
+                                masterDataEnhancedDetailCustomerLeadType.Show();
+                                break;
+                            case "CustomerNoteType":
                                 Guid customerNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(customerNoteTypeId, _functionTitle, "CustomerManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerTier":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailCustomerNoteType = new MasterDataSimpleDetail(customerNoteTypeId, _functionTitle, "CustomerManagement");
+                                masterDataSimpleDetailCustomerNoteType.Show();
+                                break;
+                            case "CustomerTier":
                                 Guid customerTierId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CustomerTierDetail customerTierDetail = new CustomerTierDetail(customerTierId);
                                 customerTierDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "CustomerType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "CustomerType":
                                 Guid customerTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(customerTypeId, _functionTitle, "CustomerManagement");
-                                masterDataEnhancedDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "DeliveryMethod":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataEnhancedDetail masterDataEnhancedDetailCustomerType = new MasterDataEnhancedDetail(customerTypeId, _functionTitle, "CustomerManagement");
+                                masterDataEnhancedDetailCustomerType.Show();
+                                break;
+                            case "DeliveryMethod":
                                 Guid deliveryMethodId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 DeliveryMethodDetail deliveryMethodDetail = new DeliveryMethodDetail(deliveryMethodId);
                                 deliveryMethodDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "HTMLTemplate":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "HTMLTemplate":
                                 Guid htmlTemplateId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(htmlTemplateId, _functionTitle, "CompanyManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "HTMLTemplateType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                HTMLTemplateDetail htmlTemplateDetail = new HTMLTemplateDetail(htmlTemplateId);
+                                htmlTemplateDetail.Show();
+                                break;
+                            case "HTMLTemplateType":
                                 Guid htmlTemplateTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(htmlTemplateTypeId, _functionTitle, "CompanyManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "MarketingCampaign":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailHTMLTemplateType = new MasterDataSimpleDetail(htmlTemplateTypeId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetailHTMLTemplateType.Show();
+                                break;
+                            case "MarketingCampaign":
                                 Guid marketingCampaignId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 MarketingCampaignDetail marketingCampaignDetail = new MarketingCampaignDetail(marketingCampaignId);
                                 marketingCampaignDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "MarketingCampaignStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "MarketingCampaignStatus":
                                 Guid marketingCampaignStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingCampaignStatusId, _functionTitle, "MarketingManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "MarketingCampaignType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailMarketingCampaignStatus = new MasterDataSimpleDetail(marketingCampaignStatusId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetailMarketingCampaignStatus.Show();
+                                break;
+                            case "MarketingCampaignType":
                                 Guid marketingCampaignTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingCampaignTypeId, _functionTitle, "MarketingManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "MarketingChannel":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailMarketingCampaignType = new MasterDataSimpleDetail(marketingCampaignTypeId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetailMarketingCampaignType.Show();
+                                break;
+                            case "MarketingChannel":
                                 Guid marketingChannelId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(marketingChannelId, _functionTitle, "MarketingManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Order":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailMarketingChannel = new MasterDataSimpleDetail(marketingChannelId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetailMarketingChannel.Show();
+                                break;
+                            case "Order":
                                 Guid orderId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 OrderDetail orderDetail = new OrderDetail(orderId);
                                 orderDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "OrderLineItemStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "OrderLineItemStatus":
                                 Guid orderLineItemStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderLineItemStatusId, _functionTitle, "OrderManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "OrderPaymentStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailOrderLineItemStatus = new MasterDataSimpleDetail(orderLineItemStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetailOrderLineItemStatus.Show();
+                                break;
+                            case "OrderPaymentStatus":
                                 Guid orderPaymentStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderPaymentStatusId, _functionTitle, "OrderManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "OrderStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailOrderPaymentStatus = new MasterDataSimpleDetail(orderPaymentStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetailOrderPaymentStatus.Show();
+                                break;
+                            case "OrderStatus":
                                 Guid orderStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderStatusId, _functionTitle, "OrderManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "OrderType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailOrderStatus = new MasterDataSimpleDetail(orderStatusId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetailOrderStatus.Show();
+                                break;
+                            case "OrderType":
                                 Guid orderTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(orderTypeId, _functionTitle, "OrderManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "PaymentMethod":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailOrderType = new MasterDataSimpleDetail(orderTypeId, _functionTitle, "OrderManagement");
+                                masterDataSimpleDetailOrderType.Show();
+                                break;
+                            case "PaymentMethod":
                                 Guid paymentMethodId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(paymentMethodId, _functionTitle, "CompanyManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Product":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailPaymentMethod = new MasterDataSimpleDetail(paymentMethodId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetailPaymentMethod.Show();
+                                break;
+                            case "Product":
                                 Guid productId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 ProductDetail productDetail = new ProductDetail(productId);
                                 productDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "ProductCategory":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "ProductCategory":
                                 Guid productCategoryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productCategoryId, _functionTitle, "ProductManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "ProductFamily":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailProductCategory = new MasterDataSimpleDetail(productCategoryId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetailProductCategory.Show();
+                                break;
+                            case "ProductFamily":
                                 Guid productFamilyId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productFamilyId, _functionTitle, "ProductManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "ProductNoteType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailProductFamily = new MasterDataSimpleDetail(productFamilyId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetailProductFamily.Show();
+                                break;
+                            case "ProductNoteType":
                                 Guid productNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(productNoteTypeId, _functionTitle, "ProductManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "ProductSubCategory":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailProductNoteType = new MasterDataSimpleDetail(productNoteTypeId, _functionTitle, "ProductManagement");
+                                masterDataSimpleDetailProductNoteType.Show();
+                                break;
+                            case "ProductSubCategory":
                                 Guid productSubCategoryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataAdvancedDetail masterDataAdvancedDetail = new MasterDataAdvancedDetail(productSubCategoryId, _functionTitle, "ProductManagement");
-                                masterDataAdvancedDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "PromotionTargetType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataAdvancedDetail masterDataAdvancedDetailProductSubCategory = new MasterDataAdvancedDetail(productSubCategoryId, _functionTitle, "ProductManagement");
+                                masterDataAdvancedDetailProductSubCategory.Show();
+                                break;
+                            case "PromotionTargetType":
                                 Guid promotionTargetTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataEnhancedDetail masterDataEnhancedDetail = new MasterDataEnhancedDetail(promotionTargetTypeId, _functionTitle, "MarketingManagement");
-                                masterDataEnhancedDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "PromotionType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataEnhancedDetail masterDataEnhancedDetailPromotionTargetType = new MasterDataEnhancedDetail(promotionTargetTypeId, _functionTitle, "MarketingManagement");
+                                masterDataEnhancedDetailPromotionTargetType.Show();
+                                break;
+                            case "PromotionType":
                                 Guid promotionTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(promotionTypeId, _functionTitle, "MarketingManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SalesRegion":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailPromotionType = new MasterDataSimpleDetail(promotionTypeId, _functionTitle, "MarketingManagement");
+                                masterDataSimpleDetailPromotionType.Show();
+                                break;
+                            case "SalesRegion":
                                 Guid salesRegionId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(salesRegionId, _functionTitle, "CompanyManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SalesSubRegion":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailSalesRegion = new MasterDataSimpleDetail(salesRegionId, _functionTitle, "CompanyManagement");
+                                masterDataSimpleDetailSalesRegion.Show();
+                                break;
+                            case "SalesSubRegion":
                                 Guid salesSubRegionId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataAdvancedDetail masterDataAdvancedDetail = new MasterDataAdvancedDetail(salesSubRegionId, _functionTitle, "CompanyManagement");
-                                masterDataAdvancedDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "Supplier":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataAdvancedDetail masterDataAdvancedDetailSalesSubRegion = new MasterDataAdvancedDetail(salesSubRegionId, _functionTitle, "CompanyManagement");
+                                masterDataAdvancedDetailSalesSubRegion.Show();
+                                break;
+                            case "Supplier":
                                 Guid supplierId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 SupplierDetail supplierDetail = new SupplierDetail(supplierId);
                                 supplierDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierContact":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "SupplierContact":
                                 Guid supplierContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                ContactDetail contactDetail = new ContactDetail("Supplier", supplierContactId);
-                                contactDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierNoteType":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                ContactDetail contactDetailSupplier = new ContactDetail("Supplier", supplierContactId);
+                                contactDetailSupplier.Show();
+                                break;
+                            case "SupplierNoteType":
                                 Guid supplierNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierNoteTypeId, _functionTitle, "SupplierManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierOrder":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailSupplierNoteType = new MasterDataSimpleDetail(supplierNoteTypeId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetailSupplierNoteType.Show();
+                                break;
+                            case "SupplierOrder":
                                 Guid supplierOrderId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 SupplierOrderDetail supplierOrderDetail = new SupplierOrderDetail(supplierOrderId);
                                 supplierOrderDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierOrderLineItemStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                break;
+                            case "SupplierOrderLineItemStatus":
                                 Guid supplierOrderLineItemStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderLineItemStatusId, _functionTitle, "SupplierManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierOrderPaymentStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailSupplierOrderLineItemStatus = new MasterDataSimpleDetail(supplierOrderLineItemStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetailSupplierOrderLineItemStatus.Show();
+                                break;
+                            case "SupplierOrderPaymentStatus":
                                 Guid supplierOrderPaymentStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderPaymentStatusId, _functionTitle, "SupplierManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "SupplierOrderStatus":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailSupplierOrderPaymentStatus = new MasterDataSimpleDetail(supplierOrderPaymentStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetailSupplierOrderPaymentStatus.Show();
+                                break;
+                            case "SupplierOrderStatus":
                                 Guid supplierOrderStatusId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                MasterDataSimpleDetail masterDataSimpleDetail = new MasterDataSimpleDetail(supplierOrderStatusId, _functionTitle, "SupplierManagement");
-                                masterDataSimpleDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        case "TaxProfile":
-                            if (viewAllDataDataGridView.Columns.Contains(dataSubjectIdentityColumn))
-                            {
+                                MasterDataSimpleDetail masterDataSimpleDetailSupplierOrderStatus = new MasterDataSimpleDetail(supplierOrderStatusId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetailSupplierOrderStatus.Show();
+                                break;
+                            case "TaxProfile":
                                 Guid taxProfileId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 TaxProfileDetail taxProfileDetail = new TaxProfileDetail(taxProfileId);
                                 taxProfileDetail.Show();
-                            }
-                            else
-                            {
-                                MessageBox.Show($"{dataSubjectIdentityColumn} column not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            }
-                            break;
-                        default:
-                            MessageBox.Show("Function not implemented.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            break;
+                                break;
+                            default:
+                                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle);
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubjectIdentityColumn);
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Failed to open {dataSubjectFriendlyName} details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubjectFriendlyName, ex.Message);
                 }
             }
         }

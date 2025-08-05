@@ -30,32 +30,32 @@
         {
             createManufacturerTitleLabel = new Label();
             createManufacturerTabControl = new TabControl();
-            createManufacturerTabControlOverviewPage = new TabPage();
-            createManufacturerOverviewAddressLine2Label = new Label();
-            createManufacturerOverviewAddressLine3Label = new Label();
-            createManufacturerOverviewAddressLine4Label = new Label();
-            createManufacturerOverviewAddressLine5Label = new Label();
-            createManufacturerOverviewAddressLine1Label = new Label();
-            createManufacturerOverviewAddressLine4Textbox = new TextBox();
-            createManufacturerOverviewAddressLine5Textbox = new TextBox();
-            createManufacturerOverviewAddressLine3Textbox = new TextBox();
-            createManufacturerOverviewAddressLine2Textbox = new TextBox();
-            createManufacturerOverviewAddressLine1Textbox = new TextBox();
-            createManufacturerOverviewEmailAddressLabel = new Label();
-            createManufacturerOverviewTelephoneNumberLabel = new Label();
-            createManufacturerOverviewEmailAddressTextbox = new TextBox();
-            createManufacturerOverviewTelephoneNumberTextbox = new TextBox();
-            createManufacturerOverviewManufacturerNameLabel = new Label();
-            createManufacturerOverviewManufacturerNameTextbox = new TextBox();
-            createManufacturerOverviewActiveStatusCheckbox = new CheckBox();
-            createManufacturerTabControlFinancePage = new TabPage();
-            createManufacturerFinanceVATNumberTextboxLabel = new Label();
-            createManufacturerFinanceVATNumberTextbox = new TextBox();
-            createManufacturerFinanceVATRegisteredCheckbox = new CheckBox();
+            createManufacturerTabControlOverviewTabPage = new TabPage();
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox = new TextBox();
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            createManufacturerTabControlFinanceTabPage = new TabPage();
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel = new Label();
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox = new TextBox();
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
             createManufacturerSubmitButton = new Button();
             createManufacturerTabControl.SuspendLayout();
-            createManufacturerTabControlOverviewPage.SuspendLayout();
-            createManufacturerTabControlFinancePage.SuspendLayout();
+            createManufacturerTabControlOverviewTabPage.SuspendLayout();
+            createManufacturerTabControlFinanceTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // createManufacturerTitleLabel
@@ -72,242 +72,242 @@
             // createManufacturerTabControl
             // 
             createManufacturerTabControl.Appearance = TabAppearance.FlatButtons;
-            createManufacturerTabControl.Controls.Add(createManufacturerTabControlOverviewPage);
-            createManufacturerTabControl.Controls.Add(createManufacturerTabControlFinancePage);
+            createManufacturerTabControl.Controls.Add(createManufacturerTabControlOverviewTabPage);
+            createManufacturerTabControl.Controls.Add(createManufacturerTabControlFinanceTabPage);
             createManufacturerTabControl.Location = new Point(13, 53);
             createManufacturerTabControl.Name = "createManufacturerTabControl";
             createManufacturerTabControl.SelectedIndex = 0;
             createManufacturerTabControl.Size = new Size(1075, 406);
             createManufacturerTabControl.TabIndex = 0;
             // 
-            // createManufacturerTabControlOverviewPage
+            // createManufacturerTabControlOverviewTabPage
             // 
-            createManufacturerTabControlOverviewPage.BackColor = Color.SkyBlue;
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine2Label);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine3Label);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine4Label);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine5Label);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine1Label);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine4Textbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine5Textbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine3Textbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine2Textbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewAddressLine1Textbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewEmailAddressLabel);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewTelephoneNumberLabel);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewEmailAddressTextbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewTelephoneNumberTextbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewManufacturerNameLabel);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewManufacturerNameTextbox);
-            createManufacturerTabControlOverviewPage.Controls.Add(createManufacturerOverviewActiveStatusCheckbox);
-            createManufacturerTabControlOverviewPage.Location = new Point(4, 32);
-            createManufacturerTabControlOverviewPage.Name = "createManufacturerTabControlOverviewPage";
-            createManufacturerTabControlOverviewPage.Padding = new Padding(3);
-            createManufacturerTabControlOverviewPage.Size = new Size(1067, 370);
-            createManufacturerTabControlOverviewPage.TabIndex = 0;
-            createManufacturerTabControlOverviewPage.Text = "Overview";
+            createManufacturerTabControlOverviewTabPage.BackColor = Color.SkyBlue;
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine4Textbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5Textbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine3Textbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine2Textbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine1Textbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageEmailAddressTextbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageManufacturerNameTextbox);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageActiveStatusCheckbox);
+            createManufacturerTabControlOverviewTabPage.Location = new Point(4, 32);
+            createManufacturerTabControlOverviewTabPage.Name = "createManufacturerTabControlOverviewTabPage";
+            createManufacturerTabControlOverviewTabPage.Padding = new Padding(3);
+            createManufacturerTabControlOverviewTabPage.Size = new Size(1067, 370);
+            createManufacturerTabControlOverviewTabPage.TabIndex = 0;
+            createManufacturerTabControlOverviewTabPage.Text = "Overview";
             // 
-            // createManufacturerOverviewAddressLine2Label
+            // createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel
             // 
-            createManufacturerOverviewAddressLine2Label.AutoSize = true;
-            createManufacturerOverviewAddressLine2Label.Location = new Point(505, 76);
-            createManufacturerOverviewAddressLine2Label.Name = "createManufacturerOverviewAddressLine2Label";
-            createManufacturerOverviewAddressLine2Label.Size = new Size(105, 20);
-            createManufacturerOverviewAddressLine2Label.TabIndex = 57;
-            createManufacturerOverviewAddressLine2Label.Text = "Address Line 2";
-            createManufacturerOverviewAddressLine2Label.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.Location = new Point(519, 76);
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.Size = new Size(105, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.TabIndex = 57;
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.Text = "Address Line 2";
+            createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewAddressLine3Label
+            // createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel
             // 
-            createManufacturerOverviewAddressLine3Label.AutoSize = true;
-            createManufacturerOverviewAddressLine3Label.Location = new Point(505, 121);
-            createManufacturerOverviewAddressLine3Label.Name = "createManufacturerOverviewAddressLine3Label";
-            createManufacturerOverviewAddressLine3Label.Size = new Size(111, 20);
-            createManufacturerOverviewAddressLine3Label.TabIndex = 56;
-            createManufacturerOverviewAddressLine3Label.Text = "Address Line 3*";
-            createManufacturerOverviewAddressLine3Label.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.Location = new Point(519, 121);
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.Size = new Size(111, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.TabIndex = 56;
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.Text = "Address Line 3*";
+            createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewAddressLine4Label
+            // createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel
             // 
-            createManufacturerOverviewAddressLine4Label.AutoSize = true;
-            createManufacturerOverviewAddressLine4Label.Location = new Point(505, 166);
-            createManufacturerOverviewAddressLine4Label.Name = "createManufacturerOverviewAddressLine4Label";
-            createManufacturerOverviewAddressLine4Label.Size = new Size(111, 20);
-            createManufacturerOverviewAddressLine4Label.TabIndex = 55;
-            createManufacturerOverviewAddressLine4Label.Text = "Address Line 4*";
-            createManufacturerOverviewAddressLine4Label.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.Location = new Point(519, 166);
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.Size = new Size(111, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.TabIndex = 55;
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
+            createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewAddressLine5Label
+            // createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel
             // 
-            createManufacturerOverviewAddressLine5Label.AutoSize = true;
-            createManufacturerOverviewAddressLine5Label.Location = new Point(505, 211);
-            createManufacturerOverviewAddressLine5Label.Name = "createManufacturerOverviewAddressLine5Label";
-            createManufacturerOverviewAddressLine5Label.Size = new Size(111, 20);
-            createManufacturerOverviewAddressLine5Label.TabIndex = 54;
-            createManufacturerOverviewAddressLine5Label.Text = "Address Line 5*";
-            createManufacturerOverviewAddressLine5Label.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Location = new Point(519, 211);
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.TabIndex = 54;
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
+            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewAddressLine1Label
+            // createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel
             // 
-            createManufacturerOverviewAddressLine1Label.AutoSize = true;
-            createManufacturerOverviewAddressLine1Label.Location = new Point(505, 31);
-            createManufacturerOverviewAddressLine1Label.Name = "createManufacturerOverviewAddressLine1Label";
-            createManufacturerOverviewAddressLine1Label.Size = new Size(111, 20);
-            createManufacturerOverviewAddressLine1Label.TabIndex = 53;
-            createManufacturerOverviewAddressLine1Label.Text = "Address Line 1*";
-            createManufacturerOverviewAddressLine1Label.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.Location = new Point(519, 31);
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.Size = new Size(111, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.TabIndex = 53;
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.Text = "Address Line 1*";
+            createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewAddressLine4Textbox
+            // createManufacturerTabControlOverviewTabPageAddressLine4Textbox
             // 
-            createManufacturerOverviewAddressLine4Textbox.Location = new Point(636, 163);
-            createManufacturerOverviewAddressLine4Textbox.MaxLength = 50;
-            createManufacturerOverviewAddressLine4Textbox.Name = "createManufacturerOverviewAddressLine4Textbox";
-            createManufacturerOverviewAddressLine4Textbox.Size = new Size(336, 27);
-            createManufacturerOverviewAddressLine4Textbox.TabIndex = 61;
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Location = new Point(636, 163);
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine4Textbox";
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Size = new Size(336, 27);
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 61;
             // 
-            // createManufacturerOverviewAddressLine5Textbox
+            // createManufacturerTabControlOverviewTabPageAddressLine5Textbox
             // 
-            createManufacturerOverviewAddressLine5Textbox.Location = new Point(636, 208);
-            createManufacturerOverviewAddressLine5Textbox.MaxLength = 50;
-            createManufacturerOverviewAddressLine5Textbox.Name = "createManufacturerOverviewAddressLine5Textbox";
-            createManufacturerOverviewAddressLine5Textbox.Size = new Size(336, 27);
-            createManufacturerOverviewAddressLine5Textbox.TabIndex = 62;
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Location = new Point(636, 208);
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine5Textbox";
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Size = new Size(336, 27);
+            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.TabIndex = 62;
             // 
-            // createManufacturerOverviewAddressLine3Textbox
+            // createManufacturerTabControlOverviewTabPageAddressLine3Textbox
             // 
-            createManufacturerOverviewAddressLine3Textbox.Location = new Point(636, 118);
-            createManufacturerOverviewAddressLine3Textbox.MaxLength = 50;
-            createManufacturerOverviewAddressLine3Textbox.Name = "createManufacturerOverviewAddressLine3Textbox";
-            createManufacturerOverviewAddressLine3Textbox.Size = new Size(336, 27);
-            createManufacturerOverviewAddressLine3Textbox.TabIndex = 60;
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Location = new Point(636, 118);
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine3Textbox";
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Size = new Size(336, 27);
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.TabIndex = 60;
             // 
-            // createManufacturerOverviewAddressLine2Textbox
+            // createManufacturerTabControlOverviewTabPageAddressLine2Textbox
             // 
-            createManufacturerOverviewAddressLine2Textbox.Location = new Point(636, 73);
-            createManufacturerOverviewAddressLine2Textbox.MaxLength = 50;
-            createManufacturerOverviewAddressLine2Textbox.Name = "createManufacturerOverviewAddressLine2Textbox";
-            createManufacturerOverviewAddressLine2Textbox.Size = new Size(336, 27);
-            createManufacturerOverviewAddressLine2Textbox.TabIndex = 59;
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Location = new Point(636, 73);
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine2Textbox";
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Size = new Size(336, 27);
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.TabIndex = 59;
             // 
-            // createManufacturerOverviewAddressLine1Textbox
+            // createManufacturerTabControlOverviewTabPageAddressLine1Textbox
             // 
-            createManufacturerOverviewAddressLine1Textbox.Location = new Point(636, 28);
-            createManufacturerOverviewAddressLine1Textbox.MaxLength = 50;
-            createManufacturerOverviewAddressLine1Textbox.Name = "createManufacturerOverviewAddressLine1Textbox";
-            createManufacturerOverviewAddressLine1Textbox.Size = new Size(336, 27);
-            createManufacturerOverviewAddressLine1Textbox.TabIndex = 58;
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Location = new Point(636, 28);
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine1Textbox";
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Size = new Size(336, 27);
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.TabIndex = 58;
             // 
-            // createManufacturerOverviewEmailAddressLabel
+            // createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel
             // 
-            createManufacturerOverviewEmailAddressLabel.AutoSize = true;
-            createManufacturerOverviewEmailAddressLabel.Location = new Point(45, 117);
-            createManufacturerOverviewEmailAddressLabel.Name = "createManufacturerOverviewEmailAddressLabel";
-            createManufacturerOverviewEmailAddressLabel.Size = new Size(109, 20);
-            createManufacturerOverviewEmailAddressLabel.TabIndex = 52;
-            createManufacturerOverviewEmailAddressLabel.Text = "Email Address*";
-            createManufacturerOverviewEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.Location = new Point(53, 117);
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.Name = "createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel";
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.Size = new Size(109, 20);
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.TabIndex = 52;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.Text = "Email Address*";
+            createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewTelephoneNumberLabel
+            // createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel
             // 
-            createManufacturerOverviewTelephoneNumberLabel.AutoSize = true;
-            createManufacturerOverviewTelephoneNumberLabel.Location = new Point(12, 74);
-            createManufacturerOverviewTelephoneNumberLabel.Name = "createManufacturerOverviewTelephoneNumberLabel";
-            createManufacturerOverviewTelephoneNumberLabel.Size = new Size(142, 20);
-            createManufacturerOverviewTelephoneNumberLabel.TabIndex = 51;
-            createManufacturerOverviewTelephoneNumberLabel.Text = "Telephone Number*";
-            createManufacturerOverviewTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.Location = new Point(20, 76);
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.Name = "createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel";
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.Size = new Size(142, 20);
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.TabIndex = 51;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.Text = "Telephone Number*";
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewEmailAddressTextbox
+            // createManufacturerTabControlOverviewTabPageEmailAddressTextbox
             // 
-            createManufacturerOverviewEmailAddressTextbox.Location = new Point(168, 114);
-            createManufacturerOverviewEmailAddressTextbox.MaxLength = 50;
-            createManufacturerOverviewEmailAddressTextbox.Name = "createManufacturerOverviewEmailAddressTextbox";
-            createManufacturerOverviewEmailAddressTextbox.Size = new Size(234, 27);
-            createManufacturerOverviewEmailAddressTextbox.TabIndex = 5;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Location = new Point(168, 114);
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Name = "createManufacturerTabControlOverviewTabPageEmailAddressTextbox";
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Size = new Size(234, 27);
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.TabIndex = 5;
             // 
-            // createManufacturerOverviewTelephoneNumberTextbox
+            // createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox
             // 
-            createManufacturerOverviewTelephoneNumberTextbox.Location = new Point(168, 71);
-            createManufacturerOverviewTelephoneNumberTextbox.MaxLength = 50;
-            createManufacturerOverviewTelephoneNumberTextbox.Name = "createManufacturerOverviewTelephoneNumberTextbox";
-            createManufacturerOverviewTelephoneNumberTextbox.Size = new Size(234, 27);
-            createManufacturerOverviewTelephoneNumberTextbox.TabIndex = 4;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Location = new Point(168, 71);
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Name = "createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox";
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Size = new Size(234, 27);
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.TabIndex = 4;
             // 
-            // createManufacturerOverviewManufacturerNameLabel
+            // createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel
             // 
-            createManufacturerOverviewManufacturerNameLabel.AutoSize = true;
-            createManufacturerOverviewManufacturerNameLabel.Location = new Point(7, 31);
-            createManufacturerOverviewManufacturerNameLabel.Name = "createManufacturerOverviewManufacturerNameLabel";
-            createManufacturerOverviewManufacturerNameLabel.Size = new Size(147, 20);
-            createManufacturerOverviewManufacturerNameLabel.TabIndex = 28;
-            createManufacturerOverviewManufacturerNameLabel.Text = "Manufacturer Name*";
-            createManufacturerOverviewManufacturerNameLabel.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.Location = new Point(15, 31);
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.Name = "createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel";
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.Size = new Size(147, 20);
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.TabIndex = 28;
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.Text = "Manufacturer Name*";
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerOverviewManufacturerNameTextbox
+            // createManufacturerTabControlOverviewTabPageManufacturerNameTextbox
             // 
-            createManufacturerOverviewManufacturerNameTextbox.Location = new Point(168, 28);
-            createManufacturerOverviewManufacturerNameTextbox.MaxLength = 50;
-            createManufacturerOverviewManufacturerNameTextbox.Name = "createManufacturerOverviewManufacturerNameTextbox";
-            createManufacturerOverviewManufacturerNameTextbox.Size = new Size(234, 27);
-            createManufacturerOverviewManufacturerNameTextbox.TabIndex = 1;
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Location = new Point(168, 28);
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.MaxLength = 50;
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Name = "createManufacturerTabControlOverviewTabPageManufacturerNameTextbox";
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Size = new Size(234, 27);
+            createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.TabIndex = 1;
             // 
-            // createManufacturerOverviewActiveStatusCheckbox
+            // createManufacturerTabControlOverviewTabPageActiveStatusCheckbox
             // 
-            createManufacturerOverviewActiveStatusCheckbox.AutoSize = true;
-            createManufacturerOverviewActiveStatusCheckbox.Checked = true;
-            createManufacturerOverviewActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createManufacturerOverviewActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createManufacturerOverviewActiveStatusCheckbox.Location = new Point(168, 307);
-            createManufacturerOverviewActiveStatusCheckbox.Margin = new Padding(4);
-            createManufacturerOverviewActiveStatusCheckbox.Name = "createManufacturerOverviewActiveStatusCheckbox";
-            createManufacturerOverviewActiveStatusCheckbox.Size = new Size(167, 24);
-            createManufacturerOverviewActiveStatusCheckbox.TabIndex = 9;
-            createManufacturerOverviewActiveStatusCheckbox.Text = "Active Manufacturer*";
-            createManufacturerOverviewActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Checked = true;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.CheckState = CheckState.Checked;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(168, 307);
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Name = "createManufacturerTabControlOverviewTabPageActiveStatusCheckbox";
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(167, 24);
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 9;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Manufacturer*";
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
-            // createManufacturerTabControlFinancePage
+            // createManufacturerTabControlFinanceTabPage
             // 
-            createManufacturerTabControlFinancePage.BackColor = Color.SkyBlue;
-            createManufacturerTabControlFinancePage.Controls.Add(createManufacturerFinanceVATNumberTextboxLabel);
-            createManufacturerTabControlFinancePage.Controls.Add(createManufacturerFinanceVATNumberTextbox);
-            createManufacturerTabControlFinancePage.Controls.Add(createManufacturerFinanceVATRegisteredCheckbox);
-            createManufacturerTabControlFinancePage.Location = new Point(4, 32);
-            createManufacturerTabControlFinancePage.Name = "createManufacturerTabControlFinancePage";
-            createManufacturerTabControlFinancePage.Size = new Size(1067, 370);
-            createManufacturerTabControlFinancePage.TabIndex = 3;
-            createManufacturerTabControlFinancePage.Text = "Finance";
+            createManufacturerTabControlFinanceTabPage.BackColor = Color.SkyBlue;
+            createManufacturerTabControlFinanceTabPage.Controls.Add(createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel);
+            createManufacturerTabControlFinanceTabPage.Controls.Add(createManufacturerTabControlFinanceTabPageVATNumberTextbox);
+            createManufacturerTabControlFinanceTabPage.Controls.Add(createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox);
+            createManufacturerTabControlFinanceTabPage.Location = new Point(4, 32);
+            createManufacturerTabControlFinanceTabPage.Name = "createManufacturerTabControlFinanceTabPage";
+            createManufacturerTabControlFinanceTabPage.Size = new Size(1067, 370);
+            createManufacturerTabControlFinanceTabPage.TabIndex = 3;
+            createManufacturerTabControlFinanceTabPage.Text = "Finance";
             // 
-            // createManufacturerFinanceVATNumberTextboxLabel
+            // createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel
             // 
-            createManufacturerFinanceVATNumberTextboxLabel.AutoSize = true;
-            createManufacturerFinanceVATNumberTextboxLabel.Location = new Point(74, 47);
-            createManufacturerFinanceVATNumberTextboxLabel.Name = "createManufacturerFinanceVATNumberTextboxLabel";
-            createManufacturerFinanceVATNumberTextboxLabel.Size = new Size(92, 20);
-            createManufacturerFinanceVATNumberTextboxLabel.TabIndex = 23;
-            createManufacturerFinanceVATNumberTextboxLabel.Text = "VAT Number";
-            createManufacturerFinanceVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.AutoSize = true;
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.Location = new Point(83, 47);
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.Name = "createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel";
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.Size = new Size(92, 20);
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.TabIndex = 23;
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.Text = "VAT Number";
+            createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerFinanceVATNumberTextbox
+            // createManufacturerTabControlFinanceTabPageVATNumberTextbox
             // 
-            createManufacturerFinanceVATNumberTextbox.Location = new Point(181, 44);
-            createManufacturerFinanceVATNumberTextbox.MaxLength = 50;
-            createManufacturerFinanceVATNumberTextbox.Name = "createManufacturerFinanceVATNumberTextbox";
-            createManufacturerFinanceVATNumberTextbox.Size = new Size(208, 27);
-            createManufacturerFinanceVATNumberTextbox.TabIndex = 49;
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.Location = new Point(181, 44);
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.MaxLength = 50;
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.Name = "createManufacturerTabControlFinanceTabPageVATNumberTextbox";
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.Size = new Size(208, 27);
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.TabIndex = 49;
             // 
-            // createManufacturerFinanceVATRegisteredCheckbox
+            // createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox
             // 
-            createManufacturerFinanceVATRegisteredCheckbox.AutoSize = true;
-            createManufacturerFinanceVATRegisteredCheckbox.Checked = true;
-            createManufacturerFinanceVATRegisteredCheckbox.CheckState = CheckState.Checked;
-            createManufacturerFinanceVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createManufacturerFinanceVATRegisteredCheckbox.Location = new Point(38, 13);
-            createManufacturerFinanceVATRegisteredCheckbox.Margin = new Padding(4);
-            createManufacturerFinanceVATRegisteredCheckbox.Name = "createManufacturerFinanceVATRegisteredCheckbox";
-            createManufacturerFinanceVATRegisteredCheckbox.Size = new Size(128, 24);
-            createManufacturerFinanceVATRegisteredCheckbox.TabIndex = 48;
-            createManufacturerFinanceVATRegisteredCheckbox.Text = "VAT Registered";
-            createManufacturerFinanceVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.AutoSize = true;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckState = CheckState.Checked;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Location = new Point(38, 13);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Name = "createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox";
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 48;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
             // 
             // createManufacturerSubmitButton
             // 
@@ -339,10 +339,10 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create Manufacturer";
             createManufacturerTabControl.ResumeLayout(false);
-            createManufacturerTabControlOverviewPage.ResumeLayout(false);
-            createManufacturerTabControlOverviewPage.PerformLayout();
-            createManufacturerTabControlFinancePage.ResumeLayout(false);
-            createManufacturerTabControlFinancePage.PerformLayout();
+            createManufacturerTabControlOverviewTabPage.ResumeLayout(false);
+            createManufacturerTabControlOverviewTabPage.PerformLayout();
+            createManufacturerTabControlFinanceTabPage.ResumeLayout(false);
+            createManufacturerTabControlFinanceTabPage.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -351,28 +351,28 @@
 
         private Label createManufacturerTitleLabel;
         private TabControl createManufacturerTabControl;
-        private TabPage createManufacturerTabControlOverviewPage;
+        private TabPage createManufacturerTabControlOverviewTabPage;
         private Button createManufacturerSubmitButton;
-        private TabPage createManufacturerTabControlFinancePage;
-        private CheckBox createManufacturerOverviewActiveStatusCheckbox;
-        private TextBox createManufacturerOverviewManufacturerNameTextbox;
-        private Label createManufacturerOverviewManufacturerNameLabel;
-        private CheckBox createManufacturerFinanceVATRegisteredCheckbox;
-        private Label createManufacturerFinanceVATNumberTextboxLabel;
-        private TextBox createManufacturerFinanceVATNumberTextbox;
-        private Label createManufacturerOverviewEmailAddressLabel;
-        private Label createManufacturerOverviewTelephoneNumberLabel;
-        private TextBox createManufacturerOverviewEmailAddressTextbox;
-        private TextBox createManufacturerOverviewTelephoneNumberTextbox;
-        private Label createManufacturerOverviewAddressLine2Label;
-        private Label createManufacturerOverviewAddressLine3Label;
-        private Label createManufacturerOverviewAddressLine4Label;
-        private Label createManufacturerOverviewAddressLine5Label;
-        private Label createManufacturerOverviewAddressLine1Label;
-        private TextBox createManufacturerOverviewAddressLine4Textbox;
-        private TextBox createManufacturerOverviewAddressLine5Textbox;
-        private TextBox createManufacturerOverviewAddressLine3Textbox;
-        private TextBox createManufacturerOverviewAddressLine2Textbox;
-        private TextBox createManufacturerOverviewAddressLine1Textbox;
+        private TabPage createManufacturerTabControlFinanceTabPage;
+        private CheckBox createManufacturerTabControlOverviewTabPageActiveStatusCheckbox;
+        private TextBox createManufacturerTabControlOverviewTabPageManufacturerNameTextbox;
+        private Label createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel;
+        private CheckBox createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox;
+        private Label createManufacturerTabControlFinanceTabPageVATNumberTextboxLabel;
+        private TextBox createManufacturerTabControlFinanceTabPageVATNumberTextbox;
+        private Label createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageTelephoneNumberTextboxLabel;
+        private TextBox createManufacturerTabControlOverviewTabPageEmailAddressTextbox;
+        private TextBox createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel;
+        private TextBox createManufacturerTabControlOverviewTabPageAddressLine4Textbox;
+        private TextBox createManufacturerTabControlOverviewTabPageAddressLine5Textbox;
+        private TextBox createManufacturerTabControlOverviewTabPageAddressLine3Textbox;
+        private TextBox createManufacturerTabControlOverviewTabPageAddressLine2Textbox;
+        private TextBox createManufacturerTabControlOverviewTabPageAddressLine1Textbox;
     }
 }

@@ -69,7 +69,7 @@
             // createHTMLTemplateHTMLTemplateTextbox
             // 
             createHTMLTemplateHTMLTemplateTextbox.Anchor = AnchorStyles.None;
-            createHTMLTemplateHTMLTemplateTextbox.Location = new Point(193, 147);
+            createHTMLTemplateHTMLTemplateTextbox.Location = new Point(193, 156);
             createHTMLTemplateHTMLTemplateTextbox.MaxLength = 1070000000;
             createHTMLTemplateHTMLTemplateTextbox.Multiline = true;
             createHTMLTemplateHTMLTemplateTextbox.Name = "createHTMLTemplateHTMLTemplateTextbox";
@@ -100,7 +100,7 @@
             // createHTMLTemplateHTMLTemplateTextboxLabel
             // 
             createHTMLTemplateHTMLTemplateTextboxLabel.AutoSize = true;
-            createHTMLTemplateHTMLTemplateTextboxLabel.Location = new Point(63, 150);
+            createHTMLTemplateHTMLTemplateTextboxLabel.Location = new Point(63, 159);
             createHTMLTemplateHTMLTemplateTextboxLabel.Name = "createHTMLTemplateHTMLTemplateTextboxLabel";
             createHTMLTemplateHTMLTemplateTextboxLabel.Size = new Size(124, 20);
             createHTMLTemplateHTMLTemplateTextboxLabel.TabIndex = 13;
@@ -111,7 +111,7 @@
             // 
             createHTMLTemplateSubmitButton.FlatStyle = FlatStyle.Flat;
             createHTMLTemplateSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createHTMLTemplateSubmitButton.Location = new Point(313, 420);
+            createHTMLTemplateSubmitButton.Location = new Point(314, 438);
             createHTMLTemplateSubmitButton.Margin = new Padding(4);
             createHTMLTemplateSubmitButton.Name = "createHTMLTemplateSubmitButton";
             createHTMLTemplateSubmitButton.Size = new Size(198, 66);
@@ -125,7 +125,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(820, 499);
+            ClientSize = new Size(820, 517);
             Controls.Add(createHTMLTemplateSubmitButton);
             Controls.Add(createHTMLTemplateHTMLTemplateTextboxLabel);
             Controls.Add(createHTMLTemplateHTMLTemplateTypeComboBoxLabel);

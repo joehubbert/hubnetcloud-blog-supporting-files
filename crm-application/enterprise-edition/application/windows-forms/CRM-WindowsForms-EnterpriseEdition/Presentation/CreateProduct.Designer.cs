@@ -29,52 +29,52 @@
         private void InitializeComponent()
         {
             createProductTitleLabel = new Label();
-            createProductWholesalePricePerUnitLabel = new Label();
-            createProductUnitStockQuantityHeldLabel = new Label();
-            createProductWholesaleUnitQuantityPerCartonLabel = new Label();
-            createProductWholesaleCartonQuantityLabel = new Label();
-            createProductUnitPriceLabel = new Label();
-            createProductUnitStockQuantityHeldTextbox = new TextBox();
-            createProductWholesaleUnitQuantityPerCartonTextbox = new TextBox();
-            createProductWholesalePricePerUnitTextboxB = new TextBox();
-            createProductWholesalePricePerUnitTextboxA = new TextBox();
-            createProductUnitPriceTextboxA = new TextBox();
-            createProductSupplierLabel = new Label();
-            createProductProductCategoryLabel = new Label();
-            createProductProductNameLabel = new Label();
-            createProductProductNameTextbox = new TextBox();
-            createProductActiveStatusCheckbox = new CheckBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox = new TextBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox = new TextBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB = new TextBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA = new TextBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA = new TextBox();
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel = new Label();
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel = new Label();
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPageProductNameTextbox = new TextBox();
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox = new CheckBox();
             createProductSubmitButton = new Button();
-            createProductProductCategoryComboBox = new ComboBox();
-            createProductSupplierComboBox = new ComboBox();
-            createProductWholesaleReorderFlagNoRadioButton = new RadioButton();
-            createProductWholesaleReorderFlagYesRadioButton = new RadioButton();
-            createProductWholesaleReorderFlagPanel = new Panel();
-            createProductUnitPriceTextboxB = new TextBox();
-            createProductWholesaleCartonQuantityTextbox = new TextBox();
-            createProductUnitPriceTextboxSeparatorLabel = new Label();
-            createProductWholesaleReorderFlagLabel = new Label();
-            createProductWholesalePricePerUnitTextboxSeparator = new Label();
-            createProductWholesaleGroupBox = new GroupBox();
-            createProductPerUnitGroupBox = new GroupBox();
-            createProductUnitMinimumStockQuantityTextbox = new TextBox();
-            createProductUnitMinimumStockQuantityLabel = new Label();
-            createProductUnitMinimumOrderQuantityTextbox = new TextBox();
-            createProductUnitMinimumOrderQuantityLabel = new Label();
-            createProductProductImagePictureBox = new PictureBox();
-            createProductChooseProductImageButton = new Button();
-            createProductProductImagePictureBoxLabel = new Label();
+            createProductTabControlProductDetailTabPageProductCategoryComboBox = new ComboBox();
+            createProductTabControlProductDetailTabPageSupplierComboBox = new ComboBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton = new RadioButton();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton = new RadioButton();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel = new Panel();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB = new TextBox();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox = new TextBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel = new Label();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel = new Label();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel = new Label();
+            createProductTabControlProductDetailTabPageWholesaleGroupBox = new GroupBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBox = new GroupBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox = new TextBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel = new Label();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox = new TextBox();
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel = new Label();
+            createProductTabControlProductImageTabPageProductImagePictureBox = new PictureBox();
+            createProductTabControlProductImageTabPageChooseProductImageButton = new Button();
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel = new Label();
             createProductTabControl = new TabControl();
-            createProductTabControlProductDetails = new TabPage();
-            createProductTabControlProductImage = new TabPage();
-            createProductRemoveProductImageButton = new Button();
-            createProductWholesaleReorderFlagPanel.SuspendLayout();
-            createProductWholesaleGroupBox.SuspendLayout();
-            createProductPerUnitGroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)createProductProductImagePictureBox).BeginInit();
+            createProductTabControlProductDetailTabPage = new TabPage();
+            createProductTabControlProductImageTabPage = new TabPage();
+            createProductTabControlProductImageTabPageRemoveProductImageButton = new Button();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.SuspendLayout();
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.SuspendLayout();
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)createProductTabControlProductImageTabPageProductImagePictureBox).BeginInit();
             createProductTabControl.SuspendLayout();
-            createProductTabControlProductDetails.SuspendLayout();
-            createProductTabControlProductImage.SuspendLayout();
+            createProductTabControlProductDetailTabPage.SuspendLayout();
+            createProductTabControlProductImageTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // createProductTitleLabel
@@ -88,159 +88,159 @@
             createProductTitleLabel.TabIndex = 6;
             createProductTitleLabel.Text = "Create Product";
             // 
-            // createProductWholesalePricePerUnitLabel
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel
             // 
-            createProductWholesalePricePerUnitLabel.AutoSize = true;
-            createProductWholesalePricePerUnitLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesalePricePerUnitLabel.Location = new Point(98, 39);
-            createProductWholesalePricePerUnitLabel.Name = "createProductWholesalePricePerUnitLabel";
-            createProductWholesalePricePerUnitLabel.Size = new Size(175, 20);
-            createProductWholesalePricePerUnitLabel.TabIndex = 57;
-            createProductWholesalePricePerUnitLabel.Text = "Wholesale Price Per Unit*";
-            createProductWholesalePricePerUnitLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.Location = new Point(98, 39);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.Size = new Size(175, 20);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.TabIndex = 57;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.Text = "Wholesale Price Per Unit*";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductUnitStockQuantityHeldLabel
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel
             // 
-            createProductUnitStockQuantityHeldLabel.AutoSize = true;
-            createProductUnitStockQuantityHeldLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitStockQuantityHeldLabel.Location = new Point(93, 155);
-            createProductUnitStockQuantityHeldLabel.Name = "createProductUnitStockQuantityHeldLabel";
-            createProductUnitStockQuantityHeldLabel.Size = new Size(178, 20);
-            createProductUnitStockQuantityHeldLabel.TabIndex = 56;
-            createProductUnitStockQuantityHeldLabel.Text = "Unit Stock Quantity Held*";
-            createProductUnitStockQuantityHeldLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.Location = new Point(93, 155);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.Size = new Size(178, 20);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.TabIndex = 56;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.Text = "Unit Stock Quantity Held*";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductWholesaleUnitQuantityPerCartonLabel
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel
             // 
-            createProductWholesaleUnitQuantityPerCartonLabel.AutoSize = true;
-            createProductWholesaleUnitQuantityPerCartonLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleUnitQuantityPerCartonLabel.Location = new Point(26, 80);
-            createProductWholesaleUnitQuantityPerCartonLabel.Name = "createProductWholesaleUnitQuantityPerCartonLabel";
-            createProductWholesaleUnitQuantityPerCartonLabel.Size = new Size(247, 20);
-            createProductWholesaleUnitQuantityPerCartonLabel.TabIndex = 55;
-            createProductWholesaleUnitQuantityPerCartonLabel.Text = "Wholesale Unit Quantity Per Carton*";
-            createProductWholesaleUnitQuantityPerCartonLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.Location = new Point(26, 80);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.Size = new Size(247, 20);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.TabIndex = 55;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.Text = "Wholesale Unit Quantity Per Carton*";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductWholesaleCartonQuantityLabel
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel
             // 
-            createProductWholesaleCartonQuantityLabel.AutoSize = true;
-            createProductWholesaleCartonQuantityLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleCartonQuantityLabel.Location = new Point(81, 125);
-            createProductWholesaleCartonQuantityLabel.Name = "createProductWholesaleCartonQuantityLabel";
-            createProductWholesaleCartonQuantityLabel.Size = new Size(192, 20);
-            createProductWholesaleCartonQuantityLabel.TabIndex = 54;
-            createProductWholesaleCartonQuantityLabel.Text = "Wholesale Carton Quantity*";
-            createProductWholesaleCartonQuantityLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.Location = new Point(81, 125);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.Size = new Size(192, 20);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.TabIndex = 54;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.Text = "Wholesale Carton Quantity*";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductUnitPriceLabel
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel
             // 
-            createProductUnitPriceLabel.AutoSize = true;
-            createProductUnitPriceLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitPriceLabel.Location = new Point(193, 29);
-            createProductUnitPriceLabel.Name = "createProductUnitPriceLabel";
-            createProductUnitPriceLabel.Size = new Size(78, 20);
-            createProductUnitPriceLabel.TabIndex = 53;
-            createProductUnitPriceLabel.Text = "Unit Price*";
-            createProductUnitPriceLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.Location = new Point(193, 29);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.Size = new Size(78, 20);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.TabIndex = 53;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.Text = "Unit Price*";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductUnitStockQuantityHeldTextbox
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox
             // 
-            createProductUnitStockQuantityHeldTextbox.Enabled = false;
-            createProductUnitStockQuantityHeldTextbox.Font = new Font("Segoe UI", 11F);
-            createProductUnitStockQuantityHeldTextbox.Location = new Point(284, 152);
-            createProductUnitStockQuantityHeldTextbox.MaxLength = 50;
-            createProductUnitStockQuantityHeldTextbox.Name = "createProductUnitStockQuantityHeldTextbox";
-            createProductUnitStockQuantityHeldTextbox.ReadOnly = true;
-            createProductUnitStockQuantityHeldTextbox.Size = new Size(99, 27);
-            createProductUnitStockQuantityHeldTextbox.TabIndex = 15;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Enabled = false;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Location = new Point(284, 152);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.ReadOnly = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox.TabIndex = 15;
             // 
-            // createProductWholesaleUnitQuantityPerCartonTextbox
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox
             // 
-            createProductWholesaleUnitQuantityPerCartonTextbox.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleUnitQuantityPerCartonTextbox.Location = new Point(284, 77);
-            createProductWholesaleUnitQuantityPerCartonTextbox.MaxLength = 50;
-            createProductWholesaleUnitQuantityPerCartonTextbox.Name = "createProductWholesaleUnitQuantityPerCartonTextbox";
-            createProductWholesaleUnitQuantityPerCartonTextbox.Size = new Size(99, 27);
-            createProductWholesaleUnitQuantityPerCartonTextbox.TabIndex = 7;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Location = new Point(284, 77);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.TabIndex = 7;
             // 
-            // createProductWholesalePricePerUnitTextboxB
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB
             // 
-            createProductWholesalePricePerUnitTextboxB.Font = new Font("Segoe UI", 11F);
-            createProductWholesalePricePerUnitTextboxB.Location = new Point(402, 36);
-            createProductWholesalePricePerUnitTextboxB.MaxLength = 5;
-            createProductWholesalePricePerUnitTextboxB.Name = "createProductWholesalePricePerUnitTextboxB";
-            createProductWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
-            createProductWholesalePricePerUnitTextboxB.TabIndex = 6;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Location = new Point(402, 36);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.MaxLength = 5;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Size = new Size(45, 27);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.TabIndex = 6;
             // 
-            // createProductWholesalePricePerUnitTextboxA
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA
             // 
-            createProductWholesalePricePerUnitTextboxA.Font = new Font("Segoe UI", 11F);
-            createProductWholesalePricePerUnitTextboxA.Location = new Point(284, 36);
-            createProductWholesalePricePerUnitTextboxA.MaxLength = 10;
-            createProductWholesalePricePerUnitTextboxA.Name = "createProductWholesalePricePerUnitTextboxA";
-            createProductWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
-            createProductWholesalePricePerUnitTextboxA.TabIndex = 5;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Location = new Point(284, 36);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.MaxLength = 10;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.TabIndex = 5;
             // 
-            // createProductUnitPriceTextboxA
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA
             // 
-            createProductUnitPriceTextboxA.Font = new Font("Segoe UI", 11F);
-            createProductUnitPriceTextboxA.Location = new Point(283, 26);
-            createProductUnitPriceTextboxA.MaxLength = 10;
-            createProductUnitPriceTextboxA.Name = "createProductUnitPriceTextboxA";
-            createProductUnitPriceTextboxA.Size = new Size(99, 27);
-            createProductUnitPriceTextboxA.TabIndex = 11;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.Location = new Point(283, 26);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.MaxLength = 10;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA.TabIndex = 11;
             // 
-            // createProductSupplierLabel
+            // createProductTabControlProductDetailTabPageSupplierComboBoxLabel
             // 
-            createProductSupplierLabel.AutoSize = true;
-            createProductSupplierLabel.Location = new Point(82, 106);
-            createProductSupplierLabel.Name = "createProductSupplierLabel";
-            createProductSupplierLabel.Size = new Size(70, 20);
-            createProductSupplierLabel.TabIndex = 52;
-            createProductSupplierLabel.Text = "Supplier*";
-            createProductSupplierLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.Location = new Point(94, 106);
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.Name = "createProductTabControlProductDetailTabPageSupplierComboBoxLabel";
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.Size = new Size(70, 20);
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.TabIndex = 52;
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.Text = "Supplier*";
+            createProductTabControlProductDetailTabPageSupplierComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductProductCategoryLabel
+            // createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel
             // 
-            createProductProductCategoryLabel.AutoSize = true;
-            createProductProductCategoryLabel.Location = new Point(22, 62);
-            createProductProductCategoryLabel.Name = "createProductProductCategoryLabel";
-            createProductProductCategoryLabel.Size = new Size(130, 20);
-            createProductProductCategoryLabel.TabIndex = 51;
-            createProductProductCategoryLabel.Text = "Product Category*";
-            createProductProductCategoryLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.Location = new Point(34, 62);
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.Name = "createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel";
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.Size = new Size(130, 20);
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.TabIndex = 51;
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.Text = "Product Category*";
+            createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductProductNameLabel
+            // createProductTabControlProductDetailTabPageProductNameTextboxLabel
             // 
-            createProductProductNameLabel.AutoSize = true;
-            createProductProductNameLabel.Location = new Point(42, 22);
-            createProductProductNameLabel.Name = "createProductProductNameLabel";
-            createProductProductNameLabel.Size = new Size(110, 20);
-            createProductProductNameLabel.TabIndex = 28;
-            createProductProductNameLabel.Text = "Product Name*";
-            createProductProductNameLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.Location = new Point(54, 22);
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.Name = "createProductTabControlProductDetailTabPageProductNameTextboxLabel";
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.Size = new Size(110, 20);
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.TabIndex = 28;
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.Text = "Product Name*";
+            createProductTabControlProductDetailTabPageProductNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductProductNameTextbox
+            // createProductTabControlProductDetailTabPageProductNameTextbox
             // 
-            createProductProductNameTextbox.Location = new Point(170, 19);
-            createProductProductNameTextbox.MaxLength = 50;
-            createProductProductNameTextbox.Name = "createProductProductNameTextbox";
-            createProductProductNameTextbox.Size = new Size(403, 27);
-            createProductProductNameTextbox.TabIndex = 1;
+            createProductTabControlProductDetailTabPageProductNameTextbox.Location = new Point(170, 19);
+            createProductTabControlProductDetailTabPageProductNameTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPageProductNameTextbox.Name = "createProductTabControlProductDetailTabPageProductNameTextbox";
+            createProductTabControlProductDetailTabPageProductNameTextbox.Size = new Size(403, 27);
+            createProductTabControlProductDetailTabPageProductNameTextbox.TabIndex = 1;
             // 
-            // createProductActiveStatusCheckbox
+            // createProductTabControlProductDetailTabPageActiveStatusCheckbox
             // 
-            createProductActiveStatusCheckbox.AutoSize = true;
-            createProductActiveStatusCheckbox.Checked = true;
-            createProductActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createProductActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createProductActiveStatusCheckbox.Location = new Point(170, 445);
-            createProductActiveStatusCheckbox.Margin = new Padding(4);
-            createProductActiveStatusCheckbox.Name = "createProductActiveStatusCheckbox";
-            createProductActiveStatusCheckbox.Size = new Size(124, 24);
-            createProductActiveStatusCheckbox.TabIndex = 4;
-            createProductActiveStatusCheckbox.Text = "Active Product";
-            createProductActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.AutoSize = true;
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Checked = true;
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.CheckState = CheckState.Checked;
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Location = new Point(170, 445);
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Margin = new Padding(4);
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Name = "createProductTabControlProductDetailTabPageActiveStatusCheckbox";
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Size = new Size(124, 24);
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.TabIndex = 4;
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Text = "Active Product";
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createProductSubmitButton
             // 
@@ -255,275 +255,275 @@
             createProductSubmitButton.UseVisualStyleBackColor = true;
             createProductSubmitButton.Click += createProductSubmitButton_Click;
             // 
-            // createProductProductCategoryComboBox
+            // createProductTabControlProductDetailTabPageProductCategoryComboBox
             // 
-            createProductProductCategoryComboBox.FormattingEnabled = true;
-            createProductProductCategoryComboBox.Location = new Point(170, 59);
-            createProductProductCategoryComboBox.Name = "createProductProductCategoryComboBox";
-            createProductProductCategoryComboBox.Size = new Size(403, 28);
-            createProductProductCategoryComboBox.TabIndex = 2;
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.FormattingEnabled = true;
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.Location = new Point(170, 59);
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.Name = "createProductTabControlProductDetailTabPageProductCategoryComboBox";
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.Size = new Size(403, 28);
+            createProductTabControlProductDetailTabPageProductCategoryComboBox.TabIndex = 2;
             // 
-            // createProductSupplierComboBox
+            // createProductTabControlProductDetailTabPageSupplierComboBox
             // 
-            createProductSupplierComboBox.FormattingEnabled = true;
-            createProductSupplierComboBox.Location = new Point(170, 103);
-            createProductSupplierComboBox.Name = "createProductSupplierComboBox";
-            createProductSupplierComboBox.Size = new Size(403, 28);
-            createProductSupplierComboBox.TabIndex = 3;
+            createProductTabControlProductDetailTabPageSupplierComboBox.FormattingEnabled = true;
+            createProductTabControlProductDetailTabPageSupplierComboBox.Location = new Point(170, 103);
+            createProductTabControlProductDetailTabPageSupplierComboBox.Name = "createProductTabControlProductDetailTabPageSupplierComboBox";
+            createProductTabControlProductDetailTabPageSupplierComboBox.Size = new Size(403, 28);
+            createProductTabControlProductDetailTabPageSupplierComboBox.TabIndex = 3;
             // 
-            // createProductWholesaleReorderFlagNoRadioButton
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton
             // 
-            createProductWholesaleReorderFlagNoRadioButton.AutoSize = true;
-            createProductWholesaleReorderFlagNoRadioButton.Location = new Point(17, 21);
-            createProductWholesaleReorderFlagNoRadioButton.Name = "createProductWholesaleReorderFlagNoRadioButton";
-            createProductWholesaleReorderFlagNoRadioButton.Size = new Size(47, 24);
-            createProductWholesaleReorderFlagNoRadioButton.TabIndex = 9;
-            createProductWholesaleReorderFlagNoRadioButton.TabStop = true;
-            createProductWholesaleReorderFlagNoRadioButton.Text = "No";
-            createProductWholesaleReorderFlagNoRadioButton.UseVisualStyleBackColor = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Location = new Point(17, 21);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Size = new Size(47, 24);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.TabIndex = 9;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.TabStop = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Text = "No";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createProductWholesaleReorderFlagYesRadioButton
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton
             // 
-            createProductWholesaleReorderFlagYesRadioButton.AutoSize = true;
-            createProductWholesaleReorderFlagYesRadioButton.Checked = true;
-            createProductWholesaleReorderFlagYesRadioButton.Location = new Point(93, 21);
-            createProductWholesaleReorderFlagYesRadioButton.Name = "createProductWholesaleReorderFlagYesRadioButton";
-            createProductWholesaleReorderFlagYesRadioButton.Size = new Size(48, 24);
-            createProductWholesaleReorderFlagYesRadioButton.TabIndex = 10;
-            createProductWholesaleReorderFlagYesRadioButton.TabStop = true;
-            createProductWholesaleReorderFlagYesRadioButton.Text = "Yes";
-            createProductWholesaleReorderFlagYesRadioButton.UseVisualStyleBackColor = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Checked = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Location = new Point(93, 21);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Size = new Size(48, 24);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.TabIndex = 10;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.TabStop = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Text = "Yes";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createProductWholesaleReorderFlagPanel
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel
             // 
-            createProductWholesaleReorderFlagPanel.Controls.Add(createProductWholesaleReorderFlagYesRadioButton);
-            createProductWholesaleReorderFlagPanel.Controls.Add(createProductWholesaleReorderFlagNoRadioButton);
-            createProductWholesaleReorderFlagPanel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleReorderFlagPanel.Location = new Point(284, 160);
-            createProductWholesaleReorderFlagPanel.Name = "createProductWholesaleReorderFlagPanel";
-            createProductWholesaleReorderFlagPanel.Size = new Size(166, 61);
-            createProductWholesaleReorderFlagPanel.TabIndex = 67;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Location = new Point(284, 160);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.Size = new Size(166, 61);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.TabIndex = 67;
             // 
-            // createProductUnitPriceTextboxB
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB
             // 
-            createProductUnitPriceTextboxB.Font = new Font("Segoe UI", 11F);
-            createProductUnitPriceTextboxB.Location = new Point(402, 26);
-            createProductUnitPriceTextboxB.MaxLength = 5;
-            createProductUnitPriceTextboxB.Name = "createProductUnitPriceTextboxB";
-            createProductUnitPriceTextboxB.Size = new Size(45, 27);
-            createProductUnitPriceTextboxB.TabIndex = 12;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.Location = new Point(402, 26);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.MaxLength = 5;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.Size = new Size(45, 27);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB.TabIndex = 12;
             // 
-            // createProductWholesaleCartonQuantityTextbox
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox
             // 
-            createProductWholesaleCartonQuantityTextbox.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleCartonQuantityTextbox.Location = new Point(284, 122);
-            createProductWholesaleCartonQuantityTextbox.MaxLength = 50;
-            createProductWholesaleCartonQuantityTextbox.Name = "createProductWholesaleCartonQuantityTextbox";
-            createProductWholesaleCartonQuantityTextbox.Size = new Size(99, 27);
-            createProductWholesaleCartonQuantityTextbox.TabIndex = 8;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Location = new Point(284, 122);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.TabIndex = 8;
             // 
-            // createProductUnitPriceTextboxSeparatorLabel
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel
             // 
-            createProductUnitPriceTextboxSeparatorLabel.AutoSize = true;
-            createProductUnitPriceTextboxSeparatorLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitPriceTextboxSeparatorLabel.Location = new Point(388, 29);
-            createProductUnitPriceTextboxSeparatorLabel.Name = "createProductUnitPriceTextboxSeparatorLabel";
-            createProductUnitPriceTextboxSeparatorLabel.Size = new Size(12, 20);
-            createProductUnitPriceTextboxSeparatorLabel.TabIndex = 70;
-            createProductUnitPriceTextboxSeparatorLabel.Text = ".";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.Location = new Point(388, 29);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.Size = new Size(12, 20);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.TabIndex = 70;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel.Text = ".";
             // 
-            // createProductWholesaleReorderFlagLabel
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel
             // 
-            createProductWholesaleReorderFlagLabel.AutoSize = true;
-            createProductWholesaleReorderFlagLabel.Font = new Font("Segoe UI", 11F);
-            createProductWholesaleReorderFlagLabel.Location = new Point(125, 183);
-            createProductWholesaleReorderFlagLabel.Name = "createProductWholesaleReorderFlagLabel";
-            createProductWholesaleReorderFlagLabel.Size = new Size(148, 20);
-            createProductWholesaleReorderFlagLabel.TabIndex = 72;
-            createProductWholesaleReorderFlagLabel.Text = "Wholesale Reorder?*";
-            createProductWholesaleReorderFlagLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.Location = new Point(125, 183);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.Size = new Size(148, 20);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.TabIndex = 72;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.Text = "Wholesale Reorder?*";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductWholesalePricePerUnitTextboxSeparator
+            // createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel
             // 
-            createProductWholesalePricePerUnitTextboxSeparator.AutoSize = true;
-            createProductWholesalePricePerUnitTextboxSeparator.Font = new Font("Segoe UI", 11F);
-            createProductWholesalePricePerUnitTextboxSeparator.Location = new Point(388, 43);
-            createProductWholesalePricePerUnitTextboxSeparator.Name = "createProductWholesalePricePerUnitTextboxSeparator";
-            createProductWholesalePricePerUnitTextboxSeparator.Size = new Size(12, 20);
-            createProductWholesalePricePerUnitTextboxSeparator.TabIndex = 73;
-            createProductWholesalePricePerUnitTextboxSeparator.Text = ".";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.Location = new Point(388, 43);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel";
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.Size = new Size(12, 20);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.TabIndex = 73;
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel.Text = ".";
             // 
-            // createProductWholesaleGroupBox
+            // createProductTabControlProductDetailTabPageWholesaleGroupBox
             // 
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesalePricePerUnitTextboxB);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesalePricePerUnitTextboxA);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleReorderFlagLabel);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesalePricePerUnitTextboxSeparator);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesalePricePerUnitLabel);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleReorderFlagPanel);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleCartonQuantityTextbox);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleUnitQuantityPerCartonTextbox);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleCartonQuantityLabel);
-            createProductWholesaleGroupBox.Controls.Add(createProductWholesaleUnitQuantityPerCartonLabel);
-            createProductWholesaleGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductWholesaleGroupBox.Location = new Point(599, 19);
-            createProductWholesaleGroupBox.Name = "createProductWholesaleGroupBox";
-            createProductWholesaleGroupBox.Size = new Size(539, 246);
-            createProductWholesaleGroupBox.TabIndex = 74;
-            createProductWholesaleGroupBox.TabStop = false;
-            createProductWholesaleGroupBox.Text = "Wholesale";
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Location = new Point(599, 19);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Name = "createProductTabControlProductDetailTabPageWholesaleGroupBox";
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Size = new Size(539, 246);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.TabIndex = 74;
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.TabStop = false;
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.Text = "Wholesale";
             // 
-            // createProductPerUnitGroupBox
+            // createProductTabControlProductDetailTabPagePerUnitGroupBox
             // 
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumStockQuantityTextbox);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumStockQuantityLabel);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumOrderQuantityTextbox);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitMinimumOrderQuantityLabel);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceTextboxB);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceLabel);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceTextboxSeparatorLabel);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitPriceTextboxA);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldTextbox);
-            createProductPerUnitGroupBox.Controls.Add(createProductUnitStockQuantityHeldLabel);
-            createProductPerUnitGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductPerUnitGroupBox.Location = new Point(599, 271);
-            createProductPerUnitGroupBox.Name = "createProductPerUnitGroupBox";
-            createProductPerUnitGroupBox.Size = new Size(539, 198);
-            createProductPerUnitGroupBox.TabIndex = 75;
-            createProductPerUnitGroupBox.TabStop = false;
-            createProductPerUnitGroupBox.Text = "Per Unit";
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Location = new Point(599, 271);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBox";
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Size = new Size(539, 198);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.TabIndex = 75;
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.TabStop = false;
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.Text = "Per Unit";
             // 
-            // createProductUnitMinimumStockQuantityTextbox
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox
             // 
-            createProductUnitMinimumStockQuantityTextbox.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumStockQuantityTextbox.Location = new Point(284, 109);
-            createProductUnitMinimumStockQuantityTextbox.MaxLength = 50;
-            createProductUnitMinimumStockQuantityTextbox.Name = "createProductUnitMinimumStockQuantityTextbox";
-            createProductUnitMinimumStockQuantityTextbox.Size = new Size(99, 27);
-            createProductUnitMinimumStockQuantityTextbox.TabIndex = 14;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.Location = new Point(284, 109);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox.TabIndex = 14;
             // 
-            // createProductUnitMinimumStockQuantityLabel
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel
             // 
-            createProductUnitMinimumStockQuantityLabel.AutoSize = true;
-            createProductUnitMinimumStockQuantityLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumStockQuantityLabel.Location = new Point(68, 112);
-            createProductUnitMinimumStockQuantityLabel.Name = "createProductUnitMinimumStockQuantityLabel";
-            createProductUnitMinimumStockQuantityLabel.Size = new Size(203, 20);
-            createProductUnitMinimumStockQuantityLabel.TabIndex = 73;
-            createProductUnitMinimumStockQuantityLabel.Text = "Unit Minimum Stock Quantity";
-            createProductUnitMinimumStockQuantityLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.Location = new Point(68, 112);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.Size = new Size(203, 20);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.TabIndex = 73;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.Text = "Unit Minimum Stock Quantity";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductUnitMinimumOrderQuantityTextbox
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox
             // 
-            createProductUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
-            createProductUnitMinimumOrderQuantityTextbox.MaxLength = 50;
-            createProductUnitMinimumOrderQuantityTextbox.Name = "createProductUnitMinimumOrderQuantityTextbox";
-            createProductUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
-            createProductUnitMinimumOrderQuantityTextbox.TabIndex = 13;
-            createProductUnitMinimumOrderQuantityTextbox.Text = "1";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Location = new Point(284, 67);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.MaxLength = 50;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Size = new Size(99, 27);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.TabIndex = 13;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox.Text = "1";
             // 
-            // createProductUnitMinimumOrderQuantityLabel
+            // createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel
             // 
-            createProductUnitMinimumOrderQuantityLabel.AutoSize = true;
-            createProductUnitMinimumOrderQuantityLabel.Font = new Font("Segoe UI", 11F);
-            createProductUnitMinimumOrderQuantityLabel.Location = new Point(60, 70);
-            createProductUnitMinimumOrderQuantityLabel.Name = "createProductUnitMinimumOrderQuantityLabel";
-            createProductUnitMinimumOrderQuantityLabel.Size = new Size(211, 20);
-            createProductUnitMinimumOrderQuantityLabel.TabIndex = 71;
-            createProductUnitMinimumOrderQuantityLabel.Text = "Unit Minimum Order Quantity*";
-            createProductUnitMinimumOrderQuantityLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.AutoSize = true;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.Location = new Point(60, 70);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.Name = "createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.Size = new Size(211, 20);
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.TabIndex = 71;
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.Text = "Unit Minimum Order Quantity*";
+            createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createProductProductImagePictureBox
+            // createProductTabControlProductImageTabPageProductImagePictureBox
             // 
-            createProductProductImagePictureBox.BorderStyle = BorderStyle.Fixed3D;
-            createProductProductImagePictureBox.Location = new Point(148, 74);
-            createProductProductImagePictureBox.Name = "createProductProductImagePictureBox";
-            createProductProductImagePictureBox.Size = new Size(500, 500);
-            createProductProductImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
-            createProductProductImagePictureBox.TabIndex = 76;
-            createProductProductImagePictureBox.TabStop = false;
+            createProductTabControlProductImageTabPageProductImagePictureBox.BorderStyle = BorderStyle.Fixed3D;
+            createProductTabControlProductImageTabPageProductImagePictureBox.Location = new Point(148, 74);
+            createProductTabControlProductImageTabPageProductImagePictureBox.Name = "createProductTabControlProductImageTabPageProductImagePictureBox";
+            createProductTabControlProductImageTabPageProductImagePictureBox.Size = new Size(500, 500);
+            createProductTabControlProductImageTabPageProductImagePictureBox.SizeMode = PictureBoxSizeMode.Zoom;
+            createProductTabControlProductImageTabPageProductImagePictureBox.TabIndex = 76;
+            createProductTabControlProductImageTabPageProductImagePictureBox.TabStop = false;
             // 
-            // createProductChooseProductImageButton
+            // createProductTabControlProductImageTabPageChooseProductImageButton
             // 
-            createProductChooseProductImageButton.FlatStyle = FlatStyle.Flat;
-            createProductChooseProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductChooseProductImageButton.Location = new Point(148, 10);
-            createProductChooseProductImageButton.Margin = new Padding(4);
-            createProductChooseProductImageButton.Name = "createProductChooseProductImageButton";
-            createProductChooseProductImageButton.Size = new Size(159, 51);
-            createProductChooseProductImageButton.TabIndex = 16;
-            createProductChooseProductImageButton.Text = "Choose Product Image";
-            createProductChooseProductImageButton.UseVisualStyleBackColor = true;
-            createProductChooseProductImageButton.Click += createProductChooseProductImageButton_Click;
+            createProductTabControlProductImageTabPageChooseProductImageButton.FlatStyle = FlatStyle.Flat;
+            createProductTabControlProductImageTabPageChooseProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductTabControlProductImageTabPageChooseProductImageButton.Location = new Point(148, 10);
+            createProductTabControlProductImageTabPageChooseProductImageButton.Margin = new Padding(4);
+            createProductTabControlProductImageTabPageChooseProductImageButton.Name = "createProductTabControlProductImageTabPageChooseProductImageButton";
+            createProductTabControlProductImageTabPageChooseProductImageButton.Size = new Size(159, 51);
+            createProductTabControlProductImageTabPageChooseProductImageButton.TabIndex = 16;
+            createProductTabControlProductImageTabPageChooseProductImageButton.Text = "Choose Product Image";
+            createProductTabControlProductImageTabPageChooseProductImageButton.UseVisualStyleBackColor = true;
+            createProductTabControlProductImageTabPageChooseProductImageButton.Click += createProductChooseProductImageButton_Click;
             // 
-            // createProductProductImagePictureBoxLabel
+            // createProductTabControlProductImageTabPageProductImagePictureBoxLabel
             // 
-            createProductProductImagePictureBoxLabel.AutoSize = true;
-            createProductProductImagePictureBoxLabel.Font = new Font("Segoe UI", 11F);
-            createProductProductImagePictureBoxLabel.Location = new Point(23, 74);
-            createProductProductImagePictureBoxLabel.Name = "createProductProductImagePictureBoxLabel";
-            createProductProductImagePictureBoxLabel.Size = new Size(106, 20);
-            createProductProductImagePictureBoxLabel.TabIndex = 78;
-            createProductProductImagePictureBoxLabel.Text = "Product Image";
-            createProductProductImagePictureBoxLabel.TextAlign = ContentAlignment.TopRight;
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.AutoSize = true;
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.Font = new Font("Segoe UI", 11F);
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.Location = new Point(36, 74);
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.Name = "createProductTabControlProductImageTabPageProductImagePictureBoxLabel";
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.Size = new Size(106, 20);
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.TabIndex = 78;
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.Text = "Product Image";
+            createProductTabControlProductImageTabPageProductImagePictureBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createProductTabControl
             // 
             createProductTabControl.Appearance = TabAppearance.FlatButtons;
-            createProductTabControl.Controls.Add(createProductTabControlProductDetails);
-            createProductTabControl.Controls.Add(createProductTabControlProductImage);
+            createProductTabControl.Controls.Add(createProductTabControlProductDetailTabPage);
+            createProductTabControl.Controls.Add(createProductTabControlProductImageTabPage);
             createProductTabControl.Location = new Point(13, 58);
             createProductTabControl.Name = "createProductTabControl";
             createProductTabControl.SelectedIndex = 0;
             createProductTabControl.Size = new Size(1179, 631);
             createProductTabControl.TabIndex = 0;
             // 
-            // createProductTabControlProductDetails
+            // createProductTabControlProductDetailTabPage
             // 
-            createProductTabControlProductDetails.BackColor = Color.SkyBlue;
-            createProductTabControlProductDetails.Controls.Add(createProductProductNameTextbox);
-            createProductTabControlProductDetails.Controls.Add(createProductPerUnitGroupBox);
-            createProductTabControlProductDetails.Controls.Add(createProductSupplierLabel);
-            createProductTabControlProductDetails.Controls.Add(createProductActiveStatusCheckbox);
-            createProductTabControlProductDetails.Controls.Add(createProductWholesaleGroupBox);
-            createProductTabControlProductDetails.Controls.Add(createProductProductCategoryLabel);
-            createProductTabControlProductDetails.Controls.Add(createProductProductNameLabel);
-            createProductTabControlProductDetails.Controls.Add(createProductProductCategoryComboBox);
-            createProductTabControlProductDetails.Controls.Add(createProductSupplierComboBox);
-            createProductTabControlProductDetails.Location = new Point(4, 32);
-            createProductTabControlProductDetails.Name = "createProductTabControlProductDetails";
-            createProductTabControlProductDetails.Padding = new Padding(3);
-            createProductTabControlProductDetails.Size = new Size(1171, 595);
-            createProductTabControlProductDetails.TabIndex = 0;
-            createProductTabControlProductDetails.Text = "Product Details";
+            createProductTabControlProductDetailTabPage.BackColor = Color.SkyBlue;
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageProductNameTextbox);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPagePerUnitGroupBox);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageSupplierComboBoxLabel);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageActiveStatusCheckbox);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageWholesaleGroupBox);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageProductNameTextboxLabel);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageProductCategoryComboBox);
+            createProductTabControlProductDetailTabPage.Controls.Add(createProductTabControlProductDetailTabPageSupplierComboBox);
+            createProductTabControlProductDetailTabPage.Location = new Point(4, 32);
+            createProductTabControlProductDetailTabPage.Name = "createProductTabControlProductDetailTabPage";
+            createProductTabControlProductDetailTabPage.Padding = new Padding(3);
+            createProductTabControlProductDetailTabPage.Size = new Size(1171, 595);
+            createProductTabControlProductDetailTabPage.TabIndex = 0;
+            createProductTabControlProductDetailTabPage.Text = "Product Details";
             // 
-            // createProductTabControlProductImage
+            // createProductTabControlProductImageTabPage
             // 
-            createProductTabControlProductImage.BackColor = Color.SkyBlue;
-            createProductTabControlProductImage.Controls.Add(createProductRemoveProductImageButton);
-            createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBox);
-            createProductTabControlProductImage.Controls.Add(createProductProductImagePictureBoxLabel);
-            createProductTabControlProductImage.Controls.Add(createProductChooseProductImageButton);
-            createProductTabControlProductImage.Location = new Point(4, 27);
-            createProductTabControlProductImage.Name = "createProductTabControlProductImage";
-            createProductTabControlProductImage.Padding = new Padding(3);
-            createProductTabControlProductImage.Size = new Size(1171, 600);
-            createProductTabControlProductImage.TabIndex = 1;
-            createProductTabControlProductImage.Text = "Product Image";
+            createProductTabControlProductImageTabPage.BackColor = Color.SkyBlue;
+            createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageRemoveProductImageButton);
+            createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageProductImagePictureBox);
+            createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageProductImagePictureBoxLabel);
+            createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageChooseProductImageButton);
+            createProductTabControlProductImageTabPage.Location = new Point(4, 32);
+            createProductTabControlProductImageTabPage.Name = "createProductTabControlProductImageTabPage";
+            createProductTabControlProductImageTabPage.Padding = new Padding(3);
+            createProductTabControlProductImageTabPage.Size = new Size(1171, 595);
+            createProductTabControlProductImageTabPage.TabIndex = 1;
+            createProductTabControlProductImageTabPage.Text = "Product Image";
             // 
-            // createProductRemoveProductImageButton
+            // createProductTabControlProductImageTabPageRemoveProductImageButton
             // 
-            createProductRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
-            createProductRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createProductRemoveProductImageButton.Location = new Point(315, 10);
-            createProductRemoveProductImageButton.Margin = new Padding(4);
-            createProductRemoveProductImageButton.Name = "createProductRemoveProductImageButton";
-            createProductRemoveProductImageButton.Size = new Size(159, 51);
-            createProductRemoveProductImageButton.TabIndex = 79;
-            createProductRemoveProductImageButton.Text = "Remove Product Image";
-            createProductRemoveProductImageButton.UseVisualStyleBackColor = true;
-            createProductRemoveProductImageButton.Click += createProductRemoveProductImageButton_Click;
+            createProductTabControlProductImageTabPageRemoveProductImageButton.FlatStyle = FlatStyle.Flat;
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Location = new Point(315, 10);
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Margin = new Padding(4);
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Name = "createProductTabControlProductImageTabPageRemoveProductImageButton";
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Size = new Size(159, 51);
+            createProductTabControlProductImageTabPageRemoveProductImageButton.TabIndex = 79;
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Text = "Remove Product Image";
+            createProductTabControlProductImageTabPageRemoveProductImageButton.UseVisualStyleBackColor = true;
+            createProductTabControlProductImageTabPageRemoveProductImageButton.Click += createProductRemoveProductImageButton_Click;
             // 
             // CreateProduct
             // 
@@ -541,18 +541,18 @@
             Name = "CreateProduct";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create Product";
-            createProductWholesaleReorderFlagPanel.ResumeLayout(false);
-            createProductWholesaleReorderFlagPanel.PerformLayout();
-            createProductWholesaleGroupBox.ResumeLayout(false);
-            createProductWholesaleGroupBox.PerformLayout();
-            createProductPerUnitGroupBox.ResumeLayout(false);
-            createProductPerUnitGroupBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)createProductProductImagePictureBox).EndInit();
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.ResumeLayout(false);
+            createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel.PerformLayout();
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.ResumeLayout(false);
+            createProductTabControlProductDetailTabPageWholesaleGroupBox.PerformLayout();
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.ResumeLayout(false);
+            createProductTabControlProductDetailTabPagePerUnitGroupBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)createProductTabControlProductImageTabPageProductImagePictureBox).EndInit();
             createProductTabControl.ResumeLayout(false);
-            createProductTabControlProductDetails.ResumeLayout(false);
-            createProductTabControlProductDetails.PerformLayout();
-            createProductTabControlProductImage.ResumeLayout(false);
-            createProductTabControlProductImage.PerformLayout();
+            createProductTabControlProductDetailTabPage.ResumeLayout(false);
+            createProductTabControlProductDetailTabPage.PerformLayout();
+            createProductTabControlProductImageTabPage.ResumeLayout(false);
+            createProductTabControlProductImageTabPage.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -561,43 +561,43 @@
 
         private Label createProductTitleLabel;
         private Button createProductSubmitButton;
-        private CheckBox createProductActiveStatusCheckbox;
-        private TextBox createProductProductNameTextbox;
-        private Label createProductProductNameLabel;
-        private Label createProductSupplierLabel;
-        private Label createProductProductCategoryLabel;
-        private Label createProductWholesalePricePerUnitLabel;
-        private Label createProductUnitStockQuantityHeldLabel;
-        private Label createProductWholesaleUnitQuantityPerCartonLabel;
-        private Label createProductWholesaleCartonQuantityLabel;
-        private Label createProductUnitPriceLabel;
-        private TextBox createProductUnitStockQuantityHeldTextbox;
-        private TextBox createProductWholesaleUnitQuantityPerCartonTextbox;
-        private TextBox createProductWholesalePricePerUnitTextboxB;
-        private TextBox createProductWholesalePricePerUnitTextboxA;
-        private TextBox createProductUnitPriceTextboxA;
-        private ComboBox createProductProductCategoryComboBox;
-        private ComboBox createProductSupplierComboBox;
-        private RadioButton createProductWholesaleReorderFlagNoRadioButton;
-        private RadioButton createProductWholesaleReorderFlagYesRadioButton;
-        private Panel createProductWholesaleReorderFlagPanel;
-        private TextBox createProductUnitPriceTextboxB;
-        private TextBox createProductWholesaleCartonQuantityTextbox;
-        private Label createProductUnitPriceTextboxSeparatorLabel;
-        private Label createProductWholesaleReorderFlagLabel;
-        private Label createProductWholesalePricePerUnitTextboxSeparator;
-        private GroupBox createProductWholesaleGroupBox;
-        private GroupBox createProductPerUnitGroupBox;
-        private TextBox createProductUnitMinimumOrderQuantityTextbox;
-        private Label createProductUnitMinimumOrderQuantityLabel;
-        private TextBox createProductUnitMinimumStockQuantityTextbox;
-        private Label createProductUnitMinimumStockQuantityLabel;
-        private PictureBox createProductProductImagePictureBox;
-        private Button createProductChooseProductImageButton;
-        private Label createProductProductImagePictureBoxLabel;
+        private CheckBox createProductTabControlProductDetailTabPageActiveStatusCheckbox;
+        private TextBox createProductTabControlProductDetailTabPageProductNameTextbox;
+        private Label createProductTabControlProductDetailTabPageProductNameTextboxLabel;
+        private Label createProductTabControlProductDetailTabPageSupplierComboBoxLabel;
+        private Label createProductTabControlProductDetailTabPageProductCategoryComboBoxLabel;
+        private Label createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxLabel;
+        private Label createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextboxLabel;
+        private Label createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextboxLabel;
+        private Label createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextboxLabel;
+        private Label createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxLabel;
+        private TextBox createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitStockQuantityHeldTextbox;
+        private TextBox createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox;
+        private TextBox createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB;
+        private TextBox createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA;
+        private TextBox createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxA;
+        private ComboBox createProductTabControlProductDetailTabPageProductCategoryComboBox;
+        private ComboBox createProductTabControlProductDetailTabPageSupplierComboBox;
+        private RadioButton createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton;
+        private RadioButton createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton;
+        private Panel createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanel;
+        private TextBox createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxB;
+        private TextBox createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox;
+        private Label createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitPriceTextboxSeparatorLabel;
+        private Label createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesaleReorderFlagPanelLabel;
+        private Label createProductTabControlProductDetailTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxSeparatorLabel;
+        private GroupBox createProductTabControlProductDetailTabPageWholesaleGroupBox;
+        private GroupBox createProductTabControlProductDetailTabPagePerUnitGroupBox;
+        private TextBox createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextbox;
+        private Label createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumOrderQuantityTextboxLabel;
+        private TextBox createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextbox;
+        private Label createProductTabControlProductDetailTabPagePerUnitGroupBoxUnitMinimumStockQuantityTextboxLabel;
+        private PictureBox createProductTabControlProductImageTabPageProductImagePictureBox;
+        private Button createProductTabControlProductImageTabPageChooseProductImageButton;
+        private Label createProductTabControlProductImageTabPageProductImagePictureBoxLabel;
         private TabControl createProductTabControl;
-        private TabPage createProductTabControlProductDetails;
-        private TabPage createProductTabControlProductImage;
-        private Button createProductRemoveProductImageButton;
+        private TabPage createProductTabControlProductDetailTabPage;
+        private TabPage createProductTabControlProductImageTabPage;
+        private Button createProductTabControlProductImageTabPageRemoveProductImageButton;
     }
 }

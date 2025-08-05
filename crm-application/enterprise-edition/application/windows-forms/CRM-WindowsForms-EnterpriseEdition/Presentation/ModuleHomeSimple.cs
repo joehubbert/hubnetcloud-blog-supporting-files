@@ -1,4 +1,6 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
+﻿using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ModuleHomeSimple : Form
     {
@@ -58,7 +60,7 @@
                     break;
                 default:
                     this.Text = moduleName;
-                    MessageBox.Show($"{moduleName} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleName);
                     break;
             }
             moduleHomeTitleLabel.Text = moduleFriendlyName;

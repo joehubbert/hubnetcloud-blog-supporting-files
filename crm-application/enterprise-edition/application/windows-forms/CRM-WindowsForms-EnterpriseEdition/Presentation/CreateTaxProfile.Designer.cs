@@ -101,7 +101,7 @@
             // 
             createTaxProfileTaxRateLabel.AutoSize = true;
             createTaxProfileTaxRateLabel.Font = new Font("Segoe UI", 11F);
-            createTaxProfileTaxRateLabel.Location = new Point(70, 105);
+            createTaxProfileTaxRateLabel.Location = new Point(70, 112);
             createTaxProfileTaxRateLabel.Name = "createTaxProfileTaxRateLabel";
             createTaxProfileTaxRateLabel.Size = new Size(64, 20);
             createTaxProfileTaxRateLabel.TabIndex = 13;
@@ -110,7 +110,7 @@
             // 
             // createTaxProfileTaxRateTextboxA
             // 
-            createTaxProfileTaxRateTextboxA.Location = new Point(140, 102);
+            createTaxProfileTaxRateTextboxA.Location = new Point(140, 109);
             createTaxProfileTaxRateTextboxA.Margin = new Padding(3, 4, 3, 4);
             createTaxProfileTaxRateTextboxA.MaxLength = 5;
             createTaxProfileTaxRateTextboxA.Name = "createTaxProfileTaxRateTextboxA";
@@ -119,7 +119,7 @@
             // 
             // createTaxProfileTaxRateTextboxB
             // 
-            createTaxProfileTaxRateTextboxB.Location = new Point(251, 102);
+            createTaxProfileTaxRateTextboxB.Location = new Point(251, 109);
             createTaxProfileTaxRateTextboxB.Margin = new Padding(3, 4, 3, 4);
             createTaxProfileTaxRateTextboxB.MaxLength = 2;
             createTaxProfileTaxRateTextboxB.Name = "createTaxProfileTaxRateTextboxB";
@@ -129,7 +129,7 @@
             // createTaxProfileTaxRateTextboxSeparatorLabel
             // 
             createTaxProfileTaxRateTextboxSeparatorLabel.AutoSize = true;
-            createTaxProfileTaxRateTextboxSeparatorLabel.Location = new Point(233, 105);
+            createTaxProfileTaxRateTextboxSeparatorLabel.Location = new Point(233, 112);
             createTaxProfileTaxRateTextboxSeparatorLabel.Name = "createTaxProfileTaxRateTextboxSeparatorLabel";
             createTaxProfileTaxRateTextboxSeparatorLabel.Size = new Size(12, 20);
             createTaxProfileTaxRateTextboxSeparatorLabel.TabIndex = 16;

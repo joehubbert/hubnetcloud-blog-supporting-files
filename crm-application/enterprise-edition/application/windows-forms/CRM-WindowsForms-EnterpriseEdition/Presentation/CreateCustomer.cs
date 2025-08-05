@@ -18,39 +18,39 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createCustomerBillingInformationAddressLine1Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationAddressLine2Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationAddressLine3Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationAddressLine4Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationAddressLine5Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerBillingInformationTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerFinanceCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
-            createCustomerFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
-            createCustomerOverviewAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerOverviewCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerOverviewCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerOverviewEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewExistingCustomerIsParentNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerOverviewExistingCustomerIsParentYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewSalesRegionComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerOverviewSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
-            createCustomerOverviewTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerOverviewWillBeTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageAddressLine5Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
+            createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
+            createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
+            createCustomerTabControlOverviewTabPageAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerTabControlOverviewTabPageCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerTabControlOverviewTabPageCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerTabControlOverviewTabPageEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlOverviewTabPageFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerTabControlOverviewTabPageLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerTabControlOverviewTabPageSalesRegionComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
+            createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
+            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -71,7 +71,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             await Task.WhenAll(loadCustomerTypeTask, loadCustomerTierTask, loadSalesRegionTask, loadAccountManagerTask, loadCurrencyTask);
 
-            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            if (createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
             {
                 await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
             }
@@ -83,10 +83,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Customer Type";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCustomerType]";
-                string dataSubject = "Customer Type";
+                string storedProcedureName = "[dbo].[spGetAllCustomerType]";    
                 DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var customerTypeList = customerTypeData.AsEnumerable()
@@ -97,13 +99,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.CustomerType)
                     .ToList();
-                createCustomerOverviewCustomerTypeComboBox.DataSource = customerTypeList;
-                createCustomerOverviewCustomerTypeComboBox.DisplayMember = "CustomerType";
-                createCustomerOverviewCustomerTypeComboBox.ValueMember = "CustomerTypeId";
+                createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DataSource = customerTypeList;
+                createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DisplayMember = "CustomerType";
+                createCustomerTabControlOverviewTabPageCustomerTypeComboBox.ValueMember = "CustomerTypeId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Customer Type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -118,10 +120,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "CustomerTier";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerTier]";
-                string dataSubject = "CustomerTier";
                 DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var customerTierList = customerTierData.AsEnumerable()
@@ -134,13 +138,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
-                createCustomerOverviewCustomerTierComboBox.DataSource = customerTierList;
-                createCustomerOverviewCustomerTierComboBox.DisplayMember = "DisplayText";
-                createCustomerOverviewCustomerTierComboBox.ValueMember = "CustomerTierId";
+                createCustomerTabControlOverviewTabPageCustomerTierComboBox.DataSource = customerTierList;
+                createCustomerTabControlOverviewTabPageCustomerTierComboBox.DisplayMember = "DisplayText";
+                createCustomerTabControlOverviewTabPageCustomerTierComboBox.ValueMember = "CustomerTierId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Customer Tier data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -150,10 +154,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Sales Region";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";
-                string dataSubject = "Sales Region";
+                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";               
                 DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var salesRegionList = salesRegionData.AsEnumerable()
@@ -164,13 +170,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.SalesRegion)
                     .ToList();
-                createCustomerOverviewSalesRegionComboBox.DataSource = salesRegionList;
-                createCustomerOverviewSalesRegionComboBox.DisplayMember = "SalesRegion";
-                createCustomerOverviewSalesRegionComboBox.ValueMember = "SalesRegionId";
+                createCustomerTabControlOverviewTabPageSalesRegionComboBox.DataSource = salesRegionList;
+                createCustomerTabControlOverviewTabPageSalesRegionComboBox.DisplayMember = "SalesRegion";
+                createCustomerTabControlOverviewTabPageSalesRegionComboBox.ValueMember = "SalesRegionId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Sales Region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -180,10 +186,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Sales Sub Region";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";
-                string dataSubject = "Sales Sub Region";
+                string storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";          
                 DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var salesSubRegionList = salesSubRegionData.AsEnumerable()
@@ -196,20 +204,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.SalesSubRegion)
                     .ToList();
-                createCustomerOverviewSalesSubRegionComboBox.DataSource = salesSubRegionList;
-                createCustomerOverviewSalesSubRegionComboBox.DisplayMember = "SalesSubRegion";
-                createCustomerOverviewSalesSubRegionComboBox.ValueMember = "SalesSubRegionId";
+                createCustomerTabControlOverviewTabPageSalesSubRegionComboBox.DataSource = salesSubRegionList;
+                createCustomerTabControlOverviewTabPageSalesSubRegionComboBox.DisplayMember = "SalesSubRegion";
+                createCustomerTabControlOverviewTabPageSalesSubRegionComboBox.ValueMember = "SalesSubRegionId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Sales Sub Region data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
         private async Task LoadSalesRegionAndSubRegionDataAsync()
         {
             await CreateCustomerOverviewLoadSalesRegionDataAsync();
-            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            if (createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
             {
                 await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
             }
@@ -217,7 +225,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (createCustomerOverviewSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
+            if (createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
             {
                 await CreateCustomernLoadSalesSubRegionAsync(selectedSalesRegionId);
             }
@@ -229,10 +237,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Account Manager";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllAccountManager]";
-                string dataSubject = "Account Manager";
+                
                 DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var accountManagerList = accountManagerData.AsEnumerable()
@@ -246,56 +257,56 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
-                createCustomerOverviewAccountManagerComboBox.DataSource = accountManagerList;
-                createCustomerOverviewAccountManagerComboBox.DisplayMember = "DisplayText";
-                createCustomerOverviewAccountManagerComboBox.ValueMember = "AccountManagerId";
+                createCustomerTabControlOverviewTabPageAccountManagerComboBox.DataSource = accountManagerList;
+                createCustomerTabControlOverviewTabPageAccountManagerComboBox.DisplayMember = "DisplayText";
+                createCustomerTabControlOverviewTabPageAccountManagerComboBox.ValueMember = "AccountManagerId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Account Manager data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
         private void CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.Checked)
             {
-                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled = false;
-                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled = false;
-                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked = false;
-                createCustomerOverviewGlobalParentCustomerComboBox.Enabled = false;
-                createCustomerOverviewGlobalParentCustomerComboBox.DataSource = null;
-                createCustomerOverviewGlobalParentCustomerComboBox.Items.Clear();
-                createCustomerOverviewTopParentCustomerComboBox.Enabled = false;
-                createCustomerOverviewTopParentCustomerComboBox.DataSource = null;
-                createCustomerOverviewTopParentCustomerComboBox.Items.Clear();
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = false;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = null;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.Items.Clear();
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = false;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DataSource = null;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.Items.Clear();
             }
-            else if (createCustomerOverviewExistingCustomerIsParentYesRadioButton.Checked)
+            else if (createCustomerTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.Checked)
             {
-                createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Enabled = true;
-                createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Enabled = true;
             }
         }
 
         private async void CreateCustomerOverviewExistingParentCompanyType_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Checked)
             {
                 await CreateCustomerOverviewLoadGlobalParentCustomerDataAsync();
-                createCustomerOverviewGlobalParentCustomerComboBox.Enabled = true;
-                createCustomerOverviewTopParentCustomerComboBox.Enabled = false;
-                createCustomerOverviewTopParentCustomerComboBox.DataSource = null;
-                createCustomerOverviewTopParentCustomerComboBox.Items.Clear();
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = true;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = false;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DataSource = null;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.Items.Clear();
 
             }
-            else if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
+            else if (createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Checked)
             {
                 await CreateCustomerOverviewLoadTopParentCustomerDataAsync();
-                createCustomerOverviewTopParentCustomerComboBox.Enabled = true;
-                createCustomerOverviewGlobalParentCustomerComboBox.Enabled = false;
-                createCustomerOverviewGlobalParentCustomerComboBox.DataSource = null;
-                createCustomerOverviewGlobalParentCustomerComboBox.Items.Clear();
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = true;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = false;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = null;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.Items.Clear();
             }
         }
 
@@ -305,10 +316,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Global Parent Customer";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";
-                string dataSubject = "Global Parent Customer";
+                string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";                
                 DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
@@ -320,13 +333,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
-                createCustomerOverviewGlobalParentCustomerComboBox.DataSource = globalParentCustomerList;
-                createCustomerOverviewGlobalParentCustomerComboBox.DisplayMember = "DisplayText";
-                createCustomerOverviewGlobalParentCustomerComboBox.ValueMember = "CustomerId";
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = globalParentCustomerList;
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DisplayMember = "DisplayText";
+                createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.ValueMember = "CustomerId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Global Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -336,10 +349,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Top Parent Customer";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllTopParentCustomer]";
-                string dataSubject = "Top Parent Customer";
+                string storedProcedureName = "[dbo].[spGetAllTopParentCustomer]";               
                 DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var topParentCustomerList = topParentCustomerData.AsEnumerable()
@@ -351,133 +366,133 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
-                createCustomerOverviewTopParentCustomerComboBox.DataSource = topParentCustomerList;
-                createCustomerOverviewTopParentCustomerComboBox.DisplayMember = "DisplayText";
-                createCustomerOverviewTopParentCustomerComboBox.ValueMember = "CustomerId";
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DataSource = topParentCustomerList;
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DisplayMember = "DisplayText";
+                createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.ValueMember = "CustomerId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Top Parent Customer data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
         private void CreateCustomerOverviewRadioButtonValidation_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Checked)
             {
-                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Enabled = false;
-                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Enabled = false;
-                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Checked = false;
-                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Enabled = false;
 
             }
-            else if (createCustomerOverviewExistingParentCompanyTypeTopParentRadioButton.Checked && createCustomerOverviewWillBeTopParentRadioButton.Checked)
+            else if (createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Checked && createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked)
             {
-                MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Customer.TopParent.TopParentRelationshipValidation");
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Enabled = false;
             }
 
-            if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked)
             {
-                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                var selectedCustomerType = createCustomerTabControlOverviewTabPageCustomerTypeComboBox.Text;
                 if (selectedCustomerType != "Business - Multinational")
                 {
-                    MessageBox.Show("The 'Global Parent' option can only be selected for a new customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Customer.GlobalParentType.CustomerTypeValidation");
+                    createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
                 }
             }
-            else if (createCustomerOverviewWillBeGlobalParentRadioButton.Checked && createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            else if (createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked && createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Checked)
             {
-                MessageBox.Show("Cannot select 'Global Parent' as new customer parent tyoe when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Customer.GlobalParent.GlobalParentRelationshipValidation");
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Enabled = false;
             }
 
-            if (createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Checked)
             {
-                var selectedCustomerType = createCustomerOverviewCustomerTypeComboBox.Text;
+                var selectedCustomerType = createCustomerTabControlOverviewTabPageCustomerTypeComboBox.Text;
                 if (selectedCustomerType != "Business - Multinational")
                 {
-                    MessageBox.Show("'Business - Multinational' is can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                    createCustomerOverviewExistingParentCompanyTypeGlobalParentRadioButton.Checked = false;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Customer.CustomerType.MultinationalValidation");
+                    createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
+                    createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Checked = false;
                 }
             }
 
-            if (createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.Checked)
             {
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Enabled = false;
-                createCustomerOverviewWillBeGlobalParentRadioButton.Checked = false;
-                createCustomerOverviewWillBeTopParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Enabled = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked = false;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked = false;
             }
-            else if (createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Checked)
+            else if (createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.Checked)
             {
-                createCustomerOverviewWillBeGlobalParentRadioButton.Enabled = true;
-                createCustomerOverviewWillBeTopParentRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Enabled = true;
             }
 
-            if (createCustomerOverviewExistingCustomerIsParentNoRadioButton.Checked)
+            if (createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.Checked)
             {
-                createCustomerOverviewWillBeParentInCustomerHierarchyNoRadioButton.Enabled = true;
-                createCustomerOverviewWillBeParentInCustomerHierarchyYesRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.Enabled = true;
+                createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.Enabled = true;
             }
         }
 
         private void AutoPopulateBillingInformation(object? sender, EventArgs e)
         {
-            createCustomerBillingInformationFirstNameTextbox.Text = createCustomerOverviewFirstNameTextbox.Text;
-            createCustomerBillingInformationLastNameTextbox.Text = createCustomerOverviewLastNameTextbox.Text;
-            createCustomerBillingInformationCompanyNameTextbox.Text = createCustomerOverviewCompanyNameTextbox.Text;
-            createCustomerBillingInformationEmailAddressTextbox.Text = createCustomerOverviewEmailAddressTextbox.Text;
-            createCustomerBillingInformationTelephoneNumberTextbox.Text = createCustomerOverviewTelephoneNumberTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text = createCustomerTabControlOverviewTabPageFirstNameTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text = createCustomerTabControlOverviewTabPageLastNameTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text = createCustomerTabControlOverviewTabPageCompanyNameTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text = createCustomerTabControlOverviewTabPageEmailAddressTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text = createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.Text;
         }
 
         private void AutoPopulateShippingInformation(object? sender, EventArgs e)
         {
-            createCustomerShippingInformationAddressLine1Textbox.Text = createCustomerBillingInformationAddressLine1Textbox.Text;
-            createCustomerShippingInformationAddressLine2Textbox.Text = createCustomerBillingInformationAddressLine2Textbox.Text;
-            createCustomerShippingInformationAddressLine3Textbox.Text = createCustomerBillingInformationAddressLine3Textbox.Text;
-            createCustomerShippingInformationAddressLine4Textbox.Text = createCustomerBillingInformationAddressLine4Textbox.Text;
-            createCustomerShippingInformationAddressLine5Textbox.Text = createCustomerBillingInformationAddressLine5Textbox.Text;
-            createCustomerShippingInformationCompanyNameTextbox.Text = createCustomerBillingInformationCompanyNameTextbox.Text;
-            createCustomerShippingInformationEmailAddressTextbox.Text = createCustomerBillingInformationEmailAddressTextbox.Text;
-            createCustomerShippingInformationFirstNameTextbox.Text = createCustomerBillingInformationFirstNameTextbox.Text;
-            createCustomerShippingInformationLastNameTextbox.Text = createCustomerBillingInformationLastNameTextbox.Text;
-            createCustomerShippingInformationTelephoneNumberTextbox.Text = createCustomerBillingInformationTelephoneNumberTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine1Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine2Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine3Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine4Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine5Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine5Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageCompanyNameTextbox.Text = createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageEmailAddressTextbox.Text = createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageFirstNameTextbox.Text = createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageLastNameTextbox.Text = createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageTelephoneNumberTextbox.Text = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text;
         }
 
         private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerFinanceCreditEnabledCheckbox.Checked)
+            if (createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked)
             {
-                createCustomerFinanceCreditLimitTextboxA.Enabled = true;
-                createCustomerFinanceCreditLimitTextboxB.Enabled = true;
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Enabled = true;
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Enabled = true;
             }
             else
             {
-                createCustomerFinanceCreditLimitTextboxA.Enabled = false;
-                createCustomerFinanceCreditLimitTextboxB.Enabled = false;
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Enabled = false;
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Enabled = false;
             }
         }
 
         private void CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerFinanceVATRegisteredCheckbox.Checked)
+            if (createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createCustomerFinanceVATNumberTextbox.Enabled = true;
+                createCustomerTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
             }
             else
             {
-                createCustomerFinanceVATNumberTextbox.Enabled = false;
-                createCustomerFinanceVATNumberTextbox.Text = string.Empty;
+                createCustomerTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
+                createCustomerTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
             }
         }
 
@@ -488,12 +503,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
 
+            string dataSubject = "Currency";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCurrency]";
-                string dataSubject = "Currency";
+                
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
-
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
                     {
@@ -505,79 +521,79 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .OrderBy(item => item.DisplayText)
                     .ToList();
 
-                createCustomerFinancePaymentCurrencyComboBox.DataSource = currencyList;
-                createCustomerFinancePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                createCustomerFinancePaymentCurrencyComboBox.ValueMember = "CurrencyId";
+                createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DataSource = currencyList;
+                createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DisplayMember = "DisplayText";
+                createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.ValueMember = "CurrencyId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
         private async void createCustomerSubmitButton_Click(object sender, EventArgs e)
         {
-            string customerBillingInformationAddressLine1 = createCustomerBillingInformationAddressLine1Textbox.Text.TrimEnd();
-            string? customerBillingInformationAddressLine2 = createCustomerBillingInformationAddressLine2Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine3 = createCustomerBillingInformationAddressLine3Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine4 = createCustomerBillingInformationAddressLine4Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine5 = createCustomerBillingInformationAddressLine5Textbox.Text.TrimEnd();
-            string? customerBillingInformationCompanyName = createCustomerBillingInformationCompanyNameTextbox.Text.TrimEnd();
-            string customerBillingInformationEmailAddress = createCustomerBillingInformationEmailAddressTextbox.Text.TrimEnd();
-            string customerBillingInformationFirstName = createCustomerBillingInformationFirstNameTextbox.Text.TrimEnd();
-            string customerBillingInformationLastName = createCustomerBillingInformationLastNameTextbox.Text.TrimEnd();
-            string customerBillingInformationTelephoneNumber = createCustomerBillingInformationTelephoneNumberTextbox.Text.TrimEnd();
-            bool customerFinanceCreditEnabled = createCustomerFinanceCreditEnabledCheckbox.Checked;
+            string customerBillingInformationAddressLine1 = createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
+            string? customerBillingInformationAddressLine2 = createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine3 = createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine4 = createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine5 = createCustomerTabControlBillingInformationTabPageAddressLine5Textbox.Text.TrimEnd();
+            string? customerBillingInformationCompanyName = createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
+            string customerBillingInformationEmailAddress = createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
+            string customerBillingInformationFirstName = createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text.TrimEnd();
+            string customerBillingInformationLastName = createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text.TrimEnd();
+            string customerBillingInformationTelephoneNumber = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            bool customerFinanceCreditEnabled = createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
             if(!customerFinanceCreditEnabled)
             {
-                createCustomerFinanceCreditLimitTextboxA.Text = "0";
-                createCustomerFinanceCreditLimitTextboxB.Text = "00";
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Text = "0";
+                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Text = "00";
             }
-            decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerFinanceCreditLimitTextboxA.Text.TrimEnd()}.{createCustomerFinanceCreditLimitTextboxB.Text.TrimEnd()}");
-            Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerFinancePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte customerFinancePaymentDays = byte.Parse(createCustomerFinancePaymentDaysTextbox.Text.TrimEnd());
-            string? customerFinanceVATNumber = createCustomerFinanceVATNumberTextbox.Text.TrimEnd();
+            decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Text.TrimEnd()}.{createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Text.TrimEnd()}");
+            Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
+            byte customerFinancePaymentDays = byte.Parse(createCustomerTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
+            string? customerFinanceVATNumber = createCustomerTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
 
-            Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerOverviewAccountManagerComboBox.SelectedValue.ToString());
+            Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
-            string? customerOverviewCompanyName = createCustomerOverviewCompanyNameTextbox.Text.TrimEnd();
-            DateTime customerOverviewCustomerSince = createCustomerOverviewCustomerSinceDatePicker.Value.Date;
-            Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerOverviewCustomerTierComboBox.SelectedValue.ToString());
-            Guid customerOverviewCustomerTypeId = Guid.Parse(createCustomerOverviewCustomerTypeComboBox.SelectedValue.ToString());
-            string customerOverviewEmailAddress = createCustomerOverviewEmailAddressTextbox.Text.TrimEnd();
+            string? customerOverviewCompanyName = createCustomerTabControlOverviewTabPageCompanyNameTextbox.Text.TrimEnd();
+            DateTime customerOverviewCustomerSince = createCustomerTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
+            Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerTabControlOverviewTabPageCustomerTierComboBox.SelectedValue.ToString());
+            Guid customerOverviewCustomerTypeId = Guid.Parse(createCustomerTabControlOverviewTabPageCustomerTypeComboBox.SelectedValue.ToString());
+            string customerOverviewEmailAddress = createCustomerTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
             Guid? customerOverviewExistingGlobalParentCustomerId = null;
-            if (createCustomerOverviewGlobalParentCustomerComboBox.SelectedValue != null)
+            if (createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue != null)
             {
-                customerOverviewExistingGlobalParentCustomerId = Guid.Parse(createCustomerOverviewGlobalParentCustomerComboBox.SelectedValue.ToString());
+                customerOverviewExistingGlobalParentCustomerId = Guid.Parse(createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue.ToString());
             }
             Guid? customerOverviewExistingTopParentCustomerId = null;
-            if (createCustomerOverviewTopParentCustomerComboBox.SelectedValue != null)
+            if (createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue != null)
             {
-                customerOverviewExistingTopParentCustomerId = Guid.Parse(createCustomerOverviewTopParentCustomerComboBox.SelectedValue.ToString());
+                customerOverviewExistingTopParentCustomerId = Guid.Parse(createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue.ToString());
             }
-            string customerOverviewFirstName = createCustomerOverviewFirstNameTextbox.Text.TrimEnd();
-            string customerOverviewLastName = createCustomerOverviewLastNameTextbox.Text.TrimEnd();
-            Guid customerOverviewSalesSubRegionId = Guid.Parse(createCustomerOverviewSalesSubRegionComboBox.SelectedValue.ToString());
-            string customerOverviewTelephoneNumber = createCustomerOverviewTelephoneNumberTextbox.Text.TrimEnd();
-            bool customerOverviewWillBeGlobalParent = createCustomerOverviewWillBeGlobalParentRadioButton.Checked;
-            bool customerOverviewWillBeTopParent = createCustomerOverviewWillBeTopParentRadioButton.Checked;
+            string customerOverviewFirstName = createCustomerTabControlOverviewTabPageFirstNameTextbox.Text.TrimEnd();
+            string customerOverviewLastName = createCustomerTabControlOverviewTabPageLastNameTextbox.Text.TrimEnd();
+            Guid customerOverviewSalesSubRegionId = Guid.Parse(createCustomerTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue.ToString());
+            string customerOverviewTelephoneNumber = createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            bool customerOverviewWillBeGlobalParent = createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked;
+            bool customerOverviewWillBeTopParent = createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked;
 
-            string customerShippingInformationAddressLine1 = createCustomerShippingInformationAddressLine1Textbox.Text.TrimEnd();
-            string? customerShippingInformationAddressLine2 = createCustomerShippingInformationAddressLine2Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine3 = createCustomerShippingInformationAddressLine3Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine4 = createCustomerShippingInformationAddressLine4Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine5 = createCustomerShippingInformationAddressLine5Textbox.Text.TrimEnd();
-            string? customerShippingInformationCompanyName = createCustomerShippingInformationCompanyNameTextbox.Text.TrimEnd();
-            string customerShippingInformationEmailAddress = createCustomerShippingInformationEmailAddressTextbox.Text.TrimEnd();
-            string customerShippingInformationFirstName = createCustomerShippingInformationFirstNameTextbox.Text.TrimEnd();
-            string customerShippingInformationLastName = createCustomerShippingInformationLastNameTextbox.Text.TrimEnd();
-            string customerShippingInformationTelephoneNumber = createCustomerShippingInformationTelephoneNumberTextbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine1 = createCustomerTabControlShippingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
+            string? customerShippingInformationAddressLine2 = createCustomerTabControlShippingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine3 = createCustomerTabControlShippingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine4 = createCustomerTabControlShippingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine5 = createCustomerTabControlShippingInformationTabPageAddressLine5Textbox.Text.TrimEnd();
+            string? customerShippingInformationCompanyName = createCustomerTabControlShippingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
+            string customerShippingInformationEmailAddress = createCustomerTabControlShippingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
+            string customerShippingInformationFirstName = createCustomerTabControlShippingInformationTabPageFirstNameTextbox.Text.TrimEnd();
+            string customerShippingInformationLastName = createCustomerTabControlShippingInformationTabPageLastNameTextbox.Text.TrimEnd();
+            string customerShippingInformationTelephoneNumber = createCustomerTabControlShippingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
 
             string dataSubject = "Customer";
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

@@ -38,10 +38,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Country";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCountry]";
-                string dataSubject = "Country";
+                string storedProcedureName = "[dbo].[spGetAllCountry]";               
                 DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var countryList = countryData.AsEnumerable()
@@ -59,7 +61,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Country data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -72,7 +74,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -87,10 +89,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             };
 
+            string dataSubject = "Country Translation";
+
             try
             {
-                string dataSubject = "Country Translation";
-
                 DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 if (countryDataTable != null)
@@ -111,15 +113,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     countryTranslationDetailBCP47LanguageTagCodeOriginalValue = countryDataRow["BCP 47 Language Tag Code"].ToString();
                     countryTranslationDetailCountryIdOriginalValue = (Guid)countryDataRow["Country Id"];
                     countryTranslationDetailLocalisedCountryNameOriginalValue = countryDataRow["Localised Country Name"].ToString();
+
+                    this.Text += $" ({countryTranslationDetailLocalisedCountryNameOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show("No data found for the specified Country Translation.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load CountryTranslation details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -134,7 +138,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -256,7 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

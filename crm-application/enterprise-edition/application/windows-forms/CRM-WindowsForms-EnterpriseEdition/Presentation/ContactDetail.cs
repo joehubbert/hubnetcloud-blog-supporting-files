@@ -67,7 +67,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -110,15 +110,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     contactDetailLastNameOriginalValue = contactDataRow["Last Name"].ToString();
                     contactDetailRoleOriginalValue = contactDataRow["Role"].ToString();
                     contactDetailTelephoneNumberOriginalValue = contactDataRow["Telephone Number"].ToString();
+
+                    this.Text += $" ({contactDetailLastNameOriginalValue}, {contactDetailFirstNameOriginalValue})";
                 }
                 else
                 {
-                    MessageBox.Show($"No data found for the specified {contactDetailModuleContactTypeFriendlyName}.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", contactDetailModuleContactTypeFriendlyName);
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load {contactDetailModuleContactTypeFriendlyName} details: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", contactDetailModuleContactTypeFriendlyName, ex.Message);
             }
         }
 
@@ -133,7 +135,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -301,7 +303,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

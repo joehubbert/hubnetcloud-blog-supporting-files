@@ -19,8 +19,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createSupplierFinancePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createSupplierFinanceVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged);
+            createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -39,14 +39,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createSupplierFinanceVATRegisteredCheckbox.Checked)
+            if (createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createSupplierFinanceVATNumberTextbox.Enabled = true;
+                createSupplierTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
             }
             else
             {
-                createSupplierFinanceVATNumberTextbox.Enabled = false;
-                createSupplierFinanceVATNumberTextbox.Text = string.Empty;
+                createSupplierTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
+                createSupplierTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
             }
         }
 
@@ -57,10 +57,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
 
+            string dataSubject = "Currency";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCurrency]";
-                string dataSubject = "Currency";
+                string storedProcedureName = "[dbo].[spGetAllCurrency]";                
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var currencyList = currencyData.AsEnumerable()
@@ -74,13 +75,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .OrderBy(item => item.DisplayText)
                     .ToList();
 
-                createSupplierFinancePaymentCurrencyComboBox.DataSource = currencyList;
-                createSupplierFinancePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                createSupplierFinancePaymentCurrencyComboBox.ValueMember = "CurrencyId";
+                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DataSource = currencyList;
+                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DisplayMember = "DisplayText";
+                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.ValueMember = "CurrencyId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Currency data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -91,23 +92,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)
         {
-            Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierFinancePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte supplierFinancePaymentDays = byte.Parse(createSupplierFinancePaymentDaysTextbox.Text.TrimEnd());
-            string? supplierFinanceVATNumber = createSupplierFinanceVATNumberTextbox.Text.TrimEnd();
+            Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
+            byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
+            string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
 
-            bool supplierOverviewActiveStatus = createSupplierOverviewActiveStatusCheckbox.Checked;
-            string supplierOverviewAddressLine1 = createSupplierOverviewAddressLine1Textbox.Text.TrimEnd();
-            string? supplierOverviewAddressLine2 = createSupplierOverviewAddressLine2Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine3 = createSupplierOverviewAddressLine3Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine4 = createSupplierOverviewAddressLine4Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine5 = createSupplierOverviewAddressLine5Textbox.Text.TrimEnd();
-            string supplierOverviewSupplierName = createSupplierOverviewSupplierNameTextbox.Text.TrimEnd();
-            string supplierOverviewEmailAddress = createSupplierOverviewEmailAddressTextbox.Text.TrimEnd();
-            string supplierOverviewTelephoneNumber = createSupplierOverviewTelephoneNumberTextbox.Text.TrimEnd();
+            bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
+            string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
+            string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
+            string supplierOverviewAddressLine4 = createSupplierTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string supplierOverviewAddressLine5 = createSupplierTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            string supplierOverviewSupplierName = createSupplierTabControlOverviewTabPageSupplierNameTextbox.Text.TrimEnd();
+            string supplierOverviewEmailAddress = createSupplierTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
+            string supplierOverviewTelephoneNumber = createSupplierTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

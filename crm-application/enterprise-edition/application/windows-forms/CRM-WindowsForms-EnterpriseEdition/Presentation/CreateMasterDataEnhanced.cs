@@ -54,7 +54,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.BackColor = Color.MediumAquamarine;
                     break;
                 default:
-                    MessageBox.Show($"Unrecognised module group - {moduleGroup} passed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
                     break;
             }
         }
@@ -80,7 +80,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
-                    MessageBox.Show($"{functionTitle} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
                     break;
             }
 
@@ -100,7 +100,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

@@ -155,7 +155,7 @@
             // masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel
             // 
             masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.Location = new Point(658, 265);
+            masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.Location = new Point(668, 261);
             masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.Name = "masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel";
             masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             masterDataAdvancedDetailLastUpdatedTimestampTextboxLabel.TabIndex = 34;
@@ -165,7 +165,7 @@
             // masterDataAdvancedDetailLastUpdatedByTextboxLabel
             // 
             masterDataAdvancedDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            masterDataAdvancedDetailLastUpdatedByTextboxLabel.Location = new Point(716, 221);
+            masterDataAdvancedDetailLastUpdatedByTextboxLabel.Location = new Point(726, 221);
             masterDataAdvancedDetailLastUpdatedByTextboxLabel.Name = "masterDataAdvancedDetailLastUpdatedByTextboxLabel";
             masterDataAdvancedDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             masterDataAdvancedDetailLastUpdatedByTextboxLabel.TabIndex = 33;
@@ -175,7 +175,7 @@
             // masterDataAdvancedDetailCreatedTimestampTextboxLabel
             // 
             masterDataAdvancedDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            masterDataAdvancedDetailCreatedTimestampTextboxLabel.Location = new Point(694, 181);
+            masterDataAdvancedDetailCreatedTimestampTextboxLabel.Location = new Point(704, 181);
             masterDataAdvancedDetailCreatedTimestampTextboxLabel.Name = "masterDataAdvancedDetailCreatedTimestampTextboxLabel";
             masterDataAdvancedDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             masterDataAdvancedDetailCreatedTimestampTextboxLabel.TabIndex = 32;
@@ -185,7 +185,7 @@
             // masterDataAdvancedDetailCreatedByTextboxLabel
             // 
             masterDataAdvancedDetailCreatedByTextboxLabel.AutoSize = true;
-            masterDataAdvancedDetailCreatedByTextboxLabel.Location = new Point(752, 141);
+            masterDataAdvancedDetailCreatedByTextboxLabel.Location = new Point(762, 141);
             masterDataAdvancedDetailCreatedByTextboxLabel.Name = "masterDataAdvancedDetailCreatedByTextboxLabel";
             masterDataAdvancedDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             masterDataAdvancedDetailCreatedByTextboxLabel.TabIndex = 31;

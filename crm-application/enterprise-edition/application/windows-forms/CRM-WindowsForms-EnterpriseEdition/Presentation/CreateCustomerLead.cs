@@ -21,15 +21,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeCustomComponents()
         {
-            createCustomerLeadCustomerContactChoiceNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerContactChoiceYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerContactComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
+            createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCustomerLeadCustomerLeadTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerLeadMarketingChannelChoiceNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
-            createCustomerLeadMarketingChannelChoiceYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
-            createCustomerLeadMarketingChannelComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
+            createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
+            createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -43,10 +43,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Customer Contact";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
-                string dataSubject = "Customer Contact";
+
 
                 var parameters = new[]
 {
@@ -67,20 +70,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.DisplayText)
                     .ToList();
-                createCustomerLeadCustomerContactComboBox.DataSource = customerContactList;
-                createCustomerLeadCustomerContactComboBox.DisplayMember = "DisplayText";
-                createCustomerLeadCustomerContactComboBox.ValueMember = "CustomerContactId";
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.DataSource = customerContactList;
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.DisplayMember = "DisplayText";
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.ValueMember = "CustomerContactId";
 
                 if( customerContactList.Count > 0)
                 {
-                    MessageBox.Show("There are no Contacts defined for this Customer. Please create first and then try again.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    createCustomerLeadCustomerContactComboBox.Enabled = false;
-                    createCustomerLeadCustomerContactComboBox.DataSource = null;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
+                    createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = false;
+                    createCustomerLeadCustomerContactPanelCustomerContactComboBox.DataSource = null;
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Customer Contact data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -90,10 +93,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Customer Lead Type";
+
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerLeadType]";
-                string dataSubject = "Customer Lead Type";
+
                 DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var customerLeadTypeList = customerLeadTypeData.AsEnumerable()
@@ -110,7 +116,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Customer Lead Type data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -120,10 +126,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
             }
+
+            string dataSubject = "Marketing Channel";
+
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllMarketingChannel]";
-                string dataSubject = "Marketing Channel";
+                string storedProcedureName = "[dbo].[spGetAllMarketingChannel]";                
                 DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
 
                 var marketingChannelList = marketingChannelData.AsEnumerable()
@@ -134,13 +142,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     })
                     .OrderBy(item => item.MarketingChannel)
                     .ToList();
-                createCustomerLeadMarketingChannelComboBox.DataSource = marketingChannelList;
-                createCustomerLeadMarketingChannelComboBox.DisplayMember = "MarketingChannel";
-                createCustomerLeadMarketingChannelComboBox.ValueMember = "MarketingChannelId";
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DataSource = marketingChannelList;
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DisplayMember = "MarketingChannel";
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.ValueMember = "MarketingChannelId";
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load Country data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -151,42 +159,42 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerLeadCustomerContactChoiceYesRadioButton.Checked)
+            if (createCustomerLeadCustomerContactPanelYesRadioButton.Checked)
             {
-                createCustomerLeadCustomerContactComboBox.Enabled = true;
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = true;
                 CreateCustomerLeadLoadCustomerContactAsync(_customerId);
             }
-            else if (createCustomerLeadCustomerContactChoiceNoRadioButton.Checked)
+            else if (createCustomerLeadCustomerContactPanelNoRadioButton.Checked)
             {
-                createCustomerLeadCustomerContactComboBox.Enabled = false;
-                createCustomerLeadCustomerContactComboBox.DataSource = null;
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = false;
+                createCustomerLeadCustomerContactPanelCustomerContactComboBox.DataSource = null;
             }
         }
 
         private void CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerLeadMarketingChannelChoiceYesRadioButton.Checked)
+            if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)
             {
                 CreateCustomerLeadLoadMarketingChannelAsync();
-                createCustomerLeadMarketingChannelComboBox.Enabled = true;
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Enabled = true;
             }
-            else if (createCustomerLeadMarketingChannelChoiceNoRadioButton.Checked)
+            else if (createCustomerLeadMarketingChannelPanelNoRadioButton.Checked)
             {
-                createCustomerLeadMarketingChannelComboBox.Enabled = false;
-                createCustomerLeadMarketingChannelComboBox.DataSource = null;
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Enabled = false;
+                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DataSource = null;
             }
         }
 
         private void CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Checked)
+            if (createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Checked)
             {
-                createCustomerLeadCustomerLeadTargetDatePicker.Enabled = true;
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = true;
             }
-            else if (createCustomerLeadCustomerLeadTargetDateChoiceNoRadioButton.Checked)
+            else if (createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Checked)
             {
-                createCustomerLeadCustomerLeadTargetDatePicker.Enabled = false;
-                createCustomerLeadCustomerLeadTargetDatePicker.Value = DateTime.Now;
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Value = DateTime.Now;
             }
         }
 
@@ -194,29 +202,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = createCustomerLeadActiveStatusCheckbox.Checked;
             Guid? customerContactId = null;
-            if (createCustomerLeadCustomerContactChoiceYesRadioButton.Checked)
+            if (createCustomerLeadCustomerContactPanelYesRadioButton.Checked)
             {
-                customerContactId = (Guid)createCustomerLeadCustomerContactComboBox.SelectedValue;
+                customerContactId = (Guid)createCustomerLeadCustomerContactPanelCustomerContactComboBox.SelectedValue;
             }
             string customerLead = createCustomerLeadCustomerLeadTextbox.Text.TrimEnd();
             string customerLeadTitle = createCustomerLeadCustomerLeadTitleTextbox.Text.TrimEnd();
             Guid customerLeadType = (Guid)createCustomerLeadCustomerLeadTypeComboBox.SelectedValue;
             Guid? marketingChannelId = null;
-            if (createCustomerLeadMarketingChannelChoiceYesRadioButton.Checked)
+            if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)
             {
-                marketingChannelId = (Guid)createCustomerLeadMarketingChannelComboBox.SelectedValue;
+                marketingChannelId = (Guid)createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.SelectedValue;
             }
             DateTime? targetDate = null;
-            if (createCustomerLeadCustomerLeadTargetDateChoiceYesRadioButton.Checked)
+            if (createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Checked)
             {
-                targetDate = createCustomerLeadCustomerLeadTargetDatePicker.Value;
+                targetDate = createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Value;
             }
 
             string dataSubject = "Customer Lead";
 
             if (_databaseConnectionSettings == null)
             {
-                MessageBox.Show("Database connection settings are not loaded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

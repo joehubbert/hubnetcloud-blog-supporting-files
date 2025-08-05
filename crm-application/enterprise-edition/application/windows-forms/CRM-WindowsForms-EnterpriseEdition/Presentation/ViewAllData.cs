@@ -816,18 +816,36 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             }
 
-            foreach (DataGridViewRow row in viewAllDataDataGridView.Rows)
+            if (viewAllDataDataGridView.DataSource is DataTable dataTable)
             {
-                if (!row.IsNewRow)
+                DataView filteredView = dataTable.DefaultView;
+                foreach (DataRowView rowView in filteredView)
                 {
                     var newRow = new DataGridViewRow();
                     foreach (DataGridViewColumn col in exportDataGridView.Columns)
                     {
                         var cell = new DataGridViewTextBoxCell();
-                        cell.Value = row.Cells[col.Name].Value;
+                        cell.Value = rowView.Row[col.Name];
                         newRow.Cells.Add(cell);
                     }
                     exportDataGridView.Rows.Add(newRow);
+                }
+            }
+            else
+            {
+                foreach (DataGridViewRow row in viewAllDataDataGridView.Rows)
+                {
+                    if (!row.IsNewRow)
+                    {
+                        var newRow = new DataGridViewRow();
+                        foreach (DataGridViewColumn col in exportDataGridView.Columns)
+                        {
+                            var cell = new DataGridViewTextBoxCell();
+                            cell.Value = row.Cells[col.Name].Value;
+                            newRow.Cells.Add(cell);
+                        }
+                        exportDataGridView.Rows.Add(newRow);
+                    }
                 }
             }
 

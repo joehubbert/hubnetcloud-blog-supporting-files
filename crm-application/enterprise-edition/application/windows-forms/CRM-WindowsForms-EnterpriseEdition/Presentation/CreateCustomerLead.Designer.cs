@@ -38,8 +38,8 @@
             createCustomerLeadCustomerContactPanel = new Panel();
             createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel = new Label();
             createCustomerLeadCustomerContactPanelYesRadioButton = new RadioButton();
-            createCustomerLeadCustomerContactPanelLabel = new Label();
             createCustomerLeadCustomerContactPanelNoRadioButton = new RadioButton();
+            createCustomerLeadCustomerContactPanelLabel = new Label();
             createCustomerLeadSubmitButton = new Button();
             createCustomerLeadCustomerLeadTextboxLabel = new Label();
             createCustomerLeadCustomerLeadTitleTextboxLabel = new Label();
@@ -48,12 +48,12 @@
             createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel = new Label();
             createCustomerLeadMarketingChannelPanel = new Panel();
             createCustomerLeadMarketingChannelPanelYesRadioButton = new RadioButton();
-            createCustomerLeadMarketingChannelPanelLabel = new Label();
             createCustomerLeadMarketingChannelPanelNoRadioButton = new RadioButton();
+            createCustomerLeadMarketingChannelPanelLabel = new Label();
             createCustomerLeadCustomerLeadTargetDatePanel = new Panel();
             createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton = new RadioButton();
-            createCustomerLeadCustomerLeadTargetDatePanelLabel = new Label();
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton = new RadioButton();
+            createCustomerLeadCustomerLeadTargetDatePanelLabel = new Label();
             createCustomerLeadActiveStatusCheckbox = new CheckBox();
             createCustomerLeadCustomerContactPanel.SuspendLayout();
             createCustomerLeadMarketingChannelPanel.SuspendLayout();
@@ -133,7 +133,7 @@
             createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelYesRadioButton);
             createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelCustomerContactComboBox);
             createCustomerLeadCustomerContactPanel.Controls.Add(createCustomerLeadCustomerContactPanelNoRadioButton);
-            createCustomerLeadCustomerContactPanel.Location = new Point(13, 684);
+            createCustomerLeadCustomerContactPanel.Location = new Point(678, 312);
             createCustomerLeadCustomerContactPanel.Name = "createCustomerLeadCustomerContactPanel";
             createCustomerLeadCustomerContactPanel.Size = new Size(640, 83);
             createCustomerLeadCustomerContactPanel.TabIndex = 15;
@@ -158,15 +158,6 @@
             createCustomerLeadCustomerContactPanelYesRadioButton.Text = "Yes";
             createCustomerLeadCustomerContactPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadCustomerContactPanelLabel
-            // 
-            createCustomerLeadCustomerContactPanelLabel.AutoSize = true;
-            createCustomerLeadCustomerContactPanelLabel.Location = new Point(13, 661);
-            createCustomerLeadCustomerContactPanelLabel.Name = "createCustomerLeadCustomerContactPanelLabel";
-            createCustomerLeadCustomerContactPanelLabel.Size = new Size(274, 20);
-            createCustomerLeadCustomerContactPanelLabel.TabIndex = 52;
-            createCustomerLeadCustomerContactPanelLabel.Text = "Associate to Existing Customer Contact?";
-            // 
             // createCustomerLeadCustomerContactPanelNoRadioButton
             // 
             createCustomerLeadCustomerContactPanelNoRadioButton.AutoSize = true;
@@ -179,11 +170,20 @@
             createCustomerLeadCustomerContactPanelNoRadioButton.Text = "No";
             createCustomerLeadCustomerContactPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
+            // createCustomerLeadCustomerContactPanelLabel
+            // 
+            createCustomerLeadCustomerContactPanelLabel.AutoSize = true;
+            createCustomerLeadCustomerContactPanelLabel.Location = new Point(678, 289);
+            createCustomerLeadCustomerContactPanelLabel.Name = "createCustomerLeadCustomerContactPanelLabel";
+            createCustomerLeadCustomerContactPanelLabel.Size = new Size(274, 20);
+            createCustomerLeadCustomerContactPanelLabel.TabIndex = 52;
+            createCustomerLeadCustomerContactPanelLabel.Text = "Associate to Existing Customer Contact?";
+            // 
             // createCustomerLeadSubmitButton
             // 
             createCustomerLeadSubmitButton.FlatStyle = FlatStyle.Flat;
             createCustomerLeadSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createCustomerLeadSubmitButton.Location = new Point(226, 852);
+            createCustomerLeadSubmitButton.Location = new Point(558, 529);
             createCustomerLeadSubmitButton.Margin = new Padding(4);
             createCustomerLeadSubmitButton.Name = "createCustomerLeadSubmitButton";
             createCustomerLeadSubmitButton.Size = new Size(198, 66);
@@ -248,7 +248,7 @@
             createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelNoRadioButton);
             createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel);
             createCustomerLeadMarketingChannelPanel.Controls.Add(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox);
-            createCustomerLeadMarketingChannelPanel.Location = new Point(13, 452);
+            createCustomerLeadMarketingChannelPanel.Location = new Point(678, 80);
             createCustomerLeadMarketingChannelPanel.Name = "createCustomerLeadMarketingChannelPanel";
             createCustomerLeadMarketingChannelPanel.Size = new Size(640, 83);
             createCustomerLeadMarketingChannelPanel.TabIndex = 58;
@@ -263,15 +263,6 @@
             createCustomerLeadMarketingChannelPanelYesRadioButton.Text = "Yes";
             createCustomerLeadMarketingChannelPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadMarketingChannelPanelLabel
-            // 
-            createCustomerLeadMarketingChannelPanelLabel.AutoSize = true;
-            createCustomerLeadMarketingChannelPanelLabel.Location = new Point(13, 429);
-            createCustomerLeadMarketingChannelPanelLabel.Name = "createCustomerLeadMarketingChannelPanelLabel";
-            createCustomerLeadMarketingChannelPanelLabel.Size = new Size(221, 20);
-            createCustomerLeadMarketingChannelPanelLabel.TabIndex = 52;
-            createCustomerLeadMarketingChannelPanelLabel.Text = "Attribute to Marketing Channel?";
-            // 
             // createCustomerLeadMarketingChannelPanelNoRadioButton
             // 
             createCustomerLeadMarketingChannelPanelNoRadioButton.AutoSize = true;
@@ -284,13 +275,22 @@
             createCustomerLeadMarketingChannelPanelNoRadioButton.Text = "No";
             createCustomerLeadMarketingChannelPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
+            // createCustomerLeadMarketingChannelPanelLabel
+            // 
+            createCustomerLeadMarketingChannelPanelLabel.AutoSize = true;
+            createCustomerLeadMarketingChannelPanelLabel.Location = new Point(678, 57);
+            createCustomerLeadMarketingChannelPanelLabel.Name = "createCustomerLeadMarketingChannelPanelLabel";
+            createCustomerLeadMarketingChannelPanelLabel.Size = new Size(221, 20);
+            createCustomerLeadMarketingChannelPanelLabel.TabIndex = 52;
+            createCustomerLeadMarketingChannelPanelLabel.Text = "Attribute to Marketing Channel?";
+            // 
             // createCustomerLeadCustomerLeadTargetDatePanel
             // 
             createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton);
             createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel);
             createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton);
             createCustomerLeadCustomerLeadTargetDatePanel.Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker);
-            createCustomerLeadCustomerLeadTargetDatePanel.Location = new Point(13, 568);
+            createCustomerLeadCustomerLeadTargetDatePanel.Location = new Point(678, 196);
             createCustomerLeadCustomerLeadTargetDatePanel.Name = "createCustomerLeadCustomerLeadTargetDatePanel";
             createCustomerLeadCustomerLeadTargetDatePanel.Size = new Size(640, 83);
             createCustomerLeadCustomerLeadTargetDatePanel.TabIndex = 59;
@@ -305,15 +305,6 @@
             createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Text = "Yes";
             createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
-            // createCustomerLeadCustomerLeadTargetDatePanelLabel
-            // 
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.Location = new Point(13, 545);
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.Name = "createCustomerLeadCustomerLeadTargetDatePanelLabel";
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.Size = new Size(149, 20);
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.TabIndex = 52;
-            createCustomerLeadCustomerLeadTargetDatePanelLabel.Text = "Specific Target Date?";
-            // 
             // createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton
             // 
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.AutoSize = true;
@@ -326,12 +317,21 @@
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Text = "No";
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
+            // createCustomerLeadCustomerLeadTargetDatePanelLabel
+            // 
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.AutoSize = true;
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Location = new Point(678, 173);
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Name = "createCustomerLeadCustomerLeadTargetDatePanelLabel";
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Size = new Size(149, 20);
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.TabIndex = 52;
+            createCustomerLeadCustomerLeadTargetDatePanelLabel.Text = "Specific Target Date?";
+            // 
             // createCustomerLeadActiveStatusCheckbox
             // 
             createCustomerLeadActiveStatusCheckbox.AutoSize = true;
             createCustomerLeadActiveStatusCheckbox.Checked = true;
             createCustomerLeadActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCustomerLeadActiveStatusCheckbox.Location = new Point(239, 805);
+            createCustomerLeadActiveStatusCheckbox.Location = new Point(226, 444);
             createCustomerLeadActiveStatusCheckbox.Name = "createCustomerLeadActiveStatusCheckbox";
             createCustomerLeadActiveStatusCheckbox.Size = new Size(172, 24);
             createCustomerLeadActiveStatusCheckbox.TabIndex = 12;
@@ -343,7 +343,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(671, 931);
+            ClientSize = new Size(1339, 615);
             Controls.Add(createCustomerLeadActiveStatusCheckbox);
             Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelLabel);
             Controls.Add(createCustomerLeadCustomerContactPanelLabel);

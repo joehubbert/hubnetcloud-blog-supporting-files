@@ -85,14 +85,14 @@
             // 
             createCustomerLeadCustomerLeadTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             createCustomerLeadCustomerLeadTypeComboBox.FormattingEnabled = true;
-            createCustomerLeadCustomerLeadTypeComboBox.Location = new Point(226, 54);
+            createCustomerLeadCustomerLeadTypeComboBox.Location = new Point(228, 57);
             createCustomerLeadCustomerLeadTypeComboBox.Name = "createCustomerLeadCustomerLeadTypeComboBox";
             createCustomerLeadCustomerLeadTypeComboBox.Size = new Size(301, 28);
             createCustomerLeadCustomerLeadTypeComboBox.TabIndex = 0;
             // 
             // createCustomerLeadCustomerLeadTitleTextbox
             // 
-            createCustomerLeadCustomerLeadTitleTextbox.Location = new Point(226, 98);
+            createCustomerLeadCustomerLeadTitleTextbox.Location = new Point(228, 101);
             createCustomerLeadCustomerLeadTitleTextbox.MaxLength = 50;
             createCustomerLeadCustomerLeadTitleTextbox.Name = "createCustomerLeadCustomerLeadTitleTextbox";
             createCustomerLeadCustomerLeadTitleTextbox.Size = new Size(301, 27);
@@ -101,7 +101,7 @@
             // createCustomerLeadCustomerLeadTextbox
             // 
             createCustomerLeadCustomerLeadTextbox.Anchor = AnchorStyles.None;
-            createCustomerLeadCustomerLeadTextbox.Location = new Point(226, 142);
+            createCustomerLeadCustomerLeadTextbox.Location = new Point(228, 145);
             createCustomerLeadCustomerLeadTextbox.MaxLength = 4000;
             createCustomerLeadCustomerLeadTextbox.Multiline = true;
             createCustomerLeadCustomerLeadTextbox.Name = "createCustomerLeadCustomerLeadTextbox";
@@ -195,7 +195,7 @@
             // createCustomerLeadCustomerLeadTextboxLabel
             // 
             createCustomerLeadCustomerLeadTextboxLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTextboxLabel.Location = new Point(106, 145);
+            createCustomerLeadCustomerLeadTextboxLabel.Location = new Point(108, 148);
             createCustomerLeadCustomerLeadTextboxLabel.Name = "createCustomerLeadCustomerLeadTextboxLabel";
             createCustomerLeadCustomerLeadTextboxLabel.Size = new Size(114, 20);
             createCustomerLeadCustomerLeadTextboxLabel.TabIndex = 53;
@@ -205,7 +205,7 @@
             // createCustomerLeadCustomerLeadTitleTextboxLabel
             // 
             createCustomerLeadCustomerLeadTitleTextboxLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTitleTextboxLabel.Location = new Point(73, 101);
+            createCustomerLeadCustomerLeadTitleTextboxLabel.Location = new Point(75, 104);
             createCustomerLeadCustomerLeadTitleTextboxLabel.Name = "createCustomerLeadCustomerLeadTitleTextboxLabel";
             createCustomerLeadCustomerLeadTitleTextboxLabel.Size = new Size(147, 20);
             createCustomerLeadCustomerLeadTitleTextboxLabel.TabIndex = 54;
@@ -215,7 +215,7 @@
             // createCustomerLeadCustomerLeadTypeComboBoxLabel
             // 
             createCustomerLeadCustomerLeadTypeComboBoxLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTypeComboBoxLabel.Location = new Point(71, 57);
+            createCustomerLeadCustomerLeadTypeComboBoxLabel.Location = new Point(73, 60);
             createCustomerLeadCustomerLeadTypeComboBoxLabel.Name = "createCustomerLeadCustomerLeadTypeComboBoxLabel";
             createCustomerLeadCustomerLeadTypeComboBoxLabel.Size = new Size(149, 20);
             createCustomerLeadCustomerLeadTypeComboBoxLabel.TabIndex = 55;
@@ -331,7 +331,7 @@
             createCustomerLeadActiveStatusCheckbox.AutoSize = true;
             createCustomerLeadActiveStatusCheckbox.Checked = true;
             createCustomerLeadActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCustomerLeadActiveStatusCheckbox.Location = new Point(226, 444);
+            createCustomerLeadActiveStatusCheckbox.Location = new Point(228, 447);
             createCustomerLeadActiveStatusCheckbox.Name = "createCustomerLeadActiveStatusCheckbox";
             createCustomerLeadActiveStatusCheckbox.Size = new Size(172, 24);
             createCustomerLeadActiveStatusCheckbox.TabIndex = 12;

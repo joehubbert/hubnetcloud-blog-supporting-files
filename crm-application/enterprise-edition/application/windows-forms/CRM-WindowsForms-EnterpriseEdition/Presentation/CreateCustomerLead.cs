@@ -7,8 +7,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCustomerLead : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerId;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCustomerLead(Guid customerId)
         {
@@ -50,9 +50,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
 
-
                 var parameters = new[]
-{
+                {
                     new Parameter
                     {
                         ParameterName = "@customerId",

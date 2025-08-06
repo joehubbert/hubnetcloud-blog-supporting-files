@@ -768,11 +768,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void CustomerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerContactPage"])
+            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerContactTabPage"])
             {
                 await CustomerDetailExistingCustomerContact_Load(sender, e);
             }
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNotePage"])
+            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerLeadTabPage"])
+            {
+                await CustomerDetailExistingCustomerLead_Load(sender, e);
+            }
+            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNoteTabPage"])
             {
                 await CustomerDetailExistingCustomerNote_Load(sender, e);
             }
@@ -807,21 +811,68 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerDetailTabControlCustomerNoteTabPageDataGridView.AutoGenerateColumns = true;
-                customerDetailTabControlCustomerNoteTabPageDataGridView.DataSource = dataTable;
-                customerDetailTabControlCustomerNoteTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Contains("Details"))
+                customerDetailTabControlCustomerContactTabPageDataGridView.AutoGenerateColumns = true;
+                customerDetailTabControlCustomerContactTabPageDataGridView.DataSource = dataTable;
+                customerDetailTabControlCustomerContactTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Contains("Details"))
                 {
-                    customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Remove("Details");
+                    customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Remove("Details");
                 }
-                DataGridViewLinkColumn customerNoteDetailLink = new DataGridViewLinkColumn
+                DataGridViewLinkColumn customerContactDetailLink = new DataGridViewLinkColumn
                 {
                     HeaderText = "Details",
                     Text = "View Customer Contact",
                     UseColumnTextForLinkValue = true,
                     Name = "Details"
                 };
-                customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Add(customerNoteDetailLink);
+                customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Add(customerContactDetailLink);
+            }
+        }
+
+        private async Task CustomerDetailExistingCustomerLead_Load(object sender, EventArgs e)
+        {
+            if (_databaseConnectionSettings == null)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
+                return;
+            }
+
+            string storedProcedureName = "[dbo].[spGetAllCustomerLeadForCustomer]";
+            string dataSubject = "Existing Customer Leads";
+
+            var parameters = new[]
+            {
+                new Parameter
+                {
+                    ParameterName = "@customerId",
+                    ParameterValue = _customerId
+                }
+            };
+
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+
+            if (dataTable.Rows.Count == 0)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
+            }
+            else
+            {
+                dataTable.DefaultView.Sort = "Created Timestamp DESC";
+                customerDetailTabControlCustomerLeadTabPageDataGridView.AutoGenerateColumns = true;
+                customerDetailTabControlCustomerLeadTabPageDataGridView.DataSource = dataTable;
+                customerDetailTabControlCustomerLeadTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                if (customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Contains("Details"))
+                {
+                    customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Remove("Details");
+                }
+                DataGridViewLinkColumn customerLeadDetailLink = new DataGridViewLinkColumn
+                {
+                    HeaderText = "Details",
+                    Text = "View Customer Lead",
+                    UseColumnTextForLinkValue = true,
+                    Name = "Details"
+                };
+                customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Add(customerLeadDetailLink);
             }
         }
 
@@ -898,7 +949,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void customerDetailCustomerNoteExistingCustomerNoteDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == customerDetailTabControlCustomerLeadTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
+            {
+                string dataSubject = "Customer Lead";
+
+                try
+                {
+                    if (customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Contains("Customer Lead Id"))
+                    {
+                        Guid customerLeadId = (Guid)customerDetailTabControlCustomerLeadTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Lead Id"].Value;
+                        CustomerLeadDetail customerLeadDetail = new CustomerLeadDetail(_customerId, customerLeadId);
+                        customerLeadDetail.Show();
+                    }
+                    else
+                    {
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+                }
+            }
+        }
+
+        private void customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == customerDetailTabControlCustomerNoteTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
             {
@@ -1652,7 +1729,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void customerDetailTabControlCustomerLeadTabPageRefreshDataButton_Click(object sender, EventArgs e)
         {
-
+            await CustomerDetailExistingCustomerLead_Load(sender, e);
         }
 
         private void customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton_Click(object sender, EventArgs e)

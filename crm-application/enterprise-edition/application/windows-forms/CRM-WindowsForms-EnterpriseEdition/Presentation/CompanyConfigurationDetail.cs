@@ -964,108 +964,108 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (confirmed)
                 {
                     var parameters = new List<Parameter>
-                {
-                    new Parameter
                     {
-                        ParameterName = "@activeStatus",
-                        ParameterValue = activeStatus
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@addressLine1",
-                        ParameterValue = addressLine1
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@addressLine3",
-                        ParameterValue = addressLine3
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@addressLine4",
-                        ParameterValue = addressLine4
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@addressLine5",
-                        ParameterValue = addressLine5
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountAddressLine1",
-                        ParameterValue = bankAccountAddressLine1
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountAddressLine3",
-                        ParameterValue = bankAccountAddressLine3
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountAddressLine4",
-                        ParameterValue = bankAccountAddressLine4
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountAddressLine5",
-                        ParameterValue = bankAccountAddressLine5
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountCurrencyId",
-                        ParameterValue = bankAccountCurrencyId
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountIBAN",
-                        ParameterValue = bankAccountIBAN
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountName",
-                        ParameterValue = bankAccountName
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountNumber",
-                        ParameterValue = bankAccountNumber
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@bankAccountSWIFTCode",
-                        ParameterValue = bankAccountSWIFTCode
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@companyLogo",
-                        ParameterValue = companyLogo
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@companyName",
-                        ParameterValue = companyName
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@emailAddress",
-                        ParameterValue = emailAddress
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@emailTopLevelDomain",
-                        ParameterValue = emailTopLevelDomain
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@telephoneNumber",
-                        ParameterValue = telephoneNumber
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "@websiteURL",
-                        ParameterValue = websiteURL
-                    }
-                };
+                        new Parameter
+                        {
+                            ParameterName = "@activeStatus",
+                            ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@addressLine1",
+                            ParameterValue = addressLine1
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@addressLine3",
+                            ParameterValue = addressLine3
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@addressLine4",
+                            ParameterValue = addressLine4
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@addressLine5",
+                            ParameterValue = addressLine5
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountAddressLine1",
+                            ParameterValue = bankAccountAddressLine1
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountAddressLine3",
+                            ParameterValue = bankAccountAddressLine3
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountAddressLine4",
+                            ParameterValue = bankAccountAddressLine4
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountAddressLine5",
+                            ParameterValue = bankAccountAddressLine5
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountCurrencyId",
+                            ParameterValue = bankAccountCurrencyId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountIBAN",
+                            ParameterValue = bankAccountIBAN
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountName",
+                            ParameterValue = bankAccountName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountNumber",
+                            ParameterValue = bankAccountNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@bankAccountSWIFTCode",
+                            ParameterValue = bankAccountSWIFTCode
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@companyLogo",
+                            ParameterValue = companyLogo
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@companyName",
+                            ParameterValue = companyName
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@emailAddress",
+                            ParameterValue = emailAddress
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@emailTopLevelDomain",
+                            ParameterValue = emailTopLevelDomain
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@telephoneNumber",
+                            ParameterValue = telephoneNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "@websiteURL",
+                            ParameterValue = websiteURL
+                        }
+                    };
 
                     if (!string.IsNullOrEmpty(addressLine2))
                     {

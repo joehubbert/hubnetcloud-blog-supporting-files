@@ -75,6 +75,10 @@
                 {
                     // Create the log file
                 }
+                using (var streamWriter = new StreamWriter(ApplicationLogFilePath, true))
+                {
+                    streamWriter.WriteLine($"CRM-Forms-EnterpriseEdition Log File Created At: {DateTime.UtcNow:yyyy-MM-dd-hh-mm-ss}");
+                }
             }
         }
 

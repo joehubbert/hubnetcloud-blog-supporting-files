@@ -65,7 +65,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.BackColor = Color.MediumAquamarine;
                     break;
                 default:
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.NotImplemented", moduleGroup);
                     break;
             }
         }
@@ -98,7 +98,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.Function.NotImplemented", functionTitle);
                     break;
             }
 
@@ -142,7 +142,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataParentSubjectFriendlyName, ex.Message);
+                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.Retrieval", dataParentSubjectFriendlyName, ex.Message);
             }
         }
 
@@ -159,7 +159,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
+                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 

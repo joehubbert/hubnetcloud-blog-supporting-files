@@ -66,7 +66,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     viewAllDataDataGridView.BackgroundColor = Color.MediumAquamarine;
                     break;
                 default:
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.NotImplemented", moduleGroup);
                     break;
             }
         }
@@ -463,7 +463,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.Function.NotImplemented", functionTitle);
                     break;
             }
 
@@ -475,7 +475,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.ConnectionSettingsNotLoaded");
+                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Database.ConnectionSettingsNotLoaded");
                 return;
             }
 
@@ -504,7 +504,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (dataTable.Rows.Count == 0)
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", functionFriendlyName);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Information.NoDataFound", functionFriendlyName);
                 }
                 else
                 {
@@ -528,7 +528,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", functionFriendlyName, ex.Message);
+                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.Retrieval", functionFriendlyName, ex.Message);
             }
         }
 
@@ -788,18 +788,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 taxProfileDetail.Show();
                                 break;
                             default:
-                                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle);
+                                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.Function.NotImplemented", _functionTitle);
                                 break;
                         }
                     }
                     else
                     {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubjectIdentityColumn);
+                        ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.IdColumnNotFound", dataSubjectIdentityColumn);
                     }
                 }
                 catch (Exception ex)
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubjectFriendlyName, ex.Message);
+                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.Retrieval", dataSubjectFriendlyName, ex.Message);
                 }
             }
         }

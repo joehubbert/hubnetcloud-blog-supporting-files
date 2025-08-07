@@ -1,13 +1,23 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
+﻿using System.Runtime.CompilerServices;
+
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
     public class ErrorMessageService
     {
-        public ErrorMessageService(string errorType, string? dataSubject = null, string? exceptionMessage = null)
+        private AppConfiguration _appConfiguration;
+        private string globalCSVMessageTitle;
+        private string globalDatabaseConnectionMessageTitle;
+        private string globalInformationMessageTitle;
+        private string globalModuleMessageTitle;
+        private string globalValidationMessageTitle;
+
+        public ErrorMessageService(AppConfiguration appConfiguration, string errorType, string? dataSubject = null, string? exceptionMessage = null)
         {
+            _appConfiguration = appConfiguration;
             InitializeClass(errorType, dataSubject, exceptionMessage);
         }
 
-        private void InitializeClass(string errorType, string? dataSubject, string? exceptionMessage)
+        private void InitializeClass(string errorType, string? dataSubject = null, string? exceptionMessage = null)
         {
             switch (errorType)
             {
@@ -80,116 +90,254 @@
                 default:
                     throw new ArgumentException("Invalid error type specified.");
             }
+
+            globalCSVMessageTitle = $"Export CSV - {errorType}";
+            globalDatabaseConnectionMessageTitle = $"Database Connection - {errorType}";
+            globalInformationMessageTitle = $"Information - {errorType}";
+            globalModuleMessageTitle = $"Module - {errorType}";
+            globalValidationMessageTitle = $"Validation - {errorType}";
         }
 
         private void CSVExportExportFailureError(string dataSubject, string errorType, string exceptionMessage)
         {
-            MessageBox.Show($"Export failed for {dataSubject}: {exceptionMessage}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string messageText = $"Export failed for {dataSubject}: {exceptionMessage}.";
+            string messageTitle = globalCSVMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CSVExportExportSuccessfulInformation(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Export successful for {dataSubject}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string messageText = $"Export successful for {dataSubject}.";
+            string messageTitle = globalCSVMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CSVExportNoDataWarning(string dataSubject, string errorType)
         {
-            MessageBox.Show($"No data available to export for {dataSubject}.", $"Export CSV - {errorType}", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            string messageText = $"No data available to export for {dataSubject}.";
+            string messageTitle = globalCSVMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError(string errorType)
         {
-            MessageBox.Show("Base Currency and Target Currency must be different.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Base Currency and Target Currency must be different.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CurrencyConversionEffectiveDateValidationError(string errorType)
         {
-            MessageBox.Show("Expiry Date must be after Effective Date.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Expiry Date must be after Effective Date.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CurrencyConversionMissingValuesError(string errorType)
         {
-            MessageBox.Show("Please enter all required currency conversion values.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Please enter all required currency conversion values.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CustomerCustomerTypeMultinationalValidationError(string errorType)
         {
-            MessageBox.Show("'Business - Multinational' can only be selected as the Customer Type if the parent customer is Global Parent.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "'Business - Multinational' can only be selected as the Customer Type if the parent customer is Global Parent.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CustomerGlobalParentGlobalParentRelationshipValidationError(string errorType)
         {
-            MessageBox.Show("Cannot select 'Global Parent' as customer parent type when existing Parent Company Type is 'Global Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Cannot select 'Global Parent' as customer parent type when existing Parent Company Type is 'Global Parent'.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CustomerGlobalParentTypeCustomerTypeValidationError(string errorType)
         {
-            MessageBox.Show("The 'Global Parent' option can only be selected for a customer if 'Business - Multinational' is selected in the Customer Type.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "The 'Global Parent' option can only be selected for a customer if 'Business - Multinational' is selected in the Customer Type.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void CustomerTopParentTopParentRelationshipValidationError(string errorType)
         {
-            MessageBox.Show("Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataIdColumnNotFoundError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"The ID column for {dataSubject} was not found in the data source.", "Data Id Not Found Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"The ID column for {dataSubject} was not found in the data source.";
+            string messageTitle = $"Data Id Not Found - {errorType}";
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataRetrievalError(string dataSubject, string errorType, string exceptionMessage)
         {
-            MessageBox.Show($"Failed to load {dataSubject} data: {exceptionMessage}", "Data Retrieval Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"Failed to load {dataSubject} data: {exceptionMessage}";
+            string messageTitle = $"Data Retrieval - {errorType}";
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataValidationDataTypeWarning(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Invalid {dataSubject}.", "Validation Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            string messageText = $"Invalid {dataSubject}.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataValidationDynamicWarning(string dataSubject, string errorType)
         {
-            MessageBox.Show($"{dataSubject}.", "Validation Warning", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            string messageText = $"{dataSubject}.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataValidationInvalidValueError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Invalid {dataSubject}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"Invalid {dataSubject}.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataValidationSelectionError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Please select a valid {dataSubject}.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"Please select a valid {dataSubject}.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DataValidationSelectionWarning(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Please ensure a valid {dataSubject} is selected.", "Validation Error", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            string messageText = $"Please ensure a valid {dataSubject} is selected.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void DatabaseConnectionSettingsNotLoadedError(string errorType)
         {
-            MessageBox.Show("Database connection settings are not loaded.", "Database Connection Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = "Database connection settings are not loaded.";
+            string messageTitle = globalDatabaseConnectionMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void ModuleFunctionNotImplementedError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"{dataSubject} not onboarded.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"{dataSubject} not onboarded.";
+            string messageTitle = globalModuleMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void ModuleNotImplementedError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"Unrecognised module group - {dataSubject} passed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            string messageText = $"Unrecognised module group - {dataSubject} passed.";
+            string messageTitle = globalModuleMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void NoDataFoundError(string dataSubject, string errorType)
         {
-            MessageBox.Show($"No data found for the specified {dataSubject}.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string messageText = $"No data found for the specified {dataSubject}.";
+            string messageTitle = globalInformationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
 
         private void UpdateCancelled(string errorType)
         {
-            MessageBox.Show("Updates were cancelled, no changes have been made to the database.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string messageText = "Updates were cancelled, no changes have been made to the database.";
+            string messageTitle = globalInformationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (_appConfiguration.userProfileLoggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
         }
     }
 }

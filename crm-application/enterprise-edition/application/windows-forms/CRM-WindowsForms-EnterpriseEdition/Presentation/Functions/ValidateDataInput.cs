@@ -183,7 +183,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
             if (validationErrors.Length > 0)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.DataValidation.Dynamic", validationErrors.ToString());
+                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Warning.DataValidation.Dynamic", validationErrors.ToString());
                 return new ValidationResult
                 {
                     IsValid = false,

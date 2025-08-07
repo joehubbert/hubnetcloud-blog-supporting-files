@@ -1,6 +1,4 @@
-﻿using System.Runtime.CompilerServices;
-
-namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
     public class ErrorMessageService
     {

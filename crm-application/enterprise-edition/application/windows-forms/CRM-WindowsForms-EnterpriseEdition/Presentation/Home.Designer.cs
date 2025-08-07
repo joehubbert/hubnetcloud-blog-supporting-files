@@ -102,6 +102,9 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementOrder = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderLineItemStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousOrderLineItemStatusCreateOrderLineItemStatus = new ToolStripMenuItem();
@@ -179,9 +182,6 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -202,7 +202,7 @@
             // 
             // homeNavAppConfiguration
             // 
-            homeNavAppConfiguration.BackColor = Color.MediumPurple;
+            homeNavAppConfiguration.BackColor = Color.Plum;
             homeNavAppConfiguration.FlatStyle = FlatStyle.Flat;
             homeNavAppConfiguration.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             homeNavAppConfiguration.ForeColor = Color.Black;
@@ -890,6 +890,33 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Size = new Size(243, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Text = "&View All Country Translations";
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Size = new Size(198, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Text = "&HTML Template Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Size = new Size(253, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Text = "&Create HTML Template Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Size = new Size(253, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Text = "&View All HTML Template Types";
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType_Click;
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementOrder
             // 
@@ -1592,33 +1619,6 @@
             homeNavMarketingManagement.Text = "Marketing Management";
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType });
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Size = new Size(198, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType.Text = "&HTML Template Type";
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Size = new Size(253, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Text = "&Create HTML Template Type";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Size = new Size(253, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Text = "&View All HTML Template Types";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType_Click;
             // 
             // Home
             // 

@@ -8,7 +8,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         {
             if (dataGridView == null || dataGridView.ColumnCount == 0)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Warning.CSVExport.NoData", dataSubject);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CSVExport.NoData", dataSubject);
                 return;
             }
 
@@ -48,11 +48,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                                 }
                             }
                         }
-                        ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Information.CSVExport.ExportSuccessful", dataSubject);
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Information.CSVExport.ExportSuccessful", dataSubject);
                     }
                     catch (Exception ex)
                     {
-                        ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.CSVExport.ExportFailure", dataSubject, ex.Message);
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.CSVExport.ExportFailure", dataSubject, ex.Message);
                     }
                 }
             }

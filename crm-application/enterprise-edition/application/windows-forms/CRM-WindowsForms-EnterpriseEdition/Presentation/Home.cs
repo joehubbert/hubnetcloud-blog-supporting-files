@@ -113,6 +113,12 @@
             createCompanyConfiguration.Show();
         }
 
+        private void homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration_Click(object sender, EventArgs e)
+        {
+            ActiveCompanyConfiguration activeCompanyConfiguration = new ActiveCompanyConfiguration();
+            activeCompanyConfiguration.Show();
+        }
+
         private void homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click(object sender, EventArgs e)
         {
             ViewAllData viewAllData = new ViewAllData("CompanyConfiguration", "CompanyManagement", null);

@@ -1,6 +1,6 @@
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public static class ImageHelper
+    internal class ImageHelper
     {
         public static Image? ByteArrayToImage(byte[] byteArray)
         {

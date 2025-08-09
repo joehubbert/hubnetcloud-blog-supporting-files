@@ -182,6 +182,7 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -311,7 +312,7 @@
             // 
             homeMenuStripModuleCompanyManagement.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagement.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagement, homeMenuStripModuleCompanyManagementCompanyConfiguration });
+            homeMenuStripModuleCompanyManagement.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfiguration, homeMenuStripModuleCompanyManagementMasterDataManagement });
             homeMenuStripModuleCompanyManagement.Name = "homeMenuStripModuleCompanyManagement";
             homeMenuStripModuleCompanyManagement.Size = new Size(216, 22);
             homeMenuStripModuleCompanyManagement.Text = "&Company Management";
@@ -1336,7 +1337,7 @@
             // 
             homeMenuStripModuleCompanyManagementCompanyConfiguration.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
             homeMenuStripModuleCompanyManagementCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfiguration";
             homeMenuStripModuleCompanyManagementCompanyConfiguration.Size = new Size(229, 22);
             homeMenuStripModuleCompanyManagementCompanyConfiguration.Text = "&Company Configuration";
@@ -1346,7 +1347,7 @@
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(269, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(274, 22);
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
             homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration_Click;
             // 
@@ -1355,7 +1356,7 @@
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(269, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(274, 22);
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
             homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click;
             // 
@@ -1620,6 +1621,15 @@
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
             // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Size = new Size(274, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Text = "&Set Active Company Configuration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1806,5 +1816,6 @@
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType;
+        private ToolStripMenuItem homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration;
     }
 }

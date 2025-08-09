@@ -146,7 +146,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             catch (Exception ex)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.Retrieval", noteDetailNoteTypeFriendlyName, ex.Message);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", noteDetailNoteTypeFriendlyName, ex.Message);
             }
         }
 
@@ -154,7 +154,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (_databaseConnectionSettings == null)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Database.Connection.SettingsNotLoaded");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
                 return;
             }
 
@@ -194,12 +194,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Information.NoDataFound", noteDetailModuleNoteTypeFriendlyName);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", noteDetailModuleNoteTypeFriendlyName);
                 }
             }
             catch (Exception ex)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Data.Retrieval", noteDetailModuleNoteTypeFriendlyName, ex.Message);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", noteDetailModuleNoteTypeFriendlyName, ex.Message);
             }
         }
 
@@ -211,7 +211,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (_databaseConnectionSettings == null)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Database.Connection.SettingsNotLoaded");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
                 return;
             }
 
@@ -315,7 +315,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Information.UpdateCancelled");
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
             }

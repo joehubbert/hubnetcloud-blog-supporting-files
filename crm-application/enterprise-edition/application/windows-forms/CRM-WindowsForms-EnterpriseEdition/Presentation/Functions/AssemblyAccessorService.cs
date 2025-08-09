@@ -2,7 +2,7 @@
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public class AssemblyAccessorService
+    internal class AssemblyAccessorService
     {
         public string GetAssemblyTitle()
         {

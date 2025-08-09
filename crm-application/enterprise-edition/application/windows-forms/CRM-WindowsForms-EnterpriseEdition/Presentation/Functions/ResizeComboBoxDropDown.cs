@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public static class ResizeComboBoxDropDown
+    internal class ResizeComboBoxDropDown
     {
         public static void AdjustComboBoxDropDownWidth(ComboBox comboBox)
         {

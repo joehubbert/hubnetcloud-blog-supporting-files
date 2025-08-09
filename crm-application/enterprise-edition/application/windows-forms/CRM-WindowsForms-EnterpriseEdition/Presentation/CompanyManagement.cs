@@ -13,6 +13,12 @@
             createCompanyConfiguration.Show();
         }
 
+        private void companyManagementTabControlCompanyConfigurationTabPageTabControlCompanyConfigurationTabPageSetActiveCompanyConfigrationButton_Click(object sender, EventArgs e)
+        {
+            ActiveCompanyConfiguration activeCompanyConfiguration = new ActiveCompanyConfiguration();
+            activeCompanyConfiguration.Show();
+        }
+
         private void companyManagementTabControlCompanyConfigurationTabPageTabControlCompanyConfigurationTabPageViewAllCompanyConfigurationButton_Click(object sender, EventArgs e)
         {
             ViewAllData viewAllData = new ViewAllData("CompanyConfiguration", "CompanyManagement", null);

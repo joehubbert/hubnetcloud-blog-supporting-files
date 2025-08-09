@@ -60,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
                 default:
                     this.Text = moduleName;
-                    ErrorMessageService errorMessageService = new ErrorMessageService(AppConfiguration.Instance,"Error.Module.NotImplemented", moduleName);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleName);
                     break;
             }
             moduleHomeTitleLabel.Text = moduleFriendlyName;

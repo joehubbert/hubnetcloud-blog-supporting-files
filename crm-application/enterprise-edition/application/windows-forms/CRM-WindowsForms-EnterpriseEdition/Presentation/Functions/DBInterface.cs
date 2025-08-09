@@ -4,13 +4,13 @@ using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public class Parameter
+    internal class Parameter
     {
         public string ParameterName { get; set; } = string.Empty;
         public object? ParameterValue { get; set; }
     }
 
-    public static class DBInterface
+    internal class DBInterface
     {
         public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject, string connectionString, string operationType)
         {

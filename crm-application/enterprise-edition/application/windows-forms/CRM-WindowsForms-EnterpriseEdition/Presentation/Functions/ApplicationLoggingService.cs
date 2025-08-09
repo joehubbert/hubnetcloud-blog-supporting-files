@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public class ApplicationLoggingService
+    internal class ApplicationLoggingService
     {
         private string _action;
         private string? _errorCode;
@@ -48,7 +48,7 @@
             CreateLogFileIfNotExists();
             using (var streamWriter = new StreamWriter(ApplicationLogFilePath, true))
             {
-                streamWriter.WriteLine($"{DateTime.UtcNow:yyyy-MM-dd-hh-mm-ss} Error Code: {errorCode}, Exception: {errorException}");
+                streamWriter.WriteLine($"{DateTime.UtcNow:yyyy-MM-dd-HH-mm-ss} Error Code: {errorCode}, Exception: {errorException}");
             }
         }
 
@@ -77,7 +77,7 @@
                 }
                 using (var streamWriter = new StreamWriter(ApplicationLogFilePath, true))
                 {
-                    streamWriter.WriteLine($"CRM-Forms-EnterpriseEdition Log File Created At: {DateTime.UtcNow:yyyy-MM-dd-hh-mm-ss}");
+                    streamWriter.WriteLine($"CRM-Forms-EnterpriseEdition Log File Created At: {DateTime.UtcNow:yyyy-MM-dd-HH-mm-ss}");
                 }
             }
         }

@@ -1,22 +1,21 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public class ErrorMessageService
+    internal class ErrorMessageService
     {
-        private AppConfiguration _appConfiguration;
         private string globalCSVMessageTitle;
         private string globalDatabaseConnectionMessageTitle;
         private string globalInformationMessageTitle;
         private string globalLoggingServiceMessageTitle;
         private string globalModuleMessageTitle;
         private string globalValidationMessageTitle;
+        private bool loggingEnabled;
 
-        public ErrorMessageService(AppConfiguration appConfiguration, string errorType, string? dataSubject = null, string? exceptionMessage = null)
+        public ErrorMessageService(string errorType, string? dataSubject = null, string? exceptionMessage = null)
         {
-            _appConfiguration = appConfiguration;
             InitializeClass(errorType, dataSubject, exceptionMessage);
         }
 
-        private void InitializeClass(string errorType, string? dataSubject = null, string? exceptionMessage = null)
+        private async void InitializeClass(string errorType, string? dataSubject = null, string? exceptionMessage = null)
         {
             globalCSVMessageTitle = $"Export CSV - {errorType}";
             globalDatabaseConnectionMessageTitle = $"Database Connection - {errorType}";
@@ -24,6 +23,8 @@
             globalLoggingServiceMessageTitle = $"Logging Service - {errorType}";
             globalModuleMessageTitle = $"Module - {errorType}";
             globalValidationMessageTitle = $"Validation - {errorType}";
+
+            loggingEnabled = await ApplicationConfigurationService.GetLoggingEnabledAsync();
 
             switch (errorType)
             {
@@ -78,6 +79,9 @@
                 case "Information.ApplicationConfiguration.Settings.Saved":
                     ApplicationConfigurationgSettingsSavedInformation();
                     break;
+                case "Information.CompanyConfiguration.ActiveCompanyConfiguration.Saved":
+                    CompanyConfigurationActiveCompanyConfigurationSavedInformation(dataSubject ?? "unknown");
+                    break;
                 case "Information.CSVExport.ExportSuccessful":
                     CSVExportExportSuccessfulInformation(dataSubject ?? "unknown");
                     break;
@@ -92,6 +96,9 @@
                     break;
                 case "Information.UpdateCancelled":
                     UpdateCancelled();
+                    break;
+                case "Warning.CompanyConfiguration.NoData":
+                    CompanyConfigurationNoDataFoundWarning(errorType);
                     break;
                 case "Warning.CSVExport.NoData":
                     CSVExportNoDataWarning(dataSubject ?? "unknown");
@@ -118,7 +125,29 @@
             string messageText = "Application Configuration settings saved.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void CompanyConfigurationActiveCompanyConfigurationSavedInformation(string dataSubject)
+        {
+            string messageText = $"Active Company Configuration saved. Active Company Configuration is: {dataSubject}";
+            string messageTitle = globalInformationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void CompanyConfigurationNoDataFoundWarning(string errorType)
+        {
+            string messageText = "No Company Configurationds Found - Please create at least one in order to continue.";
+            string messageTitle = $"No Company Configurations Found {errorType}";
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -129,7 +158,7 @@
             string messageText = $"Export failed for {dataSubject}: {exceptionMessage}.";
             string messageTitle = globalCSVMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -140,7 +169,7 @@
             string messageText = $"Export successful for {dataSubject}.";
             string messageTitle = globalCSVMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -151,7 +180,7 @@
             string messageText = $"No data available to export for {dataSubject}.";
             string messageTitle = globalCSVMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -162,7 +191,7 @@
             string messageText = "Base Currency and Target Currency must be different.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -173,7 +202,7 @@
             string messageText = "Expiry Date must be after Effective Date.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -184,7 +213,7 @@
             string messageText = "Please enter all required currency conversion values.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -195,7 +224,7 @@
             string messageText = "'Business - Multinational' can only be selected as the Customer Type if the parent customer is Global Parent.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -206,7 +235,7 @@
             string messageText = "Cannot select 'Global Parent' as customer parent type when existing Parent Company Type is 'Global Parent'.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -217,7 +246,7 @@
             string messageText = "The 'Global Parent' option can only be selected for a customer if 'Business - Multinational' is selected in the Customer Type.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -228,7 +257,7 @@
             string messageText = "Cannot select 'Top Parent Parent' as new customer parent type when existing Parent Company Type is 'Top Parent'.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -239,7 +268,7 @@
             string messageText = $"The ID column for {dataSubject} was not found in the data source.";
             string messageTitle = $"Data Id Not Found - {errorType}";
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -250,7 +279,7 @@
             string messageText = $"Failed to load {dataSubject} data: {exceptionMessage}";
             string messageTitle = $"Data Retrieval - {errorType}";
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -261,7 +290,7 @@
             string messageText = $"Invalid {dataSubject}.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -272,7 +301,7 @@
             string messageText = $"{dataSubject}.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -283,7 +312,7 @@
             string messageText = $"Invalid {dataSubject}.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -294,7 +323,7 @@
             string messageText = $"Please select a valid {dataSubject}.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -305,7 +334,7 @@
             string messageText = $"Please ensure a valid {dataSubject} is selected.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -316,7 +345,7 @@
             string messageText = $"Database connection failed. {exceptionMessage}";
             string messageTitle = globalDatabaseConnectionMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -327,7 +356,7 @@
             string messageText = "Database connection settings are not loaded.";
             string messageTitle = globalDatabaseConnectionMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -338,7 +367,7 @@
             string messageText = "Database connection test was successful.";
             string messageTitle = globalDatabaseConnectionMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -349,7 +378,7 @@
             string messageText = "Action Cancelled. No logs were deleted.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -360,7 +389,7 @@
             string messageText = "Logs were successfully deleted.";
             string messageTitle = globalLoggingServiceMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -371,7 +400,7 @@
             string messageText = $"{dataSubject} not onboarded.";
             string messageTitle = globalModuleMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -382,7 +411,7 @@
             string messageText = $"Unrecognised module group - {dataSubject} passed.";
             string messageTitle = globalModuleMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -393,7 +422,7 @@
             string messageText = $"No data found for {dataSubject}.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
@@ -404,7 +433,7 @@
             string messageText = "Updates were cancelled, no changes have been made to the database.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
-            if (_appConfiguration.userProfileLoggingEnabled)
+            if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }

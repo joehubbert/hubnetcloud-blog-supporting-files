@@ -2,7 +2,7 @@
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    public class ChangeDetail
+    internal class ChangeDetail
     {
         public string VariableName { get; set; } = string.Empty;
         public string VariableType { get; set; } = string.Empty;
@@ -10,7 +10,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         public object? NewValue { get; set; }
     }
 
-    public static class UpdateConfirmation
+    internal class UpdateConfirmation
     {
         public static bool ConfirmChanges(List<ChangeDetail> changesList, string dataSubject)
         {

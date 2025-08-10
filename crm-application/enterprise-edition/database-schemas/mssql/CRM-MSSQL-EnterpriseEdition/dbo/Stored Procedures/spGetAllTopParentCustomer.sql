@@ -9,6 +9,7 @@ BEGIN
 			SELECT
 			[Global Parent Customer Id],
 			[Top Parent Customer Id],
+			[Company Configuration Id],
 			[Customer Id],
 			[Account Manager],
 			[Customer Tier],

@@ -231,7 +231,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     });
                 }
 
-                string storedProcedureName = "[dbo].[spCreateManufacturer]";
+                string storedProcedureName = "spCreateManufacturer";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

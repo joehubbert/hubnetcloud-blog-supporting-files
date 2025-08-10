@@ -86,7 +86,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         ParameterValue = currencyName
                     }
                 };
-                string storedProcedureName = "[dbo].[spCreateCurrency]";
+                string storedProcedureName = "spCreateCurrency";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

@@ -44,14 +44,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "Customer":
                     this.BackColor = Color.LightGreen;
                     contactDetailModuleContactTypeFriendlyName = "Customer Contact";
-                    contactDetailContactGetStoredProcedureName = "[dbo].[spGetCustomerContact]";
+                    contactDetailContactGetStoredProcedureName = "spGetCustomerContact";
                     contactDetailContactIdFriendlyName = "Customer Contact Id";
                     contactDetailContactStoredProcedureParameterPrefix = "customerContact";
                     break;
                 case "Supplier":
                     this.BackColor = Color.MediumAquamarine;
                     contactDetailModuleContactTypeFriendlyName = "Supplier Contact";
-                    contactDetailContactGetStoredProcedureName = "[dbo].[spGetSupplierContact]";
+                    contactDetailContactGetStoredProcedureName = "spGetSupplierContact";
                     contactDetailContactIdFriendlyName = "Supplier Contact Id";
                     contactDetailContactStoredProcedureParameterPrefix = "supplierContact";
                     break;

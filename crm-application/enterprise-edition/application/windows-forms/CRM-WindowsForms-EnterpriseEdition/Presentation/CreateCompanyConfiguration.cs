@@ -64,7 +64,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCountry]";
+                string storedProcedureName = "spGetAllCountry";
                 
                 DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
                 var countryList = countryData.AsEnumerable()
@@ -105,7 +105,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCurrency]";             
+                string storedProcedureName = "spGetAllCurrency";             
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
@@ -801,7 +801,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     });
                 }
 
-                string storedProcedureName = "[dbo].[spCreateCompanyConfiguration]";
+                string storedProcedureName = "spCreateCompanyConfiguration";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

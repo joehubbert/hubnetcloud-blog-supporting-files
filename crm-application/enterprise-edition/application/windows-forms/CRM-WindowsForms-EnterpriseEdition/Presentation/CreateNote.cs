@@ -52,7 +52,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "CustomerNote":
                     this.BackColor = Color.LightGreen;
                     createNoteModuleNoteEntityFriendlyName = "Customer";
-                    createNoteModuleNoteCreateStoredProcedureName = "[dbo].[spCreateCustomerNote]";
+                    createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customer";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerNote";
                     createNoteModuleNoteTypeFriendlyName = "Customer Note";
@@ -60,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTitleFriendlyName = "Customer Note Title";
                     createNoteNoteTitleName = "CustomerNoteTitle";
                     createNoteNoteTypeFriendlyName = "Customer Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "[dbo].[spGetAllCustomerNoteType]";
+                    createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerNoteType";
                     createNoteNoteTypeIdFriendlyName = "Customer Note Type Id";
                     createNoteNoteTypeIdName = "CustomerNoteTypeId";
                     createNoteNoteTypeName = "CustomerNoteType";
@@ -68,7 +68,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "CustomerLeadNote":
                     this.BackColor = Color.LightGreen;
                     createNoteModuleNoteEntityFriendlyName = "Customer Lead";
-                    createNoteModuleNoteCreateStoredProcedureName = "[dbo].[spCreateCustomerLeadNote]";
+                    createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerLeadNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customerLead";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerLeadNote";
                     createNoteModuleNoteTypeFriendlyName = "Customer Lead Note";
@@ -76,7 +76,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTitleFriendlyName = "Customer Lead Note Title";
                     createNoteNoteTitleName = "CustomerLeadNoteTitle";
                     createNoteNoteTypeFriendlyName = "Customer Lead Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "[dbo].[spGetAllCustomerLeadNoteType]";
+                    createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerLeadNoteType";
                     createNoteNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
                     createNoteNoteTypeIdName = "CustomerLeadNoteTypeId";
                     createNoteNoteTypeName = "CustomerLeadNoteType";
@@ -84,7 +84,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "ProductNote":
                     this.BackColor = Color.SkyBlue;
                     createNoteModuleNoteEntityFriendlyName = "Product";
-                    createNoteModuleNoteCreateStoredProcedureName = "[dbo].[spCreateProductNote]";
+                    createNoteModuleNoteCreateStoredProcedureName = "spCreateProductNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "product";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "productNote";
                     createNoteModuleNoteTypeFriendlyName = "Product Note";
@@ -92,7 +92,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTitleFriendlyName = "Product Note Title";
                     createNoteNoteTitleName = "ProductNoteTitle";
                     createNoteNoteTypeFriendlyName = "Product Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "[dbo].[spGetAllProductNoteType]";
+                    createNoteNoteTypeGetStoredProcedureName = "spGetAllProductNoteType";
                     createNoteNoteTypeIdFriendlyName = "Product Note Type Id";
                     createNoteNoteTypeIdName = "ProductNoteTypeId";
                     createNoteNoteTypeName = "ProductNoteType";
@@ -100,7 +100,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "SupplierNote":
                     this.BackColor = Color.MediumAquamarine;
                     createNoteModuleNoteEntityFriendlyName = "Supplier";
-                    createNoteModuleNoteCreateStoredProcedureName = "[dbo].[spCreateSupplierNote]";
+                    createNoteModuleNoteCreateStoredProcedureName = "spCreateSupplierNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "supplier";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "supplierNote";
                     createNoteModuleNoteTypeFriendlyName = "Supplier Note";
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTitleFriendlyName = "Supplier Note Title";
                     createNoteNoteTitleName = "SupplierNoteTitle";
                     createNoteNoteTypeFriendlyName = "Supplier Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "[dbo].[spGetAllSupplierNoteType]";
+                    createNoteNoteTypeGetStoredProcedureName = "spGetAllSupplierNoteType";
                     createNoteNoteTypeIdFriendlyName = "Supplier Note Type Id";
                     createNoteNoteTypeIdName = "SupplierNoteTypeId";
                     createNoteNoteTypeName = "SupplierNoteType";

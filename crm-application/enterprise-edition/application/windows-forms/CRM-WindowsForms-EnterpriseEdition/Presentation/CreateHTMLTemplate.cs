@@ -40,7 +40,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 
-                string storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
+                string storedProcedureName = "spGetAllHTMLTemplateType";
 
                 DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
@@ -142,7 +142,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 string dataSubject = "HTML Template";
                 string operationType = "create";
-                string storedProcedureName = "[dbo].[spCreateHTMLTemplate]";
+                string storedProcedureName = "spCreateHTMLTemplate";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
                     storedProcedureName,

@@ -36,14 +36,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "CustomerContact":
                     this.BackColor = Color.LightGreen;
                     createContactModuleContactEntityFriendlyName = "Customer";
-                    createContactModuleContactCreateStoredProcedureName = "[dbo].[spCreateCustomerContact]";
+                    createContactModuleContactCreateStoredProcedureName = "spCreateCustomerContact";
                     createContactModuleContactCreateStoredProcedureDataSubjectParentParameterPrefix = "customer";
                     createContactModuleContactTypeFriendlyName = "Customer Contact";
                     break;
                 case "SupplierContact":
                     this.BackColor = Color.MediumAquamarine;
                     createContactModuleContactEntityFriendlyName = "Supplier";
-                    createContactModuleContactCreateStoredProcedureName = "[dbo].[spCreateSupplierContact]";
+                    createContactModuleContactCreateStoredProcedureName = "spCreateSupplierContact";
                     createContactModuleContactCreateStoredProcedureDataSubjectParentParameterPrefix = "supplier";
                     createContactModuleContactTypeFriendlyName = "Supplier Contact";
                     break;

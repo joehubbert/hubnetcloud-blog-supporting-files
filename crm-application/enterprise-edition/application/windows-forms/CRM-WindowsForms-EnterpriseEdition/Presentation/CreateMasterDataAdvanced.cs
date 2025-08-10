@@ -79,9 +79,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataParentSubjectIdFriendlyName = "Product Category Id";
                     dataParentSubjectIdName = "ProductCategoryId";
                     dataParentSubjectName = "ProductCategory";
-                    dataParentSubjectGetStoredProcedureName = "[dbo].[spGetAllProductCategory]";
+                    dataParentSubjectGetStoredProcedureName = "spGetAllProductCategory";
                     dataSubjectFriendlyName = "Product Sub Category";
-                    dataSubjectCreateStoredProcedureName = "[dbo].[spCreateProductSubCategory]";
+                    dataSubjectCreateStoredProcedureName = "spCreateProductSubCategory";
                     dataSubjectCreateStoredProcedureParameterPrefix = "productSubCategory";
                     dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix = "productCategory";
                     break;
@@ -90,9 +90,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataParentSubjectIdFriendlyName = "Sales Region Id";
                     dataParentSubjectIdName = "SalesRegionId";
                     dataParentSubjectName = "SalesRegion";
-                    dataParentSubjectGetStoredProcedureName = "[dbo].[spGetAllSalesRegion]";
+                    dataParentSubjectGetStoredProcedureName = "spGetAllSalesRegion";
                     dataSubjectFriendlyName = "Sales Sub Region";
-                    dataSubjectCreateStoredProcedureName = "[dbo].[spCreateSalesSubRegion]";
+                    dataSubjectCreateStoredProcedureName = "spCreateSalesSubRegion";
                     dataSubjectCreateStoredProcedureParameterPrefix = "salesSubRegion";
                     dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix = "salesRegion";
                     break;

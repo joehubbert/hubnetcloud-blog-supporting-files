@@ -42,7 +42,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAccountManager]";
+            string storedProcedureName = "spGetAccountManager";
 
             var parameters = new[]
             {
@@ -106,7 +106,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAssociatedCustomerToAccountManager]";
+            string storedProcedureName = "spGetAssociatedCustomerToAccountManager";
             string dataSubject = "Associated Customers";
 
             var parameters = new[]
@@ -316,7 +316,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         }
                     };
 
-                    string storedProcedureName = "[dbo].[spUpdateAccountManager]";
+                    string storedProcedureName = "spUpdateAccountManager";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

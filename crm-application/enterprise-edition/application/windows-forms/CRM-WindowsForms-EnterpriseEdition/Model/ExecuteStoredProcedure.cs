@@ -14,6 +14,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Model
         private ExecuteStoredProcedure(DatabaseConnectionSettings dbSettings)
         {
             _dbSettings = dbSettings;
+            DatabaseConnectionSettings = dbSettings;
         }
 
         public static async Task<ExecuteStoredProcedure> CreateAsync()

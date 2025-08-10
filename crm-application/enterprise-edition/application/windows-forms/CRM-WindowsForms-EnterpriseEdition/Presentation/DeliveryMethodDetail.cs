@@ -45,7 +45,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllTaxProfile]";                
+                string storedProcedureName = "spGetAllTaxProfile";                
                 DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var taxProfileList = taxProfileData.AsEnumerable()
@@ -82,7 +82,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetDeliveryMethod]";
+            string storedProcedureName = "spGetDeliveryMethod";
             string dataSubject = "Delivery Method";
 
             var parameters = new[]
@@ -283,7 +283,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = taxProfileId
                         }
                     };
-                    string storedProcedureName = "[dbo].[spUpdateDeliveryMethod]";
+                    string storedProcedureName = "spUpdateDeliveryMethod";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

@@ -52,7 +52,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCurrency]";               
+                string storedProcedureName = "spGetAllCurrency";               
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
@@ -85,7 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetSupplier]";
+            string storedProcedureName = "spGetSupplier";
             string dataSubject = "Supplier";
 
             var parameters = new[]
@@ -178,7 +178,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             string dataSubject = "Existing Supplier Contacts";
-            string storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
+            string storedProcedureName = "spGetAllSupplierContactForSupplier";
 
             var parameters = new[]
             {
@@ -225,7 +225,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             string dataSubject = "Existing Supplier Notes";
-            string storedProcedureName = "[dbo].[spGetAllNoteForSupplier]";           
+            string storedProcedureName = "spGetAllNoteForSupplier";           
 
             var parameters = new[]
             {
@@ -638,7 +638,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         });
                     }
 
-                    string storedProcedureName = "[dbo].[spUpdateSupplier]";
+                    string storedProcedureName = "spUpdateSupplier";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

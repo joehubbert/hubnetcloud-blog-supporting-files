@@ -100,7 +100,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCustomerType]";               
+                string storedProcedureName = "spGetAllCustomerType";               
                 DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerTypeList = customerTypeData.AsEnumerable()
@@ -138,7 +138,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCustomerTier]";                
+                string storedProcedureName = "spGetAllCustomerTier";                
                 DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerTierList = customerTierData.AsEnumerable()
@@ -173,7 +173,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSalesRegion]";               
+                string storedProcedureName = "spGetAllSalesRegion";               
                 DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesRegionList = salesRegionData.AsEnumerable()
@@ -212,7 +212,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";                
+                string storedProcedureName = "spGetAllSalesSubRegion";                
                 DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesSubRegionList = salesSubRegionData.AsEnumerable()
@@ -252,7 +252,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllAccountManager]";                
+                string storedProcedureName = "spGetAllAccountManager";                
                 DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var accountManagerList = accountManagerData.AsEnumerable()
@@ -345,7 +345,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";               
+                string storedProcedureName = "spGetAllGlobalParentCustomer";               
                 DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
@@ -379,7 +379,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllTopParentCustomer]";                
+                string storedProcedureName = "spGetAllTopParentCustomer";                
                 DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var topParentCustomerList = topParentCustomerData.AsEnumerable()
@@ -511,7 +511,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCurrency]";
+                string storedProcedureName = "spGetAllCurrency";
                 
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
                 var currencyList = currencyData.AsEnumerable()
@@ -565,7 +565,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetCustomer]";
+            string storedProcedureName = "spGetCustomer";
             string dataSubject = "Customer";
 
             var parameters = new[]
@@ -790,7 +790,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
+            string storedProcedureName = "spGetAllCustomerContactForCustomer";
             string dataSubject = "Existing Customer Contacts";
 
             var parameters = new[]
@@ -837,7 +837,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllCustomerLeadForCustomer]";
+            string storedProcedureName = "spGetAllCustomerLeadForCustomer";
             string dataSubject = "Existing Customer Leads";
 
             var parameters = new[]
@@ -884,7 +884,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllNoteForCustomer]";
+            string storedProcedureName = "spGetAllNoteForCustomer";
             string dataSubject = "Existing Customer Notes";
 
             var parameters = new[]
@@ -1643,7 +1643,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     });
                 }
 
-                string storedProcedureName = "[dbo].[spUpdateCustomer]";
+                string storedProcedureName = "spUpdateCustomer";
                 string operationType = "update";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

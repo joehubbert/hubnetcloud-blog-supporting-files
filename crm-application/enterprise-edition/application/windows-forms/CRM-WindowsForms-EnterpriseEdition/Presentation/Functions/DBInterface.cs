@@ -39,7 +39,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             try
             {
                 var executor = await ExecuteStoredProcedure.CreateAsync();
-                var dbParameters = BuildDbParameters(executor.DatabaseConnectionSettings, parameters);
+                var dbSettings = executor.DatabaseConnectionSettings;
+                var dbParameters = BuildDbParameters(dbSettings, parameters);
+
+                switch (dbSettings.ActiveDatabaseEngine)
+                {
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                    case "Microsoft SQL Server":
+                        storedProcedureName = $"{storedProcedureName}";
+                        break;
+                    case "Azure Database for MySQL":
+                    case "MySQL":
+                    case "Azure Database for PostgreSQL":
+                    case "PostgreSQL":
+                        // No change to storedProcedureName for these engines
+                        break;
+                    default:
+                        throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
+                }
 
                 await executor.ExecuteAsync(storedProcedureName, dbParameters);
 
@@ -78,7 +96,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             try
             {
                 var executor = await ExecuteStoredProcedure.CreateAsync();
-                var dbParameters = BuildDbParameters(executor.DatabaseConnectionSettings, parameters);
+                var dbSettings = executor.DatabaseConnectionSettings;
+                var dbParameters = BuildDbParameters(dbSettings, parameters);
+                
+                switch (dbSettings.ActiveDatabaseEngine)
+                {
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                    case "Microsoft SQL Server":
+                        storedProcedureName = $"{storedProcedureName}";
+                        break;
+                    case "Azure Database for MySQL":
+                    case "MySQL":
+                    case "Azure Database for PostgreSQL":
+                    case "PostgreSQL":
+                        // No change to storedProcedureName for these engines
+                        break;
+                    default:
+                        throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
+                }
 
                 DataTable dataTable = await executor.ExecuteAsync(storedProcedureName, dbParameters);
                 return dataTable;
@@ -97,6 +133,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             try
             {
                 var executor = await ExecuteStoredProcedure.CreateAsync();
+                var dbSettings = executor.DatabaseConnectionSettings;
+
+                switch (dbSettings.ActiveDatabaseEngine)
+                {
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                    case "Microsoft SQL Server":
+                        storedProcedureName = $"{storedProcedureName}";
+                        break;
+                    case "Azure Database for MySQL":
+                    case "MySQL":
+                    case "Azure Database for PostgreSQL":
+                    case "PostgreSQL":
+                        // No change to storedProcedureName for these engines
+                        break;
+                    default:
+                        throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
+                }
 
                 DataTable dataTable = await executor.ExecuteAsync(storedProcedureName);
                 return dataTable;

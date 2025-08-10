@@ -53,7 +53,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllProductCategory]";               
+                string storedProcedureName = "spGetAllProductCategory";               
                 DataTable? productCategoryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var productCategoryList = productCategoryData.AsEnumerable()
@@ -87,7 +87,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllSupplier]";               
+                string storedProcedureName = "spGetAllSupplier";               
                 DataTable? supplierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var supplierList = supplierData.AsEnumerable()
@@ -121,7 +121,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetProduct]";
+            string storedProcedureName = "spGetProduct";
             string dataSubject = "Product";
 
             var parameters = new[]
@@ -226,7 +226,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetAllNoteForProduct]";
+            string storedProcedureName = "spGetAllNoteForProduct";
             string dataSubject = "Existing Product Notes";
 
             var parameters = new[]
@@ -655,7 +655,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         });
                     }
 
-                    string storedProcedureName = "[dbo].[spUpdateProduct]";
+                    string storedProcedureName = "spUpdateProduct";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

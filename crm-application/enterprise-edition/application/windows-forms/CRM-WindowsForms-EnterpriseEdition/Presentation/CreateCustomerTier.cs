@@ -86,7 +86,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         ParameterValue = customerTierCode
                     }
                 };
-                string storedProcedureName = "[dbo].[spCreateCustomerTier]";
+                string storedProcedureName = "spCreateCustomerTier";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

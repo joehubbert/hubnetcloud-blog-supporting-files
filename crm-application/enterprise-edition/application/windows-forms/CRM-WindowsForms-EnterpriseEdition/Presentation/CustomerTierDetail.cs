@@ -34,7 +34,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetCustomerTier]";
+            string storedProcedureName = "spGetCustomerTier";
 
             var parameters = new[]
             {
@@ -181,7 +181,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = _customerTierId
                         }
                     };
-                    string storedProcedureName = "[dbo].[spUpdateCustomerTier]";
+                    string storedProcedureName = "spUpdateCustomerTier";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

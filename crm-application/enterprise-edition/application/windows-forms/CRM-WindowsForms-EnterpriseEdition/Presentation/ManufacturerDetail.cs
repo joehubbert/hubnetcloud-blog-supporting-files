@@ -45,7 +45,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetManufacturer]";
+            string storedProcedureName = "spGetManufacturer";
             string dataSubject = "Manufacturer";
 
             var parameters = new[]
@@ -396,7 +396,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         });
                     }
 
-                    string storedProcedureName = "[dbo].[spUpdateManufacturer]";
+                    string storedProcedureName = "spUpdateManufacturer";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

@@ -85,7 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = taxRate
                         }
                     };
-                string storedProcedureName = "[dbo].[spCreateTaxProfile]";
+                string storedProcedureName = "spCreateTaxProfile";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

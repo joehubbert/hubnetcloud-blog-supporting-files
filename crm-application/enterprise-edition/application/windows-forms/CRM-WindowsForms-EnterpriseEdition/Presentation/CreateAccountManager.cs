@@ -114,7 +114,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         ParameterValue = telephoneNumber
                     }
                 };
-                string storedProcedureName = "[dbo].[spCreateAccountManager]";
+                string storedProcedureName = "spCreateAccountManager";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

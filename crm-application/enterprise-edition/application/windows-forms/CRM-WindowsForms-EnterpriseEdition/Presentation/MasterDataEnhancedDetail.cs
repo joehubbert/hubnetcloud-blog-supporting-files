@@ -72,18 +72,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 case "CustomerLeadType":
                     dataSubjectFriendlyName = "Customer Lead Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetCustomerLeadType]";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadType";
                     dataSubjectIdFriendlyName = "Customer Lead Type Id";
                     dataSubjectIdName = "CustomerLeadTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerLeadType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadType";
                     break;
                 case "CustomerType":
                     dataSubjectFriendlyName = "Customer Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetCustomerType]";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerType";
                     dataSubjectIdFriendlyName = "Customer Type Id";
                     dataSubjectIdName = "CustomerTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerType";
                     break;
                 default:

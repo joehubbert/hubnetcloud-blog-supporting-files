@@ -48,7 +48,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
+                string storedProcedureName = "spGetAllCustomerContactForCustomer";
 
                 var parameters = new[]
                 {
@@ -97,7 +97,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllCustomerLeadType]";
+                string storedProcedureName = "spGetAllCustomerLeadType";
 
                 DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
@@ -130,7 +130,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "[dbo].[spGetAllMarketingChannel]";                
+                string storedProcedureName = "spGetAllMarketingChannel";                
                 DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var marketingChannelList = marketingChannelData.AsEnumerable()
@@ -355,7 +355,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     });
                 }
 
-                string storedProcedureName = "[dbo].[spCreateCustomerLead]";
+                string storedProcedureName = "spCreateCustomerLead";
                 string operationType = "create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

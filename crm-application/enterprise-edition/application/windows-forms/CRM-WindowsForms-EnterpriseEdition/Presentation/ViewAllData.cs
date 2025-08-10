@@ -81,7 +81,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Account Manager Id";
                     dataSubjectFriendlyName = "Account Manager";
                     functionFriendlyName = "Account Managers";
-                    storedProcedureName = "[dbo].[spGetAllAccountManager]";
+                    storedProcedureName = "spGetAllAccountManager";
                     break;
                 case "CompanyConfiguration":
                     dataSortingColumnName = "Company Name";
@@ -89,7 +89,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Company Configuration Id";
                     dataSubjectFriendlyName = "Company Configuration";
                     functionFriendlyName = "Company Configurations";
-                    storedProcedureName = "[dbo].[spGetAllCompanyConfiguration]";
+                    storedProcedureName = "spGetAllCompanyConfiguration";
                     break;
                 case "Country":
                     dataSortingColumnName = "Country English Name";
@@ -97,7 +97,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Country Id";
                     dataSubjectFriendlyName = "Country";
                     functionFriendlyName = "Countries";
-                    storedProcedureName = "[dbo].[spGetAllCountry]";
+                    storedProcedureName = "spGetAllCountry";
                     break;
                 case "CountryTranslation":
                     dataSortingColumnName = "Country English Name";
@@ -105,7 +105,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Country Translation Id";
                     dataSubjectFriendlyName = "Country Translation";
                     functionFriendlyName = "Country Translations";
-                    storedProcedureName = "[dbo].[spGetAllCountryTranslation]";
+                    storedProcedureName = "spGetAllCountryTranslation";
                     break;
                 case "Currency":
                     dataSortingColumnName = "Currency Code";
@@ -113,7 +113,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Currency Id";
                     dataSubjectFriendlyName = "Currency";
                     functionFriendlyName = "Currencies";
-                    storedProcedureName = "[dbo].[spGetAllCurrency]";
+                    storedProcedureName = "spGetAllCurrency";
                     break;
                 case "CurrencyConversion":
                     dataSortingColumnName = "Currency Conversion Friendly Name";
@@ -121,7 +121,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Currency Conversion Id";
                     dataSubjectFriendlyName = "Currency Conversion";
                     functionFriendlyName = "Currency Conversions";
-                    storedProcedureName = "[dbo].[spGetAllCurrencyConversion]";
+                    storedProcedureName = "spGetAllCurrencyConversion";
                     break;
                 case "Customer":
                     dataSortingColumnName = "Customer Id";
@@ -129,7 +129,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Id";
                     dataSubjectFriendlyName = "Customer";
                     functionFriendlyName = "Customers";
-                    storedProcedureName = "[dbo].[spGetAllCustomer]";
+                    storedProcedureName = "spGetAllCustomer";
                     break;
                 case "CustomerContact":
                     dataSortingColumnName = "Customer Contact Id";
@@ -138,7 +138,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "Customer Contact";
                     dataSubjectParentIdentityId = "customerId;";
                     functionFriendlyName = "Customer Contacts";
-                    storedProcedureName = "[dbo].[spGetAllCustomerContactForCustomer]";
+                    storedProcedureName = "spGetAllCustomerContactForCustomer";
                     break;
                 case "CustomerLeadNote":
                     dataSortingColumnName = "Customer Lead Note";
@@ -146,7 +146,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Lead Note Id";
                     dataSubjectFriendlyName = "Customer Lead Note";
                     functionFriendlyName = "Customer Lead Notes";
-                    storedProcedureName = "[dbo].[spGetAllNoteForCustomerLead]";
+                    storedProcedureName = "spGetAllNoteForCustomerLead";
                     break;
                 case "CustomerLeadNoteType":
                     dataSortingColumnName = "Customer Lead Note Type";
@@ -154,7 +154,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Lead Note Type Id";
                     dataSubjectFriendlyName = "Customer Lead Note Type";
                     functionFriendlyName = "Customer Lead Note Types";
-                    storedProcedureName = "[dbo].[spGetAllCustomerLeadNoteType]";
+                    storedProcedureName = "spGetAllCustomerLeadNoteType";
                     break;
                 case "CustomerLeadStatus":
                     dataSortingColumnName = "Customer Lead Status";
@@ -162,7 +162,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Lead Status Id";
                     dataSubjectFriendlyName = "Customer Lead Status";
                     functionFriendlyName = "Customer Lead Statuses";
-                    storedProcedureName = "[dbo].[spGetAllCustomerLeadStatus]";
+                    storedProcedureName = "spGetAllCustomerLeadStatus";
                     break;
                 case "CustomerLeadType":
                     dataSortingColumnName = "Customer Lead Type";
@@ -170,7 +170,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Lead Type Id";
                     dataSubjectFriendlyName = "Customer Lead Type";
                     functionFriendlyName = "Customer Lead Types";
-                    storedProcedureName = "[dbo].[spGetAllCustomerLeadType]";
+                    storedProcedureName = "spGetAllCustomerLeadType";
                     break;
                 case "CustomerNote":
                     dataSortingColumnName = "Customer Note";
@@ -178,7 +178,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Note Id";
                     dataSubjectFriendlyName = "Customer Note";
                     functionFriendlyName = "Customer Notes";
-                    storedProcedureName = "[dbo].[spGetAllNoteForCustomer]";
+                    storedProcedureName = "spGetAllNoteForCustomer";
                     break;
                 case "CustomerNoteType":
                     dataSortingColumnName = "Customer Note Type";
@@ -186,7 +186,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Note Type Id";
                     dataSubjectFriendlyName = "Customer Note Type";
                     functionFriendlyName = "Customer Note Types";
-                    storedProcedureName = "[dbo].[spGetAllCustomerNoteType]";
+                    storedProcedureName = "spGetAllCustomerNoteType";
                     break;
                 case "CustomerTier":
                     dataSortingColumnName = "Customer Tier Description";
@@ -194,7 +194,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Tier Id";
                     dataSubjectFriendlyName = "Customer Tier";
                     functionFriendlyName = "Customer Tiers";
-                    storedProcedureName = "[dbo].[spGetAllCustomerTier]";
+                    storedProcedureName = "spGetAllCustomerTier";
                     break;
                 case "CustomerType":
                     dataSortingColumnName = "Customer Type";
@@ -202,7 +202,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Customer Type Id";
                     dataSubjectFriendlyName = "Customer Type";
                     functionFriendlyName = "Customer Types";
-                    storedProcedureName = "[dbo].[spGetAllCustomerType]";
+                    storedProcedureName = "spGetAllCustomerType";
                     break;
                 case "DeliveryMethod":
                     dataSortingColumnName = "Delivery Method";
@@ -210,7 +210,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Delivery Method Id";
                     dataSubjectFriendlyName = "Delivery Method";
                     functionFriendlyName = "Delivery Methods";
-                    storedProcedureName = "[dbo].[spGetAllDeliveryMethod]";
+                    storedProcedureName = "spGetAllDeliveryMethod";
                     break;
                 case "HTMLTemplate":
                     dataSortingColumnName = "HTML Template";
@@ -218,7 +218,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "HTML Template Id";
                     dataSubjectFriendlyName = "HTML Template";
                     functionFriendlyName = "HTML Templates";
-                    storedProcedureName = "[dbo].[spGetAllHTMLTemplateTypeForCompanyConfiguration]";
+                    storedProcedureName = "spGetAllHTMLTemplateTypeForCompanyConfiguration";
                     break;
                 case "HTMLTemplateType":
                     dataSortingColumnName = "HTML Template Type";
@@ -226,7 +226,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "HTML Template Type Id";
                     dataSubjectFriendlyName = "HTML Template Type";
                     functionFriendlyName = "HTML Template Types";
-                    storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
+                    storedProcedureName = "spGetAllHTMLTemplateType";
                     break;
                 case "MarketingCampaign":
                     dataSortingColumnName = "Marketing Campaign Id";
@@ -234,7 +234,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Marketing Campaign Id";
                     dataSubjectFriendlyName = "Marketing Campaign";
                     functionFriendlyName = "Marketing Campaigns";
-                    storedProcedureName = "[dbo].[spGetAllMarketingCampaign]";
+                    storedProcedureName = "spGetAllMarketingCampaign";
                     break;
                 case "MarketingCampaignStatus":
                     dataSortingColumnName = "Marketing Campaign Status Id";
@@ -242,7 +242,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Marketing Campaign Status Id";
                     dataSubjectFriendlyName = "Marketing Campaign Status";
                     functionFriendlyName = "Marketing Campaign Statuses";
-                    storedProcedureName = "[dbo].[spGetAllMarketingCampaignStatus]";
+                    storedProcedureName = "spGetAllMarketingCampaignStatus";
                     break;
                 case "MarketingCampaignType":
                     dataSortingColumnName = "Marketing Campaign Type Id";
@@ -250,7 +250,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Marketing Campaign Type Id";
                     dataSubjectFriendlyName = "Marketing Campaign Type";
                     functionFriendlyName = "Marketing Campaign Types";
-                    storedProcedureName = "[dbo].[spGetAllMarketingCampaignType]";
+                    storedProcedureName = "spGetAllMarketingCampaignType";
                     break;
                 case "MarketingChannel":
                     dataSortingColumnName = "Marketing Channel Id";
@@ -258,7 +258,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Marketing Channel Id";
                     dataSubjectFriendlyName = "Marketing Channel";
                     functionFriendlyName = "Marketing Channelss";
-                    storedProcedureName = "[dbo].[spGetAllMarketingChannel]";
+                    storedProcedureName = "spGetAllMarketingChannel";
                     break;
                 case "Order":
                     dataSortingColumnName = "Order Id";
@@ -266,7 +266,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Order Id";
                     dataSubjectFriendlyName = "Order";
                     functionFriendlyName = "Orders";
-                    storedProcedureName = "[dbo].[spGetAllOrder]";
+                    storedProcedureName = "spGetAllOrder";
                     break;
                 case "OrderLineItemStatus":
                     dataSortingColumnName = "Order Line Item Status";
@@ -274,7 +274,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Order Line Item Status Id";
                     dataSubjectFriendlyName = "Order Line Item Status";
                     functionFriendlyName = "Order Line Item Statuses";
-                    storedProcedureName = "[dbo].[spGetAllOrderLineItemStatus]";
+                    storedProcedureName = "spGetAllOrderLineItemStatus";
                     break;
                 case "OrderPaymentStatus":
                     dataSortingColumnName = "Order Payment Status";
@@ -282,7 +282,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Order Payment Status Id";
                     dataSubjectFriendlyName = "Order Payment Status";
                     functionFriendlyName = "Order Payment Statuses";
-                    storedProcedureName = "[dbo].[spGetAllOrderPaymentStatus]";
+                    storedProcedureName = "spGetAllOrderPaymentStatus";
                     break;
                 case "OrderStatus":
                     dataSortingColumnName = "Order Status";
@@ -290,7 +290,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Order Status Id";
                     dataSubjectFriendlyName = "Order Status";
                     functionFriendlyName = "Order Statuses";
-                    storedProcedureName = "[dbo].[spGetAllOrderStatus]";
+                    storedProcedureName = "spGetAllOrderStatus";
                     break;
                 case "OrderType":
                     dataSortingColumnName = "Order Type";
@@ -298,7 +298,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Order Type Id";
                     dataSubjectFriendlyName = "Order Type";
                     functionFriendlyName = "Order Types";
-                    storedProcedureName = "[dbo].[spGetAllOrderType]";
+                    storedProcedureName = "spGetAllOrderType";
                     break;
                 case "PaymentMethod":
                     dataSortingColumnName = "Payment Method";
@@ -306,7 +306,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Payment Method Id";
                     dataSubjectFriendlyName = "Payment Method";
                     functionFriendlyName = "Payment Methods";
-                    storedProcedureName = "[dbo].[spGetAllPaymentMethod]";
+                    storedProcedureName = "spGetAllPaymentMethod";
                     break;
                 case "Product":
                     dataSortingColumnName = "Product Name";
@@ -314,7 +314,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Id";
                     dataSubjectFriendlyName = "Product";
                     functionFriendlyName = "Products";
-                    storedProcedureName = "[dbo].[spGetAllProduct]";
+                    storedProcedureName = "spGetAllProduct";
                     break;
                 case "ProductCategory":
                     dataSortingColumnName = "Product Category";
@@ -322,7 +322,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Category Id";
                     dataSubjectFriendlyName = "Product Category";
                     functionFriendlyName = "Product Categories";
-                    storedProcedureName = "[dbo].[spGetAllProductCategory]";
+                    storedProcedureName = "spGetAllProductCategory";
                     break;
                 case "ProductFamily":
                     dataSortingColumnName = "Product Family";
@@ -330,7 +330,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Family Id";
                     dataSubjectFriendlyName = "Product Family";
                     functionFriendlyName = "Product Families";
-                    storedProcedureName = "[dbo].[spGetAllProductFamily]";
+                    storedProcedureName = "spGetAllProductFamily";
                     break;
                 case "ProductNote":
                     dataSortingColumnName = "Product Note";
@@ -338,7 +338,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Note Id";
                     dataSubjectFriendlyName = "Product Note";
                     functionFriendlyName = "Product Notes";
-                    storedProcedureName = "[dbo].[spGetAllNoteForProduct]";
+                    storedProcedureName = "spGetAllNoteForProduct";
                     break;
                 case "ProductNoteType":
                     dataSortingColumnName = "Product Note Type";
@@ -346,7 +346,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Note Type Id";
                     dataSubjectFriendlyName = "Product Note Type";
                     functionFriendlyName = "Product Note Types";
-                    storedProcedureName = "[dbo].[spGetAllProductNoteType]";
+                    storedProcedureName = "spGetAllProductNoteType";
                     break;
                 case "ProductSubCategory":
                     dataSortingColumnName = "Product Sub Category";
@@ -354,7 +354,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Product Sub Category Id";
                     dataSubjectFriendlyName = "Product Sub Category";
                     functionFriendlyName = "Product Sub Categories";
-                    storedProcedureName = "[dbo].[spGetAllProductSubCategory]";
+                    storedProcedureName = "spGetAllProductSubCategory";
                     break;
                 case "PromotionTargetType":
                     dataSortingColumnName = "Promotion Target Type";
@@ -362,7 +362,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Promotion Target Type Id";
                     dataSubjectFriendlyName = "Promotion Target Type";
                     functionFriendlyName = "Promotion Target Types";
-                    storedProcedureName = "[dbo].[spGetAllPromotionTargetType]";
+                    storedProcedureName = "spGetAllPromotionTargetType";
                     break;
                 case "PromotionType":
                     dataSortingColumnName = "Promotion Type";
@@ -370,7 +370,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Promotion Type Id";
                     dataSubjectFriendlyName = "Promotion Type";
                     functionFriendlyName = "Promotion Types";
-                    storedProcedureName = "[dbo].[spGetAllPromotionType]";
+                    storedProcedureName = "spGetAllPromotionType";
                     break;
                 case "SalesRegion":
                     dataSortingColumnName = "Sales Region";
@@ -378,7 +378,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Sales Region Id";
                     dataSubjectFriendlyName = "Sales Region";
                     functionFriendlyName = "Sales Regions";
-                    storedProcedureName = "[dbo].[spGetAllSalesRegion]";
+                    storedProcedureName = "spGetAllSalesRegion";
                     break;
                 case "SalesSubRegion":
                     dataSortingColumnName = "Sales Sub Region";
@@ -386,7 +386,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Sales Sub Region Id";
                     dataSubjectFriendlyName = "Sales Sub Region";
                     functionFriendlyName = "Sales Sub Regions";
-                    storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";
+                    storedProcedureName = "spGetAllSalesSubRegion";
                     break;
                 case "Supplier":
                     dataSortingColumnName = "Supplier Name";
@@ -394,7 +394,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Id";
                     dataSubjectFriendlyName = "Supplier";
                     functionFriendlyName = "Suppliers";
-                    storedProcedureName = "[dbo].[spGetAllSupplier]";
+                    storedProcedureName = "spGetAllSupplier";
                     break;
                 case "SupplierContact":
                     dataSortingColumnName = "Supplier Contact Id";
@@ -403,7 +403,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "Supplier Contact";
                     dataSubjectParentIdentityId = "supplierId;";
                     functionFriendlyName = "Supplier Contacts";
-                    storedProcedureName = "[dbo].[spGetAllSupplierContactForSupplier]";
+                    storedProcedureName = "spGetAllSupplierContactForSupplier";
                     break;
                 case "SupplierNote":
                     dataSortingColumnName = "Supplier Note";
@@ -411,7 +411,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Note Id";
                     dataSubjectFriendlyName = "Supplier Note";
                     functionFriendlyName = "Supplier Notes";
-                    storedProcedureName = "[dbo].[spGetAllNoteForSupplier]";
+                    storedProcedureName = "spGetAllNoteForSupplier";
                     break;
                 case "SupplierNoteType":
                     dataSortingColumnName = "Supplier Note Type";
@@ -419,7 +419,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Note Type Id";
                     dataSubjectFriendlyName = "Supplier Note Type";
                     functionFriendlyName = "Supplier Note Types";
-                    storedProcedureName = "[dbo].[spGetAllSupplierNoteType]";
+                    storedProcedureName = "spGetAllSupplierNoteType";
                     break;
                 case "SupplierOrder":
                     dataSortingColumnName = "Supplier Order Id";
@@ -427,7 +427,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Order Id";
                     dataSubjectFriendlyName = "Supplier Order";
                     functionFriendlyName = "Supplier Orders";
-                    storedProcedureName = "[dbo].[spGetAllSupplierOrder]";
+                    storedProcedureName = "spGetAllSupplierOrder";
                     break;
                 case "SupplierOrderLineItemStatus":
                     dataSortingColumnName = "Supplier Order Line Item Status";
@@ -435,7 +435,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Order Line Item Status Id";
                     dataSubjectFriendlyName = "Supplier Order Line Item Status";
                     functionFriendlyName = "Supplier Order Line Item Statuses";
-                    storedProcedureName = "[dbo].[spGetAllSupplierOrderLineItemStatus]";
+                    storedProcedureName = "spGetAllSupplierOrderLineItemStatus";
                     break;
                 case "SupplierOrderPaymentStatus":
                     dataSortingColumnName = "Supplier Order Payment Status";
@@ -443,7 +443,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Order Payment Status Id";
                     dataSubjectFriendlyName = "Supplier Order Payment Status";
                     functionFriendlyName = "Supplier Order Payment Statuses";
-                    storedProcedureName = "[dbo].[spGetAllSupplierOrderPaymentStatus]";
+                    storedProcedureName = "spGetAllSupplierOrderPaymentStatus";
                     break;
                 case "SupplierOrderStatus":
                     dataSortingColumnName = "Supplier Order Status";
@@ -451,7 +451,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Supplier Order Status Id";
                     dataSubjectFriendlyName = "Supplier Order Status";
                     functionFriendlyName = "Supplier Order Statuses";
-                    storedProcedureName = "[dbo].[spGetAllSupplierOrderStatus]";
+                    storedProcedureName = "spGetAllSupplierOrderStatus";
                     break;
                 case "TaxProfile":
                     dataSortingColumnName = "Tax Profile";
@@ -459,7 +459,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectIdentityColumn = "Tax Profile Id";
                     dataSubjectFriendlyName = "Tax Profile";
                     functionFriendlyName = "Tax Profiles";
-                    storedProcedureName = "[dbo].[spGetAllTaxProfile]";
+                    storedProcedureName = "spGetAllTaxProfile";
                     break;
                 default:
                     this.Text = functionTitle;

@@ -35,7 +35,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             string dataSubject = "Currency";
-            string storedProcedureName = "[dbo].[spGetCurrency]";
+            string storedProcedureName = "spGetCurrency";
 
             var parameters = new[]
             {
@@ -182,7 +182,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = _currencyId
                         }
                     };
-                    string storedProcedureName = "[dbo].[spUpdateCurrency]";
+                    string storedProcedureName = "spUpdateCurrency";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

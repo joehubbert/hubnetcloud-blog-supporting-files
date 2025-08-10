@@ -65,17 +65,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 case "CustomerLeadType":
                     dataSubjectFriendlyName = "Customer Lead Type";
-                    dataSubjectStoredProcedureName = "[dbo].[spCreateCustomerLeadType]";
+                    dataSubjectStoredProcedureName = "spCreateCustomerLeadType";
                     dataSubjectStoredProcedureParameterPrefix = "customerLeadType";
                     break;
                 case "CustomerType":
                     dataSubjectFriendlyName = "Customer Type";
-                    dataSubjectStoredProcedureName = "[dbo].[spCreateCustomerType]";
+                    dataSubjectStoredProcedureName = "spCreateCustomerType";
                     dataSubjectStoredProcedureParameterPrefix = "customerType";
                     break;
                 case "PromotionTargetType":
                     dataSubjectFriendlyName = "Promotion Target Type";
-                    dataSubjectStoredProcedureName = "[dbo].[spCreatePromotionTargetType]";
+                    dataSubjectStoredProcedureName = "spCreatePromotionTargetType";
                     dataSubjectStoredProcedureParameterPrefix = "promotionTargetType";
                     break;
                 default:

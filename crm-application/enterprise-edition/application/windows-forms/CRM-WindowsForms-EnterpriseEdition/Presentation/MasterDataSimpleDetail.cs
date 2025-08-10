@@ -71,170 +71,170 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 case "CustomerLeadNoteType":
                     dataSubjectFriendlyName = "Customer Lead Note Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetCustomerLeadNoteType]";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadNoteType";
                     dataSubjectIdFriendlyName = "Customer Lead Note Type Id";
                     dataSubjectIdName = "CustomerLeadNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerLeadNoteType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadNoteType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadNoteType";
                     break;
                 case "CustomerLeadStatus":
                     dataSubjectFriendlyName = "Customer Lead Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetCustomerLeadStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadStatus";
                     dataSubjectIdFriendlyName = "Customer Lead Status Id";
                     dataSubjectIdName = "CustomerLeadStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerLeadStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadStatus";
                     break;
                 case "CustomerNoteType":
                     dataSubjectFriendlyName = "Customer Note Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetCustomerNoteType]";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerNoteType";
                     dataSubjectIdFriendlyName = "Customer Note Type Id";
                     dataSubjectIdName = "CustomerNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateCustomerNoteType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerNoteType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "customerNoteType";
                     break;
                 case "HTMLTemplateType":
                     dataSubjectFriendlyName = "HTML Template Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetHTMLTemplateType]";
+                    dataSubjectGetStoredProcedureName = "spGetHTMLTemplateType";
                     dataSubjectIdFriendlyName = "HTML Template Type Id";
                     dataSubjectIdName = "HTMLTemplateTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateHTMLTemplateType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateHTMLTemplateType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "htmlTemplateType";
                     break;
                 case "MarketingCampaignStatus":
                     dataSubjectFriendlyName = "Marketing Campaign Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetMarketingCampaignStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignStatus";
                     dataSubjectIdFriendlyName = "Marketing Campaign Status Id";
                     dataSubjectIdName = "MarketingCampaignStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateMarketingCampaignStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignStatus";
                     break;
                 case "MarketingCampaignType":
                     dataSubjectFriendlyName = "Marketing Campaign Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetMarketingCampaignType]";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignType";
                     dataSubjectIdFriendlyName = "Marketing Campaign Type Id";
                     dataSubjectIdName = "MarketingCampaignTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateMarketingCampaignType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignType";
                     break;
                 case "MarketingChannel":
                     dataSubjectFriendlyName = "Marketing Channel";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetMarketingChannel]";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingChannel";
                     dataSubjectIdFriendlyName = "Marketing Channel Id";
                     dataSubjectIdName = "MarketingChannelId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateMarketingChannel]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingChannel";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "marketingChannel";
                     break;
                 case "OrderLineItemStatus":
                     dataSubjectFriendlyName = "Order Line Item Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetOrderLineItemStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetOrderLineItemStatus";
                     dataSubjectIdFriendlyName = "Order Line Item Status Id";
                     dataSubjectIdName = "OrderLineItemStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderLineItemStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderLineItemStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "orderLineItemStatus";
                     break;
                 case "OrderPaymentStatus":
                     dataSubjectFriendlyName = "Order Payment Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetOrderPaymentStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetOrderPaymentStatus";
                     dataSubjectIdFriendlyName = "Order Payment Status Id";
                     dataSubjectIdName = "OrderPaymentStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderPaymentStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderPaymentStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "orderPaymentStatus";
                     break;
                 case "OrderStatus":
                     dataSubjectFriendlyName = "Order Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetOrderStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetOrderStatus";
                     dataSubjectIdFriendlyName = "Order Status Id";
                     dataSubjectIdName = "OrderStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "orderStatus";
                     break;
                 case "OrderType":
                     dataSubjectFriendlyName = "Order Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetOrderType]";
+                    dataSubjectGetStoredProcedureName = "spGetOrderType";
                     dataSubjectIdFriendlyName = "Order Type Id";
                     dataSubjectIdName = "OrderTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateOrderType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "orderType";
                     break;
                 case "PaymentMethod":
                     dataSubjectFriendlyName = "Payment Method";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetPaymentMethod]";
+                    dataSubjectGetStoredProcedureName = "spGetPaymentMethod";
                     dataSubjectIdFriendlyName = "Payment Method Id";
                     dataSubjectIdName = "PaymentMethodId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdatePaymentMethod]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdatePaymentMethod";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "paymentMethod";
                     break;
                 case "ProductCategory":
                     dataSubjectFriendlyName = "Product Category";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetProductCategory]";
+                    dataSubjectGetStoredProcedureName = "spGetProductCategory";
                     dataSubjectIdFriendlyName = "Product Category Id";
                     dataSubjectIdName = "ProductCategoryId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductCategory]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductCategory";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "productCategory";
                     break;
                 case "ProductFamily":
                     dataSubjectFriendlyName = "Product Family";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetProductFamily]";
+                    dataSubjectGetStoredProcedureName = "spGetProductFamily";
                     dataSubjectIdFriendlyName = "Product Family Id";
                     dataSubjectIdName = "ProductFamilyId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductFamily]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductFamily";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "productFamily";
                     break;
                 case "ProductNoteType":
                     dataSubjectFriendlyName = "Product Note Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetProductNoteType]";
+                    dataSubjectGetStoredProcedureName = "spGetProductNoteType";
                     dataSubjectIdFriendlyName = "Product Note Type Id";
                     dataSubjectIdName = "ProductNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateProductNoteType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductNoteType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "productNoteType";
                     break;
                 case "PromotionType":
                     dataSubjectFriendlyName = "Promotion Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetPromotionType]";
+                    dataSubjectGetStoredProcedureName = "spGetPromotionType";
                     dataSubjectIdFriendlyName = "Promotion Type Id";
                     dataSubjectIdName = "PromotionTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdatePromotionType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "promotionType";
                     break;
                 case "SalesRegion":
                     dataSubjectFriendlyName = "Sales Region";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetSalesRegion]";
+                    dataSubjectGetStoredProcedureName = "spGetSalesRegion";
                     dataSubjectIdFriendlyName = "Sales Region Id";
                     dataSubjectIdName = "SalesRegionId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSalesRegion]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSalesRegion";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "salesRegion";
                     break;
                 case "SupplierNoteType":
                     dataSubjectFriendlyName = "Supplier Note Type";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetSupplierNoteType]";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierNoteType";
                     dataSubjectIdFriendlyName = "Supplier Note Type Id";
                     dataSubjectIdName = "SupplierNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSupplierNoteType]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierNoteType";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "supplierNoteType";
                     break;
                 case "SupplierOrderLineItemStatus":
                     dataSubjectFriendlyName = "Supplier Order Line Item Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetSupplierOrderLineItemStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderLineItemStatus";
                     dataSubjectIdFriendlyName = "Supplier Order Line Item Status Id";
                     dataSubjectIdName = "SupplierOrderLineItemStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSupplierOrderLineItemStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderLineItemStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderLineItemStatus";
                     break;
                 case "SupplierOrderPaymentStatus":
                     dataSubjectFriendlyName = "Supplier Order Payment Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetSupplierOrderPaymentStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderPaymentStatus";
                     dataSubjectIdFriendlyName = "Supplier Order Payment Status Id";
                     dataSubjectIdName = "SupplierOrderPaymentStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSupplierOrderPaymentStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderPaymentStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderPaymentStatus";
                     break;
                 case "SupplierOrderStatus":
                     dataSubjectFriendlyName = "Supplier Order Status";
-                    dataSubjectGetStoredProcedureName = "[dbo].[spGetSupplierOrderStatus]";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderStatus";
                     dataSubjectIdFriendlyName = "Supplier Order Status Id";
                     dataSubjectIdName = "SupplierOrderStatusId";
-                    dataSubjectUpdateStoredProcedureName = "[dbo].[spUpdateSupplierOrderStatus]";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderStatus";
                     break;
                 default:

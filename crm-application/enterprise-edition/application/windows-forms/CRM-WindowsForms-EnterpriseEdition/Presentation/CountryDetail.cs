@@ -34,7 +34,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetCountry]";
+            string storedProcedureName = "spGetCountry";
 
             var parameters = new[]
             {
@@ -181,7 +181,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = iso31661A2CountryCode
                         }
                     };
-                    string storedProcedureName = "[dbo].[spUpdateCountry]";
+                    string storedProcedureName = "spUpdateCountry";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

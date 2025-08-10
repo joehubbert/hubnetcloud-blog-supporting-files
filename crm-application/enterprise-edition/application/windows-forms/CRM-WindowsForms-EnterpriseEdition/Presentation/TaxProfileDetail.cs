@@ -34,7 +34,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            string storedProcedureName = "[dbo].[spGetTaxProfile]";
+            string storedProcedureName = "spGetTaxProfile";
 
             var parameters = new[]
             {
@@ -186,7 +186,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             ParameterValue = taxRate
                         }
                     };
-                    string storedProcedureName = "[dbo].[spUpdateTaxProfile]";
+                    string storedProcedureName = "spUpdateTaxProfile";
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);

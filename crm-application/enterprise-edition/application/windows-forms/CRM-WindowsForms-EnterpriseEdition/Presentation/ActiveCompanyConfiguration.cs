@@ -29,7 +29,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             string dataSubject = "Company Configuration";
-            string storedProcedureName = "[dbo].[spGetAllCompanyConfiguration]";
+            string storedProcedureName = "spGetAllCompanyConfiguration";
 
             try
             {

@@ -1,51 +1,125 @@
 ﻿using Microsoft.Data.SqlClient;
-using System.Text.Json;
+using MySql.Data.MySqlClient;
+using Npgsql;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
     public class DatabaseConnectionSettings
     {
-        public string? ServerName { get; set; }
-        public string? DatabaseName { get; set; }
-        public bool EncryptConnection { get; set; }
+        public string? ActiveDatabaseEngine { get; private set; }
 
-        private static readonly string ConfigFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),"CRM-WindowsForms.EnterpriseEdition");
-        private static readonly string ConfigFilePath = Path.Combine(ConfigFolderPath, "config.json");
+        // MSSQL
+        public ApplicationConfigurationServiceMSSQLConfiguration? MSSQLConfig { get; private set; }
+        // MySQL
+        public ApplicationConfigurationServiceMySQLConfiguration? MySQLConfig { get; private set; }
+        // PostgreSQL
+        public ApplicationConfigurationServicePostgreSQLConfiguration? PostgreSQLConfig { get; private set; }
 
         public static async Task<DatabaseConnectionSettings> LoadAsync()
         {
-            if (File.Exists(ConfigFilePath))
-            {
-                string json = await File.ReadAllTextAsync(ConfigFilePath);
-                return JsonSerializer.Deserialize<DatabaseConnectionSettings>(json);
-            }
-            return new DatabaseConnectionSettings();
-        }
+            var settings = new DatabaseConnectionSettings();
 
-        public async Task SaveAsync()
-        {
-            if (!Directory.Exists(ConfigFolderPath))
+            settings.ActiveDatabaseEngine = await ApplicationConfigurationService.GetActiveDatabaseEngineAsync();
+
+            switch (settings.ActiveDatabaseEngine)
             {
-                Directory.CreateDirectory(ConfigFolderPath);
+                case "Microsoft SQL Server":
+                case "Azure SQL Database":
+                case "Azure SQL Managed Instance":
+                    settings.MSSQLConfig = await ApplicationConfigurationService.GetMSSQLConfigurationAsync();
+                    break;
+                case "MySQL":
+                case "Azure Database for MySQL":
+                    settings.MySQLConfig = await ApplicationConfigurationService.GetMySQLConfigurationAsync();
+                    break;
+                case "PostgreSQL":
+                case "Azure Database for PostgreSQL":
+                    settings.PostgreSQLConfig = await ApplicationConfigurationService.GetPostgreSQLConfigurationAsync();
+                    break;
             }
-            string json = JsonSerializer.Serialize(this, new JsonSerializerOptions { WriteIndented = true });
-            await File.WriteAllTextAsync(ConfigFilePath, json);
+
+            return settings;
         }
 
         public string DatabaseConnectionString
         {
             get
             {
-                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder
+                switch (ActiveDatabaseEngine)
                 {
-                    DataSource = ServerName,
-                    InitialCatalog = DatabaseName,
-                    IntegratedSecurity = true,
-                    Encrypt = EncryptConnection,
-                    TrustServerCertificate = true,
-                    ApplicationName = "CRM - Enterprise Edition"
-                };
-                return builder.ConnectionString;
+                    case "Microsoft SQL Server":
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                        if (MSSQLConfig == null)
+                            throw new InvalidOperationException("MSSQL configuration not loaded.");
+                        var mssqlBuilder = new SqlConnectionStringBuilder
+                        {
+                            DataSource = MSSQLConfig.serverName,
+                            InitialCatalog = MSSQLConfig.databaseName,
+                            IntegratedSecurity = MSSQLConfig.authenticationType == "Kerberos",
+                            Encrypt = MSSQLConfig.encryptionEnabled,
+                            TrustServerCertificate = MSSQLConfig.trustServerCertificate,
+                            ApplicationName = "CRM - Enterprise Edition",
+                            ConnectTimeout = MSSQLConfig.connectionTimeout
+                        };
+
+                        if (MSSQLConfig.authenticationType == "SQL" || MSSQLConfig.authenticationType == "EntraId")
+                        {
+                            if (!string.IsNullOrWhiteSpace(MSSQLConfig.username))
+                                mssqlBuilder.UserID = MSSQLConfig.username;
+                            if (MSSQLConfig.authenticationType == "SQL" && !string.IsNullOrWhiteSpace(MSSQLConfig.password))
+                                mssqlBuilder.Password = MSSQLConfig.password;
+                        }
+
+                        if (ActiveDatabaseEngine == "Azure SQL Database" || ActiveDatabaseEngine == "Azure SQL Managed Instance")
+                        {
+                            if (MSSQLConfig.authenticationType == "EntraId")
+                                mssqlBuilder.Authentication = SqlAuthenticationMethod.ActiveDirectoryInteractive;
+                        }
+                        return mssqlBuilder.ConnectionString;
+                    case "MySQL":
+                    case "Azure Database for MySQL":
+                        if (MySQLConfig == null)
+                            throw new InvalidOperationException("MySQL configuration not loaded.");
+                        var mysqlBuilder = new MySqlConnectionStringBuilder
+                        {
+                            Server = MySQLConfig.serverName,
+                            Port = (uint)MySQLConfig.portNumber,
+                            Database = MySQLConfig.databaseName,
+                            UserID = MySQLConfig.username,
+                            Password = MySQLConfig.password,
+                            SslMode = Enum.TryParse(MySQLConfig.sslMode, out MySqlSslMode sslMode) ? sslMode : MySqlSslMode.Preferred,
+                            ConnectionTimeout = (uint)MySQLConfig.connectionTimeout
+                        };
+                        if (ActiveDatabaseEngine == "Azure Database for MySQL")
+                        {
+                            mysqlBuilder.SslMode = MySqlSslMode.Required;
+                        }
+                        return mysqlBuilder.ConnectionString;
+                    case "PostgreSQL":
+                    case "Azure Database for PostgreSQL":
+                        if (PostgreSQLConfig == null)
+                            throw new InvalidOperationException("PostgreSQL configuration not loaded.");
+                        var npgsqlBuilder = new NpgsqlConnectionStringBuilder
+                        {
+                            Host = PostgreSQLConfig.serverName,
+                            Port = PostgreSQLConfig.portNumber,
+                            Database = PostgreSQLConfig.databaseName,
+                            Username = PostgreSQLConfig.username,
+                            Password = PostgreSQLConfig.password,
+                            SslMode = Enum.TryParse(PostgreSQLConfig.sslMode, out SslMode pgSslMode) ? pgSslMode : SslMode.Prefer,
+                            Timeout = PostgreSQLConfig.connectionTimeout
+                        };
+                        if (ActiveDatabaseEngine == "Azure Database for PostgreSQL")
+                        {
+                            npgsqlBuilder.SslMode = SslMode.Require;
+                        }
+                        return npgsqlBuilder.ConnectionString;
+
+                    default:
+                        throw new InvalidOperationException("Unsupported or undefined database engine.");
+                }
             }
         }
     }

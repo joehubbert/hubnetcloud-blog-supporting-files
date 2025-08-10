@@ -61,6 +61,7 @@
                     // Truncate the file to zero length
                 }
             }
+            CreateLogFileIfNotExists();
         }
 
         private void CreateLogFileIfNotExists()

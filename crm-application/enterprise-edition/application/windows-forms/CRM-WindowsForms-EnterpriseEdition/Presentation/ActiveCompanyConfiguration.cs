@@ -12,7 +12,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public ActiveCompanyConfiguration()
         {
             InitializeComponent();
+            InitializeCustomComponents();
             LoadCompanyConfigurationAsync();
+        }
+
+        private void InitializeCustomComponents()
+        {
+            activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async Task LoadCompanyConfigurationAsync()
@@ -33,6 +39,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     .Select(row => new
                     {
                         CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
+                        CompanyName = row.Field<string>("Company Name"),
                         DisplayText = $"{row.Field<string>("Company Name")} ({row.Field<Guid>("Company Configuration Id")})"
                     })
                     .OrderBy(item => item.DisplayText)
@@ -51,13 +58,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    var applicationConfigurationCompanyConfigurationId = await ApplicationConfigurationService.GetCompanyConfigurationIdAsync();
+                    var applicationConfigurationCompanyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
 
                     // Only set SelectedValue if it exists in the list
-                    var exists = companyConfigurationList.Any(x => x.CompanyConfigurationId == applicationConfigurationCompanyConfigurationId);
-                    if (exists && applicationConfigurationCompanyConfigurationId != Guid.Empty)
+                    var exists = companyConfigurationList.Any(x => x.CompanyConfigurationId == applicationConfigurationCompanyConfiguration.companyConfigurationId);
+                    if (exists && applicationConfigurationCompanyConfiguration.companyConfigurationId != Guid.Empty)
                     {
-                        activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue = applicationConfigurationCompanyConfigurationId;
+                        activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue = applicationConfigurationCompanyConfiguration.companyConfigurationId;
                     }
                 }
             }
@@ -67,14 +74,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+        }
+
         private async void activeCompanyConfigurationCompanyConfigurationButton_Click(object sender, EventArgs e)
         {
             try
             {
-                if (activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue is Guid selectedId)
+                if (activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue is Guid companyConfigurationId)
                 {
-                    ApplicationConfigurationService.CompanyConfigurationId = selectedId;
-                    await ApplicationConfigurationService.SetCompanyConfigurationIdAsync(selectedId);
+                    var selectedItem = activeCompanyConfigurationCompanyConfigurationComboBox.SelectedItem;
+                    string companyName = (string)selectedItem.GetType().GetProperty("CompanyName")?.GetValue(selectedItem)!;
+
+                    var companyConfiguration = new ApplicationConfigurationServiceCompanyConfiguration
+                    {
+                        companyConfigurationId = companyConfigurationId,
+                        companyName = companyName
+                    };
+                    await ApplicationConfigurationService.SetCompanyConfigurationAsync(companyConfiguration);
                     ErrorMessageService errorMessageService = new ErrorMessageService("Information.CompanyConfiguration.ActiveCompanyConfiguration.Saved", activeCompanyConfigurationCompanyConfigurationComboBox.Text);
                     this.Close();
                 }

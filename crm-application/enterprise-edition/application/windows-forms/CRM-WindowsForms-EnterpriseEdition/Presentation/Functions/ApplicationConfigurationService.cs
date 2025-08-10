@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using System.Text.Json;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
@@ -27,6 +28,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 var json = await File.ReadAllTextAsync(ConfigFilePath);
                 _configuration = JsonSerializer.Deserialize<ApplicationConfigurationServiceRoot>(json)
                     ?? new ApplicationConfigurationServiceRoot();
+
+                // Decrypt sensitive properties after loading
+                _configuration.databaseConfiguration.mssqlConfiguration.password =
+                    DPAPIHelper.Decrypt(_configuration.databaseConfiguration.mssqlConfiguration.password);
+                _configuration.databaseConfiguration.mysqlConfiguration.password =
+                    DPAPIHelper.Decrypt(_configuration.databaseConfiguration.mysqlConfiguration.password);
+                _configuration.databaseConfiguration.postgresConfiguration.password =
+                    DPAPIHelper.Decrypt(_configuration.databaseConfiguration.postgresConfiguration.password);
             }
             return _configuration;
         }
@@ -36,8 +45,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             if (_configuration == null)
                 _configuration = new ApplicationConfigurationServiceRoot();
 
+            // Encrypt sensitive properties before saving
+            _configuration.databaseConfiguration.mssqlConfiguration.password =
+                DPAPIHelper.Encrypt(_configuration.databaseConfiguration.mssqlConfiguration.password);
+            _configuration.databaseConfiguration.mysqlConfiguration.password =
+                DPAPIHelper.Encrypt(_configuration.databaseConfiguration.mysqlConfiguration.password);
+            _configuration.databaseConfiguration.postgresConfiguration.password =
+                DPAPIHelper.Encrypt(_configuration.databaseConfiguration.postgresConfiguration.password);
+
             var json = JsonSerializer.Serialize(_configuration, new JsonSerializerOptions { WriteIndented = true });
             await File.WriteAllTextAsync(ConfigFilePath, json);
+
+            // Decrypt back in memory for runtime use
+            _configuration.databaseConfiguration.mssqlConfiguration.password =
+                DPAPIHelper.Decrypt(_configuration.databaseConfiguration.mssqlConfiguration.password);
+            _configuration.databaseConfiguration.mysqlConfiguration.password =
+                DPAPIHelper.Decrypt(_configuration.databaseConfiguration.mysqlConfiguration.password);
+            _configuration.databaseConfiguration.postgresConfiguration.password =
+                DPAPIHelper.Decrypt(_configuration.databaseConfiguration.postgresConfiguration.password);
         }
 
         public static ApplicationConfigurationServiceCompanyConfiguration CompanyConfiguration

@@ -62,7 +62,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCurrency]";                
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
@@ -238,57 +238,57 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = supplierOverviewActiveStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine1",
+                        ParameterName = "addressLine1",
                         ParameterValue = supplierOverviewAddressLine1
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine3",
+                        ParameterName = "addressLine3",
                         ParameterValue = supplierOverviewAddressLine3
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine4",
+                        ParameterName = "addressLine4",
                         ParameterValue = supplierOverviewAddressLine4
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine5",
+                        ParameterName = "addressLine5",
                         ParameterValue = supplierOverviewAddressLine5
                     },
                     new Parameter
                     {
-                        ParameterName = "@emailAddress",
+                        ParameterName = "emailAddress",
                         ParameterValue = supplierOverviewEmailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@paymentCurrencyId",
+                        ParameterName = "paymentCurrencyId",
                         ParameterValue = supplierFinancePaymentCurrencyId
                     },
                     new Parameter
                     {
-                        ParameterName = "@paymentDays",
+                        ParameterName = "paymentDays",
                         ParameterValue = supplierFinancePaymentDays
                     },
                     new Parameter
                     {
-                        ParameterName = "@supplierName",
+                        ParameterName = "supplierName",
                         ParameterValue = supplierOverviewSupplierName
                     },
                     new Parameter
                     {
-                        ParameterName = "@telephoneNumber",
+                        ParameterName = "telephoneNumber",
                         ParameterValue = supplierOverviewTelephoneNumber
                     },
                     new Parameter
                     {
-                        ParameterName = "@vatNumber",
+                        ParameterName = "vatNumber",
                         ParameterValue = supplierFinanceVATNumber
                     }
                 };
@@ -297,7 +297,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@addressLine2",
+                        ParameterName = "addressLine2",
                         ParameterValue = supplierOverviewAddressLine2
                     });
                 }
@@ -305,7 +305,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 string storedProcedureName = "[dbo].[spCreateSupplier]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
         }

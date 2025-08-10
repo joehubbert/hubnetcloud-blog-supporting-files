@@ -40,14 +40,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@customerTierId",
+                    ParameterName = "customerTierId",
                     ParameterValue = _customerTierId
                 }
             };
 
             try
             {
-                DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (customerTierDataTable != null)
                 {
@@ -162,29 +162,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerTier",
+                            ParameterName = "customerTier",
                             ParameterValue = customerTierDescription
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerTierCode",
+                            ParameterName = "customerTierCode",
                             ParameterValue = customerTierCode
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerTierId",
+                            ParameterName = "customerTierId",
                             ParameterValue = _customerTierId
                         }
                     };
                     string storedProcedureName = "[dbo].[spUpdateCustomerTier]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

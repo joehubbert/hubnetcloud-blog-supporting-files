@@ -90,34 +90,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@emailAddress",
+                        ParameterName = "emailAddress",
                         ParameterValue = emailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@firstName",
+                        ParameterName = "firstName",
                         ParameterValue = firstName
                     },
                     new Parameter
                     {
-                        ParameterName = "@lastName",
+                        ParameterName = "lastName",
                         ParameterValue = lastName
                     },
                     new Parameter
                     {
-                        ParameterName = "@telephoneNumber",
+                        ParameterName = "telephoneNumber",
                         ParameterValue = telephoneNumber
                     }
                 };
                 string storedProcedureName = "[dbo].[spCreateAccountManager]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
         }

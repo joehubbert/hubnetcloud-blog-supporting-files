@@ -72,24 +72,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@customerTier",
+                        ParameterName = "customerTier",
                         ParameterValue = customerTierDescription
                     },
                     new Parameter
                     {
-                        ParameterName = "@customerTierCode",
+                        ParameterName = "customerTierCode",
                         ParameterValue = customerTierCode
                     }
                 };
                 string storedProcedureName = "[dbo].[spCreateCustomerTier]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
         }

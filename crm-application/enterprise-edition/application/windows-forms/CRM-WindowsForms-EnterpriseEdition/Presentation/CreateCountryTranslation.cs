@@ -38,7 +38,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCountry]";                
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var countryList = countryData.AsEnumerable()
                     .Select(row => new
@@ -126,22 +126,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@bcp47LanguageTagCode",
+                        ParameterName = "bcp47LanguageTagCode",
                         ParameterValue = bcp47LanguageTagCode
                     },
                     new Parameter
                     {
-                        ParameterName = "@countryId",
+                        ParameterName = "countryId",
                         ParameterValue = countryId
                     },
                     new Parameter
                     {
-                        ParameterName = "@localisedCountryName",
+                        ParameterName = "localisedCountryName",
                         ParameterValue = localisedCountryName
                     }
                 };
@@ -149,7 +149,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 string storedProcedureName = "[dbo].[spCreateCountryTranslation]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
         }

@@ -33,7 +33,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                DataTable? companyConfigurationData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? companyConfigurationData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var companyConfigurationList = companyConfigurationData.AsEnumerable()
                     .Select(row => new

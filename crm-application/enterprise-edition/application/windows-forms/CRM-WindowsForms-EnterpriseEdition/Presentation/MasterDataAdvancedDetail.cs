@@ -137,8 +137,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 DataTable? dataParentSubjectData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(
                     dataParentSubjectGetStoredProcedureName,
-                    dataParentSubjectName,
-                    _databaseConnectionSettings.DatabaseConnectionString);
+                    dataParentSubjectName);
 
                 // Use consistent property names for binding
                 var dataList = dataParentSubjectData.AsEnumerable()
@@ -188,8 +187,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 DataTable? masterDataAdvancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     dataSubjectGetStoredProcedureName,
                     parameters.ToArray(),
-                    dataSubjectName,
-                    _databaseConnectionSettings.DatabaseConnectionString);
+                    dataSubjectName);
 
                 if (masterDataAdvancedDetailDataTable != null)
                 {
@@ -303,7 +301,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
@@ -320,7 +318,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, operationType);
                     this.Close();
                 }
                 else

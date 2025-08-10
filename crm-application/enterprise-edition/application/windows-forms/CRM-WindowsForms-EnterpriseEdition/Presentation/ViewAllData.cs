@@ -494,12 +494,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         }
                     };
 
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName, _databaseConnectionSettings.DatabaseConnectionString);
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName);
                 }
 
                 else
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName, _databaseConnectionSettings.DatabaseConnectionString);
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName);
                 }
 
                 if (dataTable.Rows.Count == 0)

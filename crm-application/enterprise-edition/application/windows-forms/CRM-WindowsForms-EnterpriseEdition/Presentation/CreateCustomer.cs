@@ -89,7 +89,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerType]";    
-                DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerTypeList = customerTypeData.AsEnumerable()
                     .Select(row => new
@@ -126,7 +126,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerTier]";
-                DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerTierList = customerTierData.AsEnumerable()
                     .Select(row => new
@@ -160,7 +160,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllSalesRegion]";               
-                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesRegionList = salesRegionData.AsEnumerable()
                     .Select(row => new
@@ -192,7 +192,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllSalesSubRegion]";          
-                DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesSubRegionList = salesSubRegionData.AsEnumerable()
                     .Where(row => row.Field<Guid>("Sales Region Id") == salesRegionId)
@@ -244,7 +244,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 string storedProcedureName = "[dbo].[spGetAllAccountManager]";
                 
-                DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var accountManagerList = accountManagerData.AsEnumerable()
                     .Select(row => new
@@ -322,7 +322,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllGlobalParentCustomer]";                
-                DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
                     .Select(row => new
@@ -355,7 +355,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllTopParentCustomer]";               
-                DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var topParentCustomerList = topParentCustomerData.AsEnumerable()
                     .Select(row => new
@@ -509,7 +509,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 string storedProcedureName = "[dbo].[spGetAllCurrency]";
                 
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
                     {
@@ -961,162 +961,162 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@accountManagerId",
+                        ParameterName = "accountManagerId",
                         ParameterValue = customerOverviewAccountManagerId
                     },
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = customerOverviewActiveStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingFirstName",
+                        ParameterName = "billingFirstName",
                         ParameterValue = customerBillingInformationFirstName
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingLastName",
+                        ParameterName = "billingLastName",
                         ParameterValue = customerBillingInformationLastName
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingAddressLine1",
+                        ParameterName = "billingAddressLine1",
                         ParameterValue = customerBillingInformationAddressLine1
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingAddressLine3",
+                        ParameterName = "billingAddressLine3",
                         ParameterValue = customerBillingInformationAddressLine3
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingAddressLine4",
+                        ParameterName = "billingAddressLine4",
                         ParameterValue = customerBillingInformationAddressLine4
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingAddressLine5",
+                        ParameterName = "billingAddressLine5",
                         ParameterValue = customerBillingInformationAddressLine5
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingTelephoneNumber",
+                        ParameterName = "billingTelephoneNumber",
                         ParameterValue = customerBillingInformationTelephoneNumber
                     },
                     new Parameter
                     {
-                        ParameterName = "@billingEmailAddress",
+                        ParameterName = "billingEmailAddress",
                         ParameterValue = customerBillingInformationEmailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@creditEnabled",
+                        ParameterName = "creditEnabled",
                         ParameterValue = customerFinanceCreditEnabled
                     },
                     new Parameter
                     {
-                        ParameterName = "@creditLimit",
+                        ParameterName = "creditLimit",
                         ParameterValue = customerFinanceCreditLimit
                     },
                     new Parameter
                     {
-                        ParameterName = "@customerSince",
+                        ParameterName = "customerSince",
                         ParameterValue = customerOverviewCustomerSince
                     },
                     new Parameter
                     {
-                        ParameterName = "@customerTierId",
+                        ParameterName = "customerTierId",
                         ParameterValue = customerOverviewCustomerTierId
                     },
                     new Parameter
                     {
-                        ParameterName = "@customerTypeId",
+                        ParameterName = "customerTypeId",
                         ParameterValue = customerOverviewCustomerTypeId
                     },
                     new Parameter
                     {
-                        ParameterName = "@emailAddress",
+                        ParameterName = "emailAddress",
                         ParameterValue = customerOverviewEmailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@firstName",
+                        ParameterName = "firstName",
                         ParameterValue = customerOverviewFirstName
                     },
                     new Parameter
                     {
-                        ParameterName = "@globalParentCustomer",
+                        ParameterName = "globalParentCustomer",
                         ParameterValue = customerOverviewWillBeGlobalParent
                     },
                     new Parameter
                     {
-                        ParameterName = "@lastName",
+                        ParameterName = "lastName",
                         ParameterValue = customerOverviewLastName
                     },
                     new Parameter
                     {
-                        ParameterName = "@paymentCurrencyId",
+                        ParameterName = "paymentCurrencyId",
                         ParameterValue = customerFinancePaymentCurrencyId
                     },
                     new Parameter
                     {
-                        ParameterName = "@paymentDays",
+                        ParameterName = "paymentDays",
                         ParameterValue = customerFinancePaymentDays
                     },
                     new Parameter
                     {
-                        ParameterName = "@salesSubRegionId",
+                        ParameterName = "salesSubRegionId",
                         ParameterValue = customerOverviewSalesSubRegionId
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingFirstName",
+                        ParameterName = "shippingFirstName",
                         ParameterValue = customerShippingInformationFirstName
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingLastName",
+                        ParameterName = "shippingLastName",
                         ParameterValue = customerShippingInformationLastName
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingAddressLine1",
+                        ParameterName = "shippingAddressLine1",
                         ParameterValue = customerShippingInformationAddressLine1
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingAddressLine3",
+                        ParameterName = "shippingAddressLine3",
                         ParameterValue = customerShippingInformationAddressLine3
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingAddressLine4",
+                        ParameterName = "shippingAddressLine4",
                         ParameterValue = customerShippingInformationAddressLine4
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingAddressLine5",
+                        ParameterName = "shippingAddressLine5",
                         ParameterValue = customerShippingInformationAddressLine5
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingTelephoneNumber",
+                        ParameterName = "shippingTelephoneNumber",
                         ParameterValue = customerShippingInformationTelephoneNumber
                     },
                     new Parameter
                     {
-                        ParameterName = "@shippingEmailAddress",
+                        ParameterName = "shippingEmailAddress",
                         ParameterValue = customerShippingInformationEmailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@telephoneNumber",
+                        ParameterName = "telephoneNumber",
                         ParameterValue = customerOverviewTelephoneNumber
                     },
                     new Parameter
                     {
-                        ParameterName = "@topParentCustomer",
+                        ParameterName = "topParentCustomer",
                         ParameterValue = customerOverviewWillBeTopParent
                     }
                 };
@@ -1125,7 +1125,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@companyName",
+                        ParameterName = "companyName",
                         ParameterValue = customerOverviewCompanyName
                     });
                 }
@@ -1134,7 +1134,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@billingAddressLine2",
+                        ParameterName = "billingAddressLine2",
                         ParameterValue = customerBillingInformationAddressLine2
                     });
                 }
@@ -1143,7 +1143,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@billingCompanyName",
+                        ParameterName = "billingCompanyName",
                         ParameterValue = customerBillingInformationCompanyName
                     });
                 }
@@ -1152,7 +1152,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@globalParentCustomerId",
+                        ParameterName = "globalParentCustomerId",
                         ParameterValue = customerOverviewExistingGlobalParentCustomerId
                     });
                 }
@@ -1161,7 +1161,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@shippingAddressLine2",
+                        ParameterName = "shippingAddressLine2",
                         ParameterValue = customerShippingInformationAddressLine2
                     });
                 }
@@ -1170,7 +1170,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@shippingCompanyName",
+                        ParameterName = "shippingCompanyName",
                         ParameterValue = customerShippingInformationCompanyName
                     });
                 }
@@ -1179,7 +1179,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@topParentCustomerId",
+                        ParameterName = "topParentCustomerId",
                         ParameterValue = customerOverviewExistingTopParentCustomerId
                     });
                 }
@@ -1188,7 +1188,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@vatNumber",
+                        ParameterName = "vatNumber",
                         ParameterValue = customerFinanceVATNumber
                     });
                 }
@@ -1196,7 +1196,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 string storedProcedureName = "[dbo].[spCreateCustomer]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
         }

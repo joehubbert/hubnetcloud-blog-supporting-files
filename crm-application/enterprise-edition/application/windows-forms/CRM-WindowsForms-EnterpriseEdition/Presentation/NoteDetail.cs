@@ -129,7 +129,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             try
             {
-                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(noteDetailNoteTypeGetStoredProcedureName, noteDetailNoteTypeName, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(noteDetailNoteTypeGetStoredProcedureName, noteDetailNoteTypeName);
 
                 var noteTypeList = noteTypeData.AsEnumerable()
                     .Select(row => new
@@ -172,8 +172,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 DataTable? noteDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     noteDetailNoteGetStoredProcedureName,
                     parameters.ToArray(),
-                    noteDetailModuleNoteTypeFriendlyName,
-                    _databaseConnectionSettings.DatabaseConnectionString
+                    noteDetailModuleNoteTypeFriendlyName
                     );
 
                 if (noteDataTable != null)
@@ -308,7 +307,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         noteDetailNoteUpdateStoredProcedureName,
                         parameters.ToArray(),
                         noteDetailModuleNoteTypeFriendlyName,
-                        _databaseConnectionSettings.DatabaseConnectionString,
                         operationType
                         );
                     this.Close();

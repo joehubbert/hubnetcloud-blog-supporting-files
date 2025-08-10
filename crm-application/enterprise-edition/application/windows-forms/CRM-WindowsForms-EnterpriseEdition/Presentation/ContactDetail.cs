@@ -85,8 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 DataTable? contactDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     contactDetailContactGetStoredProcedureName,
                     parameters.ToArray(),
-                    contactDetailModuleContactTypeFriendlyName,
-                    _databaseConnectionSettings.DatabaseConnectionString
+                    contactDetailModuleContactTypeFriendlyName
                     );
 
                 if (contactDataTable != null)
@@ -255,7 +254,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
@@ -265,27 +264,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailAddress",
+                            ParameterName = "emailAddress",
                             ParameterValue = emailAddress
                         },
                         new Parameter
                         {
-                            ParameterName = "@firstName",
+                            ParameterName = "firstName",
                             ParameterValue = firstName
                         },
                         new Parameter
                         {
-                            ParameterName = "@lastName",
+                            ParameterName = "lastName",
                             ParameterValue = lastName
                         },
                         new Parameter
                         {
-                            ParameterName = "@role",
+                            ParameterName = "role",
                             ParameterValue = role
                         },
                         new Parameter
                         {
-                            ParameterName = "@telephoneNumber",
+                            ParameterName = "telephoneNumber",
                             ParameterValue = telephoneNumber
                         }
                     };
@@ -296,7 +295,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         contactDetailContactUpdateStoredProcedureName,
                         parameters.ToArray(),
                         contactDetailModuleContactTypeFriendlyName,
-                        _databaseConnectionSettings.DatabaseConnectionString,
                         operationType
                         );
                     this.Close();

@@ -46,7 +46,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllTaxProfile]";                
-                DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var taxProfileList = taxProfileData.AsEnumerable()
                     .Select(row => new
@@ -89,14 +89,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                     new Parameter
                     {
-                        ParameterName = "@deliveryMethodId",
+                        ParameterName = "deliveryMethodId",
                         ParameterValue = _deliveryMethodId
                     }
             };
 
             try
             {
-                DataTable? deliveryMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? deliveryMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (deliveryMethodDataTable != null)
                 {
@@ -254,39 +254,39 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@deliveryCost",
+                            ParameterName = "deliveryCost",
                             ParameterValue = deliveryCost
                         },
                         new Parameter
                         {
-                            ParameterName = "@deliveryMethod",
+                            ParameterName = "deliveryMethod",
                             ParameterValue = deliveryMethod
                         },
                         new Parameter
                         {
-                            ParameterName = "@deliveryMethodId",
+                            ParameterName = "deliveryMethodId",
                             ParameterValue = _deliveryMethodId
                         },
                         new Parameter
                         {
-                            ParameterName = "@deliveryTime",
+                            ParameterName = "deliveryTime",
                             ParameterValue = deliveryTime
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxProfileId",
+                            ParameterName = "taxProfileId",
                             ParameterValue = taxProfileId
                         }
                     };
                     string storedProcedureName = "[dbo].[spUpdateDeliveryMethod]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

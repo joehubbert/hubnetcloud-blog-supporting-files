@@ -62,12 +62,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@customerId",
+                        ParameterName = "customerId",
                         ParameterValue = _customerId
                     }
                 };
 
-                DataTable? customerContactData = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerContactData = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 var customerContactList = customerContactData.AsEnumerable()
                     .Select(row => new
@@ -108,7 +108,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 string storedProcedureName = "[dbo].[spGetAllCustomerLeadType]";
 
-                DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerLeadTypeList = customerLeadTypeData.AsEnumerable()
                     .Select(row => new
@@ -141,7 +141,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllMarketingChannel]";
-                DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var marketingChannelList = marketingChannelData.AsEnumerable()
                     .Select(row => new
@@ -223,14 +223,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
                 new Parameter
                 {
-                    ParameterName = "@customerLeadId",
+                    ParameterName = "customerLeadId",
                     ParameterValue = _customerLeadId
                 }
             };
 
             try
             {
-                DataTable? customerLeadTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? customerLeadTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (customerLeadTable != null)
                 {
@@ -332,12 +332,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@customerLeadId",
+                    ParameterName = "customerLeadId",
                     ParameterValue = _customerLeadId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -556,27 +556,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerLead",
+                            ParameterName = "customerLead",
                             ParameterValue = customerLead
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerLeadId",
+                            ParameterName = "customerLeadId",
                             ParameterValue = _customerLeadId
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerLeadTitle",
+                            ParameterName = "customerLeadTitle",
                             ParameterValue = customerLeadTitle
                         },
                         new Parameter
                         {
-                            ParameterName = "@customerLeadTypeId",
+                            ParameterName = "customerLeadTypeId",
                             ParameterValue = customerLeadTypeId
                         }
                     };
@@ -585,7 +585,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@customerContactId",
+                            ParameterName = "customerContactId",
                             ParameterValue = customerContactId
                         });
                     }
@@ -594,7 +594,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@customerLeadTargetDate",
+                            ParameterName = "customerLeadTargetDate",
                             ParameterValue = customerLeadTargetDate
                         });
                     }
@@ -603,7 +603,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@marketingChannelId",
+                            ParameterName = "marketingChannelId",
                             ParameterValue = marketingChannelId
                         });
                     }
@@ -611,7 +611,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateCustomerLead]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

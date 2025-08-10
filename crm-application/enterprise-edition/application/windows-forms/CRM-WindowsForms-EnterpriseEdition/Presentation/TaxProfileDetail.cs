@@ -40,14 +40,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@taxProfileId",
+                    ParameterName = "taxProfileId",
                     ParameterValue = _taxProfileId
                 }
             };
 
             try
             {
-                DataTable? taxProfileDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? taxProfileDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (taxProfileDataTable != null)
                 {
@@ -167,29 +167,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxProfile",
+                            ParameterName = "taxProfile",
                             ParameterValue = taxProfile
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxProfileId",
+                            ParameterName = "taxProfileId",
                             ParameterValue = _taxProfileId
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxRate",
+                            ParameterName = "taxRate",
                             ParameterValue = taxRate
                         }
                     };
                     string storedProcedureName = "[dbo].[spUpdateTaxProfile]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

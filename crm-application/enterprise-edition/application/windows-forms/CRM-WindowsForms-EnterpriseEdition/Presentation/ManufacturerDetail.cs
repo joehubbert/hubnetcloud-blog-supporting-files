@@ -52,13 +52,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@manufacturerId",
+                    ParameterName = "manufacturerId",
                     ParameterValue = _manufacturerId
                 }
             };
             try
             {
-                DataTable? manufacturerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? manufacturerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (manufacturerDataTable != null)
                 {
@@ -337,52 +337,52 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageActiveStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine1",
+                            ParameterName = "addressLine1",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine1
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine3",
+                            ParameterName = "addressLine3",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine3
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine4",
+                            ParameterName = "addressLine4",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine4
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine5",
+                            ParameterName = "addressLine5",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine5
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailAddress",
+                            ParameterName = "emailAddress",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageEmailAddress
                         },
                         new Parameter
                         {
-                            ParameterName = "@manufacturerId",
+                            ParameterName = "manufacturerId",
                             ParameterValue = _manufacturerId
                         },
                         new Parameter
                         {
-                            ParameterName = "@manufacturerName",
+                            ParameterName = "manufacturerName",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageManufacturerName
                         },
                         new Parameter
                         {
-                            ParameterName = "@telephoneNumber",
+                            ParameterName = "telephoneNumber",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageTelephoneNumber
                         },
                         new Parameter
                         {
-                            ParameterName = "@vatNumber",
+                            ParameterName = "vatNumber",
                             ParameterValue = manufacturerDetailFinanceVATNumber
                         }
                     };
@@ -391,7 +391,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@addressLine2",
+                            ParameterName = "addressLine2",
                             ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine2
                         });
                     }
@@ -399,7 +399,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateManufacturer]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

@@ -1,75 +1,101 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using Npgsql;
 using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Model
 {
     internal class ExecuteStoredProcedure
     {
-        private readonly string _connectionString;
+        private readonly DatabaseConnectionSettings _dbSettings;
+        public DatabaseConnectionSettings DatabaseConnectionSettings;
 
-        public ExecuteStoredProcedure(string connectionString)
+        private ExecuteStoredProcedure(DatabaseConnectionSettings dbSettings)
         {
-            _connectionString = connectionString;
+            _dbSettings = dbSettings;
         }
 
-        private SqlConnection GetConnection()
+        public static async Task<ExecuteStoredProcedure> CreateAsync()
         {
-            return new SqlConnection(_connectionString);
+            var dbSettings = await DatabaseConnectionSettings.LoadAsync();
+            return new ExecuteStoredProcedure(dbSettings);
         }
 
-        public async Task<DataTable> ExecuteAsync(string storedProcedureName, params SqlParameter[] parameters)
+        public async Task<DataTable> ExecuteAsync(string storedProcedureName, params object[] parameters)
         {
-            using (SqlConnection connection = GetConnection())
+            switch (_dbSettings.ActiveDatabaseEngine)
             {
-                using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    if (parameters != null)
-                    {
-                        foreach (var parameter in parameters)
-                        {
-                            if (string.IsNullOrWhiteSpace(parameter.ParameterName))
-                            {
-                                throw new ArgumentException("Parameter name cannot be null or whitespace.", nameof(parameters));
-                            }
-                            command.Parameters.Add(parameter);
-                        }
-                    }
-
-                    await connection.OpenAsync();
-                    using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                    {
-                        DataTable dataTable = new DataTable();
-                        await Task.Run(() => adapter.Fill(dataTable));
-                        return dataTable;
-                    }
-                }
+                case "Azure SQL Database":
+                case "Azure SQL Managed Instance":
+                case "Microsoft SQL Server":
+                    return await ExecuteSqlServerAsync(storedProcedureName, parameters);
+                case "Azure Database for MySQL":
+                case "MySQL":
+                    return await ExecuteMySqlAsync(storedProcedureName, parameters);
+                case "AzureDatabase for PostgreSQL":
+                case "PostgreSQL":
+                    return await ExecutePostgreSqlAsync(storedProcedureName, parameters);
+                default:
+                    throw new NotSupportedException($"Database type '{_dbSettings.ActiveDatabaseEngine}' is not supported.");
             }
         }
 
-        public async Task<int> ExecuteNonQueryAsync(string storedProcedureName, params SqlParameter[] parameters)
+        private async Task<DataTable> ExecuteSqlServerAsync(string storedProcedureName, object[] parameters)
         {
-            using (SqlConnection connection = GetConnection())
+            using var connection = new SqlConnection(_dbSettings.DatabaseConnectionString);
+            using var command = new SqlCommand(storedProcedureName, connection)
             {
-                using (SqlCommand command = new SqlCommand(storedProcedureName, connection))
-                {
-                    command.CommandType = CommandType.StoredProcedure;
-                    if (parameters != null)
-                    {
-                        foreach (var parameter in parameters)
-                        {
-                            if (string.IsNullOrWhiteSpace(parameter.ParameterName))
-                            {
-                                throw new ArgumentException("Parameter name cannot be null or whitespace.", nameof(parameters));
-                            }
-                            command.Parameters.Add(parameter);
-                        }
-                    }
-
-                    await connection.OpenAsync();
-                    return await command.ExecuteNonQueryAsync();
-                }
+                CommandType = CommandType.StoredProcedure
+            };
+            if (parameters != null)
+            {
+                foreach (SqlParameter param in parameters)
+                    command.Parameters.Add(param);
             }
+            await connection.OpenAsync();
+            using var adapter = new SqlDataAdapter(command);
+            var dataTable = new DataTable();
+            await Task.Run(() => adapter.Fill(dataTable));
+            return dataTable;
+        }
+
+        private async Task<DataTable> ExecuteMySqlAsync(string storedProcedureName, object[] parameters)
+        {
+            using var connection = new MySqlConnection(_dbSettings.DatabaseConnectionString);
+            using var command = new MySqlCommand(storedProcedureName, connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            if (parameters != null)
+            {
+                foreach (MySqlParameter param in parameters)
+                    command.Parameters.Add(param);
+            }
+            await connection.OpenAsync();
+            using var adapter = new MySqlDataAdapter(command);
+            var dataTable = new DataTable();
+            await Task.Run(() => adapter.Fill(dataTable));
+            return dataTable;
+        }
+
+        private async Task<DataTable> ExecutePostgreSqlAsync(string storedProcedureName, object[] parameters)
+        {
+            using var connection = new NpgsqlConnection(_dbSettings.DatabaseConnectionString);
+            using var command = new NpgsqlCommand(storedProcedureName, connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+            if (parameters != null)
+            {
+                foreach (NpgsqlParameter param in parameters)
+                    command.Parameters.Add(param);
+            }
+            await connection.OpenAsync();
+            using var adapter = new NpgsqlDataAdapter(command);
+            var dataTable = new DataTable();
+            await Task.Run(() => adapter.Fill(dataTable));
+            return dataTable;
         }
     }
 }

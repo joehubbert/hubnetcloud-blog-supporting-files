@@ -71,24 +71,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxProfile",
+                            ParameterName = "taxProfile",
                             ParameterValue = taxProfile
                         },
                         new Parameter
                         {
-                            ParameterName = "@taxRate",
+                            ParameterName = "taxRate",
                             ParameterValue = taxRate
                         }
                     };
                 string storedProcedureName = "[dbo].[spCreateTaxProfile]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
         }

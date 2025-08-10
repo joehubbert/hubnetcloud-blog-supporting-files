@@ -54,7 +54,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllProductCategory]";               
-                DataTable? productCategoryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? productCategoryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var productCategoryList = productCategoryData.AsEnumerable()
                     .Select(row => new
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllSupplier]";               
-                DataTable? supplierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? supplierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var supplierList = supplierData.AsEnumerable()
                     .Select(row => new
@@ -128,13 +128,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@productId",
+                    ParameterName = "productId",
                     ParameterValue = _productId
                 }
             };
             try
             {
-                DataTable? productDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? productDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (productDataTable != null)
                 {
@@ -233,12 +233,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@productId",
+                    ParameterName = "productId",
                     ParameterValue = _productId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -581,67 +581,67 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = productDetailTabControlOverviewTabPageActiveStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@productCategoryId",
+                            ParameterName = "productCategoryId",
                             ParameterValue = productDetailTabControlOverviewTabPageProductCategoryId
                         },
                         new Parameter
                         {
-                            ParameterName = "@productId",
+                            ParameterName = "productId",
                             ParameterValue = _productId
                         },
                         new Parameter
                         {
-                            ParameterName = "@productName",
+                            ParameterName = "productName",
                             ParameterValue = productDetailTabControlOverviewTabPageProductName
                         },
                         new Parameter
                         {
-                            ParameterName = "@supplierId",
+                            ParameterName = "supplierId",
                             ParameterValue = productDetailTabControlOverviewTabPageSupplierId
                         },
                         new Parameter
                         {
-                            ParameterName = "@unitMinimumOrderQuantity",
+                            ParameterName = "unitMinimumOrderQuantity",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitMinimumOrderQuantity
                         },
                         new Parameter
                         {
-                            ParameterName = "@unitMinimumStockQuantity",
+                            ParameterName = "unitMinimumStockQuantity",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitMinimumStockQuantity
                         },
                         new Parameter
                         {
-                            ParameterName = "@unitPrice",
+                            ParameterName = "unitPrice",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitPrice
                         },
                         new Parameter
                         {
-                            ParameterName = "@unitStockQuantityHeld",
+                            ParameterName = "unitStockQuantityHeld",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitStockQuantityHeld
                         },
                         new Parameter
                         {
-                            ParameterName = "@wholesaleCartonStockQuantityHeld",
+                            ParameterName = "wholesaleCartonStockQuantityHeld",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld
                         },
                         new Parameter
                         {
-                            ParameterName = "@wholesalePricePerUnit",
+                            ParameterName = "wholesalePricePerUnit",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesalePricePerUnit
                         },
                         new Parameter
                         {
-                            ParameterName = "@wholesaleReorderFlag",
+                            ParameterName = "wholesaleReorderFlag",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleReorderFlag
                         },
                         new Parameter
                         {
-                            ParameterName = "@wholesaleUnitQuantityPerCarton",
+                            ParameterName = "wholesaleUnitQuantityPerCarton",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleUnitQuantityPerCarton
                         }
                     };
@@ -650,7 +650,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@productImage",
+                            ParameterName = "productImage",
                             ParameterValue = productImage
                         });
                     }
@@ -658,7 +658,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateProduct]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

@@ -41,14 +41,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@currencyId",
+                    ParameterName = "currencyId",
                     ParameterValue = _currencyId
                 }
             };
 
             try
             {
-                DataTable? currencyDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? currencyDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (currencyDataTable != null)
                 {
@@ -163,29 +163,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@currencyCode",
+                            ParameterName = "currencyCode",
                             ParameterValue = currencyCode
                         },
                         new Parameter
                         {
-                            ParameterName = "@currencyName",
+                            ParameterName = "currencyName",
                             ParameterValue = currencyName
                         },
                         new Parameter
                         {
-                            ParameterName = "@currencyId",
+                            ParameterName = "currencyId",
                             ParameterValue = _currencyId
                         }
                     };
                     string storedProcedureName = "[dbo].[spUpdateCurrency]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

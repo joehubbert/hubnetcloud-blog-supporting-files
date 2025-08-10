@@ -44,7 +44,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCountry]";               
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var countryList = countryData.AsEnumerable()
                     .Select(row => new
@@ -84,7 +84,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@countryTranslationId",
+                    ParameterName = "countryTranslationId",
                     ParameterValue = _countryTranslationId
                 }
             };
@@ -93,7 +93,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (countryDataTable != null)
                 {
@@ -228,34 +228,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@bcp47LanguageTagCode",
+                            ParameterName = "bcp47LanguageTagCode",
                             ParameterValue = bcp47LanguageTagCode
                         },
                         new Parameter
                         {
-                            ParameterName = "@countryId",
+                            ParameterName = "countryId",
                             ParameterValue = countryId
                         },
                         new Parameter
                         {
-                            ParameterName = "@countryTranslationId",
+                            ParameterName = "countryTranslationId",
                             ParameterValue = _countryTranslationId
                         },
                         new Parameter
                         {
-                            ParameterName = "@localisedCountryName",
+                            ParameterName = "localisedCountryName",
                             ParameterValue = localisedCountryName
                         }
                     };
                     string storedProcedureName = "[dbo].[spUpdateCountryTranslation]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

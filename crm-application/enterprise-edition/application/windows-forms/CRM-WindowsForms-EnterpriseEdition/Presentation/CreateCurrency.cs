@@ -72,24 +72,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@currencyCode",
+                        ParameterName = "currencyCode",
                         ParameterValue = currencyCode
                     },
                     new Parameter
                     {
-                        ParameterName = "@currencyName",
+                        ParameterName = "currencyName",
                         ParameterValue = currencyName
                     }
                 };
                 string storedProcedureName = "[dbo].[spCreateCurrency]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
         }

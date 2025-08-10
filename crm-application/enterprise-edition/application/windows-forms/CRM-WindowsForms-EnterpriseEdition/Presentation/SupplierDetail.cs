@@ -53,7 +53,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCurrency]";               
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
@@ -92,13 +92,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@supplierId",
+                    ParameterName = "supplierId",
                     ParameterValue = _supplierId
                 }
             };
             try
             {
-                DataTable? supplierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? supplierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (supplierDataTable != null)
                 {
@@ -184,12 +184,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@supplierId",
+                    ParameterName = "supplierId",
                     ParameterValue = _supplierId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -231,12 +231,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@supplierId",
+                    ParameterName = "supplierId",
                     ParameterValue = _supplierId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -569,62 +569,62 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = supplierDetailTabControlOverviewTabPageActiveStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine1",
+                            ParameterName = "addressLine1",
                             ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine1
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine3",
+                            ParameterName = "addressLine3",
                             ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine3
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine4",
+                            ParameterName = "addressLine4",
                             ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine4
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine5",
+                            ParameterName = "addressLine5",
                             ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine5
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailAddress",
+                            ParameterName = "emailAddress",
                             ParameterValue = supplierDetailTabControlOverviewTabPageEmailAddress
                         },
                         new Parameter
                         {
-                            ParameterName = "@paymentCurrencyId",
+                            ParameterName = "paymentCurrencyId",
                             ParameterValue = supplierDetailFinancePaymentCurrencyId
                         },
                         new Parameter
                         {
-                            ParameterName = "@paymentDays",
+                            ParameterName = "paymentDays",
                             ParameterValue = supplierDetailFinancePaymentDays
                         },
                         new Parameter
                         {
-                            ParameterName = "@supplierId",
+                            ParameterName = "supplierId",
                             ParameterValue = _supplierId
                         },
                         new Parameter
                         {
-                            ParameterName = "@supplierName",
+                            ParameterName = "supplierName",
                             ParameterValue = supplierDetailTabControlOverviewTabPageSupplierName
                         },
                         new Parameter
                         {
-                            ParameterName = "@telephoneNumber",
+                            ParameterName = "telephoneNumber",
                             ParameterValue = supplierDetailTabControlOverviewTabPageTelephoneNumber
                         },
                         new Parameter
                         {
-                            ParameterName = "@vatNumber",
+                            ParameterName = "vatNumber",
                             ParameterValue = supplierDetailFinanceVATNumber
                         }
                     };
@@ -633,7 +633,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@addressLine2",
+                            ParameterName = "addressLine2",
                             ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine2
                         });
                     }
@@ -641,7 +641,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateSupplier]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

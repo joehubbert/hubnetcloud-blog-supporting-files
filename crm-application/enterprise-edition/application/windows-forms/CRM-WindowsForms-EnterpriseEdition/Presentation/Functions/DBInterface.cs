@@ -1,5 +1,8 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Model;
+using CRM_WindowsForms_EnterpriseEdition.Interface;
 using Microsoft.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using Npgsql;
 using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
@@ -12,19 +15,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
     internal class DBInterface
     {
-        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject, string connectionString, string operationType)
+        private static object[] BuildDbParameters(DatabaseConnectionSettings dbSettings, Parameter[] parameters)
+        {
+            switch (dbSettings.ActiveDatabaseEngine)
+            {
+                case "Azure SQL Database":
+                case "Azure SQL Managed Instance":
+                case "Microsoft SQL Server":
+                    return parameters.Select(p => new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                case "Azure Database for MySQL":
+                case "MySQL":
+                    return parameters.Select(p => new MySqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                case "Azure Database for PostgreSQL":
+                case "PostgreSQL":
+                    return parameters.Select(p => new NpgsqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                default:
+                    throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
+            }
+        }
+
+        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject, string operationType)
         {
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(connectionString);
-                var sqlParameters = new List<SqlParameter>();
+                var executor = await ExecuteStoredProcedure.CreateAsync();
+                var dbParameters = BuildDbParameters(executor.DatabaseConnectionSettings, parameters);
 
-                foreach (var parameter in parameters)
-                {
-                    sqlParameters.Add(new SqlParameter(parameter.ParameterName, parameter.ParameterValue ?? DBNull.Value));
-                }
-
-                await executor.ExecuteAsync(storedProcedureName, sqlParameters.ToArray());
+                await executor.ExecuteAsync(storedProcedureName, dbParameters);
 
                 if (operationType != "select")
                 {
@@ -56,19 +73,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject, string connectionString)
+        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject)
         {
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(connectionString);
-                var sqlParameters = new List<SqlParameter>();
+                var executor = await ExecuteStoredProcedure.CreateAsync();
+                var dbParameters = BuildDbParameters(executor.DatabaseConnectionSettings, parameters);
 
-                foreach (var parameter in parameters)
-                {
-                    sqlParameters.Add(new SqlParameter(parameter.ParameterName, parameter.ParameterValue ?? DBNull.Value));
-                }
-
-                DataTable dataTable = await executor.ExecuteAsync(storedProcedureName, sqlParameters.ToArray());
+                DataTable dataTable = await executor.ExecuteAsync(storedProcedureName, dbParameters);
                 return dataTable;
             }
             catch (Exception ex)
@@ -80,11 +92,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task<DataTable> ExecuteSelectStoredProcedureNoParameterAsync(string storedProcedureName, string dataSubject, string connectionString)
+        public static async Task<DataTable> ExecuteSelectStoredProcedureNoParameterAsync(string storedProcedureName, string dataSubject)
         {
             try
             {
-                ExecuteStoredProcedure executor = new ExecuteStoredProcedure(connectionString);
+                var executor = await ExecuteStoredProcedure.CreateAsync();
 
                 DataTable dataTable = await executor.ExecuteAsync(storedProcedureName);
                 return dataTable;

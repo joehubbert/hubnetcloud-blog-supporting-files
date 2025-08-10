@@ -123,8 +123,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 DataTable? dataParentSubjectData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(
                     dataParentSubjectGetStoredProcedureName,
-                    dataParentSubjectName,
-                    _databaseConnectionSettings.DatabaseConnectionString);
+                    dataParentSubjectName);
 
                 // Use consistent property names for binding
                 var dataList = dataParentSubjectData.AsEnumerable()
@@ -203,7 +202,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
                     new Parameter
@@ -220,7 +219,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectCreateStoredProcedureName, parameters, dataSubjectName, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectCreateStoredProcedureName, parameters, dataSubjectName, operationType);
                 this.Close();
             }
         }

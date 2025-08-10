@@ -38,7 +38,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {               
                 string storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
 
-                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var htmlTemplateTypeList = htmlTemplateTypeData.AsEnumerable()
                     .Select(row => new
@@ -73,7 +73,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@htmlTemplateId",
+                    ParameterName = "htmlTemplateId",
                     ParameterValue = _htmlTemplateId
                 }
             };
@@ -85,8 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 DataTable? htmlTemplateDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     storedProcedureName,
                     parameters.ToArray(),
-                    dataSubject,
-                    _databaseConnectionSettings.DatabaseConnectionString
+                    dataSubject
                     );
 
                 if (htmlTemplateDataTable != null)
@@ -205,17 +204,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@htmlTemplateId",
+                            ParameterName = "htmlTemplateId",
                             ParameterValue = _htmlTemplateId
                         },
                         new Parameter
                         {
-                            ParameterName = "@htmlTemplateTitle",
+                            ParameterName = "htmlTemplateTitle",
                             ParameterValue = htmlTemplateTitle
                         },
                         new Parameter
                         {
-                            ParameterName = "@htmlTemplateTypeId",
+                            ParameterName = "htmlTemplateTypeId",
                             ParameterValue = htmlTemplateTypeId
                         }
                     };
@@ -227,7 +226,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         storedProcedureName,
                         parameters.ToArray(),
                         dataSubject,
-                        _databaseConnectionSettings.DatabaseConnectionString,
                         operationType
                         );
                     this.Close();

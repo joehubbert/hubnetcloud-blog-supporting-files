@@ -177,47 +177,47 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@activeStatus",
+                        ParameterName = "activeStatus",
                         ParameterValue = manufacturerOverviewActiveStatus
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine1",
+                        ParameterName = "addressLine1",
                         ParameterValue = manufacturerOverviewAddressLine1
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine3",
+                        ParameterName = "addressLine3",
                         ParameterValue = manufacturerOverviewAddressLine3
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine4",
+                        ParameterName = "addressLine4",
                         ParameterValue = manufacturerOverviewAddressLine4
                     },
                     new Parameter
                     {
-                        ParameterName = "@addressLine5",
+                        ParameterName = "addressLine5",
                         ParameterValue = manufacturerOverviewAddressLine5
                     },
                     new Parameter
                     {
-                        ParameterName = "@emailAddress",
+                        ParameterName = "emailAddress",
                         ParameterValue = manufacturerOverviewEmailAddress
                     },
                     new Parameter
                     {
-                        ParameterName = "@manufacturerName",
+                        ParameterName = "manufacturerName",
                         ParameterValue = manufacturerOverviewManufacturerName
                     },
                     new Parameter
                     {
-                        ParameterName = "@telephoneNumber",
+                        ParameterName = "telephoneNumber",
                         ParameterValue = manufacturerOverviewTelephoneNumber
                     },
                     new Parameter
                     {
-                        ParameterName = "@vatNumber",
+                        ParameterName = "vatNumber",
                         ParameterValue = manufacturerFinanceVATNumber
                     }
                 };
@@ -226,7 +226,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     parameters.Add(new Parameter
                     {
-                        ParameterName = "@addressLine2",
+                        ParameterName = "addressLine2",
                         ParameterValue = manufacturerOverviewAddressLine2
                     });
                 }
@@ -234,7 +234,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 string storedProcedureName = "[dbo].[spCreateManufacturer]";
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
         }

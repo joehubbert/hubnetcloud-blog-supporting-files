@@ -275,8 +275,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 DataTable? masterDataSimpleDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     dataSubjectGetStoredProcedureName,
                     parameters.ToArray(),
-                    dataSubjectName,
-                    _databaseConnectionSettings.DatabaseConnectionString);
+                    dataSubjectName);
 
                 if (masterDataSimpleDetailDataTable != null)
                 {
@@ -373,7 +372,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
@@ -390,7 +389,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, operationType);
                     this.Close();
                 }
                 else

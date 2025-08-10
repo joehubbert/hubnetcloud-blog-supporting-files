@@ -48,14 +48,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@accountManagerId",
+                    ParameterName = "accountManagerId",
                     ParameterValue = _accountManagerId
                 }
             };
 
             try
             {
-                DataTable? accountManagerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? accountManagerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (accountManagerDataTable != null)
                 {
@@ -113,12 +113,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@accountManagerId",
+                    ParameterName = "accountManagerId",
                     ParameterValue = _accountManagerId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -286,32 +286,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@accountManagerId",
+                            ParameterName = "accountManagerId",
                             ParameterValue = _accountManagerId
                         },
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@firstName",
+                            ParameterName = "firstName",
                             ParameterValue = firstName
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailAddress",
+                            ParameterName = "emailAddress",
                             ParameterValue = emailAddress
                         },
                         new Parameter
                         {
-                            ParameterName = "@lastName",
+                            ParameterName = "lastName",
                             ParameterValue = lastName
                         },
                         new Parameter
                         {
-                            ParameterName = "@telephoneNumber",
+                            ParameterName = "telephoneNumber",
                             ParameterValue = telephoneNumber
                         }
                     };
@@ -319,7 +319,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateAccountManager]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

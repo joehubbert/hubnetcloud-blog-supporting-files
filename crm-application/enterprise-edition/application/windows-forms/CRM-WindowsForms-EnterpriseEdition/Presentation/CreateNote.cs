@@ -130,7 +130,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(createNoteNoteTypeGetStoredProcedureName, createNoteNoteTypeName, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(createNoteNoteTypeGetStoredProcedureName, createNoteNoteTypeName);
 
                 var noteTypeList = noteTypeData.AsEnumerable()
                     .Select(row => new
@@ -234,7 +234,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteModuleNoteCreateStoredProcedureName,
                     parameters.ToArray(),
                     createNoteModuleNoteTypeFriendlyName,
-                    _databaseConnectionSettings.DatabaseConnectionString,
                     operationType
                     );
                 this.Close();

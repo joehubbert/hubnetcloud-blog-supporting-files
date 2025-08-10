@@ -76,7 +76,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCountry]";
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var countryList = countryData.AsEnumerable()
                     .Select(row => new
@@ -122,7 +122,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "[dbo].[spGetAllCurrency]";               
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
@@ -267,14 +267,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@companyConfigurationId",
+                    ParameterName = "companyConfigurationId",
                     ParameterValue = _companyConfigurationId
                 }
             };
 
             try
             {
-                DataTable? companyConfigurationDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? companyConfigurationDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
                 if (companyConfigurationDataTable != null)
                 {
@@ -432,12 +432,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = "@companyConfigurationId",
+                    ParameterName = "companyConfigurationId",
                     ParameterValue = _companyConfigurationId
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -967,102 +967,102 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = "@activeStatus",
+                            ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine1",
+                            ParameterName = "addressLine1",
                             ParameterValue = addressLine1
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine3",
+                            ParameterName = "addressLine3",
                             ParameterValue = addressLine3
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine4",
+                            ParameterName = "addressLine4",
                             ParameterValue = addressLine4
                         },
                         new Parameter
                         {
-                            ParameterName = "@addressLine5",
+                            ParameterName = "addressLine5",
                             ParameterValue = addressLine5
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountAddressLine1",
+                            ParameterName = "bankAccountAddressLine1",
                             ParameterValue = bankAccountAddressLine1
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountAddressLine3",
+                            ParameterName = "bankAccountAddressLine3",
                             ParameterValue = bankAccountAddressLine3
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountAddressLine4",
+                            ParameterName = "bankAccountAddressLine4",
                             ParameterValue = bankAccountAddressLine4
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountAddressLine5",
+                            ParameterName = "bankAccountAddressLine5",
                             ParameterValue = bankAccountAddressLine5
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountCurrencyId",
+                            ParameterName = "bankAccountCurrencyId",
                             ParameterValue = bankAccountCurrencyId
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountIBAN",
+                            ParameterName = "bankAccountIBAN",
                             ParameterValue = bankAccountIBAN
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountName",
+                            ParameterName = "bankAccountName",
                             ParameterValue = bankAccountName
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountNumber",
+                            ParameterName = "bankAccountNumber",
                             ParameterValue = bankAccountNumber
                         },
                         new Parameter
                         {
-                            ParameterName = "@bankAccountSWIFTCode",
+                            ParameterName = "bankAccountSWIFTCode",
                             ParameterValue = bankAccountSWIFTCode
                         },
                         new Parameter
                         {
-                            ParameterName = "@companyLogo",
+                            ParameterName = "companyLogo",
                             ParameterValue = companyLogo
                         },
                         new Parameter
                         {
-                            ParameterName = "@companyName",
+                            ParameterName = "companyName",
                             ParameterValue = companyName
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailAddress",
+                            ParameterName = "emailAddress",
                             ParameterValue = emailAddress
                         },
                         new Parameter
                         {
-                            ParameterName = "@emailTopLevelDomain",
+                            ParameterName = "emailTopLevelDomain",
                             ParameterValue = emailTopLevelDomain
                         },
                         new Parameter
                         {
-                            ParameterName = "@telephoneNumber",
+                            ParameterName = "telephoneNumber",
                             ParameterValue = telephoneNumber
                         },
                         new Parameter
                         {
-                            ParameterName = "@websiteURL",
+                            ParameterName = "websiteURL",
                             ParameterValue = websiteURL
                         }
                     };
@@ -1071,7 +1071,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@addressLine2",
+                            ParameterName = "addressLine2",
                             ParameterValue = addressLine2
                         });
                     }
@@ -1080,7 +1080,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@bankAccountAddressLine2",
+                            ParameterName = "bankAccountAddressLine2",
                             ParameterValue = bankAccountAddressLine2
                         });
                     }
@@ -1089,7 +1089,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@bankAccountSortCode",
+                            ParameterName = "bankAccountSortCode",
                             ParameterValue = bankAccountSortCode
                         });
                     }
@@ -1098,7 +1098,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@bankAccountVippsId",
+                            ParameterName = "bankAccountVippsId",
                             ParameterValue = bankAccountVippsId
                         });
                     }
@@ -1107,7 +1107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         parameters.Add(new Parameter
                         {
-                            ParameterName = "@vatNumber",
+                            ParameterName = "vatNumber",
                             ParameterValue = vatNumber
                         });
                     }
@@ -1115,7 +1115,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string storedProcedureName = "[dbo].[spUpdateCompanyConfiguration]";
                     string operationType = "update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, _databaseConnectionSettings.DatabaseConnectionString, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

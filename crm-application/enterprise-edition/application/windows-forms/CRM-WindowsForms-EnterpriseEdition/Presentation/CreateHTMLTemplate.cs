@@ -42,7 +42,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 
                 string storedProcedureName = "[dbo].[spGetAllHTMLTemplateType]";
 
-                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject, _databaseConnectionSettings.DatabaseConnectionString);
+                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var htmlTemplateTypeList = htmlTemplateTypeData.AsEnumerable()
                     .Select(row => new
@@ -120,22 +120,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = "@companyConfigurationId",
+                        ParameterName = "companyConfigurationId",
                         ParameterValue = _companyConfigurationId
                     },
                     new Parameter
                     {
-                        ParameterName = "@htmlTemplate",
+                        ParameterName = "htmlTemplate",
                         ParameterValue = htmlTemplate
                     },
                     new Parameter
                     {
-                        ParameterName = "@htmlTemplateTitle",
+                        ParameterName = "htmlTemplateTitle",
                         ParameterValue = htmlTemplateTitle
                     },
                     new Parameter
                     {
-                        ParameterName = "@htmlTemplateTypeId",
+                        ParameterName = "htmlTemplateTypeId",
                         ParameterValue = htmlTemplateTypeId
                     }
                 };
@@ -148,7 +148,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     storedProcedureName,
                     parameters.ToArray(),
                     dataSubject,
-                    _databaseConnectionSettings.DatabaseConnectionString,
                     operationType
                     );
                 this.Close();

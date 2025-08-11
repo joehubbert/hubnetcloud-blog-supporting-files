@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateCustomer));
             createCustomerTitleLabel = new Label();
             createCustomerTabControl = new TabControl();
             createCustomerTabControlOverviewTabPage = new TabPage();
@@ -129,6 +130,9 @@
             createCustomerTabControlFinanceTabPageCreditLimitTextboxA = new TextBox();
             createCustomerTabControlFinanceTabPageCreditEnabledCheckbox = new CheckBox();
             createCustomerSubmitButton = new Button();
+            createCustomerStatusStrip = new StatusStrip();
+            createCustomerStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
             createCustomerTabControl.SuspendLayout();
             createCustomerTabControlOverviewTabPage.SuspendLayout();
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanel.SuspendLayout();
@@ -138,6 +142,7 @@
             createCustomerTabControlBillingInformationTabPage.SuspendLayout();
             createCustomerTabControlShippingInformationTabPage.SuspendLayout();
             createCustomerTabControlFinanceTabPage.SuspendLayout();
+            createCustomerStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createCustomerTitleLabel
@@ -848,9 +853,9 @@
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageCompanyNameTextbox);
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageLastNameTextbox);
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageFirstNameTextbox);
-            createCustomerTabControlShippingInformationTabPage.Location = new Point(4, 32);
+            createCustomerTabControlShippingInformationTabPage.Location = new Point(4, 27);
             createCustomerTabControlShippingInformationTabPage.Name = "createCustomerTabControlShippingInformationTabPage";
-            createCustomerTabControlShippingInformationTabPage.Size = new Size(1067, 570);
+            createCustomerTabControlShippingInformationTabPage.Size = new Size(1067, 575);
             createCustomerTabControlShippingInformationTabPage.TabIndex = 2;
             createCustomerTabControlShippingInformationTabPage.Text = "Shipping Information";
             // 
@@ -1049,9 +1054,9 @@
             createCustomerTabControlFinanceTabPage.Controls.Add(createCustomerTabControlFinanceTabPageCreditLimitTextboxB);
             createCustomerTabControlFinanceTabPage.Controls.Add(createCustomerTabControlFinanceTabPageCreditLimitTextboxA);
             createCustomerTabControlFinanceTabPage.Controls.Add(createCustomerTabControlFinanceTabPageCreditEnabledCheckbox);
-            createCustomerTabControlFinanceTabPage.Location = new Point(4, 32);
+            createCustomerTabControlFinanceTabPage.Location = new Point(4, 27);
             createCustomerTabControlFinanceTabPage.Name = "createCustomerTabControlFinanceTabPage";
-            createCustomerTabControlFinanceTabPage.Size = new Size(1067, 570);
+            createCustomerTabControlFinanceTabPage.Size = new Size(1067, 575);
             createCustomerTabControlFinanceTabPage.TabIndex = 3;
             createCustomerTabControlFinanceTabPage.Text = "Finance";
             // 
@@ -1186,12 +1191,41 @@
             createCustomerSubmitButton.UseVisualStyleBackColor = true;
             createCustomerSubmitButton.Click += createCustomerSubmitButton_Click;
             // 
+            // createCustomerStatusStrip
+            // 
+            createCustomerStatusStrip.BackColor = SystemColors.Control;
+            createCustomerStatusStrip.Items.AddRange(new ToolStripItem[] { createCustomerStatusStripCompanyConfigurationPlaceholder });
+            createCustomerStatusStrip.Location = new Point(0, 765);
+            createCustomerStatusStrip.Name = "createCustomerStatusStrip";
+            createCustomerStatusStrip.Size = new Size(1106, 22);
+            createCustomerStatusStrip.TabIndex = 51;
+            createCustomerStatusStrip.Text = "Create Customer Status Strip";
+            // 
+            // createCustomerStatusStripCompanyConfigurationPlaceholder
+            // 
+            createCustomerStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createCustomerStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createCustomerStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createCustomerStatusStripCompanyConfigurationPlaceholder.Image");
+            createCustomerStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createCustomerStatusStripCompanyConfigurationPlaceholder.Name = "createCustomerStatusStripCompanyConfigurationPlaceholder";
+            createCustomerStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createCustomerStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createCustomerStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1106, 757);
+            ClientSize = new Size(1106, 787);
+            Controls.Add(createCustomerStatusStrip);
             Controls.Add(createCustomerSubmitButton);
             Controls.Add(createCustomerTabControl);
             Controls.Add(createCustomerTitleLabel);
@@ -1219,6 +1253,8 @@
             createCustomerTabControlShippingInformationTabPage.PerformLayout();
             createCustomerTabControlFinanceTabPage.ResumeLayout(false);
             createCustomerTabControlFinanceTabPage.PerformLayout();
+            createCustomerStatusStrip.ResumeLayout(false);
+            createCustomerStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1326,5 +1362,8 @@
         private Label createCustomerTabControlOverviewTabPageTelephoneNumberTextboxLabel;
         private TextBox createCustomerTabControlOverviewTabPageEmailAddressTextbox;
         private TextBox createCustomerTabControlOverviewTabPageTelephoneNumberTextbox;
+        private StatusStrip createCustomerStatusStrip;
+        private ToolStripSplitButton createCustomerStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

@@ -36,6 +36,9 @@
             createNoteNoteTypeComboBoxLabel = new Label();
             createNoteNoteTextboxLabel = new Label();
             createNoteSubmitButton = new Button();
+            createNoteStatusStrip = new StatusStrip();
+            createNoteStatusStripDataSubjectPlaceholder = new ToolStripStatusLabel();
+            createNoteStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createNoteTitleLabel
@@ -74,7 +77,7 @@
             createNoteNoteTextbox.Multiline = true;
             createNoteNoteTextbox.Name = "createNoteNoteTextbox";
             createNoteNoteTextbox.ScrollBars = ScrollBars.Vertical;
-            createNoteNoteTextbox.Size = new Size(558, 259);
+            createNoteNoteTextbox.Size = new Size(558, 257);
             createNoteNoteTextbox.TabIndex = 2;
             // 
             // createNoteNoteTitleTextboxLabel
@@ -111,7 +114,7 @@
             // 
             createNoteSubmitButton.FlatStyle = FlatStyle.Flat;
             createNoteSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createNoteSubmitButton.Location = new Point(277, 420);
+            createNoteSubmitButton.Location = new Point(286, 423);
             createNoteSubmitButton.Margin = new Padding(4);
             createNoteSubmitButton.Name = "createNoteSubmitButton";
             createNoteSubmitButton.Size = new Size(198, 66);
@@ -120,12 +123,28 @@
             createNoteSubmitButton.UseVisualStyleBackColor = true;
             createNoteSubmitButton.Click += createNoteSubmitButton_Click;
             // 
+            // createNoteStatusStrip
+            // 
+            createNoteStatusStrip.Items.AddRange(new ToolStripItem[] { createNoteStatusStripDataSubjectPlaceholder });
+            createNoteStatusStrip.Location = new Point(0, 510);
+            createNoteStatusStrip.Name = "createNoteStatusStrip";
+            createNoteStatusStrip.Size = new Size(771, 22);
+            createNoteStatusStrip.TabIndex = 4;
+            createNoteStatusStrip.Text = "Create Note Status Strip";
+            // 
+            // createNoteStatusStripDataSubjectPlaceholder
+            // 
+            createNoteStatusStripDataSubjectPlaceholder.Name = "createNoteStatusStripDataSubjectPlaceholder";
+            createNoteStatusStripDataSubjectPlaceholder.Size = new Size(146, 17);
+            createNoteStatusStripDataSubjectPlaceholder.Text = "{Data Subject Placeholder}";
+            // 
             // CreateNote
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(771, 499);
+            ClientSize = new Size(771, 532);
+            Controls.Add(createNoteStatusStrip);
             Controls.Add(createNoteSubmitButton);
             Controls.Add(createNoteNoteTextboxLabel);
             Controls.Add(createNoteNoteTypeComboBoxLabel);
@@ -141,6 +160,8 @@
             Name = "CreateNote";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateNote";
+            createNoteStatusStrip.ResumeLayout(false);
+            createNoteStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +176,7 @@
         private Label createNoteNoteTypeComboBoxLabel;
         private Label createNoteNoteTextboxLabel;
         private Button createNoteSubmitButton;
+        private StatusStrip createNoteStatusStrip;
+        private ToolStripStatusLabel createNoteStatusStripDataSubjectPlaceholder;
     }
 }

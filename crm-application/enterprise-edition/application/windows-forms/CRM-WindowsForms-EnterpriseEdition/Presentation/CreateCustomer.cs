@@ -6,6 +6,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCustomer : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCustomer()
@@ -13,6 +15,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
+            LoadActiveCompanyConfigurationAsync();
             LoadInitialDataAsync();
         }
 
@@ -58,6 +61,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
+        }
+
         private async Task LoadInitialDataAsync()
         {
             await LoadDatabaseConnectionSettingsAsync();
@@ -88,16 +97,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllCustomerType";    
+                string storedProcedureName = "spGetAllCustomerType";
                 DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var customerTypeList = customerTypeData.AsEnumerable()
                     .Select(row => new
                     {
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         CustomerTypeId = row.Field<Guid>("Customer Type Id"),
                         CustomerType = row.Field<string>("Customer Type")
                     })
                     .OrderBy(item => item.CustomerType)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DataSource = customerTypeList;
                 createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DisplayMember = "CustomerType";
@@ -131,12 +142,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 var customerTierList = customerTierData.AsEnumerable()
                     .Select(row => new
                     {
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         CustomerTierId = row.Field<Guid>("Customer Tier Id"),
                         CustomerTierCode = row.Field<string>("Customer Tier Code"),
                         CustomerTierDescription = row.Field<string>("Customer Tier Description"),
                         DisplayText = $"{row.Field<string>("Customer Tier Code")} - {row.Field<string>("Customer Tier Description")}"
                     })
                     .OrderBy(item => item.DisplayText)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageCustomerTierComboBox.DataSource = customerTierList;
                 createCustomerTabControlOverviewTabPageCustomerTierComboBox.DisplayMember = "DisplayText";
@@ -159,16 +172,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllSalesRegion";               
+                string storedProcedureName = "spGetAllSalesRegion";
                 DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesRegionList = salesRegionData.AsEnumerable()
                     .Select(row => new
                     {
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         SalesRegionId = row.Field<Guid>("Sales Region Id"),
                         SalesRegion = row.Field<string>("Sales Region")
                     })
                     .OrderBy(item => item.SalesRegion)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageSalesRegionComboBox.DataSource = salesRegionList;
                 createCustomerTabControlOverviewTabPageSalesRegionComboBox.DisplayMember = "SalesRegion";
@@ -191,7 +206,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllSalesSubRegion";          
+                string storedProcedureName = "spGetAllSalesSubRegion";
                 DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var salesSubRegionList = salesSubRegionData.AsEnumerable()
@@ -243,7 +258,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "spGetAllAccountManager";
-                
+
                 DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var accountManagerList = accountManagerData.AsEnumerable()
@@ -253,9 +268,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         AccountManagerFirstName = row.Field<string>("First Name"),
                         AccountManagerLastName = row.Field<string>("Last Name"),
                         AccountManagerEmailAddress = row.Field<string>("Email Address"),
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         DisplayText = $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}"
                     })
                     .OrderBy(item => item.DisplayText)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageAccountManagerComboBox.DataSource = accountManagerList;
                 createCustomerTabControlOverviewTabPageAccountManagerComboBox.DisplayMember = "DisplayText";
@@ -321,17 +338,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllGlobalParentCustomer";                
+                string storedProcedureName = "spGetAllGlobalParentCustomer";
                 DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
                     .Select(row => new
                     {
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         CustomerId = row.Field<Guid>("Customer Id"),
                         CustomerCompanyName = row.Field<string>("Company Name"),
                         DisplayText = $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}"
                     })
                     .OrderBy(item => item.DisplayText)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = globalParentCustomerList;
                 createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.DisplayMember = "DisplayText";
@@ -354,17 +373,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllTopParentCustomer";               
+                string storedProcedureName = "spGetAllTopParentCustomer";
                 DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var topParentCustomerList = topParentCustomerData.AsEnumerable()
                     .Select(row => new
                     {
+                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
                         CustomerId = row.Field<Guid>("Customer Id"),
                         CustomerCompanyName = row.Field<string>("Company Name"),
                         DisplayText = $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}"
                     })
                     .OrderBy(item => item.DisplayText)
+                    .Where(item => item.CompanyConfigurationId == _companyConfigurationId)
                     .ToList();
                 createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DataSource = topParentCustomerList;
                 createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.DisplayMember = "DisplayText";
@@ -508,7 +529,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             try
             {
                 string storedProcedureName = "spGetAllCurrency";
-                
+
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
                 var currencyList = currencyData.AsEnumerable()
                     .Select(row => new
@@ -544,7 +565,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string customerBillingInformationLastName = createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text.TrimEnd();
             string customerBillingInformationTelephoneNumber = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
             bool customerFinanceCreditEnabled = createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
-            if(!customerFinanceCreditEnabled)
+            if (!customerFinanceCreditEnabled)
             {
                 createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Text = "0";
                 createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Text = "00";
@@ -609,6 +630,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
+                    Name = "CustomerBillingInformationAddressLine2",
+                    Value = customerBillingInformationAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
                     AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine3",
                     Value = customerBillingInformationAddressLine3,
@@ -628,6 +657,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     AllowNullValue = false,
                     Name = "CustomerBillingInformationAddressLine5",
                     Value = customerBillingInformationAddressLine5,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "CustomerBillingInformationCompanyName",
+                    Value = customerBillingInformationCompanyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -693,6 +730,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
+                    Name = "CompanyFinanceVATNumber",
+                    Value = customerFinanceVATNumber,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
                     AllowNullValue = false,
                     Name = "CustomerOverviewAccountManagerId",
                     Value = customerOverviewAccountManagerId,
@@ -704,6 +749,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Name = "CustomerOverviewActiveStatus",
                     Value = customerOverviewActiveStatus,
                     ValueType = typeof(bool)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "CustomerOverviewCompanyName",
+                    Value = customerOverviewCompanyName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
                 },
                 new ValidateDataInput.DataProperty
                 {
@@ -733,6 +786,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = customerOverviewEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "CustomerOverviewExistingGlobalParentCustomerId",
+                    Value = customerOverviewExistingGlobalParentCustomerId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "CustomerOverviewExistingTopParentCustomerId",
+                    Value = customerOverviewExistingTopParentCustomerId,
+                    ValueType = typeof(Guid)
                 },
                 new ValidateDataInput.DataProperty
                 {
@@ -797,6 +864,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 },
                 new ValidateDataInput.DataProperty
                 {
+                    AllowNullValue = true,
+                    Name = "CustomerShippingInformationAddressLine2",
+                    Value = customerShippingInformationAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
                     AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine3",
                     Value = customerShippingInformationAddressLine3,
@@ -816,6 +891,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     AllowNullValue = false,
                     Name = "CustomerShippingInformationAddressLine5",
                     Value = customerShippingInformationAddressLine5,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInput.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "CustomerShippingInformationCompanyName",
+                    Value = customerShippingInformationCompanyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -852,100 +935,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     ValueType = typeof(string)
                 }
             };
-
-            if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerBillingInformationAddressLine2",
-                    Value = customerBillingInformationAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerBillingInformationCompanyName",
-                    Value = customerBillingInformationCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerFinanceVATNumber))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CompanyFinanceVATNumber",
-                    Value = customerFinanceVATNumber,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerOverviewCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerOverviewCompanyName",
-                    Value = customerOverviewCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (customerOverviewExistingGlobalParentCustomerId != null && customerOverviewExistingGlobalParentCustomerId != Guid.Empty)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerOverviewExistingGlobalParentCustomerId",
-                    Value = customerOverviewExistingGlobalParentCustomerId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (customerOverviewExistingTopParentCustomerId != null && customerOverviewExistingTopParentCustomerId != Guid.Empty)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerOverviewExistingTopParentCustomerId",
-                    Value = customerOverviewExistingTopParentCustomerId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerShippingInformationAddressLine2",
-                    Value = customerShippingInformationAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerShippingInformationCompanyName",
-                    Value = customerShippingInformationCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
@@ -1018,6 +1007,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "creditLimit",
                         ParameterValue = customerFinanceCreditLimit
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = _companyConfigurationId
                     },
                     new Parameter
                     {
@@ -1199,6 +1193,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

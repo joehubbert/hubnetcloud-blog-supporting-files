@@ -41,6 +41,9 @@
             createContactTelephoneNumberTextbox = new TextBox();
             createContactRoleTextboxLabel = new Label();
             createContactRoleTextbox = new TextBox();
+            createContactStatusStrip = new StatusStrip();
+            createContactStatusStripDataSubjectPlaceholder = new ToolStripStatusLabel();
+            createContactStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createContactTitleLabel
@@ -67,9 +70,9 @@
             createContactEmailAddressTextboxLabel.AutoSize = true;
             createContactEmailAddressTextboxLabel.Location = new Point(85, 153);
             createContactEmailAddressTextboxLabel.Name = "createContactEmailAddressTextboxLabel";
-            createContactEmailAddressTextboxLabel.Size = new Size(103, 20);
+            createContactEmailAddressTextboxLabel.Size = new Size(109, 20);
             createContactEmailAddressTextboxLabel.TabIndex = 11;
-            createContactEmailAddressTextboxLabel.Text = "Email Address";
+            createContactEmailAddressTextboxLabel.Text = "Email Address*";
             createContactEmailAddressTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactSubmitButton
@@ -104,9 +107,9 @@
             createContactFirstNameTextboxLabel.AutoSize = true;
             createContactFirstNameTextboxLabel.Location = new Point(107, 75);
             createContactFirstNameTextboxLabel.Name = "createContactFirstNameTextboxLabel";
-            createContactFirstNameTextboxLabel.Size = new Size(80, 20);
+            createContactFirstNameTextboxLabel.Size = new Size(86, 20);
             createContactFirstNameTextboxLabel.TabIndex = 16;
-            createContactFirstNameTextboxLabel.Text = "First Name";
+            createContactFirstNameTextboxLabel.Text = "First Name*";
             createContactFirstNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactFirstNameTextbox
@@ -122,9 +125,9 @@
             createContactLastNameTextboxLabel.AutoSize = true;
             createContactLastNameTextboxLabel.Location = new Point(107, 114);
             createContactLastNameTextboxLabel.Name = "createContactLastNameTextboxLabel";
-            createContactLastNameTextboxLabel.Size = new Size(79, 20);
+            createContactLastNameTextboxLabel.Size = new Size(85, 20);
             createContactLastNameTextboxLabel.TabIndex = 18;
-            createContactLastNameTextboxLabel.Text = "Last Name";
+            createContactLastNameTextboxLabel.Text = "Last Name*";
             createContactLastNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactLastNameTextbox
@@ -140,9 +143,9 @@
             createContactTelephoneNumberTextboxLabel.AutoSize = true;
             createContactTelephoneNumberTextboxLabel.Location = new Point(51, 192);
             createContactTelephoneNumberTextboxLabel.Name = "createContactTelephoneNumberTextboxLabel";
-            createContactTelephoneNumberTextboxLabel.Size = new Size(136, 20);
+            createContactTelephoneNumberTextboxLabel.Size = new Size(142, 20);
             createContactTelephoneNumberTextboxLabel.TabIndex = 20;
-            createContactTelephoneNumberTextboxLabel.Text = "Telephone Number";
+            createContactTelephoneNumberTextboxLabel.Text = "Telephone Number*";
             createContactTelephoneNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactTelephoneNumberTextbox
@@ -158,9 +161,9 @@
             createContactRoleTextboxLabel.AutoSize = true;
             createContactRoleTextboxLabel.Location = new Point(148, 231);
             createContactRoleTextboxLabel.Name = "createContactRoleTextboxLabel";
-            createContactRoleTextboxLabel.Size = new Size(39, 20);
+            createContactRoleTextboxLabel.Size = new Size(45, 20);
             createContactRoleTextboxLabel.TabIndex = 22;
-            createContactRoleTextboxLabel.Text = "Role";
+            createContactRoleTextboxLabel.Text = "Role*";
             createContactRoleTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactRoleTextbox
@@ -171,12 +174,28 @@
             createContactRoleTextbox.Size = new Size(280, 27);
             createContactRoleTextbox.TabIndex = 4;
             // 
+            // createContactStatusStrip
+            // 
+            createContactStatusStrip.Items.AddRange(new ToolStripItem[] { createContactStatusStripDataSubjectPlaceholder });
+            createContactStatusStrip.Location = new Point(0, 415);
+            createContactStatusStrip.Name = "createContactStatusStrip";
+            createContactStatusStrip.Size = new Size(538, 22);
+            createContactStatusStrip.TabIndex = 7;
+            createContactStatusStrip.Text = "Create Contact Status Strip";
+            // 
+            // createContactStatusStripDataSubjectPlaceholder
+            // 
+            createContactStatusStripDataSubjectPlaceholder.Name = "createContactStatusStripDataSubjectPlaceholder";
+            createContactStatusStripDataSubjectPlaceholder.Size = new Size(146, 17);
+            createContactStatusStripDataSubjectPlaceholder.Text = "{Data Subject Placeholder}";
+            // 
             // CreateContact
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(538, 407);
+            ClientSize = new Size(538, 437);
+            Controls.Add(createContactStatusStrip);
             Controls.Add(createContactRoleTextboxLabel);
             Controls.Add(createContactRoleTextbox);
             Controls.Add(createContactTelephoneNumberTextboxLabel);
@@ -197,6 +216,8 @@
             Name = "CreateContact";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateContact";
+            createContactStatusStrip.ResumeLayout(false);
+            createContactStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -216,5 +237,7 @@
         private TextBox createContactTelephoneNumberTextbox;
         private Label createContactRoleTextboxLabel;
         private TextBox createContactRoleTextbox;
+        private StatusStrip createContactStatusStrip;
+        private ToolStripStatusLabel createContactStatusStripDataSubjectPlaceholder;
     }
 }

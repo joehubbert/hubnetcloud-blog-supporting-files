@@ -6,15 +6,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateHTMLTemplate : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _companyConfigurationId;
+        private readonly string _companyName;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
 
-        public CreateHTMLTemplate(Guid companyConfigurationId)
+        public CreateHTMLTemplate(Guid companyConfigurationId, string companyName)
         {
             InitializeComponent();
             InitializeCustomComponents();
             _companyConfigurationId = companyConfigurationId;
+            _companyName = companyName;
             LoadDatabaseConnectionSettingsAsync();
+            PopulateStatusStrip();
             CreateHTMLTemplateLoadHTMLTemplateTypeAsync();
         }
 
@@ -26,6 +29,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private void PopulateStatusStrip()
+        {
+            createHTMLTemplateStatusStripCompanyConfigurationPlaceholder.Text = $"Company Configuration: {_companyName} ({_companyConfigurationId})";
         }
 
         private async void CreateHTMLTemplateLoadHTMLTemplateTypeAsync()

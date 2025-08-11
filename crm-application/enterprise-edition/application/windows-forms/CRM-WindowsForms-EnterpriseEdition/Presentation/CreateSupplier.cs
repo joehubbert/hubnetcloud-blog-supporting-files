@@ -6,6 +6,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateSupplier : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Supplier";
 
@@ -14,6 +16,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
+            LoadActiveCompanyConfigurationAsync();
             LoadInitialDataAsync();
         }
 
@@ -26,6 +29,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createSupplierStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private async Task LoadInitialDataAsync()
@@ -61,7 +70,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             try
             {
-                string storedProcedureName = "spGetAllCurrency";                
+                string storedProcedureName = "spGetAllCurrency";
                 DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
 
                 var currencyList = currencyData.AsEnumerable()
@@ -263,6 +272,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = _companyConfigurationId
+                    },
+                    new Parameter
+                    {
                         ParameterName = "emailAddress",
                         ParameterValue = supplierOverviewEmailAddress
                     },
@@ -308,6 +322,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createSupplierStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

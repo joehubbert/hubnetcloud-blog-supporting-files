@@ -4,6 +4,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ModuleHomeSimple : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private readonly string _moduleName;
         private readonly string applicationTitlePrefix = "CRM - ";
         private string dataSubjectPluralName;
@@ -15,12 +17,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             _moduleName = moduleName;
-            ModuleConfiguration(_moduleName);
+            LoadActiveCompanyConfigurationAsync();
+            ModuleConfiguration();
         }
 
-        private void ModuleConfiguration(string moduleName)
+        private async void LoadActiveCompanyConfigurationAsync()
         {
-            switch (moduleName)
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(moduleHomeStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
+        }
+
+        private void ModuleConfiguration()
+        {
+            switch (_moduleName)
             {
                 case "CompanyManagement":
                     this.BackColor = Color.LemonChiffon;
@@ -59,8 +68,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     moduleFriendlyName = "Supplier Management";
                     break;
                 default:
-                    this.Text = moduleName;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleName);
+                    this.Text = _moduleName;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleName);
                     break;
             }
             moduleHomeTitleLabel.Text = moduleFriendlyName;
@@ -71,7 +80,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void moduleHomeCreateButton_Click(object sender, EventArgs e)
         {
-            switch(_moduleName)
+            switch (_moduleName)
             {
                 case "CustomerManagement":
                     CreateCustomer createCustomer = new CreateCustomer();
@@ -101,36 +110,42 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             switch (_moduleName)
             {
                 case "CustomerManagement":
-                {
-                    ViewAllData viewAllData = new ViewAllData("Customer", "CustomerManagement", null);
-                    viewAllData.Show();
-                    break;
-                }
+                    {
+                        ViewAllData viewAllData = new ViewAllData("Customer", "CustomerManagement", null);
+                        viewAllData.Show();
+                        break;
+                    }
                 case "MarketingManagement":
-                {
-                    ViewAllData viewAllData = new ViewAllData("MarketingCampaign", "MarketingManagement", null);
-                    viewAllData.Show();
-                    break;
-                }
+                    {
+                        ViewAllData viewAllData = new ViewAllData("MarketingCampaign", "MarketingManagement", null);
+                        viewAllData.Show();
+                        break;
+                    }
                 case "OrderManagement":
-                {
-                    ViewAllData viewAllData = new ViewAllData("Order", "OrderManagement", null);
-                    viewAllData.Show();
-                    break;
-                }
+                    {
+                        ViewAllData viewAllData = new ViewAllData("Order", "OrderManagement", null);
+                        viewAllData.Show();
+                        break;
+                    }
                 case "ProductManagement":
-                {
-                    ViewAllData viewAllData = new ViewAllData("Product", "ProductManagement", null);
-                    viewAllData.Show();
-                    break;
-                }
+                    {
+                        ViewAllData viewAllData = new ViewAllData("Product", "ProductManagement", null);
+                        viewAllData.Show();
+                        break;
+                    }
                 case "SupplierManagement":
-                {
-                    ViewAllData viewAllData = new ViewAllData("Supplier", "SupplierManagement", null);
-                    viewAllData.Show();
-                    break;
-                }
+                    {
+                        ViewAllData viewAllData = new ViewAllData("Supplier", "SupplierManagement", null);
+                        viewAllData.Show();
+                        break;
+                    }
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(moduleHomeStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

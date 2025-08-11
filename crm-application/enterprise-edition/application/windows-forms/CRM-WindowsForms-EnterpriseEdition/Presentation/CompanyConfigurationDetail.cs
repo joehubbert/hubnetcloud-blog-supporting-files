@@ -1128,7 +1128,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void companyConfigurationDetailTabControlHTMLTemplateTabPageCreateHTMLTemplateButton_Click(object sender, EventArgs e)
         {
-            CreateHTMLTemplate createHTMLTemplate = new CreateHTMLTemplate(_companyConfigurationId);
+            CreateHTMLTemplate createHTMLTemplate = new CreateHTMLTemplate(_companyConfigurationId, generalInformationCompanyNameOriginalValue);
             createHTMLTemplate.Show();
         }
 

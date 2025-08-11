@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateCustomerTier));
             createCustomerTierTitleLabel = new Label();
             createCustomerTierCustomerTierCodeLabel = new Label();
             createCustomerTierCustomerTierCodeTextbox = new TextBox();
@@ -35,6 +36,10 @@
             createCustomerTierSubmitButton = new Button();
             createCustomerTierCustomerTierDescriptionLabel = new Label();
             createCustomerTierCustomerTierDescriptionTextbox = new TextBox();
+            createCustomerTierStatusStrip = new StatusStrip();
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createCustomerTierStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createCustomerTierTitleLabel
@@ -54,9 +59,9 @@
             createCustomerTierCustomerTierCodeLabel.Font = new Font("Segoe UI", 11F);
             createCustomerTierCustomerTierCodeLabel.Location = new Point(90, 74);
             createCustomerTierCustomerTierCodeLabel.Name = "createCustomerTierCustomerTierCodeLabel";
-            createCustomerTierCustomerTierCodeLabel.Size = new Size(140, 20);
+            createCustomerTierCustomerTierCodeLabel.Size = new Size(146, 20);
             createCustomerTierCustomerTierCodeLabel.TabIndex = 7;
-            createCustomerTierCustomerTierCodeLabel.Text = "Customer Tier Code";
+            createCustomerTierCustomerTierCodeLabel.Text = "Customer Tier Code*";
             createCustomerTierCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerTierCustomerTierCodeTextbox
@@ -101,9 +106,9 @@
             createCustomerTierCustomerTierDescriptionLabel.Font = new Font("Segoe UI", 11F);
             createCustomerTierCustomerTierDescriptionLabel.Location = new Point(49, 114);
             createCustomerTierCustomerTierDescriptionLabel.Name = "createCustomerTierCustomerTierDescriptionLabel";
-            createCustomerTierCustomerTierDescriptionLabel.Size = new Size(181, 20);
+            createCustomerTierCustomerTierDescriptionLabel.Size = new Size(187, 20);
             createCustomerTierCustomerTierDescriptionLabel.TabIndex = 13;
-            createCustomerTierCustomerTierDescriptionLabel.Text = "Customer Tier Description";
+            createCustomerTierCustomerTierDescriptionLabel.Text = "Customer Tier Description*";
             createCustomerTierCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerTierCustomerTierDescriptionTextbox
@@ -115,12 +120,41 @@
             createCustomerTierCustomerTierDescriptionTextbox.Size = new Size(284, 27);
             createCustomerTierCustomerTierDescriptionTextbox.TabIndex = 1;
             // 
+            // createCustomerTierStatusStrip
+            // 
+            createCustomerTierStatusStrip.BackColor = SystemColors.Control;
+            createCustomerTierStatusStrip.Items.AddRange(new ToolStripItem[] { createCustomerTierStatusStripCompanyConfigurationPlaceholder });
+            createCustomerTierStatusStrip.Location = new Point(0, 304);
+            createCustomerTierStatusStrip.Name = "createCustomerTierStatusStrip";
+            createCustomerTierStatusStrip.Size = new Size(543, 22);
+            createCustomerTierStatusStrip.TabIndex = 4;
+            createCustomerTierStatusStrip.Text = "Create Customer Tier Status Strip";
+            // 
+            // createCustomerTierStatusStripCompanyConfigurationPlaceholder
+            // 
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createCustomerTierStatusStripCompanyConfigurationPlaceholder.Image");
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Name = "createCustomerTierStatusStripCompanyConfigurationPlaceholder";
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Size = new Size(219, 20);
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Text = "{CompanyConfigurationPlaceholder]";
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateCustomerTier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(543, 296);
+            ClientSize = new Size(543, 326);
+            Controls.Add(createCustomerTierStatusStrip);
             Controls.Add(createCustomerTierCustomerTierDescriptionTextbox);
             Controls.Add(createCustomerTierCustomerTierDescriptionLabel);
             Controls.Add(createCustomerTierSubmitButton);
@@ -135,6 +169,8 @@
             Name = "CreateCustomerTier";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create Customer Tier";
+            createCustomerTierStatusStrip.ResumeLayout(false);
+            createCustomerTierStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -148,5 +184,8 @@
         private Button createCustomerTierSubmitButton;
         private Label createCustomerTierCustomerTierDescriptionLabel;
         private TextBox createCustomerTierCustomerTierDescriptionTextbox;
+        private StatusStrip createCustomerTierStatusStrip;
+        private ToolStripSplitButton createCustomerTierStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

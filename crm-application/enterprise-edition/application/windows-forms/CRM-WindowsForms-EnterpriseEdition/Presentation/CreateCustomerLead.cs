@@ -1,21 +1,23 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
-using System.Net.Mail;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCustomerLead : Form
     {
         private readonly Guid _customerId;
+        private readonly string _customerName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
-        public CreateCustomerLead(Guid customerId)
+        public CreateCustomerLead(Guid customerId, string customerName)
         {
             InitializeComponent();
             InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
             _customerId = customerId;
+            _customerName = customerName;
+            PopulateStatusStrip();
             CreateCustomerLeadLoadCustomerLeadTypeAsync();
         }
 
@@ -35,6 +37,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private void PopulateStatusStrip()
+        {
+            createCustomerLeadCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
         }
 
         private async void CreateCustomerLeadLoadCustomerContactAsync(Guid customerId)

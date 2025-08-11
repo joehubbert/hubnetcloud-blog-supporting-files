@@ -60,9 +60,9 @@
             createDeliveryMethodDeliveryMethodLabel.Font = new Font("Segoe UI", 11F);
             createDeliveryMethodDeliveryMethodLabel.Location = new Point(57, 70);
             createDeliveryMethodDeliveryMethodLabel.Name = "createDeliveryMethodDeliveryMethodLabel";
-            createDeliveryMethodDeliveryMethodLabel.Size = new Size(119, 20);
+            createDeliveryMethodDeliveryMethodLabel.Size = new Size(125, 20);
             createDeliveryMethodDeliveryMethodLabel.TabIndex = 7;
-            createDeliveryMethodDeliveryMethodLabel.Text = "Delivery Method";
+            createDeliveryMethodDeliveryMethodLabel.Text = "Delivery Method*";
             createDeliveryMethodDeliveryMethodLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryMethodTextbox
@@ -107,9 +107,9 @@
             createDeliveryMethodDeliveryCostLabel.Font = new Font("Segoe UI", 11F);
             createDeliveryMethodDeliveryCostLabel.Location = new Point(80, 111);
             createDeliveryMethodDeliveryCostLabel.Name = "createDeliveryMethodDeliveryCostLabel";
-            createDeliveryMethodDeliveryCostLabel.Size = new Size(96, 20);
+            createDeliveryMethodDeliveryCostLabel.Size = new Size(102, 20);
             createDeliveryMethodDeliveryCostLabel.TabIndex = 13;
-            createDeliveryMethodDeliveryCostLabel.Text = "Delivery Cost";
+            createDeliveryMethodDeliveryCostLabel.Text = "Delivery Cost*";
             createDeliveryMethodDeliveryCostLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryCostTextboxA
@@ -145,9 +145,9 @@
             createDeliveryMethodDeliveryTimeLabel.Font = new Font("Segoe UI", 11F);
             createDeliveryMethodDeliveryTimeLabel.Location = new Point(30, 155);
             createDeliveryMethodDeliveryTimeLabel.Name = "createDeliveryMethodDeliveryTimeLabel";
-            createDeliveryMethodDeliveryTimeLabel.Size = new Size(146, 20);
+            createDeliveryMethodDeliveryTimeLabel.Size = new Size(152, 20);
             createDeliveryMethodDeliveryTimeLabel.TabIndex = 17;
-            createDeliveryMethodDeliveryTimeLabel.Text = "Delivery Time (Days)";
+            createDeliveryMethodDeliveryTimeLabel.Text = "Delivery Time (Days)*";
             createDeliveryMethodDeliveryTimeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createDeliveryMethodDeliveryTimeTextbox
@@ -174,9 +174,9 @@
             createDeliveryMethodTaxProfileLabel.Font = new Font("Segoe UI", 11F);
             createDeliveryMethodTaxProfileLabel.Location = new Point(99, 200);
             createDeliveryMethodTaxProfileLabel.Name = "createDeliveryMethodTaxProfileLabel";
-            createDeliveryMethodTaxProfileLabel.Size = new Size(77, 20);
+            createDeliveryMethodTaxProfileLabel.Size = new Size(83, 20);
             createDeliveryMethodTaxProfileLabel.TabIndex = 20;
-            createDeliveryMethodTaxProfileLabel.Text = "Tax Profile";
+            createDeliveryMethodTaxProfileLabel.Text = "Tax Profile*";
             createDeliveryMethodTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // CreateDeliveryMethod

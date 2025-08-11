@@ -6,8 +6,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCurrencyConversion : Form
     {
-        private string _companyName;
         private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCurrencyConversion()
@@ -34,21 +34,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void LoadActiveCompanyConfigurationAsync()
         {
-            var companyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
-            if(companyConfiguration == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CompanyConfiguration.NoData");
-                return;
-            }
-            else
-            {
-                _companyConfigurationId = companyConfiguration.companyConfigurationId;
-                _companyName = companyConfiguration?.companyName;
-
-                string displayText = $"{_companyName} ({_companyConfigurationId})";
-
-                createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Text = displayText;
-            }
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private async void CreateCurrencyConversionLoadCurrencyDataAsync()
@@ -143,7 +130,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            Guid companyConfigurationId = _companyConfigurationId;
             DateTime effectiveDate = createCurrencyConversionEffectiveDatePicker.Value.Date;
             DateTime? expiryDate = null;
             if (createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
@@ -211,7 +197,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         AllowNullValue = false,
                         Name = "CompanyConfigurationId",
-                        Value = companyConfigurationId,
+                        Value = _companyConfigurationId,
                         ValueType = typeof(Guid)
                     },
                     new ValidateDataInput.DataProperty
@@ -277,7 +263,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     new Parameter
                     {
                         ParameterName = "companyConfigurationId",
-                        ParameterValue = companyConfigurationId
+                        ParameterValue = _companyConfigurationId
                     },
                     new Parameter
                     {
@@ -312,22 +298,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Close();
         }
 
-        private void createCurrencyConversionStatusStripCompanyConfigurationPlaceholder_Click(object sender, EventArgs e)
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ActiveCompanyConfiguration activeCompanyConfiguration = new ActiveCompanyConfiguration();
-            var previousCompanyConfigurationId = _companyConfigurationId;
-            activeCompanyConfiguration.ShowDialog();
-
-            // After dialog closes, check if company configuration has changed
-            var currentCompanyConfiguration = ApplicationConfigurationService.GetCompanyConfigurationAsync().Result;
-            if (currentCompanyConfiguration != null && currentCompanyConfiguration.companyConfigurationId != previousCompanyConfigurationId)
-            {
-                // Reload the form to reflect new company configuration
-                _companyConfigurationId = currentCompanyConfiguration.companyConfigurationId;
-                _companyName = currentCompanyConfiguration.companyName;
-                LoadActiveCompanyConfigurationAsync();
-                CreateCurrencyConversionLoadCurrencyDataAsync();
-            }
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

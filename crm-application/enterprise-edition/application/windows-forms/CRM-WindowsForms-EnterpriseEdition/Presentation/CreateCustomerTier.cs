@@ -5,6 +5,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCustomerTier : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Customer Tier";
 
@@ -12,11 +14,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
+            LoadActiveCompanyConfigurationAsync();
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerTierStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
@@ -77,6 +86,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = _companyConfigurationId
+                    },
+                    new Parameter
+                    {
                         ParameterName = "customerTier",
                         ParameterValue = customerTierDescription
                     },
@@ -92,6 +106,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerTierStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

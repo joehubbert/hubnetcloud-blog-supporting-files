@@ -55,9 +55,12 @@
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton = new RadioButton();
             createCustomerLeadCustomerLeadTargetDatePanelLabel = new Label();
             createCustomerLeadActiveStatusCheckbox = new CheckBox();
+            createCustomerLeadStatusStrip = new StatusStrip();
+            createCustomerLeadCustomerPlaceholder = new ToolStripStatusLabel();
             createCustomerLeadCustomerContactPanel.SuspendLayout();
             createCustomerLeadMarketingChannelPanel.SuspendLayout();
             createCustomerLeadCustomerLeadTargetDatePanel.SuspendLayout();
+            createCustomerLeadStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createCustomerLeadTitleLabel
@@ -101,7 +104,7 @@
             // createCustomerLeadCustomerLeadTextbox
             // 
             createCustomerLeadCustomerLeadTextbox.Anchor = AnchorStyles.None;
-            createCustomerLeadCustomerLeadTextbox.Location = new Point(228, 145);
+            createCustomerLeadCustomerLeadTextbox.Location = new Point(228, 155);
             createCustomerLeadCustomerLeadTextbox.MaxLength = 4000;
             createCustomerLeadCustomerLeadTextbox.Multiline = true;
             createCustomerLeadCustomerLeadTextbox.Name = "createCustomerLeadCustomerLeadTextbox";
@@ -183,7 +186,7 @@
             // 
             createCustomerLeadSubmitButton.FlatStyle = FlatStyle.Flat;
             createCustomerLeadSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createCustomerLeadSubmitButton.Location = new Point(558, 529);
+            createCustomerLeadSubmitButton.Location = new Point(580, 527);
             createCustomerLeadSubmitButton.Margin = new Padding(4);
             createCustomerLeadSubmitButton.Name = "createCustomerLeadSubmitButton";
             createCustomerLeadSubmitButton.Size = new Size(198, 66);
@@ -338,12 +341,29 @@
             createCustomerLeadActiveStatusCheckbox.Text = "Active Customer Lead";
             createCustomerLeadActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
+            // createCustomerLeadStatusStrip
+            // 
+            createCustomerLeadStatusStrip.BackColor = SystemColors.Control;
+            createCustomerLeadStatusStrip.Items.AddRange(new ToolStripItem[] { createCustomerLeadCustomerPlaceholder });
+            createCustomerLeadStatusStrip.Location = new Point(0, 613);
+            createCustomerLeadStatusStrip.Name = "createCustomerLeadStatusStrip";
+            createCustomerLeadStatusStrip.Size = new Size(1339, 22);
+            createCustomerLeadStatusStrip.TabIndex = 14;
+            createCustomerLeadStatusStrip.Text = "Create Customer Lead Status Strip";
+            // 
+            // createCustomerLeadCustomerPlaceholder
+            // 
+            createCustomerLeadCustomerPlaceholder.Name = "createCustomerLeadCustomerPlaceholder";
+            createCustomerLeadCustomerPlaceholder.Size = new Size(132, 17);
+            createCustomerLeadCustomerPlaceholder.Text = "{Customer Placeholder}";
+            // 
             // CreateCustomerLead
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1339, 615);
+            ClientSize = new Size(1339, 635);
+            Controls.Add(createCustomerLeadStatusStrip);
             Controls.Add(createCustomerLeadActiveStatusCheckbox);
             Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelLabel);
             Controls.Add(createCustomerLeadCustomerContactPanelLabel);
@@ -372,6 +392,8 @@
             createCustomerLeadMarketingChannelPanel.PerformLayout();
             createCustomerLeadCustomerLeadTargetDatePanel.ResumeLayout(false);
             createCustomerLeadCustomerLeadTargetDatePanel.PerformLayout();
+            createCustomerLeadStatusStrip.ResumeLayout(false);
+            createCustomerLeadStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -405,5 +427,7 @@
         private Label createCustomerLeadCustomerLeadTargetDatePanelLabel;
         private RadioButton createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton;
         private CheckBox createCustomerLeadActiveStatusCheckbox;
+        private StatusStrip createCustomerLeadStatusStrip;
+        private ToolStripStatusLabel createCustomerLeadCustomerPlaceholder;
     }
 }

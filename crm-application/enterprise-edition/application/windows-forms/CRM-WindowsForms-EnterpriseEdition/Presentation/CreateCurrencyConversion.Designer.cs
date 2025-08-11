@@ -50,7 +50,8 @@
             createCurrencyConversionTargetCurrencyValueTextboxB = new TextBox();
             createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel = new Label();
             createCurrencyConversionStatusStrip = new StatusStrip();
-            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder = new ToolStripStatusLabel();
+            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
             createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanel.SuspendLayout();
             createCurrencyConversionStatusStrip.SuspendLayout();
             SuspendLayout();
@@ -173,9 +174,9 @@
             createCurrencyConversionTargetCurrencyComboBoxLabel.AutoSize = true;
             createCurrencyConversionTargetCurrencyComboBoxLabel.Location = new Point(79, 135);
             createCurrencyConversionTargetCurrencyComboBoxLabel.Name = "createCurrencyConversionTargetCurrencyComboBoxLabel";
-            createCurrencyConversionTargetCurrencyComboBoxLabel.Size = new Size(111, 20);
+            createCurrencyConversionTargetCurrencyComboBoxLabel.Size = new Size(117, 20);
             createCurrencyConversionTargetCurrencyComboBoxLabel.TabIndex = 56;
-            createCurrencyConversionTargetCurrencyComboBoxLabel.Text = "Target Currency";
+            createCurrencyConversionTargetCurrencyComboBoxLabel.Text = "Target Currency*";
             createCurrencyConversionTargetCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionBaseCurrencyComboBoxLabel
@@ -183,9 +184,9 @@
             createCurrencyConversionBaseCurrencyComboBoxLabel.AutoSize = true;
             createCurrencyConversionBaseCurrencyComboBoxLabel.Location = new Point(89, 89);
             createCurrencyConversionBaseCurrencyComboBoxLabel.Name = "createCurrencyConversionBaseCurrencyComboBoxLabel";
-            createCurrencyConversionBaseCurrencyComboBoxLabel.Size = new Size(101, 20);
+            createCurrencyConversionBaseCurrencyComboBoxLabel.Size = new Size(107, 20);
             createCurrencyConversionBaseCurrencyComboBoxLabel.TabIndex = 57;
-            createCurrencyConversionBaseCurrencyComboBoxLabel.Text = "Base Currency";
+            createCurrencyConversionBaseCurrencyComboBoxLabel.Text = "Base Currency*";
             createCurrencyConversionBaseCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionBaseCurrencyValueTextboxLabel
@@ -193,9 +194,9 @@
             createCurrencyConversionBaseCurrencyValueTextboxLabel.AutoSize = true;
             createCurrencyConversionBaseCurrencyValueTextboxLabel.Location = new Point(520, 90);
             createCurrencyConversionBaseCurrencyValueTextboxLabel.Name = "createCurrencyConversionBaseCurrencyValueTextboxLabel";
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Size = new Size(141, 20);
+            createCurrencyConversionBaseCurrencyValueTextboxLabel.Size = new Size(147, 20);
             createCurrencyConversionBaseCurrencyValueTextboxLabel.TabIndex = 58;
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Text = "Base Currency Value";
+            createCurrencyConversionBaseCurrencyValueTextboxLabel.Text = "Base Currency Value*";
             createCurrencyConversionBaseCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionTargetCurrencyValueTextboxLabel
@@ -203,9 +204,9 @@
             createCurrencyConversionTargetCurrencyValueTextboxLabel.AutoSize = true;
             createCurrencyConversionTargetCurrencyValueTextboxLabel.Location = new Point(510, 136);
             createCurrencyConversionTargetCurrencyValueTextboxLabel.Name = "createCurrencyConversionTargetCurrencyValueTextboxLabel";
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Size = new Size(151, 20);
+            createCurrencyConversionTargetCurrencyValueTextboxLabel.Size = new Size(157, 20);
             createCurrencyConversionTargetCurrencyValueTextboxLabel.TabIndex = 59;
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Text = "Target Currency Value";
+            createCurrencyConversionTargetCurrencyValueTextboxLabel.Text = "Target Currency Value*";
             createCurrencyConversionTargetCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionActiveStatusCheckbox
@@ -240,9 +241,9 @@
             createCurrencyConversionEffectiveDatePickerLabel.AutoSize = true;
             createCurrencyConversionEffectiveDatePickerLabel.Location = new Point(88, 184);
             createCurrencyConversionEffectiveDatePickerLabel.Name = "createCurrencyConversionEffectiveDatePickerLabel";
-            createCurrencyConversionEffectiveDatePickerLabel.Size = new Size(102, 20);
+            createCurrencyConversionEffectiveDatePickerLabel.Size = new Size(108, 20);
             createCurrencyConversionEffectiveDatePickerLabel.TabIndex = 62;
-            createCurrencyConversionEffectiveDatePickerLabel.Text = "Effective Date";
+            createCurrencyConversionEffectiveDatePickerLabel.Text = "Effective Date*";
             createCurrencyConversionEffectiveDatePickerLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionTargetCurrencyValueTextboxB
@@ -276,12 +277,20 @@
             // 
             // createCurrencyConversionStatusStripCompanyConfigurationPlaceholder
             // 
-            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.BackColor = Color.Transparent;
+            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.BackColor = SystemColors.Control;
             createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
             createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Name = "createCurrencyConversionStatusStripCompanyConfigurationPlaceholder";
-            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Size = new Size(209, 17);
+            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
             createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
-            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.Click += createCurrencyConversionStatusStripCompanyConfigurationPlaceholder_Click;
+            createCurrencyConversionStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
             // CreateCurrencyConversion
             // 
@@ -348,6 +357,7 @@
         private TextBox createCurrencyConversionTargetCurrencyValueTextboxB;
         private Label createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel;
         private StatusStrip createCurrencyConversionStatusStrip;
-        private ToolStripStatusLabel createCurrencyConversionStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripSplitButton createCurrencyConversionStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

@@ -39,6 +39,10 @@
             createAccountManagerEmailAddressLabel = new Label();
             createAccountManagerTelephoneNumberLabel = new Label();
             createAccountManagerActiveStatusCheckbox = new CheckBox();
+            createAccountManagerStatusStrip = new StatusStrip();
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createAccountManagerStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createAccountManagerTitleLabel
@@ -112,9 +116,9 @@
             createAccountManagerFirstNameLabel.Location = new Point(77, 64);
             createAccountManagerFirstNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerFirstNameLabel.Name = "createAccountManagerFirstNameLabel";
-            createAccountManagerFirstNameLabel.Size = new Size(80, 20);
+            createAccountManagerFirstNameLabel.Size = new Size(86, 20);
             createAccountManagerFirstNameLabel.TabIndex = 6;
-            createAccountManagerFirstNameLabel.Text = "First Name";
+            createAccountManagerFirstNameLabel.Text = "First Name*";
             createAccountManagerFirstNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerLastNameLabel
@@ -124,9 +128,9 @@
             createAccountManagerLastNameLabel.Location = new Point(78, 104);
             createAccountManagerLastNameLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerLastNameLabel.Name = "createAccountManagerLastNameLabel";
-            createAccountManagerLastNameLabel.Size = new Size(79, 20);
+            createAccountManagerLastNameLabel.Size = new Size(85, 20);
             createAccountManagerLastNameLabel.TabIndex = 7;
-            createAccountManagerLastNameLabel.Text = "Last Name";
+            createAccountManagerLastNameLabel.Text = "Last Name*";
             createAccountManagerLastNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerEmailAddressLabel
@@ -136,9 +140,9 @@
             createAccountManagerEmailAddressLabel.Location = new Point(54, 146);
             createAccountManagerEmailAddressLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerEmailAddressLabel.Name = "createAccountManagerEmailAddressLabel";
-            createAccountManagerEmailAddressLabel.Size = new Size(103, 20);
+            createAccountManagerEmailAddressLabel.Size = new Size(109, 20);
             createAccountManagerEmailAddressLabel.TabIndex = 8;
-            createAccountManagerEmailAddressLabel.Text = "Email Address";
+            createAccountManagerEmailAddressLabel.Text = "Email Address*";
             createAccountManagerEmailAddressLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerTelephoneNumberLabel
@@ -148,9 +152,9 @@
             createAccountManagerTelephoneNumberLabel.Location = new Point(20, 187);
             createAccountManagerTelephoneNumberLabel.Margin = new Padding(4, 0, 4, 0);
             createAccountManagerTelephoneNumberLabel.Name = "createAccountManagerTelephoneNumberLabel";
-            createAccountManagerTelephoneNumberLabel.Size = new Size(136, 20);
+            createAccountManagerTelephoneNumberLabel.Size = new Size(142, 20);
             createAccountManagerTelephoneNumberLabel.TabIndex = 9;
-            createAccountManagerTelephoneNumberLabel.Text = "Telephone Number";
+            createAccountManagerTelephoneNumberLabel.Text = "Telephone Number*";
             createAccountManagerTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createAccountManagerActiveStatusCheckbox
@@ -167,12 +171,39 @@
             createAccountManagerActiveStatusCheckbox.Text = "Active Account Manager";
             createAccountManagerActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
+            // createAccountManagerStatusStrip
+            // 
+            createAccountManagerStatusStrip.BackColor = SystemColors.Control;
+            createAccountManagerStatusStrip.Items.AddRange(new ToolStripItem[] { createAccountManagerStatusStripCompanyConfigurationPlaceholder });
+            createAccountManagerStatusStrip.Location = new Point(0, 377);
+            createAccountManagerStatusStrip.Name = "createAccountManagerStatusStrip";
+            createAccountManagerStatusStrip.Size = new Size(551, 22);
+            createAccountManagerStatusStrip.TabIndex = 5;
+            createAccountManagerStatusStrip.Text = "Create Account Manager Status Strip";
+            // 
+            // createAccountManagerStatusStripCompanyConfigurationPlaceholder
+            // 
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.BackColor = SystemColors.Control;
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.Name = "createAccountManagerStatusStripCompanyConfigurationPlaceholder";
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createAccountManagerStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateAccountManager
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(551, 389);
+            ClientSize = new Size(551, 399);
+            Controls.Add(createAccountManagerStatusStrip);
             Controls.Add(createAccountManagerActiveStatusCheckbox);
             Controls.Add(createAccountManagerTelephoneNumberLabel);
             Controls.Add(createAccountManagerEmailAddressLabel);
@@ -191,6 +222,8 @@
             Name = "CreateAccountManager";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create Account Manager";
+            createAccountManagerStatusStrip.ResumeLayout(false);
+            createAccountManagerStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -208,5 +241,8 @@
         private Label createAccountManagerEmailAddressLabel;
         private Label createAccountManagerTelephoneNumberLabel;
         private CheckBox createAccountManagerActiveStatusCheckbox;
+        private StatusStrip createAccountManagerStatusStrip;
+        private ToolStripSplitButton createAccountManagerStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

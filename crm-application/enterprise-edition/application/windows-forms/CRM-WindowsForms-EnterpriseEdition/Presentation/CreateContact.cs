@@ -8,6 +8,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _dataSubjectId;
+        private readonly string _dataSubjectName;
         private readonly string _functionTitle;
         private readonly string applicationTitlePrefix = "CRM - Create ";
         private string createContactModuleContactEntityFriendlyName;
@@ -15,12 +16,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string createContactModuleContactCreateStoredProcedureDataSubjectParentParameterPrefix;
         private string createContactModuleContactTypeFriendlyName;
 
-        public CreateContact(Guid dataSubjectId, string functionTitle)
+        public CreateContact(Guid dataSubjectId, string dataSubjectName, string functionTitle)
         {
             InitializeComponent();
             _dataSubjectId = dataSubjectId;
+            _dataSubjectName = dataSubjectName;
             _functionTitle = functionTitle;
-            SetModuleTheme(_functionTitle);
+            SetModuleTheme();
             LoadDatabaseConnectionSettingsAsync();
         }
 
@@ -29,9 +31,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SetModuleTheme(string functionTitle)
+        private void SetModuleTheme()
         {
-            switch (functionTitle)
+            switch (_functionTitle)
             {
                 case "CustomerContact":
                     this.BackColor = Color.LightGreen;
@@ -39,6 +41,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createContactModuleContactCreateStoredProcedureName = "spCreateCustomerContact";
                     createContactModuleContactCreateStoredProcedureDataSubjectParentParameterPrefix = "customer";
                     createContactModuleContactTypeFriendlyName = "Customer Contact";
+                    createContactStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
                     break;
                 case "SupplierContact":
                     this.BackColor = Color.MediumAquamarine;
@@ -46,6 +49,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createContactModuleContactCreateStoredProcedureName = "spCreateSupplierContact";
                     createContactModuleContactCreateStoredProcedureDataSubjectParentParameterPrefix = "supplier";
                     createContactModuleContactTypeFriendlyName = "Supplier Contact";
+                    createContactStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
                     break;
             }
 

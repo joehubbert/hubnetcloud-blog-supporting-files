@@ -12,14 +12,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private Guid? supplierDetailFinancePaymentCurrencyIdOriginalValue;
         private string? supplierDetailFinanceVATNumberOriginalValue;
         private bool? supplierDetailTabControlOverviewTabPageActiveStatusOrginalValue;
-        private string? supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue;
+        private string supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue;
         private string? supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue;
-        private string? supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
+        private string supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue;
+        private string supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue;
+        private string supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue;
+        private string supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue;
+        private string supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue;
+        private string supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
 
         public SupplierDetail(Guid supplierId)
         {
@@ -684,7 +684,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void supplierDetailSupplierContactCreateNewSupplierContactButton_Click(object sender, EventArgs e)
         {
-            CreateContact createContact = new CreateContact(_supplierId, "Supplier");
+            CreateContact createContact = new CreateContact(_supplierId, "Supplier", supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
             createContact.Show();
         }
 
@@ -695,7 +695,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_supplierId, "SupplierNote");
+            CreateNote createNote = new CreateNote(_supplierId, "SupplierNote", supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
             createNote.Show();
         }
 

@@ -54,9 +54,9 @@
             createCurrencyCurrencyCodeLabel.Font = new Font("Segoe UI", 11F);
             createCurrencyCurrencyCodeLabel.Location = new Point(91, 74);
             createCurrencyCurrencyCodeLabel.Name = "createCurrencyCurrencyCodeLabel";
-            createCurrencyCurrencyCodeLabel.Size = new Size(105, 20);
+            createCurrencyCurrencyCodeLabel.Size = new Size(111, 20);
             createCurrencyCurrencyCodeLabel.TabIndex = 7;
-            createCurrencyCurrencyCodeLabel.Text = "Currency Code";
+            createCurrencyCurrencyCodeLabel.Text = "Currency Code*";
             createCurrencyCurrencyCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyCurrencyCodeTextbox
@@ -101,9 +101,9 @@
             createCurrencyCurrencyNameLabel.Font = new Font("Segoe UI", 11F);
             createCurrencyCurrencyNameLabel.Location = new Point(86, 114);
             createCurrencyCurrencyNameLabel.Name = "createCurrencyCurrencyNameLabel";
-            createCurrencyCurrencyNameLabel.Size = new Size(110, 20);
+            createCurrencyCurrencyNameLabel.Size = new Size(116, 20);
             createCurrencyCurrencyNameLabel.TabIndex = 50;
-            createCurrencyCurrencyNameLabel.Text = "Currency Name";
+            createCurrencyCurrencyNameLabel.Text = "Currency Name*";
             createCurrencyCurrencyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyCurrencyNameTextbox

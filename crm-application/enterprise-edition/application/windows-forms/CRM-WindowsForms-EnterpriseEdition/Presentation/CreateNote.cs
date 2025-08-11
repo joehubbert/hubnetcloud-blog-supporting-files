@@ -8,7 +8,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _dataSubjectId;
-        private readonly string _functionTitle;
+        private readonly string? _dataSubjectName;
+		private readonly string _functionTitle;
         private readonly string applicationTitlePrefix = "CRM - Create ";
         private string createNoteModuleNoteEntityFriendlyName;
         private string createNoteModuleNoteCreateStoredProcedureName;
@@ -24,13 +25,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string createNoteNoteTypeIdName;
         private string createNoteNoteTypeName;
 
-        public CreateNote(Guid dataSubjectId, string functionTitle)
+        public CreateNote(Guid dataSubjectId, string functionTitle, string? dataSubjectName = null)
         {
             InitializeComponent();
             InitializeCustomComponents();
             _dataSubjectId = dataSubjectId;
-            _functionTitle = functionTitle;
-            SetModuleTheme(_functionTitle);
+            _dataSubjectName = dataSubjectName;
+			_functionTitle = functionTitle;
+            SetModuleTheme();
             LoadDatabaseConnectionSettingsAsync();
             CreateNoteLoadNoteTypeAsync();
         }
@@ -45,9 +47,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SetModuleTheme(string functionTitle)
+        private void SetModuleTheme()
         {
-            switch (functionTitle)
+            switch (_functionTitle)
             {
                 case "CustomerNote":
                     this.BackColor = Color.LightGreen;
@@ -64,7 +66,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTypeIdFriendlyName = "Customer Note Type Id";
                     createNoteNoteTypeIdName = "CustomerNoteTypeId";
                     createNoteNoteTypeName = "CustomerNoteType";
-                    break;
+                    createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
+					break;
                 case "CustomerLeadNote":
                     this.BackColor = Color.LightGreen;
                     createNoteModuleNoteEntityFriendlyName = "Customer Lead";
@@ -80,7 +83,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
                     createNoteNoteTypeIdName = "CustomerLeadNoteTypeId";
                     createNoteNoteTypeName = "CustomerLeadNoteType";
-                    break;
+					createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
+					break;
                 case "ProductNote":
                     this.BackColor = Color.SkyBlue;
                     createNoteModuleNoteEntityFriendlyName = "Product";
@@ -96,7 +100,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTypeIdFriendlyName = "Product Note Type Id";
                     createNoteNoteTypeIdName = "ProductNoteTypeId";
                     createNoteNoteTypeName = "ProductNoteType";
-                    break;
+					createNoteStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
+					break;
                 case "SupplierNote":
                     this.BackColor = Color.MediumAquamarine;
                     createNoteModuleNoteEntityFriendlyName = "Supplier";
@@ -112,7 +117,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     createNoteNoteTypeIdFriendlyName = "Supplier Note Type Id";
                     createNoteNoteTypeIdName = "SupplierNoteTypeId";
                     createNoteNoteTypeName = "SupplierNoteType";
-                    break;
+					createNoteStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
+					break;
             }
 
             this.Text = $"{applicationTitlePrefix}{createNoteModuleNoteTypeFriendlyName}";

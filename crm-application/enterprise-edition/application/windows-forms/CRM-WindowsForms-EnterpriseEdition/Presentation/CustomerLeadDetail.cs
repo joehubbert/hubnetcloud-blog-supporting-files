@@ -624,7 +624,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_customerLeadId, "CustomerLead");
+            CreateNote createNote = new CreateNote(_customerLeadId, "CustomerLead", customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
             createNote.Show();
         }
 

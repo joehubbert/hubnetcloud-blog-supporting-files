@@ -6,10 +6,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ViewAllData : Form
     {
+        private Guid _companyConfigurationId;
+		private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+		private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string dataSortingColumnName;
         private string dataSortingColumnOrder;
         private readonly Guid? _dataSubjectFilterId;
@@ -26,8 +28,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _dataSubjectFilterId = dataSubjectFilterId;
             _functionTitle = functionTitle;
             _moduleGroup = moduleGroup;
-            SetModuleTheme(_moduleGroup);
-            SetParameters(_functionTitle);
+			SetModuleTheme();
+            LoadActiveCompanyConfigurationAsync();
+			SetParameters();
             viewAllDataDataGridView.CellContentClick += viewAllDataDataGridView_CellContentClick;
             viewAllDataQuickFilterTextbox.TextChanged += viewAllDataQuickFilterTextbox_TextChanged;
         }
@@ -37,9 +40,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SetModuleTheme(string moduleGroup)
+		private async void LoadActiveCompanyConfigurationAsync()
+		{
+			_companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
+			await _companyConfigHelper.LoadAsync();
+		}
+
+		private void SetModuleTheme()
         {
-            switch (moduleGroup)
+            switch (_moduleGroup)
             {
                 case "CompanyManagement":
                     this.BackColor = Color.LemonChiffon;
@@ -66,14 +75,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     viewAllDataDataGridView.BackgroundColor = Color.MediumAquamarine;
                     break;
                 default:
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleGroup);
                     break;
             }
         }
 
-        private void SetParameters(string functionTitle)
+        private void SetParameters()
         {
-            switch (functionTitle)
+            switch (_functionTitle)
             {
                 case "AccountManager":
                     dataSortingColumnName = "Last Name";
@@ -462,8 +471,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     storedProcedureName = "spGetAllTaxProfile";
                     break;
                 default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
+                    this.Text = _functionTitle;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle);
                     break;
             }
 
@@ -496,7 +505,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName);
                 }
-
                 else
                 {
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName);
@@ -508,6 +516,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
+                    // Filter by _companyConfigurationId if column exists
+                    if (dataTable.Columns.Contains("Company Configuration Id"))
+                    {
+                        if (dataTable.Columns["Company Configuration Id"].DataType == typeof(Guid))
+                        {
+                            string filter = $"[Company Configuration Id] = '{_companyConfigurationId}'";
+                            dataTable.DefaultView.RowFilter = filter;
+                        }
+                    }
+
                     dataTable.DefaultView.Sort = $"{dataSortingColumnName} {dataSortingColumnOrder}";
                     viewAllDataDataGridView.AutoGenerateColumns = true;
                     viewAllDataDataGridView.DataSource = dataTable;
@@ -863,5 +881,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await LoadDatabaseConnectionSettingsAsync();
             await PopulateDataGrid_Load();
         }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+			_companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
+			await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+		}
     }
 }

@@ -5,6 +5,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateAccountManager : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Account Manager";
 
@@ -12,11 +14,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             LoadDatabaseConnectionSettingsAsync();
+            LoadActiveCompanyConfigurationAsync();
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createAccountManagerStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
@@ -95,6 +104,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new Parameter
                     {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = _companyConfigurationId
+                    },
+                    new Parameter
+                    {
                         ParameterName = "emailAddress",
                         ParameterValue = emailAddress
                     },
@@ -120,6 +134,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createAccountManagerStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

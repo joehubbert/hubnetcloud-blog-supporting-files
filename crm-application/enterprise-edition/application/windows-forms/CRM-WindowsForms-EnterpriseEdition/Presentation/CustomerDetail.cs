@@ -51,6 +51,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string customerDetailShippingInformationFirstNameOriginalValue;
         private string customerDetailShippingInformationLastNameOriginalValue;
         private string customerDetailShippingInformationTelephoneNumberOriginalValue;
+        private string customerDisplayName;
 
 
         public CustomerDetail(Guid customerId)
@@ -754,7 +755,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailShippingInformationTelephoneNumberOriginalValue = customerDataRow["Shipping Telephone Number"].ToString();
 
                     this.Text += $" ({customerDetailShippingInformationCompanyNameOriginalValue})";
-                }
+
+					if (customerDetailTabControlOverviewTabPageCompanyNameOriginalValue == null)
+					{
+						customerDisplayName = $"{customerDetailTabControlOverviewTabPageLastNameOriginalValue}, {customerDetailTabControlOverviewTabPageFirstNameOriginalValue}";
+					}
+					else
+					{
+						customerDisplayName = customerDetailTabControlOverviewTabPageCompanyNameOriginalValue;
+					}
+				}
                 else
                 {
                     ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
@@ -1712,7 +1722,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton_Click(object sender, EventArgs e)
         {
-            CreateContact createContact = new CreateContact(_customerId, "Customer");
+            CreateContact createContact = new CreateContact(_customerId, "Customer", customerDisplayName);
             createContact.Show();
         }
 
@@ -1723,7 +1733,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton_Click(object sender, EventArgs e)
         {
-            CreateCustomerLead createCustomerLead = new CreateCustomerLead(_customerId);
+            CreateCustomerLead createCustomerLead = new CreateCustomerLead(_customerId, customerDisplayName);
             createCustomerLead.Show();
         }
 
@@ -1734,7 +1744,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_customerId, "CustomerNote");
+            CreateNote createNote = new CreateNote(_customerId, "CustomerNote", customerDisplayName);
             createNote.Show();
         }
 

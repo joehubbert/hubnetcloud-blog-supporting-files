@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
             homeNavOrderManagement = new Button();
             homeNavAppConfiguration = new Button();
             homeNavProductManagement = new Button();
@@ -38,6 +39,10 @@
             homeMenuStrip = new MenuStrip();
             homeMenuStripModule = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagement = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagement = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagement = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementAccountManagementAccountManager = new ToolStripMenuItem();
@@ -151,9 +156,6 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusCreateSupplierOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementCompanyConfiguration = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagement = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagementCreateCustomer = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagementViewAllCustomer = new ToolStripMenuItem();
@@ -182,8 +184,11 @@
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration = new ToolStripMenuItem();
+            homeStatusStrip = new StatusStrip();
+            homeStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
+            homeStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // homeNavOrderManagement
@@ -317,6 +322,42 @@
             homeMenuStripModuleCompanyManagement.Size = new Size(216, 22);
             homeMenuStripModuleCompanyManagement.Text = "&Company Management";
             homeMenuStripModuleCompanyManagement.Click += homeMenuStripModuleCompanyManagement_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Size = new Size(229, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfiguration.Text = "&Company Configuration";
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(274, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Size = new Size(274, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Text = "&Set Active Company Configuration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration
+            // 
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(274, 22);
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
+            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click;
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagement
             // 
@@ -1333,33 +1374,6 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus.Text = "&View All Supplier Order Statuses";
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus_Click;
             // 
-            // homeMenuStripModuleCompanyManagementCompanyConfiguration
-            // 
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration, homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration });
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.Size = new Size(229, 22);
-            homeMenuStripModuleCompanyManagementCompanyConfiguration.Text = "&Company Configuration";
-            // 
-            // homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration
-            // 
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Size = new Size(274, 22);
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Text = "&Create Company Configuration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationCreateCompanyConfiguration_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration
-            // 
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Size = new Size(274, 22);
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Text = "&View All Company Configurations";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationViewAllCompanyConfiguration_Click;
-            // 
             // homeMenuStripModuleCustomerManagement
             // 
             homeMenuStripModuleCustomerManagement.BackColor = Color.Transparent;
@@ -1621,21 +1635,41 @@
             homeNavMarketingManagement.UseVisualStyleBackColor = false;
             homeNavMarketingManagement.Click += homeNavMarketingManagement_Click;
             // 
-            // homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration
+            // homeStatusStrip
             // 
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Name = "homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Size = new Size(274, 22);
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Text = "&Set Active Company Configuration";
-            homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration.Click += homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration_Click;
+            homeStatusStrip.BackColor = SystemColors.Control;
+            homeStatusStrip.Items.AddRange(new ToolStripItem[] { homeStatusStripCompanyConfigurationPlaceholder });
+            homeStatusStrip.Location = new Point(0, 443);
+            homeStatusStrip.Name = "homeStatusStrip";
+            homeStatusStrip.Size = new Size(947, 22);
+            homeStatusStrip.TabIndex = 8;
+            homeStatusStrip.Text = "statusStrip1";
+            // 
+            // homeStatusStripCompanyConfigurationPlaceholder
+            // 
+            homeStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            homeStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("homeStatusStripCompanyConfigurationPlaceholder.Image");
+            homeStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            homeStatusStripCompanyConfigurationPlaceholder.Name = "homeStatusStripCompanyConfigurationPlaceholder";
+            homeStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            homeStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder]";
+            homeStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(947, 454);
+            ClientSize = new Size(947, 465);
+            Controls.Add(homeStatusStrip);
             Controls.Add(homeNavMarketingManagement);
             Controls.Add(homeNavSupplierManagementButton);
             Controls.Add(homeTitleLabel);
@@ -1656,6 +1690,8 @@
             Text = "CRM - Home";
             homeMenuStrip.ResumeLayout(false);
             homeMenuStrip.PerformLayout();
+            homeStatusStrip.ResumeLayout(false);
+            homeStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1817,5 +1853,8 @@
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementCompanyConfigurationSetActiveCompanyConfiguration;
+        private StatusStrip homeStatusStrip;
+        private ToolStripSplitButton homeStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

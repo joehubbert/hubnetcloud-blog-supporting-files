@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAllData));
             viewAllDataTitleLabel = new Label();
             viewAllDataRefreshDataButton = new Button();
             viewAllDataDataGridView = new DataGridView();
             viewAllDataQuickFilterTextbox = new TextBox();
             viewAllDataQuickFilterTextboxLabel = new Label();
             viewAllDataExportCSVButton = new Button();
+            viewAllDataStatusStrip = new StatusStrip();
+            viewAllDataStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)viewAllDataDataGridView).BeginInit();
+            viewAllDataStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // viewAllDataTitleLabel
@@ -55,7 +60,7 @@
             viewAllDataRefreshDataButton.Margin = new Padding(2, 3, 2, 3);
             viewAllDataRefreshDataButton.Name = "viewAllDataRefreshDataButton";
             viewAllDataRefreshDataButton.Size = new Size(149, 59);
-            viewAllDataRefreshDataButton.TabIndex = 3;
+            viewAllDataRefreshDataButton.TabIndex = 4;
             viewAllDataRefreshDataButton.Text = "Refresh Data";
             viewAllDataRefreshDataButton.UseVisualStyleBackColor = true;
             viewAllDataRefreshDataButton.Click += viewAllDataRefreshDataButton_Click;
@@ -103,16 +108,44 @@
             viewAllDataExportCSVButton.Margin = new Padding(2, 3, 2, 3);
             viewAllDataExportCSVButton.Name = "viewAllDataExportCSVButton";
             viewAllDataExportCSVButton.Size = new Size(149, 59);
-            viewAllDataExportCSVButton.TabIndex = 4;
+            viewAllDataExportCSVButton.TabIndex = 3;
             viewAllDataExportCSVButton.Text = "Export CSV";
             viewAllDataExportCSVButton.UseVisualStyleBackColor = true;
             viewAllDataExportCSVButton.Click += viewAllDataExportCSVButton_Click;
+            // 
+            // viewAllDataStatusStrip
+            // 
+            viewAllDataStatusStrip.Items.AddRange(new ToolStripItem[] { viewAllDataStatusStripCompanyConfigurationPlaceholder });
+            viewAllDataStatusStrip.Location = new Point(0, 584);
+            viewAllDataStatusStrip.Name = "viewAllDataStatusStrip";
+            viewAllDataStatusStrip.Size = new Size(1190, 22);
+            viewAllDataStatusStrip.TabIndex = 5;
+            viewAllDataStatusStrip.Text = "View All Data Status Strip";
+            // 
+            // viewAllDataStatusStripCompanyConfigurationPlaceholder
+            // 
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("viewAllDataStatusStripCompanyConfigurationPlaceholder.Image");
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.Name = "viewAllDataStatusStripCompanyConfigurationPlaceholder";
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            viewAllDataStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
             // ViewAllData
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1190, 583);
+            ClientSize = new Size(1190, 606);
+            Controls.Add(viewAllDataStatusStrip);
             Controls.Add(viewAllDataExportCSVButton);
             Controls.Add(viewAllDataQuickFilterTextboxLabel);
             Controls.Add(viewAllDataQuickFilterTextbox);
@@ -127,6 +160,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ViewAllData";
             ((System.ComponentModel.ISupportInitialize)viewAllDataDataGridView).EndInit();
+            viewAllDataStatusStrip.ResumeLayout(false);
+            viewAllDataStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,5 +174,8 @@
         private TextBox viewAllDataQuickFilterTextbox;
         private Label viewAllDataQuickFilterTextboxLabel;
         private Button viewAllDataExportCSVButton;
+        private StatusStrip viewAllDataStatusStrip;
+        private ToolStripSplitButton viewAllDataStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

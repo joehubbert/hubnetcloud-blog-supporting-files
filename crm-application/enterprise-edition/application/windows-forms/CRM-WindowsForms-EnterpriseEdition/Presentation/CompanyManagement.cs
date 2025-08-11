@@ -1,10 +1,22 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
+﻿using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CompanyManagement : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+
         public CompanyManagement()
         {
             InitializeComponent();
+            LoadActiveCompanyConfigurationAsync();
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(companyManagementStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private void companyManagementTabControlCompanyConfigurationTabPageTabControlCompanyConfigurationTabPageCreateCompanyConfigurationButton_Click(object sender, EventArgs e)
@@ -431,6 +443,12 @@
         {
             ViewAllData viewAllData = new ViewAllData("SupplierOrderStatus", "SupplierManagement", null);
             viewAllData.Show();
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(companyManagementStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

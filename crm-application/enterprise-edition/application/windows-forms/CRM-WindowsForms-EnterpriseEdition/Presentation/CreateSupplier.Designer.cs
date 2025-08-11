@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateSupplier));
             createSupplierTitleLabel = new Label();
             createSupplierTabControl = new TabControl();
             createSupplierTabControlOverviewTabPage = new TabPage();
@@ -57,9 +58,13 @@
             createSupplierTabControlFinanceTabPagePaymentDaysTextbox = new TextBox();
             createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox = new ComboBox();
             createSupplierSubmitButton = new Button();
+            createSupplierStatusStrip = new StatusStrip();
+            createSupplierStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
             createSupplierTabControl.SuspendLayout();
             createSupplierTabControlOverviewTabPage.SuspendLayout();
             createSupplierTabControlFinanceTabPage.SuspendLayout();
+            createSupplierStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createSupplierTitleLabel
@@ -279,9 +284,9 @@
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBoxLabel);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentDaysTextbox);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox);
-            createSupplierTabControlFinanceTabPage.Location = new Point(4, 32);
+            createSupplierTabControlFinanceTabPage.Location = new Point(4, 27);
             createSupplierTabControlFinanceTabPage.Name = "createSupplierTabControlFinanceTabPage";
-            createSupplierTabControlFinanceTabPage.Size = new Size(1067, 370);
+            createSupplierTabControlFinanceTabPage.Size = new Size(1067, 375);
             createSupplierTabControlFinanceTabPage.TabIndex = 3;
             createSupplierTabControlFinanceTabPage.Text = "Finance";
             // 
@@ -367,12 +372,41 @@
             createSupplierSubmitButton.UseVisualStyleBackColor = true;
             createSupplierSubmitButton.Click += createSupplierSubmitButton_Click;
             // 
+            // createSupplierStatusStrip
+            // 
+            createSupplierStatusStrip.BackColor = SystemColors.Control;
+            createSupplierStatusStrip.Items.AddRange(new ToolStripItem[] { createSupplierStatusStripCompanyConfigurationPlaceholder });
+            createSupplierStatusStrip.Location = new Point(0, 573);
+            createSupplierStatusStrip.Name = "createSupplierStatusStrip";
+            createSupplierStatusStrip.Size = new Size(1106, 22);
+            createSupplierStatusStrip.TabIndex = 15;
+            createSupplierStatusStrip.Text = "statusStrip1";
+            // 
+            // createSupplierStatusStripCompanyConfigurationPlaceholder
+            // 
+            createSupplierStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createSupplierStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createSupplierStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createSupplierStatusStripCompanyConfigurationPlaceholder.Image");
+            createSupplierStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createSupplierStatusStripCompanyConfigurationPlaceholder.Name = "createSupplierStatusStripCompanyConfigurationPlaceholder";
+            createSupplierStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createSupplierStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createSupplierStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.MediumAquamarine;
-            ClientSize = new Size(1106, 574);
+            ClientSize = new Size(1106, 595);
+            Controls.Add(createSupplierStatusStrip);
             Controls.Add(createSupplierSubmitButton);
             Controls.Add(createSupplierTabControl);
             Controls.Add(createSupplierTitleLabel);
@@ -388,6 +422,8 @@
             createSupplierTabControlOverviewTabPage.PerformLayout();
             createSupplierTabControlFinanceTabPage.ResumeLayout(false);
             createSupplierTabControlFinanceTabPage.PerformLayout();
+            createSupplierStatusStrip.ResumeLayout(false);
+            createSupplierStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -423,5 +459,8 @@
         private TextBox createSupplierTabControlOverviewTabPageAddressLine3Textbox;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine2Textbox;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine1Textbox;
+        private StatusStrip createSupplierStatusStrip;
+        private ToolStripSplitButton createSupplierStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

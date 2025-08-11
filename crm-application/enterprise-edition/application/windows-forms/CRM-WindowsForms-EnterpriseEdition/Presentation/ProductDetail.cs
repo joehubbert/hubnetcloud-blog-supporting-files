@@ -698,7 +698,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void productDetailProductNotesCreateNewProductNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_productId, "ProductNote");
+            CreateNote createNote = new CreateNote(_productId, "ProductNote", productDetailTabControlOverviewTabPageProductNameOriginalValue);
             createNote.Show();
         }
 

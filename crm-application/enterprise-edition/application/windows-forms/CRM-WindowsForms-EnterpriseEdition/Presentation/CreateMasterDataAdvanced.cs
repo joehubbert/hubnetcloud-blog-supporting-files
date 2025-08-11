@@ -105,8 +105,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             dataSubjectName = functionTitle;
 
             createMasterDataAdvancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
-            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = dataParentSubjectFriendlyName;
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = dataSubjectFriendlyName;
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = $"{dataParentSubjectFriendlyName}*";
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataAdvancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
             InitializeCustomComponents();

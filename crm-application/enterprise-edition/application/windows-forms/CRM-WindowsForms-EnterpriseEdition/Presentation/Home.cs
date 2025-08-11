@@ -1,10 +1,22 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation
+﻿using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+
+namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class Home : Form
     {
+        private Guid _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+
         public Home()
         {
             InitializeComponent();
+            LoadActiveCompanyConfigurationAsync();
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(homeStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
         }
 
         private void homeNavAppConfiguration_Click(object sender, EventArgs e)
@@ -615,6 +627,12 @@
         {
             AppConfiguration appConfiguration = new AppConfiguration();
             appConfiguration.Show();
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(homeStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
     }
 }

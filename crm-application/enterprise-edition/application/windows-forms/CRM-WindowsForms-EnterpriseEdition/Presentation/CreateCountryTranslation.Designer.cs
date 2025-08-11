@@ -97,9 +97,9 @@
             createCountryTranslationBCP47LanguageTagCodeTextboxLabel.AutoSize = true;
             createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Location = new Point(71, 101);
             createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Name = "createCountryTranslationBCP47LanguageTagCodeTextboxLabel";
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Size = new Size(186, 20);
+            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Size = new Size(192, 20);
             createCountryTranslationBCP47LanguageTagCodeTextboxLabel.TabIndex = 12;
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code";
+            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code*";
             createCountryTranslationBCP47LanguageTagCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCountryTranslationLocalisedCountryNameTextboxLabel
@@ -107,9 +107,9 @@
             createCountryTranslationLocalisedCountryNameTextboxLabel.AutoSize = true;
             createCountryTranslationLocalisedCountryNameTextboxLabel.Location = new Point(87, 143);
             createCountryTranslationLocalisedCountryNameTextboxLabel.Name = "createCountryTranslationLocalisedCountryNameTextboxLabel";
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Size = new Size(170, 20);
+            createCountryTranslationLocalisedCountryNameTextboxLabel.Size = new Size(176, 20);
             createCountryTranslationLocalisedCountryNameTextboxLabel.TabIndex = 13;
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Text = "Localised Country Name";
+            createCountryTranslationLocalisedCountryNameTextboxLabel.Text = "Localised Country Name*";
             createCountryTranslationLocalisedCountryNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCountryTranslationCountryComboBox
@@ -126,9 +126,9 @@
             createCountryTranslationCountryComboBoxLabel.AutoSize = true;
             createCountryTranslationCountryComboBoxLabel.Location = new Point(102, 56);
             createCountryTranslationCountryComboBoxLabel.Name = "createCountryTranslationCountryComboBoxLabel";
-            createCountryTranslationCountryComboBoxLabel.Size = new Size(155, 20);
+            createCountryTranslationCountryComboBoxLabel.Size = new Size(161, 20);
             createCountryTranslationCountryComboBoxLabel.TabIndex = 15;
-            createCountryTranslationCountryComboBoxLabel.Text = "Country English Name";
+            createCountryTranslationCountryComboBoxLabel.Text = "Country English Name*";
             createCountryTranslationCountryComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // CreateCountryTranslation

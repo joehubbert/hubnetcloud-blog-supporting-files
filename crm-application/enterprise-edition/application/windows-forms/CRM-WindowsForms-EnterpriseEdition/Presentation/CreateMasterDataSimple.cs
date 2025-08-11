@@ -177,7 +177,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             dataSubjectName = functionTitle;
 
             createMasterDataSimpleTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Text = dataSubjectFriendlyName;
+            createMasterDataSimpleMasterDataTypeTextboxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataSimpleActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }

@@ -36,6 +36,9 @@
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel = new Label();
             createHTMLTemplateHTMLTemplateTextboxLabel = new Label();
             createHTMLTemplateSubmitButton = new Button();
+            createHTMLTemplateStatusStrip = new StatusStrip();
+            createHTMLTemplateStatusStripCompanyConfigurationPlaceholder = new ToolStripStatusLabel();
+            createHTMLTemplateStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createHTMLTemplateTitleLabel
@@ -80,21 +83,21 @@
             // createHTMLTemplateHTMLTemplateTitleTextboxLabel
             // 
             createHTMLTemplateHTMLTemplateTitleTextboxLabel.AutoSize = true;
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Location = new Point(40, 64);
+            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Location = new Point(34, 64);
             createHTMLTemplateHTMLTemplateTitleTextboxLabel.Name = "createHTMLTemplateHTMLTemplateTitleTextboxLabel";
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Size = new Size(147, 20);
+            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Size = new Size(153, 20);
             createHTMLTemplateHTMLTemplateTitleTextboxLabel.TabIndex = 11;
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title";
+            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title*";
             createHTMLTemplateHTMLTemplateTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createHTMLTemplateHTMLTemplateTypeComboBoxLabel
             // 
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.AutoSize = true;
-            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Location = new Point(38, 110);
+            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Location = new Point(32, 110);
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Name = "createHTMLTemplateHTMLTemplateTypeComboBoxLabel";
-            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Size = new Size(149, 20);
+            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Size = new Size(155, 20);
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.TabIndex = 12;
-            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Text = "HTML Template Type";
+            createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Text = "HTML Template Type*";
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createHTMLTemplateHTMLTemplateTextboxLabel
@@ -120,12 +123,29 @@
             createHTMLTemplateSubmitButton.UseVisualStyleBackColor = true;
             createHTMLTemplateSubmitButton.Click += createHTMLTemplateSubmitButton_Click;
             // 
+            // createHTMLTemplateStatusStrip
+            // 
+            createHTMLTemplateStatusStrip.BackColor = SystemColors.Control;
+            createHTMLTemplateStatusStrip.Items.AddRange(new ToolStripItem[] { createHTMLTemplateStatusStripCompanyConfigurationPlaceholder });
+            createHTMLTemplateStatusStrip.Location = new Point(0, 519);
+            createHTMLTemplateStatusStrip.Name = "createHTMLTemplateStatusStrip";
+            createHTMLTemplateStatusStrip.Size = new Size(820, 22);
+            createHTMLTemplateStatusStrip.TabIndex = 4;
+            createHTMLTemplateStatusStrip.Text = "Create HTML Status Strip";
+            // 
+            // createHTMLTemplateStatusStripCompanyConfigurationPlaceholder
+            // 
+            createHTMLTemplateStatusStripCompanyConfigurationPlaceholder.Name = "createHTMLTemplateStatusStripCompanyConfigurationPlaceholder";
+            createHTMLTemplateStatusStripCompanyConfigurationPlaceholder.Size = new Size(203, 17);
+            createHTMLTemplateStatusStripCompanyConfigurationPlaceholder.Text = "{CompanyConfigurationPlaceholder}";
+            // 
             // CreateHTMLTemplate
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
-            ClientSize = new Size(820, 517);
+            ClientSize = new Size(820, 541);
+            Controls.Add(createHTMLTemplateStatusStrip);
             Controls.Add(createHTMLTemplateSubmitButton);
             Controls.Add(createHTMLTemplateHTMLTemplateTextboxLabel);
             Controls.Add(createHTMLTemplateHTMLTemplateTypeComboBoxLabel);
@@ -141,6 +161,8 @@
             Name = "CreateHTMLTemplate";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Create HTML Template";
+            createHTMLTemplateStatusStrip.ResumeLayout(false);
+            createHTMLTemplateStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -155,5 +177,7 @@
         private Label createHTMLTemplateHTMLTemplateTypeComboBoxLabel;
         private Label createHTMLTemplateHTMLTemplateTextboxLabel;
         private Button createHTMLTemplateSubmitButton;
+        private StatusStrip createHTMLTemplateStatusStrip;
+        private ToolStripStatusLabel createHTMLTemplateStatusStripCompanyConfigurationPlaceholder;
     }
 }

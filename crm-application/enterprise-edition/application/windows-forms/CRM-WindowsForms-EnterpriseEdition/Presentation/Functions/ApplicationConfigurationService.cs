@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using CRM_WindowsForms_EnterpriseEdition.Model;
 using System.Text.Json;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
@@ -10,24 +11,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             "CRM-WindowsForms.EnterpriseEdition");
         private static readonly string ConfigFilePath = Path.Combine(ConfigFolderPath, "applicationConfiguration.json");
 
-        private static ApplicationConfigurationServiceRoot? _configuration;
+        private static ApplicationConfigurationModel.ApplicationConfigurationServiceRoot? _configuration;
         private static readonly object _lock = new();
 
-        public static async Task<ApplicationConfigurationServiceRoot> LoadAsync()
+        public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceRoot> LoadAsync()
         {
             if (!Directory.Exists(ConfigFolderPath))
                 Directory.CreateDirectory(ConfigFolderPath);
 
             if (!File.Exists(ConfigFilePath))
             {
-                _configuration = new ApplicationConfigurationServiceRoot();
+                _configuration = new ApplicationConfigurationModel.ApplicationConfigurationServiceRoot();
                 await SaveAsync();
             }
             else
             {
                 var json = await File.ReadAllTextAsync(ConfigFilePath);
-                _configuration = JsonSerializer.Deserialize<ApplicationConfigurationServiceRoot>(json)
-                    ?? new ApplicationConfigurationServiceRoot();
+                _configuration = JsonSerializer.Deserialize<ApplicationConfigurationModel.ApplicationConfigurationServiceRoot>(json)
+                    ?? new ApplicationConfigurationModel.ApplicationConfigurationServiceRoot();
 
                 // Decrypt sensitive properties after loading
                 _configuration.databaseConfiguration.mssqlConfiguration.password =
@@ -43,7 +44,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         public static async Task SaveAsync()
         {
             if (_configuration == null)
-                _configuration = new ApplicationConfigurationServiceRoot();
+                _configuration = new ApplicationConfigurationModel.ApplicationConfigurationServiceRoot();
 
             // Encrypt sensitive properties before saving
             _configuration.databaseConfiguration.mssqlConfiguration.password =
@@ -65,7 +66,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 DPAPIHelper.Decrypt(_configuration.databaseConfiguration.postgresConfiguration.password);
         }
 
-        public static ApplicationConfigurationServiceCompanyConfiguration CompanyConfiguration
+        public static ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration CompanyConfiguration
         {
             get
             {
@@ -121,7 +122,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task<ApplicationConfigurationServiceCompanyConfiguration> GetCompanyConfigurationAsync()
+        public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration> GetCompanyConfigurationAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
@@ -149,21 +150,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             return _configuration!.systemConfiguration.loggingEnabled;
         }
 
-        public static async Task<ApplicationConfigurationServiceMSSQLConfiguration> GetMSSQLConfigurationAsync()
+        public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration> GetMSSQLConfigurationAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
             return _configuration!.databaseConfiguration.mssqlConfiguration;
         }
 
-        public static async Task<ApplicationConfigurationServiceMySQLConfiguration> GetMySQLConfigurationAsync()
+        public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration> GetMySQLConfigurationAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
             return _configuration!.databaseConfiguration.mysqlConfiguration;
         }
 
-        public static async Task<ApplicationConfigurationServicePostgreSQLConfiguration> GetPostgreSQLConfigurationAsync()
+        public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration> GetPostgreSQLConfigurationAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
@@ -176,7 +177,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             await SaveAsync();
         }
 
-        public static async Task SetCompanyConfigurationAsync(ApplicationConfigurationServiceCompanyConfiguration companyConfiguration)
+        public static async Task SetCompanyConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration companyConfiguration)
         {
             CompanyConfiguration = companyConfiguration;
             await SaveAsync();
@@ -188,7 +189,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             await SaveAsync();
         }
 
-        public static ApplicationConfigurationServiceMSSQLConfiguration MSSQLConfiguration
+        public static ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration MSSQLConfiguration
         {
             get
             {
@@ -202,13 +203,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task SetMSSQLConfigurationAsync(ApplicationConfigurationServiceMSSQLConfiguration config)
+        public static async Task SetMSSQLConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration config)
         {
             MSSQLConfiguration = config;
             await SaveAsync();
         }
 
-        public static ApplicationConfigurationServiceMySQLConfiguration MySQLConfiguration
+        public static ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration MySQLConfiguration
         {
             get
             {
@@ -222,13 +223,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task SetMySQLConfigurationAsync(ApplicationConfigurationServiceMySQLConfiguration config)
+        public static async Task SetMySQLConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration config)
         {
             MySQLConfiguration = config;
             await SaveAsync();
         }
 
-        public static ApplicationConfigurationServicePostgreSQLConfiguration PostgreSQLConfiguration
+        public static ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration PostgreSQLConfiguration
         {
             get
             {
@@ -242,7 +243,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static async Task SetPostgreSQLConfigurationAsync(ApplicationConfigurationServicePostgreSQLConfiguration config)
+        public static async Task SetPostgreSQLConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration config)
         {
             PostgreSQLConfiguration = config;
             await SaveAsync();
@@ -263,79 +264,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     if (_configuration == null)
                     {
                         var loadTask = LoadAsync();
-                        loadTask.Wait();
+                        loadTask.GetAwaiter().GetResult();
                     }
                 }
             }
         }
-    }
-
-    public class ApplicationConfigurationServiceRoot
-    {
-        public ApplicationConfigurationServiceCompanyConfiguration companyConfiguration { get; set; } = new();
-        public ApplicationConfigurationServiceDatabaseConfiguration databaseConfiguration { get; set; } = new();
-        public ApplicationConfigurationServiceRegionLanguageConfiguration regionLanguageConfiguration { get; set; } = new();
-        public ApplicationConfigurationServiceSystemConfiguration systemConfiguration { get; set; } = new();
-    }
-
-    public class ApplicationConfigurationServiceCompanyConfiguration
-    {
-        public Guid companyConfigurationId { get; set; } = Guid.Empty;
-        public string companyName { get; set; } = string.Empty;
-    }
-
-    public class ApplicationConfigurationServiceDatabaseConfiguration
-    {
-        public string activeDatabaseEngine { get; set; } = string.Empty;
-        public ApplicationConfigurationServiceMSSQLConfiguration mssqlConfiguration { get; set; } = new();
-        public ApplicationConfigurationServiceMySQLConfiguration mysqlConfiguration { get; set; } = new();
-        public ApplicationConfigurationServicePostgreSQLConfiguration postgresConfiguration { get; set; } = new();
-    }
-
-    public class ApplicationConfigurationServiceMSSQLConfiguration
-    {
-        public string serverName { get; set; } = string.Empty;
-        public string databaseName { get; set; } = string.Empty;
-        public string username { get; set; } = string.Empty;
-        public string password { get; set; } = string.Empty;
-        public string certficateHostName { get; set; } = string.Empty;
-        public bool encryptionEnabled { get; set; }
-        public bool trustServerCertificate { get; set; }
-        public int connectionTimeout { get; set; }
-        public string authenticationType { get; set; } = string.Empty;
-    }
-
-    public class ApplicationConfigurationServiceMySQLConfiguration
-    {
-        public string serverName { get; set; } = string.Empty;
-        public int portNumber { get; set; }
-        public string databaseName { get; set; } = string.Empty;
-        public string username { get; set; } = string.Empty;
-        public string password { get; set; } = string.Empty;
-        public int connectionTimeout { get; set; }
-        public string sslMode { get; set; } = string.Empty;
-        public string authenticationType { get; set; } = string.Empty;
-    }
-
-    public class ApplicationConfigurationServicePostgreSQLConfiguration
-    {
-        public string serverName { get; set; } = string.Empty;
-        public int portNumber { get; set; }
-        public string databaseName { get; set; } = string.Empty;
-        public string username { get; set; } = string.Empty;
-        public string password { get; set; } = string.Empty;
-        public int connectionTimeout { get; set; }
-        public string sslMode { get; set; } = string.Empty;
-        public string authenticationType { get; set; } = string.Empty;
-    }
-
-    public class ApplicationConfigurationServiceRegionLanguageConfiguration
-    {
-        public string languageCode { get; set; } = string.Empty;
-    }
-
-    public class ApplicationConfigurationServiceSystemConfiguration
-    {
-        public bool loggingEnabled { get; set; }
     }
 }

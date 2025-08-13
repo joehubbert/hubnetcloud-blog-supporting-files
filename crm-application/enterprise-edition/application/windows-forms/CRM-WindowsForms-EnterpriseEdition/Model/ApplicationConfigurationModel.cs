@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Model
 {
-    internal class ApplicationConfigurationModel
+    public class ApplicationConfigurationModel
     {
         public class ApplicationConfigurationServiceRoot
         {

@@ -1,7 +1,8 @@
-﻿using Microsoft.Data.SqlClient;
+﻿using CRM_WindowsForms_EnterpriseEdition.Model;
+using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
-using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
@@ -10,11 +11,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
         public string? ActiveDatabaseEngine { get; private set; }
 
         // MSSQL
-        public ApplicationConfigurationServiceMSSQLConfiguration? MSSQLConfig { get; private set; }
+        public ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration? MSSQLConfig { get; private set; }
         // MySQL
-        public ApplicationConfigurationServiceMySQLConfiguration? MySQLConfig { get; private set; }
+        public ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration? MySQLConfig { get; private set; }
         // PostgreSQL
-        public ApplicationConfigurationServicePostgreSQLConfiguration? PostgreSQLConfig { get; private set; }
+        public ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration? PostgreSQLConfig { get; private set; }
 
         public static async Task<DatabaseConnectionSettings> LoadAsync()
         {

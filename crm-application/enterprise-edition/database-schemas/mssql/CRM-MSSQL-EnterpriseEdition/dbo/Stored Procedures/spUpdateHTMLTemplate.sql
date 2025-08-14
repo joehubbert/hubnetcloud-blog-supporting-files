@@ -1,4 +1,5 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateHTMLTemplate]
+	@companyConfigurationId UNIQUEIDENTIFIER,
 	@htmlTemplate NVARCHAR(4000),
 	@htmlTemplateId UNIQUEIDENTIFIER,
 	@htmlTemplateTitle NVARCHAR(50),
@@ -12,6 +13,7 @@ BEGIN
 
 			UPDATE [dbo].[HTMLTemplate]
 			SET 
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[HTMLTemplate] = @htmlTemplate,
 				[HTMLTemplateTitle] = @htmlTemplateTitle,
 				[HTMLTemplateTypeId] = @htmlTemplateTypeId

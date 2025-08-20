@@ -68,58 +68,62 @@
             companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBoxLabel = new Label();
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton = new Button();
             companyConfigurationDetailTabControlFinancialInformationTabPage = new TabPage();
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton = new Button();
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton = new Button();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox = new GroupBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2 = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1 = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox = new ComboBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox = new ComboBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox = new TextBox();
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox = new CheckBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox = new GroupBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2 = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1 = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox = new ComboBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox = new ComboBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel = new Label();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox = new TextBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox = new CheckBox();
             companyConfigurationDetailTabControlHTMLTemplateTabPage = new TabPage();
             companyConfigurationDetailTabControlHTMLTemplateTabPageRefreshDataButton = new Button();
             companyConfigurationDetailTabControlHTMLTemplateTabPageCreateHTMLTemplateButton = new Button();
             companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView = new DataGridView();
             companyConfigurationDetailToggleEditModeButton = new Button();
             companyConfigurationDetailUpdateCompanyConfigurationButton = new Button();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl = new TabControl();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage = new TabPage();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage = new TabPage();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage = new TabPage();
             companyConfigurationDetailTabControl.SuspendLayout();
             companyConfigurationDetailTabControlGeneralInformationTabPage.SuspendLayout();
             companyConfigurationDetailTabControlCompanyLogoTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBox).BeginInit();
             companyConfigurationDetailTabControlFinancialInformationTabPage.SuspendLayout();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.SuspendLayout();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.SuspendLayout();
             companyConfigurationDetailTabControlHTMLTemplateTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView).BeginInit();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.SuspendLayout();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.SuspendLayout();
             SuspendLayout();
             // 
             // companyConfigurationDetailTitleLabel
@@ -546,422 +550,391 @@
             // companyConfigurationDetailTabControlFinancialInformationTabPage
             // 
             companyConfigurationDetailTabControlFinancialInformationTabPage.BackColor = Color.LemonChiffon;
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControl);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 32);
             companyConfigurationDetailTabControlFinancialInformationTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPage";
             companyConfigurationDetailTabControlFinancialInformationTabPage.Padding = new Padding(3);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 460);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 455);
             companyConfigurationDetailTabControlFinancialInformationTabPage.TabIndex = 1;
             companyConfigurationDetailTabControlFinancialInformationTabPage.Text = "Financial Information";
             // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.FlatStyle = FlatStyle.Flat;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Location = new Point(907, 370);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Margin = new Padding(4);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton";
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Size = new Size(185, 70);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.TabIndex = 37;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Text = "Accounts Receivable";
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.UseVisualStyleBackColor = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton.Click += companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton_Click;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.FlatStyle = FlatStyle.Flat;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Location = new Point(710, 370);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Margin = new Padding(4);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton";
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Size = new Size(185, 70);
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.TabIndex = 36;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Text = "Accounts Payable";
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.UseVisualStyleBackColor = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton.Click += companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton_Click;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Location = new Point(13, 7);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Size = new Size(1079, 342);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.TabIndex = 55;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.TabStop = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Text = "Bank Account Information";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.Location = new Point(928, 201);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.Size = new Size(15, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.TabIndex = 85;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2.Text = "-";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.Location = new Point(839, 201);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.Size = new Size(15, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.TabIndex = 84;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1.Text = "-";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Location = new Point(945, 198);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.MaxLength = 2;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.TabIndex = 32;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Location = new Point(855, 198);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.MaxLength = 2;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.TabIndex = 31;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.Location = new Point(649, 29);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.Size = new Size(113, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.TabIndex = 56;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel.Text = "Account Name*";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.Location = new Point(633, 72);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.Size = new Size(127, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.TabIndex = 57;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel.Text = "Account Number*";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.Location = new Point(653, 115);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.Size = new Size(107, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.TabIndex = 58;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel.Text = "Account IBAN*";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.Location = new Point(609, 158);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.Size = new Size(153, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.TabIndex = 59;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel.Text = "Account SWIFT Code*";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.Location = new Point(627, 201);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.Size = new Size(133, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.TabIndex = 60;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.Text = "Account Sort Code";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.Location = new Point(697, 244);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.Size = new Size(63, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.TabIndex = 61;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel.Text = "Vipps Id";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.Location = new Point(98, 289);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.Size = new Size(125, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.TabIndex = 56;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.Text = "Account Balance*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Location = new Point(766, 198);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.MaxLength = 2;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Size = new Size(71, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.TabIndex = 30;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Location = new Point(766, 241);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.MaxLength = 20;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Size = new Size(290, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.TabIndex = 33;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Location = new Point(768, 155);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.TabIndex = 29;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Location = new Point(768, 112);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.TabIndex = 28;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Location = new Point(766, 69);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Size = new Size(290, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.TabIndex = 27;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Location = new Point(768, 26);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.TabIndex = 26;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Font = new Font("Segoe UI", 11F);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Location = new Point(343, 286);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.MaxLength = 5;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Size = new Size(45, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.TabIndex = 25;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Font = new Font("Segoe UI", 11F);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Location = new Point(227, 286);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.MaxLength = 10;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Size = new Size(99, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.TabIndex = 24;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.Font = new Font("Segoe UI", 11F);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.Location = new Point(329, 293);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.Size = new Size(12, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.TabIndex = 76;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel.Text = ".";
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Location = new Point(227, 26);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.TabIndex = 18;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Location = new Point(227, 69);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.TabIndex = 19;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.Location = new Point(116, 29);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.Size = new Size(111, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.TabIndex = 30;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.Text = "Address Line 1*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.Location = new Point(116, 72);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.Size = new Size(105, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.TabIndex = 32;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.Text = "Address Line 2";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.Location = new Point(91, 245);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.Size = new Size(130, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.TabIndex = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.Text = "Account Currency*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Location = new Point(227, 112);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.TabIndex = 20;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.FormattingEnabled = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Location = new Point(227, 242);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.Size = new Size(288, 28);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.TabIndex = 23;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Location = new Point(227, 155);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Size = new Size(288, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.TabIndex = 21;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.Location = new Point(115, 201);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.Size = new Size(111, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.TabIndex = 35;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.Text = "Address Line 5*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.Location = new Point(115, 115);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.Size = new Size(111, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.TabIndex = 33;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.Text = "Address Line 3*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.FormattingEnabled = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Location = new Point(227, 198);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Size = new Size(288, 28);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.TabIndex = 22;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.Location = new Point(116, 158);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.Size = new Size(111, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.TabIndex = 34;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.Text = "Address Line 4*";
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.Location = new Point(50, 398);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.Size = new Size(92, 20);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.TabIndex = 51;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.Text = "VAT Number";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Location = new Point(155, 392);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.MaxLength = 50;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.ReadOnly = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Size = new Size(208, 27);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.TabIndex = 35;
-            // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox
-            // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckState = CheckState.Checked;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Location = new Point(16, 359);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.TabIndex = 34;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Location = new Point(19, 6);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Size = new Size(1079, 342);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.TabIndex = 55;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.TabStop = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.Text = "Bank Account Information";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.Location = new Point(928, 201);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.Size = new Size(15, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.TabIndex = 85;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2.Text = "-";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.Location = new Point(839, 201);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.Size = new Size(15, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.TabIndex = 84;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1.Text = "-";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Location = new Point(945, 198);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.MaxLength = 2;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Size = new Size(71, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.TabIndex = 32;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Location = new Point(855, 198);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.MaxLength = 2;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Size = new Size(71, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.TabIndex = 31;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.Location = new Point(649, 29);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.Size = new Size(113, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.TabIndex = 56;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel.Text = "Account Name*";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.Location = new Point(633, 72);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.Size = new Size(127, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.TabIndex = 57;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel.Text = "Account Number*";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.Location = new Point(653, 115);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.Size = new Size(107, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.TabIndex = 58;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel.Text = "Account IBAN*";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.Location = new Point(609, 158);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.Size = new Size(153, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.TabIndex = 59;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel.Text = "Account SWIFT Code*";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.Location = new Point(627, 201);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.Size = new Size(133, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.TabIndex = 60;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel.Text = "Account Sort Code";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.Location = new Point(697, 244);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.Size = new Size(63, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.TabIndex = 61;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel.Text = "Vipps Id";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.Location = new Point(98, 289);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.Size = new Size(125, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.TabIndex = 56;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.Text = "Account Balance*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Location = new Point(766, 198);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.MaxLength = 2;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Size = new Size(71, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.TabIndex = 30;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Location = new Point(766, 241);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.MaxLength = 20;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Size = new Size(290, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.TabIndex = 33;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.Location = new Point(768, 155);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.TabIndex = 29;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.Location = new Point(768, 112);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.TabIndex = 28;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.Location = new Point(766, 69);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.Size = new Size(290, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.TabIndex = 27;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.Location = new Point(768, 26);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.TabIndex = 26;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.Font = new Font("Segoe UI", 11F);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.Location = new Point(343, 286);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.MaxLength = 5;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.Size = new Size(45, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.TabIndex = 25;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.Font = new Font("Segoe UI", 11F);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.Location = new Point(227, 286);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.MaxLength = 10;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.Size = new Size(99, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.TabIndex = 24;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.Font = new Font("Segoe UI", 11F);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.Location = new Point(329, 293);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.Size = new Size(12, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.TabIndex = 76;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel.Text = ".";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.Location = new Point(227, 26);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.TabIndex = 18;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.Location = new Point(227, 69);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.TabIndex = 19;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.Location = new Point(116, 29);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.Size = new Size(111, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.TabIndex = 30;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.Text = "Address Line 1*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.Location = new Point(116, 72);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.Size = new Size(105, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.TabIndex = 32;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.Text = "Address Line 2";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.Location = new Point(91, 245);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.Size = new Size(130, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.TabIndex = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.Text = "Account Currency*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.Location = new Point(227, 112);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.TabIndex = 20;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.FormattingEnabled = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.Location = new Point(227, 242);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.Size = new Size(288, 28);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.TabIndex = 23;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.Location = new Point(227, 155);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.Size = new Size(288, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.TabIndex = 21;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.Location = new Point(115, 201);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.TabIndex = 35;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.Location = new Point(115, 115);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.Size = new Size(111, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.TabIndex = 33;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.Text = "Address Line 3*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.FormattingEnabled = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Location = new Point(227, 198);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Size = new Size(288, 28);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.TabIndex = 22;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.Location = new Point(116, 158);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.Size = new Size(111, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.TabIndex = 34;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.Text = "Address Line 4*";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.Location = new Point(53, 385);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.Size = new Size(92, 20);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.TabIndex = 51;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.Text = "VAT Number";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Location = new Point(158, 379);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.MaxLength = 50;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.ReadOnly = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Size = new Size(208, 27);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.TabIndex = 35;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.CheckState = CheckState.Checked;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Location = new Point(19, 353);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Margin = new Padding(4);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.TabIndex = 34;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Text = "VAT Registered";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
             // 
             // companyConfigurationDetailTabControlHTMLTemplateTabPage
             // 
@@ -1040,6 +1013,51 @@
             companyConfigurationDetailUpdateCompanyConfigurationButton.UseVisualStyleBackColor = true;
             companyConfigurationDetailUpdateCompanyConfigurationButton.Click += companyConfigurationDetailUpdateCompanyConfigurationButton_Click;
             // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControl
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Appearance = TabAppearance.FlatButtons;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Location = new Point(0, 0);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControl";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.SelectedIndex = 0;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.Size = new Size(1144, 455);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.TabIndex = 56;
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.BackColor = Color.LemonChiffon;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Padding = new Padding(3);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Size = new Size(1136, 419);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.TabIndex = 0;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Text = "General";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.BackColor = Color.LemonChiffon;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.Padding = new Padding(3);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.Size = new Size(1136, 419);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.TabIndex = 1;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage.Text = "Accounts Payable";
+            // 
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage
+            // 
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.BackColor = Color.LemonChiffon;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.Size = new Size(1136, 419);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.TabIndex = 2;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage.Text = "Accounts Receivable";
+            // 
             // CompanyConfigurationDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1064,11 +1082,13 @@
             companyConfigurationDetailTabControlCompanyLogoTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBox).EndInit();
             companyConfigurationDetailTabControlFinancialInformationTabPage.ResumeLayout(false);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.PerformLayout();
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.ResumeLayout(false);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox.PerformLayout();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.ResumeLayout(false);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox.PerformLayout();
             companyConfigurationDetailTabControlHTMLTemplateTabPage.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView).EndInit();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControl.ResumeLayout(false);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.ResumeLayout(false);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -1105,42 +1125,42 @@
         private Label companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBoxLabel;
         private Button companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton;
         private TabPage companyConfigurationDetailTabControlFinancialInformationTabPage;
-        private GroupBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountInformationGroupBox;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel2;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxSeparatorLabel1;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxLabel;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxSeparatorLabel;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1TextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2TextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBoxLabel;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox;
-        private ComboBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBoxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3TextboxLabel;
-        private ComboBox companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4TextboxLabel;
-        private Label companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel;
-        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox;
-        private CheckBox companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox;
+        private GroupBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel2;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxSeparatorLabel1;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxLabel;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxSeparatorLabel;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1TextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2TextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBoxLabel;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox;
+        private ComboBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBoxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3TextboxLabel;
+        private ComboBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextboxLabel;
+        private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextboxLabel;
+        private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox;
+        private CheckBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextbox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextbox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox;
@@ -1152,12 +1172,14 @@
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextboxLabel;
         private Button companyConfigurationDetailToggleEditModeButton;
-        private Button companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton;
-        private Button companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton;
         private Button companyConfigurationDetailUpdateCompanyConfigurationButton;
         private TabPage companyConfigurationDetailTabControlHTMLTemplateTabPage;
         private Button companyConfigurationDetailTabControlHTMLTemplateTabPageRefreshDataButton;
         private Button companyConfigurationDetailTabControlHTMLTemplateTabPageCreateHTMLTemplateButton;
         private DataGridView companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView;
+        private TabControl companyConfigurationDetailTabControlFinancialInformationTabPageTabControl;
+        private TabPage companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage;
+        private TabPage companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage;
+        private TabPage companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage;
     }
 }

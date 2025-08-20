@@ -48,11 +48,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            companyConfigurationDetailTabControl.SelectedIndexChanged += new EventHandler(CompanyConfigurationDetailTabControl_SelectedIndexChanged);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += new EventHandler(CompanyConfigurationDetailFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged);
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CompanyConfigurationDetailFinancialInformationVATRegisteredCheckBox_CheckedChanged);
-            companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            companyConfigurationDetailTabControl.SelectedIndexChanged += CompanyConfigurationDetailTabControl_SelectedIndexChanged;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox_SelectedIndexChanged;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.CheckedChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged;
+            companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -70,7 +71,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             switch(countryContext)
             {
                 case "FinancialInformation":
-                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
                     await _dataAccessComboBoxHelper.LoadDataAsync();
                     break;
                 case "GeneralInformation":
@@ -84,26 +85,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CompanyConfigurationDetailFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
+        private void companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked)
+            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked)
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = true;
             }
             else
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Text = string.Empty;
             }
         }
 
-        private void CompanyConfigurationDetailFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        private void companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            var selectedItem = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedItem;
+            var selectedItem = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedItem;
             string? isoCountryCode = null;
 
             if (selectedItem != null)
@@ -124,38 +125,38 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             if (isoCountryCode == "GB")
             {
                 // Enable sort code fields, disable Vipps
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Enabled = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Enabled = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Enabled = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Enabled = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Enabled = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Enabled = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly = false;
             }
             else if (isoCountryCode == "DK" || isoCountryCode == "FI" || isoCountryCode == "NO" || isoCountryCode == "SE")
             {
                 // Enable Vipps, disable sort code fields
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Text = string.Empty;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Text = string.Empty;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Text = string.Empty;
             }
             else
             {
                 // Disable both
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Text = string.Empty;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Text = string.Empty;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Text = string.Empty;
             }
 
             // Always update VippsId textbox state after country change
@@ -165,7 +166,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         // Centralized logic for VippsId textbox state
         private void UpdateVippsIdTextboxState()
         {
-            var selectedItem = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedItem;
+            var selectedItem = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedItem;
             string? isoCountryCode = null;
 
             if (selectedItem != null)
@@ -183,14 +184,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (isoCountryCode == "DK" || isoCountryCode == "FI" || isoCountryCode == "NO" || isoCountryCode == "SE")
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Enabled = _isEditMode;
-                companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.ReadOnly = !_isEditMode;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Enabled = _isEditMode;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.ReadOnly = !_isEditMode;
             }
             else
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Enabled = false;
-                companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.ReadOnly = true;
-                companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Text = string.Empty;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.ReadOnly = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Text = string.Empty;
             }
         }
 
@@ -229,22 +230,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = null;
                     }
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 1"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 2"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 3"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 4"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 1"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 2"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 3"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 4"].ToString();
                     Guid bankAccountAddressLine5 = (Guid)companyConfigurationDataRow["Bank Account Address Line 5"];
                     await LoadCountryAsync("FinancialInformation", bankAccountAddressLine5);
                     string bankAccountBalanceA;
                     string bankAccountBalanceB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)companyConfigurationDataRow["Bank Account Balance"], out bankAccountBalanceA, out bankAccountBalanceB);
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Text = bankAccountBalanceA;
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Text = bankAccountBalanceB;
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxA.Text = bankAccountBalanceA;
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountBalanceTextboxB.Text = bankAccountBalanceB;
                     Guid bankAccountCurrencyId = (Guid)companyConfigurationDataRow["Bank Account Currency Id"];
                     await LoadCurrencyDataAsync(bankAccountCurrencyId);
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Text = companyConfigurationDataRow["Bank Account IBAN"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Text = companyConfigurationDataRow["Bank Account Name"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Text = companyConfigurationDataRow["Bank Account Number"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.Text = companyConfigurationDataRow["Bank Account IBAN"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.Text = companyConfigurationDataRow["Bank Account Name"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.Text = companyConfigurationDataRow["Bank Account Number"].ToString();
                     string bankAccountSortCode = companyConfigurationDataRow["Bank Account Sort Code"].ToString();
                     string bankAccountSortCodeA = string.Empty;
                     string bankAccountSortCodeB = string.Empty;
@@ -259,26 +260,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             bankAccountSortCodeC = parts[2];
                         }
                     }
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.Text = bankAccountSortCodeA;
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.Text = bankAccountSortCodeB;
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.Text = bankAccountSortCodeC;
-                    companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Text = companyConfigurationDataRow["Bank Account SWIFT Code"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Text = companyConfigurationDataRow["VAT Number"].ToString();
-                    if (companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox != null)
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.Text = bankAccountSortCodeA;
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.Text = bankAccountSortCodeB;
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.Text = bankAccountSortCodeC;
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.Text = companyConfigurationDataRow["Bank Account SWIFT Code"].ToString();
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Text = companyConfigurationDataRow["VAT Number"].ToString();
+                    if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox != null)
                     {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked = true;
+                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = true;
                     }
                     else
                     {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked = false;
+                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = false;
                     }
                     if (companyConfigurationDataRow["Bank Account Vipps Id"].ToString() != null)
                     {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Text = companyConfigurationDataRow["Bank Account Vipps Id"].ToString();
+                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Text = companyConfigurationDataRow["Bank Account Vipps Id"].ToString();
                     }
                     else
                     {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Text = null;
+                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Text = null;
                     }
                     companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked = (bool)companyConfigurationDataRow["Active Status"];
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine1Textbox.Text = companyConfigurationDataRow["Address Line 1"].ToString();
@@ -406,18 +407,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void companyConfigurationDetailTabControlFinancialInformationTabPageAccountsPayableButton_Click(object sender, EventArgs e)
-        {
-            AccountsPayable accountsPayable = new AccountsPayable(_companyConfigurationId);
-            accountsPayable.Show();
-        }
-
-        private void companyConfigurationDetailTabControlFinancialInformationTabPageAccountsReceivableButton_Click(object sender, EventArgs e)
-        {
-            AccountsReceivable accountsReceivable = new AccountsReceivable(_companyConfigurationId);
-            accountsReceivable.Show();
-        }
-
         private async void companyConfigurationDetailUpdateCompanyConfigurationButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked;
@@ -425,33 +414,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string addressLine2 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2Textbox.Text.TrimEnd();
             string addressLine3 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3Textbox.Text.TrimEnd();
             string addressLine4 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine4Textbox.Text.TrimEnd();
-            Guid addressLine5 = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedValue;
-            string bankAccountAddressLine1 = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.Text.TrimEnd();
+            Guid addressLine5 = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedValue;
+            string bankAccountAddressLine1 = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.Text.TrimEnd();
             string bankAccountAddressLine2 = null;
-            if (companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox != null)
+            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox != null)
             {
-                bankAccountAddressLine2 = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.Text.TrimEnd();
+                bankAccountAddressLine2 = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.Text.TrimEnd();
             }
-            string bankAccountAddressLine3 = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Text.TrimEnd();
-            string bankAccountAddressLine4 = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Text.TrimEnd();
-            Guid bankAccountAddressLine5 = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedValue;
-            Guid bankAccountCurrencyId = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.SelectedValue;
-            string bankAccountIBAN = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Text.TrimEnd();
-            string bankAccountName = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Text.TrimEnd();
-            string bankAccountNumber = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Text.TrimEnd();
+            string bankAccountAddressLine3 = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.Text.TrimEnd();
+            string bankAccountAddressLine4 = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.Text.TrimEnd();
+            Guid bankAccountAddressLine5 = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedValue;
+            Guid bankAccountCurrencyId = (Guid)companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox.SelectedValue;
+            string bankAccountIBAN = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.Text.TrimEnd();
+            string bankAccountName = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.Text.TrimEnd();
+            string bankAccountNumber = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.Text.TrimEnd();
             string bankAccountSortCode = null;
-            string bankAccountSortCodePartA = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartB = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartC = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartA = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartB = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartC = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC?.Text.TrimEnd() ?? "";
             if (!string.IsNullOrEmpty(bankAccountSortCodePartA) && !string.IsNullOrEmpty(bankAccountSortCodePartB) && !string.IsNullOrEmpty(bankAccountSortCodePartC))
             {
                 bankAccountSortCode = $"{bankAccountSortCodePartA}-{bankAccountSortCodePartB}-{bankAccountSortCodePartC}";
             }
-            string bankAccountSWIFTCode = companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.Text.TrimEnd();
+            string bankAccountSWIFTCode = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.Text.TrimEnd();
             string bankAccountVippsId = null;
-            if (companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox != null)
+            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox != null)
             {
-                bankAccountVippsId = companyConfigurationDetailTabControlFinancialInformationTabPageVippsIdTextbox.Text.TrimEnd();
+                bankAccountVippsId = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextbox.Text.TrimEnd();
             }
             byte[] companyLogo = null;
             if (_companyLogoImageBytes != null)
@@ -466,7 +455,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailAddress = companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextbox.Text.TrimEnd();
             string emailTopLevelDomain = companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Text.TrimEnd();
             string telephoneNumber = companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
-            string vatNumber = companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.Text.TrimEnd();
+            string vatNumber = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.Text.TrimEnd();
             string websiteURL = companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextbox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";
@@ -1092,25 +1081,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Enabled = !companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton.Enabled;
             companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Enabled = !companyConfigurationDetailTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton.Enabled;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine1Textbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine2Textbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.Enabled;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.ReadOnly;
-            if (companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA != null &&
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB != null &&
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC != null)
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine1Textbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine2Textbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine3Textbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4Textbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.Enabled;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountIBANTextbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNameTextbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountNumberTextbox.ReadOnly;
+            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA != null &&
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB != null &&
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC != null)
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxA.ReadOnly;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxB.ReadOnly;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSortCodeTextboxC.ReadOnly;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxA.ReadOnly;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxB.ReadOnly;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeTextboxC.ReadOnly;
             }
-            companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextbox.ReadOnly;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled;
 
             // Update VippsId textbox state based on edit mode and country
             UpdateVippsIdTextboxState();

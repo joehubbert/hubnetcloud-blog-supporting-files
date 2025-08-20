@@ -612,6 +612,11 @@
     <Build Include="dbo\Stored Procedures\spGetHTMLTemplateType.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateHTMLTemplate.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateHTMLTemplateType.sql" />
+    <Build Include="dbo\Views\vwPromotionTargetType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreatePromotionTargetType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllPromotionTargetType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetPromotionTargetType.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdatePromotionTargetType.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

@@ -13,8 +13,8 @@ INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTyp
 INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Product Category', 'Promotion set at the product category level.', 1)
 INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Product Sub Category', 'Promotion set at the product sub category level.', 1)
 INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Supplier', 'Promotion set at the supplier level.', 1)
-INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Supplier Product Category', 'Promotion set at the Product Category level linked to a specific supplier.', 1)
-INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Supplier Product Sub Category', 'Promotion set at the Product Sub Category level linked to a specific supplier.', 1)
+INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Supplier Product Category', 'Promotion set at the product category level linked to a specific supplier.', 1)
+INSERT INTO #PromotionTargetTypeTemp ([PromotionTargetType], [PromotionTargetTypeDescription], [ActiveStatus]) VALUES ('Supplier Product Sub Category', 'Promotion set at the product sub category level linked to a specific supplier.', 1)
 
 MERGE INTO [dbo].[PromotionTargetType] AS target
 USING #PromotionTargetTypeTemp AS source

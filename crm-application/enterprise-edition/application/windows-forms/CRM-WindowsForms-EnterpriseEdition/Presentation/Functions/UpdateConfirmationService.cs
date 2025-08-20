@@ -10,7 +10,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         public object? NewValue { get; set; }
     }
 
-    internal class UpdateConfirmation
+    internal class UpdateConfirmationService
     {
         public static bool ConfirmChanges(List<ChangeDetail> changesList, string dataSubject)
         {

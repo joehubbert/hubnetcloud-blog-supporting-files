@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    internal class SQLInjectionRiskCheck
+    internal class SQLInjectionRiskHelper
     {
         public static bool ContainsSqlInjectionRisk(string input)
         {

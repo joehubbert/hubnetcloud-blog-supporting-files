@@ -1,6 +1,6 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    internal class SplitDecimal
+    internal class SplitDecimalHelper
     {
         public static void SplitDecimalUsingDelimiter(decimal decimalValue, out string partA, out string partB)
         {

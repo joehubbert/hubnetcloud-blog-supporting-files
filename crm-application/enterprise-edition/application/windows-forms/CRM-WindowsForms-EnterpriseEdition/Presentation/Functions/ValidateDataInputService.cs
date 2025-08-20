@@ -4,7 +4,7 @@ using System.Text.RegularExpressions;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    internal class ValidateDataInput
+    internal class ValidateDataInputService
     {
 		internal class ValidationResult
         {
@@ -175,7 +175,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     }
                 }
 
-                if (!string.IsNullOrWhiteSpace(value) && SQLInjectionRiskCheck.ContainsSqlInjectionRisk(value))
+                if (!string.IsNullOrWhiteSpace(value) && SQLInjectionRiskHelper.ContainsSqlInjectionRisk(value))
                 {
                     validationErrors.AppendLine($"{property.Name} contains potentially dangerous characters that could lead to SQL injection.");
                 }

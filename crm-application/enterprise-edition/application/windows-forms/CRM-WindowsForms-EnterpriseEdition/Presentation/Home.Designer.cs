@@ -1684,7 +1684,6 @@
             MainMenuStrip = homeMenuStrip;
             Margin = new Padding(4);
             MaximizeBox = false;
-            MinimizeBox = false;
             Name = "Home";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CRM - Home";

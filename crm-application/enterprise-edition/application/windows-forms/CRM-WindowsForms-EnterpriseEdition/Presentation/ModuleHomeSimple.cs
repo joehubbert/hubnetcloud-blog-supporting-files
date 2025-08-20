@@ -76,7 +76,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void moduleHomeCreateButton_Click(object sender, EventArgs e)
         {
-            switch (_moduleName)
+            switch (_moduleGroup)
             {
                 case "CustomerManagement":
                     CreateCustomer createCustomer = new CreateCustomer();
@@ -103,7 +103,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void moduleHomeViewAllButton_Click(object sender, EventArgs e)
         {
-            switch (_moduleName)
+            switch (_moduleGroup)
             {
                 case "CustomerManagement":
                     {

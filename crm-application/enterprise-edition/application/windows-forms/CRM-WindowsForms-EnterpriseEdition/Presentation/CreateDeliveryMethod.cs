@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createDeliveryMethodTaxProfileComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createDeliveryMethodTaxProfileComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()

@@ -33,13 +33,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            supplierDetailTabControl.SelectedIndexChanged += new EventHandler(SupplierDetailTabControl_SelectedIndexChanged);
-            supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged);
-            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
+            supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
-            supplierDetailToggleEditModeButton.Click += new EventHandler(supplierDetailToggleEditModeButton_Click);
+            supplierDetailToggleEditModeButton.Click += supplierDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox, supplierDetailTabControlSupplierContactTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
         }

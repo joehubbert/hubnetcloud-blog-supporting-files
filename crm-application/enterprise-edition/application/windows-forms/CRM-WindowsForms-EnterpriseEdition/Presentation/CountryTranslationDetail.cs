@@ -24,8 +24,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            countryTranslationDetailCountryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            countryTranslationDetailToggleEditModeButton.Click += new EventHandler(countryTranslationDetailToggleEditModeButton_Click);
+            countryTranslationDetailCountryComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            countryTranslationDetailToggleEditModeButton.Click += countryTranslationDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

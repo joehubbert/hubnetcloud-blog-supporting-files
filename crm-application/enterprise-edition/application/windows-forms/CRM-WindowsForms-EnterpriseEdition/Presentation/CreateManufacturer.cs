@@ -21,8 +21,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged);
-            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

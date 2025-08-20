@@ -54,8 +54,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            masterDataAdvancedDetailToggleEditModeButton.Click += new EventHandler(masterDataAdvancedDetailToggleEditModeButton_Click);
+            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            masterDataAdvancedDetailToggleEditModeButton.Click += masterDataAdvancedDetailToggleEditModeButton_Click;
         }
 
         private void SetModuleTheme()

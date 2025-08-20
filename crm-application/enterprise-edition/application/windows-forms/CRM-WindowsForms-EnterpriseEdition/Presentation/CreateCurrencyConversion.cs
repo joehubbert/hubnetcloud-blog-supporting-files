@@ -22,10 +22,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCurrencyConversionBaseCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCurrencyConversionTargetCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += new EventHandler(CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged);
-            createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += new EventHandler(CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged);
+            createCurrencyConversionBaseCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCurrencyConversionTargetCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
+            createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()

@@ -37,7 +37,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            masterDataSimpleDetailToggleEditModeButton.Click += new EventHandler(masterDataSimpleDetailToggleEditModeButton_Click);
+            masterDataSimpleDetailToggleEditModeButton.Click += masterDataSimpleDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

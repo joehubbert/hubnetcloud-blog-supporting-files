@@ -33,18 +33,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            customerLeadDetailTabControl.SelectedIndexChanged += new EventHandler(CustomerLeadDetailTabControl_SelectedIndexChanged);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.CellContentClick += new DataGridViewCellEventHandler(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged);
-            customerLeadDetailToggleEditModeButton.Click += new EventHandler(customerLeadDetailToggleEditModeButton_Click);
+            customerLeadDetailTabControl.SelectedIndexChanged += CustomerLeadDetailTabControl_SelectedIndexChanged;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.CellContentClick += customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
+            customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
         }
 

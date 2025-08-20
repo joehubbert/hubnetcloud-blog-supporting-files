@@ -24,19 +24,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateBankAccountAddressInformation;
-            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TextChanged += AutoPopulateEmailAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.KeyPress += EmailTopLevelDomainTextbox_KeyPress;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.MouseDown += EmailTopLevelDomainTextbox_MouseDown;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.SelectionStart = 1;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.Text = "@";
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextbox.TextChanged += EmailTopLevelDomainTextbox_TextChanged;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += new EventHandler(CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextboxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextboxLabel.MouseHover += ToolTip_MouseHover;
-            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged);
+            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

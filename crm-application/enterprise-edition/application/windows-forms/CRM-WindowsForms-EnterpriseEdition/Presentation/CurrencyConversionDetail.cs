@@ -25,18 +25,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeEventHandlers();
             _currencyConversionId = currencyConversionId;
-            currencyConversionDetailToggleEditModeButton.Click += new EventHandler(currencyConversionDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 
         private void InitializeEventHandlers()
         {
-            currencyConversionDetailBaseCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            currencyConversionDetailCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            currencyConversionDetailTargetCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            currencyConversionDetailBaseCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            currencyConversionDetailCompanyConfigurationComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            currencyConversionDetailTargetCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             currencyConversionDetailAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
             currencyConversionDetailAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
-            currencyConversionDetailToggleEditModeButton.Click += new EventHandler(currencyConversionDetailToggleEditModeButton_Click);
+            currencyConversionDetailToggleEditModeButton.Click += currencyConversionDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

@@ -16,7 +16,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private async Task LoadCompanyConfigurationAsync()

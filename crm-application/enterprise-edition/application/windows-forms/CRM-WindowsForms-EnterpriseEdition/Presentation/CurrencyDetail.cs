@@ -23,7 +23,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            currencyDetailToggleEditModeButton.Click += new EventHandler(currencyDetailToggleEditModeButton_Click);
+            currencyDetailToggleEditModeButton.Click += currencyDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

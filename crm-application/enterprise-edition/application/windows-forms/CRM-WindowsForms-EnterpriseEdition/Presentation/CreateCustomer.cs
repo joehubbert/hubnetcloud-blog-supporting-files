@@ -22,39 +22,39 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageLastNameTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateShippingInformation);
-            createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged);
-            createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged);
-            createCustomerTabControlOverviewTabPageAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerTabControlOverviewTabPageCompanyNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerTabControlOverviewTabPageCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerTabControlOverviewTabPageEmailAddressTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewExistingParentCompanyType_CheckedChanged);
-            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerTabControlOverviewTabPageFirstNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerTabControlOverviewTabPageLastNameTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerTabControlOverviewTabPageSalesRegionComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedIndexChanged += new EventHandler(CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged);
-            createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.TextChanged += new EventHandler(AutoPopulateBillingInformation);
-            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
-            createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.CheckedChanged += new EventHandler(CreateCustomerOverviewRadioButtonValidation_CheckedChanged);
+            createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageLastNameTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged;
+            createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged;
+            createCustomerTabControlOverviewTabPageAccountManagerComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerTabControlOverviewTabPageCompanyNameTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageCustomerTierComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerTabControlOverviewTabPageEmailAddressTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCompanyType_CheckedChanged;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCompanyType_CheckedChanged;
+            createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
+            createCustomerTabControlOverviewTabPageFirstNameTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageLastNameTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageSalesRegionComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedIndexChanged += CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged;
+            createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
+            createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
+            createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
+            createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

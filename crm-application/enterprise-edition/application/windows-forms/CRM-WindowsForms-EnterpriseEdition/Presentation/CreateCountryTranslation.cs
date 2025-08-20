@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCountryTranslationCountryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createCountryTranslationCountryComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()

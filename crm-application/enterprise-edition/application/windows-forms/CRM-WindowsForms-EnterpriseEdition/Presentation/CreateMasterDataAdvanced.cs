@@ -50,7 +50,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private void SetModuleTheme()

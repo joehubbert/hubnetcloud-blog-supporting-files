@@ -26,8 +26,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {           
-            deliveryMethodDetailTaxProfileComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            deliveryMethodDetailToggleEditModeButton.Click += new EventHandler(deliveryMethodDetailToggleEditModeButton_Click);
+            deliveryMethodDetailTaxProfileComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

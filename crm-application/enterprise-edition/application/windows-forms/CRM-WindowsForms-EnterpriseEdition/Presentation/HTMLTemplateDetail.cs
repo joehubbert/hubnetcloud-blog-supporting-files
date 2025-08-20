@@ -23,8 +23,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            htmlTemplateDetailHTMLTemplateTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            htmlTemplateDetailToggleEditModeButton.Click += new EventHandler(htmlTemplateDetailToggleEditModeButton_Click);
+            htmlTemplateDetailHTMLTemplateTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            htmlTemplateDetailToggleEditModeButton.Click += htmlTemplateDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

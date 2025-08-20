@@ -73,20 +73,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            appConfigurationTabControlDatabaseTabPageTabControl.SelectedIndexChanged += new EventHandler(appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += new EventHandler(AuthenticationTypeRadioButton_CheckedChanged);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.KeyPress += new KeyPressEventHandler(NumericStringTextbox_KeyPress);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.KeyPress += new KeyPressEventHandler(NumericStringTextbox_KeyPress);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.KeyPress += new KeyPressEventHandler(NumericStringTextbox_KeyPress);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.KeyPress += new KeyPressEventHandler(NumericStringTextbox_KeyPress);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.KeyPress += new KeyPressEventHandler(NumericStringTextbox_KeyPress);
+            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            appConfigurationTabControlDatabaseTabPageTabControl.SelectedIndexChanged += appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.KeyPress += NumericStringTextbox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.KeyPress += NumericStringTextbox_KeyPress;
         }
 
         private void AppConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object? sender, EventArgs e)

@@ -40,7 +40,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createNoteNoteTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            createNoteNoteTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

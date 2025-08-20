@@ -24,15 +24,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerLeadCustomerLeadTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
-            createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged);
-            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
-            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
-            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged);
+            createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
+            createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerLeadCustomerLeadTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
+            createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()

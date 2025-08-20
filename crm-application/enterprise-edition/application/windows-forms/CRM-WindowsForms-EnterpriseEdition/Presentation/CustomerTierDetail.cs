@@ -25,7 +25,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            customerTierDetailToggleEditModeButton.Click += new EventHandler(customerTierDetailToggleEditModeButton_Click);
+            customerTierDetailToggleEditModeButton.Click += customerTierDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

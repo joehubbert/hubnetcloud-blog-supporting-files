@@ -6,6 +6,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class NoteDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private readonly Guid _dataSubjectId;
+        private readonly string _dataSubjectName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string _functionTitle;
         private readonly Guid _noteId;
@@ -29,9 +32,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string noteDetailNoteUpdateStoredProcedureName;
         private readonly string titleLabelSuffix = " Detail";
 
-        public NoteDetail(string functionTitle, Guid noteId)
+        public NoteDetail(Guid dataSubjectId, string functionTitle, Guid noteId, string? dataSubjectName = null)
         {
             InitializeComponent();
+            _dataSubjectId = dataSubjectId;
+            if(string.IsNullOrEmpty(dataSubjectName))
+            {
+                _dataSubjectName = null;
+            }
+            else
+            {
+                _dataSubjectName = dataSubjectName;
+            }
             _functionTitle = functionTitle;
             _noteId = noteId;
             SetModuleTheme(_functionTitle);
@@ -62,6 +74,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     noteDetailNoteTypeIdFriendlyName = "Customer Note Type Id";
                     noteDetailNoteTypeIdName = "CustomerNoteTypeId";
                     noteDetailNoteTypeName = "CustomerNoteType";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
                     break;
                 case "CustomerLead":
                     this.BackColor = Color.LightGreen;
@@ -78,6 +91,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     noteDetailNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
                     noteDetailNoteTypeIdName = "CustomerLeadNoteTypeId";
                     noteDetailNoteTypeName = "CustomerLeadNoteType";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
                     break;
                 case "Product":
                     this.BackColor = Color.SkyBlue;
@@ -94,6 +108,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     noteDetailNoteTypeIdFriendlyName = "Product Note Type Id";
                     noteDetailNoteTypeIdName = "ProductNoteTypeId";
                     noteDetailNoteTypeName = "ProductNoteType";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
                     break;
                 case "Supplier":
                     this.BackColor = Color.MediumAquamarine;
@@ -110,6 +125,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     noteDetailNoteTypeIdFriendlyName = "Supplier Note Type Id";
                     noteDetailNoteTypeIdName = "SupplierNoteTypeId";
                     noteDetailNoteTypeName = "SupplierNoteType";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
                     break;
             }
 
@@ -121,33 +137,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             noteDetailUpdateNoteButton.Text = $"Update {noteDetailModuleNoteTypeFriendlyName}";
         }
 
-        private async Task NoteDetailLoadNoteTypeAsync(Guid noteTypeId)
+        private async Task LoadNoteTypeAsync(Guid noteTypeId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-            try
-            {
-                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(noteDetailNoteTypeGetStoredProcedureName, noteDetailNoteTypeName);
-
-                var noteTypeList = noteTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        NoteTypeId = row.Field<Guid>(noteDetailNoteTypeIdFriendlyName),
-                        NoteType = row.Field<string>(noteDetailNoteTypeFriendlyName),
-                    })
-                    .OrderBy(item => item.NoteType)
-                    .ToList();
-                noteDetailNoteTypeComboBox.DataSource = noteTypeList;
-                noteDetailNoteTypeComboBox.DisplayMember = "NoteType";
-                noteDetailNoteTypeComboBox.ValueMember = "NoteTypeId";
-                noteDetailNoteTypeComboBox.SelectedValue = noteTypeId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", noteDetailNoteTypeFriendlyName, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(noteDetailNoteTypeComboBox, noteDetailNoteTypeGetStoredProcedureName, null, true, "Note Type Id", noteTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void NoteDetailNoteInformation_Load(object sender, EventArgs e)
@@ -180,7 +173,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow noteDataRow = noteDataTable.Rows[0];
                     noteDetailNoteIdTextbox.Text = noteDataRow[noteDetailNoteIdFriendlyName].ToString();
                     noteDetailNoteTitleTextbox.Text = noteDataRow[noteDetailNoteTitleFriendlyName].ToString();
-                    await NoteDetailLoadNoteTypeAsync((Guid)noteDataRow[noteDetailNoteTypeIdFriendlyName]);
+                    Guid noteTypeId = (Guid)noteDataRow[noteDetailNoteTypeIdFriendlyName];
+                    await LoadNoteTypeAsync(noteTypeId);
                     noteDetailNoteTextbox.Text = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
                     noteDetailCreatedByTextbox.Text = noteDataRow["Created By"].ToString();
                     noteDetailCreatedTimestampTextbox.Text = noteDataRow["Created Timestamp UTC"].ToString();
@@ -214,28 +208,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = noteDetailModuleNoteTypeName,
+                    Name = noteDetailModuleNoteTypeFriendlyName,
                     Value = note,
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = noteDetailNoteTitleName,
+                    Name = noteDetailNoteTitleFriendlyName,
                     Value = noteTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = noteDetailNoteTypeIdName,
+                    Name = noteDetailNoteTypeIdFriendlyName,
                     Value = noteTypeId,
                     ValueType = typeof(Guid)
                 }
@@ -243,7 +237,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -278,7 +272,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, noteDetailModuleNoteTypeFriendlyName);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, noteDetailModuleNoteTypeFriendlyName);
 
                 if (confirmed)
                 {
@@ -286,17 +280,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         new Parameter
                         {
-                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
+                            ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}Id",
                             ParameterValue = _noteId
                         },
                         new Parameter
                         {
-                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Title",
+                            ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}Title",
                             ParameterValue = noteTitle
                         },
                         new Parameter
                         {
-                            ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}TypeId",
+                            ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}TypeId",
                             ParameterValue = noteTypeId
                         }
                     };

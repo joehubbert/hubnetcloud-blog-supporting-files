@@ -83,9 +83,9 @@
             createDeliveryMethodActiveStatusCheckbox.Location = new Point(202, 252);
             createDeliveryMethodActiveStatusCheckbox.Margin = new Padding(5);
             createDeliveryMethodActiveStatusCheckbox.Name = "createDeliveryMethodActiveStatusCheckbox";
-            createDeliveryMethodActiveStatusCheckbox.Size = new Size(183, 24);
+            createDeliveryMethodActiveStatusCheckbox.Size = new Size(189, 24);
             createDeliveryMethodActiveStatusCheckbox.TabIndex = 5;
-            createDeliveryMethodActiveStatusCheckbox.Text = "Active Delivery Method";
+            createDeliveryMethodActiveStatusCheckbox.Text = "Active Delivery Method*";
             createDeliveryMethodActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createDeliveryMethodSubmitButton

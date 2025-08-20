@@ -26,6 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createAccountManagerStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
@@ -42,43 +43,50 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailAddress",
+                    Name = "Company Configuration Id",
+                    Value = _companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Email Address",
                     Value = emailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "FirstName",
+                    Name = "First Name",
                     Value = firstName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "LastName",
+                    Name = "Last Name",
                     Value = lastName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TelephoneNumber",
+                    Name = "Telephone Number",
                     Value = telephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
@@ -87,7 +95,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -140,6 +148,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createAccountManagerStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

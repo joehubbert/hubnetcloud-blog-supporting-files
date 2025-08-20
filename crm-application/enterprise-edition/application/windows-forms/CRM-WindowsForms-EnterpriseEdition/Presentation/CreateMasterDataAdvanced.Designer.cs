@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataAdvanced));
             createMasterDataAdvancedTitleLabel = new Label();
             createMasterDataAdvancedMasterDataTypeTextbox = new TextBox();
             createMasterDataAdvancedMasterDataTypeTextboxLabel = new Label();
@@ -35,6 +36,10 @@
             createMasterDataAdvancedActiveStatusCheckbox = new CheckBox();
             createMasterDataAdvancedDataParentSubjectComboBoxLabel = new Label();
             createMasterDataAdvancedDataParentSubjectComboBox = new ComboBox();
+            createMasterDataAdvancedStatusStrip = new StatusStrip();
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createMasterDataAdvancedStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createMasterDataAdvancedTitleLabel
@@ -61,7 +66,7 @@
             // 
             createMasterDataAdvancedMasterDataTypeTextboxLabel.AutoSize = true;
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Location = new Point(14, 104);
+            createMasterDataAdvancedMasterDataTypeTextboxLabel.Location = new Point(24, 104);
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Name = "createMasterDataAdvancedMasterDataTypeTextboxLabel";
             createMasterDataAdvancedMasterDataTypeTextboxLabel.Size = new Size(213, 20);
             createMasterDataAdvancedMasterDataTypeTextboxLabel.TabIndex = 23;
@@ -86,10 +91,10 @@
             createMasterDataAdvancedActiveStatusCheckbox.Checked = true;
             createMasterDataAdvancedActiveStatusCheckbox.CheckState = CheckState.Checked;
             createMasterDataAdvancedActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createMasterDataAdvancedActiveStatusCheckbox.Location = new Point(136, 157);
+            createMasterDataAdvancedActiveStatusCheckbox.Location = new Point(128, 162);
             createMasterDataAdvancedActiveStatusCheckbox.Margin = new Padding(5);
             createMasterDataAdvancedActiveStatusCheckbox.Name = "createMasterDataAdvancedActiveStatusCheckbox";
-            createMasterDataAdvancedActiveStatusCheckbox.Size = new Size(265, 24);
+            createMasterDataAdvancedActiveStatusCheckbox.Size = new Size(286, 24);
             createMasterDataAdvancedActiveStatusCheckbox.TabIndex = 2;
             createMasterDataAdvancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             createMasterDataAdvancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -98,7 +103,7 @@
             // 
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.AutoSize = true;
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Location = new Point(4, 60);
+            createMasterDataAdvancedDataParentSubjectComboBoxLabel.Location = new Point(14, 60);
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Name = "createMasterDataAdvancedDataParentSubjectComboBoxLabel";
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Size = new Size(223, 20);
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.TabIndex = 24;
@@ -114,12 +119,40 @@
             createMasterDataAdvancedDataParentSubjectComboBox.Size = new Size(272, 28);
             createMasterDataAdvancedDataParentSubjectComboBox.TabIndex = 0;
             // 
+            // createMasterDataAdvancedStatusStrip
+            // 
+            createMasterDataAdvancedStatusStrip.Items.AddRange(new ToolStripItem[] { createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder });
+            createMasterDataAdvancedStatusStrip.Location = new Point(0, 281);
+            createMasterDataAdvancedStatusStrip.Name = "createMasterDataAdvancedStatusStrip";
+            createMasterDataAdvancedStatusStrip.Size = new Size(537, 22);
+            createMasterDataAdvancedStatusStrip.TabIndex = 4;
+            createMasterDataAdvancedStatusStrip.Text = "Create Master Data Advanced Status Strip";
+            // 
+            // createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder
+            // 
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.Image");
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.Name = "createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder";
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateMasterDataAdvanced
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(537, 298);
+            ClientSize = new Size(537, 303);
+            Controls.Add(createMasterDataAdvancedStatusStrip);
             Controls.Add(createMasterDataAdvancedDataParentSubjectComboBox);
             Controls.Add(createMasterDataAdvancedDataParentSubjectComboBoxLabel);
             Controls.Add(createMasterDataAdvancedMasterDataTypeTextbox);
@@ -134,6 +167,8 @@
             Name = "CreateMasterDataAdvanced";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateMasterDataAdvanced";
+            createMasterDataAdvancedStatusStrip.ResumeLayout(false);
+            createMasterDataAdvancedStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +182,8 @@
         private CheckBox createMasterDataAdvancedActiveStatusCheckbox;
         private Label createMasterDataAdvancedDataParentSubjectComboBoxLabel;
         private ComboBox createMasterDataAdvancedDataParentSubjectComboBox;
+        private StatusStrip createMasterDataAdvancedStatusStrip;
+        private ToolStripSplitButton createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

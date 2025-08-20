@@ -1,15 +1,19 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+using Org.BouncyCastle.Tls.Crypto;
 using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateMasterDataEnhanced : Form
     {
+        private Guid? _companyConfigurationId;
+        private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - Create ";
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private List<string> companyConfigurationEnabledDataSubjects;
         private string dataSubjectFriendlyName;
         private string dataSubjectName;
         private string dataSubjectStoredProcedureName;
@@ -22,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _functionTitle = functionTitle;
             LoadDatabaseConnectionSettingsAsync();
             _moduleGroup = moduleGroup;
-            SetModuleTheme(_moduleGroup);
+            SetModuleTheme();
             SetParameters(_functionTitle);
         }
 
@@ -31,36 +35,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void SetModuleTheme(string moduleGroup)
+        private async void LoadActiveCompanyConfigurationAsync()
         {
-            switch (moduleGroup)
-            {
-                case "CompanyManagement":
-                    this.BackColor = Color.LemonChiffon;
-                    break;
-                case "CustomerManagement":
-                    this.BackColor = Color.LightGreen;
-                    break;
-                case "MarketingManagement":
-                    this.BackColor = Color.NavajoWhite;
-                    break;
-                case "OrderManagement":
-                    this.BackColor = Color.LightSalmon;
-                    break;
-                case "ProductManagement":
-                    this.BackColor = Color.SkyBlue;
-                    break;
-                case "SupplierManagement":
-                    this.BackColor = Color.MediumAquamarine;
-                    break;
-                default:
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
-                    break;
-            }
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        }
+
+        private void SetModuleTheme()
+        {
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
         private void SetParameters(string functionTitle)
         {
+            companyConfigurationEnabledDataSubjects = new List<string>
+            {
+                "CustomerLeadType",
+                "CustomerType"
+            };
+
             switch (functionTitle)
             {
                 case "CustomerLeadType":
@@ -84,11 +78,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
             }
 
+            if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+            {
+                this.Size = new Size(614, 330);
+                createMasterDataEnhancedStatusStrip.Visible = false;
+                createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Visible = false;
+            }
+            else
+            {
+                LoadActiveCompanyConfigurationAsync();
+            }
+
             dataSubjectName = functionTitle;
             createMasterDataEnhancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataEnhancedMasterDataTypeTextboxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Text = $"{dataSubjectFriendlyName} Description*";
-            createMasterDataEnhancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
+            createMasterDataEnhancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}*";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }
 
@@ -104,27 +109,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Company Configuration Id",
+                    Value = _companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = dataSubjectName,
+                    Name = dataSubjectFriendlyName,
                     Value = dataSubjectValue,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = $"{dataSubjectName}Description",
+                    Name = $"{dataSubjectFriendlyName} Description",
                     Value = dataSubjectDescriptionValue,
                     MaxLength = 255,
                     ValueType = typeof(string)
@@ -133,7 +145,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -141,7 +153,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             else
             {
-                var parameters = new[]
+                var parameters = new List<Parameter>
                 {
                     new Parameter
                     {
@@ -150,21 +162,37 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new Parameter
                     {
-                        ParameterName = $"@{dataSubjectStoredProcedureParameterPrefix}",
+                        ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}",
                         ParameterValue = dataSubjectValue
                     },
                     new Parameter
                     {
-                        ParameterName = $"@{dataSubjectStoredProcedureParameterPrefix}Description",
+                        ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}Description",
                         ParameterValue = dataSubjectDescriptionValue
                     }
                 };
 
+                if(!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = _companyConfigurationId
+                    });
+                }
+
                 string operationType = "create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectStoredProcedureName, parameters, dataSubjectName, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                 this.Close();
             }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

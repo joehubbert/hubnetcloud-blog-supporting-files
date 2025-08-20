@@ -6,17 +6,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateDeliveryMethod : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateDeliveryMethod()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
-            CreateDeliveryMethodLoadTaxProfileAsync();
+            LoadTaxProfileAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createDeliveryMethodTaxProfileComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
@@ -26,43 +27,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void CreateDeliveryMethodLoadTaxProfileAsync()
+        private async void LoadTaxProfileAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Tax Profile";
-
-            try
-            {
-                string storedProcedureName = "spGetAllTaxProfile";
-                DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var taxProfileList = taxProfileData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        TaxProfileId = row.Field<Guid>("Tax Profile Id"),
-                        TaxProfile = row.Field<string>("Tax Profile"),
-                        TaxRate = row.Field<decimal>("Tax Rate"),
-                        DisplayText = $"{row.Field<string>("Tax Profile")} | {row.Field<decimal>("Tax Rate")}"
-                    })
-                    .OrderBy(item => item.TaxProfile)
-                    .ToList();
-                createDeliveryMethodTaxProfileComboBox.DataSource = taxProfileList;
-                createDeliveryMethodTaxProfileComboBox.DisplayMember = "DisplayText";
-                createDeliveryMethodTaxProfileComboBox.ValueMember = "TaxProfileId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createDeliveryMethodTaxProfileComboBox, "spGetAllTaxProfile");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createDeliveryMethodSubmitButton_Click(object sender, EventArgs e)
@@ -81,41 +54,41 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryCost",
+                    Name = "Delivery Cost",
                     Value = deliveryCost,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryMethod",
+                    Name = "Delivery Method",
                     Value = deliveryMethod,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryTime",
+                    Name = "Delivery Time",
                     Value = deliveryTime,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TaxProfileId",
+                    Name = "Tax Profile Id",
                     Value = taxProfileId,
                     ValueType = typeof(Guid)
                 }
@@ -123,7 +96,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

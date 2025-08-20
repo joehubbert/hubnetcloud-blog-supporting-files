@@ -44,13 +44,13 @@
             manufacturerDetailTitleLabel = new Label();
             manufacturerDetailTabControl = new TabControl();
             manufacturerDetailTabControlOverviewTabPage = new TabPage();
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox = new ComboBox();
             manufacturerDetailTabControlOverviewTabPageAddressLine2TextboxLabel = new Label();
             manufacturerDetailTabControlOverviewTabPageAddressLine3TextboxLabel = new Label();
             manufacturerDetailTabControlOverviewTabPageAddressLine4TextboxLabel = new Label();
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel = new Label();
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel = new Label();
             manufacturerDetailTabControlOverviewTabPageAddressLine1TextboxLabel = new Label();
             manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox = new TextBox();
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox = new TextBox();
             manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox = new TextBox();
             manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox = new TextBox();
             manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox = new TextBox();
@@ -229,11 +229,12 @@
             // manufacturerDetailTabControlOverviewTabPage
             // 
             manufacturerDetailTabControlOverviewTabPage.BackColor = Color.SkyBlue;
+            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine2TextboxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine3TextboxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine4TextboxLabel);
-            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel);
+            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox);
@@ -242,7 +243,6 @@
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel);
-            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel);
@@ -262,6 +262,15 @@
             manufacturerDetailTabControlOverviewTabPage.Size = new Size(1256, 485);
             manufacturerDetailTabControlOverviewTabPage.TabIndex = 0;
             manufacturerDetailTabControlOverviewTabPage.Text = "Overview";
+            // 
+            // manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox
+            // 
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Location = new Point(818, 210);
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Name = "manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox";
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Size = new Size(370, 28);
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.TabIndex = 10;
             // 
             // manufacturerDetailTabControlOverviewTabPageAddressLine2TextboxLabel
             // 
@@ -293,15 +302,15 @@
             manufacturerDetailTabControlOverviewTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             manufacturerDetailTabControlOverviewTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel
+            // manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel
             // 
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.AutoSize = true;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Location = new Point(703, 213);
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Name = "manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel";
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.TabIndex = 54;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Location = new Point(703, 213);
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Name = "manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel";
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.TabIndex = 54;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailTabControlOverviewTabPageAddressLine1TextboxLabel
             // 
@@ -321,15 +330,6 @@
             manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = true;
             manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.Size = new Size(370, 27);
             manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 9;
-            // 
-            // manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox
-            // 
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.Location = new Point(818, 210);
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.MaxLength = 50;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.Name = "manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox";
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly = true;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.Size = new Size(370, 27);
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.TabIndex = 10;
             // 
             // manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox
             // 
@@ -505,10 +505,9 @@
         private Label manufacturerDetailTabControlOverviewTabPageAddressLine2TextboxLabel;
         private Label manufacturerDetailTabControlOverviewTabPageAddressLine3TextboxLabel;
         private Label manufacturerDetailTabControlOverviewTabPageAddressLine4TextboxLabel;
-        private Label manufacturerDetailTabControlOverviewTabPageAddressLine5TextboxLabel;
+        private Label manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel;
         private Label manufacturerDetailTabControlOverviewTabPageAddressLine1TextboxLabel;
         private TextBox manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox;
-        private TextBox manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox;
         private TextBox manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox;
         private TextBox manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox;
         private TextBox manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox;
@@ -522,5 +521,6 @@
         private Label manufacturerDetailTabControlFinanceTabPageVATNumberTextboxLabel;
         private TextBox manufacturerDetailTabControlFinanceTabPageVATNumberTextbox;
         private CheckBox manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox;
+        private ComboBox manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox;
     }
 }

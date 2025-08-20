@@ -31,27 +31,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CountryEnglishName",
+                    Name = "Country English Name",
                     Value = countryEnglishName,
                     MaxLength = 100,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ISO31661A2CountryCode",
+                    Name = "ISO 3166-1 Alpha 2 Country Code",
                     Value = iso31661A2CountryCode,
                     MaxLength = 2,
                     ValueType = typeof(string)
@@ -60,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

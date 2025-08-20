@@ -76,19 +76,19 @@
             countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.AutoSize = true;
             countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Location = new Point(70, 221);
             countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Name = "countryTranslationDetailBCP47LanguageTagCodeTextboxLabel";
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Size = new Size(186, 20);
+            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Size = new Size(192, 20);
             countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.TabIndex = 9;
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code";
+            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code*";
             countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryTranslationDetailLocalisedCountryNameTextboxLabel
             // 
             countryTranslationDetailLocalisedCountryNameTextboxLabel.AutoSize = true;
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Location = new Point(85, 265);
+            countryTranslationDetailLocalisedCountryNameTextboxLabel.Location = new Point(85, 261);
             countryTranslationDetailLocalisedCountryNameTextboxLabel.Name = "countryTranslationDetailLocalisedCountryNameTextboxLabel";
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Size = new Size(170, 20);
+            countryTranslationDetailLocalisedCountryNameTextboxLabel.Size = new Size(176, 20);
             countryTranslationDetailLocalisedCountryNameTextboxLabel.TabIndex = 10;
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Text = "Localised Country Name";
+            countryTranslationDetailLocalisedCountryNameTextboxLabel.Text = "Localised Country Name*";
             countryTranslationDetailLocalisedCountryNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryTranslationDetailCreatedByTextboxLabel
@@ -214,9 +214,9 @@
             countryTranslationDetailActiveStatusCheckbox.Location = new Point(261, 304);
             countryTranslationDetailActiveStatusCheckbox.Margin = new Padding(4);
             countryTranslationDetailActiveStatusCheckbox.Name = "countryTranslationDetailActiveStatusCheckbox";
-            countryTranslationDetailActiveStatusCheckbox.Size = new Size(200, 24);
+            countryTranslationDetailActiveStatusCheckbox.Size = new Size(206, 24);
             countryTranslationDetailActiveStatusCheckbox.TabIndex = 4;
-            countryTranslationDetailActiveStatusCheckbox.Text = "Active Country Translation";
+            countryTranslationDetailActiveStatusCheckbox.Text = "Active Country Translation*";
             countryTranslationDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // countryTranslationDetailUpdateCountryTranslationButton
@@ -238,9 +238,9 @@
             countryTranslationDetailCountryComboBoxLabel.AutoSize = true;
             countryTranslationDetailCountryComboBoxLabel.Location = new Point(100, 181);
             countryTranslationDetailCountryComboBoxLabel.Name = "countryTranslationDetailCountryComboBoxLabel";
-            countryTranslationDetailCountryComboBoxLabel.Size = new Size(155, 20);
+            countryTranslationDetailCountryComboBoxLabel.Size = new Size(161, 20);
             countryTranslationDetailCountryComboBoxLabel.TabIndex = 17;
-            countryTranslationDetailCountryComboBoxLabel.Text = "Country English Name";
+            countryTranslationDetailCountryComboBoxLabel.Text = "Country English Name*";
             countryTranslationDetailCountryComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryTranslationDetailCountryComboBox

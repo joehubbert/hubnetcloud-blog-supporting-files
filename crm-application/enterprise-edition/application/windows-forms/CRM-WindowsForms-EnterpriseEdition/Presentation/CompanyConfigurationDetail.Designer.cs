@@ -301,16 +301,14 @@
             // companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox
             // 
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.AutoSize = true;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked = true;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.CheckState = CheckState.Checked;
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Enabled = false;
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Location = new Point(231, 335);
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Margin = new Padding(5);
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox";
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Size = new Size(231, 24);
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Size = new Size(237, 24);
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.TabIndex = 6;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Text = "Active Company Configuration";
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Text = "Active Company Configuration*";
             companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextboxLabel
@@ -492,9 +490,9 @@
             companyConfigurationDetailTabControlCompanyLogoTabPage.Controls.Add(companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBox);
             companyConfigurationDetailTabControlCompanyLogoTabPage.Controls.Add(companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBoxLabel);
             companyConfigurationDetailTabControlCompanyLogoTabPage.Controls.Add(companyConfigurationDetailTabControlCompanyLogoTabPageChooseCompanyLogoImageButton);
-            companyConfigurationDetailTabControlCompanyLogoTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlCompanyLogoTabPage.Location = new Point(4, 27);
             companyConfigurationDetailTabControlCompanyLogoTabPage.Name = "companyConfigurationDetailTabControlCompanyLogoTabPage";
-            companyConfigurationDetailTabControlCompanyLogoTabPage.Size = new Size(1144, 455);
+            companyConfigurationDetailTabControlCompanyLogoTabPage.Size = new Size(1144, 460);
             companyConfigurationDetailTabControlCompanyLogoTabPage.TabIndex = 2;
             companyConfigurationDetailTabControlCompanyLogoTabPage.Text = "Company Logo";
             // 
@@ -554,10 +552,10 @@
             companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextboxLabel);
             companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATNumberTextbox);
             companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageVATRegisteredCheckbox);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 27);
             companyConfigurationDetailTabControlFinancialInformationTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPage";
             companyConfigurationDetailTabControlFinancialInformationTabPage.Padding = new Padding(3);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 455);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 460);
             companyConfigurationDetailTabControlFinancialInformationTabPage.TabIndex = 1;
             companyConfigurationDetailTabControlFinancialInformationTabPage.Text = "Financial Information";
             // 
@@ -971,9 +969,9 @@
             companyConfigurationDetailTabControlHTMLTemplateTabPage.Controls.Add(companyConfigurationDetailTabControlHTMLTemplateTabPageRefreshDataButton);
             companyConfigurationDetailTabControlHTMLTemplateTabPage.Controls.Add(companyConfigurationDetailTabControlHTMLTemplateTabPageCreateHTMLTemplateButton);
             companyConfigurationDetailTabControlHTMLTemplateTabPage.Controls.Add(companyConfigurationDetailTabControlHTMLTemplateTabPageDataGridView);
-            companyConfigurationDetailTabControlHTMLTemplateTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlHTMLTemplateTabPage.Location = new Point(4, 27);
             companyConfigurationDetailTabControlHTMLTemplateTabPage.Name = "companyConfigurationDetailTabControlHTMLTemplateTabPage";
-            companyConfigurationDetailTabControlHTMLTemplateTabPage.Size = new Size(1144, 455);
+            companyConfigurationDetailTabControlHTMLTemplateTabPage.Size = new Size(1144, 460);
             companyConfigurationDetailTabControlHTMLTemplateTabPage.TabIndex = 3;
             companyConfigurationDetailTabControlHTMLTemplateTabPage.Text = "HTML Templates";
             // 

@@ -35,10 +35,9 @@
             createSupplierTabControlOverviewTabPageAddressLine2TextboxLabel = new Label();
             createSupplierTabControlOverviewTabPageAddressLine3TextboxLabel = new Label();
             createSupplierTabControlOverviewTabPageAddressLine4TextboxLabel = new Label();
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel = new Label();
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel = new Label();
             createSupplierTabControlOverviewTabPageAddressLine1TextboxLabel = new Label();
             createSupplierTabControlOverviewTabPageAddressLine4Textbox = new TextBox();
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox = new TextBox();
             createSupplierTabControlOverviewTabPageAddressLine3Textbox = new TextBox();
             createSupplierTabControlOverviewTabPageAddressLine2Textbox = new TextBox();
             createSupplierTabControlOverviewTabPageAddressLine1Textbox = new TextBox();
@@ -61,6 +60,7 @@
             createSupplierStatusStrip = new StatusStrip();
             createSupplierStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox = new ComboBox();
             createSupplierTabControl.SuspendLayout();
             createSupplierTabControlOverviewTabPage.SuspendLayout();
             createSupplierTabControlFinanceTabPage.SuspendLayout();
@@ -92,13 +92,13 @@
             // createSupplierTabControlOverviewTabPage
             // 
             createSupplierTabControlOverviewTabPage.BackColor = Color.MediumAquamarine;
+            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine5ComboBox);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine2TextboxLabel);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine3TextboxLabel);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine4TextboxLabel);
-            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel);
+            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine1TextboxLabel);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine4Textbox);
-            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine5Textbox);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine3Textbox);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine2Textbox);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageAddressLine1Textbox);
@@ -146,15 +146,15 @@
             createSupplierTabControlOverviewTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             createSupplierTabControlOverviewTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel
+            // createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel
             // 
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.AutoSize = true;
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.Location = new Point(519, 211);
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.Name = "createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel";
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.TabIndex = 54;
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.Location = new Point(519, 211);
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.Name = "createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel";
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.TabIndex = 54;
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createSupplierTabControlOverviewTabPageAddressLine1TextboxLabel
             // 
@@ -173,14 +173,6 @@
             createSupplierTabControlOverviewTabPageAddressLine4Textbox.Name = "createSupplierTabControlOverviewTabPageAddressLine4Textbox";
             createSupplierTabControlOverviewTabPageAddressLine4Textbox.Size = new Size(336, 27);
             createSupplierTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 8;
-            // 
-            // createSupplierTabControlOverviewTabPageAddressLine5Textbox
-            // 
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox.Location = new Point(636, 208);
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox.MaxLength = 50;
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox.Name = "createSupplierTabControlOverviewTabPageAddressLine5Textbox";
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox.Size = new Size(336, 27);
-            createSupplierTabControlOverviewTabPageAddressLine5Textbox.TabIndex = 9;
             // 
             // createSupplierTabControlOverviewTabPageAddressLine3Textbox
             // 
@@ -400,6 +392,15 @@
             changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
             changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
+            // createSupplierTabControlOverviewTabPageAddressLine5ComboBox
+            // 
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.Location = new Point(636, 208);
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.Name = "createSupplierTabControlOverviewTabPageAddressLine5ComboBox";
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.Size = new Size(336, 28);
+            createSupplierTabControlOverviewTabPageAddressLine5ComboBox.TabIndex = 9;
+            // 
             // CreateSupplier
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -452,15 +453,15 @@
         private Label createSupplierTabControlOverviewTabPageAddressLine2TextboxLabel;
         private Label createSupplierTabControlOverviewTabPageAddressLine3TextboxLabel;
         private Label createSupplierTabControlOverviewTabPageAddressLine4TextboxLabel;
-        private Label createSupplierTabControlOverviewTabPageAddressLine5TextboxLabel;
+        private Label createSupplierTabControlOverviewTabPageAddressLine5ComboBoxLabel;
         private Label createSupplierTabControlOverviewTabPageAddressLine1TextboxLabel;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine4Textbox;
-        private TextBox createSupplierTabControlOverviewTabPageAddressLine5Textbox;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine3Textbox;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine2Textbox;
         private TextBox createSupplierTabControlOverviewTabPageAddressLine1Textbox;
         private StatusStrip createSupplierStatusStrip;
         private ToolStripSplitButton createSupplierStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
+        private ComboBox createSupplierTabControlOverviewTabPageAddressLine5ComboBox;
     }
 }

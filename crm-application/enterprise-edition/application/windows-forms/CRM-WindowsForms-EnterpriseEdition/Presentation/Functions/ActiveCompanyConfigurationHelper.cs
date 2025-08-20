@@ -5,6 +5,7 @@
         private ToolStripSplitButton _placeholderControl;
         private Guid _companyConfigurationId;
         private string _companyName;
+        public Guid CompanyConfigurationId => _companyConfigurationId;
 
         public ActiveCompanyConfigurationHelper(ToolStripSplitButton placeholderControl)
         {

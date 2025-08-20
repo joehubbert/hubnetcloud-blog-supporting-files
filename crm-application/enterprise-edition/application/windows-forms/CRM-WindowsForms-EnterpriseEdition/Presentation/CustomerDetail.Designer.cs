@@ -31,8 +31,10 @@
             customerDetailTitleLabel = new Label();
             customerDetailTabControl = new TabControl();
             customerDetailTabControlOverviewTabPage = new TabPage();
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel = new Label();
             customerDetailTabControlOverviewTabPageCustomerIdTextbox = new TextBox();
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel = new Label();
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox = new ComboBox();
             customerDetailTabControlOverviewTabPageCreatedTimestampTextbox = new TextBox();
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox = new TextBox();
             customerDetailTabControlOverviewTabPageCreatedByTextbox = new TextBox();
@@ -84,18 +86,18 @@
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker = new DateTimePicker();
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
             customerDetailTabControlBillingInformationTabPage = new TabPage();
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox = new ComboBox();
             customerDetailTabControlBillingInformationTabPageEmailAddressTextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageAddressLine2TextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageAddressLine3TextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageAddressLine4TextboxLabel = new Label();
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel = new Label();
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageAddressLine1TextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageCompanyNameTextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageLastNameTextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageFirstNameTextboxLabel = new Label();
             customerDetailTabControlBillingInformationTabPageAddressLine4Textbox = new TextBox();
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox = new TextBox();
             customerDetailTabControlBillingInformationTabPageEmailAddressTextbox = new TextBox();
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox = new TextBox();
             customerDetailTabControlBillingInformationTabPageAddressLine3Textbox = new TextBox();
@@ -105,18 +107,18 @@
             customerDetailTabControlBillingInformationTabPageLastNameTextbox = new TextBox();
             customerDetailTabControlBillingInformationTabPageFirstNameTextbox = new TextBox();
             customerDetailTabControlShippingInformationTabPage = new TabPage();
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox = new ComboBox();
             customerDetailTabControlShippingInformationTabPageEmailAddressTextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageTelephoneNumberTextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageAddressLine2TextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageAddressLine3TextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageAddressLine4TextboxLabel = new Label();
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel = new Label();
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageAddressLine1TextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageCompanyNameTextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageLastNameTextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageFirstNameTextboxLabel = new Label();
             customerDetailTabControlShippingInformationTabPageAddressLine4Textbox = new TextBox();
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox = new TextBox();
             customerDetailTabControlShippingInformationTabPageEmailAddressTextbox = new TextBox();
             customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox = new TextBox();
             customerDetailTabControlShippingInformationTabPageAddressLine3Textbox = new TextBox();
@@ -147,14 +149,20 @@
             customerDetailTabControlFinanceTabPageCreditLimitTextboxA = new TextBox();
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox = new CheckBox();
             customerDetailTabControlCustomerContactTabPage = new TabPage();
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel = new Label();
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextbox = new TextBox();
             customerDetailTabControlCustomerContactTabPageRefreshDataButton = new Button();
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton = new Button();
             customerDetailTabControlCustomerContactTabPageDataGridView = new DataGridView();
             customerDetailTabControlCustomerLeadTabPage = new TabPage();
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel = new Label();
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox = new TextBox();
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton = new Button();
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton = new Button();
             customerDetailTabControlCustomerLeadTabPageDataGridView = new DataGridView();
             customerDetailTabControlCustomerNoteTabPage = new TabPage();
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel = new Label();
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox = new TextBox();
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton = new Button();
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton = new Button();
             customerDetailTabControlCustomerNoteTabPageDataGridView = new DataGridView();
@@ -207,8 +215,10 @@
             // customerDetailTabControlOverviewTabPage
             // 
             customerDetailTabControlOverviewTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCustomerIdTextbox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel);
+            customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCreatedTimestampTextbox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCreatedByTextbox);
@@ -258,9 +268,19 @@
             customerDetailTabControlOverviewTabPage.TabIndex = 0;
             customerDetailTabControlOverviewTabPage.Text = "Overview";
             // 
+            // customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel
+            // 
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.AutoSize = true;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.Location = new Point(20, 675);
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel";
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.TabIndex = 66;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
             // customerDetailTabControlOverviewTabPageCustomerIdTextbox
             // 
-            customerDetailTabControlOverviewTabPageCustomerIdTextbox.Location = new Point(168, 20);
+            customerDetailTabControlOverviewTabPageCustomerIdTextbox.Location = new Point(199, 23);
             customerDetailTabControlOverviewTabPageCustomerIdTextbox.MaxLength = 10;
             customerDetailTabControlOverviewTabPageCustomerIdTextbox.Name = "customerDetailTabControlOverviewTabPageCustomerIdTextbox";
             customerDetailTabControlOverviewTabPageCustomerIdTextbox.ReadOnly = true;
@@ -270,53 +290,63 @@
             // customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.Location = new Point(73, 23);
+            customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.Location = new Point(104, 26);
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.Name = "customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel";
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.Size = new Size(89, 20);
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.TabIndex = 64;
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.Text = "Customer Id";
             customerDetailTabControlOverviewTabPageCustomerIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
+            // customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox
+            // 
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled = false;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.FormattingEnabled = true;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Location = new Point(199, 672);
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Name = "customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox";
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Size = new Size(370, 28);
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.TabIndex = 24;
+            // 
             // customerDetailTabControlOverviewTabPageCreatedTimestampTextbox
             // 
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Location = new Point(677, 585);
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Location = new Point(835, 582);
             customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.MaxLength = 11;
             customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Name = "customerDetailTabControlOverviewTabPageCreatedTimestampTextbox";
             customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly = true;
             customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.TabIndex = 25;
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.TabIndex = 26;
             // 
             // customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox
             // 
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Location = new Point(677, 676);
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Location = new Point(835, 673);
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.MaxLength = 13;
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Name = "customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox";
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.ReadOnly = true;
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.TabIndex = 27;
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.TabIndex = 28;
             // 
             // customerDetailTabControlOverviewTabPageCreatedByTextbox
             // 
-            customerDetailTabControlOverviewTabPageCreatedByTextbox.Location = new Point(677, 540);
+            customerDetailTabControlOverviewTabPageCreatedByTextbox.Location = new Point(835, 537);
             customerDetailTabControlOverviewTabPageCreatedByTextbox.MaxLength = 10;
             customerDetailTabControlOverviewTabPageCreatedByTextbox.Name = "customerDetailTabControlOverviewTabPageCreatedByTextbox";
             customerDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly = true;
             customerDetailTabControlOverviewTabPageCreatedByTextbox.Size = new Size(370, 27);
-            customerDetailTabControlOverviewTabPageCreatedByTextbox.TabIndex = 24;
+            customerDetailTabControlOverviewTabPageCreatedByTextbox.TabIndex = 25;
             // 
             // customerDetailTabControlOverviewTabPageLastUpdatedByTextbox
             // 
-            customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Location = new Point(677, 630);
+            customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Location = new Point(835, 627);
             customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.MaxLength = 12;
             customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Name = "customerDetailTabControlOverviewTabPageLastUpdatedByTextbox";
             customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = true;
             customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.TabIndex = 26;
+            customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.TabIndex = 27;
             // 
             // customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Location = new Point(498, 679);
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Location = new Point(656, 676);
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Name = "customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel";
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.TabIndex = 62;
@@ -326,7 +356,7 @@
             // customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Location = new Point(556, 633);
+            customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Location = new Point(714, 630);
             customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Name = "customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel";
             customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             customerDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.TabIndex = 61;
@@ -336,7 +366,7 @@
             // customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Location = new Point(532, 588);
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Location = new Point(690, 585);
             customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Name = "customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel";
             customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             customerDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.TabIndex = 60;
@@ -346,7 +376,7 @@
             // customerDetailTabControlOverviewTabPageCreatedByTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.Location = new Point(592, 543);
+            customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.Location = new Point(750, 540);
             customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.Name = "customerDetailTabControlOverviewTabPageCreatedByTextboxLabel";
             customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.Size = new Size(81, 20);
             customerDetailTabControlOverviewTabPageCreatedByTextboxLabel.TabIndex = 59;
@@ -356,7 +386,7 @@
             // customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.Location = new Point(53, 241);
+            customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.Location = new Point(84, 244);
             customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.Name = "customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel";
             customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.Size = new Size(109, 20);
             customerDetailTabControlOverviewTabPageEmailAddressTextboxLabel.TabIndex = 52;
@@ -366,7 +396,7 @@
             // customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.Location = new Point(20, 198);
+            customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.Location = new Point(51, 201);
             customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.Name = "customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel";
             customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.Size = new Size(142, 20);
             customerDetailTabControlOverviewTabPageTelephoneNumberTextboxLabel.TabIndex = 51;
@@ -375,7 +405,7 @@
             // 
             // customerDetailTabControlOverviewTabPageEmailAddressTextbox
             // 
-            customerDetailTabControlOverviewTabPageEmailAddressTextbox.Location = new Point(168, 238);
+            customerDetailTabControlOverviewTabPageEmailAddressTextbox.Location = new Point(199, 241);
             customerDetailTabControlOverviewTabPageEmailAddressTextbox.MaxLength = 50;
             customerDetailTabControlOverviewTabPageEmailAddressTextbox.Name = "customerDetailTabControlOverviewTabPageEmailAddressTextbox";
             customerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = true;
@@ -384,7 +414,7 @@
             // 
             // customerDetailTabControlOverviewTabPageTelephoneNumberTextbox
             // 
-            customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Location = new Point(168, 195);
+            customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Location = new Point(199, 198);
             customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.MaxLength = 50;
             customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Name = "customerDetailTabControlOverviewTabPageTelephoneNumberTextbox";
             customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly = true;
@@ -395,7 +425,7 @@
             // 
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Controls.Add(customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton);
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Controls.Add(customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton);
-            customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Location = new Point(541, 260);
+            customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Location = new Point(699, 257);
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Name = "customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel";
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.Size = new Size(278, 33);
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanel.TabIndex = 48;
@@ -425,7 +455,7 @@
             // customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel
             // 
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.Location = new Point(541, 237);
+            customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.Location = new Point(699, 234);
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.Name = "customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel";
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.Size = new Size(207, 20);
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelLabel.TabIndex = 47;
@@ -434,7 +464,7 @@
             // customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.Location = new Point(544, 72);
+            customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.Location = new Point(702, 69);
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel";
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.Size = new Size(129, 20);
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel.TabIndex = 46;
@@ -446,7 +476,7 @@
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Location = new Point(677, 69);
+            customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Location = new Point(835, 66);
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Name = "customerDetailTabControlOverviewTabPageSalesSubRegionComboBox";
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Size = new Size(370, 28);
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.TabIndex = 12;
@@ -455,7 +485,7 @@
             // 
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Controls.Add(customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton);
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Controls.Add(customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton);
-            customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Location = new Point(541, 488);
+            customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Location = new Point(699, 485);
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Name = "customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel";
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.Size = new Size(278, 33);
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel.TabIndex = 44;
@@ -486,7 +516,7 @@
             // 
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Controls.Add(customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Controls.Add(customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton);
-            customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Location = new Point(541, 447);
+            customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Location = new Point(699, 444);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Name = "customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel";
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.Size = new Size(146, 35);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel.TabIndex = 43;
@@ -517,7 +547,7 @@
             // 
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Controls.Add(customerDetailTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Controls.Add(customerDetailTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton);
-            customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Location = new Point(541, 187);
+            customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Location = new Point(699, 184);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Name = "customerDetailTabControlOverviewTabPageExistingParentCompanyPanel";
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.Size = new Size(146, 36);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanel.TabIndex = 42;
@@ -547,7 +577,7 @@
             // customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel
             // 
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.Location = new Point(541, 424);
+            customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.Location = new Point(699, 421);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.Name = "customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel";
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.Size = new Size(377, 20);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelLabel.TabIndex = 39;
@@ -556,7 +586,7 @@
             // customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.Location = new Point(571, 26);
+            customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.Location = new Point(729, 23);
             customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel";
             customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.Size = new Size(100, 20);
             customerDetailTabControlOverviewTabPageSalesRegionComboBoxLabel.TabIndex = 34;
@@ -568,7 +598,7 @@
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageSalesRegionComboBox.Location = new Point(677, 23);
+            customerDetailTabControlOverviewTabPageSalesRegionComboBox.Location = new Point(835, 20);
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.Name = "customerDetailTabControlOverviewTabPageSalesRegionComboBox";
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.Size = new Size(370, 28);
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.TabIndex = 11;
@@ -576,7 +606,7 @@
             // customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.Location = new Point(508, 323);
+            customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.Location = new Point(666, 320);
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel";
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.Size = new Size(165, 20);
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBoxLabel.TabIndex = 32;
@@ -586,7 +616,7 @@
             // customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.Location = new Point(525, 367);
+            customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.Location = new Point(683, 364);
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel";
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.Size = new Size(146, 20);
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBoxLabel.TabIndex = 31;
@@ -596,7 +626,7 @@
             // customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.Location = new Point(541, 120);
+            customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.Location = new Point(699, 117);
             customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel";
             customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.Size = new Size(132, 20);
             customerDetailTabControlOverviewTabPageAccountManagerComboBoxLabel.TabIndex = 30;
@@ -608,7 +638,7 @@
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageAccountManagerComboBox.Location = new Point(677, 117);
+            customerDetailTabControlOverviewTabPageAccountManagerComboBox.Location = new Point(835, 114);
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Name = "customerDetailTabControlOverviewTabPageAccountManagerComboBox";
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Size = new Size(370, 28);
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.TabIndex = 13;
@@ -616,7 +646,7 @@
             // customerDetailTabControlOverviewTabPageFirstNameTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.Location = new Point(76, 69);
+            customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.Location = new Point(107, 72);
             customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.Name = "customerDetailTabControlOverviewTabPageFirstNameTextboxLabel";
             customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.Size = new Size(86, 20);
             customerDetailTabControlOverviewTabPageFirstNameTextboxLabel.TabIndex = 28;
@@ -626,7 +656,7 @@
             // customerDetailTabControlOverviewTabPageLastNameTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageLastNameTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageLastNameTextboxLabel.Location = new Point(77, 112);
+            customerDetailTabControlOverviewTabPageLastNameTextboxLabel.Location = new Point(108, 115);
             customerDetailTabControlOverviewTabPageLastNameTextboxLabel.Name = "customerDetailTabControlOverviewTabPageLastNameTextboxLabel";
             customerDetailTabControlOverviewTabPageLastNameTextboxLabel.Size = new Size(85, 20);
             customerDetailTabControlOverviewTabPageLastNameTextboxLabel.TabIndex = 27;
@@ -636,7 +666,7 @@
             // customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel
             // 
             customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.Location = new Point(40, 155);
+            customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.Location = new Point(71, 158);
             customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.Name = "customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel";
             customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.Size = new Size(122, 20);
             customerDetailTabControlOverviewTabPageCompanyNameTextboxLabel.TabIndex = 26;
@@ -645,7 +675,7 @@
             // 
             // customerDetailTabControlOverviewTabPageLastNameTextbox
             // 
-            customerDetailTabControlOverviewTabPageLastNameTextbox.Location = new Point(168, 109);
+            customerDetailTabControlOverviewTabPageLastNameTextbox.Location = new Point(199, 112);
             customerDetailTabControlOverviewTabPageLastNameTextbox.MaxLength = 50;
             customerDetailTabControlOverviewTabPageLastNameTextbox.Name = "customerDetailTabControlOverviewTabPageLastNameTextbox";
             customerDetailTabControlOverviewTabPageLastNameTextbox.ReadOnly = true;
@@ -654,7 +684,7 @@
             // 
             // customerDetailTabControlOverviewTabPageCompanyNameTextbox
             // 
-            customerDetailTabControlOverviewTabPageCompanyNameTextbox.Location = new Point(168, 152);
+            customerDetailTabControlOverviewTabPageCompanyNameTextbox.Location = new Point(199, 155);
             customerDetailTabControlOverviewTabPageCompanyNameTextbox.MaxLength = 50;
             customerDetailTabControlOverviewTabPageCompanyNameTextbox.Name = "customerDetailTabControlOverviewTabPageCompanyNameTextbox";
             customerDetailTabControlOverviewTabPageCompanyNameTextbox.ReadOnly = true;
@@ -663,7 +693,7 @@
             // 
             // customerDetailTabControlOverviewTabPageFirstNameTextbox
             // 
-            customerDetailTabControlOverviewTabPageFirstNameTextbox.Location = new Point(168, 66);
+            customerDetailTabControlOverviewTabPageFirstNameTextbox.Location = new Point(199, 69);
             customerDetailTabControlOverviewTabPageFirstNameTextbox.MaxLength = 50;
             customerDetailTabControlOverviewTabPageFirstNameTextbox.Name = "customerDetailTabControlOverviewTabPageFirstNameTextbox";
             customerDetailTabControlOverviewTabPageFirstNameTextbox.ReadOnly = true;
@@ -673,7 +703,7 @@
             // customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.Location = new Point(55, 409);
+            customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.Location = new Point(86, 412);
             customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel";
             customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.Size = new Size(107, 20);
             customerDetailTabControlOverviewTabPageCustomerTierComboBoxLabel.TabIndex = 22;
@@ -683,7 +713,7 @@
             // customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel
             // 
             customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.Location = new Point(49, 367);
+            customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.Location = new Point(80, 370);
             customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.Name = "customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel";
             customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.Size = new Size(113, 20);
             customerDetailTabControlOverviewTabPageCustomerTypeComboBoxLabel.TabIndex = 21;
@@ -693,7 +723,7 @@
             // customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel
             // 
             customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.Location = new Point(45, 321);
+            customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.Location = new Point(76, 324);
             customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.Name = "customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel";
             customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.Size = new Size(117, 20);
             customerDetailTabControlOverviewTabPageCustomerSinceDatePickerLabel.TabIndex = 20;
@@ -703,7 +733,7 @@
             // customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel
             // 
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.Location = new Point(541, 164);
+            customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.Location = new Point(699, 161);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.Name = "customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel";
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.Size = new Size(455, 20);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelLabel.TabIndex = 19;
@@ -714,7 +744,7 @@
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageCustomerTierComboBox.Location = new Point(168, 406);
+            customerDetailTabControlOverviewTabPageCustomerTierComboBox.Location = new Point(199, 409);
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.Name = "customerDetailTabControlOverviewTabPageCustomerTierComboBox";
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.Size = new Size(310, 28);
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.TabIndex = 9;
@@ -724,7 +754,7 @@
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Location = new Point(677, 320);
+            customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Location = new Point(835, 317);
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Name = "customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox";
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Size = new Size(370, 28);
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.TabIndex = 18;
@@ -734,7 +764,7 @@
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Location = new Point(677, 364);
+            customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Location = new Point(835, 361);
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Name = "customerDetailTabControlOverviewTabPageTopParentCustomerComboBox";
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Size = new Size(370, 28);
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.TabIndex = 19;
@@ -744,7 +774,7 @@
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Enabled = false;
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.FormattingEnabled = true;
-            customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Location = new Point(168, 362);
+            customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Location = new Point(199, 365);
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Name = "customerDetailTabControlOverviewTabPageCustomerTypeComboBox";
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Size = new Size(310, 28);
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.TabIndex = 8;
@@ -752,7 +782,7 @@
             // customerDetailTabControlOverviewTabPageCustomerSinceDatePicker
             // 
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled = false;
-            customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Location = new Point(168, 316);
+            customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Location = new Point(199, 319);
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Name = "customerDetailTabControlOverviewTabPageCustomerSinceDatePicker";
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Size = new Size(310, 27);
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.TabIndex = 7;
@@ -762,7 +792,7 @@
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(168, 543);
+            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(199, 469);
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "customerDetailTabControlOverviewTabPageActiveStatusCheckbox";
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(142, 24);
@@ -773,18 +803,18 @@
             // customerDetailTabControlBillingInformationTabPage
             // 
             customerDetailTabControlBillingInformationTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageEmailAddressTextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageTelephoneNumberTextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine2TextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine3TextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine4TextboxLabel);
-            customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel);
+            customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine1TextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageCompanyNameTextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageLastNameTextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageFirstNameTextboxLabel);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine4Textbox);
-            customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine5Textbox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageEmailAddressTextbox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageAddressLine3Textbox);
@@ -793,12 +823,22 @@
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageCompanyNameTextbox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageLastNameTextbox);
             customerDetailTabControlBillingInformationTabPage.Controls.Add(customerDetailTabControlBillingInformationTabPageFirstNameTextbox);
-            customerDetailTabControlBillingInformationTabPage.Location = new Point(4, 32);
+            customerDetailTabControlBillingInformationTabPage.Location = new Point(4, 27);
             customerDetailTabControlBillingInformationTabPage.Name = "customerDetailTabControlBillingInformationTabPage";
             customerDetailTabControlBillingInformationTabPage.Padding = new Padding(3);
-            customerDetailTabControlBillingInformationTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlBillingInformationTabPage.Size = new Size(1247, 721);
             customerDetailTabControlBillingInformationTabPage.TabIndex = 1;
             customerDetailTabControlBillingInformationTabPage.Text = "Billing Information";
+            // 
+            // customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox
+            // 
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Enabled = false;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Location = new Point(166, 411);
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox";
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.TabIndex = 36;
             // 
             // customerDetailTabControlBillingInformationTabPageEmailAddressTextboxLabel
             // 
@@ -850,15 +890,15 @@
             customerDetailTabControlBillingInformationTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             customerDetailTabControlBillingInformationTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel
+            // customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel
             // 
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.AutoSize = true;
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.Location = new Point(50, 414);
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.Name = "customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel";
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.TabIndex = 15;
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.Location = new Point(50, 414);
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.Name = "customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel";
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.TabIndex = 15;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerDetailTabControlBillingInformationTabPageAddressLine1TextboxLabel
             // 
@@ -907,16 +947,7 @@
             customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine4Textbox";
             customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.TabIndex = 34;
-            // 
-            // customerDetailTabControlBillingInformationTabPageAddressLine5Textbox
-            // 
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.Location = new Point(167, 411);
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.MaxLength = 50;
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine5Textbox";
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.ReadOnly = true;
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.TabIndex = 35;
+            customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.TabIndex = 35;
             // 
             // customerDetailTabControlBillingInformationTabPageEmailAddressTextbox
             // 
@@ -925,7 +956,7 @@
             customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Name = "customerDetailTabControlBillingInformationTabPageEmailAddressTextbox";
             customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.TabIndex = 37;
+            customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.TabIndex = 38;
             // 
             // customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox
             // 
@@ -934,7 +965,7 @@
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.Name = "customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox";
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.TabIndex = 36;
+            customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.TabIndex = 37;
             // 
             // customerDetailTabControlBillingInformationTabPageAddressLine3Textbox
             // 
@@ -943,7 +974,7 @@
             customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine3Textbox";
             customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.TabIndex = 33;
+            customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.TabIndex = 34;
             // 
             // customerDetailTabControlBillingInformationTabPageAddressLine2Textbox
             // 
@@ -952,7 +983,7 @@
             customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine2Textbox";
             customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.TabIndex = 32;
+            customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.TabIndex = 33;
             // 
             // customerDetailTabControlBillingInformationTabPageAddressLine1Textbox
             // 
@@ -961,7 +992,7 @@
             customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.Name = "customerDetailTabControlBillingInformationTabPageAddressLine1Textbox";
             customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.TabIndex = 31;
+            customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.TabIndex = 32;
             // 
             // customerDetailTabControlBillingInformationTabPageCompanyNameTextbox
             // 
@@ -970,7 +1001,7 @@
             customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Name = "customerDetailTabControlBillingInformationTabPageCompanyNameTextbox";
             customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.TabIndex = 30;
+            customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.TabIndex = 31;
             // 
             // customerDetailTabControlBillingInformationTabPageLastNameTextbox
             // 
@@ -979,7 +1010,7 @@
             customerDetailTabControlBillingInformationTabPageLastNameTextbox.Name = "customerDetailTabControlBillingInformationTabPageLastNameTextbox";
             customerDetailTabControlBillingInformationTabPageLastNameTextbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageLastNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageLastNameTextbox.TabIndex = 29;
+            customerDetailTabControlBillingInformationTabPageLastNameTextbox.TabIndex = 30;
             // 
             // customerDetailTabControlBillingInformationTabPageFirstNameTextbox
             // 
@@ -988,23 +1019,23 @@
             customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Name = "customerDetailTabControlBillingInformationTabPageFirstNameTextbox";
             customerDetailTabControlBillingInformationTabPageFirstNameTextbox.ReadOnly = true;
             customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlBillingInformationTabPageFirstNameTextbox.TabIndex = 28;
+            customerDetailTabControlBillingInformationTabPageFirstNameTextbox.TabIndex = 29;
             // 
             // customerDetailTabControlShippingInformationTabPage
             // 
             customerDetailTabControlShippingInformationTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageEmailAddressTextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageTelephoneNumberTextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine2TextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine3TextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine4TextboxLabel);
-            customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel);
+            customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine1TextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageCompanyNameTextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageLastNameTextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageFirstNameTextboxLabel);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine4Textbox);
-            customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine5Textbox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageEmailAddressTextbox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageAddressLine3Textbox);
@@ -1013,11 +1044,21 @@
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageCompanyNameTextbox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageLastNameTextbox);
             customerDetailTabControlShippingInformationTabPage.Controls.Add(customerDetailTabControlShippingInformationTabPageFirstNameTextbox);
-            customerDetailTabControlShippingInformationTabPage.Location = new Point(4, 32);
+            customerDetailTabControlShippingInformationTabPage.Location = new Point(4, 27);
             customerDetailTabControlShippingInformationTabPage.Name = "customerDetailTabControlShippingInformationTabPage";
-            customerDetailTabControlShippingInformationTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlShippingInformationTabPage.Size = new Size(1247, 721);
             customerDetailTabControlShippingInformationTabPage.TabIndex = 2;
             customerDetailTabControlShippingInformationTabPage.Text = "Shipping Information";
+            // 
+            // customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox
+            // 
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Enabled = false;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Location = new Point(166, 411);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox";
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.TabIndex = 46;
             // 
             // customerDetailTabControlShippingInformationTabPageEmailAddressTextboxLabel
             // 
@@ -1069,15 +1110,15 @@
             customerDetailTabControlShippingInformationTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             customerDetailTabControlShippingInformationTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel
+            // customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel
             // 
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.AutoSize = true;
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.Location = new Point(50, 414);
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.Name = "customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel";
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.TabIndex = 35;
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.Location = new Point(50, 414);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.Name = "customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel";
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.TabIndex = 35;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerDetailTabControlShippingInformationTabPageAddressLine1TextboxLabel
             // 
@@ -1126,16 +1167,7 @@
             customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine4Textbox";
             customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.TabIndex = 44;
-            // 
-            // customerDetailTabControlShippingInformationTabPageAddressLine5Textbox
-            // 
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.Location = new Point(167, 411);
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.MaxLength = 50;
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine5Textbox";
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.ReadOnly = true;
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.TabIndex = 45;
+            customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.TabIndex = 45;
             // 
             // customerDetailTabControlShippingInformationTabPageEmailAddressTextbox
             // 
@@ -1144,7 +1176,7 @@
             customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Name = "customerDetailTabControlShippingInformationTabPageEmailAddressTextbox";
             customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.TabIndex = 47;
+            customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.TabIndex = 48;
             // 
             // customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox
             // 
@@ -1153,7 +1185,7 @@
             customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.Name = "customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox";
             customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.TabIndex = 46;
+            customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.TabIndex = 47;
             // 
             // customerDetailTabControlShippingInformationTabPageAddressLine3Textbox
             // 
@@ -1162,7 +1194,7 @@
             customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine3Textbox";
             customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.TabIndex = 43;
+            customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.TabIndex = 44;
             // 
             // customerDetailTabControlShippingInformationTabPageAddressLine2Textbox
             // 
@@ -1171,7 +1203,7 @@
             customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine2Textbox";
             customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.TabIndex = 42;
+            customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.TabIndex = 43;
             // 
             // customerDetailTabControlShippingInformationTabPageAddressLine1Textbox
             // 
@@ -1180,7 +1212,7 @@
             customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.Name = "customerDetailTabControlShippingInformationTabPageAddressLine1Textbox";
             customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.TabIndex = 41;
+            customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.TabIndex = 42;
             // 
             // customerDetailTabControlShippingInformationTabPageCompanyNameTextbox
             // 
@@ -1189,7 +1221,7 @@
             customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Name = "customerDetailTabControlShippingInformationTabPageCompanyNameTextbox";
             customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.TabIndex = 40;
+            customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.TabIndex = 41;
             // 
             // customerDetailTabControlShippingInformationTabPageLastNameTextbox
             // 
@@ -1198,7 +1230,7 @@
             customerDetailTabControlShippingInformationTabPageLastNameTextbox.Name = "customerDetailTabControlShippingInformationTabPageLastNameTextbox";
             customerDetailTabControlShippingInformationTabPageLastNameTextbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageLastNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageLastNameTextbox.TabIndex = 39;
+            customerDetailTabControlShippingInformationTabPageLastNameTextbox.TabIndex = 40;
             // 
             // customerDetailTabControlShippingInformationTabPageFirstNameTextbox
             // 
@@ -1207,7 +1239,7 @@
             customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Name = "customerDetailTabControlShippingInformationTabPageFirstNameTextbox";
             customerDetailTabControlShippingInformationTabPageFirstNameTextbox.ReadOnly = true;
             customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Size = new Size(336, 27);
-            customerDetailTabControlShippingInformationTabPageFirstNameTextbox.TabIndex = 38;
+            customerDetailTabControlShippingInformationTabPageFirstNameTextbox.TabIndex = 39;
             // 
             // customerDetailTabControlFinanceTabPage
             // 
@@ -1232,9 +1264,9 @@
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageTextboxB);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextboxA);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditEnabledCheckbox);
-            customerDetailTabControlFinanceTabPage.Location = new Point(4, 32);
+            customerDetailTabControlFinanceTabPage.Location = new Point(4, 27);
             customerDetailTabControlFinanceTabPage.Name = "customerDetailTabControlFinanceTabPage";
-            customerDetailTabControlFinanceTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlFinanceTabPage.Size = new Size(1247, 721);
             customerDetailTabControlFinanceTabPage.TabIndex = 3;
             customerDetailTabControlFinanceTabPage.Text = "Finance";
             // 
@@ -1254,7 +1286,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.Name = "customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB";
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.ReadOnly = true;
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.Size = new Size(38, 27);
-            customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.TabIndex = 54;
+            customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.TabIndex = 55;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA
             // 
@@ -1263,7 +1295,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.Name = "customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA";
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.ReadOnly = true;
             customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.Size = new Size(103, 27);
-            customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.TabIndex = 53;
+            customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.TabIndex = 54;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxLabel
             // 
@@ -1300,7 +1332,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.Name = "customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB";
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.ReadOnly = true;
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.Size = new Size(38, 27);
-            customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.TabIndex = 52;
+            customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.TabIndex = 53;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA
             // 
@@ -1309,7 +1341,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.Name = "customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA";
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.ReadOnly = true;
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.Size = new Size(103, 27);
-            customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.TabIndex = 51;
+            customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.TabIndex = 52;
             // 
             // customerDetailTabControlFinanceTabPageVATNumberTextboxLabel
             // 
@@ -1328,7 +1360,7 @@
             customerDetailTabControlFinanceTabPageVATNumberTextbox.Name = "customerDetailTabControlFinanceTabPageVATNumberTextbox";
             customerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly = true;
             customerDetailTabControlFinanceTabPageVATNumberTextbox.Size = new Size(208, 27);
-            customerDetailTabControlFinanceTabPageVATNumberTextbox.TabIndex = 58;
+            customerDetailTabControlFinanceTabPageVATNumberTextbox.TabIndex = 59;
             // 
             // customerDetailTabControlFinanceTabPageVATRegisteredCheckbox
             // 
@@ -1339,7 +1371,7 @@
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Name = "customerDetailTabControlFinanceTabPageVATRegisteredCheckbox";
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 57;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 58;
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -1380,7 +1412,7 @@
             customerDetailTabControlFinanceTabPagePaymentDaysTextbox.Name = "customerDetailTabControlFinanceTabPagePaymentDaysTextbox";
             customerDetailTabControlFinanceTabPagePaymentDaysTextbox.ReadOnly = true;
             customerDetailTabControlFinanceTabPagePaymentDaysTextbox.Size = new Size(103, 27);
-            customerDetailTabControlFinanceTabPagePaymentDaysTextbox.TabIndex = 56;
+            customerDetailTabControlFinanceTabPagePaymentDaysTextbox.TabIndex = 57;
             // 
             // customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox
             // 
@@ -1390,7 +1422,7 @@
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Location = new Point(172, 187);
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Name = "customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox";
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Size = new Size(208, 28);
-            customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.TabIndex = 55;
+            customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.TabIndex = 56;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitTextboxSeparatorLabel
             // 
@@ -1408,7 +1440,7 @@
             customerDetailTabControlFinanceTabPageTextboxB.Name = "customerDetailTabControlFinanceTabPageTextboxB";
             customerDetailTabControlFinanceTabPageTextboxB.ReadOnly = true;
             customerDetailTabControlFinanceTabPageTextboxB.Size = new Size(38, 27);
-            customerDetailTabControlFinanceTabPageTextboxB.TabIndex = 50;
+            customerDetailTabControlFinanceTabPageTextboxB.TabIndex = 51;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitTextboxA
             // 
@@ -1417,7 +1449,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Name = "customerDetailTabControlFinanceTabPageCreditLimitTextboxA";
             customerDetailTabControlFinanceTabPageCreditLimitTextboxA.ReadOnly = true;
             customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Size = new Size(103, 27);
-            customerDetailTabControlFinanceTabPageCreditLimitTextboxA.TabIndex = 49;
+            customerDetailTabControlFinanceTabPageCreditLimitTextboxA.TabIndex = 50;
             // 
             // customerDetailTabControlFinanceTabPageCreditEnabledCheckbox
             // 
@@ -1428,13 +1460,15 @@
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Margin = new Padding(4);
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Name = "customerDetailTabControlFinanceTabPageCreditEnabledCheckbox";
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Size = new Size(126, 24);
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.TabIndex = 48;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.TabIndex = 49;
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Text = "Credit Enabled";
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.UseVisualStyleBackColor = true;
             // 
             // customerDetailTabControlCustomerContactTabPage
             // 
             customerDetailTabControlCustomerContactTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel);
+            customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageQuickFilterTextbox);
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageRefreshDataButton);
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton);
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageDataGridView);
@@ -1444,6 +1478,22 @@
             customerDetailTabControlCustomerContactTabPage.TabIndex = 5;
             customerDetailTabControlCustomerContactTabPage.Text = "Customer Contacts";
             // 
+            // customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel
+            // 
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.AutoSize = true;
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.Location = new Point(80, 24);
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.Name = "customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel";
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.TabIndex = 69;
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // customerDetailTabControlCustomerContactTabPageQuickFilterTextbox
+            // 
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextbox.Location = new Point(169, 21);
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextbox.Name = "customerDetailTabControlCustomerContactTabPageQuickFilterTextbox";
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            customerDetailTabControlCustomerContactTabPageQuickFilterTextbox.TabIndex = 60;
+            // 
             // customerDetailTabControlCustomerContactTabPageRefreshDataButton
             // 
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.FlatStyle = FlatStyle.Flat;
@@ -1452,7 +1502,7 @@
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.Margin = new Padding(4);
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.Name = "customerDetailTabControlCustomerContactTabPageRefreshDataButton";
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerContactTabPageRefreshDataButton.TabIndex = 60;
+            customerDetailTabControlCustomerContactTabPageRefreshDataButton.TabIndex = 63;
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.Text = "Refresh Data";
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerContactTabPageRefreshDataButton.Click += customerDetailTabControlCustomerContactTabPageRefreshDataButton_Click;
@@ -1465,7 +1515,7 @@
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.Margin = new Padding(4);
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.Name = "customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton";
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.TabIndex = 59;
+            customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.TabIndex = 62;
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.Text = "Create New Customer Contact";
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton.Click += customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton_Click;
@@ -1476,15 +1526,17 @@
             customerDetailTabControlCustomerContactTabPageDataGridView.AllowUserToDeleteRows = false;
             customerDetailTabControlCustomerContactTabPageDataGridView.BackgroundColor = Color.LightGreen;
             customerDetailTabControlCustomerContactTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customerDetailTabControlCustomerContactTabPageDataGridView.Location = new Point(12, 20);
+            customerDetailTabControlCustomerContactTabPageDataGridView.Location = new Point(12, 56);
             customerDetailTabControlCustomerContactTabPageDataGridView.Name = "customerDetailTabControlCustomerContactTabPageDataGridView";
             customerDetailTabControlCustomerContactTabPageDataGridView.ReadOnly = true;
-            customerDetailTabControlCustomerContactTabPageDataGridView.Size = new Size(1059, 677);
-            customerDetailTabControlCustomerContactTabPageDataGridView.TabIndex = 57;
+            customerDetailTabControlCustomerContactTabPageDataGridView.Size = new Size(1059, 641);
+            customerDetailTabControlCustomerContactTabPageDataGridView.TabIndex = 61;
             // 
             // customerDetailTabControlCustomerLeadTabPage
             // 
             customerDetailTabControlCustomerLeadTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel);
+            customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox);
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageRefreshDataButton);
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton);
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageDataGridView);
@@ -1494,6 +1546,22 @@
             customerDetailTabControlCustomerLeadTabPage.TabIndex = 6;
             customerDetailTabControlCustomerLeadTabPage.Text = "Customer Leads";
             // 
+            // customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel
+            // 
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.AutoSize = true;
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.Location = new Point(80, 24);
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.Name = "customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel";
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.TabIndex = 69;
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox
+            // 
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox.Location = new Point(169, 21);
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox.Name = "customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox";
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox.TabIndex = 64;
+            // 
             // customerDetailTabControlCustomerLeadTabPageRefreshDataButton
             // 
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.FlatStyle = FlatStyle.Flat;
@@ -1502,7 +1570,7 @@
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.Margin = new Padding(4);
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.Name = "customerDetailTabControlCustomerLeadTabPageRefreshDataButton";
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerLeadTabPageRefreshDataButton.TabIndex = 62;
+            customerDetailTabControlCustomerLeadTabPageRefreshDataButton.TabIndex = 67;
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.Text = "Refresh Data";
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerLeadTabPageRefreshDataButton.Click += customerDetailTabControlCustomerLeadTabPageRefreshDataButton_Click;
@@ -1515,7 +1583,7 @@
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.Margin = new Padding(4);
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.Name = "customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton";
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.TabIndex = 61;
+            customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.TabIndex = 66;
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.Text = "Create New Customer Lead";
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton.Click += customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton_Click;
@@ -1526,15 +1594,17 @@
             customerDetailTabControlCustomerLeadTabPageDataGridView.AllowUserToDeleteRows = false;
             customerDetailTabControlCustomerLeadTabPageDataGridView.BackgroundColor = Color.LightGreen;
             customerDetailTabControlCustomerLeadTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customerDetailTabControlCustomerLeadTabPageDataGridView.Location = new Point(12, 20);
+            customerDetailTabControlCustomerLeadTabPageDataGridView.Location = new Point(12, 56);
             customerDetailTabControlCustomerLeadTabPageDataGridView.Name = "customerDetailTabControlCustomerLeadTabPageDataGridView";
             customerDetailTabControlCustomerLeadTabPageDataGridView.ReadOnly = true;
-            customerDetailTabControlCustomerLeadTabPageDataGridView.Size = new Size(1059, 677);
-            customerDetailTabControlCustomerLeadTabPageDataGridView.TabIndex = 57;
+            customerDetailTabControlCustomerLeadTabPageDataGridView.Size = new Size(1059, 641);
+            customerDetailTabControlCustomerLeadTabPageDataGridView.TabIndex = 65;
             // 
             // customerDetailTabControlCustomerNoteTabPage
             // 
             customerDetailTabControlCustomerNoteTabPage.BackColor = Color.LightGreen;
+            customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel);
+            customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox);
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageRefreshDataButton);
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton);
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageDataGridView);
@@ -1544,6 +1614,22 @@
             customerDetailTabControlCustomerNoteTabPage.TabIndex = 4;
             customerDetailTabControlCustomerNoteTabPage.Text = "Customer Notes";
             // 
+            // customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel
+            // 
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.AutoSize = true;
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.Location = new Point(80, 24);
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.Name = "customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel";
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.TabIndex = 69;
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox
+            // 
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox.Location = new Point(169, 21);
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox.Name = "customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox";
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox.TabIndex = 68;
+            // 
             // customerDetailTabControlCustomerNoteTabPageRefreshDataButton
             // 
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.FlatStyle = FlatStyle.Flat;
@@ -1552,7 +1638,7 @@
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.Margin = new Padding(4);
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.Name = "customerDetailTabControlCustomerNoteTabPageRefreshDataButton";
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerNoteTabPageRefreshDataButton.TabIndex = 64;
+            customerDetailTabControlCustomerNoteTabPageRefreshDataButton.TabIndex = 71;
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.Text = "Refresh Data";
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerNoteTabPageRefreshDataButton.Click += customerDetailTabControlCustomerNoteTabPageRefreshDataButton_Click;
@@ -1565,7 +1651,7 @@
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.Margin = new Padding(4);
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.Name = "customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton";
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.Size = new Size(151, 70);
-            customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.TabIndex = 63;
+            customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.TabIndex = 70;
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.Text = "Create New Customer Note";
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.UseVisualStyleBackColor = true;
             customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton.Click += customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton_Click;
@@ -1576,11 +1662,11 @@
             customerDetailTabControlCustomerNoteTabPageDataGridView.AllowUserToDeleteRows = false;
             customerDetailTabControlCustomerNoteTabPageDataGridView.BackgroundColor = Color.LightGreen;
             customerDetailTabControlCustomerNoteTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customerDetailTabControlCustomerNoteTabPageDataGridView.Location = new Point(12, 20);
+            customerDetailTabControlCustomerNoteTabPageDataGridView.Location = new Point(12, 56);
             customerDetailTabControlCustomerNoteTabPageDataGridView.Name = "customerDetailTabControlCustomerNoteTabPageDataGridView";
             customerDetailTabControlCustomerNoteTabPageDataGridView.ReadOnly = true;
-            customerDetailTabControlCustomerNoteTabPageDataGridView.Size = new Size(1059, 677);
-            customerDetailTabControlCustomerNoteTabPageDataGridView.TabIndex = 54;
+            customerDetailTabControlCustomerNoteTabPageDataGridView.Size = new Size(1059, 641);
+            customerDetailTabControlCustomerNoteTabPageDataGridView.TabIndex = 69;
             // 
             // customerDetailUpdateCustomerButton
             // 
@@ -1591,7 +1677,7 @@
             customerDetailUpdateCustomerButton.Margin = new Padding(4);
             customerDetailUpdateCustomerButton.Name = "customerDetailUpdateCustomerButton";
             customerDetailUpdateCustomerButton.Size = new Size(198, 63);
-            customerDetailUpdateCustomerButton.TabIndex = 66;
+            customerDetailUpdateCustomerButton.TabIndex = 73;
             customerDetailUpdateCustomerButton.Text = "Update Customer";
             customerDetailUpdateCustomerButton.UseVisualStyleBackColor = true;
             customerDetailUpdateCustomerButton.Click += customerDetailUpdateCustomerButton_Click;
@@ -1604,7 +1690,7 @@
             customerDetailToggleEditModeButton.Margin = new Padding(4);
             customerDetailToggleEditModeButton.Name = "customerDetailToggleEditModeButton";
             customerDetailToggleEditModeButton.Size = new Size(108, 92);
-            customerDetailToggleEditModeButton.TabIndex = 65;
+            customerDetailToggleEditModeButton.TabIndex = 72;
             customerDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             customerDetailToggleEditModeButton.Click += customerDetailToggleEditModeButton_Click;
@@ -1644,10 +1730,13 @@
             customerDetailTabControlFinanceTabPage.ResumeLayout(false);
             customerDetailTabControlFinanceTabPage.PerformLayout();
             customerDetailTabControlCustomerContactTabPage.ResumeLayout(false);
+            customerDetailTabControlCustomerContactTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerDetailTabControlCustomerContactTabPageDataGridView).EndInit();
             customerDetailTabControlCustomerLeadTabPage.ResumeLayout(false);
+            customerDetailTabControlCustomerLeadTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerDetailTabControlCustomerLeadTabPageDataGridView).EndInit();
             customerDetailTabControlCustomerNoteTabPage.ResumeLayout(false);
+            customerDetailTabControlCustomerNoteTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerDetailTabControlCustomerNoteTabPageDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -1673,7 +1762,6 @@
         private TextBox customerDetailTabControlFinanceTabPagePaymentDaysTextbox;
         private ComboBox customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox;
         private TextBox customerDetailTabControlBillingInformationTabPageAddressLine4Textbox;
-        private TextBox customerDetailTabControlBillingInformationTabPageAddressLine5Textbox;
         private TextBox customerDetailTabControlBillingInformationTabPageEmailAddressTextbox;
         private TextBox customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox;
         private TextBox customerDetailTabControlBillingInformationTabPageAddressLine3Textbox;
@@ -1708,7 +1796,7 @@
         private Label customerDetailTabControlBillingInformationTabPageAddressLine2TextboxLabel;
         private Label customerDetailTabControlBillingInformationTabPageAddressLine3TextboxLabel;
         private Label customerDetailTabControlBillingInformationTabPageAddressLine4TextboxLabel;
-        private Label customerDetailTabControlBillingInformationTabPageAddressLine5TextboxLabel;
+        private Label customerDetailTabControlBillingInformationTabPageAddressLine5ComboBoxLabel;
         private Label customerDetailTabControlBillingInformationTabPageAddressLine1TextboxLabel;
         private Label customerDetailTabControlBillingInformationTabPageCompanyNameTextboxLabel;
         private Label customerDetailTabControlBillingInformationTabPageLastNameTextboxLabel;
@@ -1720,13 +1808,12 @@
         private Label customerDetailTabControlShippingInformationTabPageAddressLine2TextboxLabel;
         private Label customerDetailTabControlShippingInformationTabPageAddressLine3TextboxLabel;
         private Label customerDetailTabControlShippingInformationTabPageAddressLine4TextboxLabel;
-        private Label customerDetailTabControlShippingInformationTabPageAddressLine5TextboxLabel;
+        private Label customerDetailTabControlShippingInformationTabPageAddressLine5ComboBoxLabel;
         private Label customerDetailTabControlShippingInformationTabPageAddressLine1TextboxLabel;
         private Label customerDetailTabControlShippingInformationTabPageCompanyNameTextboxLabel;
         private Label customerDetailTabControlShippingInformationTabPageLastNameTextboxLabel;
         private Label customerDetailTabControlShippingInformationTabPageFirstNameTextboxLabel;
         private TextBox customerDetailTabControlShippingInformationTabPageAddressLine4Textbox;
-        private TextBox customerDetailTabControlShippingInformationTabPageAddressLine5Textbox;
         private TextBox customerDetailTabControlShippingInformationTabPageEmailAddressTextbox;
         private TextBox customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox;
         private TextBox customerDetailTabControlShippingInformationTabPageAddressLine3Textbox;
@@ -1787,5 +1874,15 @@
         private Button customerDetailTabControlCustomerLeadTabPageRefreshDataButton;
         private Button customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton;
         private DataGridView customerDetailTabControlCustomerLeadTabPageDataGridView;
+        private ComboBox customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox;
+        private ComboBox customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox;
+        private Label customerDetailTabControlOverviewTabPageCompanyConfigurationComboBoxLabel;
+        private ComboBox customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox;
+        private Label customerDetailTabControlCustomerContactTabPageQuickFilterTextboxLabel;
+        private TextBox customerDetailTabControlCustomerContactTabPageQuickFilterTextbox;
+        private Label customerDetailTabControlCustomerLeadTabPageQuickFilterTextboxLabel;
+        private TextBox customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox;
+        private Label customerDetailTabControlCustomerNoteTabPageQuickFilterTextboxLabel;
+        private TextBox customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox;
     }
 }

@@ -74,9 +74,9 @@
             currencyDetailCurrencyCodeLabel.AutoSize = true;
             currencyDetailCurrencyCodeLabel.Location = new Point(90, 181);
             currencyDetailCurrencyCodeLabel.Name = "currencyDetailCurrencyCodeLabel";
-            currencyDetailCurrencyCodeLabel.Size = new Size(105, 20);
+            currencyDetailCurrencyCodeLabel.Size = new Size(111, 20);
             currencyDetailCurrencyCodeLabel.TabIndex = 9;
-            currencyDetailCurrencyCodeLabel.Text = "Currency Code";
+            currencyDetailCurrencyCodeLabel.Text = "Currency Code*";
             currencyDetailCurrencyCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailCurrencyNameLabel
@@ -84,9 +84,9 @@
             currencyDetailCurrencyNameLabel.AutoSize = true;
             currencyDetailCurrencyNameLabel.Location = new Point(85, 221);
             currencyDetailCurrencyNameLabel.Name = "currencyDetailCurrencyNameLabel";
-            currencyDetailCurrencyNameLabel.Size = new Size(110, 20);
+            currencyDetailCurrencyNameLabel.Size = new Size(116, 20);
             currencyDetailCurrencyNameLabel.TabIndex = 10;
-            currencyDetailCurrencyNameLabel.Text = "Currency Name";
+            currencyDetailCurrencyNameLabel.Text = "Currency Name*";
             currencyDetailCurrencyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailCreatedByTextboxLabel

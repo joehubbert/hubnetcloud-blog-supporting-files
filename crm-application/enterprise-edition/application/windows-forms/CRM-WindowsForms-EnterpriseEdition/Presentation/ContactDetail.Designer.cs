@@ -52,6 +52,9 @@
             contactDetailActiveStatusCheckbox = new CheckBox();
             contactDetailEmailAddressTextboxLabel = new Label();
             contactDetailEmailAddressTextbox = new TextBox();
+            contactDetailStatusStrip = new StatusStrip();
+            contactDetailStatusStripDataSubjectPlaceholder = new ToolStripStatusLabel();
+            contactDetailStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // contactDetailTitleLabel
@@ -122,7 +125,7 @@
             contactDetailLastUpdatedByTextbox.Name = "contactDetailLastUpdatedByTextbox";
             contactDetailLastUpdatedByTextbox.ReadOnly = true;
             contactDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            contactDetailLastUpdatedByTextbox.TabIndex = 6;
+            contactDetailLastUpdatedByTextbox.TabIndex = 8;
             // 
             // contactDetailCreatedByTextbox
             // 
@@ -131,7 +134,7 @@
             contactDetailCreatedByTextbox.Name = "contactDetailCreatedByTextbox";
             contactDetailCreatedByTextbox.ReadOnly = true;
             contactDetailCreatedByTextbox.Size = new Size(370, 27);
-            contactDetailCreatedByTextbox.TabIndex = 4;
+            contactDetailCreatedByTextbox.TabIndex = 6;
             // 
             // contactDetailLastUpdatedTimestampTextbox
             // 
@@ -140,7 +143,7 @@
             contactDetailLastUpdatedTimestampTextbox.Name = "contactDetailLastUpdatedTimestampTextbox";
             contactDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             contactDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            contactDetailLastUpdatedTimestampTextbox.TabIndex = 7;
+            contactDetailLastUpdatedTimestampTextbox.TabIndex = 9;
             // 
             // contactDetailCreatedTimestampTextbox
             // 
@@ -149,7 +152,7 @@
             contactDetailCreatedTimestampTextbox.Name = "contactDetailCreatedTimestampTextbox";
             contactDetailCreatedTimestampTextbox.ReadOnly = true;
             contactDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            contactDetailCreatedTimestampTextbox.TabIndex = 5;
+            contactDetailCreatedTimestampTextbox.TabIndex = 7;
             // 
             // contactDetailContactIdTextbox
             // 
@@ -168,7 +171,7 @@
             contactDetailToggleEditModeButton.Margin = new Padding(4);
             contactDetailToggleEditModeButton.Name = "contactDetailToggleEditModeButton";
             contactDetailToggleEditModeButton.Size = new Size(108, 92);
-            contactDetailToggleEditModeButton.TabIndex = 8;
+            contactDetailToggleEditModeButton.TabIndex = 10;
             contactDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             contactDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             contactDetailToggleEditModeButton.Click += contactDetailToggleEditModeButton_Click;
@@ -182,7 +185,7 @@
             contactDetailUpdateContactButton.Margin = new Padding(4);
             contactDetailUpdateContactButton.Name = "contactDetailUpdateContactButton";
             contactDetailUpdateContactButton.Size = new Size(185, 70);
-            contactDetailUpdateContactButton.TabIndex = 9;
+            contactDetailUpdateContactButton.TabIndex = 11;
             contactDetailUpdateContactButton.Text = "Update {Contact Type Placeholder}";
             contactDetailUpdateContactButton.UseVisualStyleBackColor = true;
             contactDetailUpdateContactButton.Click += contactDetailUpdateContactButton_Click;
@@ -204,7 +207,7 @@
             contactDetailRoleTextbox.Name = "contactDetailRoleTextbox";
             contactDetailRoleTextbox.ReadOnly = true;
             contactDetailRoleTextbox.Size = new Size(469, 27);
-            contactDetailRoleTextbox.TabIndex = 32;
+            contactDetailRoleTextbox.TabIndex = 5;
             // 
             // contactDetailTelephoneNumberTextboxLabel
             // 
@@ -223,7 +226,7 @@
             contactDetailTelephoneNumberTextbox.Name = "contactDetailTelephoneNumberTextbox";
             contactDetailTelephoneNumberTextbox.ReadOnly = true;
             contactDetailTelephoneNumberTextbox.Size = new Size(469, 27);
-            contactDetailTelephoneNumberTextbox.TabIndex = 30;
+            contactDetailTelephoneNumberTextbox.TabIndex = 4;
             // 
             // contactDetailLastNameTextboxLabel
             // 
@@ -242,7 +245,7 @@
             contactDetailLastNameTextbox.Name = "contactDetailLastNameTextbox";
             contactDetailLastNameTextbox.ReadOnly = true;
             contactDetailLastNameTextbox.Size = new Size(469, 27);
-            contactDetailLastNameTextbox.TabIndex = 28;
+            contactDetailLastNameTextbox.TabIndex = 2;
             // 
             // contactDetailFirstNameTextboxLabel
             // 
@@ -261,7 +264,7 @@
             contactDetailFirstNameTextbox.Name = "contactDetailFirstNameTextbox";
             contactDetailFirstNameTextbox.ReadOnly = true;
             contactDetailFirstNameTextbox.Size = new Size(469, 27);
-            contactDetailFirstNameTextbox.TabIndex = 26;
+            contactDetailFirstNameTextbox.TabIndex = 1;
             // 
             // contactDetailActiveStatusCheckbox
             // 
@@ -294,7 +297,22 @@
             contactDetailEmailAddressTextbox.Name = "contactDetailEmailAddressTextbox";
             contactDetailEmailAddressTextbox.ReadOnly = true;
             contactDetailEmailAddressTextbox.Size = new Size(469, 27);
-            contactDetailEmailAddressTextbox.TabIndex = 23;
+            contactDetailEmailAddressTextbox.TabIndex = 3;
+            // 
+            // contactDetailStatusStrip
+            // 
+            contactDetailStatusStrip.Items.AddRange(new ToolStripItem[] { contactDetailStatusStripDataSubjectPlaceholder });
+            contactDetailStatusStrip.Location = new Point(0, 518);
+            contactDetailStatusStrip.Name = "contactDetailStatusStrip";
+            contactDetailStatusStrip.Size = new Size(1438, 22);
+            contactDetailStatusStrip.TabIndex = 12;
+            contactDetailStatusStrip.Text = "Contact Detail Status Strip";
+            // 
+            // contactDetailStatusStripDataSubjectPlaceholder
+            // 
+            contactDetailStatusStripDataSubjectPlaceholder.Name = "contactDetailStatusStripDataSubjectPlaceholder";
+            contactDetailStatusStripDataSubjectPlaceholder.Size = new Size(146, 17);
+            contactDetailStatusStripDataSubjectPlaceholder.Text = "{Data Subject Placeholder}";
             // 
             // ContactDetail
             // 
@@ -302,6 +320,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1438, 540);
+            Controls.Add(contactDetailStatusStrip);
             Controls.Add(contactDetailRoleTextboxLabel);
             Controls.Add(contactDetailRoleTextbox);
             Controls.Add(contactDetailTelephoneNumberTextboxLabel);
@@ -333,6 +352,8 @@
             Name = "ContactDetail";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ContactDetail";
+            contactDetailStatusStrip.ResumeLayout(false);
+            contactDetailStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -363,5 +384,7 @@
         private CheckBox contactDetailActiveStatusCheckbox;
         private Label contactDetailEmailAddressTextboxLabel;
         private TextBox contactDetailEmailAddressTextbox;
+        private StatusStrip contactDetailStatusStrip;
+        private ToolStripStatusLabel contactDetailStatusStripDataSubjectPlaceholder;
     }
 }

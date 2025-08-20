@@ -86,7 +86,7 @@
             // 
             // viewAllDataQuickFilterTextbox
             // 
-            viewAllDataQuickFilterTextbox.Location = new Point(104, 75);
+            viewAllDataQuickFilterTextbox.Location = new Point(150, 75);
             viewAllDataQuickFilterTextbox.Name = "viewAllDataQuickFilterTextbox";
             viewAllDataQuickFilterTextbox.Size = new Size(843, 27);
             viewAllDataQuickFilterTextbox.TabIndex = 0;
@@ -94,7 +94,7 @@
             // viewAllDataQuickFilterTextboxLabel
             // 
             viewAllDataQuickFilterTextboxLabel.AutoSize = true;
-            viewAllDataQuickFilterTextboxLabel.Location = new Point(15, 78);
+            viewAllDataQuickFilterTextboxLabel.Location = new Point(61, 78);
             viewAllDataQuickFilterTextboxLabel.Name = "viewAllDataQuickFilterTextboxLabel";
             viewAllDataQuickFilterTextboxLabel.Size = new Size(83, 20);
             viewAllDataQuickFilterTextboxLabel.TabIndex = 16;

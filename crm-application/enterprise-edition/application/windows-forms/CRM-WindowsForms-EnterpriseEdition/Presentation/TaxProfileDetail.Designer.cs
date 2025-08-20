@@ -64,7 +64,7 @@
             // taxProfileDetailTaxProfileIdLabel
             // 
             taxProfileDetailTaxProfileIdLabel.AutoSize = true;
-            taxProfileDetailTaxProfileIdLabel.Location = new Point(101, 141);
+            taxProfileDetailTaxProfileIdLabel.Location = new Point(112, 142);
             taxProfileDetailTaxProfileIdLabel.Name = "taxProfileDetailTaxProfileIdLabel";
             taxProfileDetailTaxProfileIdLabel.Size = new Size(94, 20);
             taxProfileDetailTaxProfileIdLabel.TabIndex = 8;
@@ -74,21 +74,21 @@
             // taxProfileDetailTaxProfileLabel
             // 
             taxProfileDetailTaxProfileLabel.AutoSize = true;
-            taxProfileDetailTaxProfileLabel.Location = new Point(118, 181);
+            taxProfileDetailTaxProfileLabel.Location = new Point(131, 181);
             taxProfileDetailTaxProfileLabel.Name = "taxProfileDetailTaxProfileLabel";
-            taxProfileDetailTaxProfileLabel.Size = new Size(77, 20);
+            taxProfileDetailTaxProfileLabel.Size = new Size(83, 20);
             taxProfileDetailTaxProfileLabel.TabIndex = 9;
-            taxProfileDetailTaxProfileLabel.Text = "Tax Profile";
+            taxProfileDetailTaxProfileLabel.Text = "Tax Profile*";
             taxProfileDetailTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailTaxRateLabel
             // 
             taxProfileDetailTaxRateLabel.AutoSize = true;
-            taxProfileDetailTaxRateLabel.Location = new Point(131, 224);
+            taxProfileDetailTaxRateLabel.Location = new Point(144, 224);
             taxProfileDetailTaxRateLabel.Name = "taxProfileDetailTaxRateLabel";
-            taxProfileDetailTaxRateLabel.Size = new Size(64, 20);
+            taxProfileDetailTaxRateLabel.Size = new Size(70, 20);
             taxProfileDetailTaxRateLabel.TabIndex = 10;
-            taxProfileDetailTaxRateLabel.Text = "Tax Rate";
+            taxProfileDetailTaxRateLabel.Text = "Tax Rate*";
             taxProfileDetailTaxRateLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // taxProfileDetailCreatedByTextboxLabel
@@ -214,9 +214,9 @@
             taxProfileDetailActiveStatusCheckbox.Location = new Point(212, 292);
             taxProfileDetailActiveStatusCheckbox.Margin = new Padding(4);
             taxProfileDetailActiveStatusCheckbox.Name = "taxProfileDetailActiveStatusCheckbox";
-            taxProfileDetailActiveStatusCheckbox.Size = new Size(141, 24);
+            taxProfileDetailActiveStatusCheckbox.Size = new Size(147, 24);
             taxProfileDetailActiveStatusCheckbox.TabIndex = 4;
-            taxProfileDetailActiveStatusCheckbox.Text = "Active Tax Profile";
+            taxProfileDetailActiveStatusCheckbox.Text = "Active Tax Profile*";
             taxProfileDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // taxProfileDetailUpdateTaxProfileButton

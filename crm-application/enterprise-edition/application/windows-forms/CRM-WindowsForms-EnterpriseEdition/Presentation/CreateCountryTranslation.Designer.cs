@@ -60,9 +60,9 @@
             createCountryTranslationActiveStatusCheckbox.Location = new Point(198, 193);
             createCountryTranslationActiveStatusCheckbox.Margin = new Padding(5);
             createCountryTranslationActiveStatusCheckbox.Name = "createCountryTranslationActiveStatusCheckbox";
-            createCountryTranslationActiveStatusCheckbox.Size = new Size(200, 24);
+            createCountryTranslationActiveStatusCheckbox.Size = new Size(206, 24);
             createCountryTranslationActiveStatusCheckbox.TabIndex = 3;
-            createCountryTranslationActiveStatusCheckbox.Text = "Active Country Translation";
+            createCountryTranslationActiveStatusCheckbox.Text = "Active Country Translation*";
             createCountryTranslationActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCountryTranslationTitleLabel

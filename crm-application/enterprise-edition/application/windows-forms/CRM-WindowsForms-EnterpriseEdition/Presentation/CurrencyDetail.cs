@@ -91,27 +91,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CurrencyCode",
+                    Name = "Currency Code",
                     Value = currencyCode,
                     MaxLength = 3,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CurrencyName",
+                    Name = "Currency Name",
                     Value = currencyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -120,7 +120,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -155,7 +155,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

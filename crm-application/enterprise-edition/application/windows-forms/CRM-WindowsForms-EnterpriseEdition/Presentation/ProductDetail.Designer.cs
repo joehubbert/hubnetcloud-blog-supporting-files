@@ -80,6 +80,8 @@
             productDetailTabControlProductImageTabPageProductImagePictureBoxLabel = new Label();
             productDetailTabControlProductImageTabPageChooseProductImageButton = new Button();
             productDetailTabControlProductNoteTabPage = new TabPage();
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel = new Label();
+            productDetailTabControlProductNoteTabPageQuickFilterTextbox = new TextBox();
             productDetailTabControlProductNoteTabPageRefreshDataButton = new Button();
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton = new Button();
             productDetailTabControlProductNoteTabPageDataGridView = new DataGridView();
@@ -103,7 +105,7 @@
             productDetailUpdateProductButton.Margin = new Padding(4);
             productDetailUpdateProductButton.Name = "productDetailUpdateProductButton";
             productDetailUpdateProductButton.Size = new Size(185, 70);
-            productDetailUpdateProductButton.TabIndex = 25;
+            productDetailUpdateProductButton.TabIndex = 26;
             productDetailUpdateProductButton.Text = "Update Product";
             productDetailUpdateProductButton.UseVisualStyleBackColor = true;
             productDetailUpdateProductButton.Click += productDetailUpdateProductButton_Click;
@@ -129,7 +131,7 @@
             productDetailToggleEditModeButton.Margin = new Padding(4);
             productDetailToggleEditModeButton.Name = "productDetailToggleEditModeButton";
             productDetailToggleEditModeButton.Size = new Size(108, 92);
-            productDetailToggleEditModeButton.TabIndex = 24;
+            productDetailToggleEditModeButton.TabIndex = 25;
             productDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             productDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             productDetailToggleEditModeButton.Click += productDetailToggleEditModeButton_Click;
@@ -673,14 +675,32 @@
             // productDetailTabControlProductNoteTabPage
             // 
             productDetailTabControlProductNoteTabPage.BackColor = Color.SkyBlue;
+            productDetailTabControlProductNoteTabPage.Controls.Add(productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel);
+            productDetailTabControlProductNoteTabPage.Controls.Add(productDetailTabControlProductNoteTabPageQuickFilterTextbox);
             productDetailTabControlProductNoteTabPage.Controls.Add(productDetailTabControlProductNoteTabPageRefreshDataButton);
             productDetailTabControlProductNoteTabPage.Controls.Add(productDetailTabControlProductNoteTabPageCreateNewProductNoteButton);
             productDetailTabControlProductNoteTabPage.Controls.Add(productDetailTabControlProductNoteTabPageDataGridView);
-            productDetailTabControlProductNoteTabPage.Location = new Point(4, 27);
+            productDetailTabControlProductNoteTabPage.Location = new Point(4, 32);
             productDetailTabControlProductNoteTabPage.Name = "productDetailTabControlProductNoteTabPage";
-            productDetailTabControlProductNoteTabPage.Size = new Size(1256, 594);
+            productDetailTabControlProductNoteTabPage.Size = new Size(1256, 589);
             productDetailTabControlProductNoteTabPage.TabIndex = 4;
             productDetailTabControlProductNoteTabPage.Text = "Product Notes";
+            // 
+            // productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel
+            // 
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.AutoSize = true;
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.Location = new Point(82, 18);
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.Name = "productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel";
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.TabIndex = 30;
+            productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // productDetailTabControlProductNoteTabPageQuickFilterTextbox
+            // 
+            productDetailTabControlProductNoteTabPageQuickFilterTextbox.Location = new Point(171, 15);
+            productDetailTabControlProductNoteTabPageQuickFilterTextbox.Name = "productDetailTabControlProductNoteTabPageQuickFilterTextbox";
+            productDetailTabControlProductNoteTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            productDetailTabControlProductNoteTabPageQuickFilterTextbox.TabIndex = 21;
             // 
             // productDetailTabControlProductNoteTabPageRefreshDataButton
             // 
@@ -690,7 +710,7 @@
             productDetailTabControlProductNoteTabPageRefreshDataButton.Margin = new Padding(4);
             productDetailTabControlProductNoteTabPageRefreshDataButton.Name = "productDetailTabControlProductNoteTabPageRefreshDataButton";
             productDetailTabControlProductNoteTabPageRefreshDataButton.Size = new Size(151, 70);
-            productDetailTabControlProductNoteTabPageRefreshDataButton.TabIndex = 23;
+            productDetailTabControlProductNoteTabPageRefreshDataButton.TabIndex = 24;
             productDetailTabControlProductNoteTabPageRefreshDataButton.Text = "Refresh Data";
             productDetailTabControlProductNoteTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             productDetailTabControlProductNoteTabPageRefreshDataButton.Click += productDetailProductNotesRefreshDataButton_Click;
@@ -703,7 +723,7 @@
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.Margin = new Padding(4);
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.Name = "productDetailTabControlProductNoteTabPageCreateNewProductNoteButton";
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.Size = new Size(151, 70);
-            productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.TabIndex = 22;
+            productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.TabIndex = 23;
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.Text = "Create New Product Note";
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.UseVisualStyleBackColor = true;
             productDetailTabControlProductNoteTabPageCreateNewProductNoteButton.Click += productDetailProductNotesCreateNewProductNoteButton_Click;
@@ -714,11 +734,11 @@
             productDetailTabControlProductNoteTabPageDataGridView.AllowUserToDeleteRows = false;
             productDetailTabControlProductNoteTabPageDataGridView.BackgroundColor = Color.SkyBlue;
             productDetailTabControlProductNoteTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            productDetailTabControlProductNoteTabPageDataGridView.Location = new Point(21, 17);
+            productDetailTabControlProductNoteTabPageDataGridView.Location = new Point(21, 48);
             productDetailTabControlProductNoteTabPageDataGridView.Name = "productDetailTabControlProductNoteTabPageDataGridView";
             productDetailTabControlProductNoteTabPageDataGridView.ReadOnly = true;
             productDetailTabControlProductNoteTabPageDataGridView.Size = new Size(1059, 523);
-            productDetailTabControlProductNoteTabPageDataGridView.TabIndex = 21;
+            productDetailTabControlProductNoteTabPageDataGridView.TabIndex = 22;
             // 
             // ProductDetail
             // 
@@ -750,6 +770,7 @@
             productDetailTabControlProductImageTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)productDetailTabControlProductImageTabPageProductImagePictureBox).EndInit();
             productDetailTabControlProductNoteTabPage.ResumeLayout(false);
+            productDetailTabControlProductNoteTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)productDetailTabControlProductNoteTabPageDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -811,5 +832,7 @@
         private Label productDetailTabControlProductImageTabPageProductImagePictureBoxLabel;
         private Button productDetailTabControlProductImageTabPageChooseProductImageButton;
         private Button productDetailTabControlProductImageTabPageRemoveProductImageButton;
+        private Label productDetailTabControlProductNoteTabPageQuickFilterTextboxLabel;
+        private TextBox productDetailTabControlProductNoteTabPageQuickFilterTextbox;
     }
 }

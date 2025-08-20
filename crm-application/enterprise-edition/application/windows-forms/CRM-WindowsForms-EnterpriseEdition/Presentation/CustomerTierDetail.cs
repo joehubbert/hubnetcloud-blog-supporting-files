@@ -6,11 +6,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CustomerTierDetail : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerTierId;
-        private bool? customerTierDetailActiveStatusOriginalValue;
-        private string? customerTierDetailCustomerTierCodeOriginalValue;
-        private string? customerTierDetailCustomerTierDescriptionOriginalValue;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private bool customerTierDetailActiveStatusOriginalValue;
+        private Guid customerTierDetailCompanyConfigurationIdOriginalValue;
+        private string customerTierDetailCustomerTierCodeOriginalValue;
+        private string customerTierDetailCustomerTierDescriptionOriginalValue;
         private readonly string dataSubject = "Customer Tier";
 
         public CustomerTierDetail(Guid customerTierId)
@@ -24,6 +26,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void CustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)
@@ -60,7 +68,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerTierDetailLastUpdatedByTextbox.Text = customerTierDataRow["Modified By"].ToString();
                     customerTierDetailLastUpdatedTimestampTextbox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
                     customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
+                    Guid companyConfigurationId = (Guid)customerTierDataRow["Company Configuration Id"];
+                    await LoadCompanyConfigurationAsync(companyConfigurationId);
 
+                    customerTierDetailCompanyConfigurationIdOriginalValue = (Guid)customerTierDataRow["Company Configuration Id"];
                     customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();
                     customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier Description"].ToString();
                     customerTierDetailActiveStatusOriginalValue = (bool)customerTierDataRow["Active Status"];
@@ -81,6 +92,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = customerTierDetailActiveStatusCheckbox.Checked;
+            Guid companyConfigurationId = Guid.Parse(customerTierDetailCompanyConfigurationComboBox.SelectedValue.ToString());
             string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
             string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
 
@@ -90,27 +102,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerTierCode",
+                    Name = "Company Configuration Id",
+                    Value = companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Customer Tier Code",
                     Value = customerTierCode,
                     MaxLength = 1,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerTierDescription",
+                    Name = "Customer Tier Description",
                     Value = customerTierDescription,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -119,7 +138,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -135,6 +154,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         VariableType = "bool",
                         OriginalValue = customerTierDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Company Configuration Id",
+                        VariableType = "Guid",
+                        OriginalValue = customerTierDetailCompanyConfigurationIdOriginalValue,
+                        NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
@@ -154,7 +180,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {
@@ -164,6 +190,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "companyConfigurationId",
+                            ParameterValue = companyConfigurationId
                         },
                         new Parameter
                         {
@@ -204,6 +235,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
+            customerTierDetailCompanyConfigurationComboBox.Enabled = !customerTierDetailCompanyConfigurationComboBox.Enabled;
             customerTierDetailCustomerTierCodeTextbox.ReadOnly = !customerTierDetailCustomerTierCodeTextbox.ReadOnly;
             customerTierDetailCustomerTierDescriptionTextbox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextbox.ReadOnly;
             customerTierDetailActiveStatusCheckbox.Enabled = !customerTierDetailActiveStatusCheckbox.Enabled;

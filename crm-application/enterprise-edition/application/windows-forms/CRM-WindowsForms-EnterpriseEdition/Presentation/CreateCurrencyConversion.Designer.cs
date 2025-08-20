@@ -218,9 +218,9 @@
             createCurrencyConversionActiveStatusCheckbox.Location = new Point(402, 337);
             createCurrencyConversionActiveStatusCheckbox.Margin = new Padding(4);
             createCurrencyConversionActiveStatusCheckbox.Name = "createCurrencyConversionActiveStatusCheckbox";
-            createCurrencyConversionActiveStatusCheckbox.Size = new Size(207, 24);
+            createCurrencyConversionActiveStatusCheckbox.Size = new Size(213, 24);
             createCurrencyConversionActiveStatusCheckbox.TabIndex = 6;
-            createCurrencyConversionActiveStatusCheckbox.Text = "Active Currency Conversion";
+            createCurrencyConversionActiveStatusCheckbox.Text = "Active Currency Conversion*";
             createCurrencyConversionActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCurrencyConversionSubmitButton

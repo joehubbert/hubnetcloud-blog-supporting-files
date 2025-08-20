@@ -6,17 +6,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private Guid _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
-        private readonly string _moduleName;
+        private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
         private string dataSubjectPluralName;
         private string dataSubjectSingularName;
         private string moduleFriendlyName;
         private readonly string viewAllPrefix = "View All ";
 
-        public ModuleHomeSimple(string moduleName)
+        public ModuleHomeSimple(string moduleGroup)
         {
             InitializeComponent();
-            _moduleName = moduleName;
+            _moduleGroup = moduleGroup;
             LoadActiveCompanyConfigurationAsync();
             ModuleConfiguration();
         }
@@ -29,47 +29,43 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void ModuleConfiguration()
         {
-            switch (_moduleName)
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
+
+            switch (_moduleGroup)
             {
                 case "CompanyManagement":
-                    this.BackColor = Color.LemonChiffon;
                     dataSubjectPluralName = "Companies";
                     dataSubjectSingularName = "Company";
                     moduleFriendlyName = "Company Management";
                     break;
                 case "CustomerManagement":
-                    this.BackColor = Color.LightGreen;
                     dataSubjectPluralName = "Customers";
                     dataSubjectSingularName = "Customer";
                     moduleFriendlyName = "Customer Management";
                     break;
                 case "MarketingManagement":
-                    this.BackColor = Color.NavajoWhite;
                     dataSubjectPluralName = "Marketing Campaigns";
                     dataSubjectSingularName = "Marketing Campaign";
                     moduleFriendlyName = "Marketing Management";
                     break;
                 case "OrderManagement":
-                    this.BackColor = Color.LightSalmon;
                     dataSubjectPluralName = "Orders";
                     dataSubjectSingularName = "Order";
                     moduleFriendlyName = "Order Management";
                     break;
                 case "ProductManagement":
-                    this.BackColor = Color.SkyBlue;
                     dataSubjectPluralName = "Products";
                     dataSubjectSingularName = "Product";
                     moduleFriendlyName = "Product Management";
                     break;
                 case "SupplierManagement":
-                    this.BackColor = Color.MediumAquamarine;
                     dataSubjectPluralName = "Suppliers";
                     dataSubjectSingularName = "Supplier";
                     moduleFriendlyName = "Supplier Management";
                     break;
                 default:
-                    this.Text = _moduleName;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleName);
+                    this.Text = _moduleGroup;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleGroup);
                     break;
             }
             moduleHomeTitleLabel.Text = moduleFriendlyName;

@@ -6,6 +6,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ProductDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _productId;
         private bool? productDetailTabControlOverviewTabPageActiveStatusOriginalValue;
@@ -26,15 +28,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public ProductDetail(Guid productId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _productId = productId;
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             productDetailTabControl.SelectedIndexChanged += new EventHandler(ProductDetailTabControl_SelectedIndexChanged);
-            productDetailTabControlProductNoteTabPageDataGridView.CellContentClick += ProductDetailProductNotesExistingProductNotesDataGridView_CellContentClick;
+            productDetailTabControlProductNoteTabPageDataGridView.CellContentClick += productDetailTabControlProductNoteTabPageDataGridView_CellContentClick;
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(productDetailTabControlProductNoteTabPageQuickFilterTextbox, productDetailTabControlProductNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -155,14 +158,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.Text = productDataRow["Unit Minimum Stock Quantity"].ToString();
                     string unitPricePartA;
                     string unitPricePartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Unit Selling Price"], out unitPricePartA, out unitPricePartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)productDataRow["Unit Selling Price"], out unitPricePartA, out unitPricePartB);
                     productDetailTabControlOverviewTabPageUnitPriceTextboxA.Text = unitPricePartA;
                     productDetailTabControlOverviewTabPageUnitPriceTextboxB.Text = unitPricePartB;
                     productDetailTabControlOverviewTabPageUnitStockQuantityHeldTextbox.Text = productDataRow["Unit Stock Quantity Held"].ToString();
                     productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text = productDataRow["Wholesale Carton Stock Quantity Held"].ToString();
                     string wholesalePricePerUnitPartA;
                     string wholesalePricePerUnitPartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out wholesalePricePerUnitPartA, out wholesalePricePerUnitPartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out wholesalePricePerUnitPartA, out wholesalePricePerUnitPartB);
                     productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Text = wholesalePricePerUnitPartA;
                     productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Text = wholesalePricePerUnitPartB;
                     productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text = productDataRow["Wholesale Unit Quantity Per Carton"].ToString();
@@ -220,75 +223,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task ProductDetailExistingProductNote_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAllNoteForProduct";
-            string dataSubject = "Existing Product Notes";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "productId",
-                    ParameterValue = _productId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                productDetailTabControlProductNoteTabPageDataGridView.AutoGenerateColumns = true;
-                productDetailTabControlProductNoteTabPageDataGridView.DataSource = dataTable;
-                productDetailTabControlProductNoteTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (productDetailTabControlProductNoteTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    productDetailTabControlProductNoteTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn productNoteDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Product Note",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                productDetailTabControlProductNoteTabPageDataGridView.Columns.Add(productNoteDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _productId,
+                "productId",
+                "spGetAllNoteForProduct",
+                "Existing Product Notes",
+                productDetailTabControlProductNoteTabPageDataGridView,
+                "Product Note Id",
+                "View Product Note",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
-        private void ProductDetailProductNotesExistingProductNotesDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void productDetailTabControlProductNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == productDetailTabControlProductNoteTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Product Note";
-
-                try
-                {
-                    if (productDetailTabControlProductNoteTabPageDataGridView.Columns.Contains("Product Note Id"))
-                    {
-                        Guid productNoteId = (Guid)productDetailTabControlProductNoteTabPageDataGridView.Rows[e.RowIndex].Cells["Product Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("Product", productNoteId);
-                        noteDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            productDetailTabControlProductNoteTabPageDataGridView,
+            e,
+            "Product Note Id",
+            "Product Note",
+            id => {
+                var noteDetail = new NoteDetail(_productId, "Product", id, productDetailTabControlOverviewTabPageProductNameOriginalValue);
+                noteDetail.Show();
+            });
         }
 
         private void CalulateUnitStockQuantityHeld(object? sender, EventArgs e)
@@ -305,7 +264,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
+                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         productDetailTabControlProductImageTabPageProductImagePictureBox.Image = Image.FromFile(filePath);
                         productDetailProductImageRuntimeValue = File.ReadAllBytes(filePath);
@@ -366,23 +325,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewActiveStatus",
                     Value = productDetailTabControlOverviewTabPageActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewProductCategoryId",
                     Value = productDetailTabControlOverviewTabPageProductCategoryId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewProductName",
@@ -390,63 +349,63 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewSupplierId",
                     Value = productDetailTabControlOverviewTabPageSupplierId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitMinimumOrderQuantity",
                     Value = productDetailTabControlOverviewTabPageUnitMinimumOrderQuantity,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitMinimumStockQuantity",
                     Value = productDetailTabControlOverviewTabPageUnitMinimumStockQuantity,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewUnitPrice",
                     Value = productDetailTabControlOverviewTabPageUnitPrice,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleCartonStockQuantityHeld",
                     Value = productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleCartonStockQuantityHeld",
                     Value = productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesalePricePerUnit",
                     Value = productDetailTabControlOverviewTabPageWholesalePricePerUnit,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleUnitQuantityPerCarton",
                     Value = productDetailTabControlOverviewTabPageWholesaleUnitQuantityPerCarton,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductDetailOverviewWholesaleReorderFlag",
@@ -457,7 +416,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (productImage != null && productImage.Length > 0)
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "ProductImage",
@@ -468,7 +427,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -573,7 +532,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

@@ -336,9 +336,9 @@
             createCustomerLeadActiveStatusCheckbox.CheckState = CheckState.Checked;
             createCustomerLeadActiveStatusCheckbox.Location = new Point(228, 447);
             createCustomerLeadActiveStatusCheckbox.Name = "createCustomerLeadActiveStatusCheckbox";
-            createCustomerLeadActiveStatusCheckbox.Size = new Size(172, 24);
+            createCustomerLeadActiveStatusCheckbox.Size = new Size(178, 24);
             createCustomerLeadActiveStatusCheckbox.TabIndex = 12;
-            createCustomerLeadActiveStatusCheckbox.Text = "Active Customer Lead";
+            createCustomerLeadActiveStatusCheckbox.Text = "Active Customer Lead*";
             createCustomerLeadActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCustomerLeadStatusStrip

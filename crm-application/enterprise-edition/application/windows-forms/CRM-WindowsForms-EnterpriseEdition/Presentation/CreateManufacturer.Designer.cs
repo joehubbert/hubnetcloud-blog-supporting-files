@@ -34,10 +34,9 @@
             createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel = new Label();
             createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel = new Label();
             createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel = new Label();
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel = new Label();
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel = new Label();
             createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel = new Label();
             createManufacturerTabControlOverviewTabPageAddressLine4Textbox = new TextBox();
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox = new TextBox();
             createManufacturerTabControlOverviewTabPageAddressLine3Textbox = new TextBox();
             createManufacturerTabControlOverviewTabPageAddressLine2Textbox = new TextBox();
             createManufacturerTabControlOverviewTabPageAddressLine1Textbox = new TextBox();
@@ -53,6 +52,7 @@
             createManufacturerTabControlFinanceTabPageVATNumberTextbox = new TextBox();
             createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
             createManufacturerSubmitButton = new Button();
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox = new ComboBox();
             createManufacturerTabControl.SuspendLayout();
             createManufacturerTabControlOverviewTabPage.SuspendLayout();
             createManufacturerTabControlFinanceTabPage.SuspendLayout();
@@ -83,13 +83,13 @@
             // createManufacturerTabControlOverviewTabPage
             // 
             createManufacturerTabControlOverviewTabPage.BackColor = Color.SkyBlue;
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5ComboBox);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel);
-            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel);
+            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine4Textbox);
-            createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine5Textbox);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine3Textbox);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine2Textbox);
             createManufacturerTabControlOverviewTabPage.Controls.Add(createManufacturerTabControlOverviewTabPageAddressLine1Textbox);
@@ -137,15 +137,15 @@
             createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel
+            // createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel
             // 
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.AutoSize = true;
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Location = new Point(519, 211);
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel";
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.TabIndex = 54;
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.Location = new Point(519, 211);
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.Name = "createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel";
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.TabIndex = 54;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel
             // 
@@ -163,15 +163,7 @@
             createManufacturerTabControlOverviewTabPageAddressLine4Textbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine4Textbox";
             createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Size = new Size(336, 27);
-            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 61;
-            // 
-            // createManufacturerTabControlOverviewTabPageAddressLine5Textbox
-            // 
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Location = new Point(636, 208);
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.MaxLength = 50;
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine5Textbox";
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Size = new Size(336, 27);
-            createManufacturerTabControlOverviewTabPageAddressLine5Textbox.TabIndex = 62;
+            createManufacturerTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 8;
             // 
             // createManufacturerTabControlOverviewTabPageAddressLine3Textbox
             // 
@@ -179,7 +171,7 @@
             createManufacturerTabControlOverviewTabPageAddressLine3Textbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine3Textbox";
             createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Size = new Size(336, 27);
-            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.TabIndex = 60;
+            createManufacturerTabControlOverviewTabPageAddressLine3Textbox.TabIndex = 7;
             // 
             // createManufacturerTabControlOverviewTabPageAddressLine2Textbox
             // 
@@ -187,7 +179,7 @@
             createManufacturerTabControlOverviewTabPageAddressLine2Textbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine2Textbox";
             createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Size = new Size(336, 27);
-            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.TabIndex = 59;
+            createManufacturerTabControlOverviewTabPageAddressLine2Textbox.TabIndex = 6;
             // 
             // createManufacturerTabControlOverviewTabPageAddressLine1Textbox
             // 
@@ -195,7 +187,7 @@
             createManufacturerTabControlOverviewTabPageAddressLine1Textbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Name = "createManufacturerTabControlOverviewTabPageAddressLine1Textbox";
             createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Size = new Size(336, 27);
-            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.TabIndex = 58;
+            createManufacturerTabControlOverviewTabPageAddressLine1Textbox.TabIndex = 5;
             // 
             // createManufacturerTabControlOverviewTabPageEmailAddressTextboxLabel
             // 
@@ -223,7 +215,7 @@
             createManufacturerTabControlOverviewTabPageEmailAddressTextbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Name = "createManufacturerTabControlOverviewTabPageEmailAddressTextbox";
             createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Size = new Size(234, 27);
-            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.TabIndex = 5;
+            createManufacturerTabControlOverviewTabPageEmailAddressTextbox.TabIndex = 3;
             // 
             // createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox
             // 
@@ -231,7 +223,7 @@
             createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.MaxLength = 50;
             createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Name = "createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox";
             createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Size = new Size(234, 27);
-            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.TabIndex = 4;
+            createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.TabIndex = 2;
             // 
             // createManufacturerTabControlOverviewTabPageManufacturerNameTextboxLabel
             // 
@@ -261,7 +253,7 @@
             createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
             createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Name = "createManufacturerTabControlOverviewTabPageActiveStatusCheckbox";
             createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(167, 24);
-            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 9;
+            createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 4;
             createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Manufacturer*";
             createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -293,7 +285,7 @@
             createManufacturerTabControlFinanceTabPageVATNumberTextbox.MaxLength = 50;
             createManufacturerTabControlFinanceTabPageVATNumberTextbox.Name = "createManufacturerTabControlFinanceTabPageVATNumberTextbox";
             createManufacturerTabControlFinanceTabPageVATNumberTextbox.Size = new Size(208, 27);
-            createManufacturerTabControlFinanceTabPageVATNumberTextbox.TabIndex = 49;
+            createManufacturerTabControlFinanceTabPageVATNumberTextbox.TabIndex = 10;
             // 
             // createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox
             // 
@@ -317,10 +309,19 @@
             createManufacturerSubmitButton.Margin = new Padding(4);
             createManufacturerSubmitButton.Name = "createManufacturerSubmitButton";
             createManufacturerSubmitButton.Size = new Size(198, 66);
-            createManufacturerSubmitButton.TabIndex = 50;
+            createManufacturerSubmitButton.TabIndex = 11;
             createManufacturerSubmitButton.Text = "Submit";
             createManufacturerSubmitButton.UseVisualStyleBackColor = true;
             createManufacturerSubmitButton.Click += createManufacturerSubmitButton_Click;
+            // 
+            // createManufacturerTabControlOverviewTabPageAddressLine5ComboBox
+            // 
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.Location = new Point(636, 208);
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.Name = "createManufacturerTabControlOverviewTabPageAddressLine5ComboBox";
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.Size = new Size(336, 28);
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.TabIndex = 9;
             // 
             // CreateManufacturer
             // 
@@ -367,12 +368,12 @@
         private Label createManufacturerTabControlOverviewTabPageAddressLine2TextboxLabel;
         private Label createManufacturerTabControlOverviewTabPageAddressLine3TextboxLabel;
         private Label createManufacturerTabControlOverviewTabPageAddressLine4TextboxLabel;
-        private Label createManufacturerTabControlOverviewTabPageAddressLine5TextboxLabel;
+        private Label createManufacturerTabControlOverviewTabPageAddressLine5ComboBoxLabel;
         private Label createManufacturerTabControlOverviewTabPageAddressLine1TextboxLabel;
         private TextBox createManufacturerTabControlOverviewTabPageAddressLine4Textbox;
-        private TextBox createManufacturerTabControlOverviewTabPageAddressLine5Textbox;
         private TextBox createManufacturerTabControlOverviewTabPageAddressLine3Textbox;
         private TextBox createManufacturerTabControlOverviewTabPageAddressLine2Textbox;
         private TextBox createManufacturerTabControlOverviewTabPageAddressLine1Textbox;
+        private ComboBox createManufacturerTabControlOverviewTabPageAddressLine5ComboBox;
     }
 }

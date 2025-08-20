@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataEnhanced));
             createMasterDataEnhancedTitleLabel = new Label();
             createMasterDataEnhancedMasterDataTypeTextbox = new TextBox();
             createMasterDataEnhancedMasterDataTypeTextboxLabel = new Label();
@@ -35,6 +36,10 @@
             createMasterDataEnhancedActiveStatusCheckbox = new CheckBox();
             createMasterDataEnhancedMasterDataDescriptionTextbox = new TextBox();
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel = new Label();
+            createMasterDataEnhancedStatusStrip = new StatusStrip();
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createMasterDataEnhancedStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createMasterDataEnhancedTitleLabel
@@ -72,7 +77,7 @@
             // 
             createMasterDataEnhancedSubmitButton.FlatStyle = FlatStyle.Flat;
             createMasterDataEnhancedSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            createMasterDataEnhancedSubmitButton.Location = new Point(201, 200);
+            createMasterDataEnhancedSubmitButton.Location = new Point(193, 207);
             createMasterDataEnhancedSubmitButton.Margin = new Padding(4);
             createMasterDataEnhancedSubmitButton.Name = "createMasterDataEnhancedSubmitButton";
             createMasterDataEnhancedSubmitButton.Size = new Size(198, 66);
@@ -86,10 +91,10 @@
             createMasterDataEnhancedActiveStatusCheckbox.Checked = true;
             createMasterDataEnhancedActiveStatusCheckbox.CheckState = CheckState.Checked;
             createMasterDataEnhancedActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createMasterDataEnhancedActiveStatusCheckbox.Location = new Point(171, 152);
+            createMasterDataEnhancedActiveStatusCheckbox.Location = new Point(160, 161);
             createMasterDataEnhancedActiveStatusCheckbox.Margin = new Padding(5);
             createMasterDataEnhancedActiveStatusCheckbox.Name = "createMasterDataEnhancedActiveStatusCheckbox";
-            createMasterDataEnhancedActiveStatusCheckbox.Size = new Size(265, 24);
+            createMasterDataEnhancedActiveStatusCheckbox.Size = new Size(285, 24);
             createMasterDataEnhancedActiveStatusCheckbox.TabIndex = 2;
             createMasterDataEnhancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             createMasterDataEnhancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
@@ -114,12 +119,40 @@
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Text = "{MasterData Description Placeholder}";
             createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
+            // createMasterDataEnhancedStatusStrip
+            // 
+            createMasterDataEnhancedStatusStrip.Items.AddRange(new ToolStripItem[] { createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder });
+            createMasterDataEnhancedStatusStrip.Location = new Point(0, 290);
+            createMasterDataEnhancedStatusStrip.Name = "createMasterDataEnhancedStatusStrip";
+            createMasterDataEnhancedStatusStrip.Size = new Size(594, 22);
+            createMasterDataEnhancedStatusStrip.TabIndex = 4;
+            createMasterDataEnhancedStatusStrip.Text = "Create Master Data Enhanced Status Strip";
+            // 
+            // createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder
+            // 
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Image");
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Name = "createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder";
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateMasterDataEnhanced
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(594, 286);
+            ClientSize = new Size(594, 312);
+            Controls.Add(createMasterDataEnhancedStatusStrip);
             Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextbox);
             Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextboxLabel);
             Controls.Add(createMasterDataEnhancedMasterDataTypeTextbox);
@@ -134,6 +167,8 @@
             Name = "CreateMasterDataEnhanced";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateMasterDataEnhanced";
+            createMasterDataEnhancedStatusStrip.ResumeLayout(false);
+            createMasterDataEnhancedStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -147,5 +182,8 @@
         private CheckBox createMasterDataEnhancedActiveStatusCheckbox;
         private TextBox createMasterDataEnhancedMasterDataDescriptionTextbox;
         private Label createMasterDataEnhancedMasterDataDescriptionTextboxLabel;
+        private StatusStrip createMasterDataEnhancedStatusStrip;
+        private ToolStripSplitButton createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

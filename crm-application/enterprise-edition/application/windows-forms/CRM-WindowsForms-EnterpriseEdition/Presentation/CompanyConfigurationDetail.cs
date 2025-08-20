@@ -8,6 +8,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private readonly Guid _companyConfigurationId;
         private byte[]? _companyLogoImageBytes = null;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private byte[]? companyLogoImageBytesOriginalValue;
         private bool? generalInformationActiveStatusOriginalValue;
@@ -41,11 +42,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CompanyConfigurationDetail(Guid companyConfigurationId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             _companyConfigurationId = companyConfigurationId;
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             companyConfigurationDetailTabControl.SelectedIndexChanged += new EventHandler(CompanyConfigurationDetailTabControl_SelectedIndexChanged);
             companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
@@ -61,89 +62,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async Task CompanyConfigurationDetailLoadCountryAsync(string countryContext, Guid countryId)
+        private async Task LoadCountryAsync(string countryContext, Guid countryId)
         {
-            if (_databaseConnectionSettings == null)
+            switch(countryContext)
             {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Country";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCountry";
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var countryList = countryData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CountryId = row.Field<Guid>("Country Id"),
-                        DisplayText = $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                switch (countryContext)
-                {
-                    case "FinancialInformation":
-                        companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DataSource = countryList;
-                        companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DisplayMember = "DisplayText";
-                        companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.ValueMember = "CountryId";
-                        companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedValue = countryId;
-                        break;
-                    case "GeneralInformation":
-                        companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DataSource = countryList;
-                        companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DisplayMember = "DisplayText";
-                        companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.ValueMember = "CountryId";
-                        companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedValue = countryId;
-                        break;
-                    default:
-                        throw new ArgumentException("Invalid Country context specified.");
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+                case "FinancialInformation":
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    await _dataAccessComboBoxHelper.LoadDataAsync();
+                    break;
+                case "GeneralInformation":
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    await _dataAccessComboBoxHelper.LoadDataAsync();
+                    break;
+                default:
+                    throw new ArgumentException("Invalid Country context specified.");
             }
         }
 
-        private async Task CompanyConfigurationDetailLoadCurrencyDataAsync(Guid currencyId)
+        private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Currency";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";               
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DataSource = currencyList;
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DisplayMember = "DisplayText";
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.ValueMember = "CurrencyId";
-                companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.SelectedValue = currencyId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void CompanyConfigurationDetailFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -292,14 +234,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine3Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 3"].ToString();
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountAddressLine4Textbox.Text = companyConfigurationDataRow["Bank Account Address Line 4"].ToString();
                     Guid bankAccountAddressLine5 = (Guid)companyConfigurationDataRow["Bank Account Address Line 5"];
-                    await CompanyConfigurationDetailLoadCountryAsync("FinancialInformation", bankAccountAddressLine5);
+                    await LoadCountryAsync("FinancialInformation", bankAccountAddressLine5);
                     string bankAccountBalanceA;
                     string bankAccountBalanceB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)companyConfigurationDataRow["Bank Account Balance"], out bankAccountBalanceA, out bankAccountBalanceB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)companyConfigurationDataRow["Bank Account Balance"], out bankAccountBalanceA, out bankAccountBalanceB);
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxA.Text = bankAccountBalanceA;
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountBalanceTextboxB.Text = bankAccountBalanceB;
                     Guid bankAccountCurrencyId = (Guid)companyConfigurationDataRow["Bank Account Currency Id"];
-                    await CompanyConfigurationDetailLoadCurrencyDataAsync(bankAccountCurrencyId);
+                    await LoadCurrencyDataAsync(bankAccountCurrencyId);
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountIBANTextbox.Text = companyConfigurationDataRow["Bank Account IBAN"].ToString();
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNameTextbox.Text = companyConfigurationDataRow["Bank Account Name"].ToString();
                     companyConfigurationDetailTabControlFinancialInformationTabPageBankAccountNumberTextbox.Text = companyConfigurationDataRow["Bank Account Number"].ToString();
@@ -344,7 +286,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3Textbox.Text = companyConfigurationDataRow["Address Line 3"].ToString();
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine4Textbox.Text = companyConfigurationDataRow["Address Line 4"].ToString();
                     Guid addressLine5 = (Guid)companyConfigurationDataRow["Address Line 5"];
-                    await CompanyConfigurationDetailLoadCountryAsync("GeneralInformation", addressLine5);
+                    await LoadCountryAsync("GeneralInformation", addressLine5);
                     companyConfigurationDetailTabControlGeneralInformationTabPageCompanyConfigurationIdTextbox.Text = companyConfigurationDataRow["Company Configuration Id"].ToString();
                     companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextbox.Text = companyConfigurationDataRow["Company Name"].ToString();
                     companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextbox.Text = companyConfigurationDataRow["Created By"].ToString();
@@ -535,159 +477,159 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine1",
+                    Name = "Address Line 1",
                     Value = addressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine3",
+                    Name = "Address Line 3",
                     Value = addressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine4",
+                    Name = "Address Line 4",
                     Value = addressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine5",
+                    Name = "Address Line 5",
                     Value = addressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine1",
+                    Name = "Bank Account Address Line 1",
                     Value = bankAccountAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine3",
+                    Name = "Bank Account Address Line 3",
                     Value = bankAccountAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine4",
+                    Name = "Bank Account Address Line 4",
                     Value = bankAccountAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine5",
+                    Name = "Bank Account Address Line 5",
                     Value = bankAccountAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountCurrencyId",
+                    Name = "Bank Account Currency Id",
                     Value = bankAccountCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountIBAN",
+                    Name = "Bank Account IBAN",
                     Value = bankAccountIBAN,
                     MaxLength = 34,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountName",
+                    Name = "Bank Account Name",
                     Value = bankAccountName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountNumber",
+                    Name = "Bank Account Number",
                     Value = bankAccountNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountSWIFTCode",
+                    Name = "Bank Account SWIFT Code",
                     Value = bankAccountSWIFTCode,
                     MaxLength = 11,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "Companylogo",
+                    Name = "Company Logo",
                     Value = companyLogo,
                     ValueType = typeof(byte[])
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CompanyName",
+                    Name = "Company Name",
                     Value = companyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailAddress",
+                    Name = "Email Address",
                     Value = emailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailTopLevelDomain",
+                    Name = "Email Top Level Domain",
                     Value = emailTopLevelDomain,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TelephoneNumber",
+                    Name = "Telephone Number",
                     Value = telephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "WebsiteURL",
+                    Name = "Website URL",
                     Value = websiteURL,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -696,10 +638,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!string.IsNullOrEmpty(addressLine2))
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "AddressLine2",
+                    Name = "Address Line 2",
                     Value = addressLine2,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -708,10 +650,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!string.IsNullOrEmpty(bankAccountAddressLine2))
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "BankAccountAddressLine2",
+                    Name = "Bank Account Address Line 2",
                     Value = bankAccountAddressLine2,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -720,10 +662,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!string.IsNullOrEmpty(bankAccountSortCode))
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "BankAccountSortCode",
+                    Name = "Bank Account Sort Code",
                     Value = bankAccountSortCode,
                     MaxLength = 8,
                     ValueType = typeof(string)
@@ -732,10 +674,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!string.IsNullOrEmpty(bankAccountVippsId))
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "BankAccountVippsId",
+                    Name = "Bank Account Vipps Id",
                     Value = bankAccountVippsId,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -744,10 +686,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!string.IsNullOrEmpty(vatNumber))
             {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
+                dataToValidate.Add(new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "VATNumber",
+                    Name = "VAT Number",
                     Value = vatNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -756,7 +698,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -950,7 +892,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     changesList.Add(new ChangeDetail
                     {
-                        VariableName = "Bank Account VAT Number",
+                        VariableName = "VAT Number",
                         VariableType = "string",
                         OriginalValue = financialInformationVATNumberOriginalValue,
                         NewValue = bankAccountVippsId
@@ -959,7 +901,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

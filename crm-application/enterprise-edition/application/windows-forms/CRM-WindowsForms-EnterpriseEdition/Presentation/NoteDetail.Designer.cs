@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteDetail));
             noteDetailTitleLabel = new Label();
             noteDetailNoteIdTextboxLabel = new Label();
             noteDetailNoteTitleTextboxLabel = new Label();
@@ -47,6 +48,9 @@
             noteDetailUpdateNoteButton = new Button();
             noteDetailNoteTypeComboBoxLabel = new Label();
             noteDetailNoteTypeComboBox = new ComboBox();
+            noteDetailStatusStrip = new StatusStrip();
+            noteDetailStatusStripDataSubjectPlaceholder = new ToolStripStatusLabel();
+            noteDetailStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // noteDetailTitleLabel
@@ -175,7 +179,7 @@
             noteDetailNoteTextbox.Name = "noteDetailNoteTextbox";
             noteDetailNoteTextbox.ReadOnly = true;
             noteDetailNoteTextbox.ScrollBars = ScrollBars.Vertical;
-            noteDetailNoteTextbox.Size = new Size(524, 259);
+            noteDetailNoteTextbox.Size = new Size(524, 273);
             noteDetailNoteTextbox.TabIndex = 3;
             // 
             // noteDetailNoteIdTextbox
@@ -245,12 +249,31 @@
             noteDetailNoteTypeComboBox.Size = new Size(524, 28);
             noteDetailNoteTypeComboBox.TabIndex = 2;
             // 
+            // noteDetailStatusStrip
+            // 
+            noteDetailStatusStrip.Items.AddRange(new ToolStripItem[] { noteDetailStatusStripDataSubjectPlaceholder });
+            noteDetailStatusStrip.Location = new Point(0, 641);
+            noteDetailStatusStrip.Name = "noteDetailStatusStrip";
+            noteDetailStatusStrip.Size = new Size(1438, 22);
+            noteDetailStatusStrip.TabIndex = 10;
+            noteDetailStatusStrip.Text = "Note Detail Status Strip";
+            // 
+            // noteDetailStatusStripDataSubjectPlaceholder
+            // 
+            noteDetailStatusStripDataSubjectPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            noteDetailStatusStripDataSubjectPlaceholder.Image = (Image)resources.GetObject("noteDetailStatusStripDataSubjectPlaceholder.Image");
+            noteDetailStatusStripDataSubjectPlaceholder.ImageTransparentColor = Color.Magenta;
+            noteDetailStatusStripDataSubjectPlaceholder.Name = "noteDetailStatusStripDataSubjectPlaceholder";
+            noteDetailStatusStripDataSubjectPlaceholder.Size = new Size(146, 17);
+            noteDetailStatusStripDataSubjectPlaceholder.Text = "{Data Subject Placeholder}";
+            // 
             // NoteDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1438, 643);
+            ClientSize = new Size(1438, 663);
+            Controls.Add(noteDetailStatusStrip);
             Controls.Add(noteDetailNoteTypeComboBoxLabel);
             Controls.Add(noteDetailNoteTypeComboBox);
             Controls.Add(noteDetailUpdateNoteButton);
@@ -277,6 +300,8 @@
             Name = "NoteDetail";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "NoteDetail";
+            noteDetailStatusStrip.ResumeLayout(false);
+            noteDetailStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -302,5 +327,7 @@
         private Button noteDetailUpdateNoteButton;
         private Label noteDetailNoteTypeComboBoxLabel;
         private ComboBox noteDetailNoteTypeComboBox;
+        private StatusStrip noteDetailStatusStrip;
+        private ToolStripStatusLabel noteDetailStatusStripDataSubjectPlaceholder;
     }
 }

@@ -8,19 +8,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private Guid _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Supplier";
 
         public CreateSupplier()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
-            LoadInitialDataAsync();
+            LoadCountryDataAsync();
+            LoadCurrencyDataAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged);
@@ -35,15 +37,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createSupplierStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
-        private async Task LoadInitialDataAsync()
+        private async Task LoadCountryDataAsync()
         {
-            await LoadDatabaseConnectionSettingsAsync();
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            var loadCurrencyTask = CreateSupplierFinanceLoadCurrencyDataAsync();
-
-            await Task.WhenAll(loadCurrencyTask);
+        private async Task LoadCurrencyDataAsync()
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -59,44 +65,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async Task CreateSupplierFinanceLoadCurrencyDataAsync()
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Currency";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DataSource = currencyList;
-                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.ValueMember = "CurrencyId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)
@@ -110,7 +81,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
             string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
             string supplierOverviewAddressLine4 = createSupplierTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine5 = createSupplierTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid supplierOverviewAddressLine5 = Guid.Parse(createSupplierTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string supplierOverviewSupplierName = createSupplierTabControlOverviewTabPageSupplierNameTextbox.Text.TrimEnd();
             string supplierOverviewEmailAddress = createSupplierTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
             string supplierOverviewTelephoneNumber = createSupplierTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
@@ -121,121 +92,112 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierFinancePayemntCurrencyId",
+                    Name = "Company Configuration Id",
+                    Value = _companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Supplier Finance: Payment Currency Id",
                     Value = supplierFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierFinancePayemntDays",
+                    Name = "Supplier Finance: Payment Days",
                     Value = supplierFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Supplier Finance: VAT Number",
+                    Value = supplierFinanceVATNumber,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewActiveStatus",
+                    Name = "Supplier Overview: Active Status",
                     Value = supplierOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewActiveStatus",
-                    Value = supplierOverviewActiveStatus,
-                    ValueType = typeof(bool)
-                },
-                new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = false,
-                    Name = "SupplierOverviewAddressLine1",
+                    Name = "Supplier Overview: Address Line 1",
                     Value = supplierOverviewAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Supplier Overview: Address Line 2",
+                    Value = supplierOverviewAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewAddressLine3",
+                    Name = "Supplier Overview: Address Line 3",
                     Value = supplierOverviewAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewAddressLine4",
+                    Name = "Supplier Overview: Address Line 4",
                     Value = supplierOverviewAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewAddressLine5",
+                    Name = "Supplier Overview: Address Line 5",
                     Value = supplierOverviewAddressLine5,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
+                    ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewEmailAddress",
+                    Name = "Supplier Overview: Email Address",
                     Value = supplierOverviewEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewSupplierName",
+                    Name = "Supplier Overview: Supplier Name",
                     Value = supplierOverviewSupplierName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierOverviewTelephoneNumber",
+                    Name = "Supplier Overview: Telephone Number",
                     Value = supplierOverviewTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(supplierOverviewAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "SupplierOverviewAddressLine2",
-                    Value = supplierOverviewAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(supplierFinanceVATNumber))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "SupplierFinanceVATNumber",
-                    Value = supplierFinanceVATNumber,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -299,11 +261,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = supplierOverviewTelephoneNumber
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "vatNumber",
-                        ParameterValue = supplierFinanceVATNumber
                     }
                 };
 
@@ -313,6 +270,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "addressLine2",
                         ParameterValue = supplierOverviewAddressLine2
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(supplierFinanceVATNumber))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "vatNumber",
+                        ParameterValue = supplierFinanceVATNumber
                     });
                 }
 
@@ -328,6 +294,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createSupplierStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

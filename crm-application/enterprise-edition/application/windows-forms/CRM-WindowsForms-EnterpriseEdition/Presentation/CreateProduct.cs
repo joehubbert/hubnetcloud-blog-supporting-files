@@ -6,6 +6,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateProduct : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private byte[]? _productImageBytes = null;
         private readonly string dataSubject = "Product";
@@ -13,12 +14,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CreateProduct()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadInitialDataAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createProductTabControlProductDetailTabPageProductCategoryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createProductTabControlProductDetailTabPageSupplierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
@@ -35,51 +36,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             await LoadDatabaseConnectionSettingsAsync();
 
-            var loadProductCategoryTask = CreateProductLoadProductCategoryDataAsync();
-            var loadSupplierTask = CreateProductLoadSupplierDataAsync();
+            var loadProductCategoryTask = LoadProductCategoryDataAsync();
+            //var loadSupplierTask = CreateProductLoadSupplierDataAsync();
 
-            await Task.WhenAll(loadProductCategoryTask, loadSupplierTask);
+            await Task.WhenAll(loadProductCategoryTask);
         }
 
-        private async Task CreateProductLoadProductCategoryDataAsync()
+        private async Task LoadProductCategoryDataAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Product Category";
-
-            try
-            {
-                string storedProcedureName = "spGetAllProductCategory";               
-                DataTable? productCategoryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var productCategoryList = productCategoryData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        ProductCategoryId = row.Field<Guid>("Product Category Id"),
-                        ProductCategory = row.Field<string>("Product Category")
-                    })
-                    .OrderBy(item => item.ProductCategory)
-                    .ToList();
-
-                createProductTabControlProductDetailTabPageProductCategoryComboBox.DataSource = productCategoryList;
-                createProductTabControlProductDetailTabPageProductCategoryComboBox.DisplayMember = "ProductCategory";
-                createProductTabControlProductDetailTabPageProductCategoryComboBox.ValueMember = "ProductCategoryId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createProductTabControlProductDetailTabPageProductCategoryComboBox, "spGetAllProductCategory");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async Task CreateProductLoadSupplierDataAsync()
+/*        private async Task CreateProductLoadSupplierDataAsync()
         {
             if (_databaseConnectionSettings == null)
             {
@@ -113,7 +87,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
-        }
+        }*/
 
         private void CalculateUnitStockQuantityHeld(object? sender, EventArgs e)
         {
@@ -145,7 +119,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
+                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         createProductTabControlProductImageTabPageProductImagePictureBox.Image = Image.FromFile(filePath);
                         _productImageBytes = File.ReadAllBytes(filePath);
@@ -206,23 +180,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductCategory",
                     Value = productCategoryId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "ProductImage",
+                    Value = productImage,
+                    ValueType = typeof(byte[])
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ProductName",
@@ -230,56 +211,56 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "UnitMinimumOrderQuantity",
                     Value = unitMinimumOrderQuantity,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "UnitPrice",
                     Value = unitPrice,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "UnitStockQuantityHeld",
                     Value = unitStockQuantityHeld,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "WholesaleCartonStockQuantityHeld",
                     Value = wholesaleCartonStockQuantityHeld,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "WholesalePricePerUnit",
                     Value = wholesalePricePerUnit,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "WholesaleReorderFlag",
                     Value = wholesaleReorderFlag,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "WholesaleUnitQuantityPerCarton",
                     Value = wholesaleUnitQuantityPerCarton,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "SupplierId",
@@ -288,20 +269,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             };
 
-            if (productImage != null && productImage.Length > 0)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "ProductImage",
-                    Value = productImage,
-                    ValueType = typeof(byte[])
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

@@ -26,6 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerTierStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
         private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
@@ -40,27 +41,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerTierCode",
+                    Name = "Company Configuration Id",
+                    Value = _companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Customer Tier Code",
                     Value = customerTierCode,
                     MaxLength = 1,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerTierDescription",
+                    Name = "Customer Tier Description",
                     Value = customerTierDescription,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -69,7 +77,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -112,6 +120,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerTierStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

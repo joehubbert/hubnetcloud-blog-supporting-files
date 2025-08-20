@@ -6,26 +6,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CustomerDetail : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _customerId;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string customerDetailTabControlBillingInformationTabPageAddressLine1OriginalValue;
         private string? customerDetailTabControlBillingInformationTabPageAddressLine2OriginalValue;
         private string customerDetailTabControlBillingInformationTabPageAddressLine3OriginalValue;
         private string customerDetailTabControlBillingInformationTabPageAddressLine4OriginalValue;
-        private string customerDetailTabControlBillingInformationTabPageAddressLine5OriginalValue;
+        private Guid customerDetailTabControlBillingInformationTabPageAddressLine5OriginalValue;
         private string customerDetailTabControlBillingInformationTabPageCompanyNameOriginalValue;
         private string customerDetailTabControlBillingInformationTabPageEmailAddressOriginalValue;
         private string customerDetailTabControlBillingInformationTabPageFirstNameOriginalValue;
         private string customerDetailTabControlBillingInformationTabPageLastNameOriginalValue;
         private string customerDetailTabControlBillingInformationTabPageTelephoneNumberOriginalValue;
-        private bool customerDetailFinanceCreditEnabledOriginalValue;
-        private decimal? customerDetailFinanceCreditLimitOriginalValue;
-        private Guid customerDetailFinancePaymentCurrencyIdOriginalValue;
-        private int customerDetailFinancePaymentDaysOriginalValue;
-        private string? customerDetailFinanceVATNumberOriginalValue;
-        private bool customerDetailFinanceVATRegisteredOriginalValue;
+        private bool customerDetailTabControlFinanceCreditEnabledOriginalValue;
+        private decimal? customerDetailTabControlFinanceCreditLimitOriginalValue;
+        private Guid customerDetailTabControlFinancePaymentCurrencyIdOriginalValue;
+        private int customerDetailTabControlFinancePaymentDaysOriginalValue;
+        private string? customerDetailTabControlFinanceVATNumberOriginalValue;
+        private bool customerDetailTabControlFinanceVATRegisteredOriginalValue;
         private Guid customerDetailTabControlOverviewTabPageAccountManagerIdOriginalValue;
         private bool customerDetailTabControlOverviewTabPageActiveStatusOriginalValue;
+        private Guid customerDetailTabControlOverviewTabPageCompanyConfigurationIdOriginalValue;
         private string customerDetailTabControlOverviewTabPageCompanyNameOriginalValue;
         private DateTime customerDetailTabControlOverviewTabPageCustomerSinceOriginalValue;
         private Guid? customerDetailTabControlOverviewTabPageCustomerTierIdOriginalValue;
@@ -41,33 +44,37 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string customerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
         private Guid? customerDetailTabControlOverviewTabPageTopParentCustomerIdOriginalValue;
         private bool? customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyOriginalValue;
-        private string customerDetailShippingInformationAddressLine1OriginalValue;
-        private string? customerDetailShippingInformationAddressLine2OriginalValue;
-        private string customerDetailShippingInformationAddressLine3OriginalValue;
-        private string customerDetailShippingInformationAddressLine4OriginalValue;
-        private string customerDetailShippingInformationAddressLine5OriginalValue;
-        private string customerDetailShippingInformationCompanyNameOriginalValue;
-        private string customerDetailShippingInformationEmailAddressOriginalValue;
-        private string customerDetailShippingInformationFirstNameOriginalValue;
-        private string customerDetailShippingInformationLastNameOriginalValue;
-        private string customerDetailShippingInformationTelephoneNumberOriginalValue;
+        private string customerDetailTabControlShippingInformationAddressLine1OriginalValue;
+        private string? customerDetailTabControlShippingInformationAddressLine2OriginalValue;
+        private string customerDetailTabControlShippingInformationAddressLine3OriginalValue;
+        private string customerDetailTabControlShippingInformationAddressLine4OriginalValue;
+        private Guid customerDetailTabControlShippingInformationAddressLine5OriginalValue;
+        private string customerDetailTabControlShippingInformationCompanyNameOriginalValue;
+        private string customerDetailTabControlShippingInformationEmailAddressOriginalValue;
+        private string customerDetailTabControlShippingInformationFirstNameOriginalValue;
+        private string customerDetailTabControlShippingInformationLastNameOriginalValue;
+        private string customerDetailTabControlShippingInformationTelephoneNumberOriginalValue;
         private string customerDisplayName;
-
 
         public CustomerDetail(Guid customerId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _customerId = customerId;
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            customerDetailTabControlCustomerContactTabPageDataGridView.CellContentClick += new DataGridViewCellEventHandler(customerDetailTabControlCustomerContactTabPageDataGridView_CellContentClick);
+            customerDetailTabControlCustomerLeadTabPageDataGridView.CellContentClick += new DataGridViewCellEventHandler(customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick);
+            customerDetailTabControlCustomerNoteTabPageDataGridView.CellContentClick += new DataGridViewCellEventHandler(customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick);
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += new EventHandler(CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged);
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged);
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged);
@@ -82,7 +89,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewRadioButtonValidation_CheckedChanged);
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewRadioButtonValidation_CheckedChanged);
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.CheckedChanged += new EventHandler(CustomerDetailOverviewRadioButtonValidation_CheckedChanged);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerDetailTabControl.SelectedIndexChanged += new EventHandler(CustomerDetailTabControl_SelectedIndexChanged);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextbox, customerDetailTabControlCustomerContactTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox, customerDetailTabControlCustomerLeadTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox, customerDetailTabControlCustomerNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -90,192 +101,89 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task CustomerDetailOverviewLoadCustomerTypeAsync(Guid customerTypeId)
+        private async Task LoadCountryDataAsync(Guid countryId, string countryType)
         {
-            if (_databaseConnectionSettings == null)
+            switch (countryType)
             {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+                case "Billing":
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    break;
+                case "Shipping":
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    break;
+                default:
+                    throw new ArgumentException("Invalid country type specified.");
             }
+        }
 
-            string dataSubject = "Customer Type";
+        private async Task LoadCustomerTierDataAsync(Guid companyConfigurationId, Guid customerTierId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCustomerTierComboBox, "spGetAllCustomerTier", companyConfigurationId, true, "Customer Tier Id", customerTierId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerType";               
-                DataTable? customerTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
+        private async Task LoadCustomerTypeAsync(Guid companyConfigurationId, Guid customerTypeId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCustomerTierComboBox, "spGetAllCustomerType", companyConfigurationId, true, "Customer Type Id", customerTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-                var customerTypeList = customerTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerTypeId = row.Field<Guid>("Customer Type Id"),
-                        CustomerType = row.Field<string>("Customer Type")
-                    })
-                    .OrderBy(item => item.CustomerType)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DataSource = customerTypeList;
-                customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DisplayMember = "CustomerType";
-                customerDetailTabControlOverviewTabPageCustomerTypeComboBox.ValueMember = "CustomerTypeId";
-                customerDetailTabControlOverviewTabPageCustomerTypeComboBox.SelectedValue = customerTypeId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+        private async Task LoadSalesRegionDataAsync(Guid companyConfigurationId, Guid salesRegionId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageSalesRegionComboBox, "spGetAllSalesRegion", companyConfigurationId, true, "Sales Region Id", salesRegionId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadSalesSubRegionAsync(Guid salesRegionId, Guid salesSubRegionId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageSalesSubRegionComboBox, "spGetAllSalesSubRegion", null, true, "Sales Region Id", salesRegionId, true, "Sales Sub Region Id", salesSubRegionId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadGlobalParentCustomerDataAsync(Guid customerId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox, "spGetAllGlobalParentCustomer", null, true, "Customer Id", customerId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadTopParentCustomerDataAsync(Guid customerId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageTopParentCustomerComboBox, "spGetAllTopParentCustomer", null, true, "Customer Id", customerId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadCurrencyDataAsync(Guid currencyId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadAccountManagerDataAsync(Guid accountManagerId, Guid companyConfigurationId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageAccountManagerComboBox, "spGetAllAccountManager", companyConfigurationId, true, "Account Manager Id", accountManagerId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
-        private async Task CustomerDetailOverviewLoadCustomerTierDataAsync(Guid customerTierId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Customer Tier";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerTier";                
-                DataTable? customerTierData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var customerTierList = customerTierData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerTierId = row.Field<Guid>("Customer Tier Id"),
-                        CustomerTierCode = row.Field<string>("Customer Tier Code"),
-                        CustomerTierDescription = row.Field<string>("Customer Tier Description"),
-                        DisplayText = $"{row.Field<string>("Customer Tier Code")} - {row.Field<string>("Customer Tier Description")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageCustomerTierComboBox.DataSource = customerTierList;
-                customerDetailTabControlOverviewTabPageCustomerTierComboBox.DisplayMember = "DisplayText";
-                customerDetailTabControlOverviewTabPageCustomerTierComboBox.ValueMember = "CustomerTierId";
-                customerDetailTabControlOverviewTabPageCustomerTierComboBox.SelectedValue = customerTierId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
-        private async Task CustomerDetailOverviewLoadSalesRegionDataAsync(Guid salesRegionId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Sales Region";
-
-            try
-            {
-                string storedProcedureName = "spGetAllSalesRegion";               
-                DataTable? salesRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var salesRegionList = salesRegionData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        SalesRegionId = row.Field<Guid>("Sales Region Id"),
-                        SalesRegion = row.Field<string>("Sales Region")
-                    })
-                    .OrderBy(item => item.SalesRegion)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageSalesRegionComboBox.DataSource = salesRegionList;
-                customerDetailTabControlOverviewTabPageSalesRegionComboBox.DisplayMember = "SalesRegion";
-                customerDetailTabControlOverviewTabPageSalesRegionComboBox.ValueMember = "SalesRegionId";
-                customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue = salesRegionId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CustomerDetailOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
-            await CustomerDetailLoadSalesSubRegionAsync((Guid)customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue, (Guid)customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue);
-        }
-
-        private async Task CustomerDetailLoadSalesSubRegionAsync(Guid salesRegionId, Guid salesSubRegionId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Sales Sub Region";
-
-            try
-            {
-                string storedProcedureName = "spGetAllSalesSubRegion";                
-                DataTable? salesSubRegionData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var salesSubRegionList = salesSubRegionData.AsEnumerable()
-                    .Where(row => row.Field<Guid>("Sales Region Id") == salesRegionId)
-                    .Select(row => new
-                    {
-                        SalesRegionId = row.Field<Guid>("Sales Region Id"),
-                        SalesSubRegionId = row.Field<Guid>("Sales Sub Region Id"),
-                        SalesSubRegion = row.Field<string>("Sales Sub Region")
-                    })
-                    .OrderBy(item => item.SalesSubRegion)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.DataSource = salesSubRegionList;
-                customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.DisplayMember = "SalesSubRegion";
-                customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.ValueMember = "SalesSubRegionId";
-                customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue = salesSubRegionId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            await LoadSalesSubRegionAsync((Guid)customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue, (Guid)customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue);
         }
 
         private async void CustomerDetailOverviewSalesRegionComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
-            await CustomerDetailLoadSalesSubRegionAsync((Guid)customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue, (Guid)customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue);
-        }
-
-        private async Task CustomerDetailOverviewLoadAccountManagerDataAsync(Guid accountManagerId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Account Manager";
-
-            try
-            {
-                string storedProcedureName = "spGetAllAccountManager";                
-                DataTable? accountManagerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var accountManagerList = accountManagerData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        AccountManagerId = row.Field<Guid>("Account Manager Id"),
-                        AccountManagerFirstName = row.Field<string>("First Name"),
-                        AccountManagerLastName = row.Field<string>("Last Name"),
-                        AccountManagerEmailAddress = row.Field<string>("Email Address"),
-                        DisplayText = $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageAccountManagerComboBox.DataSource = accountManagerList;
-                customerDetailTabControlOverviewTabPageAccountManagerComboBox.DisplayMember = "DisplayText";
-                customerDetailTabControlOverviewTabPageAccountManagerComboBox.ValueMember = "AccountManagerId";
-                customerDetailTabControlOverviewTabPageAccountManagerComboBox.SelectedValue = accountManagerId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            await LoadSalesSubRegionAsync((Guid)customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue, (Guid)customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue);
         }
 
         private void CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged(object? sender, EventArgs e)
@@ -306,7 +214,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 if (customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue != null)
                 {
-                    await CustomerDetailOverviewLoadGlobalParentCustomerDataAsync((Guid)customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue);
+                    await LoadGlobalParentCustomerDataAsync((Guid)customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue);
                 }
                 else
                 {
@@ -322,7 +230,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 if (customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue != null)
                 {
-                    await CustomerDetailOverviewLoadTopParentCustomerDataAsync((Guid)customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue);
+                    await LoadTopParentCustomerDataAsync((Guid)customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue);
                 }
                 else
                 {
@@ -332,74 +240,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = false;
                 customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = null;
                 customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Items.Clear();
-            }
-        }
-
-        private async Task CustomerDetailOverviewLoadGlobalParentCustomerDataAsync(Guid globalParentCustomerId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Global Parent Customer";
-
-            try
-            {
-                string storedProcedureName = "spGetAllGlobalParentCustomer";               
-                DataTable? globalParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var globalParentCustomerList = globalParentCustomerData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerId = row.Field<Guid>("Customer Id"),
-                        CustomerCompanyName = row.Field<string>("Company Name"),
-                        DisplayText = $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.DataSource = globalParentCustomerList;
-                customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.DisplayMember = "DisplayText";
-                customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.ValueMember = "CustomerId";
-                customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue = globalParentCustomerId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
-        private async Task CustomerDetailOverviewLoadTopParentCustomerDataAsync(Guid topParentCustomerId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Top Parent Customer";
-
-            try
-            {
-                string storedProcedureName = "spGetAllTopParentCustomer";                
-                DataTable? topParentCustomerData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var topParentCustomerList = topParentCustomerData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerId = row.Field<Guid>("Customer Id"),
-                        CustomerCompanyName = row.Field<string>("Company Name"),
-                        DisplayText = $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.DataSource = topParentCustomerList;
-                customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.DisplayMember = "DisplayText";
-                customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.ValueMember = "CustomerId";
-                customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue = topParentCustomerId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
         }
 
@@ -501,42 +341,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async Task CustomerDetailFinanceLoadCurrencyDataAsync(Guid paymentCurrencyId)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Currency";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";
-                
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DataSource = currencyList;
-                customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.ValueMember = "CurrencyId";
-                customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue = paymentCurrencyId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
         private void CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
         {
             if (!customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
@@ -585,11 +389,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow customerDataRow = customerDataTable.Rows[0];
 
+                    Guid companyConfigurationId = (Guid)customerDataRow["Company Configuration Id"];
+                    await LoadCompanyConfigurationAsync(companyConfigurationId);
                     customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.Text = customerDataRow["Billing Address Line 1"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Text = customerDataRow["Billing Address Line 2"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Text = customerDataRow["Billing Address Line 3"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Text = customerDataRow["Billing Address Line 4"].ToString();
-                    customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.Text = customerDataRow["Billing Address Line 5"].ToString();
+                    Guid billingAddressLine5 = (Guid)customerDataRow["Billing Address Line 5"];
+                    await LoadCountryDataAsync(billingAddressLine5, "billing");
                     customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Text = customerDataRow["Billing Company Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Text = customerDataRow["Billing Email Address"].ToString();
                     customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Text = customerDataRow["Billing First Name"].ToString();
@@ -598,26 +405,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
                     string creditLimitPartA;
                     string creditLimitPartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit"], out creditLimitPartA, out creditLimitPartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit"], out creditLimitPartA, out creditLimitPartB);
                     customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Text = creditLimitPartA;
                     customerDetailTabControlFinanceTabPageTextboxB.Text = creditLimitPartB;
                     string creditLimitUsedPartA;
                     string creditLimitUsedPartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used"], out creditLimitUsedPartA, out creditLimitUsedPartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used"], out creditLimitUsedPartA, out creditLimitUsedPartB);
                     customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.Text = creditLimitUsedPartA;
                     customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.Text = creditLimitUsedPartB;
                     string creditLimitUsedPercentagePartA;
                     string creditLimitUsedPercentagePartB;
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used Percentage"], out creditLimitUsedPercentagePartA, out creditLimitUsedPercentagePartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used Percentage"], out creditLimitUsedPercentagePartA, out creditLimitUsedPercentagePartB);
                     customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.Text = creditLimitUsedPercentagePartA;
                     customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.Text = creditLimitUsedPercentagePartB;
                     customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
                     Guid paymentCurrencyId = (Guid)customerDataRow["Payment Currency Id"];
-                    await CustomerDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
+                    await LoadCurrencyDataAsync(paymentCurrencyId);
                     customerDetailTabControlFinanceTabPagePaymentDaysTextbox.Text = customerDataRow["Payment Days"].ToString();
                     customerDetailTabControlFinanceTabPageVATNumberTextbox.Text = customerDataRow["VAT Number"].ToString();
                     Guid accountManagerId = (Guid)customerDataRow["Account Manager Id"];
-                    await CustomerDetailOverviewLoadAccountManagerDataAsync(accountManagerId);
+                    await LoadAccountManagerDataAsync(accountManagerId, companyConfigurationId);
                     customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerDataRow["Active Status"];
                     customerDetailTabControlOverviewTabPageCompanyNameTextbox.Text = customerDataRow["Company Name"].ToString();
                     customerDetailTabControlOverviewTabPageCreatedByTextbox.Text = customerDataRow["Created By"].ToString();
@@ -625,9 +432,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlOverviewTabPageCustomerIdTextbox.Text = customerDataRow["Customer Id"].ToString();
                     customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Value = (DateTime)customerDataRow["Customer Since"];
                     Guid customerTierId = (Guid)customerDataRow["Customer Tier Id"];
-                    await CustomerDetailOverviewLoadCustomerTierDataAsync(customerTierId);
+                    await LoadCustomerTierDataAsync(companyConfigurationId, customerTierId);
                     Guid customerTypeId = (Guid)customerDataRow["Customer Type Id"];
-                    await CustomerDetailOverviewLoadCustomerTypeAsync(customerTypeId);
+                    await LoadCustomerTypeAsync(companyConfigurationId, customerTypeId);
                     customerDetailTabControlOverviewTabPageEmailAddressTextbox.Text = customerDataRow["Email Address"].ToString();
                     if ((bool)customerDataRow["Global Parent Customer"] || (bool)customerDataRow["Top Parent Customer"])
                     {
@@ -660,27 +467,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     if (customerDataRow["Global Parent Customer Id"] != null)
                     {
                         Guid existingGlobalParentCustomerId = (Guid)customerDataRow["Global Parent Customer Id"];
-                        await CustomerDetailOverviewLoadGlobalParentCustomerDataAsync(existingGlobalParentCustomerId);
+                        await LoadGlobalParentCustomerDataAsync(existingGlobalParentCustomerId);
                     }
                     if (customerDataRow["Top Parent Customer Id"] != null)
                     {
                         Guid existingTopParentCustomerId = (Guid)customerDataRow["Top Parent Customer Id"];
-                        await CustomerDetailOverviewLoadTopParentCustomerDataAsync(existingTopParentCustomerId);
+                        await LoadTopParentCustomerDataAsync(existingTopParentCustomerId);
                     }
                     customerDetailTabControlOverviewTabPageFirstNameTextbox.Text = customerDataRow["First Name"].ToString();
                     customerDetailTabControlOverviewTabPageLastNameTextbox.Text = customerDataRow["Last Name"].ToString();
                     customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = customerDataRow["Modified By"].ToString();
                     customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = customerDataRow["Modified Timestamp UTC"].ToString();
                     Guid salesRegionId = (Guid)customerDataRow["Sales Region Id"];
-                    await CustomerDetailOverviewLoadSalesRegionDataAsync(salesRegionId);
+                    await LoadSalesRegionDataAsync(companyConfigurationId, salesRegionId);
                     Guid salesSubRegionid = (Guid)customerDataRow["Sales Sub Region Id"];
-                    await CustomerDetailLoadSalesSubRegionAsync(salesRegionId, salesSubRegionid);
+                    await LoadSalesSubRegionAsync(salesRegionId, salesSubRegionid);
                     customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text = customerDataRow["Telephone Number"].ToString();
                     customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.Text = customerDataRow["Shipping Address Line 1"].ToString();
                     customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Text = customerDataRow["Shipping Address Line 2"].ToString();
                     customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Text = customerDataRow["Shipping Address Line 3"].ToString();
                     customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Text = customerDataRow["Shipping Address Line 4"].ToString();
-                    customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.Text = customerDataRow["Shipping Address Line 5"].ToString();
+                    Guid shippingAddressLine5 = (Guid)customerDataRow["Shipping Address Line 5"];
+                    await LoadCountryDataAsync(shippingAddressLine5, "shipping");
                     customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Text = customerDataRow["Shipping Company Name"].ToString();
                     customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Text = customerDataRow["Shipping Email Address"].ToString();
                     customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Text = customerDataRow["Shipping First Name"].ToString();
@@ -691,23 +499,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlBillingInformationTabPageAddressLine2OriginalValue = customerDataRow["Billing Address Line 2"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine3OriginalValue = customerDataRow["Billing Address Line 3"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine4OriginalValue = customerDataRow["Billing Address Line 4"].ToString();
-                    customerDetailTabControlBillingInformationTabPageAddressLine5OriginalValue = customerDataRow["Billing Address Line 5"].ToString();
+                    customerDetailTabControlBillingInformationTabPageAddressLine5OriginalValue = (Guid)customerDataRow["Billing Address Line 5"];
                     customerDetailTabControlBillingInformationTabPageCompanyNameOriginalValue = customerDataRow["Billing Company Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageEmailAddressOriginalValue = customerDataRow["Billing Email Address"].ToString();
                     customerDetailTabControlBillingInformationTabPageFirstNameOriginalValue = customerDataRow["Billing First Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageLastNameOriginalValue = customerDataRow["Billing Last Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageTelephoneNumberOriginalValue = customerDataRow["Billing Telephone Number"].ToString();
-                    customerDetailFinanceCreditEnabledOriginalValue = (bool)customerDataRow["Credit Enabled"];
-                    customerDetailFinanceCreditLimitOriginalValue = (decimal)customerDataRow["Credit Limit"];
-                    customerDetailFinancePaymentCurrencyIdOriginalValue = (Guid)customerDataRow["Payment Currency Id"];
-                    customerDetailFinancePaymentDaysOriginalValue = (int)customerDataRow["Payment Days"];
+                    customerDetailTabControlFinanceCreditEnabledOriginalValue = (bool)customerDataRow["Credit Enabled"];
+                    customerDetailTabControlFinanceCreditLimitOriginalValue = (decimal)customerDataRow["Credit Limit"];
+                    customerDetailTabControlFinancePaymentCurrencyIdOriginalValue = (Guid)customerDataRow["Payment Currency Id"];
+                    customerDetailTabControlFinancePaymentDaysOriginalValue = (int)customerDataRow["Payment Days"];
                     if (customerDataRow["VAT Number"] != DBNull.Value && customerDataRow["VAT Number"] != null)
                     {
-                        customerDetailFinanceVATNumberOriginalValue = customerDataRow["VAT Number"].ToString();
-                        customerDetailFinanceVATRegisteredOriginalValue = true;
+                        customerDetailTabControlFinanceVATNumberOriginalValue = customerDataRow["VAT Number"].ToString();
+                        customerDetailTabControlFinanceVATRegisteredOriginalValue = true;
                     }
                     customerDetailTabControlOverviewTabPageAccountManagerIdOriginalValue = (Guid)customerDataRow["Account Manager Id"];
                     customerDetailTabControlOverviewTabPageActiveStatusOriginalValue = (bool)customerDataRow["Active Status"];
+                    customerDetailTabControlOverviewTabPageCompanyConfigurationIdOriginalValue = (Guid)customerDataRow["Company Configuration Id"];
                     customerDetailTabControlOverviewTabPageCompanyNameOriginalValue = customerDataRow["Company Name"].ToString();
                     customerDetailTabControlOverviewTabPageCustomerTierIdOriginalValue = (Guid)customerDataRow["Customer Tier Id"];
                     customerDetailTabControlOverviewTabPageCustomerTypeIdOriginalValue = (Guid)customerDataRow["Customer Type Id"];
@@ -743,18 +552,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlOverviewTabPageSalesSubRegionIdOriginalValue = (Guid)customerDataRow["Sales Sub Region Id"];
                     customerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue = customerDataRow["Telephone Number"].ToString();
                     customerDetailTabControlOverviewTabPageTopParentCustomerIdOriginalValue = (Guid)customerDataRow["Top Parent Customer Id"];
-                    customerDetailShippingInformationAddressLine1OriginalValue = customerDataRow["Shipping Address Line 1"].ToString();
-                    customerDetailShippingInformationAddressLine2OriginalValue = customerDataRow["Shipping Address Line 2"].ToString();
-                    customerDetailShippingInformationAddressLine3OriginalValue = customerDataRow["Shipping Address Line 3"].ToString();
-                    customerDetailShippingInformationAddressLine4OriginalValue = customerDataRow["Shipping Address Line 4"].ToString();
-                    customerDetailShippingInformationAddressLine5OriginalValue = customerDataRow["Shipping Address Line 5"].ToString();
-                    customerDetailShippingInformationCompanyNameOriginalValue = customerDataRow["Shipping Company Name"].ToString();
-                    customerDetailShippingInformationEmailAddressOriginalValue = customerDataRow["Shipping Email Address"].ToString();
-                    customerDetailShippingInformationFirstNameOriginalValue = customerDataRow["Shipping First Name"].ToString();
-                    customerDetailShippingInformationLastNameOriginalValue = customerDataRow["Shipping Last Name"].ToString();
-                    customerDetailShippingInformationTelephoneNumberOriginalValue = customerDataRow["Shipping Telephone Number"].ToString();
+                    customerDetailTabControlShippingInformationAddressLine1OriginalValue = customerDataRow["Shipping Address Line 1"].ToString();
+                    customerDetailTabControlShippingInformationAddressLine2OriginalValue = customerDataRow["Shipping Address Line 2"].ToString();
+                    customerDetailTabControlShippingInformationAddressLine3OriginalValue = customerDataRow["Shipping Address Line 3"].ToString();
+                    customerDetailTabControlShippingInformationAddressLine4OriginalValue = customerDataRow["Shipping Address Line 4"].ToString();
+                    customerDetailTabControlShippingInformationAddressLine5OriginalValue = (Guid)customerDataRow["Shipping Address Line 5"];
+                    customerDetailTabControlShippingInformationCompanyNameOriginalValue = customerDataRow["Shipping Company Name"].ToString();
+                    customerDetailTabControlShippingInformationEmailAddressOriginalValue = customerDataRow["Shipping Email Address"].ToString();
+                    customerDetailTabControlShippingInformationFirstNameOriginalValue = customerDataRow["Shipping First Name"].ToString();
+                    customerDetailTabControlShippingInformationLastNameOriginalValue = customerDataRow["Shipping Last Name"].ToString();
+                    customerDetailTabControlShippingInformationTelephoneNumberOriginalValue = customerDataRow["Shipping Telephone Number"].ToString();
 
-                    this.Text += $" ({customerDetailShippingInformationCompanyNameOriginalValue})";
+                    this.Text += $" ({customerDetailTabControlShippingInformationCompanyNameOriginalValue})";
 
 					if (customerDetailTabControlOverviewTabPageCompanyNameOriginalValue == null)
 					{
@@ -794,221 +603,89 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task CustomerDetailExistingCustomerContact_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAllCustomerContactForCustomer";
-            string dataSubject = "Existing Customer Contacts";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "customerId",
-                    ParameterValue = _customerId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerDetailTabControlCustomerContactTabPageDataGridView.AutoGenerateColumns = true;
-                customerDetailTabControlCustomerContactTabPageDataGridView.DataSource = dataTable;
-                customerDetailTabControlCustomerContactTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn customerContactDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Customer Contact",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Add(customerContactDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _customerId,
+                "customerId",
+                "spGetAllCustomerContactForCustomer",
+                "Existing Customer Contacts",
+                customerDetailTabControlCustomerContactTabPageDataGridView,
+                "Customer Contact Id",
+                "View Customer Contact",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
         private async Task CustomerDetailExistingCustomerLead_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAllCustomerLeadForCustomer";
-            string dataSubject = "Existing Customer Leads";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "customerId",
-                    ParameterValue = _customerId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerDetailTabControlCustomerLeadTabPageDataGridView.AutoGenerateColumns = true;
-                customerDetailTabControlCustomerLeadTabPageDataGridView.DataSource = dataTable;
-                customerDetailTabControlCustomerLeadTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn customerLeadDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Customer Lead",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Add(customerLeadDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _customerId,
+                "customerId",
+                "spGetAllCustomerLeadForCustomer",
+                "Existing Customer Leads",
+                customerDetailTabControlCustomerLeadTabPageDataGridView,
+                "Customer Lead Id",
+                "View Customer Lead",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
         private async Task CustomerDetailExistingCustomerNote_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAllNoteForCustomer";
-            string dataSubject = "Existing Customer Notes";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "customerId",
-                    ParameterValue = _customerId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerDetailTabControlCustomerNoteTabPageDataGridView.AutoGenerateColumns = true;
-                customerDetailTabControlCustomerNoteTabPageDataGridView.DataSource = dataTable;
-                customerDetailTabControlCustomerNoteTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn customerNoteDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Customer Note",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Add(customerNoteDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _customerId,
+                "customerId",
+                "spGetAllNoteForCustomer",
+                "Existing Customer Notes",
+                customerDetailTabControlCustomerNoteTabPageDataGridView,
+                "Customer Note Id",
+                "View Customer Note",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
-        private void customerDetailCustomerContactExistingCustomerContactDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void customerDetailTabControlCustomerContactTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == customerDetailTabControlCustomerContactTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Customer Contact";
-
-                try
-                {
-                    if (customerDetailTabControlCustomerContactTabPageDataGridView.Columns.Contains("Customer Contact Id"))
-                    {
-                        Guid customerContactId = (Guid)customerDetailTabControlCustomerContactTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Contact Id"].Value;
-                        ContactDetail contactDetail = new ContactDetail("Customer", customerContactId);
-                        contactDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            customerDetailTabControlCustomerContactTabPageDataGridView,
+            e,
+            "Customer Contact Id",
+            "Customer Contact",
+            id => {
+                var contactDetail = new ContactDetail("CustomerContact", id, customerDisplayName, _customerId);
+                contactDetail.Show();
+            });
         }
 
         private void customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == customerDetailTabControlCustomerLeadTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Customer Lead";
-
-                try
-                {
-                    if (customerDetailTabControlCustomerLeadTabPageDataGridView.Columns.Contains("Customer Lead Id"))
-                    {
-                        Guid customerLeadId = (Guid)customerDetailTabControlCustomerLeadTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Lead Id"].Value;
-                        CustomerLeadDetail customerLeadDetail = new CustomerLeadDetail(_customerId, customerLeadId);
-                        customerLeadDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            customerDetailTabControlCustomerLeadTabPageDataGridView,
+            e,
+            "Customer Lead Id",
+            "Customer Lead",
+            id => {
+                var customerLeadDetail = new CustomerLeadDetail(_customerId, id, customerDisplayName);
+                customerLeadDetail.Show();
+            });
         }
 
         private void customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == customerDetailTabControlCustomerNoteTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Customer Note";
-
-                try
-                {
-                    if (customerDetailTabControlCustomerNoteTabPageDataGridView.Columns.Contains("Customer Note Id"))
-                    {
-                        Guid customerNoteId = (Guid)customerDetailTabControlCustomerNoteTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("Customer", customerNoteId);
-                        noteDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            customerDetailTabControlCustomerNoteTabPageDataGridView,
+            e,
+            "Customer Note Id",
+            "Customer Note",
+            id => {
+                var noteDetail = new NoteDetail(_customerId, "Customer", id, customerDisplayName);
+                noteDetail.Show();
+            });
         }
 
         private async void customerDetailUpdateCustomerButton_Click(object sender, EventArgs e)
@@ -1017,7 +694,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? customerBillingInformationAddressLine2 = customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
             string customerBillingInformationAddressLine3 = customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
             string customerBillingInformationAddressLine4 = customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine5 = customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid customerBillingInformationAddressLine5 = Guid.Parse(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string? customerBillingInformationCompanyName = customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
             string customerBillingInformationEmailAddress = customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
             string customerBillingInformationFirstName = customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Text.TrimEnd();
@@ -1032,6 +709,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             Guid customerOverviewAccountManagerId = Guid.Parse(customerDetailTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            Guid customerOverviewCompanyConfigurationId = Guid.Parse(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
             string? customerOverviewCompanyName = customerDetailTabControlOverviewTabPageCompanyNameTextbox.Text.TrimEnd();
             DateTime customerOverviewCustomerSince = customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(customerDetailTabControlOverviewTabPageCustomerTierComboBox.SelectedValue.ToString());
@@ -1058,7 +736,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? customerShippingInformationAddressLine2 = customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
             string customerShippingInformationAddressLine3 = customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
             string customerShippingInformationAddressLine4 = customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine5 = customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid customerShippingInformationAddressLine5 = Guid.Parse(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string? customerShippingInformationCompanyName = customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
             string customerShippingInformationEmailAddress = customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
             string customerShippingInformationFirstName = customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Text.TrimEnd();
@@ -1073,352 +751,332 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationAddressLine1",
+                    Name = "Customer Billing Information: Address Line 1",
                     Value = customerBillingInformationAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Billing Information: Address Line 2",
+                    Value = customerBillingInformationAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationAddressLine3",
+                    Name = "Customer Billing Information: Address Line 3",
                     Value = customerBillingInformationAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationAddressLine4",
+                    Name = "Customer Billing Information: Address Line 4",
                     Value = customerBillingInformationAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationAddressLine5",
+                    Name = "Customer Billing Information: Address Line 5",
                     Value = customerBillingInformationAddressLine5,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Billing Information: Company Name",
+                    Value = customerBillingInformationCompanyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationEmailAddress",
+                    Name = "Customer Billing Information: Email Address",
                     Value = customerBillingInformationEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationFirstName",
+                    Name = "Customer Billing Information: First Name",
                     Value = customerBillingInformationFirstName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationLastName",
+                    Name = "Customer Billing Information: Last Name",
                     Value = customerBillingInformationLastName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerBillingInformationTelephoneNumber",
+                    Name = "Customer Billing Information: Telephone Number",
                     Value = customerBillingInformationTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerFinanceCreditEnabled",
+                    Name = "Customer Finance: Credit Enabled",
                     Value = customerFinanceCreditEnabled,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerFinanceCreditLimit",
+                    Name = "Customer Finance: Credit Limit",
                     Value = customerFinanceCreditLimit,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerFinancePaymentCurrencyId",
+                    Name = "Customer Finance: Payment Currency Id",
                     Value = customerFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerFinancePaymentDays",
+                    Name = "Customer Finance: Payment Days",
                     Value = customerFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Company Finance: VAT Number",
+                    Value = customerFinanceVATNumber,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewAccountManagerId",
+                    Name = "Customer Overview: Account Manager Id",
                     Value = customerOverviewAccountManagerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewActiveStatus",
+                    Name = "Customer Overview: Active Status",
                     Value = customerOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewCustomerSince",
+                    Name = "Customer Overview: Company Configuration Id",
+                    Value = customerOverviewCompanyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Overview: Company Name",
+                    Value = customerOverviewCompanyName,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Customer Overview: Customer Since",
                     Value = customerOverviewCustomerSince,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewCustomerTierId",
+                    Name = "Customer Overview: Customer Tier Id",
                     Value = customerOverviewCustomerTierId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewCustomerTypeId",
+                    Name = "Customer Overview: Customer Type Id",
                     Value = customerOverviewCustomerTypeId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewEmailAddress",
+                    Name = "Customer Overview: Email Address",
                     Value = customerOverviewEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Overview: Existing Global Parent Customer Id",
+                    Value = customerOverviewExistingGlobalParentCustomerId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Overview: Existing Top Parent Customer Id",
+                    Value = customerOverviewExistingTopParentCustomerId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewFirstName",
+                    Name = "Customer Overview: First Name",
                     Value = customerOverviewFirstName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewLastName",
+                    Name = "Customer Overview: Last Name",
                     Value = customerOverviewLastName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewSalesSubRegionId",
+                    Name = "Customer Overview: Sales Sub Region Id",
                     Value = customerOverviewSalesSubRegionId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewTelephoneNumber",
+                    Name = "Customer Overview: Telephone Number",
                     Value = customerOverviewTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewWillBeGlobalParent",
+                    Name = "Customer Overview: Will Be Global Parent",
                     Value = customerOverviewWillBeGlobalParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewWillBeTopParent",
+                    Name = "Customer Overview: Will Be Top Parent",
                     Value = customerOverviewWillBeTopParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerOverviewTelephoneNumber",
+                    Name = "Customer Overview: Telephone Number",
                     Value = customerOverviewTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationAddressLine1",
+                    Name = "Customer Shipping Information: Address Line 1",
                     Value = customerShippingInformationAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Shipping Information: Address Line 2",
+                    Value = customerShippingInformationAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationAddressLine3",
+                    Name = "Customer Shipping Information: Address Line 3",
                     Value = customerShippingInformationAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationAddressLine4",
+                    Name = "Customer Shipping Information: Address Line 4",
                     Value = customerShippingInformationAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationAddressLine5",
+                    Name = "Customer Shipping Information: Address Line 5",
                     Value = customerShippingInformationAddressLine5,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Shipping Information: Company Name",
+                    Value = customerShippingInformationCompanyName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationEmailAddress",
+                    Name = "Customer Shipping Information: Email Address",
                     Value = customerShippingInformationEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationFirstName",
+                    Name = "Customer Shipping Information: First Name",
                     Value = customerShippingInformationFirstName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationLastName",
+                    Name = "Customer Shipping Information: Last Name",
                     Value = customerShippingInformationLastName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerShippingInformationTelephoneNumber",
+                    Name = "Customer Shipping Information: Telephone Number",
                     Value = customerShippingInformationTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerBillingInformationAddressLine2",
-                    Value = customerBillingInformationAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerBillingInformationCompanyName",
-                    Value = customerBillingInformationCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerFinanceVATNumber))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CompanyFinanceVATNumber",
-                    Value = customerFinanceVATNumber,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerOverviewCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerOverviewCompanyName",
-                    Value = customerOverviewCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (customerOverviewExistingGlobalParentCustomerId != null && customerOverviewExistingGlobalParentCustomerId != Guid.Empty)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerOverviewExistingGlobalParentCustomerId",
-                    Value = customerOverviewExistingGlobalParentCustomerId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (customerOverviewExistingTopParentCustomerId != null && customerOverviewExistingTopParentCustomerId != Guid.Empty)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerOverviewExistingTopParentCustomerId",
-                    Value = customerOverviewExistingTopParentCustomerId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerShippingInformationAddressLine2",
-                    Value = customerShippingInformationAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "CustomerShippingInformationCompanyName",
-                    Value = customerShippingInformationCompanyName,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -1477,6 +1135,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "billingEmailAddress",
                         ParameterValue = customerBillingInformationEmailAddress
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "companyConfigurationId",
+                        ParameterValue = customerOverviewCompanyConfigurationId
                     },
                     new Parameter
                     {
@@ -1674,7 +1337,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine5Textbox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Enabled = !customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Enabled;
             customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageFirstNameTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageFirstNameTextbox.ReadOnly;
@@ -1689,6 +1352,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly = !customerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled = !customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled;
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled = !customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled;
             customerDetailTabControlOverviewTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageCompanyNameTextbox.ReadOnly;
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled = !customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled;
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.Enabled = !customerDetailTabControlOverviewTabPageCustomerTierComboBox.Enabled;
@@ -1711,7 +1375,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.ReadOnly;
             customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.ReadOnly;
             customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine5Textbox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Enabled = !customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Enabled;
             customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.ReadOnly;
             customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.ReadOnly;
             customerDetailTabControlShippingInformationTabPageFirstNameTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageFirstNameTextbox.ReadOnly;

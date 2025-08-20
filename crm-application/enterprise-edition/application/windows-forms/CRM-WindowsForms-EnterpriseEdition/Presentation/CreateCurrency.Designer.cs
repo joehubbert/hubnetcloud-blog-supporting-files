@@ -77,9 +77,9 @@
             createCurrencyActiveStatusCheckbox.Location = new Point(202, 180);
             createCurrencyActiveStatusCheckbox.Margin = new Padding(5);
             createCurrencyActiveStatusCheckbox.Name = "createCurrencyActiveStatusCheckbox";
-            createCurrencyActiveStatusCheckbox.Size = new Size(130, 24);
+            createCurrencyActiveStatusCheckbox.Size = new Size(136, 24);
             createCurrencyActiveStatusCheckbox.TabIndex = 3;
-            createCurrencyActiveStatusCheckbox.Text = "Active Currency";
+            createCurrencyActiveStatusCheckbox.Text = "Active Currency*";
             createCurrencyActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCurrencySubmitButton

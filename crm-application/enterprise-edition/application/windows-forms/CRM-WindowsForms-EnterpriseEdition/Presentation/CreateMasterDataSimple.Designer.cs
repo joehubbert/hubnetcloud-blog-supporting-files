@@ -28,11 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataSimple));
             createMasterDataSimpleTitleLabel = new Label();
             createMasterDataSimpleMasterDataTypeTextbox = new TextBox();
             createMasterDataSimpleMasterDataTypeTextboxLabel = new Label();
             createMasterDataSimpleSubmitButton = new Button();
             createMasterDataSimpleActiveStatusCheckbox = new CheckBox();
+            createMasterDataSimpleStatusStrip = new StatusStrip();
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createMasterDataSimpleStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // createMasterDataSimpleTitleLabel
@@ -92,12 +97,42 @@
             createMasterDataSimpleActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             createMasterDataSimpleActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
+            // createMasterDataSimpleStatusStrip
+            // 
+            createMasterDataSimpleStatusStrip.Items.AddRange(new ToolStripItem[] { createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder });
+            createMasterDataSimpleStatusStrip.Location = new Point(0, 246);
+            createMasterDataSimpleStatusStrip.Name = "createMasterDataSimpleStatusStrip";
+            createMasterDataSimpleStatusStrip.Size = new Size(524, 22);
+            createMasterDataSimpleStatusStrip.TabIndex = 3;
+            createMasterDataSimpleStatusStrip.Text = "Create Master Data Simple Status Strip";
+            createMasterDataSimpleStatusStrip.Visible = true;
+            // 
+            // createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder
+            // 
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Image");
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Name = "createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder";
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Size = new Size(225, 20);
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Text = "{Company Configuration Placeholder}";
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Visible = true;
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
             // CreateMasterDataSimple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(524, 250);
+            ClientSize = new Size(524, 268);
+            Controls.Add(createMasterDataSimpleStatusStrip);
             Controls.Add(createMasterDataSimpleMasterDataTypeTextbox);
             Controls.Add(createMasterDataSimpleMasterDataTypeTextboxLabel);
             Controls.Add(createMasterDataSimpleSubmitButton);
@@ -110,6 +145,8 @@
             Name = "CreateMasterDataSimple";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CreateMasterDataSimple";
+            createMasterDataSimpleStatusStrip.ResumeLayout(false);
+            createMasterDataSimpleStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -121,5 +158,8 @@
         private Label createMasterDataSimpleMasterDataTypeTextboxLabel;
         private Button createMasterDataSimpleSubmitButton;
         private CheckBox createMasterDataSimpleActiveStatusCheckbox;
+        private StatusStrip createMasterDataSimpleStatusStrip;
+        private ToolStripSplitButton createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
     }
 }

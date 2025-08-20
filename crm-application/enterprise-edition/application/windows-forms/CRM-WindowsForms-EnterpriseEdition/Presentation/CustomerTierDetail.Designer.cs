@@ -46,6 +46,8 @@
             customerTierDetailToggleEditModeButton = new Button();
             customerTierDetailActiveStatusCheckbox = new CheckBox();
             customerTierDetailUpdateCustomerTierButton = new Button();
+            customerTierDetailCompanyConfigurationComboBoxLabel = new Label();
+            customerTierDetailCompanyConfigurationComboBox = new ComboBox();
             SuspendLayout();
             // 
             // customerTierDetailTitleLabel
@@ -74,9 +76,9 @@
             customerTierDetailCustomerTierCodeLabel.AutoSize = true;
             customerTierDetailCustomerTierCodeLabel.Location = new Point(89, 180);
             customerTierDetailCustomerTierCodeLabel.Name = "customerTierDetailCustomerTierCodeLabel";
-            customerTierDetailCustomerTierCodeLabel.Size = new Size(140, 20);
+            customerTierDetailCustomerTierCodeLabel.Size = new Size(146, 20);
             customerTierDetailCustomerTierCodeLabel.TabIndex = 9;
-            customerTierDetailCustomerTierCodeLabel.Text = "Customer Tier Code";
+            customerTierDetailCustomerTierCodeLabel.Text = "Customer Tier Code*";
             customerTierDetailCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCustomerTierDescriptionLabel
@@ -84,9 +86,9 @@
             customerTierDetailCustomerTierDescriptionLabel.AutoSize = true;
             customerTierDetailCustomerTierDescriptionLabel.Location = new Point(48, 221);
             customerTierDetailCustomerTierDescriptionLabel.Name = "customerTierDetailCustomerTierDescriptionLabel";
-            customerTierDetailCustomerTierDescriptionLabel.Size = new Size(181, 20);
+            customerTierDetailCustomerTierDescriptionLabel.Size = new Size(187, 20);
             customerTierDetailCustomerTierDescriptionLabel.TabIndex = 10;
-            customerTierDetailCustomerTierDescriptionLabel.Text = "Customer Tier Description";
+            customerTierDetailCustomerTierDescriptionLabel.Text = "Customer Tier Description*";
             customerTierDetailCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerTierDetailCreatedByTextboxLabel
@@ -136,7 +138,7 @@
             customerTierDetailLastUpdatedByTextbox.Name = "customerTierDetailLastUpdatedByTextbox";
             customerTierDetailLastUpdatedByTextbox.ReadOnly = true;
             customerTierDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerTierDetailLastUpdatedByTextbox.TabIndex = 6;
+            customerTierDetailLastUpdatedByTextbox.TabIndex = 7;
             // 
             // customerTierDetailCreatedByTextbox
             // 
@@ -145,7 +147,7 @@
             customerTierDetailCreatedByTextbox.Name = "customerTierDetailCreatedByTextbox";
             customerTierDetailCreatedByTextbox.ReadOnly = true;
             customerTierDetailCreatedByTextbox.Size = new Size(370, 27);
-            customerTierDetailCreatedByTextbox.TabIndex = 4;
+            customerTierDetailCreatedByTextbox.TabIndex = 5;
             // 
             // customerTierDetailLastUpdatedTimestampTextbox
             // 
@@ -154,7 +156,7 @@
             customerTierDetailLastUpdatedTimestampTextbox.Name = "customerTierDetailLastUpdatedTimestampTextbox";
             customerTierDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             customerTierDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerTierDetailLastUpdatedTimestampTextbox.TabIndex = 7;
+            customerTierDetailLastUpdatedTimestampTextbox.TabIndex = 8;
             // 
             // customerTierDetailCreatedTimestampTextbox
             // 
@@ -163,7 +165,7 @@
             customerTierDetailCreatedTimestampTextbox.Name = "customerTierDetailCreatedTimestampTextbox";
             customerTierDetailCreatedTimestampTextbox.ReadOnly = true;
             customerTierDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerTierDetailCreatedTimestampTextbox.TabIndex = 5;
+            customerTierDetailCreatedTimestampTextbox.TabIndex = 6;
             // 
             // customerTierDetailCustomerTierDescriptionTextbox
             // 
@@ -200,7 +202,7 @@
             customerTierDetailToggleEditModeButton.Margin = new Padding(4);
             customerTierDetailToggleEditModeButton.Name = "customerTierDetailToggleEditModeButton";
             customerTierDetailToggleEditModeButton.Size = new Size(108, 92);
-            customerTierDetailToggleEditModeButton.TabIndex = 8;
+            customerTierDetailToggleEditModeButton.TabIndex = 9;
             customerTierDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerTierDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -212,9 +214,9 @@
             customerTierDetailActiveStatusCheckbox.Location = new Point(235, 308);
             customerTierDetailActiveStatusCheckbox.Margin = new Padding(4);
             customerTierDetailActiveStatusCheckbox.Name = "customerTierDetailActiveStatusCheckbox";
-            customerTierDetailActiveStatusCheckbox.Size = new Size(165, 24);
-            customerTierDetailActiveStatusCheckbox.TabIndex = 3;
-            customerTierDetailActiveStatusCheckbox.Text = "Active Customer Tier";
+            customerTierDetailActiveStatusCheckbox.Size = new Size(171, 24);
+            customerTierDetailActiveStatusCheckbox.TabIndex = 4;
+            customerTierDetailActiveStatusCheckbox.Text = "Active Customer Tier*";
             customerTierDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // customerTierDetailUpdateCustomerTierButton
@@ -226,10 +228,30 @@
             customerTierDetailUpdateCustomerTierButton.Margin = new Padding(4);
             customerTierDetailUpdateCustomerTierButton.Name = "customerTierDetailUpdateCustomerTierButton";
             customerTierDetailUpdateCustomerTierButton.Size = new Size(185, 70);
-            customerTierDetailUpdateCustomerTierButton.TabIndex = 9;
+            customerTierDetailUpdateCustomerTierButton.TabIndex = 10;
             customerTierDetailUpdateCustomerTierButton.Text = "Update Customer Tier";
             customerTierDetailUpdateCustomerTierButton.UseVisualStyleBackColor = true;
             customerTierDetailUpdateCustomerTierButton.Click += customerTierDetailUpdateCustomerTierButton_Click;
+            // 
+            // customerTierDetailCompanyConfigurationComboBoxLabel
+            // 
+            customerTierDetailCompanyConfigurationComboBoxLabel.AutoSize = true;
+            customerTierDetailCompanyConfigurationComboBoxLabel.Location = new Point(56, 261);
+            customerTierDetailCompanyConfigurationComboBoxLabel.Name = "customerTierDetailCompanyConfigurationComboBoxLabel";
+            customerTierDetailCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
+            customerTierDetailCompanyConfigurationComboBoxLabel.TabIndex = 68;
+            customerTierDetailCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
+            customerTierDetailCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // customerTierDetailCompanyConfigurationComboBox
+            // 
+            customerTierDetailCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            customerTierDetailCompanyConfigurationComboBox.Enabled = false;
+            customerTierDetailCompanyConfigurationComboBox.FormattingEnabled = true;
+            customerTierDetailCompanyConfigurationComboBox.Location = new Point(235, 258);
+            customerTierDetailCompanyConfigurationComboBox.Name = "customerTierDetailCompanyConfigurationComboBox";
+            customerTierDetailCompanyConfigurationComboBox.Size = new Size(370, 28);
+            customerTierDetailCompanyConfigurationComboBox.TabIndex = 3;
             // 
             // CustomerTierDetail
             // 
@@ -237,6 +259,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
             ClientSize = new Size(1265, 427);
+            Controls.Add(customerTierDetailCompanyConfigurationComboBoxLabel);
+            Controls.Add(customerTierDetailCompanyConfigurationComboBox);
             Controls.Add(customerTierDetailUpdateCustomerTierButton);
             Controls.Add(customerTierDetailActiveStatusCheckbox);
             Controls.Add(customerTierDetailToggleEditModeButton);
@@ -286,5 +310,7 @@
         private Button customerTierDetailToggleEditModeButton;
         private CheckBox customerTierDetailActiveStatusCheckbox;
         private Button customerTierDetailUpdateCustomerTierButton;
+        private Label customerTierDetailCompanyConfigurationComboBoxLabel;
+        private ComboBox customerTierDetailCompanyConfigurationComboBox;
     }
 }

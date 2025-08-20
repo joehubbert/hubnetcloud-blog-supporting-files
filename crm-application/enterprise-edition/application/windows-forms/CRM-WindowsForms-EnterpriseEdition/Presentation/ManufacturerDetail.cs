@@ -6,35 +6,48 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ManufacturerDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _manufacturerId;
         private string? manufacturerDetailFinanceVATNumberOriginalValue;
         private bool? manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue;
         private string? manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageAddressLine3OriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageAddressLine4OriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageEmailAddressOriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageManufacturerNameOriginalValue;
-        private string? manufacturerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageAddressLine3OriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageAddressLine4OriginalValue;
+        private Guid manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageEmailAddressOriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageManufacturerNameOriginalValue;
+        private string manufacturerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
 
         public ManufacturerDetail(Guid manufacturerId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _manufacturerId = manufacturerId;
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged);
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadCountryDataAsync(Guid countryId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void ManufacturerDetailManufacturerInformation_Load(object sender, EventArgs e)
@@ -79,7 +92,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.Text = manufacturerDataRow["Address Line 2"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.Text = manufacturerDataRow["Address Line 3"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.Text = manufacturerDataRow["Address Line 4"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.Text = manufacturerDataRow["Address Line 5"].ToString();
+                    Guid manufacturerAddressLine5 = (Guid)manufacturerDataRow["Address Line 5"];
+                    await LoadCountryDataAsync(manufacturerAddressLine5);
                     manufacturerDetailTabControlOverviewTabPageCreatedByTextbox.Text = manufacturerDataRow["Created By"].ToString();
                     manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = manufacturerDataRow["Created Timestamp UTC"].ToString();
                     manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.Text = manufacturerDataRow["Email Address"].ToString();
@@ -95,7 +109,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue = manufacturerDataRow["Address Line 2"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine3OriginalValue = manufacturerDataRow["Address Line 3"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine4OriginalValue = manufacturerDataRow["Address Line 4"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue = manufacturerDataRow["Address Line 5"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue = (Guid)manufacturerDataRow["Address Line 5"];
                     manufacturerDetailTabControlOverviewTabPageEmailAddressOriginalValue = manufacturerDataRow["Email Address"].ToString();
                     manufacturerDetailTabControlOverviewTabPageManufacturerNameOriginalValue = manufacturerDataRow["Manufacturer Name"].ToString();
                     manufacturerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue = manufacturerDataRow["Telephone Number"].ToString();
@@ -143,7 +157,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? manufacturerDetailTabControlOverviewTabPageAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
             string manufacturerDetailTabControlOverviewTabPageAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
             string? manufacturerDetailTabControlOverviewTabPageAddressLine4 = manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageAddressLine5 = manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid manufacturerDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string manufacturerDetailTabControlOverviewTabPageEmailAddress = manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
             string manufacturerDetailTabControlOverviewTabPageManufacturerName = manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.Text.TrimEnd();
             string manufacturerDetailTabControlOverviewTabPageTelephoneNumber = manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
@@ -156,92 +170,88 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailFinanceVATNumber",
+                    Name = "Manufacturer Detail Finance: VAT Number",
                     Value = manufacturerDetailFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewActiveStatus",
+                    Name = "Manufacturer Detail Overview: Active Status",
                     Value = manufacturerDetailTabControlOverviewTabPageActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewAddressLine1",
+                    Name = "Manufacturer Detail Overview: Address Line 1",
                     Value = manufacturerDetailTabControlOverviewTabPageAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Manufacturer Detail Overview: Address Line 2",
+                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine2,
+                    MaxLength = 50
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewAddressLine3",
+                    Name = "Manufacturer Detail Overview: Address Line 3",
                     Value = manufacturerDetailTabControlOverviewTabPageAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewAddressLine4",
+                    Name = "Manufacturer Detail Overview: Address Line 4",
                     Value = manufacturerDetailTabControlOverviewTabPageAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewAddressLine5",
+                    Name = "Manufacturer Detail Overview: Address Line 5",
                     Value = manufacturerDetailTabControlOverviewTabPageAddressLine5,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
+                    ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewEmailAddress",
+                    Name = "Manufacturer Detail Overview: Email Address",
                     Value = manufacturerDetailTabControlOverviewTabPageEmailAddress,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewManufacturerName",
+                    Name = "Manufacturer Detail Overview: Manufacturer Name",
                     Value = manufacturerDetailTabControlOverviewTabPageManufacturerName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerDetailOverviewTelephoneNumber",
+                    Name = "Manufacturer Detail Overview: Telephone Number",
                     Value = manufacturerDetailTabControlOverviewTabPageTelephoneNumber,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(manufacturerDetailTabControlOverviewTabPageAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "ManufacturerDetailOverviewAddressLine2",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine2,
-                    MaxLength = 50
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -289,7 +299,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 5",
-                        VariableType = "string",
+                        VariableType = "Guid",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue,
                         NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine5
                     },
@@ -329,7 +339,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {
@@ -430,7 +440,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled = !manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled;
             manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.ReadOnly;

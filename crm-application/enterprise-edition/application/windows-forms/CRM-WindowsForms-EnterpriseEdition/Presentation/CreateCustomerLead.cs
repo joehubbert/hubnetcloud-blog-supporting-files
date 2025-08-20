@@ -8,20 +8,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private readonly Guid _customerId;
         private readonly string _customerName;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCustomerLead(Guid customerId, string customerName)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _customerId = customerId;
             _customerName = customerName;
             PopulateStatusStrip();
-            CreateCustomerLeadLoadCustomerLeadTypeAsync();
+            LoadCustomerLeadTypeAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
             createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += new EventHandler(CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged);
@@ -44,20 +45,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCustomerLeadCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
         }
 
-        private async void CreateCustomerLeadLoadCustomerContactAsync(Guid customerId)
+        private async void LoadCustomerContactAsync(Guid customerId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Customer Contact";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerContactForCustomer";
-
-                var parameters = new[]
+            var parameters = new[]
                 {
                     new Parameter
                     {
@@ -66,101 +56,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     }
                 };
 
-                DataTable? customerContactData = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-                var customerContactList = customerContactData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerContactId = row.Field<Guid>("Customer Contact Id"),
-                        DisplayText = $"{row.Field<string>("Customer Contact Last Name")}, {row.Field<string>("Customer Contact First Name")} - {row.Field<string>("Customer Contact Email Address")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                createCustomerLeadCustomerContactPanelCustomerContactComboBox.DataSource = customerContactList;
-                createCustomerLeadCustomerContactPanelCustomerContactComboBox.DisplayMember = "DisplayText";
-                createCustomerLeadCustomerContactPanelCustomerContactComboBox.ValueMember = "CustomerContactId";
-
-                if( customerContactList.Count > 0)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-                    createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = false;
-                    createCustomerLeadCustomerContactPanelCustomerContactComboBox.DataSource = null;
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async void CreateCustomerLeadLoadCustomerLeadTypeAsync()
+        private async void LoadCustomerLeadTypeAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Customer Lead Type";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerLeadType";
-
-                DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var customerLeadTypeList = customerLeadTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerLeadTypeId = row.Field<Guid>("Customer Lead Type Id"),
-                        CustomerLeadType = row.Field<string>("Customer Lead Type")
-                    })
-                    .OrderBy(item => item.CustomerLeadType)
-                    .ToList();
-                createCustomerLeadCustomerLeadTypeComboBox.DataSource = customerLeadTypeList;
-                createCustomerLeadCustomerLeadTypeComboBox.DisplayMember = "CustomerLeadType";
-                createCustomerLeadCustomerLeadTypeComboBox.ValueMember = "CustomerLeadTypeId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerLeadTypeComboBox, "spGetAllCustomerLeadType");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async void CreateCustomerLeadLoadMarketingChannelAsync()
+        private async void LoadMarketingChannelAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Marketing Channel";
-
-            try
-            {
-                string storedProcedureName = "spGetAllMarketingChannel";                
-                DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var marketingChannelList = marketingChannelData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        MarketingChannelId = row.Field<Guid>("Marketing Channel Id"),
-                        MarketingChannel = row.Field<string>("Marketing Channel")
-                    })
-                    .OrderBy(item => item.MarketingChannel)
-                    .ToList();
-                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DataSource = marketingChannelList;
-                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DisplayMember = "MarketingChannel";
-                createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.ValueMember = "MarketingChannelId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
@@ -168,7 +82,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             if (createCustomerLeadCustomerContactPanelYesRadioButton.Checked)
             {
                 createCustomerLeadCustomerContactPanelCustomerContactComboBox.Enabled = true;
-                CreateCustomerLeadLoadCustomerContactAsync(_customerId);
+                LoadCustomerContactAsync(_customerId);
             }
             else if (createCustomerLeadCustomerContactPanelNoRadioButton.Checked)
             {
@@ -181,7 +95,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)
             {
-                CreateCustomerLeadLoadMarketingChannelAsync();
+                LoadMarketingChannelAsync();
                 createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.Enabled = true;
             }
             else if (createCustomerLeadMarketingChannelPanelNoRadioButton.Checked)
@@ -234,76 +148,64 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Customer Contact Id",
+                    Value = customerContactId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLead",
+                    Name = "Customer Lead",
                     Value = customerLead,
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLeadTitle",
+                    Name = "Customer Lead Title",
                     Value = customerLeadTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLeadType",
+                    Name = "Customer Lead Type",
                     Value = customerLeadType,
                     ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Marketing Channel Id",
+                    Value = marketingChannelId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Target Date",
+                    Value = targetDate,
+                    ValueType = typeof(DateTime)
                 }
             };
 
-            if (customerContactId != null)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "CustomerContactId",
-                    Value = customerContactId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (marketingChannelId != null)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "MarketingChannelId",
-                    Value = marketingChannelId,
-                    ValueType = typeof(Guid)
-                });
-            }
-
-            if (targetDate != null)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "TargetDate",
-                    Value = targetDate,
-                    ValueType = typeof(DateTime)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

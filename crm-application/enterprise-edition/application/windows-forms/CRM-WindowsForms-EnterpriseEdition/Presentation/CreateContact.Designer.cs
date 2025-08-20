@@ -97,9 +97,9 @@
             createContactActiveStatusCheckbox.Location = new Point(190, 295);
             createContactActiveStatusCheckbox.Margin = new Padding(5);
             createContactActiveStatusCheckbox.Name = "createContactActiveStatusCheckbox";
-            createContactActiveStatusCheckbox.Size = new Size(169, 24);
+            createContactActiveStatusCheckbox.Size = new Size(175, 24);
             createContactActiveStatusCheckbox.TabIndex = 5;
-            createContactActiveStatusCheckbox.Text = "Active {Contact Type}";
+            createContactActiveStatusCheckbox.Text = "Active {Contact Type}*";
             createContactActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createContactFirstNameTextboxLabel

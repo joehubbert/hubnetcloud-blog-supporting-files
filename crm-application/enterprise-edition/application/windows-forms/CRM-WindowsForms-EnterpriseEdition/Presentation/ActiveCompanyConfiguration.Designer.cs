@@ -50,9 +50,9 @@
             activeCompanyConfigurationCompanyConfigurationComboBoxLabel.AutoSize = true;
             activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Location = new Point(99, 53);
             activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Name = "activeCompanyConfigurationCompanyConfigurationComboBoxLabel";
-            activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Size = new Size(167, 20);
+            activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
             activeCompanyConfigurationCompanyConfigurationComboBoxLabel.TabIndex = 9;
-            activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Text = "Company Configuration";
+            activeCompanyConfigurationCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
             activeCompanyConfigurationCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // activeCompanyConfigurationCompanyConfigurationComboBox

@@ -8,18 +8,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private Guid _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCurrencyConversion()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
-            CreateCurrencyConversionLoadCurrencyDataAsync();
+            LoadCurrencyDataAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createCurrencyConversionBaseCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             createCurrencyConversionTargetCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
@@ -36,50 +37,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
-        private async void CreateCurrencyConversionLoadCurrencyDataAsync()
+        private async void LoadCurrencyDataAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionBaseCurrencyComboBox, "spGetAllCurrency");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
 
-            string dataSubject = "Currency";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                createCurrencyConversionBaseCurrencyComboBox.DataSource = currencyList;
-                createCurrencyConversionBaseCurrencyComboBox.DisplayMember = "DisplayText";
-                createCurrencyConversionBaseCurrencyComboBox.ValueMember = "CurrencyId";
-
-                createCurrencyConversionTargetCurrencyComboBox.DataSource = currencyList;
-                createCurrencyConversionTargetCurrencyComboBox.DisplayMember = "DisplayText";
-                createCurrencyConversionTargetCurrencyComboBox.ValueMember = "CurrencyId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionTargetCurrencyComboBox, "spGetAllCurrency");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged(object? sender, EventArgs e)
@@ -170,73 +142,69 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
                 {
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "ActiveStatus",
+                        Name = "Active Status",
                         Value = activeStatus,
                         ValueType = typeof(bool)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "BaseCurrencyConversionRate",
+                        Name = "Base Currency Conversion Rate",
                         Value = baseCurrencyConversionRate,
                         ValueType = typeof(decimal)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "BaseCurrencyId",
+                        Name = "Base Currency Id",
                         Value = baseCurrencyId,
                         ValueType = typeof(Guid)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "CompanyConfigurationId",
+                        Name = "Company Configuration Id",
                         Value = _companyConfigurationId,
                         ValueType = typeof(Guid)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "EffectiveDate",
+                        Name = "Effective Date",
                         Value = effectiveDate,
                         ValueType = typeof(DateTime)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
+                    {
+                        AllowNullValue = true,
+                        Name = "Expiry Date",
+                        Value = expiryDate,
+                        ValueType = typeof(DateTime)
+                    },
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "TargetCurrencyConversionRate",
+                        Name = "Target Currency Conversion Rate",
                         Value = targetCurrencyConversionRate,
                         ValueType = typeof(decimal)
                     },
-                    new ValidateDataInput.DataProperty
+                    new ValidateDataInputService.DataProperty
                     {
                         AllowNullValue = false,
-                        Name = "TargetCurrencyId",
+                        Name = "Target Currency Id",
                         Value = targetCurrencyId,
                         ValueType = typeof(Guid)
                     }
                 };
 
-            if (expiryDate != null)
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = false,
-                    Name = "ExpiryDate",
-                    Value = expiryDate,
-                    ValueType = typeof(DateTime)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -302,6 +270,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

@@ -6,9 +6,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateNote : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private readonly Guid _dataSubjectId;
         private readonly string? _dataSubjectName;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
 		private readonly string _functionTitle;
         private readonly string applicationTitlePrefix = "CRM - Create ";
         private string createNoteModuleNoteEntityFriendlyName;
@@ -28,16 +29,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CreateNote(Guid dataSubjectId, string functionTitle, string? dataSubjectName = null)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             _dataSubjectId = dataSubjectId;
             _dataSubjectName = dataSubjectName;
 			_functionTitle = functionTitle;
             SetModuleTheme();
             LoadDatabaseConnectionSettingsAsync();
-            CreateNoteLoadNoteTypeAsync();
+            LoadNoteTypeAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createNoteNoteTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
@@ -127,38 +128,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createNoteNoteTypeComboBoxLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
         }
 
-        private async void CreateNoteLoadNoteTypeAsync()
+        private async void LoadNoteTypeAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            try
-            {
-                DataTable? noteTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(createNoteNoteTypeGetStoredProcedureName, createNoteNoteTypeName);
-
-                var noteTypeList = noteTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        NoteTypeId = row.Field<Guid>(createNoteNoteTypeIdFriendlyName),
-                        NoteType = row.Field<string>(createNoteNoteTypeFriendlyName)
-                    })
-                    .OrderBy(item => item.NoteType)
-                    .ToList();
-                createNoteNoteTypeComboBox.DataSource = noteTypeList;
-                createNoteNoteTypeComboBox.DisplayMember = "NoteType";
-                createNoteNoteTypeComboBox.ValueMember = "NoteTypeId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", createNoteNoteTypeFriendlyName, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createNoteNoteTypeComboBox, createNoteNoteTypeGetStoredProcedureName);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createNoteSubmitButton_Click(object sender, EventArgs e)
@@ -173,28 +151,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteModuleNoteTypeName,
+                    Name = createNoteModuleNoteTypeFriendlyName,
                     Value = note,
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteNoteTitleName,
+                    Name = createNoteNoteTitleFriendlyName,
                     Value = noteTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteNoteTypeIdName,
+                    Name = createNoteNoteTypeIdFriendlyName,
                     Value = noteTypeId,
                     ValueType = typeof(Guid)
                 }
@@ -202,7 +180,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -214,22 +192,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new Parameter
                     {
-                        ParameterName = $"@{createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix}Id",
+                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix}Id",
                         ParameterValue = _dataSubjectId
                     },
                     new Parameter
                     {
-                        ParameterName = $"@{createNoteModuleNoteCreateStoredProcedureParameterPrefix}",
+                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}",
                         ParameterValue = note
                     },
                     new Parameter
                     {
-                        ParameterName = $"@{createNoteModuleNoteCreateStoredProcedureParameterPrefix}Title",
+                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}Title",
                         ParameterValue = noteTitle
                     },
                     new Parameter
                     {
-                        ParameterName = $"@{createNoteModuleNoteCreateStoredProcedureParameterPrefix}TypeId",
+                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}TypeId",
                         ParameterValue = noteTypeId
                     }
                 };

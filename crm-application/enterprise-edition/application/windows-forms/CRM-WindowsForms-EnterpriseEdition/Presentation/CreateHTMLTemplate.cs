@@ -8,20 +8,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private readonly Guid _companyConfigurationId;
         private readonly string _companyName;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateHTMLTemplate(Guid companyConfigurationId, string companyName)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             _companyConfigurationId = companyConfigurationId;
             _companyName = companyName;
             LoadDatabaseConnectionSettingsAsync();
             PopulateStatusStrip();
-            CreateHTMLTemplateLoadHTMLTemplateTypeAsync();
+            LoadHTMLTemplateTypeAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createHTMLTemplateHTMLTemplateTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
@@ -36,43 +37,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createHTMLTemplateStatusStripCompanyConfigurationPlaceholder.Text = $"Company Configuration: {_companyName} ({_companyConfigurationId})";
         }
 
-        private async void CreateHTMLTemplateLoadHTMLTemplateTypeAsync()
+        private async void LoadHTMLTemplateTypeAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "HTML Template Type";
-
-            try
-            {
-                
-                string storedProcedureName = "spGetAllHTMLTemplateType";
-
-                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var htmlTemplateTypeList = htmlTemplateTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        HTMLTemplateTypeId = row.Field<Guid>("HTML Template Type Id"),
-                        HTMLTemplateType = row.Field<string>("HTML Template Type")
-                    })
-                    .OrderBy(item => item.HTMLTemplateType)
-                    .ToList();
-                createHTMLTemplateHTMLTemplateTypeComboBox.DataSource = htmlTemplateTypeList;
-                createHTMLTemplateHTMLTemplateTypeComboBox.DisplayMember = "HTMLTemplateType";
-                createHTMLTemplateHTMLTemplateTypeComboBox.ValueMember = "HTMLTemplateTypeId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createHTMLTemplateHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createHTMLTemplateSubmitButton_Click(object sender, EventArgs e)
@@ -87,28 +60,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplate",
+                    Name = "Company Configuration Id",
+                    Value = _companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "HTML Template",
                     Value = htmlTemplate,
                     MaxLength = 1070000000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplateTitle",
+                    Name = "HTML Template Title",
                     Value = htmlTemplateTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplateTypeId",
+                    Name = "HTML Template Type Id",
                     Value = htmlTemplateTypeId,
                     ValueType = typeof(Guid)
                 }
@@ -116,7 +96,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

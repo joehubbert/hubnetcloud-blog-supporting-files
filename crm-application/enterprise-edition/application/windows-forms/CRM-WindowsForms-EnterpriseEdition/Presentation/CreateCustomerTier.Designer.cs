@@ -82,9 +82,9 @@
             createCustomerTierActiveStatusCheckbox.Location = new Point(182, 176);
             createCustomerTierActiveStatusCheckbox.Margin = new Padding(5);
             createCustomerTierActiveStatusCheckbox.Name = "createCustomerTierActiveStatusCheckbox";
-            createCustomerTierActiveStatusCheckbox.Size = new Size(165, 24);
+            createCustomerTierActiveStatusCheckbox.Size = new Size(171, 24);
             createCustomerTierActiveStatusCheckbox.TabIndex = 2;
-            createCustomerTierActiveStatusCheckbox.Text = "Active Customer Tier";
+            createCustomerTierActiveStatusCheckbox.Text = "Active Customer Tier*";
             createCustomerTierActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCustomerTierSubmitButton

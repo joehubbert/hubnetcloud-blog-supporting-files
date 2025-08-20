@@ -8,6 +8,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private Guid _companyConfigurationId;
 		private ActiveCompanyConfigurationHelper? _companyConfigHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
@@ -25,14 +26,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public ViewAllData(string functionTitle, string moduleGroup, Guid? dataSubjectFilterId = null)
         {
             InitializeComponent();
+            IntializeEventHandlers();
             _dataSubjectFilterId = dataSubjectFilterId;
             _functionTitle = functionTitle;
             _moduleGroup = moduleGroup;
 			SetModuleTheme();
             LoadActiveCompanyConfigurationAsync();
 			SetParameters();
+        }
+
+        private void IntializeEventHandlers()
+        {
             viewAllDataDataGridView.CellContentClick += viewAllDataDataGridView_CellContentClick;
-            viewAllDataQuickFilterTextbox.TextChanged += viewAllDataQuickFilterTextbox_TextChanged;
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(viewAllDataQuickFilterTextbox, viewAllDataDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -48,30 +54,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
 		private void SetModuleTheme()
         {
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
+
             switch (_moduleGroup)
             {
                 case "CompanyManagement":
-                    this.BackColor = Color.LemonChiffon;
                     viewAllDataDataGridView.BackgroundColor = Color.LemonChiffon;
                     break;
                 case "CustomerManagement":
-                    this.BackColor = Color.LightGreen;
                     viewAllDataDataGridView.BackgroundColor = Color.LightGreen;
                     break;
                 case "MarketingManagement":
-                    this.BackColor = Color.NavajoWhite;
                     viewAllDataDataGridView.BackgroundColor = Color.NavajoWhite;
                     break;
                 case "OrderManagement":
-                    this.BackColor = Color.LightSalmon;
                     viewAllDataDataGridView.BackgroundColor = Color.LightSalmon;
                     break;
                 case "ProductManagement":
-                    this.BackColor = Color.SkyBlue;
                     viewAllDataDataGridView.BackgroundColor = Color.SkyBlue;
                     break;
                 case "SupplierManagement":
-                    this.BackColor = Color.MediumAquamarine;
                     viewAllDataDataGridView.BackgroundColor = Color.MediumAquamarine;
                     break;
                 default:
@@ -139,15 +141,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "Customer";
                     functionFriendlyName = "Customers";
                     storedProcedureName = "spGetAllCustomer";
-                    break;
-                case "CustomerContact":
-                    dataSortingColumnName = "Customer Contact Id";
-                    dataSortingColumnOrder = "ASC";
-                    dataSubjectIdentityColumn = "Customer Contact Id";
-                    dataSubjectFriendlyName = "Customer Contact";
-                    dataSubjectParentIdentityId = "customerId;";
-                    functionFriendlyName = "Customer Contacts";
-                    storedProcedureName = "spGetAllCustomerContactForCustomer";
                     break;
                 case "CustomerLeadNote":
                     dataSortingColumnName = "Customer Lead Note";
@@ -405,15 +398,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Suppliers";
                     storedProcedureName = "spGetAllSupplier";
                     break;
-                case "SupplierContact":
-                    dataSortingColumnName = "Supplier Contact Id";
-                    dataSortingColumnOrder = "ASC";
-                    dataSubjectIdentityColumn = "Supplier Contact Id";
-                    dataSubjectFriendlyName = "Supplier Contact";
-                    dataSubjectParentIdentityId = "supplierId;";
-                    functionFriendlyName = "Supplier Contacts";
-                    storedProcedureName = "spGetAllSupplierContactForSupplier";
-                    break;
                 case "SupplierNote":
                     dataSortingColumnName = "Supplier Note";
                     dataSortingColumnOrder = "ASC";
@@ -550,31 +534,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void viewAllDataQuickFilterTextbox_TextChanged(object sender, EventArgs e)
-        {
-            if (viewAllDataDataGridView.DataSource is DataTable dataTable)
-            {
-                string filterText = viewAllDataQuickFilterTextbox.Text.Replace("'", "''");
-                if (string.IsNullOrWhiteSpace(filterText))
-                {
-                    dataTable.DefaultView.RowFilter = string.Empty;
-                }
-                else
-                {
-                    var filterConditions = dataTable.Columns
-                        .Cast<DataColumn>()
-                        .Where(col =>
-                            col.DataType == typeof(string) ||
-                            col.DataType == typeof(object) ||
-                            col.DataType == typeof(Guid))
-                        .Select(col =>
-                            $"CONVERT([{col.ColumnName}], 'System.String') LIKE '%{filterText}%'"
-                        );
-                    dataTable.DefaultView.RowFilter = string.Join(" OR ", filterConditions);
-                }
-            }
-        }
-
         private void viewAllDataDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == viewAllDataDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
@@ -619,11 +578,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid customerId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CustomerDetail customerDetail = new CustomerDetail(customerId);
                                 customerDetail.Show();
-                                break;
-                            case "CustomerContact":
-                                Guid customerContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                ContactDetail contactDetailCustomer = new ContactDetail("Customer", customerContactId);
-                                contactDetailCustomer.Show();
                                 break;
                             case "CustomerLeadNoteType":
                                 Guid customerLeadNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
@@ -770,11 +724,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 SupplierDetail supplierDetail = new SupplierDetail(supplierId);
                                 supplierDetail.Show();
                                 break;
-                            case "SupplierContact":
-                                Guid supplierContactId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                ContactDetail contactDetailSupplier = new ContactDetail("Supplier", supplierContactId);
-                                contactDetailSupplier.Show();
-                                break;
                             case "SupplierNoteType":
                                 Guid supplierNoteTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 MasterDataSimpleDetail masterDataSimpleDetailSupplierNoteType = new MasterDataSimpleDetail(supplierNoteTypeId, _functionTitle, "SupplierManagement");
@@ -866,7 +815,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     }
                 }
             }
-
             CSVExportService.ExportDataGridViewToCSV(exportDataGridView, functionFriendlyName);
         }
 

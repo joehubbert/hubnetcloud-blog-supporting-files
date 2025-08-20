@@ -6,6 +6,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class DeliveryMethodDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         
         private readonly Guid _deliveryMethodId;
@@ -18,15 +19,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public DeliveryMethodDetail(Guid deliveryMethodId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             _deliveryMethodId = deliveryMethodId;
-            deliveryMethodDetailToggleEditModeButton.Click += new EventHandler(deliveryMethodDetailToggleEditModeButton_Click);
+            
             LoadDatabaseConnectionSettingsAsync();
         }
 
-        private void InitializeCustomComponents()
-        {
+        private void InitializeEventHandlers()
+        {           
             deliveryMethodDetailTaxProfileComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            deliveryMethodDetailToggleEditModeButton.Click += new EventHandler(deliveryMethodDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -34,44 +36,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task DeliveryMethodDetailLoadTaxProfileAsync(Guid taxProfileId)
+        private async Task LoadTaxProfileAsync(Guid taxProfileId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Tax Profile";
-
-            try
-            {
-                string storedProcedureName = "spGetAllTaxProfile";                
-                DataTable? taxProfileData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var taxProfileList = taxProfileData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        TaxProfileId = row.Field<Guid>("Tax Profile Id"),
-                        TaxProfile = row.Field<string>("Tax Profile"),
-                        TaxRate = row.Field<decimal>("Tax Rate"),
-                        DisplayText = $"{row.Field<string>("Tax Profile")} - {row.Field<string>("Tax Rate")}"
-                    })
-                    .OrderBy(item => item.TaxProfile)
-                    .ToList();
-                deliveryMethodDetailTaxProfileComboBox.DataSource = taxProfileList;
-                deliveryMethodDetailTaxProfileComboBox.DisplayMember = "DisplayText";
-                deliveryMethodDetailTaxProfileComboBox.ValueMember = "TaxProfileId";
-                deliveryMethodDetailTaxProfileComboBox.SelectedValue = taxProfileId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox, "spGetAllTaxProfile", null, true, "Tax Profile Id", taxProfileId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void DeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)
@@ -104,7 +77,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string deliveryCostPartA;
                     string deliveryCostPartB;
 
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
 
                     deliveryMethodDetailDeliveryMethodIdTextbox.Text = deliveryMethodDataRow["Delivery Method Id"].ToString();
                     deliveryMethodDetailDeliveryMethodTextbox.Text = deliveryMethodDataRow["Delivery Method"].ToString();
@@ -112,7 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     deliveryMethodDetailDeliveryCostTextboxB.Text = deliveryCostPartB;
                     deliveryMethodDetailDeliveryTimeTextbox.Text = deliveryMethodDataRow["Delivery Time"].ToString();
                     Guid taxProfileId = (Guid)deliveryMethodDataRow["Tax Profile Id"];
-                    await DeliveryMethodDetailLoadTaxProfileAsync(taxProfileId);
+                    await LoadTaxProfileAsync(taxProfileId);
                     deliveryMethodDetailCreatedByTextbox.Text = deliveryMethodDataRow["Created By"].ToString();
                     deliveryMethodDetailCreatedTimestampTextbox.Text = deliveryMethodDataRow["Created Timestamp UTC"].ToString();
                     deliveryMethodDetailLastUpdatedByTextbox.Text = deliveryMethodDataRow["Modified By"].ToString();
@@ -154,41 +127,41 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryCost",
+                    Name = "Delivery Cost",
                     Value = deliveryCost,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryMethod",
+                    Name = "Delivery Method",
                     Value = deliveryMethod,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "DeliveryTime",
+                    Name = "Delivery Time",
                     Value = deliveryTime,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TaxProfileId",
+                    Name = "Tax Profile Id",
                     Value = taxProfileId,
                     ValueType = typeof(Guid)
                 }
@@ -196,7 +169,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -246,7 +219,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

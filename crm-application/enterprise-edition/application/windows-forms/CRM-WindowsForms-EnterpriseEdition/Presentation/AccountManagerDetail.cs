@@ -6,9 +6,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class AccountManagerDetail : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _accountManagerId;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private DatabaseConnectionSettings? _databaseConnectionSettings; 
         private bool? accountManagerInformationActiveStatusOriginalValue;
+        private Guid? accountManagerInformationCompanyConfigurationIdOriginalValue;
         private string? accountManagerInformationEmailAddressOriginalValue;
         private string? accountManagerInformationFirstNameOriginalValue;
         private string? accountManagerInformationLastNameOriginalValue;      
@@ -18,20 +21,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public AccountManagerDetail(Guid accountManagerId)
         {
             InitializeComponent();
+            InitializeEventHandlers();
             _accountManagerId = accountManagerId;
-            InitializeCustomComponents();
             LoadDatabaseConnectionSettingsAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
-            accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick;
             accountManagerDetailTabControl.SelectedIndexChanged += new EventHandler(AccountManagerDetailTabControl_SelectedIndexChanged);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void AccountManagerDetailAccountManagerInformation_Load(object sender, EventArgs e)
@@ -65,6 +81,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
+                    Guid companyConfigurationId = (Guid)accountManagerDataRow["Company Configuration Id"];
+                    await LoadCompanyConfigurationAsync(companyConfigurationId);
                     accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
@@ -76,6 +94,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     accountManagerInformationEmailAddressOriginalValue = accountManagerDataRow["Email Address"].ToString();
                     accountManagerInformationTelephoneNumberOriginalValue = accountManagerDataRow["Telephone Number"].ToString();
                     accountManagerInformationActiveStatusOriginalValue = (bool)accountManagerDataRow["Active Status"];
+                    accountManagerInformationCompanyConfigurationIdOriginalValue = (Guid)accountManagerDataRow["Company Configuration Id"];
 
                     this.Text += $" - ({accountManagerInformationLastNameOriginalValue}, {accountManagerInformationFirstNameOriginalValue})";
                 }
@@ -100,73 +119,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task AccountManagerDetailAssociatedCustomer_Load()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAssociatedCustomerToAccountManager";
-            string dataSubject = "Associated Customers";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "accountManagerId",
-                    ParameterValue = _accountManagerId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Company Tier ASC";
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.AutoGenerateColumns = true;
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.DataSource = dataTable;
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn customerDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Customer Details",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Add(customerDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _accountManagerId,
+                "accountManagerId",
+                "spGetAssociatedCustomerToAccountManager",
+                "Associated Customers to Account Manager",
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
+                "Customer Id",
+                "View Customer",
+                "ASC",
+                "Company Tier"
+            );
         }
 
-        private void AccountManagerDetailAssociatedCustomerDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                try
-                {
-                    if (accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Columns.Contains("Customer Id"))
-                    {
-                        Guid customerId = (Guid)accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Id"].Value;
-                        CustomerDetail customerDetailForm = new CustomerDetail(customerId);
-                        customerDetailForm.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
+            e,
+            "Customer Id",
+            "Customer",
+            id => {
+                var customerDetail = new CustomerDetail(id);
+                customerDetail.Show();
+            });
         }
 
         private async void accountManagerDetailUpdateAccountManagerButton_Click(object sender, EventArgs e)
@@ -178,49 +155,57 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             bool activeStatus = accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked;
+            Guid companyConfigurationId = Guid.Parse(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
             string firstName = accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Text.TrimEnd();
             string lastName = accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Text.TrimEnd();
             string emailAddress = accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text.TrimEnd();
             string telephoneNumber = accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     MaxLength = 50,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "FirstName",
+                    Name = "Company Configuration Id",
+                    Value = companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "First Name",
                     Value = firstName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "LastName",
+                    Name = "Last Name",
                     Value = lastName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailAddress",
+                    Name = "Email Address",
                     Value = emailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TelephoneNumber",
+                    Name = "Telephone Number",
                     Value = telephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
@@ -229,7 +214,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -245,6 +230,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         VariableType = "bool",
                         OriginalValue = accountManagerInformationActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Company Configuration Id",
+                        VariableType = "Guid",
+                        OriginalValue = accountManagerInformationCompanyConfigurationIdOriginalValue,
+                        NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
@@ -278,7 +270,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {
@@ -293,6 +285,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "companyConfigurationId",
+                            ParameterValue = companyConfigurationId
                         },
                         new Parameter
                         {
@@ -349,6 +346,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly;
             accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly;
             accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled;
             accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
         }
     }

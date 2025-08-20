@@ -46,6 +46,8 @@
             masterDataEnhancedDetailDataSubjectIdTextboxLabel = new Label();
             masterDataEnhancedDetailDataSubjectDescriptionTextbox = new TextBox();
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel = new Label();
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel = new Label();
+            masterDataEnhancedDetailCompanyConfigurationComboBox = new ComboBox();
             SuspendLayout();
             // 
             // masterDataEnhancedDetailTitleLabel
@@ -68,7 +70,7 @@
             masterDataEnhancedDetailUpdateDataSubjectButton.Margin = new Padding(4);
             masterDataEnhancedDetailUpdateDataSubjectButton.Name = "masterDataEnhancedDetailUpdateDataSubjectButton";
             masterDataEnhancedDetailUpdateDataSubjectButton.Size = new Size(185, 70);
-            masterDataEnhancedDetailUpdateDataSubjectButton.TabIndex = 8;
+            masterDataEnhancedDetailUpdateDataSubjectButton.TabIndex = 10;
             masterDataEnhancedDetailUpdateDataSubjectButton.Text = "Update {MasterData Type Placeholder}";
             masterDataEnhancedDetailUpdateDataSubjectButton.UseVisualStyleBackColor = true;
             masterDataEnhancedDetailUpdateDataSubjectButton.Click += masterDataEnhancedDetailUpdateDataSubjectButton_Click;
@@ -82,7 +84,7 @@
             masterDataEnhancedDetailActiveStatusCheckbox.Margin = new Padding(4);
             masterDataEnhancedDetailActiveStatusCheckbox.Name = "masterDataEnhancedDetailActiveStatusCheckbox";
             masterDataEnhancedDetailActiveStatusCheckbox.Size = new Size(277, 24);
-            masterDataEnhancedDetailActiveStatusCheckbox.TabIndex = 2;
+            masterDataEnhancedDetailActiveStatusCheckbox.TabIndex = 4;
             masterDataEnhancedDetailActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             masterDataEnhancedDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -94,7 +96,7 @@
             masterDataEnhancedDetailToggleEditModeButton.Margin = new Padding(4);
             masterDataEnhancedDetailToggleEditModeButton.Name = "masterDataEnhancedDetailToggleEditModeButton";
             masterDataEnhancedDetailToggleEditModeButton.Size = new Size(108, 92);
-            masterDataEnhancedDetailToggleEditModeButton.TabIndex = 7;
+            masterDataEnhancedDetailToggleEditModeButton.TabIndex = 9;
             masterDataEnhancedDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             masterDataEnhancedDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -118,44 +120,44 @@
             // 
             // masterDataEnhancedDetailCreatedTimestampTextbox
             // 
-            masterDataEnhancedDetailCreatedTimestampTextbox.Location = new Point(948, 178);
+            masterDataEnhancedDetailCreatedTimestampTextbox.Location = new Point(949, 173);
             masterDataEnhancedDetailCreatedTimestampTextbox.MaxLength = 50;
             masterDataEnhancedDetailCreatedTimestampTextbox.Name = "masterDataEnhancedDetailCreatedTimestampTextbox";
             masterDataEnhancedDetailCreatedTimestampTextbox.ReadOnly = true;
             masterDataEnhancedDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            masterDataEnhancedDetailCreatedTimestampTextbox.TabIndex = 4;
+            masterDataEnhancedDetailCreatedTimestampTextbox.TabIndex = 6;
             // 
             // masterDataEnhancedDetailLastUpdatedTimestampTextbox
             // 
-            masterDataEnhancedDetailLastUpdatedTimestampTextbox.Location = new Point(948, 258);
+            masterDataEnhancedDetailLastUpdatedTimestampTextbox.Location = new Point(949, 262);
             masterDataEnhancedDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             masterDataEnhancedDetailLastUpdatedTimestampTextbox.Name = "masterDataEnhancedDetailLastUpdatedTimestampTextbox";
             masterDataEnhancedDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             masterDataEnhancedDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            masterDataEnhancedDetailLastUpdatedTimestampTextbox.TabIndex = 6;
+            masterDataEnhancedDetailLastUpdatedTimestampTextbox.TabIndex = 8;
             // 
             // masterDataEnhancedDetailCreatedByTextbox
             // 
-            masterDataEnhancedDetailCreatedByTextbox.Location = new Point(948, 138);
+            masterDataEnhancedDetailCreatedByTextbox.Location = new Point(949, 134);
             masterDataEnhancedDetailCreatedByTextbox.MaxLength = 50;
             masterDataEnhancedDetailCreatedByTextbox.Name = "masterDataEnhancedDetailCreatedByTextbox";
             masterDataEnhancedDetailCreatedByTextbox.ReadOnly = true;
             masterDataEnhancedDetailCreatedByTextbox.Size = new Size(370, 27);
-            masterDataEnhancedDetailCreatedByTextbox.TabIndex = 3;
+            masterDataEnhancedDetailCreatedByTextbox.TabIndex = 5;
             // 
             // masterDataEnhancedDetailLastUpdatedByTextbox
             // 
-            masterDataEnhancedDetailLastUpdatedByTextbox.Location = new Point(948, 218);
+            masterDataEnhancedDetailLastUpdatedByTextbox.Location = new Point(949, 217);
             masterDataEnhancedDetailLastUpdatedByTextbox.MaxLength = 50;
             masterDataEnhancedDetailLastUpdatedByTextbox.Name = "masterDataEnhancedDetailLastUpdatedByTextbox";
             masterDataEnhancedDetailLastUpdatedByTextbox.ReadOnly = true;
             masterDataEnhancedDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            masterDataEnhancedDetailLastUpdatedByTextbox.TabIndex = 5;
+            masterDataEnhancedDetailLastUpdatedByTextbox.TabIndex = 7;
             // 
             // masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel
             // 
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Location = new Point(767, 261);
+            masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Location = new Point(768, 265);
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Name = "masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel";
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             masterDataEnhancedDetailLastUpdatedTimestampTextboxLabel.TabIndex = 34;
@@ -165,7 +167,7 @@
             // masterDataEnhancedDetailLastUpdatedByTextboxLabel
             // 
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailLastUpdatedByTextboxLabel.Location = new Point(825, 221);
+            masterDataEnhancedDetailLastUpdatedByTextboxLabel.Location = new Point(826, 220);
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.Name = "masterDataEnhancedDetailLastUpdatedByTextboxLabel";
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             masterDataEnhancedDetailLastUpdatedByTextboxLabel.TabIndex = 33;
@@ -175,7 +177,7 @@
             // masterDataEnhancedDetailCreatedTimestampTextboxLabel
             // 
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailCreatedTimestampTextboxLabel.Location = new Point(803, 181);
+            masterDataEnhancedDetailCreatedTimestampTextboxLabel.Location = new Point(804, 176);
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.Name = "masterDataEnhancedDetailCreatedTimestampTextboxLabel";
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
             masterDataEnhancedDetailCreatedTimestampTextboxLabel.TabIndex = 32;
@@ -185,7 +187,7 @@
             // masterDataEnhancedDetailCreatedByTextboxLabel
             // 
             masterDataEnhancedDetailCreatedByTextboxLabel.AutoSize = true;
-            masterDataEnhancedDetailCreatedByTextboxLabel.Location = new Point(861, 141);
+            masterDataEnhancedDetailCreatedByTextboxLabel.Location = new Point(862, 137);
             masterDataEnhancedDetailCreatedByTextboxLabel.Name = "masterDataEnhancedDetailCreatedByTextboxLabel";
             masterDataEnhancedDetailCreatedByTextboxLabel.Size = new Size(81, 20);
             masterDataEnhancedDetailCreatedByTextboxLabel.TabIndex = 31;
@@ -221,7 +223,7 @@
             masterDataEnhancedDetailDataSubjectDescriptionTextbox.Name = "masterDataEnhancedDetailDataSubjectDescriptionTextbox";
             masterDataEnhancedDetailDataSubjectDescriptionTextbox.ReadOnly = true;
             masterDataEnhancedDetailDataSubjectDescriptionTextbox.Size = new Size(370, 27);
-            masterDataEnhancedDetailDataSubjectDescriptionTextbox.TabIndex = 35;
+            masterDataEnhancedDetailDataSubjectDescriptionTextbox.TabIndex = 2;
             // 
             // masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel
             // 
@@ -234,12 +236,34 @@
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Text = "{MasterData Description Placeholder}";
             masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
+            // masterDataEnhancedDetailCompanyConfigurationComboBoxLabel
+            // 
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.AutoSize = true;
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Location = new Point(118, 264);
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Name = "masterDataEnhancedDetailCompanyConfigurationComboBoxLabel";
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.TabIndex = 72;
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
+            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // masterDataEnhancedDetailCompanyConfigurationComboBox
+            // 
+            masterDataEnhancedDetailCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled = false;
+            masterDataEnhancedDetailCompanyConfigurationComboBox.FormattingEnabled = true;
+            masterDataEnhancedDetailCompanyConfigurationComboBox.Location = new Point(297, 261);
+            masterDataEnhancedDetailCompanyConfigurationComboBox.Name = "masterDataEnhancedDetailCompanyConfigurationComboBox";
+            masterDataEnhancedDetailCompanyConfigurationComboBox.Size = new Size(370, 28);
+            masterDataEnhancedDetailCompanyConfigurationComboBox.TabIndex = 3;
+            // 
             // MasterDataEnhancedDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1331, 438);
+            Controls.Add(masterDataEnhancedDetailCompanyConfigurationComboBoxLabel);
+            Controls.Add(masterDataEnhancedDetailCompanyConfigurationComboBox);
             Controls.Add(masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel);
             Controls.Add(masterDataEnhancedDetailDataSubjectDescriptionTextbox);
             Controls.Add(masterDataEnhancedDetailUpdateDataSubjectButton);
@@ -289,5 +313,7 @@
         private Label masterDataEnhancedDetailDataSubjectIdTextboxLabel;
         private TextBox masterDataEnhancedDetailDataSubjectDescriptionTextbox;
         private Label masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel;
+        private Label masterDataEnhancedDetailCompanyConfigurationComboBoxLabel;
+        private ComboBox masterDataEnhancedDetailCompanyConfigurationComboBox;
     }
 }

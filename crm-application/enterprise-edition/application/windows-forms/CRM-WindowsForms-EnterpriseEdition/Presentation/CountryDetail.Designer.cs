@@ -74,9 +74,9 @@
             countryDetailISO31661A2CountryCodeTextboxLabel.AutoSize = true;
             countryDetailISO31661A2CountryCodeTextboxLabel.Location = new Point(24, 181);
             countryDetailISO31661A2CountryCodeTextboxLabel.Name = "countryDetailISO31661A2CountryCodeTextboxLabel";
-            countryDetailISO31661A2CountryCodeTextboxLabel.Size = new Size(231, 20);
+            countryDetailISO31661A2CountryCodeTextboxLabel.Size = new Size(237, 20);
             countryDetailISO31661A2CountryCodeTextboxLabel.TabIndex = 9;
-            countryDetailISO31661A2CountryCodeTextboxLabel.Text = "ISO 3166-1 Alpha 2 Country Code";
+            countryDetailISO31661A2CountryCodeTextboxLabel.Text = "ISO 3166-1 Alpha 2 Country Code*";
             countryDetailISO31661A2CountryCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryDetailCountryEnglishNameTextboxLabel
@@ -84,9 +84,9 @@
             countryDetailCountryEnglishNameTextboxLabel.AutoSize = true;
             countryDetailCountryEnglishNameTextboxLabel.Location = new Point(100, 220);
             countryDetailCountryEnglishNameTextboxLabel.Name = "countryDetailCountryEnglishNameTextboxLabel";
-            countryDetailCountryEnglishNameTextboxLabel.Size = new Size(155, 20);
+            countryDetailCountryEnglishNameTextboxLabel.Size = new Size(161, 20);
             countryDetailCountryEnglishNameTextboxLabel.TabIndex = 10;
-            countryDetailCountryEnglishNameTextboxLabel.Text = "Country English Name";
+            countryDetailCountryEnglishNameTextboxLabel.Text = "Country English Name*";
             countryDetailCountryEnglishNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryDetailCreatedByTextboxLabel
@@ -212,9 +212,9 @@
             countryDetailActiveStatusCheckbox.Location = new Point(261, 285);
             countryDetailActiveStatusCheckbox.Margin = new Padding(4);
             countryDetailActiveStatusCheckbox.Name = "countryDetailActiveStatusCheckbox";
-            countryDetailActiveStatusCheckbox.Size = new Size(124, 24);
+            countryDetailActiveStatusCheckbox.Size = new Size(130, 24);
             countryDetailActiveStatusCheckbox.TabIndex = 3;
-            countryDetailActiveStatusCheckbox.Text = "Active Country";
+            countryDetailActiveStatusCheckbox.Text = "Active Country*";
             countryDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // countryDetailUpdateCountryButton

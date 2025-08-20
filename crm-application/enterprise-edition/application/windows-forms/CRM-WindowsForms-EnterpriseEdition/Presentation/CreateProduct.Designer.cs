@@ -237,9 +237,9 @@
             createProductTabControlProductDetailTabPageActiveStatusCheckbox.Location = new Point(170, 445);
             createProductTabControlProductDetailTabPageActiveStatusCheckbox.Margin = new Padding(4);
             createProductTabControlProductDetailTabPageActiveStatusCheckbox.Name = "createProductTabControlProductDetailTabPageActiveStatusCheckbox";
-            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Size = new Size(124, 24);
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Size = new Size(130, 24);
             createProductTabControlProductDetailTabPageActiveStatusCheckbox.TabIndex = 4;
-            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Text = "Active Product";
+            createProductTabControlProductDetailTabPageActiveStatusCheckbox.Text = "Active Product*";
             createProductTabControlProductDetailTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createProductSubmitButton
@@ -505,10 +505,10 @@
             createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageProductImagePictureBox);
             createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageProductImagePictureBoxLabel);
             createProductTabControlProductImageTabPage.Controls.Add(createProductTabControlProductImageTabPageChooseProductImageButton);
-            createProductTabControlProductImageTabPage.Location = new Point(4, 32);
+            createProductTabControlProductImageTabPage.Location = new Point(4, 27);
             createProductTabControlProductImageTabPage.Name = "createProductTabControlProductImageTabPage";
             createProductTabControlProductImageTabPage.Padding = new Padding(3);
-            createProductTabControlProductImageTabPage.Size = new Size(1171, 595);
+            createProductTabControlProductImageTabPage.Size = new Size(1171, 600);
             createProductTabControlProductImageTabPage.TabIndex = 1;
             createProductTabControlProductImageTabPage.Text = "Product Image";
             // 

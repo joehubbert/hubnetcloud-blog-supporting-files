@@ -1,82 +1,41 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+﻿using CRM_WindowsForms_EnterpriseEdition.Model;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
-using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ActiveCompanyConfiguration : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private string? activeCompanyConfiguration;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
 
         public ActiveCompanyConfiguration()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadCompanyConfigurationAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async Task LoadCompanyConfigurationAsync()
         {
-            if (_databaseConnectionSettings == null)
+            var applicationConfigurationCompanyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
+            if (applicationConfigurationCompanyConfiguration.companyConfigurationId != null)
             {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", applicationConfigurationCompanyConfiguration.companyConfigurationId);
             }
-
-            string dataSubject = "Company Configuration";
-            string storedProcedureName = "spGetAllCompanyConfiguration";
-
-            try
+            else
             {
-                DataTable? companyConfigurationData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var companyConfigurationList = companyConfigurationData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CompanyConfigurationId = row.Field<Guid>("Company Configuration Id"),
-                        CompanyName = row.Field<string>("Company Name"),
-                        DisplayText = $"{row.Field<string>("Company Name")} ({row.Field<Guid>("Company Configuration Id")})"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                activeCompanyConfigurationCompanyConfigurationComboBox.DataSource = companyConfigurationList;
-                activeCompanyConfigurationCompanyConfigurationComboBox.DisplayMember = "DisplayText";
-                activeCompanyConfigurationCompanyConfigurationComboBox.ValueMember = "CompanyConfigurationId";
-
-                // Disable button if no items
-                activeCompanyConfigurationCompanyConfigurationButton.Enabled = companyConfigurationList.Count > 0;
-
-                if (companyConfigurationList.Count == 0)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CompanyConfiguration.NoData");
-                }
-                else
-                {
-                    var applicationConfigurationCompanyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
-
-                    // Only set SelectedValue if it exists in the list
-                    var exists = companyConfigurationList.Any(x => x.CompanyConfigurationId == applicationConfigurationCompanyConfiguration.companyConfigurationId);
-                    if (exists && applicationConfigurationCompanyConfiguration.companyConfigurationId != Guid.Empty)
-                    {
-                        activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue = applicationConfigurationCompanyConfiguration.companyConfigurationId;
-                    }
-                }
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration");
             }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void activeCompanyConfigurationCompanyConfigurationButton_Click(object sender, EventArgs e)
@@ -88,7 +47,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     var selectedItem = activeCompanyConfigurationCompanyConfigurationComboBox.SelectedItem;
                     string companyName = (string)selectedItem.GetType().GetProperty("CompanyName")?.GetValue(selectedItem)!;
 
-                    var companyConfiguration = new ApplicationConfigurationServiceCompanyConfiguration
+                    var companyConfiguration = new ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration
                     {
                         companyConfigurationId = companyConfigurationId,
                         companyName = companyName

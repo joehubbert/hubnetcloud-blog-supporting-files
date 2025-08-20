@@ -6,6 +6,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class SupplierDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _supplierId;
         private string? supplierDetailFinancePaymentDaysOriginalValue;
@@ -16,7 +18,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string? supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue;
         private string supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue;
         private string supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue;
-        private string supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue;
+        private Guid supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue;
         private string supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue;
         private string supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue;
         private string supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue;
@@ -24,16 +26,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public SupplierDetail(Guid supplierId)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _supplierId = supplierId;
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged);
             supplierDetailTabControl.SelectedIndexChanged += new EventHandler(SupplierDetailTabControl_SelectedIndexChanged);
-            supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailSupplierNoteExistingSupplierNoteDataGridView_CellContentClick;
+            supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged);
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
+            supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox, supplierDetailTabControlSupplierContactTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -41,40 +48,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task SupplierDetailFinanceLoadCurrencyDataAsync(Guid paymentCurrencyId)
+        private async Task LoadCountryDataAsync(Guid countryId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            string dataSubject = "Currency";
+        private async Task LoadCurrencyDataAsync(Guid currencyId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";               
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DataSource = currencyList;
-                supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DisplayMember = "DisplayText";
-                supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.ValueMember = "CurrencyId";
-                supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue = paymentCurrencyId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void SupplierDetailSupplierInformation_Load(object sender, EventArgs e)
@@ -105,7 +93,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow supplierDataRow = supplierDataTable.Rows[0];
 
                     Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency Id"];
-                    await SupplierDetailFinanceLoadCurrencyDataAsync(paymentCurrencyId);
+                    await LoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailTabControlFinanceTabPagePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
                     if (supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text.Length > 0)
@@ -121,7 +109,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     supplierDetailTabControlOverviewTabPageAddressLine2Textbox.Text = supplierDataRow["Address Line 2"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine3Textbox.Text = supplierDataRow["Address Line 3"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine4Textbox.Text = supplierDataRow["Address Line 4"].ToString();
-                    supplierDetailTabControlOverviewTabPageAddressLine5Textbox.Text = supplierDataRow["Address Line 5"].ToString();
+                    Guid supplierAddressLine5 = (Guid)supplierDataRow["Address Line 5"];
+                    await LoadCountryDataAsync(supplierAddressLine5);
                     supplierDetailTabControlOverviewTabPageCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
                     supplierDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp UTC"].ToString();
                     supplierDetailTabControlOverviewTabPageEmailAddressTextbox.Text = supplierDataRow["Email Address"].ToString();
@@ -139,7 +128,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue = supplierDataRow["Address Line 2"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue = supplierDataRow["Address Line 3"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue = supplierDataRow["Address Line 4"].ToString();
-                    supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue = supplierDataRow["Address Line 5"].ToString();
+                    supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue = (Guid)supplierDataRow["Address Line 5"];
                     supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue = supplierDataRow["Email Address"].ToString();
                     supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue = supplierDataRow["Telephone Number"].ToString();
@@ -171,99 +160,37 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task SupplierDetailExistingSupplierContact_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string dataSubject = "Existing Supplier Contacts";
-            string storedProcedureName = "spGetAllSupplierContactForSupplier";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "supplierId",
-                    ParameterValue = _supplierId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                supplierDetailTabControlSupplierContactTabPageDataGridView.AutoGenerateColumns = true;
-                supplierDetailTabControlSupplierContactTabPageDataGridView.DataSource = dataTable;
-                supplierDetailTabControlSupplierContactTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn supplierContactDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Supplier Contact",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Add(supplierContactDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _supplierId,
+                "supplierId",
+                "spGetAllSupplierContactForSupplier",
+                "Existing Supplier Contacts",
+                supplierDetailTabControlSupplierContactTabPageDataGridView,
+                "Supplier Contact Id",
+                "View Supplier Contact",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
         private async Task SupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string dataSubject = "Existing Supplier Notes";
-            string storedProcedureName = "spGetAllNoteForSupplier";           
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "supplierId",
-                    ParameterValue = _supplierId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                supplierDetailTabControlSupplierNoteTabPageDataGridView.AutoGenerateColumns = true;
-                supplierDetailTabControlSupplierNoteTabPageDataGridView.DataSource = dataTable;
-                supplierDetailTabControlSupplierNoteTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (supplierDetailTabControlSupplierNoteTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    supplierDetailTabControlSupplierNoteTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn supplierNoteDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Supplier Note",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                supplierDetailTabControlSupplierNoteTabPageDataGridView.Columns.Add(supplierNoteDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _supplierId,
+                "supplierId",
+                "spGetAllNoteForSupplier",
+                "Existing Supplier Notes",
+                supplierDetailTabControlSupplierNoteTabPageDataGridView,
+                "Supplier Note Id",
+                "View Supplier Note",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
-        private void SupplierDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
+        private void supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
         {
             if (!supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
@@ -284,56 +211,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void supplierDetailSupplierContactExistingSupplierContactDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == supplierDetailTabControlSupplierContactTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Supplier Contact";
-
-                try
-                {
-                    if (supplierDetailTabControlSupplierContactTabPageDataGridView.Columns.Contains("Supplier Contact Id"))
-                    {
-                        Guid supplierContactId = (Guid)supplierDetailTabControlSupplierContactTabPageDataGridView.Rows[e.RowIndex].Cells["Supplier Contact Id"].Value;
-                        ContactDetail contactDetail = new ContactDetail("Supplier", supplierContactId);
-                        contactDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            supplierDetailTabControlSupplierContactTabPageDataGridView,
+            e,
+            "Supplier Contact Id",
+            "Supplier Contact",
+            id => {
+                var contactDetail = new ContactDetail("Supplier", id, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue, _supplierId);
+                contactDetail.Show();
+            });
         }
 
-        private void supplierDetailSupplierNoteExistingSupplierNoteDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
+        private void supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == supplierDetailTabControlSupplierNoteTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Supplier Note";
-
-                try
-                {
-                    if (supplierDetailTabControlSupplierNoteTabPageDataGridView.Columns.Contains("Supplier Note Id"))
-                    {
-                        Guid supplierNoteId = (Guid)supplierDetailTabControlSupplierNoteTabPageDataGridView.Rows[e.RowIndex].Cells["Supplier Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("Supplier", supplierNoteId);
-                        noteDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            supplierDetailTabControlSupplierNoteTabPageDataGridView,
+            e,
+            "Supplier Note Id",
+            "Supplier Note",
+            id => {
+                var noteDetail = new NoteDetail(_supplierId, "Supplier", id, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
+                noteDetail.Show();
+            });
         }
 
         private async void supplierDetailUpdateSupplierButton_Click(object sender, EventArgs e)
@@ -347,7 +248,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? supplierDetailTabControlOverviewTabPageAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
             string supplierDetailTabControlOverviewTabPageAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
             string? supplierDetailTabControlOverviewTabPageAddressLine4 = supplierDetailTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageAddressLine5 = supplierDetailTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid supplierDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string supplierDetailTabControlOverviewTabPageEmailAddress = supplierDetailTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
             string supplierDetailTabControlOverviewTabPageSupplierName = supplierDetailTabControlOverviewTabPageSupplierNameTextbox.Text.TrimEnd();
             string supplierDetailTabControlOverviewTabPageTelephoneNumber = supplierDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
@@ -360,106 +261,102 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailFinancePaymentCurrencyId",
+                    Name = "Supplier Detail Finance:Payment Currency Id",
                     Value = supplierDetailFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailFinancePaymentDays",
+                    Name = "Supplier Detail Finance: Payment Days",
                     Value = supplierDetailFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailFinanceVATNumber",
+                    Name = "Supplier Detail Finance: VAT Number",
                     Value = supplierDetailFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewActiveStatus",
+                    Name = "Supplier Detail Overview: Active Status",
                     Value = supplierDetailTabControlOverviewTabPageActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewAddressLine1",
+                    Name = "Supplier Detail Overview: Address Line 1",
                     Value = supplierDetailTabControlOverviewTabPageAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Supplier Detail Overview: Address Line 2",
+                    Value = supplierDetailTabControlOverviewTabPageAddressLine2,
+                    MaxLength = 50
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewAddressLine3",
+                    Name = "Supplier Detail Overview: Address Line 3",
                     Value = supplierDetailTabControlOverviewTabPageAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewAddressLine4",
+                    Name = "Supplier Detail Overview: Address Line 4",
                     Value = supplierDetailTabControlOverviewTabPageAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewAddressLine5",
+                    Name = "Supplier Detail Overview: Address Line 5",
                     Value = supplierDetailTabControlOverviewTabPageAddressLine5,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
+                    ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewEmailAddress",
+                    Name = "Supplier Detail Overview: Email Address",
                     Value = supplierDetailTabControlOverviewTabPageEmailAddress,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewSupplierName",
+                    Name = "Supplier Detail Overview: Supplier Name",
                     Value = supplierDetailTabControlOverviewTabPageSupplierName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "SupplierDetailOverviewTelephoneNumber",
+                    Name = "Supplier Detail Overview: Telephone Number",
                     Value = supplierDetailTabControlOverviewTabPageTelephoneNumber,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(supplierDetailTabControlOverviewTabPageAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    Name = "SupplierDetailOverviewAddressLine2",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine2,
-                    MaxLength = 50
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -561,7 +458,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {
@@ -674,7 +571,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly;
             supplierDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly;
             supplierDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled = !supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled;
             supplierDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly;
             supplierDetailTabControlOverviewTabPageSupplierIdTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierIdTextbox.ReadOnly;
             supplierDetailTabControlOverviewTabPageSupplierNameTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierNameTextbox.ReadOnly;

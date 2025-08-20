@@ -80,19 +80,19 @@
             deliveryMethodDetailDeliveryMethodLabel.AutoSize = true;
             deliveryMethodDetailDeliveryMethodLabel.Location = new Point(118, 181);
             deliveryMethodDetailDeliveryMethodLabel.Name = "deliveryMethodDetailDeliveryMethodLabel";
-            deliveryMethodDetailDeliveryMethodLabel.Size = new Size(119, 20);
+            deliveryMethodDetailDeliveryMethodLabel.Size = new Size(125, 20);
             deliveryMethodDetailDeliveryMethodLabel.TabIndex = 9;
-            deliveryMethodDetailDeliveryMethodLabel.Text = "Delivery Method";
+            deliveryMethodDetailDeliveryMethodLabel.Text = "Delivery Method*";
             deliveryMethodDetailDeliveryMethodLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailDeliveryCostLabel
             // 
             deliveryMethodDetailDeliveryCostLabel.AutoSize = true;
-            deliveryMethodDetailDeliveryCostLabel.Location = new Point(141, 225);
+            deliveryMethodDetailDeliveryCostLabel.Location = new Point(141, 221);
             deliveryMethodDetailDeliveryCostLabel.Name = "deliveryMethodDetailDeliveryCostLabel";
-            deliveryMethodDetailDeliveryCostLabel.Size = new Size(96, 20);
+            deliveryMethodDetailDeliveryCostLabel.Size = new Size(102, 20);
             deliveryMethodDetailDeliveryCostLabel.TabIndex = 10;
-            deliveryMethodDetailDeliveryCostLabel.Text = "Delivery Cost";
+            deliveryMethodDetailDeliveryCostLabel.Text = "Delivery Cost*";
             deliveryMethodDetailDeliveryCostLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailCreatedByTextboxLabel
@@ -220,9 +220,9 @@
             deliveryMethodDetailActiveStatusCheckbox.Location = new Point(243, 373);
             deliveryMethodDetailActiveStatusCheckbox.Margin = new Padding(4);
             deliveryMethodDetailActiveStatusCheckbox.Name = "deliveryMethodDetailActiveStatusCheckbox";
-            deliveryMethodDetailActiveStatusCheckbox.Size = new Size(183, 24);
+            deliveryMethodDetailActiveStatusCheckbox.Size = new Size(189, 24);
             deliveryMethodDetailActiveStatusCheckbox.TabIndex = 6;
-            deliveryMethodDetailActiveStatusCheckbox.Text = "Active Delivery Method";
+            deliveryMethodDetailActiveStatusCheckbox.Text = "Active Delivery Method*";
             deliveryMethodDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // deliveryMethodDetailUpdateDeliveryMethodButton
@@ -264,9 +264,9 @@
             deliveryMethodDetailTaxProfileLabel.Font = new Font("Segoe UI", 11F);
             deliveryMethodDetailTaxProfileLabel.Location = new Point(160, 302);
             deliveryMethodDetailTaxProfileLabel.Name = "deliveryMethodDetailTaxProfileLabel";
-            deliveryMethodDetailTaxProfileLabel.Size = new Size(77, 20);
+            deliveryMethodDetailTaxProfileLabel.Size = new Size(83, 20);
             deliveryMethodDetailTaxProfileLabel.TabIndex = 33;
-            deliveryMethodDetailTaxProfileLabel.Text = "Tax Profile";
+            deliveryMethodDetailTaxProfileLabel.Text = "Tax Profile*";
             deliveryMethodDetailTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailTaxProfileComboBox
@@ -297,9 +297,9 @@
             deliveryMethodDetailDeliveryTimeLabel.Font = new Font("Segoe UI", 11F);
             deliveryMethodDetailDeliveryTimeLabel.Location = new Point(91, 265);
             deliveryMethodDetailDeliveryTimeLabel.Name = "deliveryMethodDetailDeliveryTimeLabel";
-            deliveryMethodDetailDeliveryTimeLabel.Size = new Size(146, 20);
+            deliveryMethodDetailDeliveryTimeLabel.Size = new Size(152, 20);
             deliveryMethodDetailDeliveryTimeLabel.TabIndex = 30;
-            deliveryMethodDetailDeliveryTimeLabel.Text = "Delivery Time (Days)";
+            deliveryMethodDetailDeliveryTimeLabel.Text = "Delivery Time (Days)*";
             deliveryMethodDetailDeliveryTimeLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // DeliveryMethodDetail

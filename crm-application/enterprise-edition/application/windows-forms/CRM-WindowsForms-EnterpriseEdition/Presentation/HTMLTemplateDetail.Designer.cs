@@ -47,8 +47,8 @@
             htmlTemplateDetailUpdateHTMLTemplateButton = new Button();
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel = new Label();
             htmlTemplateDetailHTMLTemplateTypeComboBox = new ComboBox();
-            htmlTemplateDetailCompanyConfigurationIdTextbox = new TextBox();
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel = new Label();
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel = new Label();
+            htmlTemplateDetailCompanyConfigurationComboBox = new ComboBox();
             SuspendLayout();
             // 
             // htmlTemplateDetailTitleLabel
@@ -65,7 +65,7 @@
             // htmlTemplateDetailHTMLTemplateIdTextboxLabel
             // 
             htmlTemplateDetailHTMLTemplateIdTextboxLabel.AutoSize = true;
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Location = new Point(98, 141);
+            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Location = new Point(98, 100);
             htmlTemplateDetailHTMLTemplateIdTextboxLabel.Name = "htmlTemplateDetailHTMLTemplateIdTextboxLabel";
             htmlTemplateDetailHTMLTemplateIdTextboxLabel.Size = new Size(131, 20);
             htmlTemplateDetailHTMLTemplateIdTextboxLabel.TabIndex = 8;
@@ -77,9 +77,9 @@
             htmlTemplateDetailHTMLTemplateTitleTextboxLabel.AutoSize = true;
             htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Location = new Point(82, 181);
             htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Name = "htmlTemplateDetailHTMLTemplateTitleTextboxLabel";
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Size = new Size(147, 20);
+            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Size = new Size(153, 20);
             htmlTemplateDetailHTMLTemplateTitleTextboxLabel.TabIndex = 9;
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title";
+            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title*";
             htmlTemplateDetailHTMLTemplateTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // htmlTemplateDetailHTMLTemplateTextboxLabel
@@ -182,7 +182,7 @@
             // 
             // htmlTemplateDetailHTMLTemplateIdTextbox
             // 
-            htmlTemplateDetailHTMLTemplateIdTextbox.Location = new Point(235, 138);
+            htmlTemplateDetailHTMLTemplateIdTextbox.Location = new Point(235, 97);
             htmlTemplateDetailHTMLTemplateIdTextbox.MaxLength = 36;
             htmlTemplateDetailHTMLTemplateIdTextbox.Name = "htmlTemplateDetailHTMLTemplateIdTextbox";
             htmlTemplateDetailHTMLTemplateIdTextbox.ReadOnly = true;
@@ -231,9 +231,9 @@
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Font = new Font("Segoe UI", 11F);
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Location = new Point(80, 221);
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Name = "htmlTemplateDetailHTMLTemplateTypeComboBoxLabel";
-            htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Size = new Size(149, 20);
+            htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Size = new Size(155, 20);
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.TabIndex = 35;
-            htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Text = "HTML Template Type";
+            htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.Text = "HTML Template Type*";
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // htmlTemplateDetailHTMLTemplateTypeComboBox
@@ -247,24 +247,25 @@
             htmlTemplateDetailHTMLTemplateTypeComboBox.Size = new Size(524, 28);
             htmlTemplateDetailHTMLTemplateTypeComboBox.TabIndex = 2;
             // 
-            // htmlTemplateDetailCompanyConfigurationIdTextbox
+            // htmlTemplateDetailCompanyConfigurationComboBoxLabel
             // 
-            htmlTemplateDetailCompanyConfigurationIdTextbox.Location = new Point(235, 99);
-            htmlTemplateDetailCompanyConfigurationIdTextbox.MaxLength = 36;
-            htmlTemplateDetailCompanyConfigurationIdTextbox.Name = "htmlTemplateDetailCompanyConfigurationIdTextbox";
-            htmlTemplateDetailCompanyConfigurationIdTextbox.ReadOnly = true;
-            htmlTemplateDetailCompanyConfigurationIdTextbox.Size = new Size(524, 27);
-            htmlTemplateDetailCompanyConfigurationIdTextbox.TabIndex = 36;
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.AutoSize = true;
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.Location = new Point(45, 141);
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.Name = "htmlTemplateDetailCompanyConfigurationComboBoxLabel";
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.Size = new Size(184, 20);
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.TabIndex = 37;
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.Text = "Company Configuration Id";
+            htmlTemplateDetailCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailCompanyConfigurationIdTextboxLabel
+            // htmlTemplateDetailCompanyConfigurationComboBox
             // 
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.AutoSize = true;
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.Location = new Point(45, 102);
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.Name = "htmlTemplateDetailCompanyConfigurationIdTextboxLabel";
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.Size = new Size(184, 20);
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.TabIndex = 37;
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.Text = "Company Configuration Id";
-            htmlTemplateDetailCompanyConfigurationIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            htmlTemplateDetailCompanyConfigurationComboBox.Enabled = false;
+            htmlTemplateDetailCompanyConfigurationComboBox.FormattingEnabled = true;
+            htmlTemplateDetailCompanyConfigurationComboBox.Location = new Point(235, 137);
+            htmlTemplateDetailCompanyConfigurationComboBox.Name = "htmlTemplateDetailCompanyConfigurationComboBox";
+            htmlTemplateDetailCompanyConfigurationComboBox.Size = new Size(524, 28);
+            htmlTemplateDetailCompanyConfigurationComboBox.TabIndex = 1;
             // 
             // HTMLTemplateDetail
             // 
@@ -272,8 +273,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1460, 643);
-            Controls.Add(htmlTemplateDetailCompanyConfigurationIdTextboxLabel);
-            Controls.Add(htmlTemplateDetailCompanyConfigurationIdTextbox);
+            Controls.Add(htmlTemplateDetailCompanyConfigurationComboBox);
+            Controls.Add(htmlTemplateDetailCompanyConfigurationComboBoxLabel);
             Controls.Add(htmlTemplateDetailHTMLTemplateTypeComboBoxLabel);
             Controls.Add(htmlTemplateDetailHTMLTemplateTypeComboBox);
             Controls.Add(htmlTemplateDetailUpdateHTMLTemplateButton);
@@ -325,7 +326,7 @@
         private Button htmlTemplateDetailUpdateHTMLTemplateButton;
         private Label htmlTemplateDetailHTMLTemplateTypeComboBoxLabel;
         private ComboBox htmlTemplateDetailHTMLTemplateTypeComboBox;
-        private TextBox htmlTemplateDetailCompanyConfigurationIdTextbox;
-        private Label htmlTemplateDetailCompanyConfigurationIdTextboxLabel;
+        private Label htmlTemplateDetailCompanyConfigurationComboBoxLabel;
+        private ComboBox htmlTemplateDetailCompanyConfigurationComboBox;
     }
 }

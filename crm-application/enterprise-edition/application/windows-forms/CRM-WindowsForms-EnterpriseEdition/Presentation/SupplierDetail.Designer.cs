@@ -44,13 +44,13 @@
             supplierDetailTitleLabel = new Label();
             supplierDetailTabControl = new TabControl();
             supplierDetailTabControlOverviewTabPage = new TabPage();
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox = new ComboBox();
             supplierDetailTabControlOverviewTabPageAddressLine2TextboxLabel = new Label();
             supplierDetailTabControlOverviewTabPageAddressLine3TextboxLabel = new Label();
             supplierDetailTabControlOverviewTabPageAddressLine4TextboxLabel = new Label();
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel = new Label();
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel = new Label();
             supplierDetailTabControlOverviewTabPageAddressLine1TextboxLabel = new Label();
             supplierDetailTabControlOverviewTabPageAddressLine4Textbox = new TextBox();
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox = new TextBox();
             supplierDetailTabControlOverviewTabPageAddressLine3Textbox = new TextBox();
             supplierDetailTabControlOverviewTabPageAddressLine2Textbox = new TextBox();
             supplierDetailTabControlOverviewTabPageAddressLine1Textbox = new TextBox();
@@ -69,10 +69,14 @@
             supplierDetailTabControlFinanceTabPagePaymentDaysTextbox = new TextBox();
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox = new ComboBox();
             supplierDetailTabControlSupplierContactTabPage = new TabPage();
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel = new Label();
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox = new TextBox();
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton = new Button();
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton = new Button();
             supplierDetailTabControlSupplierContactTabPageDataGridView = new DataGridView();
             supplierDetailTabControlSupplierNoteTabPage = new TabPage();
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel = new Label();
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox = new TextBox();
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton = new Button();
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton = new Button();
             supplierDetailTabControlSupplierNoteTabPageDataGridView = new DataGridView();
@@ -94,7 +98,7 @@
             supplierDetailUpdateSupplierButton.Margin = new Padding(4);
             supplierDetailUpdateSupplierButton.Name = "supplierDetailUpdateSupplierButton";
             supplierDetailUpdateSupplierButton.Size = new Size(185, 70);
-            supplierDetailUpdateSupplierButton.TabIndex = 23;
+            supplierDetailUpdateSupplierButton.TabIndex = 28;
             supplierDetailUpdateSupplierButton.Text = "Update Supplier";
             supplierDetailUpdateSupplierButton.UseVisualStyleBackColor = true;
             supplierDetailUpdateSupplierButton.Click += supplierDetailUpdateSupplierButton_Click;
@@ -120,7 +124,7 @@
             supplierDetailToggleEditModeButton.Margin = new Padding(4);
             supplierDetailToggleEditModeButton.Name = "supplierDetailToggleEditModeButton";
             supplierDetailToggleEditModeButton.Size = new Size(108, 92);
-            supplierDetailToggleEditModeButton.TabIndex = 22;
+            supplierDetailToggleEditModeButton.TabIndex = 27;
             supplierDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             supplierDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             supplierDetailToggleEditModeButton.Click += supplierDetailToggleEditModeButton_Click;
@@ -247,11 +251,12 @@
             // supplierDetailTabControlOverviewTabPage
             // 
             supplierDetailTabControlOverviewTabPage.BackColor = Color.MediumAquamarine;
+            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine2TextboxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine3TextboxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageActiveStatusCheckbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine4TextboxLabel);
-            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel);
+            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageCreatedTimestampTextbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageSupplierIdTextbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox);
@@ -260,7 +265,6 @@
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine4Textbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel);
-            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5Textbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine3Textbox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel);
@@ -280,6 +284,15 @@
             supplierDetailTabControlOverviewTabPage.Size = new Size(1256, 485);
             supplierDetailTabControlOverviewTabPage.TabIndex = 0;
             supplierDetailTabControlOverviewTabPage.Text = "Overview";
+            // 
+            // supplierDetailTabControlOverviewTabPageAddressLine5ComboBox
+            // 
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Location = new Point(818, 210);
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Name = "supplierDetailTabControlOverviewTabPageAddressLine5ComboBox";
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Size = new Size(370, 28);
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.TabIndex = 10;
             // 
             // supplierDetailTabControlOverviewTabPageAddressLine2TextboxLabel
             // 
@@ -311,15 +324,15 @@
             supplierDetailTabControlOverviewTabPageAddressLine4TextboxLabel.Text = "Address Line 4*";
             supplierDetailTabControlOverviewTabPageAddressLine4TextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel
+            // supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel
             // 
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.AutoSize = true;
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Location = new Point(701, 213);
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Name = "supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel";
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Size = new Size(111, 20);
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.TabIndex = 54;
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.Text = "Address Line 5*";
-            supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel.TextAlign = ContentAlignment.TopRight;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.AutoSize = true;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Location = new Point(701, 213);
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Name = "supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel";
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Size = new Size(111, 20);
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.TabIndex = 54;
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.Text = "Address Line 5*";
+            supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailTabControlOverviewTabPageAddressLine1TextboxLabel
             // 
@@ -339,15 +352,6 @@
             supplierDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = true;
             supplierDetailTabControlOverviewTabPageAddressLine4Textbox.Size = new Size(370, 27);
             supplierDetailTabControlOverviewTabPageAddressLine4Textbox.TabIndex = 9;
-            // 
-            // supplierDetailTabControlOverviewTabPageAddressLine5Textbox
-            // 
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.Location = new Point(818, 210);
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.MaxLength = 50;
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.Name = "supplierDetailTabControlOverviewTabPageAddressLine5Textbox";
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.ReadOnly = true;
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.Size = new Size(370, 27);
-            supplierDetailTabControlOverviewTabPageAddressLine5Textbox.TabIndex = 10;
             // 
             // supplierDetailTabControlOverviewTabPageAddressLine3Textbox
             // 
@@ -523,14 +527,32 @@
             // supplierDetailTabControlSupplierContactTabPage
             // 
             supplierDetailTabControlSupplierContactTabPage.BackColor = Color.MediumAquamarine;
+            supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel);
+            supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox);
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageRefreshDataButton);
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton);
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageDataGridView);
-            supplierDetailTabControlSupplierContactTabPage.Location = new Point(4, 27);
+            supplierDetailTabControlSupplierContactTabPage.Location = new Point(4, 32);
             supplierDetailTabControlSupplierContactTabPage.Name = "supplierDetailTabControlSupplierContactTabPage";
-            supplierDetailTabControlSupplierContactTabPage.Size = new Size(1256, 490);
+            supplierDetailTabControlSupplierContactTabPage.Size = new Size(1256, 485);
             supplierDetailTabControlSupplierContactTabPage.TabIndex = 5;
             supplierDetailTabControlSupplierContactTabPage.Text = "Supplier Contacts";
+            // 
+            // supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel
+            // 
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.AutoSize = true;
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.Location = new Point(79, 18);
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.Name = "supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel";
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.TabIndex = 26;
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox
+            // 
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox.Location = new Point(168, 15);
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox.Name = "supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox";
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox.TabIndex = 19;
             // 
             // supplierDetailTabControlSupplierContactTabPageRefreshDataButton
             // 
@@ -540,7 +562,7 @@
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Margin = new Padding(4);
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Name = "supplierDetailTabControlSupplierContactTabPageRefreshDataButton";
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Size = new Size(151, 70);
-            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.TabIndex = 24;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.TabIndex = 22;
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Text = "Refresh Data";
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Click += supplierDetailSupplierContactRefreshDataButton_Click;
@@ -553,7 +575,7 @@
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Margin = new Padding(4);
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Name = "supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton";
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Size = new Size(151, 70);
-            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.TabIndex = 23;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.TabIndex = 21;
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Text = "Create New Supplier Contact";
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.UseVisualStyleBackColor = true;
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Click += supplierDetailSupplierContactCreateNewSupplierContactButton_Click;
@@ -564,23 +586,41 @@
             supplierDetailTabControlSupplierContactTabPageDataGridView.AllowUserToDeleteRows = false;
             supplierDetailTabControlSupplierContactTabPageDataGridView.BackgroundColor = Color.MediumAquamarine;
             supplierDetailTabControlSupplierContactTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            supplierDetailTabControlSupplierContactTabPageDataGridView.Location = new Point(21, 17);
+            supplierDetailTabControlSupplierContactTabPageDataGridView.Location = new Point(21, 48);
             supplierDetailTabControlSupplierContactTabPageDataGridView.Name = "supplierDetailTabControlSupplierContactTabPageDataGridView";
             supplierDetailTabControlSupplierContactTabPageDataGridView.ReadOnly = true;
-            supplierDetailTabControlSupplierContactTabPageDataGridView.Size = new Size(1059, 453);
-            supplierDetailTabControlSupplierContactTabPageDataGridView.TabIndex = 22;
+            supplierDetailTabControlSupplierContactTabPageDataGridView.Size = new Size(1059, 422);
+            supplierDetailTabControlSupplierContactTabPageDataGridView.TabIndex = 20;
             // 
             // supplierDetailTabControlSupplierNoteTabPage
             // 
             supplierDetailTabControlSupplierNoteTabPage.BackColor = Color.MediumAquamarine;
+            supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel);
+            supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox);
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageRefreshDataButton);
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton);
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageDataGridView);
-            supplierDetailTabControlSupplierNoteTabPage.Location = new Point(4, 27);
+            supplierDetailTabControlSupplierNoteTabPage.Location = new Point(4, 32);
             supplierDetailTabControlSupplierNoteTabPage.Name = "supplierDetailTabControlSupplierNoteTabPage";
-            supplierDetailTabControlSupplierNoteTabPage.Size = new Size(1256, 490);
+            supplierDetailTabControlSupplierNoteTabPage.Size = new Size(1256, 485);
             supplierDetailTabControlSupplierNoteTabPage.TabIndex = 4;
             supplierDetailTabControlSupplierNoteTabPage.Text = "Supplier Notes";
+            // 
+            // supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel
+            // 
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.AutoSize = true;
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.Location = new Point(79, 18);
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.Name = "supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel";
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.TabIndex = 28;
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox
+            // 
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox.Location = new Point(168, 15);
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox.Name = "supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox";
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox.TabIndex = 23;
             // 
             // supplierDetailTabControlSupplierNoteTabPageRefreshDataButton
             // 
@@ -590,7 +630,7 @@
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Margin = new Padding(4);
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Name = "supplierDetailTabControlSupplierNoteTabPageRefreshDataButton";
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Size = new Size(151, 70);
-            supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.TabIndex = 21;
+            supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.TabIndex = 26;
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Text = "Refresh Data";
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Click += supplierDetailSupplierNotesRefreshDataButton_Click;
@@ -603,7 +643,7 @@
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Margin = new Padding(4);
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Name = "supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton";
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Size = new Size(151, 70);
-            supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.TabIndex = 20;
+            supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.TabIndex = 25;
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Text = "Create New Supplier Note";
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.UseVisualStyleBackColor = true;
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Click += supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click;
@@ -614,11 +654,11 @@
             supplierDetailTabControlSupplierNoteTabPageDataGridView.AllowUserToDeleteRows = false;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.BackgroundColor = Color.MediumAquamarine;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            supplierDetailTabControlSupplierNoteTabPageDataGridView.Location = new Point(21, 17);
+            supplierDetailTabControlSupplierNoteTabPageDataGridView.Location = new Point(21, 48);
             supplierDetailTabControlSupplierNoteTabPageDataGridView.Name = "supplierDetailTabControlSupplierNoteTabPageDataGridView";
             supplierDetailTabControlSupplierNoteTabPageDataGridView.ReadOnly = true;
-            supplierDetailTabControlSupplierNoteTabPageDataGridView.Size = new Size(1059, 453);
-            supplierDetailTabControlSupplierNoteTabPageDataGridView.TabIndex = 19;
+            supplierDetailTabControlSupplierNoteTabPageDataGridView.Size = new Size(1059, 422);
+            supplierDetailTabControlSupplierNoteTabPageDataGridView.TabIndex = 24;
             // 
             // SupplierDetail
             // 
@@ -643,8 +683,10 @@
             supplierDetailTabControlFinanceTabPage.ResumeLayout(false);
             supplierDetailTabControlFinanceTabPage.PerformLayout();
             supplierDetailTabControlSupplierContactTabPage.ResumeLayout(false);
+            supplierDetailTabControlSupplierContactTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)supplierDetailTabControlSupplierContactTabPageDataGridView).EndInit();
             supplierDetailTabControlSupplierNoteTabPage.ResumeLayout(false);
+            supplierDetailTabControlSupplierNoteTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)supplierDetailTabControlSupplierNoteTabPageDataGridView).EndInit();
             ResumeLayout(false);
             PerformLayout();
@@ -670,10 +712,9 @@
         private Label supplierDetailTabControlOverviewTabPageAddressLine2TextboxLabel;
         private Label supplierDetailTabControlOverviewTabPageAddressLine3TextboxLabel;
         private Label supplierDetailTabControlOverviewTabPageAddressLine4TextboxLabel;
-        private Label supplierDetailTabControlOverviewTabPageAddressLine5TextboxLabel;
+        private Label supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel;
         private Label supplierDetailTabControlOverviewTabPageAddressLine1TextboxLabel;
         private TextBox supplierDetailTabControlOverviewTabPageAddressLine4Textbox;
-        private TextBox supplierDetailTabControlOverviewTabPageAddressLine5Textbox;
         private TextBox supplierDetailTabControlOverviewTabPageAddressLine3Textbox;
         private TextBox supplierDetailTabControlOverviewTabPageAddressLine2Textbox;
         private TextBox supplierDetailTabControlOverviewTabPageAddressLine1Textbox;
@@ -699,5 +740,10 @@
         private Button supplierDetailTabControlSupplierContactTabPageRefreshDataButton;
         private Button supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton;
         private DataGridView supplierDetailTabControlSupplierContactTabPageDataGridView;
+        private ComboBox supplierDetailTabControlOverviewTabPageAddressLine5ComboBox;
+        private Label supplierDetailTabControlSupplierContactTabPageQuickFilterTextboxLabel;
+        private TextBox supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox;
+        private Label supplierDetailTabControlSupplierNoteTabPageQuickFilterTextboxLabel;
+        private TextBox supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox;
     }
 }

@@ -6,17 +6,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCountryTranslation : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCountryTranslation()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
-            CreateCountryTranslationLoadCountryAsync();
+            LoadCountryAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createCountryTranslationCountryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
@@ -26,41 +27,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void CreateCountryTranslationLoadCountryAsync()
+        private async void LoadCountryAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Country";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCountry";                
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var countryList = countryData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CountryId = row.Field<Guid>("Country Id"),
-                        DisplayText = $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                createCountryTranslationCountryComboBox.DataSource = countryList;
-                createCountryTranslationCountryComboBox.DisplayMember = "DisplayText";
-                createCountryTranslationCountryComboBox.ValueMember = "CountryId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCountryTranslationCountryComboBox, "spGetAllCountry");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createCountryTranslationSubmitButton_Click(object sender, EventArgs e)
@@ -78,34 +53,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BCP47LanguageTagCode",
+                    Name = "BCP47 Language Tag Code",
                     Value = bcp47LanguageTagCode,
                     MaxLength = 5,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CountryId",
+                    Name = "Country Id",
                     Value = countryId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "LocalisedCountryName",
+                    Name = "Localised Country Name",
                     Value = localisedCountryName,
                     MaxLength = 100,
                     ValueType = typeof(string)
@@ -114,7 +89,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

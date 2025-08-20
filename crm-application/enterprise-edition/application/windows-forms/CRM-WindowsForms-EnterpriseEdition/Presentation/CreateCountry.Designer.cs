@@ -58,9 +58,9 @@
             createCountryActiveStatusCheckbox.Location = new Point(232, 166);
             createCountryActiveStatusCheckbox.Margin = new Padding(5);
             createCountryActiveStatusCheckbox.Name = "createCountryActiveStatusCheckbox";
-            createCountryActiveStatusCheckbox.Size = new Size(124, 24);
+            createCountryActiveStatusCheckbox.Size = new Size(130, 24);
             createCountryActiveStatusCheckbox.TabIndex = 2;
-            createCountryActiveStatusCheckbox.Text = "Active Country";
+            createCountryActiveStatusCheckbox.Text = "Active Country*";
             createCountryActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // createCountryTitleLabel

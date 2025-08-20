@@ -9,6 +9,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string _functionTitle;
         private readonly Guid _contactId;
+        private readonly Guid _dataSubjectId;
+        private readonly string _dataSubjectName;
         private readonly string applicationTitlePrefix = "CRM - ";
         private bool? contactDetailActiveStatusOriginalValue;
         private string contactDetailContactGetStoredProcedureName;
@@ -23,7 +25,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string? contactDetailTelephoneNumberOriginalValue;
         private readonly string titleLabelSuffix = " Detail";
 
-        public ContactDetail(string functionTitle, Guid contactId)
+        public ContactDetail(string functionTitle, Guid contactId, string dataSubjectName, Guid dataSubjectId)
         {
             InitializeComponent();
             _functionTitle = functionTitle;
@@ -75,7 +77,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new Parameter
                 {
-                    ParameterName = $"@{contactDetailContactStoredProcedureParameterPrefix}Id",
+                    ParameterName = $"{contactDetailContactStoredProcedureParameterPrefix}Id",
                     ParameterValue = _contactId
                 }
             };
@@ -102,6 +104,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     contactDetailCreatedTimestampTextbox.Text = contactDataRow["Created Timestamp UTC"].ToString();
                     contactDetailLastUpdatedByTextbox.Text = contactDataRow["Modified By"].ToString();
                     contactDetailLastUpdatedTimestampTextbox.Text = contactDataRow["Modified Timestamp UTC"].ToString();
+                    switch (_functionTitle)
+                    {
+                        case "Customer":
+                            contactDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
+                            break;
+                        case "Supplier":
+                            contactDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
+                            break;
+                        default:
+                            this.Text = _functionTitle;
+                            break;
+                    }
 
                     contactDetailActiveStatusOriginalValue = (bool)contactDataRow["Active Status"];
                     contactDetailEmailAddressOriginalValue = contactDataRow["Email Address"].ToString();
@@ -138,40 +152,40 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailAddress",
+                    Name = "Email Address",
                     Value = emailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "FirstName",
+                    Name = "First Name",
                     Value = firstName,
                     MaxLength = 30,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "LastName",
+                    Name = "Last Name",
                     Value = lastName,
                     MaxLength = 30,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Role",
@@ -179,10 +193,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TelephoneNumber",
+                    Name = "Telephone Number",
                     Value = telephoneNumber,
                     ValueType = typeof(string)
                 }
@@ -190,7 +204,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -246,7 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, contactDetailModuleContactTypeFriendlyName);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, contactDetailModuleContactTypeFriendlyName);
 
                 if (confirmed)
                 {

@@ -16,9 +16,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public TaxProfileDetail(Guid taxProfileId)
         {
             InitializeComponent();
+            InitializeEventHandlers();
             _taxProfileId = taxProfileId;
-            taxProfileDetailToggleEditModeButton.Click += new EventHandler(taxProfileDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private void InitializeEventHandlers()
+        {
+            taxProfileDetailToggleEditModeButton.Click += new EventHandler(taxProfileDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -55,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string taxRatePartA;
                     string taxRatePartB;
 
-                    SplitDecimal.SplitDecimalUsingDelimiter((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
+                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
 
                     taxProfileDetailTaxProfileIdTextbox.Text = taxProfileDataRow["Tax Profile Id"].ToString();
                     taxProfileDetailTaxProfileTextbox.Text = taxProfileDataRow["Tax Profile"].ToString();
@@ -96,27 +101,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TaxProfile",
+                    Name = "Tax Profile",
                     Value = taxProfile,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TaxRate",
+                    Name = "Tax Rate",
                     Value = taxRate,
                     ValueType = typeof(decimal)
                 }
@@ -124,7 +129,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -159,7 +164,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

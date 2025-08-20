@@ -44,6 +44,8 @@
             masterDataSimpleDetailCreatedByTextboxLabel = new Label();
             masterDataSimpleDetailDataSubjectTextboxLabel = new Label();
             masterDataSimpleDetailDataSubjectIdTextboxLabel = new Label();
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel = new Label();
+            masterDataSimpleDetailCompanyConfigurationComboBox = new ComboBox();
             SuspendLayout();
             // 
             // masterDataSimpleDetailTitleLabel
@@ -66,7 +68,7 @@
             masterDataSimpleDetailUpdateDataSubjectButton.Margin = new Padding(4);
             masterDataSimpleDetailUpdateDataSubjectButton.Name = "masterDataSimpleDetailUpdateDataSubjectButton";
             masterDataSimpleDetailUpdateDataSubjectButton.Size = new Size(185, 70);
-            masterDataSimpleDetailUpdateDataSubjectButton.TabIndex = 8;
+            masterDataSimpleDetailUpdateDataSubjectButton.TabIndex = 9;
             masterDataSimpleDetailUpdateDataSubjectButton.Text = "Update {MasterData Type Placeholder}";
             masterDataSimpleDetailUpdateDataSubjectButton.UseVisualStyleBackColor = true;
             masterDataSimpleDetailUpdateDataSubjectButton.Click += masterDataSimpleDetailUpdateDataSubjectButton_Click;
@@ -80,7 +82,7 @@
             masterDataSimpleDetailActiveStatusCheckbox.Margin = new Padding(4);
             masterDataSimpleDetailActiveStatusCheckbox.Name = "masterDataSimpleDetailActiveStatusCheckbox";
             masterDataSimpleDetailActiveStatusCheckbox.Size = new Size(277, 24);
-            masterDataSimpleDetailActiveStatusCheckbox.TabIndex = 2;
+            masterDataSimpleDetailActiveStatusCheckbox.TabIndex = 3;
             masterDataSimpleDetailActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             masterDataSimpleDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
@@ -92,7 +94,7 @@
             masterDataSimpleDetailToggleEditModeButton.Margin = new Padding(4);
             masterDataSimpleDetailToggleEditModeButton.Name = "masterDataSimpleDetailToggleEditModeButton";
             masterDataSimpleDetailToggleEditModeButton.Size = new Size(108, 92);
-            masterDataSimpleDetailToggleEditModeButton.TabIndex = 7;
+            masterDataSimpleDetailToggleEditModeButton.TabIndex = 8;
             masterDataSimpleDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             masterDataSimpleDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
@@ -121,16 +123,16 @@
             masterDataSimpleDetailCreatedTimestampTextbox.Name = "masterDataSimpleDetailCreatedTimestampTextbox";
             masterDataSimpleDetailCreatedTimestampTextbox.ReadOnly = true;
             masterDataSimpleDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            masterDataSimpleDetailCreatedTimestampTextbox.TabIndex = 4;
+            masterDataSimpleDetailCreatedTimestampTextbox.TabIndex = 5;
             // 
             // masterDataSimpleDetailLastUpdatedTimestampTextbox
             // 
-            masterDataSimpleDetailLastUpdatedTimestampTextbox.Location = new Point(849, 258);
+            masterDataSimpleDetailLastUpdatedTimestampTextbox.Location = new Point(849, 254);
             masterDataSimpleDetailLastUpdatedTimestampTextbox.MaxLength = 50;
             masterDataSimpleDetailLastUpdatedTimestampTextbox.Name = "masterDataSimpleDetailLastUpdatedTimestampTextbox";
             masterDataSimpleDetailLastUpdatedTimestampTextbox.ReadOnly = true;
             masterDataSimpleDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            masterDataSimpleDetailLastUpdatedTimestampTextbox.TabIndex = 6;
+            masterDataSimpleDetailLastUpdatedTimestampTextbox.TabIndex = 7;
             // 
             // masterDataSimpleDetailCreatedByTextbox
             // 
@@ -139,21 +141,21 @@
             masterDataSimpleDetailCreatedByTextbox.Name = "masterDataSimpleDetailCreatedByTextbox";
             masterDataSimpleDetailCreatedByTextbox.ReadOnly = true;
             masterDataSimpleDetailCreatedByTextbox.Size = new Size(370, 27);
-            masterDataSimpleDetailCreatedByTextbox.TabIndex = 3;
+            masterDataSimpleDetailCreatedByTextbox.TabIndex = 4;
             // 
             // masterDataSimpleDetailLastUpdatedByTextbox
             // 
-            masterDataSimpleDetailLastUpdatedByTextbox.Location = new Point(849, 218);
+            masterDataSimpleDetailLastUpdatedByTextbox.Location = new Point(849, 213);
             masterDataSimpleDetailLastUpdatedByTextbox.MaxLength = 50;
             masterDataSimpleDetailLastUpdatedByTextbox.Name = "masterDataSimpleDetailLastUpdatedByTextbox";
             masterDataSimpleDetailLastUpdatedByTextbox.ReadOnly = true;
             masterDataSimpleDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            masterDataSimpleDetailLastUpdatedByTextbox.TabIndex = 5;
+            masterDataSimpleDetailLastUpdatedByTextbox.TabIndex = 6;
             // 
             // masterDataSimpleDetailLastUpdatedTimestampTextboxLabel
             // 
             masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Location = new Point(668, 261);
+            masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Location = new Point(668, 257);
             masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Name = "masterDataSimpleDetailLastUpdatedTimestampTextboxLabel";
             masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
             masterDataSimpleDetailLastUpdatedTimestampTextboxLabel.TabIndex = 34;
@@ -163,7 +165,7 @@
             // masterDataSimpleDetailLastUpdatedByTextboxLabel
             // 
             masterDataSimpleDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            masterDataSimpleDetailLastUpdatedByTextboxLabel.Location = new Point(726, 221);
+            masterDataSimpleDetailLastUpdatedByTextboxLabel.Location = new Point(726, 216);
             masterDataSimpleDetailLastUpdatedByTextboxLabel.Name = "masterDataSimpleDetailLastUpdatedByTextboxLabel";
             masterDataSimpleDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
             masterDataSimpleDetailLastUpdatedByTextboxLabel.TabIndex = 33;
@@ -212,12 +214,34 @@
             masterDataSimpleDetailDataSubjectIdTextboxLabel.Text = "{MasterData Type Placeholder Id}";
             masterDataSimpleDetailDataSubjectIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
             // 
+            // masterDataSimpleDetailCompanyConfigurationComboBoxLabel
+            // 
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.AutoSize = true;
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Location = new Point(60, 220);
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Name = "masterDataSimpleDetailCompanyConfigurationComboBoxLabel";
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.TabIndex = 72;
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
+            masterDataSimpleDetailCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // masterDataSimpleDetailCompanyConfigurationComboBox
+            // 
+            masterDataSimpleDetailCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            masterDataSimpleDetailCompanyConfigurationComboBox.Enabled = false;
+            masterDataSimpleDetailCompanyConfigurationComboBox.FormattingEnabled = true;
+            masterDataSimpleDetailCompanyConfigurationComboBox.Location = new Point(239, 217);
+            masterDataSimpleDetailCompanyConfigurationComboBox.Name = "masterDataSimpleDetailCompanyConfigurationComboBox";
+            masterDataSimpleDetailCompanyConfigurationComboBox.Size = new Size(370, 28);
+            masterDataSimpleDetailCompanyConfigurationComboBox.TabIndex = 2;
+            // 
             // MasterDataSimpleDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1244, 438);
+            Controls.Add(masterDataSimpleDetailCompanyConfigurationComboBoxLabel);
+            Controls.Add(masterDataSimpleDetailCompanyConfigurationComboBox);
             Controls.Add(masterDataSimpleDetailUpdateDataSubjectButton);
             Controls.Add(masterDataSimpleDetailActiveStatusCheckbox);
             Controls.Add(masterDataSimpleDetailToggleEditModeButton);
@@ -263,5 +287,7 @@
         private Label masterDataSimpleDetailCreatedByTextboxLabel;
         private Label masterDataSimpleDetailDataSubjectTextboxLabel;
         private Label masterDataSimpleDetailDataSubjectIdTextboxLabel;
+        private Label masterDataSimpleDetailCompanyConfigurationComboBoxLabel;
+        private ComboBox masterDataSimpleDetailCompanyConfigurationComboBox;
     }
 }

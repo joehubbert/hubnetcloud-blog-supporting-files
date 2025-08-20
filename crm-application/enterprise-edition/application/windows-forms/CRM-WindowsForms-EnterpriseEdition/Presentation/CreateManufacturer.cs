@@ -6,20 +6,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateManufacturer : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Manufacturer";
 
         public CreateManufacturer()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadInitialDataAsync();
+            LoadCountryDataAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged);
+            createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -30,6 +33,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadInitialDataAsync()
         {
             await LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private async Task LoadCountryDataAsync()
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createManufacturerTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -54,7 +68,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
             string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
             string manufacturerOverviewAddressLine4 = createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine5 = createManufacturerTabControlOverviewTabPageAddressLine5Textbox.Text.TrimEnd();
+            Guid manufacturerOverviewAddressLine5 = Guid.Parse(createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
             string manufacturerOverviewManufacturerName = createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Text.TrimEnd();
             string manufacturerOverviewEmailAddress = createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
             string manufacturerOverviewTelephoneNumber = createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
@@ -65,107 +79,91 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Manufacturer Finance: VAT Number",
+                    Value = manufacturerFinanceVATNumber,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewActiveStatus",
+                    Name = "Manufacturer Overview: Active Status",
                     Value = manufacturerOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewActiveStatus",
-                    Value = manufacturerOverviewActiveStatus,
-                    ValueType = typeof(bool)
-                },
-                new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = false,
-                    Name = "ManufacturerOverviewAddressLine1",
+                    Name = "Manufacturer Overview: Address Line 1",
                     Value = manufacturerOverviewAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Manufacturer Overview: Address Line 2",
+                    Value = manufacturerOverviewAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewAddressLine3",
+                    Name = "Manufacturer Overview: Address Line 3",
                     Value = manufacturerOverviewAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewAddressLine4",
+                    Name = "Manufacturer Overview: Address Line 4",
                     Value = manufacturerOverviewAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewAddressLine5",
+                    Name = "Manufacturer Overview: Address Line 5",
                     Value = manufacturerOverviewAddressLine5,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
+                    ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewEmailAddress",
+                    Name = "Manufacturer Overview: Email Address",
                     Value = manufacturerOverviewEmailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewManufacturerName",
+                    Name = "Manufacturer Overview: Manufacturer Name",
                     Value = manufacturerOverviewManufacturerName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ManufacturerOverviewTelephoneNumber",
+                    Name = "Manufacturer Overview: Telephone Number",
                     Value = manufacturerOverviewTelephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(manufacturerOverviewAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "ManufacturerOverviewAddressLine2",
-                    Value = manufacturerOverviewAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(manufacturerFinanceVATNumber))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "ManufacturerFinanceVATNumber",
-                    Value = manufacturerFinanceVATNumber,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -214,11 +212,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = manufacturerOverviewTelephoneNumber
-                    },
-                    new Parameter
-                    {
-                        ParameterName = "vatNumber",
-                        ParameterValue = manufacturerFinanceVATNumber
                     }
                 };
 
@@ -227,6 +220,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     parameters.Add(new Parameter
                     {
                         ParameterName = "addressLine2",
+                        ParameterValue = manufacturerOverviewAddressLine2
+                    });
+                }
+
+                if (!string.IsNullOrEmpty(manufacturerFinanceVATNumber))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "vatNumber",
                         ParameterValue = manufacturerOverviewAddressLine2
                     });
                 }

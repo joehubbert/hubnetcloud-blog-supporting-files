@@ -6,8 +6,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class MasterDataAdvancedDetail : Form
     {
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private readonly Guid _dataSubjectId;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;     
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
@@ -18,6 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private string dataParentSubjectName;
         private string dataParentSubjectGetStoredProcedureName;
         private bool? dataSubjectActiveStatusOriginalValue;
+        private Guid dataSubjectCompanyConfigurationIdOriginalValue;
         private string dataSubjectFriendlyName;
         private string dataSubjectGetStoredProcedureName;
         private string dataSubjectIdFriendlyName;
@@ -32,12 +34,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public MasterDataAdvancedDetail(Guid dataSubjectId, string functionTitle, string moduleGroup)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             _dataSubjectId = dataSubjectId;
             _functionTitle = functionTitle;
             _moduleGroup = moduleGroup;
-            SetModuleTheme(_moduleGroup);
-            masterDataAdvancedDetailToggleEditModeButton.Click += new EventHandler(masterDataAdvancedDetailToggleEditModeButton_Click);
+            SetModuleTheme();
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -45,37 +46,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private void InitializeCustomComponents()
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void SetModuleTheme(string moduleGroup)
+        private void InitializeEventHandlers()
         {
-            switch (moduleGroup)
-            {
-                case "CompanyManagement":
-                    this.BackColor = Color.LemonChiffon;
-                    break;
-                case "CustomerManagement":
-                    this.BackColor = Color.LightGreen;
-                    break;
-                case "MarketingManagement":
-                    this.BackColor = Color.NavajoWhite;
-                    break;
-                case "OrderManagement":
-                    this.BackColor = Color.LightSalmon;
-                    break;
-                case "ProductManagement":
-                    this.BackColor = Color.SkyBlue;
-                    break;
-                case "SupplierManagement":
-                    this.BackColor = Color.MediumAquamarine;
-                    break;
-                default:
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
-                    break;
-            }
+            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            masterDataAdvancedDetailToggleEditModeButton.Click += new EventHandler(masterDataAdvancedDetailToggleEditModeButton_Click);
+        }
+
+        private void SetModuleTheme()
+        {
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
         private void SetParameters(string functionTitle)
@@ -162,7 +147,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void MasterDataAdvancedDetailMasterDataInformation_Load(object sender, EventArgs e)
@@ -195,6 +180,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataAdvancedDetailDataSubjectIdTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
                     await MasterDataAdvancedDetailLoadDataParentSubjectAsync((Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName]);
                     masterDataAdvancedDetailDataSubjectTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
+                    Guid companyConfigurationId = (Guid)masterDataAdvancedDetailDataRow["Company Configuration Id"];
+                    await LoadCompanyConfigurationAsync(companyConfigurationId);
                     masterDataAdvancedDetailCreatedByTextbox.Text = masterDataAdvancedDetailDataRow["Created By"].ToString();
                     masterDataAdvancedDetailCreatedTimestampTextbox.Text = masterDataAdvancedDetailDataRow["Created Timestamp UTC"].ToString();
                     masterDataAdvancedDetailLastUpdatedByTextbox.Text = masterDataAdvancedDetailDataRow["Modified By"].ToString();
@@ -202,6 +189,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataAdvancedDetailActiveStatusCheckbox.Checked = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
                     dataParentSubjectOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
+                    dataSubjectCompanyConfigurationIdOriginalValue = (Guid)masterDataAdvancedDetailDataRow["Company Configuration Id"];
                     dataSubjectOriginalValue = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
                     dataSubjectActiveStatusOriginalValue = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
@@ -221,6 +209,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void masterDataAdvancedDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = masterDataAdvancedDetailActiveStatusCheckbox.Checked;
+            Guid companyConfigurationId = (Guid)masterDataAdvancedDetailCompanyConfigurationComboBox.SelectedValue;
             Guid dataParentSubjectIdValue = (Guid)masterDataAdvancedDetailDataParentSubjectComboBox.SelectedValue;
             string dataSubjectValue = masterDataAdvancedDetailDataSubjectTextbox.Text.TrimEnd();
 
@@ -230,26 +219,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ActiveStatus",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = dataParentSubjectName,
+                    Name = "Company Configuration id",
+                    Value = companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = dataParentSubjectFriendlyName,
                     Value = dataParentSubjectIdValue,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = dataSubjectName,
+                    Name = dataSubjectFriendlyName,
                     Value = dataSubjectValue,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -258,7 +254,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -274,6 +270,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         VariableType = "bool",
                         OriginalValue = dataSubjectActiveStatusOriginalValue,
                         NewValue = activeStatus
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Company Configuration Id",
+                        VariableType = "Guid",
+                        OriginalValue = dataSubjectCompanyConfigurationIdOriginalValue,
+                        NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
@@ -293,7 +296,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubjectName);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubjectName);
 
                 if (confirmed)
                 {
@@ -306,12 +309,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         },
                         new Parameter
                         {
-                            ParameterName = $"@{dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix}Id",
+                            ParameterName = "companyConfigurationId",
+                            ParameterValue = companyConfigurationId
+                        },
+                        new Parameter
+                        {
+                            ParameterName = $"{dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix}Id",
                             ParameterValue = dataParentSubjectIdValue
                         },
                         new Parameter
                         {
-                            ParameterName = $"@{dataSubjectUpdateStoredProcedureParameterPrefix}",
+                            ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}",
                             ParameterValue = dataSubjectValue
                         }
                     };
@@ -341,6 +349,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             masterDataAdvancedDetailDataParentSubjectComboBox.Enabled = !masterDataAdvancedDetailDataParentSubjectComboBox.Enabled;
             masterDataAdvancedDetailDataSubjectTextbox.ReadOnly = !masterDataAdvancedDetailDataSubjectTextbox.ReadOnly;
+            masterDataAdvancedDetailCompanyConfigurationComboBox.Enabled = !masterDataAdvancedDetailCompanyConfigurationComboBox.Enabled;
             masterDataAdvancedDetailActiveStatusCheckbox.Enabled = !masterDataAdvancedDetailActiveStatusCheckbox.Enabled;
             masterDataAdvancedDetailUpdateDataSubjectButton.Enabled = !masterDataAdvancedDetailUpdateDataSubjectButton.Enabled;
         }

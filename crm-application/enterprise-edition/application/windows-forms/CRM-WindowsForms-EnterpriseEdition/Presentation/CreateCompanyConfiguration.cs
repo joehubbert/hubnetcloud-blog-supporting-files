@@ -7,16 +7,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     public partial class CreateCompanyConfiguration : Form
     {
         private byte[]? _companyLogoImageBytes = null;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 
         public CreateCompanyConfiguration()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadInitialDataAsync();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2Textbox.TextChanged += AutoPopulateBankAccountAddressInformation;
@@ -46,87 +47,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadInitialDataAsync()
         {
             await LoadDatabaseConnectionSettingsAsync();
-
-            var loadCountryTask = CreateCompanyConfigurationLoadCountryAsync();
-            var loadCurrencyTask = CreateCompanyConfigurationLoadCurrencyDataAsync();
-
-            await Task.WhenAll(loadCountryTask, loadCurrencyTask);
+            await LoadCountryAsync();
+            await LoadCurrencyDataAsync();
         }
 
-        private async Task CreateCompanyConfigurationLoadCountryAsync()
+        private async Task LoadCountryAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
 
-            string dataSubject = "Country";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCountry";
-                
-                DataTable? countryData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-                var countryList = countryData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CountryId = row.Field<Guid>("Country Id"),
-                        DisplayText = $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DataSource = countryList;
-                createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DisplayMember = "DisplayText";
-                createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.ValueMember = "CountryId";
-
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DataSource = countryList;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DisplayMember = "DisplayText";
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.ValueMember = "CountryId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private async Task CreateCompanyConfigurationLoadCurrencyDataAsync()
+        private async Task LoadCurrencyDataAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Currency";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCurrency";             
-                DataTable? currencyData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var currencyList = currencyData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CurrencyId = row.Field<Guid>("Currency Id"),
-                        CurrencyCode = row.Field<string>("Currency Code"),
-                        CurrencyName = row.Field<string>("Currency Name"),
-                        DisplayText = $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DataSource = currencyList;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DisplayMember = "DisplayText";
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.ValueMember = "CurrencyId";
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, "spGetAllCurrency");
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -330,7 +272,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInput.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
+                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = Image.FromFile(filePath);
                         _companyLogoImageBytes = File.ReadAllBytes(filePath);
@@ -411,131 +353,163 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine1",
+                    Name = "Address Line 1",
                     Value = addressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Address Line 2",
+                    Value = addressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine3",
+                    Name = "Address Line 3",
                     Value = addressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine4",
+                    Name = "Address Line 4",
                     Value = addressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "AddressLine5",
+                    Name = "Address Line 5",
                     Value = addressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine1",
+                    Name = "Bank Account Address Line 1",
                     Value = bankAccountAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Bank Account Address Line 2",
+                    Value = bankAccountAddressLine2,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine3",
+                    Name = "Bank Account Address Line 3",
                     Value = bankAccountAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine4",
+                    Name = "Bank Account Address Line 4",
                     Value = bankAccountAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountAddressLine5",
+                    Name = "Bank Account Address Line 5",
                     Value = bankAccountAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountCurrencyId",
+                    Name = "Bank Account Currency Id",
                     Value = bankAccountCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountIBAN",
+                    Name = "Bank Account IBAN",
                     Value = bankAccountIBAN,
                     MaxLength = 34,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountName",
+                    Name = "Bank Account Name",
                     Value = bankAccountName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountNumber",
+                    Name = "Bank Account Number",
                     Value = bankAccountNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountOpeningBalance",
+                    Name = "Bank Account Opening Balance",
                     Value = bankAccountOpeningBalance,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Bank Account Sort Code",
+                    Value = bankAccountSortCode,
+                    MaxLength = 8,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "BankAccountSWIFTCode",
+                    Name = "Bank Account SWIFT Code",
                     Value = bankAccountSWIFTCode,
                     MaxLength = 11,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "Bank Account Vipps Id",
+                    Value = bankAccountVippsId,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "Companylogo",
+                    Name = "Company Logo",
                     Value = companyLogo,
                     ValueType = typeof(byte[])
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "CompanyName",
@@ -543,103 +517,51 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailAddress",
+                    Name = "Email Address",
                     Value = emailAddress,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "EmailTopLevelDomain",
+                    Name = "Email Top Level Domain",
                     Value = emailTopLevelDomain,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "TelephoneNumber",
+                    Name = "Telephone Number",
                     Value = telephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = true,
+                    Name = "VAT Number",
+                    Value = vatNumber,
+                    MaxLength = 50,
+                    ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "WebsiteURL",
+                    Name = "Website URL",
                     Value = websiteURL,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 }
             };
 
-            if (!string.IsNullOrEmpty(addressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "AddressLine2",
-                    Value = addressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(bankAccountAddressLine2))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "BankAccountAddressLine2",
-                    Value = bankAccountAddressLine2,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(bankAccountSortCode))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "BankAccountSortCode",
-                    Value = bankAccountSortCode,
-                    MaxLength = 8,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(bankAccountVippsId))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "BankAccountVippsId",
-                    Value = bankAccountVippsId,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
-            if (!string.IsNullOrEmpty(vatNumber))
-            {
-                dataToValidate.Add(new ValidateDataInput.DataProperty
-                {
-                    AllowNullValue = true,
-                    Name = "VATNumber",
-                    Value = vatNumber,
-                    MaxLength = 50,
-                    ValueType = typeof(string)
-                });
-            }
-
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

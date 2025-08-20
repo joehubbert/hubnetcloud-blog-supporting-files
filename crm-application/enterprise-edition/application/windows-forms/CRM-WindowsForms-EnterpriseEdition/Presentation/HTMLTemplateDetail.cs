@@ -1,22 +1,29 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
-using System.Runtime.CompilerServices;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class HTMLTemplateDetail : Form
     {
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _htmlTemplateId;
-        private string? htmlTemplateDetailHTMLTemplateOriginalValue;
-        private string? htmlTemplateDetailHTMLTemplateTitleOriginalValue;
-        private Guid? htmlTemplateDetailHTMLTemplateTypeIdOriginalValue;
+        private Guid htmlTemplateDetailCompanyConfigurationIdOriginalValue;
+        private string htmlTemplateDetailHTMLTemplateOriginalValue;
+        private string htmlTemplateDetailHTMLTemplateTitleOriginalValue;
+        private Guid htmlTemplateDetailHTMLTemplateTypeIdOriginalValue;
 
         public HTMLTemplateDetail(Guid htmlTemplateId)
         {
             InitializeComponent();
-            _htmlTemplateId = htmlTemplateId;
+            InitializeEventHandlers();
+            _htmlTemplateId = htmlTemplateId;        
+        }
+
+        private void InitializeEventHandlers()
+        {
+            htmlTemplateDetailHTMLTemplateTypeComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             htmlTemplateDetailToggleEditModeButton.Click += new EventHandler(htmlTemplateDetailToggleEditModeButton_Click);
         }
 
@@ -25,38 +32,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task HTMLTemplateDetailLoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            string dataSubject = "HTML Template Type";
+        private async Task LoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType", null, true, "HTML Template Type Id", htmlTemplateTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
 
-            try
-            {               
-                string storedProcedureName = "spGetAllHTMLTemplateType";
-
-                DataTable? htmlTemplateTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var htmlTemplateTypeList = htmlTemplateTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        HTMLTemplateTypeId = row.Field<Guid>("HTML Template Type Id"),
-                        HTMLTemplateType = row.Field<string>("HTML Template Type"),
-                    })
-                    .OrderBy(item => item.HTMLTemplateType)
-                    .ToList();
-                htmlTemplateDetailHTMLTemplateTypeComboBox.DataSource = htmlTemplateTypeList;
-                htmlTemplateDetailHTMLTemplateTypeComboBox.DisplayMember = "HTMLTemplateType";
-                htmlTemplateDetailHTMLTemplateTypeComboBox.ValueMember = "HTMLTemplateTypeId";
-                htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue = htmlTemplateTypeId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
+        {
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void HTMLTemplateDetailHTMLTemplateInformation_Load(object sender, EventArgs e)
@@ -91,16 +81,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (htmlTemplateDataTable != null)
                 {
                     DataRow htmlTemplateDataRow = htmlTemplateDataTable.Rows[0];
-                    htmlTemplateDetailCompanyConfigurationIdTextbox.Text = htmlTemplateDataRow["Company Configuration Id"].ToString();
+                    Guid companyConfigurationId = (Guid)htmlTemplateDataRow["Company Configuration Id"];
+                    await LoadCompanyConfigurationAsync(companyConfigurationId);
                     htmlTemplateDetailHTMLTemplateIdTextbox.Text = htmlTemplateDataRow["HTML Template Id"].ToString();
                     htmlTemplateDetailHTMLTemplateTitleTextbox.Text = htmlTemplateDataRow["HTML Template Title"].ToString();
-                    await HTMLTemplateDetailLoadHTMLTemplateTypeAsync((Guid)htmlTemplateDataRow["HTML Template Type Id"]);
+                    Guid htmlTemplateTypeId = (Guid)htmlTemplateDataRow["HTML Template Type Id"];
+                    await LoadHTMLTemplateTypeAsync(htmlTemplateTypeId);
                     htmlTemplateDetailHTMLTemplateTextbox.Text = htmlTemplateDataRow["HTML Template"].ToString();
                     htmlTemplateDetailCreatedByTextbox.Text = htmlTemplateDataRow["Created By"].ToString();
                     htmlTemplateDetailCreatedTimestampTextbox.Text = htmlTemplateDataRow["Created Timestamp UTC"].ToString();
                     htmlTemplateDetailLastUpdatedByTextbox.Text = htmlTemplateDataRow["Modified By"].ToString();
                     htmlTemplateDetailLastUpdatedTimestampTextbox.Text = htmlTemplateDataRow["Modified Timestamp UTC"].ToString();
 
+                    htmlTemplateDetailCompanyConfigurationIdOriginalValue = (Guid)htmlTemplateDataRow["Company Configuration Id"];
                     htmlTemplateDetailHTMLTemplateOriginalValue = htmlTemplateDataRow["HTML Template"].ToString();
                     htmlTemplateDetailHTMLTemplateTitleOriginalValue = htmlTemplateDataRow["HTML Template Title"].ToString();
                     htmlTemplateDetailHTMLTemplateTypeIdOriginalValue = (Guid)htmlTemplateDataRow["HTML Template Type Id"];
@@ -120,9 +113,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void htmlTemplateDetailUpdateHTMLTemplateButton_Click(object sender, EventArgs e)
         {
+            Guid companyConfigurationId = Guid.Parse(htmlTemplateDetailCompanyConfigurationComboBox.SelectedValue.ToString());
             string htmlTemplate = htmlTemplateDetailHTMLTemplateTextbox.Text.TrimEnd();
             string htmlTemplateTitle = htmlTemplateDetailHTMLTemplateTitleTextbox.Text.TrimEnd();
-            Guid htmlTemplateTypeId = (Guid)htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue;
+            Guid htmlTemplateTypeId = Guid.Parse(htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue.ToString());
 
             string dataSubject = "HTML Template";
 
@@ -132,28 +126,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplate",
+                    Name = "Company Configuration Id",
+                    Value = companyConfigurationId,
+                    ValueType = typeof(Guid)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "HTML Template",
                     Value = htmlTemplate,
                     MaxLength = 1070000000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplateTitle",
+                    Name = "HTML Template Title",
                     Value = htmlTemplateTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "HTMLTemplateTypeId",
+                    Name = "HTML Template Type Id",
                     Value = htmlTemplateTypeId,
                     ValueType = typeof(Guid)
                 }
@@ -161,7 +162,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -173,21 +174,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     new ChangeDetail
                     {
-                        VariableName = "HTMLTemplate",
+                        VariableName = "Company Configuration Id",
+                        VariableType = "Guid",
+                        OriginalValue = htmlTemplateDetailCompanyConfigurationIdOriginalValue,
+                        NewValue = companyConfigurationId
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "HTML Template",
                         VariableType = "string",
                         OriginalValue = htmlTemplateDetailHTMLTemplateOriginalValue,
                         NewValue = htmlTemplate
                     },
                     new ChangeDetail
                     {
-                        VariableName = "HTMLTemplateTitle",
+                        VariableName = "HTML Template Title",
                         VariableType = "string",
                         OriginalValue = htmlTemplateDetailHTMLTemplateTitleOriginalValue,
                         NewValue = htmlTemplateTitle
                     },
                     new ChangeDetail
                     {
-                        VariableName = "HTMLTemplateTypeId",
+                        VariableName = "HTML Template Type Id",
                         VariableType = "Guid",
                         OriginalValue = htmlTemplateDetailHTMLTemplateTypeIdOriginalValue,
                         NewValue = htmlTemplateTypeId
@@ -196,12 +204,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {
                     var parameters = new[]
                     {
+                        new Parameter
+                        {
+                            ParameterName = "companyConfigurationId",
+                            ParameterValue = companyConfigurationId
+                        },
                         new Parameter
                         {
                             ParameterName = "htmlTemplateId",
@@ -247,6 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void htmlTemplateDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
+            htmlTemplateDetailCompanyConfigurationComboBox.Enabled = !htmlTemplateDetailCompanyConfigurationComboBox.Enabled;
             htmlTemplateDetailHTMLTemplateTextbox.ReadOnly = !htmlTemplateDetailHTMLTemplateTextbox.ReadOnly;
             htmlTemplateDetailHTMLTemplateTitleTextbox.ReadOnly = !htmlTemplateDetailHTMLTemplateTitleTextbox.ReadOnly;
             htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled = !htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled;

@@ -41,8 +41,6 @@
             customerLeadDetailUpdateCustomerLeadButton = new Button();
             customerLeadDetailTabControl = new TabControl();
             customerLeadDetailTabControlOverviewTabPage = new TabPage();
-            customerLeadDetailTabControlCustomerLeadNoteTabPage = new TabPage();
-            customerLeadDetailToggleEditModeButton = new Button();
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox = new TextBox();
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox = new TextBox();
             customerLeadDetailTabControlOverviewTabPageCreatedByTextbox = new TextBox();
@@ -69,16 +67,23 @@
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton = new RadioButton();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox = new ComboBox();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton = new RadioButton();
+            customerLeadDetailTabControlCustomerLeadNoteTabPage = new TabPage();
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel = new Label();
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox = new TextBox();
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton = new Button();
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton = new Button();
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView = new DataGridView();
+            customerLeadDetailToggleEditModeButton = new Button();
+            customerLeadDetailStatusStrip = new StatusStrip();
+            customerLeadDetailStatusStripCustomerPlaceholder = new ToolStripStatusLabel();
             customerLeadDetailTabControl.SuspendLayout();
             customerLeadDetailTabControlOverviewTabPage.SuspendLayout();
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.SuspendLayout();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanel.SuspendLayout();
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel.SuspendLayout();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanel.SuspendLayout();
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView).BeginInit();
+            customerLeadDetailStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
             // customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox
@@ -87,9 +92,9 @@
             customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
             customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(170, 479);
             customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox";
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(172, 24);
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 64;
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Customer Lead";
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(178, 24);
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 5;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Customer Lead*";
             customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel
@@ -132,7 +137,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ScrollBars = ScrollBars.Vertical;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Size = new Size(427, 274);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.TabIndex = 62;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.TabIndex = 4;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox
             // 
@@ -141,7 +146,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Size = new Size(301, 27);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.TabIndex = 61;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.TabIndex = 3;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox
             // 
@@ -151,7 +156,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Location = new Point(170, 48);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Size = new Size(301, 28);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.TabIndex = 60;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.TabIndex = 2;
             // 
             // customerLeadDetailTabControlOverviewTabPageTitleLabel
             // 
@@ -171,7 +176,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Size = new Size(301, 27);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.TabIndex = 74;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.TabIndex = 1;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel
             // 
@@ -192,7 +197,7 @@
             customerLeadDetailUpdateCustomerLeadButton.Margin = new Padding(4);
             customerLeadDetailUpdateCustomerLeadButton.Name = "customerLeadDetailUpdateCustomerLeadButton";
             customerLeadDetailUpdateCustomerLeadButton.Size = new Size(185, 70);
-            customerLeadDetailUpdateCustomerLeadButton.TabIndex = 84;
+            customerLeadDetailUpdateCustomerLeadButton.TabIndex = 24;
             customerLeadDetailUpdateCustomerLeadButton.Text = "Update Customer Lead";
             customerLeadDetailUpdateCustomerLeadButton.UseVisualStyleBackColor = true;
             customerLeadDetailUpdateCustomerLeadButton.Click += customerLeadDetailUpdateCustomerLeadButton_Click;
@@ -206,7 +211,7 @@
             customerLeadDetailTabControl.Name = "customerLeadDetailTabControl";
             customerLeadDetailTabControl.SelectedIndex = 0;
             customerLeadDetailTabControl.Size = new Size(1297, 613);
-            customerLeadDetailTabControl.TabIndex = 86;
+            customerLeadDetailTabControl.TabIndex = 0;
             // 
             // customerLeadDetailTabControlOverviewTabPage
             // 
@@ -241,32 +246,6 @@
             customerLeadDetailTabControlOverviewTabPage.TabIndex = 0;
             customerLeadDetailTabControlOverviewTabPage.Text = "Overview";
             // 
-            // customerLeadDetailTabControlCustomerLeadNoteTabPage
-            // 
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.BackColor = Color.LightGreen;
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Location = new Point(4, 32);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPage";
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Padding = new Padding(3);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Size = new Size(1289, 577);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.TabIndex = 1;
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Text = "Customer Lead Notes";
-            // 
-            // customerLeadDetailToggleEditModeButton
-            // 
-            customerLeadDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
-            customerLeadDetailToggleEditModeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            customerLeadDetailToggleEditModeButton.Location = new Point(1201, 13);
-            customerLeadDetailToggleEditModeButton.Margin = new Padding(4);
-            customerLeadDetailToggleEditModeButton.Name = "customerLeadDetailToggleEditModeButton";
-            customerLeadDetailToggleEditModeButton.Size = new Size(108, 92);
-            customerLeadDetailToggleEditModeButton.TabIndex = 85;
-            customerLeadDetailToggleEditModeButton.Text = "Toggle Edit Mode";
-            customerLeadDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
-            // 
             // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox
             // 
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Location = new Point(839, 430);
@@ -274,7 +253,7 @@
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox";
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.TabIndex = 91;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.TabIndex = 16;
             // 
             // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox
             // 
@@ -283,7 +262,7 @@
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox";
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.TabIndex = 93;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.TabIndex = 18;
             // 
             // customerLeadDetailTabControlOverviewTabPageCreatedByTextbox
             // 
@@ -292,7 +271,7 @@
             customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedByTextbox";
             customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.TabIndex = 90;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.TabIndex = 15;
             // 
             // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox
             // 
@@ -301,7 +280,7 @@
             customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox";
             customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = true;
             customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.TabIndex = 92;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.TabIndex = 17;
             // 
             // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel
             // 
@@ -388,7 +367,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Location = new Point(251, 8);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Size = new Size(48, 24);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.TabIndex = 7;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.TabIndex = 10;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Text = "Yes";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -409,7 +388,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Location = new Point(177, 8);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Size = new Size(47, 24);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.TabIndex = 6;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.TabIndex = 9;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Text = "No";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -419,7 +398,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Location = new Point(213, 38);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Size = new Size(301, 27);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.TabIndex = 8;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.TabIndex = 11;
             // 
             // customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel
             // 
@@ -439,7 +418,7 @@
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Location = new Point(251, 12);
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton";
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Size = new Size(48, 24);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.TabIndex = 4;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.TabIndex = 7;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Text = "Yes";
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -450,7 +429,7 @@
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Location = new Point(177, 12);
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton";
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Size = new Size(47, 24);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.TabIndex = 3;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.TabIndex = 6;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Text = "No";
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -472,7 +451,7 @@
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Location = new Point(213, 42);
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Name = "customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox";
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Size = new Size(301, 28);
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.TabIndex = 5;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.TabIndex = 8;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerContactPanel
             // 
@@ -502,7 +481,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Location = new Point(251, 13);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton";
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Size = new Size(48, 24);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.TabIndex = 10;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.TabIndex = 13;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Text = "Yes";
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -514,7 +493,7 @@
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Location = new Point(213, 43);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox";
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Size = new Size(301, 28);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.TabIndex = 11;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.TabIndex = 14;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton
             // 
@@ -523,9 +502,40 @@
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Location = new Point(177, 13);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Name = "customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton";
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Size = new Size(47, 24);
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.TabIndex = 9;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.TabIndex = 12;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Text = "No";
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // customerLeadDetailTabControlCustomerLeadNoteTabPage
+            // 
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.BackColor = Color.LightGreen;
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Location = new Point(4, 32);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPage";
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Padding = new Padding(3);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Size = new Size(1289, 577);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.TabIndex = 1;
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Text = "Customer Lead Notes";
+            // 
+            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel
+            // 
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.AutoSize = true;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Location = new Point(21, 18);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel";
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.TabIndex = 67;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            // 
+            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox
+            // 
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Location = new Point(110, 15);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox";
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Size = new Size(843, 27);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.TabIndex = 19;
             // 
             // customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton
             // 
@@ -535,7 +545,7 @@
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.Margin = new Padding(4);
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton";
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.Size = new Size(151, 70);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.TabIndex = 67;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.TabIndex = 22;
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.Text = "Refresh Data";
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.UseVisualStyleBackColor = true;
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton.Click += customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton_Click;
@@ -548,7 +558,7 @@
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.Margin = new Padding(4);
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton";
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.Size = new Size(151, 70);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.TabIndex = 66;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.TabIndex = 21;
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.Text = "Create New Customer Lead Note";
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.UseVisualStyleBackColor = true;
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton.Click += customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton_Click;
@@ -559,18 +569,48 @@
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.AllowUserToDeleteRows = false;
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.BackgroundColor = Color.LightGreen;
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Location = new Point(15, 7);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Location = new Point(21, 48);
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView";
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.ReadOnly = true;
-            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Size = new Size(1098, 552);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.TabIndex = 65;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Size = new Size(1103, 523);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.TabIndex = 20;
+            // 
+            // customerLeadDetailToggleEditModeButton
+            // 
+            customerLeadDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
+            customerLeadDetailToggleEditModeButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            customerLeadDetailToggleEditModeButton.Location = new Point(1201, 13);
+            customerLeadDetailToggleEditModeButton.Margin = new Padding(4);
+            customerLeadDetailToggleEditModeButton.Name = "customerLeadDetailToggleEditModeButton";
+            customerLeadDetailToggleEditModeButton.Size = new Size(108, 92);
+            customerLeadDetailToggleEditModeButton.TabIndex = 23;
+            customerLeadDetailToggleEditModeButton.Text = "Toggle Edit Mode";
+            customerLeadDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
+            // 
+            // customerLeadDetailStatusStrip
+            // 
+            customerLeadDetailStatusStrip.BackColor = SystemColors.Control;
+            customerLeadDetailStatusStrip.Items.AddRange(new ToolStripItem[] { customerLeadDetailStatusStripCustomerPlaceholder });
+            customerLeadDetailStatusStrip.Location = new Point(0, 835);
+            customerLeadDetailStatusStrip.Name = "customerLeadDetailStatusStrip";
+            customerLeadDetailStatusStrip.Size = new Size(1339, 22);
+            customerLeadDetailStatusStrip.TabIndex = 23;
+            customerLeadDetailStatusStrip.Text = "statusStrip1";
+            // 
+            // customerLeadDetailStatusStripCustomerPlaceholder
+            // 
+            customerLeadDetailStatusStripCustomerPlaceholder.Name = "customerLeadDetailStatusStripCustomerPlaceholder";
+            customerLeadDetailStatusStripCustomerPlaceholder.Size = new Size(132, 17);
+            customerLeadDetailStatusStripCustomerPlaceholder.Text = "{Customer Placeholder}";
             // 
             // CustomerLeadDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LightGreen;
-            ClientSize = new Size(1339, 829);
+            ClientSize = new Size(1339, 857);
+            Controls.Add(customerLeadDetailStatusStrip);
             Controls.Add(customerLeadDetailTabControl);
             Controls.Add(customerLeadDetailToggleEditModeButton);
             Controls.Add(customerLeadDetailUpdateCustomerLeadButton);
@@ -585,14 +625,17 @@
             customerLeadDetailTabControl.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPage.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPage.PerformLayout();
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanel.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanel.PerformLayout();
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel.PerformLayout();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanel.ResumeLayout(false);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanel.PerformLayout();
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.ResumeLayout(false);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView).EndInit();
+            customerLeadDetailStatusStrip.ResumeLayout(false);
+            customerLeadDetailStatusStrip.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -643,5 +686,9 @@
         private Button customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton;
         private Button customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton;
         private DataGridView customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView;
+        private StatusStrip customerLeadDetailStatusStrip;
+        private ToolStripStatusLabel customerLeadDetailStatusStripCustomerPlaceholder;
+        private Label customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel;
+        private TextBox customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox;
     }
 }

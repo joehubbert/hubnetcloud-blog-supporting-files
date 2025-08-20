@@ -1,4 +1,5 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+using CRM_WindowsForms_EnterpriseEdition.Model;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
@@ -66,11 +67,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public AppConfiguration()
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             ExistingConfigurationFileCheckAsync(); // Only this, no UI population calls here
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             appConfigurationTabControlDatabaseTabPageTabControl.SelectedIndexChanged += new EventHandler(appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged);
@@ -571,12 +572,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
-        private ApplicationConfigurationServiceMSSQLConfiguration CreateMSSQLConfiguration()
+        private ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration CreateMSSQLConfiguration()
         {
-            return new ApplicationConfigurationServiceMSSQLConfiguration
+            return new ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration
             {
                 serverName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Text,
                 databaseName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Text,
@@ -592,9 +593,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             };
         }
 
-        private ApplicationConfigurationServiceMySQLConfiguration CreateMySQLConfiguration()
+        private ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration CreateMySQLConfiguration()
         {
-            return new ApplicationConfigurationServiceMySQLConfiguration
+            return new ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration
             {
                 serverName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Text,
                 portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Text, out var port) ? port : 3306,
@@ -608,9 +609,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             };
         }
 
-        private ApplicationConfigurationServicePostgreSQLConfiguration CreatePostgreSQLConfiguration()
+        private ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration CreatePostgreSQLConfiguration()
         {
-            return new ApplicationConfigurationServicePostgreSQLConfiguration
+            return new ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration
             {
                 serverName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Text,
                 portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Text, out var port) ? port : 5432,

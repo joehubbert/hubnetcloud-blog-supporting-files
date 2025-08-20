@@ -5,9 +5,12 @@ using System.Data;
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CustomerLeadDetail : Form
-    {
+    {    
         private readonly Guid _customerId;
         private readonly Guid _customerLeadId;
+        private readonly string _customerName;
+        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
+        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private bool customerLeadDetailTabControlOverviewTabPageActiveStatusOriginalValue;
         private Guid? customerLeadDetailTabControlOverviewTabPageCustomerContactIdOriginalValue;
@@ -17,18 +20,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private Guid customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeIdOriginalValue;
         private Guid? customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue;
 
-        public CustomerLeadDetail(Guid customerId, Guid customerLeadId)
+        public CustomerLeadDetail(Guid customerId, Guid customerLeadId, string customerName)
         {
             InitializeComponent();
-            InitializeCustomComponents();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             _customerId = customerId;
             _customerLeadId = customerLeadId;
+            _customerName = customerName;
+            PopulateStatusStrip();
         }
 
-        private void InitializeCustomComponents()
+        private void InitializeEventHandlers()
         {
             customerLeadDetailTabControl.SelectedIndexChanged += new EventHandler(CustomerLeadDetailTabControl_SelectedIndexChanged);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.CellContentClick += new DataGridViewCellEventHandler(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged);
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
@@ -38,6 +44,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged);
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += new EventHandler(CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -45,126 +52,49 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task CustomerLeadDetailLoadCustomerContactAsync(Guid customerContactId)
+        private void PopulateStatusStrip()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            customerLeadDetailStatusStripCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
+        }
 
-            string dataSubject = "Customer Contact";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerContactForCustomer";
-
-                var parameters = new[]
+        private async Task LoadCustomerContactAsync(Guid customerId, Guid? customerContactId = null)
+        {
+            var parameters = new[]
                 {
                     new Parameter
                     {
                         ParameterName = "customerId",
-                        ParameterValue = _customerId
+                        ParameterValue = customerId
                     }
                 };
 
-                DataTable? customerContactData = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-                var customerContactList = customerContactData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerContactId = row.Field<Guid>("Customer Contact Id"),
-                        DisplayText = $"{row.Field<string>("Customer Contact Last Name")}, {row.Field<string>("Customer Contact First Name")} - {row.Field<string>("Customer Contact Email Address")}"
-                    })
-                    .OrderBy(item => item.DisplayText)
-                    .ToList();
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DataSource = customerContactList;
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DisplayMember = "DisplayText";
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.ValueMember = "CustomerContactId";
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.SelectedValue = customerContactId;
-
-                if (customerContactList.Count > 0)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-                    customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = false;
-                    customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DataSource = null;
-                }
-            }
-            catch (Exception ex)
+            if (customerContactId != null)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, true, "Customer Contact Id", customerContactId, false, null, null, parameters);
             }
+            else
+            {
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
+            }
+
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task CustomerLeadDetailLoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
+        private async Task LoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Customer Lead Type";
-
-            try
-            {
-                string storedProcedureName = "spGetAllCustomerLeadType";
-
-                DataTable? customerLeadTypeData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var customerLeadTypeList = customerLeadTypeData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        CustomerLeadTypeId = row.Field<Guid>("Customer Lead Type Id"),
-                        CustomerLeadType = row.Field<string>("Customer Lead Type")
-                    })
-                    .OrderBy(item => item.CustomerLeadType)
-                    .ToList();
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DataSource = customerLeadTypeList;
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DisplayMember = "CustomerLeadType";
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.ValueMember = "CustomerLeadTypeId";
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.SelectedValue = customerLeadTypeId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox, "spGetAllCustomerLeadType", null, true, "Customer Lead Type Id", customerLeadTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task CustomerLeadDetailLoadMarketingChannelAsync(Guid marketingChannelId)
+        private async Task LoadMarketingChannelAsync(Guid marketingChannelId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            string dataSubject = "Marketing Channel";
-
-            try
-            {
-                string storedProcedureName = "spGetAllMarketingChannel";
-                DataTable? marketingChannelData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubject);
-
-                var marketingChannelList = marketingChannelData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        MarketingChannelId = row.Field<Guid>("Marketing Channel Id"),
-                        MarketingChannel = row.Field<string>("Marketing Channel")
-                    })
-                    .OrderBy(item => item.MarketingChannel)
-                    .ToList();
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DataSource = marketingChannelList;
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DisplayMember = "MarketingChannel";
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.ValueMember = "MarketingChannelId";
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.SelectedValue = marketingChannelId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel", null, true, "Marketing Channel Id", marketingChannelId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDown.AdjustComboBoxDropDownWidth(sender as ComboBox);
+            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
@@ -172,7 +102,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Checked)
             {
                 customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = true;
-                await CustomerLeadDetailLoadCustomerContactAsync(_customerLeadId);
+                await LoadCustomerContactAsync(_customerLeadId, customerLeadDetailTabControlOverviewTabPageCustomerContactIdOriginalValue);
             }
             else if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Checked)
             {
@@ -185,7 +115,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked)
             {
-                await CustomerLeadDetailLoadMarketingChannelAsync(customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue ?? Guid.Empty);
+                await LoadMarketingChannelAsync(customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue ?? Guid.Empty);
                 customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = true;
             }
             else if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Checked)
@@ -237,14 +167,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow customerLeadDataRow = customerLeadTable.Rows[0];
                     customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Text = customerLeadDataRow["Customer Lead Id"].ToString();
                     Guid customerLeadTypeId = (Guid)customerLeadDataRow["Customer Lead Type Id"];
-                    await CustomerLeadDetailLoadCustomerLeadTypeAsync(customerLeadTypeId);
+                    await LoadCustomerLeadTypeAsync(customerLeadTypeId);
                     customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Text = customerLeadDataRow["Customer Lead Title"].ToString();
                     customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Text = customerLeadDataRow["Customer Lead"].ToString();
                     if (customerLeadDataRow["Marketing Channel Id"] != DBNull.Value)
                     {
                         customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked = true;
                         Guid marketingChannelId = (Guid)customerLeadDataRow["Marketing Channel Id"];
-                        await CustomerLeadDetailLoadMarketingChannelAsync(marketingChannelId);
+                        await LoadMarketingChannelAsync(marketingChannelId);
                     }
                     else
                     {
@@ -263,7 +193,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Checked = true;
                         Guid customerContactId = (Guid)customerLeadDataRow["Customer Contact Id"];
-                        await CustomerLeadDetailLoadCustomerContactAsync(customerContactId);
+                        await LoadCustomerContactAsync(customerContactId);
                     }
                     else
                     {
@@ -319,75 +249,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task CustomerLeadDetailExistingCustomerLeadNote_Load(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetAllNoteForCustomerLead";
-            string dataSubject = "Existing Customer Notes";
-
-            var parameters = new[]
-            {
-                new Parameter
-                {
-                    ParameterName = "customerLeadId",
-                    ParameterValue = _customerLeadId
-                }
-            };
-
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-            if (dataTable.Rows.Count == 0)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-            }
-            else
-            {
-                dataTable.DefaultView.Sort = "Created Timestamp DESC";
-                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.AutoGenerateColumns = true;
-                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.DataSource = dataTable;
-                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                if (customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Columns.Contains("Details"))
-                {
-                    customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Columns.Remove("Details");
-                }
-                DataGridViewLinkColumn customerLeadNoteDetailLink = new DataGridViewLinkColumn
-                {
-                    HeaderText = "Details",
-                    Text = "View Customer Lead Note",
-                    UseColumnTextForLinkValue = true,
-                    Name = "Details"
-                };
-                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Columns.Add(customerLeadNoteDetailLink);
-            }
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _customerLeadId,
+                "customerLeadId",
+                "spGetAllNoteForCustomerLead",
+                "Existing Customer Lead Notes",
+                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView,
+                "Customer Lead Note Id",
+                "View Customer Lead Note",
+                "DESC",
+                "Created Timestamp"
+            );
         }
 
         private void customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
-            if (e.ColumnIndex == customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Columns["Details"].Index && e.RowIndex >= 0)
-            {
-                string dataSubject = "Customer Lead Note";
-
-                try
-                {
-                    if (customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Columns.Contains("Customer Lead Note Id"))
-                    {
-                        Guid customerLeadNoteId = (Guid)customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.Rows[e.RowIndex].Cells["Customer Lead Note Id"].Value;
-                        NoteDetail noteDetail = new NoteDetail("CustomerLead", customerLeadNoteId);
-                        noteDetail.Show();
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-                }
-            }
+            DataAccessDataGridViewHelper.HandleDetailsCellClick(
+            customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView,
+            e,
+            "Customer Lead Note Id",
+            "Customer Lead Note",
+            id => {
+                var noteDetail = new NoteDetail(_customerLeadId, "CustomerLead", id, customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
+                noteDetail.Show();
+            });
         }
 
         private async void CustomerLeadDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
@@ -428,56 +314,56 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInput.DataProperty>
+            var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "ActiveStatus",
+                    Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "CustomerContactId",
+                    Name = "Customer Contact Id",
                     Value = customerContactId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLead",
+                    Name = "Customer Lead",
                     Value = customerLead,
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "CustomerLeadTargetDate",
+                    Name = "Customer Lead Target Date",
                     Value = customerLeadTargetDate,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLeadTitle",
+                    Name = "Customer Lead Title",
                     Value = customerLeadTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = "CustomerLeadTypeId",
+                    Name = "Customer Lead Type Id",
                     Value = customerLeadTypeId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInput.DataProperty
+                new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = true,
-                    Name = "MarketingChannelId",
+                    Name = "Marketing Channel Id",
                     Value = marketingChannelId,
                     ValueType = typeof(Guid)
                 }
@@ -485,7 +371,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInput.ValidateInput(dataToValidate);
+            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -548,7 +434,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmation.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

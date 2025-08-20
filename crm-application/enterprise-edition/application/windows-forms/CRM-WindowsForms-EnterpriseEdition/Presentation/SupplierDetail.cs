@@ -39,6 +39,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
+            supplierDetailToggleEditModeButton.Click += new EventHandler(supplierDetailToggleEditModeButton_Click);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox, supplierDetailTabControlSupplierContactTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
         }

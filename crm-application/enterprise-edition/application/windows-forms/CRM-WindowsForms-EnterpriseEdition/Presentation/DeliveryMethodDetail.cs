@@ -21,7 +21,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeEventHandlers();
             _deliveryMethodId = deliveryMethodId;
-            
             LoadDatabaseConnectionSettingsAsync();
         }
 

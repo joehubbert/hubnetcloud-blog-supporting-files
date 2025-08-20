@@ -32,6 +32,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += new EventHandler(ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged);
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            manufacturerDetailToggleEditModeButton.Click += new EventHandler(ManufacturerDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

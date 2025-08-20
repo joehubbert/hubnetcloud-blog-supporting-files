@@ -16,9 +16,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CurrencyDetail(Guid currencyId)
         {
             InitializeComponent();
+            InitializeEventHandlers();
             _currencyId = currencyId;
-            currencyDetailToggleEditModeButton.Click += new EventHandler(currencyDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private void InitializeEventHandlers()
+        {
+            currencyDetailToggleEditModeButton.Click += new EventHandler(currencyDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

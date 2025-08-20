@@ -31,6 +31,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick;
             accountManagerDetailTabControl.SelectedIndexChanged += new EventHandler(AccountManagerDetailTabControl_SelectedIndexChanged);
+            accountManagerDetailToggleEditModeButton.Click += new EventHandler(accountManagerDetailToggleEditModeButton_Click);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
         }
 

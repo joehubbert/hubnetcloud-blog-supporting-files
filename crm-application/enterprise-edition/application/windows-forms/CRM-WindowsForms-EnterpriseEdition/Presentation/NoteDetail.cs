@@ -35,6 +35,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public NoteDetail(Guid dataSubjectId, string functionTitle, Guid noteId, string? dataSubjectName = null)
         {
             InitializeComponent();
+            InitializeEventHandlers();
             _dataSubjectId = dataSubjectId;
             if(string.IsNullOrEmpty(dataSubjectName))
             {
@@ -47,6 +48,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _functionTitle = functionTitle;
             _noteId = noteId;
             SetModuleTheme(_functionTitle);
+        }
+
+        private void InitializeEventHandlers()
+        {
             noteDetailToggleEditModeButton.Click += new EventHandler(noteDetailToggleEditModeButton_Click);
         }
 

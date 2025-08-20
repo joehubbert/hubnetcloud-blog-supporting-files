@@ -28,9 +28,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public ContactDetail(string functionTitle, Guid contactId, string dataSubjectName, Guid dataSubjectId)
         {
             InitializeComponent();
+            InitializeEventHandlers();
             _functionTitle = functionTitle;
             _contactId = contactId;
             SetModuleTheme(_functionTitle);
+        }
+
+        private void InitializeEventHandlers()
+        {
             contactDetailToggleEditModeButton.Click += new EventHandler(contactDetailToggleEditModeButton_Click);
         }
 

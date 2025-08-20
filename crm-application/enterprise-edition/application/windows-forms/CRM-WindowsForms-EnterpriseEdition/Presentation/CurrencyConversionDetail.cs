@@ -36,6 +36,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             currencyConversionDetailTargetCurrencyComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
             currencyConversionDetailAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
             currencyConversionDetailAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
+            currencyConversionDetailToggleEditModeButton.Click += new EventHandler(currencyConversionDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

@@ -19,13 +19,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeEventHandlers();
             _countryTranslationId = countryTranslationId;
-            countryTranslationDetailToggleEditModeButton.Click += new EventHandler(countryTranslationDetailToggleEditModeButton_Click);
             LoadDatabaseConnectionSettingsAsync();
         }
 
         private void InitializeEventHandlers()
         {
             countryTranslationDetailCountryComboBox.DropDown += new EventHandler(AdjustComboBoxWidth_DropDown);
+            countryTranslationDetailToggleEditModeButton.Click += new EventHandler(countryTranslationDetailToggleEditModeButton_Click);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

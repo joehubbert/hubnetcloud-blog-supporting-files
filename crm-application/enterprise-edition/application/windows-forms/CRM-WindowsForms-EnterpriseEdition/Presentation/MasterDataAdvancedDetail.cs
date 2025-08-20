@@ -112,37 +112,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
 
-        private async Task MasterDataAdvancedDetailLoadDataParentSubjectAsync(Guid dataParentSubjectId)
+        private async Task LoadDataParentSubjectAsync(Guid companyConfigurationId, Guid dataParentSubjectId)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-            try
-            {
-                DataTable? dataParentSubjectData = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(
-                    dataParentSubjectGetStoredProcedureName,
-                    dataParentSubjectName);
-
-                // Use consistent property names for binding
-                var dataList = dataParentSubjectData.AsEnumerable()
-                    .Select(row => new
-                    {
-                        Id = row.Field<Guid>(dataParentSubjectIdFriendlyName),
-                        Name = row.Field<string>(dataParentSubjectFriendlyName)
-                    })
-                    .OrderBy(item => item.Name)
-                    .ToList();
-
-                masterDataAdvancedDetailDataParentSubjectComboBox.DataSource = dataList;
-                masterDataAdvancedDetailDataParentSubjectComboBox.DisplayMember = "Name";
-                masterDataAdvancedDetailDataParentSubjectComboBox.ValueMember = "Id";
-                masterDataAdvancedDetailDataParentSubjectComboBox.SelectedValue = dataParentSubjectId;
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataParentSubjectFriendlyName, ex.Message);
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, companyConfigurationId, true, dataParentSubjectIdFriendlyName, dataParentSubjectId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
@@ -178,10 +151,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow masterDataAdvancedDetailDataRow = masterDataAdvancedDetailDataTable.Rows[0];
                     masterDataAdvancedDetailDataSubjectIdTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
-                    await MasterDataAdvancedDetailLoadDataParentSubjectAsync((Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName]);
-                    masterDataAdvancedDetailDataSubjectTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
                     Guid companyConfigurationId = (Guid)masterDataAdvancedDetailDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
+                    Guid dataSubjectParentId = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
+                    await LoadDataParentSubjectAsync(companyConfigurationId, dataSubjectParentId);
+                    masterDataAdvancedDetailDataSubjectTextbox.Text = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
+                    
                     masterDataAdvancedDetailCreatedByTextbox.Text = masterDataAdvancedDetailDataRow["Created By"].ToString();
                     masterDataAdvancedDetailCreatedTimestampTextbox.Text = masterDataAdvancedDetailDataRow["Created Timestamp UTC"].ToString();
                     masterDataAdvancedDetailLastUpdatedByTextbox.Text = masterDataAdvancedDetailDataRow["Modified By"].ToString();

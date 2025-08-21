@@ -23,7 +23,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = createCountryActiveStatusCheckbox.Checked;
             string countryEnglishName = createCountryCountryEnglishNameTextBox.Text.TrimEnd();
-            string iso31661A2CountryCode = createCountryISO31661A2CountryCodeTextBox.Text.TrimEnd().ToUpper();
+            string iso31661A2CountryCode = createCountryISO31661A2CountryCodeMaskedTextBox.Text.TrimEnd().ToUpper();
 
             if (_databaseConnectionSettings == null)
             {

@@ -34,7 +34,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.MouseHover += ToolTip_MouseHover;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
         }
@@ -107,12 +107,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             if (isoCountryCode == "GB")
             {
                 // Enable sort code fields, disable Vipps
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Enabled = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.ReadOnly = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Enabled = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.ReadOnly = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Enabled = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.ReadOnly = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Enabled = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.ReadOnly = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Enabled = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.ReadOnly = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Enabled = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.ReadOnly = false;
                 
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.Enabled = false;
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.ReadOnly = true;
@@ -124,29 +124,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.Enabled = true;
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.ReadOnly = false;
 
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Text = string.Empty;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Text = string.Empty;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Text = string.Empty;
             }
             else
             {
                 // Disable both
                 
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Text = string.Empty;           
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Text = string.Empty;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.ReadOnly = true;
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Text = string.Empty;           
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.ReadOnly = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Text = string.Empty;
                 
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.Enabled = false;
                 createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.ReadOnly = true;
@@ -237,11 +237,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void ToolTip_MouseHover(object? sender, EventArgs e)
         {
             // Show tooltip for Sort Code fields if mouse is over any of the relevant controls
-            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel))
+            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel))
             {
                 createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeToolTip.Show(
                     "Sort Code can only be assigned to Banks Accounts based in GB.",
-                    createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel, 5000);
+                    createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel, 5000);
             }
 
             // Show tooltip for Vipps Id fields if mouse is over any of the relevant controls
@@ -316,9 +316,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string bankAccountNumber = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBox.Text.TrimEnd();
             decimal bankAccountOpeningBalance = decimal.Parse($"{createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxA.Text.TrimEnd()}.{createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxB.Text.TrimEnd()}");
             string bankAccountSortCode = null;
-            string bankAccountSortCodePartA = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartB = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartC = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartA = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartB = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartC = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC?.Text.TrimEnd() ?? "";
             if (!string.IsNullOrEmpty(bankAccountSortCodePartA) && !string.IsNullOrEmpty(bankAccountSortCodePartB) && !string.IsNullOrEmpty(bankAccountSortCodePartC))
             {
                 bankAccountSortCode = $"{bankAccountSortCodePartA}-{bankAccountSortCodePartB}-{bankAccountSortCodePartC}";

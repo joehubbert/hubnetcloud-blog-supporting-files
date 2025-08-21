@@ -61,18 +61,18 @@
             createCompanyConfigurationTabControlCompanyLogoTabPageChooseCompanyLogoImageButton = new Button();
             createCompanyConfigurationTabControlFinancialInformationTabPage = new TabPage();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox = new GroupBox();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2 = new Label();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1 = new Label();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC = new TextBox();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB = new TextBox();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC = new MaskedTextBox();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB = new MaskedTextBox();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA = new MaskedTextBox();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2 = new Label();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1 = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNameTextBoxLabel = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBoxLabel = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBoxLabel = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBoxLabel = new Label();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel = new Label();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel = new Label();
             createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxLabel = new Label();
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA = new TextBox();
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox = new TextBox();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBox = new TextBox();
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBox = new TextBox();
@@ -436,27 +436,27 @@
             createCompanyConfigurationTabControlFinancialInformationTabPage.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPage.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox);
             createCompanyConfigurationTabControlFinancialInformationTabPage.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox);
-            createCompanyConfigurationTabControlFinancialInformationTabPage.Location = new Point(4, 27);
+            createCompanyConfigurationTabControlFinancialInformationTabPage.Location = new Point(4, 32);
             createCompanyConfigurationTabControlFinancialInformationTabPage.Name = "createCompanyConfigurationTabControlFinancialInformationTabPage";
             createCompanyConfigurationTabControlFinancialInformationTabPage.Padding = new Padding(3);
-            createCompanyConfigurationTabControlFinancialInformationTabPage.Size = new Size(1111, 452);
+            createCompanyConfigurationTabControlFinancialInformationTabPage.Size = new Size(1111, 447);
             createCompanyConfigurationTabControlFinancialInformationTabPage.TabIndex = 1;
             createCompanyConfigurationTabControlFinancialInformationTabPage.Text = "Financial Information";
             // 
             // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNameTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBoxLabel);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxLabel);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBox);
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Controls.Add(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBox);
@@ -484,43 +484,53 @@
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.TabStop = false;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox.Text = "Bank Account Information";
             // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.AutoSize = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.Location = new Point(928, 201);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.Size = new Size(15, 20);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.TabIndex = 85;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2.Text = "-";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Location = new Point(958, 198);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Mask = "00";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.ReadOnly = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.RejectInputOnFirstFailure = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.Size = new Size(69, 27);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.TabIndex = 28;
             // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.AutoSize = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.Location = new Point(839, 201);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.Size = new Size(15, 20);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.TabIndex = 84;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1.Text = "-";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Location = new Point(862, 198);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Mask = "00";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.ReadOnly = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.RejectInputOnFirstFailure = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.Size = new Size(69, 27);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.TabIndex = 27;
             // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Enabled = false;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Location = new Point(945, 198);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.MaxLength = 2;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.ReadOnly = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.Size = new Size(71, 27);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC.TabIndex = 28;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Location = new Point(768, 198);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Mask = "00";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.ReadOnly = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.RejectInputOnFirstFailure = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.Size = new Size(69, 27);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.TabIndex = 26;
             // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Enabled = false;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Location = new Point(855, 198);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.MaxLength = 2;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.ReadOnly = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.Size = new Size(71, 27);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB.TabIndex = 27;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.AutoSize = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.Location = new Point(937, 201);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.Size = new Size(15, 20);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.TabIndex = 85;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2.Text = "-";
+            // 
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1
+            // 
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.AutoSize = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.Location = new Point(843, 201);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.Size = new Size(15, 20);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.TabIndex = 84;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1.Text = "-";
             // 
             // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNameTextBoxLabel
             // 
@@ -558,14 +568,14 @@
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBoxLabel.TabIndex = 59;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBoxLabel.Text = "Account SWIFT Code*";
             // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel
+            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel
             // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.AutoSize = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.Location = new Point(627, 201);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.Size = new Size(133, 20);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.TabIndex = 60;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel.Text = "Account Sort Code";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.AutoSize = true;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.Location = new Point(627, 201);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel";
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.Size = new Size(133, 20);
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.TabIndex = 60;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.Text = "Account Sort Code";
             // 
             // createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel
             // 
@@ -585,16 +595,6 @@
             createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxLabel.TabIndex = 56;
             createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxLabel.Text = "Opening Balance*";
             createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA
-            // 
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Enabled = false;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Location = new Point(766, 198);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.MaxLength = 2;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Name = "createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA";
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.ReadOnly = true;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.Size = new Size(71, 27);
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA.TabIndex = 26;
             // 
             // createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox
             // 
@@ -897,7 +897,6 @@
         private Label createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBoxLabel;
         private Button createCompanyConfigurationTabControlCompanyLogoTabPageChooseCompanyLogoImageButton;
         private GroupBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountInformationGroupBox;
-        private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxA;
         private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox;
         private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBox;
         private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBox;
@@ -911,13 +910,14 @@
         private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBoxLabel;
         private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBoxLabel;
         private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBoxLabel;
-        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxLabel;
+        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel;
         private Label createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel;
-        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel2;
-        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxSeparatorLabel1;
-        private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxC;
-        private TextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeTextBoxB;
+        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel2;
+        private Label createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxSeparatorLabel1;
         private ToolTip createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeToolTip;
         private ToolTip createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdToolTip;
+        private MaskedTextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC;
+        private MaskedTextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB;
+        private MaskedTextBox createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA;
     }
 }

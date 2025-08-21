@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             createCurrencyTitleLabel = new Label();
-            createCurrencyCurrencyCodeLabel = new Label();
-            createCurrencyCurrencyCodeTextBox = new TextBox();
+            createCurrencyCurrencyCodeMaskedTextBoxLabel = new Label();
             createCurrencyActiveStatusCheckbox = new CheckBox();
             createCurrencySubmitButton = new Button();
             createCurrencyCurrencyNameLabel = new Label();
             createCurrencyCurrencyNameTextBox = new TextBox();
+            createCurrencyCurrencyCodeMaskedTextBox = new MaskedTextBox();
             SuspendLayout();
             // 
             // createCurrencyTitleLabel
@@ -48,25 +48,16 @@
             createCurrencyTitleLabel.TabIndex = 6;
             createCurrencyTitleLabel.Text = "Create Currency";
             // 
-            // createCurrencyCurrencyCodeLabel
+            // createCurrencyCurrencyCodeMaskedTextBoxLabel
             // 
-            createCurrencyCurrencyCodeLabel.AutoSize = true;
-            createCurrencyCurrencyCodeLabel.Font = new Font("Segoe UI", 11F);
-            createCurrencyCurrencyCodeLabel.Location = new Point(91, 74);
-            createCurrencyCurrencyCodeLabel.Name = "createCurrencyCurrencyCodeLabel";
-            createCurrencyCurrencyCodeLabel.Size = new Size(111, 20);
-            createCurrencyCurrencyCodeLabel.TabIndex = 7;
-            createCurrencyCurrencyCodeLabel.Text = "Currency Code*";
-            createCurrencyCurrencyCodeLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // createCurrencyCurrencyCodeTextBox
-            // 
-            createCurrencyCurrencyCodeTextBox.Location = new Point(202, 71);
-            createCurrencyCurrencyCodeTextBox.Margin = new Padding(3, 4, 3, 4);
-            createCurrencyCurrencyCodeTextBox.MaxLength = 3;
-            createCurrencyCurrencyCodeTextBox.Name = "createCurrencyCurrencyCodeTextBox";
-            createCurrencyCurrencyCodeTextBox.Size = new Size(48, 27);
-            createCurrencyCurrencyCodeTextBox.TabIndex = 0;
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.AutoSize = true;
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.Location = new Point(91, 74);
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.Name = "createCurrencyCurrencyCodeMaskedTextBoxLabel";
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.Size = new Size(111, 20);
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.TabIndex = 7;
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.Text = "Currency Code*";
+            createCurrencyCurrencyCodeMaskedTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyActiveStatusCheckbox
             // 
@@ -115,18 +106,26 @@
             createCurrencyCurrencyNameTextBox.Size = new Size(284, 27);
             createCurrencyCurrencyNameTextBox.TabIndex = 1;
             // 
+            // createCurrencyCurrencyCodeMaskedTextBox
+            // 
+            createCurrencyCurrencyCodeMaskedTextBox.Location = new Point(202, 71);
+            createCurrencyCurrencyCodeMaskedTextBox.Mask = "LLL";
+            createCurrencyCurrencyCodeMaskedTextBox.Name = "createCurrencyCurrencyCodeMaskedTextBox";
+            createCurrencyCurrencyCodeMaskedTextBox.Size = new Size(46, 27);
+            createCurrencyCurrencyCodeMaskedTextBox.TabIndex = 0;
+            // 
             // CreateCurrency
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(543, 296);
+            Controls.Add(createCurrencyCurrencyCodeMaskedTextBox);
             Controls.Add(createCurrencyCurrencyNameTextBox);
             Controls.Add(createCurrencyCurrencyNameLabel);
             Controls.Add(createCurrencySubmitButton);
             Controls.Add(createCurrencyActiveStatusCheckbox);
-            Controls.Add(createCurrencyCurrencyCodeTextBox);
-            Controls.Add(createCurrencyCurrencyCodeLabel);
+            Controls.Add(createCurrencyCurrencyCodeMaskedTextBoxLabel);
             Controls.Add(createCurrencyTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -142,11 +141,11 @@
         #endregion
 
         private Label createCurrencyTitleLabel;
-        private Label createCurrencyCurrencyCodeLabel;
-        private TextBox createCurrencyCurrencyCodeTextBox;
+        private Label createCurrencyCurrencyCodeMaskedTextBoxLabel;
         private CheckBox createCurrencyActiveStatusCheckbox;
         private Button createCurrencySubmitButton;
         private Label createCurrencyCurrencyNameLabel;
         private TextBox createCurrencyCurrencyNameTextBox;
+        private MaskedTextBox createCurrencyCurrencyCodeMaskedTextBox;
     }
 }

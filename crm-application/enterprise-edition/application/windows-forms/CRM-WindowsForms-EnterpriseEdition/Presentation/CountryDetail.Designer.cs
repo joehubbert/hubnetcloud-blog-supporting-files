@@ -30,7 +30,7 @@
         {
             countryDetailTitleLabel = new Label();
             countryDetailCountryIdTextBoxLabel = new Label();
-            countryDetailISO31661A2CountryCodeTextBoxLabel = new Label();
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel = new Label();
             countryDetailCountryEnglishNameTextBoxLabel = new Label();
             countryDetailCreatedByTextBoxLabel = new Label();
             countryDetailCreatedTimestampTextBoxLabel = new Label();
@@ -42,10 +42,10 @@
             countryDetailCreatedTimestampTextBox = new TextBox();
             countryDetailCountryEnglishNameTextBox = new TextBox();
             countryDetailCountryIdTextBox = new TextBox();
-            countryDetailISO31661A2CountryCodeTextBox = new TextBox();
             countryDetailToggleEditModeButton = new Button();
             countryDetailActiveStatusCheckbox = new CheckBox();
             countryDetailUpdateCountryButton = new Button();
+            countryDetailISO31661A2CountryCodeMaskedTextBox = new MaskedTextBox();
             SuspendLayout();
             // 
             // countryDetailTitleLabel
@@ -69,15 +69,15 @@
             countryDetailCountryIdTextBoxLabel.Text = "Country Id";
             countryDetailCountryIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryDetailISO31661A2CountryCodeTextBoxLabel
+            // countryDetailISO31661A2CountryCodeMaskedTextBoxLabel
             // 
-            countryDetailISO31661A2CountryCodeTextBoxLabel.AutoSize = true;
-            countryDetailISO31661A2CountryCodeTextBoxLabel.Location = new Point(24, 181);
-            countryDetailISO31661A2CountryCodeTextBoxLabel.Name = "countryDetailISO31661A2CountryCodeTextBoxLabel";
-            countryDetailISO31661A2CountryCodeTextBoxLabel.Size = new Size(237, 20);
-            countryDetailISO31661A2CountryCodeTextBoxLabel.TabIndex = 9;
-            countryDetailISO31661A2CountryCodeTextBoxLabel.Text = "ISO 3166-1 Alpha 2 Country Code*";
-            countryDetailISO31661A2CountryCodeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.AutoSize = true;
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.Location = new Point(24, 181);
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.Name = "countryDetailISO31661A2CountryCodeMaskedTextBoxLabel";
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.Size = new Size(237, 20);
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.TabIndex = 9;
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.Text = "ISO 3166-1 Alpha 2 Country Code*";
+            countryDetailISO31661A2CountryCodeMaskedTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryDetailCountryEnglishNameTextBoxLabel
             // 
@@ -183,15 +183,6 @@
             countryDetailCountryIdTextBox.Size = new Size(370, 27);
             countryDetailCountryIdTextBox.TabIndex = 0;
             // 
-            // countryDetailISO31661A2CountryCodeTextBox
-            // 
-            countryDetailISO31661A2CountryCodeTextBox.Location = new Point(261, 178);
-            countryDetailISO31661A2CountryCodeTextBox.MaxLength = 2;
-            countryDetailISO31661A2CountryCodeTextBox.Name = "countryDetailISO31661A2CountryCodeTextBox";
-            countryDetailISO31661A2CountryCodeTextBox.ReadOnly = true;
-            countryDetailISO31661A2CountryCodeTextBox.Size = new Size(39, 27);
-            countryDetailISO31661A2CountryCodeTextBox.TabIndex = 1;
-            // 
             // countryDetailToggleEditModeButton
             // 
             countryDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
@@ -231,16 +222,26 @@
             countryDetailUpdateCountryButton.UseVisualStyleBackColor = true;
             countryDetailUpdateCountryButton.Click += countryDetailUpdateCountryButton_Click;
             // 
+            // countryDetailISO31661A2CountryCodeMaskedTextBox
+            // 
+            countryDetailISO31661A2CountryCodeMaskedTextBox.Location = new Point(261, 178);
+            countryDetailISO31661A2CountryCodeMaskedTextBox.Mask = "LL";
+            countryDetailISO31661A2CountryCodeMaskedTextBox.Name = "countryDetailISO31661A2CountryCodeMaskedTextBox";
+            countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly = true;
+            countryDetailISO31661A2CountryCodeMaskedTextBox.RejectInputOnFirstFailure = true;
+            countryDetailISO31661A2CountryCodeMaskedTextBox.Size = new Size(39, 27);
+            countryDetailISO31661A2CountryCodeMaskedTextBox.TabIndex = 1;
+            // 
             // CountryDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1265, 427);
+            Controls.Add(countryDetailISO31661A2CountryCodeMaskedTextBox);
             Controls.Add(countryDetailUpdateCountryButton);
             Controls.Add(countryDetailActiveStatusCheckbox);
             Controls.Add(countryDetailToggleEditModeButton);
-            Controls.Add(countryDetailISO31661A2CountryCodeTextBox);
             Controls.Add(countryDetailCountryIdTextBox);
             Controls.Add(countryDetailCountryEnglishNameTextBox);
             Controls.Add(countryDetailCreatedTimestampTextBox);
@@ -252,7 +253,7 @@
             Controls.Add(countryDetailCreatedTimestampTextBoxLabel);
             Controls.Add(countryDetailCreatedByTextBoxLabel);
             Controls.Add(countryDetailCountryEnglishNameTextBoxLabel);
-            Controls.Add(countryDetailISO31661A2CountryCodeTextBoxLabel);
+            Controls.Add(countryDetailISO31661A2CountryCodeMaskedTextBoxLabel);
             Controls.Add(countryDetailCountryIdTextBoxLabel);
             Controls.Add(countryDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -270,7 +271,7 @@
 
         private Label countryDetailTitleLabel;
         private Label countryDetailCountryIdTextBoxLabel;
-        private Label countryDetailISO31661A2CountryCodeTextBoxLabel;
+        private Label countryDetailISO31661A2CountryCodeMaskedTextBoxLabel;
         private Label countryDetailCountryEnglishNameTextBoxLabel;
         private Label countryDetailCreatedByTextBoxLabel;
         private Label countryDetailCreatedTimestampTextBoxLabel;
@@ -282,9 +283,9 @@
         private TextBox countryDetailCreatedTimestampTextBox;
         private TextBox countryDetailCountryEnglishNameTextBox;
         private TextBox countryDetailCountryIdTextBox;
-        private TextBox countryDetailISO31661A2CountryCodeTextBox;
         private Button countryDetailToggleEditModeButton;
         private CheckBox countryDetailActiveStatusCheckbox;
         private Button countryDetailUpdateCountryButton;
+        private MaskedTextBox countryDetailISO31661A2CountryCodeMaskedTextBox;
     }
 }

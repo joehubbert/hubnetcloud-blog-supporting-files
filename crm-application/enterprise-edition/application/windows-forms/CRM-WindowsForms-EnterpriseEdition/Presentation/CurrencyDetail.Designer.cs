@@ -30,7 +30,7 @@
         {
             currencyDetailTitleLabel = new Label();
             currencyDetailCurrencyIdLabel = new Label();
-            currencyDetailCurrencyCodeLabel = new Label();
+            currencyDetailCurrencyCodeMaskedTextBoxLabel = new Label();
             currencyDetailCurrencyNameLabel = new Label();
             currencyDetailCreatedByTextBoxLabel = new Label();
             currencyDetailCreatedTimestampTextBoxLabel = new Label();
@@ -42,10 +42,10 @@
             currencyDetailCreatedTimestampTextBox = new TextBox();
             currencyDetailCurrencyNameTextBox = new TextBox();
             currencyDetailCurrencyIdTextBox = new TextBox();
-            currencyDetailCurrencyCodeTextBox = new TextBox();
             currencyDetailToggleEditModeButton = new Button();
             currencyDetailActiveStatusCheckbox = new CheckBox();
             currencyDetailUpdateCurrencyButton = new Button();
+            currencyDetailCurrencyCodeMaskedTextBox = new MaskedTextBox();
             SuspendLayout();
             // 
             // currencyDetailTitleLabel
@@ -69,15 +69,15 @@
             currencyDetailCurrencyIdLabel.Text = "Currency Id";
             currencyDetailCurrencyIdLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // currencyDetailCurrencyCodeLabel
+            // currencyDetailCurrencyCodeMaskedTextBoxLabel
             // 
-            currencyDetailCurrencyCodeLabel.AutoSize = true;
-            currencyDetailCurrencyCodeLabel.Location = new Point(90, 181);
-            currencyDetailCurrencyCodeLabel.Name = "currencyDetailCurrencyCodeLabel";
-            currencyDetailCurrencyCodeLabel.Size = new Size(111, 20);
-            currencyDetailCurrencyCodeLabel.TabIndex = 9;
-            currencyDetailCurrencyCodeLabel.Text = "Currency Code*";
-            currencyDetailCurrencyCodeLabel.TextAlign = ContentAlignment.TopRight;
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.AutoSize = true;
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.Location = new Point(90, 181);
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.Name = "currencyDetailCurrencyCodeMaskedTextBoxLabel";
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.Size = new Size(111, 20);
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.TabIndex = 9;
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.Text = "Currency Code*";
+            currencyDetailCurrencyCodeMaskedTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailCurrencyNameLabel
             // 
@@ -183,15 +183,6 @@
             currencyDetailCurrencyIdTextBox.Size = new Size(370, 27);
             currencyDetailCurrencyIdTextBox.TabIndex = 0;
             // 
-            // currencyDetailCurrencyCodeTextBox
-            // 
-            currencyDetailCurrencyCodeTextBox.Location = new Point(201, 178);
-            currencyDetailCurrencyCodeTextBox.MaxLength = 3;
-            currencyDetailCurrencyCodeTextBox.Name = "currencyDetailCurrencyCodeTextBox";
-            currencyDetailCurrencyCodeTextBox.ReadOnly = true;
-            currencyDetailCurrencyCodeTextBox.Size = new Size(64, 27);
-            currencyDetailCurrencyCodeTextBox.TabIndex = 1;
-            // 
             // currencyDetailToggleEditModeButton
             // 
             currencyDetailToggleEditModeButton.FlatStyle = FlatStyle.Flat;
@@ -231,16 +222,26 @@
             currencyDetailUpdateCurrencyButton.UseVisualStyleBackColor = true;
             currencyDetailUpdateCurrencyButton.Click += currencyDetailUpdateCurrencyButton_Click;
             // 
+            // currencyDetailCurrencyCodeMaskedTextBox
+            // 
+            currencyDetailCurrencyCodeMaskedTextBox.Location = new Point(201, 178);
+            currencyDetailCurrencyCodeMaskedTextBox.Mask = "LLL";
+            currencyDetailCurrencyCodeMaskedTextBox.Name = "currencyDetailCurrencyCodeMaskedTextBox";
+            currencyDetailCurrencyCodeMaskedTextBox.ReadOnly = true;
+            currencyDetailCurrencyCodeMaskedTextBox.RejectInputOnFirstFailure = true;
+            currencyDetailCurrencyCodeMaskedTextBox.Size = new Size(67, 27);
+            currencyDetailCurrencyCodeMaskedTextBox.TabIndex = 1;
+            // 
             // CurrencyDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1265, 427);
+            Controls.Add(currencyDetailCurrencyCodeMaskedTextBox);
             Controls.Add(currencyDetailUpdateCurrencyButton);
             Controls.Add(currencyDetailActiveStatusCheckbox);
             Controls.Add(currencyDetailToggleEditModeButton);
-            Controls.Add(currencyDetailCurrencyCodeTextBox);
             Controls.Add(currencyDetailCurrencyIdTextBox);
             Controls.Add(currencyDetailCurrencyNameTextBox);
             Controls.Add(currencyDetailCreatedTimestampTextBox);
@@ -252,7 +253,7 @@
             Controls.Add(currencyDetailCreatedTimestampTextBoxLabel);
             Controls.Add(currencyDetailCreatedByTextBoxLabel);
             Controls.Add(currencyDetailCurrencyNameLabel);
-            Controls.Add(currencyDetailCurrencyCodeLabel);
+            Controls.Add(currencyDetailCurrencyCodeMaskedTextBoxLabel);
             Controls.Add(currencyDetailCurrencyIdLabel);
             Controls.Add(currencyDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -270,7 +271,7 @@
 
         private Label currencyDetailTitleLabel;
         private Label currencyDetailCurrencyIdLabel;
-        private Label currencyDetailCurrencyCodeLabel;
+        private Label currencyDetailCurrencyCodeMaskedTextBoxLabel;
         private Label currencyDetailCurrencyNameLabel;
         private Label currencyDetailCreatedByTextBoxLabel;
         private Label currencyDetailCreatedTimestampTextBoxLabel;
@@ -282,9 +283,9 @@
         private TextBox currencyDetailCreatedTimestampTextBox;
         private TextBox currencyDetailCurrencyNameTextBox;
         private TextBox currencyDetailCurrencyIdTextBox;
-        private TextBox currencyDetailCurrencyCodeTextBox;
         private Button currencyDetailToggleEditModeButton;
         private CheckBox currencyDetailActiveStatusCheckbox;
         private Button currencyDetailUpdateCurrencyButton;
+        private MaskedTextBox currencyDetailCurrencyCodeMaskedTextBox;
     }
 }

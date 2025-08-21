@@ -488,7 +488,7 @@
             // 
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Location = new Point(672, 314);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.MaxLength = 2;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.MaxLength = 3;
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox";
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Size = new Size(42, 27);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.TabIndex = 21;
@@ -691,7 +691,7 @@
             // 
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Location = new Point(672, 314);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.MaxLength = 2;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.MaxLength = 3;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox";
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Size = new Size(42, 27);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.TabIndex = 30;

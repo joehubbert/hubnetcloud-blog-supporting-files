@@ -59,7 +59,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow currencyDataRow = currencyDataTable.Rows[0];
                     currencyDetailCurrencyIdTextBox.Text = currencyDataRow["Currency Id"].ToString();
-                    currencyDetailCurrencyCodeTextBox.Text = currencyDataRow["Currency Code"].ToString();
+                    currencyDetailCurrencyCodeMaskedTextBox.Text = currencyDataRow["Currency Code"].ToString();
                     currencyDetailCurrencyNameTextBox.Text = currencyDataRow["Currency Name"].ToString();
                     currencyDetailCreatedByTextBox.Text = currencyDataRow["Created By"].ToString();
                     currencyDetailCreatedTimestampTextBox.Text = currencyDataRow["Created Timestamp UTC"].ToString();
@@ -87,7 +87,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = currencyDetailActiveStatusCheckbox.Checked;
-            string currencyCode = currencyDetailCurrencyCodeTextBox.Text.TrimEnd();
+            string currencyCode = currencyDetailCurrencyCodeMaskedTextBox.Text.TrimEnd();
             string currencyName = currencyDetailCurrencyNameTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
@@ -210,7 +210,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            currencyDetailCurrencyCodeTextBox.ReadOnly = !currencyDetailCurrencyCodeTextBox.ReadOnly;
+            currencyDetailCurrencyCodeMaskedTextBox.ReadOnly = !currencyDetailCurrencyCodeMaskedTextBox.ReadOnly;
             currencyDetailCurrencyNameTextBox.ReadOnly = !currencyDetailCurrencyNameTextBox.ReadOnly;
             currencyDetailActiveStatusCheckbox.Enabled = !currencyDetailActiveStatusCheckbox.Enabled;
             currencyDetailUpdateCurrencyButton.Enabled = !currencyDetailUpdateCurrencyButton.Enabled;

@@ -58,7 +58,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow countryDataRow = countryDataTable.Rows[0];
                     countryDetailCountryIdTextBox.Text = countryDataRow["Country Id"].ToString();
-                    countryDetailISO31661A2CountryCodeTextBox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
+                    countryDetailISO31661A2CountryCodeMaskedTextBox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
                     countryDetailCountryEnglishNameTextBox.Text = countryDataRow["Country English Name"].ToString();
                     countryDetailCreatedByTextBox.Text = countryDataRow["Created By"].ToString();
                     countryDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
@@ -87,7 +87,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = countryDetailActiveStatusCheckbox.Checked;   
             string countryEnglishName = countryDetailCountryEnglishNameTextBox.Text.TrimEnd();
-            string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeTextBox.Text.TrimEnd().ToUpper();
+            string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeMaskedTextBox.Text.TrimEnd().ToUpper();
 
             if (_databaseConnectionSettings == null)
             {
@@ -209,7 +209,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void countryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            countryDetailISO31661A2CountryCodeTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeTextBox.ReadOnly;
+            countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly;
             countryDetailCountryEnglishNameTextBox.ReadOnly = !countryDetailCountryEnglishNameTextBox.ReadOnly;
             countryDetailActiveStatusCheckbox.Enabled = !countryDetailActiveStatusCheckbox.Enabled;
             countryDetailUpdateCountryButton.Enabled = !countryDetailUpdateCountryButton.Enabled;

@@ -1,11 +1,10 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Model;
-using CRM_WindowsForms_EnterpriseEdition.Interface;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using System.Data;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
+namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
     internal class Parameter
     {

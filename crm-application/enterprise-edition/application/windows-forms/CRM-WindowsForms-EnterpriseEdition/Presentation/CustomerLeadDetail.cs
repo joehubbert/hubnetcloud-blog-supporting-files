@@ -37,11 +37,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.CellContentClick += customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
             customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
@@ -91,11 +91,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel", null, true, "Marketing Channel Id", marketingChannelId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)

@@ -1,25 +1,28 @@
 ﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 {
-    internal class ResizeComboBoxDropDownHelper
+    internal static class ResizeComboBoxDropDownHelper
     {
-        public static void AdjustComboBoxDropDownWidth(ComboBox comboBox)
+        public static void ComboBoxDropDownResizeHandler(object? sender, EventArgs e)
         {
-            int comboBoxWidth = comboBox.DropDownWidth;
-            Graphics comboBoxGraphics = comboBox.CreateGraphics();
-            Font comboBoxFont = comboBox.Font;
-
-            int verticalScrollBarWidth = comboBox.Items.Count > comboBox.MaxDropDownItems ? SystemInformation.VerticalScrollBarWidth : 0;
-            int dynamicComboBoxWidth;
-
-            foreach (var item in comboBox.Items)
+            if (sender is ComboBox comboBox)
             {
-                dynamicComboBoxWidth = (int)comboBoxGraphics.MeasureString(comboBox.GetItemText(item), comboBoxFont).Width + verticalScrollBarWidth;
-                if (comboBoxWidth < dynamicComboBoxWidth)
+                int comboBoxWidth = comboBox.DropDownWidth;
+                using Graphics comboBoxGraphics = comboBox.CreateGraphics();
+                Font comboBoxFont = comboBox.Font;
+
+                int verticalScrollBarWidth = comboBox.Items.Count > comboBox.MaxDropDownItems ? SystemInformation.VerticalScrollBarWidth : 0;
+                int dynamicComboBoxWidth;
+
+                foreach (var item in comboBox.Items)
                 {
-                    comboBoxWidth = dynamicComboBoxWidth;
+                    dynamicComboBoxWidth = (int)comboBoxGraphics.MeasureString(comboBox.GetItemText(item), comboBoxFont).Width + verticalScrollBarWidth;
+                    if (comboBoxWidth < dynamicComboBoxWidth)
+                    {
+                        comboBoxWidth = dynamicComboBoxWidth;
+                    }
                 }
+                comboBox.DropDownWidth = comboBoxWidth;
             }
-            comboBox.DropDownWidth = comboBoxWidth;
         }
     }
 }

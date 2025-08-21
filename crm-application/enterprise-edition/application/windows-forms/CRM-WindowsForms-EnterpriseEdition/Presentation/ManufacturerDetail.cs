@@ -31,7 +31,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void InitializeEventHandlers()
         {
             manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
-            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             manufacturerDetailToggleEditModeButton.Click += ManufacturerDetailToggleEditModeButton_Click;
         }
 
@@ -44,11 +44,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void ManufacturerDetailManufacturerInformation_Load(object sender, EventArgs e)

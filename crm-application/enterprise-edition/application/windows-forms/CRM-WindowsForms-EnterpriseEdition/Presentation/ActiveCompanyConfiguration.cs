@@ -16,7 +16,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            activeCompanyConfigurationCompanyConfigurationComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
         private async Task LoadCompanyConfigurationAsync()
@@ -31,11 +31,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration");
             }
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void activeCompanyConfigurationCompanyConfigurationButton_Click(object sender, EventArgs e)

@@ -22,8 +22,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCurrencyConversionBaseCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            createCurrencyConversionTargetCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCurrencyConversionBaseCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            createCurrencyConversionTargetCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
             createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
         }
@@ -47,11 +47,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionTargetCurrencyComboBox, "spGetAllCurrency");
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged(object? sender, EventArgs e)

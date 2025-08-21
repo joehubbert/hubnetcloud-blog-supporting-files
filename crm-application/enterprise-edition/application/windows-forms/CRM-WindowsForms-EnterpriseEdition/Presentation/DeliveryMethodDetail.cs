@@ -26,7 +26,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {           
-            deliveryMethodDetailTaxProfileComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            deliveryMethodDetailTaxProfileComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
         }
 
@@ -39,11 +39,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox, "spGetAllTaxProfile", null, true, "Tax Profile Id", taxProfileId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void DeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)

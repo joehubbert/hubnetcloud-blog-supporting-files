@@ -24,7 +24,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            countryTranslationDetailCountryComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            countryTranslationDetailCountryComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             countryTranslationDetailToggleEditModeButton.Click += countryTranslationDetailToggleEditModeButton_Click;
         }
 
@@ -37,11 +37,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(countryTranslationDetailCountryComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void CountryTranslationDetailCountryTranslationInformation_Load(object sender, EventArgs e)

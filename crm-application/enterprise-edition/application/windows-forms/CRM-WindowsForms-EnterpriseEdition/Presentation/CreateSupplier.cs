@@ -24,7 +24,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
         }
 
@@ -63,11 +63,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
                 createSupplierTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
             }
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)

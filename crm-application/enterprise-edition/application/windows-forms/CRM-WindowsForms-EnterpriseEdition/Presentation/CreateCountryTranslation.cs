@@ -19,7 +19,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCountryTranslationCountryComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCountryTranslationCountryComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -31,11 +31,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCountryTranslationCountryComboBox, "spGetAllCountry");
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createCountryTranslationSubmitButton_Click(object sender, EventArgs e)

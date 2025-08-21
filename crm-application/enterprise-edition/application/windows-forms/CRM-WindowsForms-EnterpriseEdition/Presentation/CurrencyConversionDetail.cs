@@ -30,9 +30,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            currencyConversionDetailBaseCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            currencyConversionDetailCompanyConfigurationComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            currencyConversionDetailTargetCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            currencyConversionDetailBaseCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            currencyConversionDetailCompanyConfigurationComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            currencyConversionDetailTargetCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             currencyConversionDetailAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
             currencyConversionDetailAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged;
             currencyConversionDetailToggleEditModeButton.Click += currencyConversionDetailToggleEditModeButton_Click;
@@ -64,11 +64,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 default:
                     throw new ArgumentException("Invalid currency direction specified.");
             }   
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CurrencyConversionDetailAddExpiryDateRadioButtonChoice_CheckedChanged(object? sender, EventArgs e)

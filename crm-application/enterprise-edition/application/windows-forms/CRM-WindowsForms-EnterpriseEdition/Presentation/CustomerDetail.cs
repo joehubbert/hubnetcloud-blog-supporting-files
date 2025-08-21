@@ -66,17 +66,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlCustomerContactTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerContactTabPageDataGridView_CellContentClick;
             customerDetailTabControlCustomerLeadTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick;
             customerDetailTabControlCustomerNoteTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick;
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged;
-            customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
-            customerDetailTabControlOverviewTabPageAccountManagerComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            customerDetailTabControlOverviewTabPageCustomerTierComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerDetailTabControlOverviewTabPageAccountManagerComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            customerDetailTabControlOverviewTabPageCustomerTierComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            customerDetailTabControlOverviewTabPageCustomerTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged;
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.CheckedChanged += CustomerDetailOverviewExistingParentCustomerRadioButton_CheckedChanged;
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += CustomerDetailOverviewExistingParentCompanyType_CheckedChanged;
@@ -84,17 +84,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CustomerDetailOverviewExistingParentCompanyType_CheckedChanged;
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CustomerDetailOverviewRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.DropDown += CustomerDetailOverviewSalesRegionComboBox_DropDown;
+            customerDetailTabControlOverviewTabPageSalesRegionComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedIndexChanged += CustomerDetailOverviewSalesRegionComboBox_SelectedIndexChanged;
+            customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.CheckedChanged += CustomerDetailOverviewRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.CheckedChanged += CustomerDetailOverviewRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += CustomerDetailOverviewRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.CheckedChanged += CustomerDetailOverviewRadioButtonValidation_CheckedChanged;
-            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControl.SelectedIndexChanged += CustomerDetailTabControl_SelectedIndexChanged;
             customerDetailToggleEditModeButton.Click += customerDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextBox, customerDetailTabControlCustomerContactTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextBox, customerDetailTabControlCustomerLeadTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextBox, customerDetailTabControlCustomerNoteTabPageDataGridView);
+        }
+
+        private void CustomerDetailTabControlOverviewTabPageSalesSubRegionComboBox_DropDown(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -171,14 +178,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
-        }
-
         private async void CustomerDetailOverviewSalesRegionComboBox_DropDown(object? sender, EventArgs e)
         {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
             await LoadSalesSubRegionAsync((Guid)customerDetailTabControlOverviewTabPageSalesRegionComboBox.SelectedValue, (Guid)customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue);
         }
 

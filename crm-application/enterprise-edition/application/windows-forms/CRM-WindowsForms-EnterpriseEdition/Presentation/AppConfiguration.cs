@@ -73,7 +73,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             appConfigurationTabControlDatabaseTabPageTabControl.SelectedIndexChanged += appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged;
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
@@ -82,11 +82,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.KeyPress += NumericStringTextBox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += NumericStringTextBox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
         }
 
         private void AppConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object? sender, EventArgs e)
@@ -277,16 +277,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     selectedIndex = idx;
             }
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedIndex = selectedIndex;
-        }
-
-        private void NumericStringTextBox_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            // Allow only digits and control characters (like backspace)
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true; // Prevent the character from being entered
-                new ErrorMessageService("Warning.DataValidation.Dynamic", "Only numeric characters allowed");
-            }
         }
 
         private void UpdateDatabaseTabAuthenticationUI()
@@ -568,11 +558,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             new ApplicationLoggingService("CreateLogFileIfNotExists");
             new ApplicationLoggingService("OpenLogFile");
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration CreateMSSQLConfiguration()

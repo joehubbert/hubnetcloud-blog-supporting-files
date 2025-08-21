@@ -24,7 +24,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createHTMLTemplateHTMLTemplateTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createHTMLTemplateHTMLTemplateTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -41,11 +41,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createHTMLTemplateHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType");
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createHTMLTemplateSubmitButton_Click(object sender, EventArgs e)

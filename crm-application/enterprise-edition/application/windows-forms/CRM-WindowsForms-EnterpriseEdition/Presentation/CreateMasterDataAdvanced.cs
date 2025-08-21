@@ -50,7 +50,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
         private void SetModuleTheme()
@@ -105,11 +105,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createMasterDataAdvancedDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void createMasterDataAdvancedSubmitButton_Click(object sender, EventArgs e)

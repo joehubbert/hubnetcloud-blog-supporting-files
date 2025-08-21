@@ -54,7 +54,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            masterDataAdvancedDetailDataParentSubjectComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             masterDataAdvancedDetailToggleEditModeButton.Click += masterDataAdvancedDetailToggleEditModeButton_Click;
         }
 
@@ -116,11 +116,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, companyConfigurationId, true, dataParentSubjectIdFriendlyName, dataParentSubjectId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async void MasterDataAdvancedDetailMasterDataInformation_Load(object sender, EventArgs e)

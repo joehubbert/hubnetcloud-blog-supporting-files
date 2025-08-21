@@ -26,11 +26,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
             createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
-            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            createCustomerLeadCustomerLeadTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            createCustomerLeadCustomerLeadTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
             createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
-            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
             createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
         }
@@ -70,11 +70,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel");
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private void CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)

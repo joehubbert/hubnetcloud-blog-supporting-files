@@ -24,16 +24,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextBox.TextChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateBankAccountAddressInformation;
-            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.TextChanged += AutoPopulateEmailAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.KeyPress += EmailTopLevelDomainTextBox_KeyPress;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.MouseDown += EmailTopLevelDomainTextBox_MouseDown;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.SelectionStart = 1;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text = "@";
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.TextChanged += EmailTopLevelDomainTextBox_TextChanged;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
@@ -58,11 +58,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
             await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void AdjustComboBoxWidth_DropDown(object? sender, EventArgs e)
-        {
-            ResizeComboBoxDropDownHelper.AdjustComboBoxDropDownWidth(sender as ComboBox);
         }
 
         private async Task LoadCurrencyDataAsync()

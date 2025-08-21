@@ -111,6 +111,7 @@
             createCurrencyCurrencyCodeMaskedTextBox.Location = new Point(202, 71);
             createCurrencyCurrencyCodeMaskedTextBox.Mask = "LLL";
             createCurrencyCurrencyCodeMaskedTextBox.Name = "createCurrencyCurrencyCodeMaskedTextBox";
+            createCurrencyCurrencyCodeMaskedTextBox.RejectInputOnFirstFailure = true;
             createCurrencyCurrencyCodeMaskedTextBox.Size = new Size(46, 27);
             createCurrencyCurrencyCodeMaskedTextBox.TabIndex = 0;
             // 

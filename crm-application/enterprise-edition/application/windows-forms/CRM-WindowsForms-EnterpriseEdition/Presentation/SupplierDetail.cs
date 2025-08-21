@@ -40,8 +40,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
             supplierDetailToggleEditModeButton.Click += supplierDetailToggleEditModeButton_Click;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextbox, supplierDetailTabControlSupplierContactTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextbox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextBox, supplierDetailTabControlSupplierContactTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextBox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -95,9 +95,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     Guid paymentCurrencyId = (Guid)supplierDataRow["Payment Currency Id"];
                     await LoadCurrencyDataAsync(paymentCurrencyId);
-                    supplierDetailTabControlFinanceTabPagePaymentDaysTextbox.Text = supplierDataRow["Payment Days"].ToString();
-                    supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text = supplierDataRow["VAT Number"].ToString();
-                    if (supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text.Length > 0)
+                    supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = supplierDataRow["Payment Days"].ToString();
+                    supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text = supplierDataRow["VAT Number"].ToString();
+                    if (supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text.Length > 0)
                     {
                         supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
                     }
@@ -106,20 +106,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = false;
                     }
                     supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
-                    supplierDetailTabControlOverviewTabPageAddressLine1Textbox.Text = supplierDataRow["Address Line 1"].ToString();
-                    supplierDetailTabControlOverviewTabPageAddressLine2Textbox.Text = supplierDataRow["Address Line 2"].ToString();
-                    supplierDetailTabControlOverviewTabPageAddressLine3Textbox.Text = supplierDataRow["Address Line 3"].ToString();
-                    supplierDetailTabControlOverviewTabPageAddressLine4Textbox.Text = supplierDataRow["Address Line 4"].ToString();
+                    supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text = supplierDataRow["Address Line 1"].ToString();
+                    supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text = supplierDataRow["Address Line 2"].ToString();
+                    supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text = supplierDataRow["Address Line 3"].ToString();
+                    supplierDetailTabControlOverviewTabPageAddressLine4TextBox.Text = supplierDataRow["Address Line 4"].ToString();
                     Guid supplierAddressLine5 = (Guid)supplierDataRow["Address Line 5"];
                     await LoadCountryDataAsync(supplierAddressLine5);
-                    supplierDetailTabControlOverviewTabPageCreatedByTextbox.Text = supplierDataRow["Created By"].ToString();
-                    supplierDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = supplierDataRow["Created Timestamp UTC"].ToString();
-                    supplierDetailTabControlOverviewTabPageEmailAddressTextbox.Text = supplierDataRow["Email Address"].ToString();
-                    supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = supplierDataRow["Modified By"].ToString();
-                    supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = supplierDataRow["Modified Timestamp UTC"].ToString();
-                    supplierDetailTabControlOverviewTabPageSupplierIdTextbox.Text = supplierDataRow["Supplier Id"].ToString();
-                    supplierDetailTabControlOverviewTabPageSupplierNameTextbox.Text = supplierDataRow["Supplier Name"].ToString();
-                    supplierDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text = supplierDataRow["Telephone Number"].ToString();
+                    supplierDetailTabControlOverviewTabPageCreatedByTextBox.Text = supplierDataRow["Created By"].ToString();
+                    supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = supplierDataRow["Created Timestamp UTC"].ToString();
+                    supplierDetailTabControlOverviewTabPageEmailAddressTextBox.Text = supplierDataRow["Email Address"].ToString();
+                    supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = supplierDataRow["Modified By"].ToString();
+                    supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = supplierDataRow["Modified Timestamp UTC"].ToString();
+                    supplierDetailTabControlOverviewTabPageSupplierIdTextBox.Text = supplierDataRow["Supplier Id"].ToString();
+                    supplierDetailTabControlOverviewTabPageSupplierNameTextBox.Text = supplierDataRow["Supplier Name"].ToString();
+                    supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text = supplierDataRow["Telephone Number"].ToString();
 
                     supplierDetailFinancePaymentCurrencyIdOriginalValue = paymentCurrencyId;
                     supplierDetailFinancePaymentDaysOriginalValue = supplierDataRow["Payment Days"].ToString();
@@ -203,7 +203,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (result == DialogResult.OK)
                 {
-                    supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                    supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
                 }
                 else
                 {
@@ -241,18 +241,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void supplierDetailUpdateSupplierButton_Click(object sender, EventArgs e)
         {
             Guid supplierDetailFinancePaymentCurrencyId = (Guid)supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue;
-            byte supplierDetailFinancePaymentDays = byte.Parse(supplierDetailTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
-            string? supplierDetailFinanceVATNumber = supplierDetailTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            byte supplierDetailFinancePaymentDays = byte.Parse(supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
+            string? supplierDetailFinanceVATNumber = supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             bool supplierDetailTabControlOverviewTabPageActiveStatus = supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string supplierDetailTabControlOverviewTabPageAddressLine1 = supplierDetailTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? supplierDetailTabControlOverviewTabPageAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
-            string? supplierDetailTabControlOverviewTabPageAddressLine4 = supplierDetailTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string supplierDetailTabControlOverviewTabPageAddressLine1 = supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? supplierDetailTabControlOverviewTabPageAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string supplierDetailTabControlOverviewTabPageAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string? supplierDetailTabControlOverviewTabPageAddressLine4 = supplierDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid supplierDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string supplierDetailTabControlOverviewTabPageEmailAddress = supplierDetailTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageSupplierName = supplierDetailTabControlOverviewTabPageSupplierNameTextbox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageTelephoneNumber = supplierDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string supplierDetailTabControlOverviewTabPageEmailAddress = supplierDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string supplierDetailTabControlOverviewTabPageSupplierName = supplierDetailTabControlOverviewTabPageSupplierNameTextBox.Text.TrimEnd();
+            string supplierDetailTabControlOverviewTabPageTelephoneNumber = supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Supplier";
 
@@ -559,24 +559,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void supplierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            supplierDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly;
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled = !supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled;
-            supplierDetailTabControlFinanceTabPagePaymentDaysTextbox.ReadOnly = !supplierDetailTabControlFinanceTabPagePaymentDaysTextbox.ReadOnly;
-            supplierDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly = !supplierDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly;
+            supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly = !supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly;
+            supplierDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !supplierDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
             supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
-            supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
             supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
-            supplierDetailTabControlOverviewTabPageAddressLine1Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine1Textbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageAddressLine4TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine4TextBox.ReadOnly;
             supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled = !supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled;
-            supplierDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageSupplierIdTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierIdTextbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageSupplierNameTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierNameTextbox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly = !supplierDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageSupplierIdTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierIdTextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageSupplierNameTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageSupplierNameTextBox.ReadOnly;
+            supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly;
             supplierDetailUpdateSupplierButton.Enabled = !supplierDetailUpdateSupplierButton.Enabled;
         }
 

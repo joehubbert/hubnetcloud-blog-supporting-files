@@ -56,12 +56,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createSupplierTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
+                createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
             else
             {
-                createSupplierTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
-                createSupplierTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
+                createSupplierTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
 
@@ -73,18 +73,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)
         {
             Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
-            string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
+            string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
-            string supplierOverviewAddressLine4 = createSupplierTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string supplierOverviewAddressLine4 = createSupplierTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid supplierOverviewAddressLine5 = Guid.Parse(createSupplierTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string supplierOverviewSupplierName = createSupplierTabControlOverviewTabPageSupplierNameTextbox.Text.TrimEnd();
-            string supplierOverviewEmailAddress = createSupplierTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
-            string supplierOverviewTelephoneNumber = createSupplierTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string supplierOverviewSupplierName = createSupplierTabControlOverviewTabPageSupplierNameTextBox.Text.TrimEnd();
+            string supplierOverviewEmailAddress = createSupplierTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string supplierOverviewTelephoneNumber = createSupplierTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

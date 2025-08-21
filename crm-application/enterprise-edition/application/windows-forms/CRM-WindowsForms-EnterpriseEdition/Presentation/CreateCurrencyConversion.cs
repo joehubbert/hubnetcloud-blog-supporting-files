@@ -82,9 +82,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = createCurrencyConversionActiveStatusCheckbox.Checked;
 
-            if (string.IsNullOrWhiteSpace(createCurrencyConversionBaseCurrencyValueTextbox.Text) ||
-                string.IsNullOrWhiteSpace(createCurrencyConversionTargetCurrencyValueTextboxA.Text) ||
-                string.IsNullOrWhiteSpace(createCurrencyConversionTargetCurrencyValueTextboxB.Text))
+            if (string.IsNullOrWhiteSpace(createCurrencyConversionBaseCurrencyValueTextBox.Text) ||
+                string.IsNullOrWhiteSpace(createCurrencyConversionTargetCurrencyValueTextBoxA.Text) ||
+                string.IsNullOrWhiteSpace(createCurrencyConversionTargetCurrencyValueTextBoxB.Text))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.CurrencyConversion.MissingValues");
                 return;
@@ -114,14 +114,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             }
 
-            if (!decimal.TryParse(createCurrencyConversionBaseCurrencyValueTextbox.Text, out decimal baseCurrencyConversionRate))
+            if (!decimal.TryParse(createCurrencyConversionBaseCurrencyValueTextBox.Text, out decimal baseCurrencyConversionRate))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Base Currency Conversion Rate");
                 return;
             }
 
-            if (!decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextboxA.Text.TrimEnd(), out decimal targetA) ||
-                !decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextboxB.Text.TrimEnd(), out decimal targetB))
+            if (!decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextBoxA.Text.TrimEnd(), out decimal targetA) ||
+                !decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextBoxB.Text.TrimEnd(), out decimal targetB))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Target Currency Conversion Rate");
                 return;

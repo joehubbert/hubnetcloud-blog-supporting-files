@@ -33,32 +33,32 @@
             accountManagerDetailTabControlAccountManagerInformationTabPage = new TabPage();
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBoxLabel = new Label();
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox = new ComboBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox = new TextBox();
             accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox = new CheckBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel = new Label();
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel = new Label();
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox = new TextBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox = new TextBox();
             accountManagerDetailTabControlAssociatedCustomersTabPage = new TabPage();
             accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton = new Button();
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView = new DataGridView();
             accountManagerDetailToggleEditModeButton = new Button();
             accountManagerDetailUpdateAccountManagerButton = new Button();
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel = new Label();
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox = new TextBox();
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel = new Label();
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox = new TextBox();
             accountManagerDetailTabControl.SuspendLayout();
             accountManagerDetailTabControlAccountManagerInformationTabPage.SuspendLayout();
             accountManagerDetailTabControlAssociatedCustomersTabPage.SuspendLayout();
@@ -93,25 +93,25 @@
             accountManagerDetailTabControlAccountManagerInformationTabPage.BackColor = Color.LemonChiffon;
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBoxLabel);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Location = new Point(4, 32);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Name = "accountManagerDetailTabControlAccountManagerInformationTabPage";
             accountManagerDetailTabControlAccountManagerInformationTabPage.Padding = new Padding(3);
@@ -139,120 +139,120 @@
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Size = new Size(340, 28);
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.TabIndex = 7;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Location = new Point(711, 180);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.TabIndex = 32;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(711, 180);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 32;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Location = new Point(747, 106);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.TabIndex = 31;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Location = new Point(747, 106);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.TabIndex = 31;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Location = new Point(769, 143);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.TabIndex = 30;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Location = new Point(769, 143);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.TabIndex = 30;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Location = new Point(805, 69);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Size = new Size(81, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.TabIndex = 29;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.Text = "Created By";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Location = new Point(805, 69);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Size = new Size(81, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.TabIndex = 29;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.Text = "Created By";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Location = new Point(894, 140);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.TabIndex = 10;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Location = new Point(894, 140);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.TabIndex = 10;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Location = new Point(894, 103);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.TabIndex = 9;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Location = new Point(894, 103);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.TabIndex = 9;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Location = new Point(894, 177);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.MaxLength = 13;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.TabIndex = 11;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Location = new Point(894, 177);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.MaxLength = 13;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.TabIndex = 11;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Location = new Point(894, 66);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.TabIndex = 8;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Location = new Point(894, 66);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.TabIndex = 8;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Location = new Point(33, 31);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Size = new Size(143, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.TabIndex = 23;
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.Text = "Account Manager Id";
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Location = new Point(33, 31);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Size = new Size(143, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.TabIndex = 23;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.Text = "Account Manager Id";
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Location = new Point(184, 28);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.MaxLength = 36;
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.TabIndex = 1;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Location = new Point(184, 28);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.MaxLength = 36;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.TabIndex = 1;
             // 
             // accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox
             // 
@@ -267,103 +267,103 @@
             accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Text = "Active Account Manager*";
             accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Location = new Point(34, 180);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Size = new Size(142, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.TabIndex = 18;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.Text = "Telephone Number*";
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Location = new Point(34, 180);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Size = new Size(142, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.TabIndex = 18;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.Text = "Telephone Number*";
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Location = new Point(67, 106);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Size = new Size(109, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.TabIndex = 17;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.Text = "Email Address*";
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Location = new Point(67, 106);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Size = new Size(109, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.TabIndex = 17;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.Text = "Email Address*";
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Location = new Point(91, 143);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Size = new Size(85, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.TabIndex = 16;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.Text = "Last Name*";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Location = new Point(91, 143);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Size = new Size(85, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.TabIndex = 16;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.Text = "Last Name*";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel
+            // accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Location = new Point(90, 69);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Margin = new Padding(4, 0, 4, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Size = new Size(86, 20);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.TabIndex = 15;
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.Text = "First Name*";
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Location = new Point(90, 69);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel";
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Size = new Size(86, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.TabIndex = 15;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.Text = "First Name*";
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Location = new Point(184, 140);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.TabIndex = 4;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Location = new Point(184, 140);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.TabIndex = 4;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Location = new Point(184, 103);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.TabIndex = 3;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Location = new Point(184, 103);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.TabIndex = 3;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Location = new Point(184, 177);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.MaxLength = 13;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.TabIndex = 5;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Location = new Point(184, 177);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.MaxLength = 13;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.TabIndex = 5;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Location = new Point(184, 66);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.MaxLength = 50;
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.ReadOnly = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Size = new Size(340, 27);
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.TabIndex = 2;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Font = new Font("Segoe UI", 11F);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Location = new Point(184, 66);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.MaxLength = 50;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Size = new Size(340, 27);
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.TabIndex = 2;
             // 
             // accountManagerDetailTabControlAssociatedCustomersTabPage
             // 
             accountManagerDetailTabControlAssociatedCustomersTabPage.BackColor = Color.LemonChiffon;
-            accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel);
-            accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox);
+            accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel);
+            accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Location = new Point(4, 32);
@@ -427,21 +427,21 @@
             accountManagerDetailUpdateAccountManagerButton.UseVisualStyleBackColor = true;
             accountManagerDetailUpdateAccountManagerButton.Click += accountManagerDetailUpdateAccountManagerButton_Click;
             // 
-            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel
+            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel
             // 
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.AutoSize = true;
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.Location = new Point(45, 16);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel";
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.TabIndex = 71;
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Location = new Point(45, 16);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel";
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Size = new Size(83, 20);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.TabIndex = 71;
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Text = "Quick Filter";
             // 
-            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox
+            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox
             // 
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox.Location = new Point(134, 13);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox";
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox.Size = new Size(843, 27);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox.TabIndex = 70;
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Location = new Point(134, 13);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox";
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Size = new Size(843, 27);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.TabIndex = 70;
             // 
             // AccountManagerDetail
             // 
@@ -478,30 +478,30 @@
         private TabPage accountManagerDetailTabControlAssociatedCustomersTabPage;
         private DataGridView accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView;
         private CheckBox accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextboxLabel;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBoxLabel;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox;
         private Button accountManagerDetailUpdateAccountManagerButton;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextboxLabel;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox;
         private Button accountManagerDetailToggleEditModeButton;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextboxLabel;
-        private Label accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextboxLabel;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox;
-        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel;
+        private Label accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBoxLabel;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox;
+        private TextBox accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox;
         private Button accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton;
         private ComboBox accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox;
         private Label accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBoxLabel;
-        private Label accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextboxLabel;
-        private TextBox accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox;
+        private Label accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel;
+        private TextBox accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox;
     }
 }

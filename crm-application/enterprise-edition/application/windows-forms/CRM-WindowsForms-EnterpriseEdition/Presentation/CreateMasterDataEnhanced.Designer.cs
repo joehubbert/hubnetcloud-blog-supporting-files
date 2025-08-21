@@ -30,12 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataEnhanced));
             createMasterDataEnhancedTitleLabel = new Label();
-            createMasterDataEnhancedMasterDataTypeTextbox = new TextBox();
-            createMasterDataEnhancedMasterDataTypeTextboxLabel = new Label();
+            createMasterDataEnhancedMasterDataTypeTextBox = new TextBox();
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel = new Label();
             createMasterDataEnhancedSubmitButton = new Button();
             createMasterDataEnhancedActiveStatusCheckbox = new CheckBox();
-            createMasterDataEnhancedMasterDataDescriptionTextbox = new TextBox();
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel = new Label();
+            createMasterDataEnhancedMasterDataDescriptionTextBox = new TextBox();
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel = new Label();
             createMasterDataEnhancedStatusStrip = new StatusStrip();
             createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
@@ -53,25 +53,25 @@
             createMasterDataEnhancedTitleLabel.TabIndex = 8;
             createMasterDataEnhancedTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
-            // createMasterDataEnhancedMasterDataTypeTextbox
+            // createMasterDataEnhancedMasterDataTypeTextBox
             // 
-            createMasterDataEnhancedMasterDataTypeTextbox.Location = new Point(305, 63);
-            createMasterDataEnhancedMasterDataTypeTextbox.Margin = new Padding(3, 4, 3, 4);
-            createMasterDataEnhancedMasterDataTypeTextbox.MaxLength = 50;
-            createMasterDataEnhancedMasterDataTypeTextbox.Name = "createMasterDataEnhancedMasterDataTypeTextbox";
-            createMasterDataEnhancedMasterDataTypeTextbox.Size = new Size(271, 27);
-            createMasterDataEnhancedMasterDataTypeTextbox.TabIndex = 0;
+            createMasterDataEnhancedMasterDataTypeTextBox.Location = new Point(305, 63);
+            createMasterDataEnhancedMasterDataTypeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createMasterDataEnhancedMasterDataTypeTextBox.MaxLength = 50;
+            createMasterDataEnhancedMasterDataTypeTextBox.Name = "createMasterDataEnhancedMasterDataTypeTextBox";
+            createMasterDataEnhancedMasterDataTypeTextBox.Size = new Size(271, 27);
+            createMasterDataEnhancedMasterDataTypeTextBox.TabIndex = 0;
             // 
-            // createMasterDataEnhancedMasterDataTypeTextboxLabel
+            // createMasterDataEnhancedMasterDataTypeTextBoxLabel
             // 
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.AutoSize = true;
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Location = new Point(86, 66);
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Name = "createMasterDataEnhancedMasterDataTypeTextboxLabel";
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Size = new Size(213, 20);
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.TabIndex = 23;
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.AutoSize = true;
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Location = new Point(86, 66);
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Name = "createMasterDataEnhancedMasterDataTypeTextBoxLabel";
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Size = new Size(213, 20);
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.TabIndex = 23;
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Text = "{MasterData Type Placeholder}";
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataEnhancedSubmitButton
             // 
@@ -99,25 +99,25 @@
             createMasterDataEnhancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
             createMasterDataEnhancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
-            // createMasterDataEnhancedMasterDataDescriptionTextbox
+            // createMasterDataEnhancedMasterDataDescriptionTextBox
             // 
-            createMasterDataEnhancedMasterDataDescriptionTextbox.Location = new Point(305, 104);
-            createMasterDataEnhancedMasterDataDescriptionTextbox.Margin = new Padding(3, 4, 3, 4);
-            createMasterDataEnhancedMasterDataDescriptionTextbox.MaxLength = 255;
-            createMasterDataEnhancedMasterDataDescriptionTextbox.Name = "createMasterDataEnhancedMasterDataDescriptionTextbox";
-            createMasterDataEnhancedMasterDataDescriptionTextbox.Size = new Size(271, 27);
-            createMasterDataEnhancedMasterDataDescriptionTextbox.TabIndex = 1;
+            createMasterDataEnhancedMasterDataDescriptionTextBox.Location = new Point(305, 104);
+            createMasterDataEnhancedMasterDataDescriptionTextBox.Margin = new Padding(3, 4, 3, 4);
+            createMasterDataEnhancedMasterDataDescriptionTextBox.MaxLength = 255;
+            createMasterDataEnhancedMasterDataDescriptionTextBox.Name = "createMasterDataEnhancedMasterDataDescriptionTextBox";
+            createMasterDataEnhancedMasterDataDescriptionTextBox.Size = new Size(271, 27);
+            createMasterDataEnhancedMasterDataDescriptionTextBox.TabIndex = 1;
             // 
-            // createMasterDataEnhancedMasterDataDescriptionTextboxLabel
+            // createMasterDataEnhancedMasterDataDescriptionTextBoxLabel
             // 
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.AutoSize = true;
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Location = new Point(41, 107);
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Name = "createMasterDataEnhancedMasterDataDescriptionTextboxLabel";
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Size = new Size(258, 20);
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TabIndex = 25;
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Text = "{MasterData Description Placeholder}";
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.AutoSize = true;
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Location = new Point(41, 107);
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Name = "createMasterDataEnhancedMasterDataDescriptionTextBoxLabel";
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Size = new Size(258, 20);
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.TabIndex = 25;
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Text = "{MasterData Description Placeholder}";
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataEnhancedStatusStrip
             // 
@@ -153,10 +153,10 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(594, 312);
             Controls.Add(createMasterDataEnhancedStatusStrip);
-            Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextbox);
-            Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextboxLabel);
-            Controls.Add(createMasterDataEnhancedMasterDataTypeTextbox);
-            Controls.Add(createMasterDataEnhancedMasterDataTypeTextboxLabel);
+            Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextBox);
+            Controls.Add(createMasterDataEnhancedMasterDataDescriptionTextBoxLabel);
+            Controls.Add(createMasterDataEnhancedMasterDataTypeTextBox);
+            Controls.Add(createMasterDataEnhancedMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataEnhancedSubmitButton);
             Controls.Add(createMasterDataEnhancedActiveStatusCheckbox);
             Controls.Add(createMasterDataEnhancedTitleLabel);
@@ -176,12 +176,12 @@
         #endregion
 
         private Label createMasterDataEnhancedTitleLabel;
-        private TextBox createMasterDataEnhancedMasterDataTypeTextbox;
-        private Label createMasterDataEnhancedMasterDataTypeTextboxLabel;
+        private TextBox createMasterDataEnhancedMasterDataTypeTextBox;
+        private Label createMasterDataEnhancedMasterDataTypeTextBoxLabel;
         private Button createMasterDataEnhancedSubmitButton;
         private CheckBox createMasterDataEnhancedActiveStatusCheckbox;
-        private TextBox createMasterDataEnhancedMasterDataDescriptionTextbox;
-        private Label createMasterDataEnhancedMasterDataDescriptionTextboxLabel;
+        private TextBox createMasterDataEnhancedMasterDataDescriptionTextBox;
+        private Label createMasterDataEnhancedMasterDataDescriptionTextBoxLabel;
         private StatusStrip createMasterDataEnhancedStatusStrip;
         private ToolStripSplitButton createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;

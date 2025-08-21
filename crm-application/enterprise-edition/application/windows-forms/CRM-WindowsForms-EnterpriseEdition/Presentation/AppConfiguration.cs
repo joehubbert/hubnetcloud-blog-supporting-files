@@ -82,11 +82,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.KeyPress += NumericStringTextbox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.KeyPress += NumericStringTextbox_KeyPress;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.KeyPress += NumericStringTextbox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.KeyPress += NumericStringTextBox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.KeyPress += NumericStringTextBox_KeyPress;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += NumericStringTextBox_KeyPress;
         }
 
         private void AppConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object? sender, EventArgs e)
@@ -113,48 +113,48 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     // Always load and populate all configurations
                     var mssqlConfig = await ApplicationConfigurationService.GetMSSQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Text = mssqlConfig.serverName;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Text = mssqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Text = mssqlConfig.serverName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Text = mssqlConfig.databaseName;
                     switch (mssqlConfig.authenticationType)
                     {
                         case "SQL":
                             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Text = mssqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Text = mssqlConfig.password;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Text = mssqlConfig.password;
                             break;
                         case "Kerberos":
                             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Enabled = false;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Enabled = false;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = false;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
                             break;
                         case "EntraId":
                             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Text = mssqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Enabled = false;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
                     }
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Text = mssqlConfig.certficateHostName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text = mssqlConfig.certficateHostName;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Checked = mssqlConfig.encryptionEnabled;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Checked = mssqlConfig.trustServerCertificate;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Text = mssqlConfig.connectionTimeout.ToString();
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text = mssqlConfig.connectionTimeout.ToString();
 
                     var mysqlConfig = await ApplicationConfigurationService.GetMySQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Text = mysqlConfig.serverName;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Text = mysqlConfig.portNumber.ToString();
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Text = mysqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Text = mysqlConfig.serverName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Text = mysqlConfig.portNumber.ToString();
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Text = mysqlConfig.databaseName;
                     switch (mysqlConfig.authenticationType)
                     {
                         case "native":
                             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Text = mysqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Text = mysqlConfig.password;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Text = mysqlConfig.password;
                             break;
                         case "EntraId":
                             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Text = mysqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Enabled = false;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Enabled = false;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported MySQL authentication type in configuration file.");
@@ -162,20 +162,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     mySQLSSLModeCode = mysqlSSLMode.FirstOrDefault(kvp => string.Equals(kvp.Value.ToString(), mysqlConfig.sslMode, StringComparison.OrdinalIgnoreCase)).Key;
 
                     var postgresqlConfig = await ApplicationConfigurationService.GetPostgreSQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Text = postgresqlConfig.serverName;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Text = postgresqlConfig.portNumber.ToString();
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Text = postgresqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Text = postgresqlConfig.serverName;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Text = postgresqlConfig.portNumber.ToString();
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Text = postgresqlConfig.databaseName;
                     switch (postgresqlConfig.authenticationType)
                     {
                         case "native":
                             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Text = postgresqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Text = postgresqlConfig.password;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Text = postgresqlConfig.password;
                             break;
                         case "EntraId":
                             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Text = postgresqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Enabled = false;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Enabled = false;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported PostgreSQL authentication type in configuration file.");
@@ -279,7 +279,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedIndex = selectedIndex;
         }
 
-        private void NumericStringTextbox_KeyPress(object sender, KeyPressEventArgs e)
+        private void NumericStringTextBox_KeyPress(object sender, KeyPressEventArgs e)
         {
             // Allow only digits and control characters (like backspace)
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -297,27 +297,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 if (appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.ReadOnly = false;
                 }
                 else if (appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Enabled = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Enabled = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.ReadOnly = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.ReadOnly = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Clear();
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Clear();
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.ReadOnly = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.ReadOnly = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Clear();
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Clear();
                 }
                 else if (appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Enabled = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.ReadOnly = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Clear();
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.ReadOnly = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Clear();
                 }
 
                 if (selectedEngine == "Azure SQL Database" || selectedEngine == "Azure SQL Managed Instance")
@@ -348,17 +348,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 if (appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.ReadOnly = false;
                 }
                 else if (appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Enabled = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.ReadOnly = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.ReadOnly = true;
                 }
 
                 if (selectedEngine == "Azure Database for MySQL")
@@ -390,18 +390,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 if (appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.ReadOnly = false;
                 }
                 else if (appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked)
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Enabled = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Enabled = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.ReadOnly = false;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.ReadOnly = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Clear();
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.ReadOnly = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.ReadOnly = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Clear();
                 }
 
                 if (selectedEngine == "Azure Database for PostgreSQL")
@@ -579,14 +579,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             return new ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration
             {
-                serverName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Text,
-                databaseName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Text,
-                username = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Text,
-                password = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Text,
-                certficateHostName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Text,
+                serverName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Text,
+                databaseName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Text,
+                username = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text,
+                password = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Text,
+                certficateHostName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text,
                 encryptionEnabled = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Checked,
                 trustServerCertificate = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Checked,
-                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Text, out var timeout) ? timeout : 30,
+                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
                 authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "SQL" :
                                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked ? "Kerberos" :
                                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
@@ -597,12 +597,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             return new ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration
             {
-                serverName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Text,
-                portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Text, out var port) ? port : 3306,
-                databaseName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Text,
-                username = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Text,
-                password = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Text,
-                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Text, out var timeout) ? timeout : 30,
+                serverName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Text,
+                portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Text, out var port) ? port : 3306,
+                databaseName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Text,
+                username = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text,
+                password = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Text,
+                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
                 sslMode = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.SelectedItem?.ToString() ?? "If Available",
                 authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "native" :
                                     appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
@@ -613,12 +613,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             return new ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration
             {
-                serverName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Text,
-                portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Text, out var port) ? port : 5432,
-                databaseName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Text,
-                username = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Text,
-                password = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Text,
-                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Text, out var timeout) ? timeout : 30,
+                serverName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Text,
+                portNumber = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Text, out var port) ? port : 5432,
+                databaseName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Text,
+                username = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text,
+                password = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Text,
+                connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
                 sslMode = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedItem?.ToString() ?? "prefer",
                 authenticationType = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "native" :
                                     appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""

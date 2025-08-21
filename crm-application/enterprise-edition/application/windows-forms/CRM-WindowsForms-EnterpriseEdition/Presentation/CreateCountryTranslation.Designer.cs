@@ -31,10 +31,10 @@
             createCountryTranslationSubmitButton = new Button();
             createCountryTranslationActiveStatusCheckbox = new CheckBox();
             createCountryTranslationTitleLabel = new Label();
-            createCountryTranslationBCP47LanguageTagCodeTextbox = new TextBox();
-            createCountryTranslationLocalisedCountryNameTextbox = new TextBox();
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel = new Label();
-            createCountryTranslationLocalisedCountryNameTextboxLabel = new Label();
+            createCountryTranslationBCP47LanguageTagCodeTextBox = new TextBox();
+            createCountryTranslationLocalisedCountryNameTextBox = new TextBox();
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel = new Label();
+            createCountryTranslationLocalisedCountryNameTextBoxLabel = new Label();
             createCountryTranslationCountryComboBox = new ComboBox();
             createCountryTranslationCountryComboBoxLabel = new Label();
             SuspendLayout();
@@ -76,41 +76,41 @@
             createCountryTranslationTitleLabel.TabIndex = 9;
             createCountryTranslationTitleLabel.Text = "Create Country Translation";
             // 
-            // createCountryTranslationBCP47LanguageTagCodeTextbox
+            // createCountryTranslationBCP47LanguageTagCodeTextBox
             // 
-            createCountryTranslationBCP47LanguageTagCodeTextbox.Location = new Point(263, 98);
-            createCountryTranslationBCP47LanguageTagCodeTextbox.MaxLength = 5;
-            createCountryTranslationBCP47LanguageTagCodeTextbox.Name = "createCountryTranslationBCP47LanguageTagCodeTextbox";
-            createCountryTranslationBCP47LanguageTagCodeTextbox.Size = new Size(72, 27);
-            createCountryTranslationBCP47LanguageTagCodeTextbox.TabIndex = 1;
+            createCountryTranslationBCP47LanguageTagCodeTextBox.Location = new Point(263, 98);
+            createCountryTranslationBCP47LanguageTagCodeTextBox.MaxLength = 5;
+            createCountryTranslationBCP47LanguageTagCodeTextBox.Name = "createCountryTranslationBCP47LanguageTagCodeTextBox";
+            createCountryTranslationBCP47LanguageTagCodeTextBox.Size = new Size(72, 27);
+            createCountryTranslationBCP47LanguageTagCodeTextBox.TabIndex = 1;
             // 
-            // createCountryTranslationLocalisedCountryNameTextbox
+            // createCountryTranslationLocalisedCountryNameTextBox
             // 
-            createCountryTranslationLocalisedCountryNameTextbox.Location = new Point(263, 140);
-            createCountryTranslationLocalisedCountryNameTextbox.MaxLength = 100;
-            createCountryTranslationLocalisedCountryNameTextbox.Name = "createCountryTranslationLocalisedCountryNameTextbox";
-            createCountryTranslationLocalisedCountryNameTextbox.Size = new Size(285, 27);
-            createCountryTranslationLocalisedCountryNameTextbox.TabIndex = 2;
+            createCountryTranslationLocalisedCountryNameTextBox.Location = new Point(263, 140);
+            createCountryTranslationLocalisedCountryNameTextBox.MaxLength = 100;
+            createCountryTranslationLocalisedCountryNameTextBox.Name = "createCountryTranslationLocalisedCountryNameTextBox";
+            createCountryTranslationLocalisedCountryNameTextBox.Size = new Size(285, 27);
+            createCountryTranslationLocalisedCountryNameTextBox.TabIndex = 2;
             // 
-            // createCountryTranslationBCP47LanguageTagCodeTextboxLabel
+            // createCountryTranslationBCP47LanguageTagCodeTextBoxLabel
             // 
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.AutoSize = true;
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Location = new Point(71, 101);
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Name = "createCountryTranslationBCP47LanguageTagCodeTextboxLabel";
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Size = new Size(192, 20);
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.TabIndex = 12;
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code*";
-            createCountryTranslationBCP47LanguageTagCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.AutoSize = true;
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.Location = new Point(71, 101);
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.Name = "createCountryTranslationBCP47LanguageTagCodeTextBoxLabel";
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.Size = new Size(192, 20);
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.TabIndex = 12;
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.Text = "BCP47 Language Tag Code*";
+            createCountryTranslationBCP47LanguageTagCodeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCountryTranslationLocalisedCountryNameTextboxLabel
+            // createCountryTranslationLocalisedCountryNameTextBoxLabel
             // 
-            createCountryTranslationLocalisedCountryNameTextboxLabel.AutoSize = true;
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Location = new Point(87, 143);
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Name = "createCountryTranslationLocalisedCountryNameTextboxLabel";
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Size = new Size(176, 20);
-            createCountryTranslationLocalisedCountryNameTextboxLabel.TabIndex = 13;
-            createCountryTranslationLocalisedCountryNameTextboxLabel.Text = "Localised Country Name*";
-            createCountryTranslationLocalisedCountryNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.AutoSize = true;
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.Location = new Point(87, 143);
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.Name = "createCountryTranslationLocalisedCountryNameTextBoxLabel";
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.Size = new Size(176, 20);
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.TabIndex = 13;
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.Text = "Localised Country Name*";
+            createCountryTranslationLocalisedCountryNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCountryTranslationCountryComboBox
             // 
@@ -139,10 +139,10 @@
             ClientSize = new Size(582, 315);
             Controls.Add(createCountryTranslationCountryComboBoxLabel);
             Controls.Add(createCountryTranslationCountryComboBox);
-            Controls.Add(createCountryTranslationLocalisedCountryNameTextboxLabel);
-            Controls.Add(createCountryTranslationBCP47LanguageTagCodeTextboxLabel);
-            Controls.Add(createCountryTranslationLocalisedCountryNameTextbox);
-            Controls.Add(createCountryTranslationBCP47LanguageTagCodeTextbox);
+            Controls.Add(createCountryTranslationLocalisedCountryNameTextBoxLabel);
+            Controls.Add(createCountryTranslationBCP47LanguageTagCodeTextBoxLabel);
+            Controls.Add(createCountryTranslationLocalisedCountryNameTextBox);
+            Controls.Add(createCountryTranslationBCP47LanguageTagCodeTextBox);
             Controls.Add(createCountryTranslationSubmitButton);
             Controls.Add(createCountryTranslationActiveStatusCheckbox);
             Controls.Add(createCountryTranslationTitleLabel);
@@ -162,10 +162,10 @@
         private Button createCountryTranslationSubmitButton;
         private CheckBox createCountryTranslationActiveStatusCheckbox;
         private Label createCountryTranslationTitleLabel;
-        private TextBox createCountryTranslationBCP47LanguageTagCodeTextbox;
-        private TextBox createCountryTranslationLocalisedCountryNameTextbox;
-        private Label createCountryTranslationBCP47LanguageTagCodeTextboxLabel;
-        private Label createCountryTranslationLocalisedCountryNameTextboxLabel;
+        private TextBox createCountryTranslationBCP47LanguageTagCodeTextBox;
+        private TextBox createCountryTranslationLocalisedCountryNameTextBox;
+        private Label createCountryTranslationBCP47LanguageTagCodeTextBoxLabel;
+        private Label createCountryTranslationLocalisedCountryNameTextBoxLabel;
         private ComboBox createCountryTranslationCountryComboBox;
         private Label createCountryTranslationCountryComboBoxLabel;
     }

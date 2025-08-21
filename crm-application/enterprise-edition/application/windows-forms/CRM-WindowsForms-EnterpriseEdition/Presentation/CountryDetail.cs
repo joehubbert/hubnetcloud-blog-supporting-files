@@ -57,13 +57,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (countryDataTable != null)
                 {
                     DataRow countryDataRow = countryDataTable.Rows[0];
-                    countryDetailCountryIdTextbox.Text = countryDataRow["Country Id"].ToString();
-                    countryDetailISO31661A2CountryCodeTextbox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
-                    countryDetailCountryEnglishNameTextbox.Text = countryDataRow["Country English Name"].ToString();
-                    countryDetailCreatedByTextbox.Text = countryDataRow["Created By"].ToString();
-                    countryDetailCreatedTimestampTextbox.Text = countryDataRow["Created Timestamp UTC"].ToString();
-                    countryDetailLastUpdatedByTextbox.Text = countryDataRow["Modified By"].ToString();
-                    countryDetailLastUpdatedTimestampTextbox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
+                    countryDetailCountryIdTextBox.Text = countryDataRow["Country Id"].ToString();
+                    countryDetailISO31661A2CountryCodeTextBox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
+                    countryDetailCountryEnglishNameTextBox.Text = countryDataRow["Country English Name"].ToString();
+                    countryDetailCreatedByTextBox.Text = countryDataRow["Created By"].ToString();
+                    countryDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
+                    countryDetailLastUpdatedByTextBox.Text = countryDataRow["Modified By"].ToString();
+                    countryDetailLastUpdatedTimestampTextBox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
                     countryDetailActiveStatusCheckbox.Checked = (bool)countryDataRow["Active Status"];
 
                     countryDetailActiveStatusOriginalValue = (bool)countryDataRow["Active Status"];
@@ -86,8 +86,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void countryDetailUpdateCountryButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = countryDetailActiveStatusCheckbox.Checked;   
-            string countryEnglishName = countryDetailCountryEnglishNameTextbox.Text.TrimEnd();
-            string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeTextbox.Text.TrimEnd().ToUpper();
+            string countryEnglishName = countryDetailCountryEnglishNameTextBox.Text.TrimEnd();
+            string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeTextBox.Text.TrimEnd().ToUpper();
 
             if (_databaseConnectionSettings == null)
             {
@@ -209,8 +209,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void countryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            countryDetailISO31661A2CountryCodeTextbox.ReadOnly = !countryDetailISO31661A2CountryCodeTextbox.ReadOnly;
-            countryDetailCountryEnglishNameTextbox.ReadOnly = !countryDetailCountryEnglishNameTextbox.ReadOnly;
+            countryDetailISO31661A2CountryCodeTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeTextBox.ReadOnly;
+            countryDetailCountryEnglishNameTextBox.ReadOnly = !countryDetailCountryEnglishNameTextBox.ReadOnly;
             countryDetailActiveStatusCheckbox.Enabled = !countryDetailActiveStatusCheckbox.Enabled;
             countryDetailUpdateCountryButton.Enabled = !countryDetailUpdateCountryButton.Enabled;
         }

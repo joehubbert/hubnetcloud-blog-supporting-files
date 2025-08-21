@@ -31,8 +31,8 @@
             createCustomerLeadTitleLabel = new Label();
             createCustomerLeadCustomerContactPanelCustomerContactComboBox = new ComboBox();
             createCustomerLeadCustomerLeadTypeComboBox = new ComboBox();
-            createCustomerLeadCustomerLeadTitleTextbox = new TextBox();
-            createCustomerLeadCustomerLeadTextbox = new TextBox();
+            createCustomerLeadCustomerLeadTitleTextBox = new TextBox();
+            createCustomerLeadCustomerLeadTextBox = new TextBox();
             createCustomerLeadMarketingChannelPanelMarketingChannelComboBox = new ComboBox();
             createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker = new DateTimePicker();
             createCustomerLeadCustomerContactPanel = new Panel();
@@ -41,8 +41,8 @@
             createCustomerLeadCustomerContactPanelNoRadioButton = new RadioButton();
             createCustomerLeadCustomerContactPanelLabel = new Label();
             createCustomerLeadSubmitButton = new Button();
-            createCustomerLeadCustomerLeadTextboxLabel = new Label();
-            createCustomerLeadCustomerLeadTitleTextboxLabel = new Label();
+            createCustomerLeadCustomerLeadTextBoxLabel = new Label();
+            createCustomerLeadCustomerLeadTitleTextBoxLabel = new Label();
             createCustomerLeadCustomerLeadTypeComboBoxLabel = new Label();
             createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel = new Label();
             createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel = new Label();
@@ -93,24 +93,24 @@
             createCustomerLeadCustomerLeadTypeComboBox.Size = new Size(301, 28);
             createCustomerLeadCustomerLeadTypeComboBox.TabIndex = 0;
             // 
-            // createCustomerLeadCustomerLeadTitleTextbox
+            // createCustomerLeadCustomerLeadTitleTextBox
             // 
-            createCustomerLeadCustomerLeadTitleTextbox.Location = new Point(228, 101);
-            createCustomerLeadCustomerLeadTitleTextbox.MaxLength = 50;
-            createCustomerLeadCustomerLeadTitleTextbox.Name = "createCustomerLeadCustomerLeadTitleTextbox";
-            createCustomerLeadCustomerLeadTitleTextbox.Size = new Size(301, 27);
-            createCustomerLeadCustomerLeadTitleTextbox.TabIndex = 1;
+            createCustomerLeadCustomerLeadTitleTextBox.Location = new Point(228, 101);
+            createCustomerLeadCustomerLeadTitleTextBox.MaxLength = 50;
+            createCustomerLeadCustomerLeadTitleTextBox.Name = "createCustomerLeadCustomerLeadTitleTextBox";
+            createCustomerLeadCustomerLeadTitleTextBox.Size = new Size(301, 27);
+            createCustomerLeadCustomerLeadTitleTextBox.TabIndex = 1;
             // 
-            // createCustomerLeadCustomerLeadTextbox
+            // createCustomerLeadCustomerLeadTextBox
             // 
-            createCustomerLeadCustomerLeadTextbox.Anchor = AnchorStyles.None;
-            createCustomerLeadCustomerLeadTextbox.Location = new Point(228, 155);
-            createCustomerLeadCustomerLeadTextbox.MaxLength = 4000;
-            createCustomerLeadCustomerLeadTextbox.Multiline = true;
-            createCustomerLeadCustomerLeadTextbox.Name = "createCustomerLeadCustomerLeadTextbox";
-            createCustomerLeadCustomerLeadTextbox.ScrollBars = ScrollBars.Vertical;
-            createCustomerLeadCustomerLeadTextbox.Size = new Size(427, 274);
-            createCustomerLeadCustomerLeadTextbox.TabIndex = 2;
+            createCustomerLeadCustomerLeadTextBox.Anchor = AnchorStyles.None;
+            createCustomerLeadCustomerLeadTextBox.Location = new Point(228, 155);
+            createCustomerLeadCustomerLeadTextBox.MaxLength = 4000;
+            createCustomerLeadCustomerLeadTextBox.Multiline = true;
+            createCustomerLeadCustomerLeadTextBox.Name = "createCustomerLeadCustomerLeadTextBox";
+            createCustomerLeadCustomerLeadTextBox.ScrollBars = ScrollBars.Vertical;
+            createCustomerLeadCustomerLeadTextBox.Size = new Size(427, 274);
+            createCustomerLeadCustomerLeadTextBox.TabIndex = 2;
             // 
             // createCustomerLeadMarketingChannelPanelMarketingChannelComboBox
             // 
@@ -195,25 +195,25 @@
             createCustomerLeadSubmitButton.UseVisualStyleBackColor = true;
             createCustomerLeadSubmitButton.Click += createCustomerLeadSubmitButton_Click;
             // 
-            // createCustomerLeadCustomerLeadTextboxLabel
+            // createCustomerLeadCustomerLeadTextBoxLabel
             // 
-            createCustomerLeadCustomerLeadTextboxLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTextboxLabel.Location = new Point(108, 148);
-            createCustomerLeadCustomerLeadTextboxLabel.Name = "createCustomerLeadCustomerLeadTextboxLabel";
-            createCustomerLeadCustomerLeadTextboxLabel.Size = new Size(114, 20);
-            createCustomerLeadCustomerLeadTextboxLabel.TabIndex = 53;
-            createCustomerLeadCustomerLeadTextboxLabel.Text = "Customer Lead*";
-            createCustomerLeadCustomerLeadTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCustomerLeadCustomerLeadTextBoxLabel.AutoSize = true;
+            createCustomerLeadCustomerLeadTextBoxLabel.Location = new Point(108, 148);
+            createCustomerLeadCustomerLeadTextBoxLabel.Name = "createCustomerLeadCustomerLeadTextBoxLabel";
+            createCustomerLeadCustomerLeadTextBoxLabel.Size = new Size(114, 20);
+            createCustomerLeadCustomerLeadTextBoxLabel.TabIndex = 53;
+            createCustomerLeadCustomerLeadTextBoxLabel.Text = "Customer Lead*";
+            createCustomerLeadCustomerLeadTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerLeadCustomerLeadTitleTextboxLabel
+            // createCustomerLeadCustomerLeadTitleTextBoxLabel
             // 
-            createCustomerLeadCustomerLeadTitleTextboxLabel.AutoSize = true;
-            createCustomerLeadCustomerLeadTitleTextboxLabel.Location = new Point(75, 104);
-            createCustomerLeadCustomerLeadTitleTextboxLabel.Name = "createCustomerLeadCustomerLeadTitleTextboxLabel";
-            createCustomerLeadCustomerLeadTitleTextboxLabel.Size = new Size(147, 20);
-            createCustomerLeadCustomerLeadTitleTextboxLabel.TabIndex = 54;
-            createCustomerLeadCustomerLeadTitleTextboxLabel.Text = "Customer Lead Title*";
-            createCustomerLeadCustomerLeadTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.AutoSize = true;
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.Location = new Point(75, 104);
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.Name = "createCustomerLeadCustomerLeadTitleTextBoxLabel";
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.Size = new Size(147, 20);
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.TabIndex = 54;
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.Text = "Customer Lead Title*";
+            createCustomerLeadCustomerLeadTitleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCustomerLeadCustomerLeadTypeComboBoxLabel
             // 
@@ -371,12 +371,12 @@
             Controls.Add(createCustomerLeadCustomerLeadTargetDatePanel);
             Controls.Add(createCustomerLeadMarketingChannelPanel);
             Controls.Add(createCustomerLeadCustomerLeadTypeComboBoxLabel);
-            Controls.Add(createCustomerLeadCustomerLeadTitleTextboxLabel);
-            Controls.Add(createCustomerLeadCustomerLeadTextboxLabel);
+            Controls.Add(createCustomerLeadCustomerLeadTitleTextBoxLabel);
+            Controls.Add(createCustomerLeadCustomerLeadTextBoxLabel);
             Controls.Add(createCustomerLeadSubmitButton);
             Controls.Add(createCustomerLeadCustomerContactPanel);
-            Controls.Add(createCustomerLeadCustomerLeadTextbox);
-            Controls.Add(createCustomerLeadCustomerLeadTitleTextbox);
+            Controls.Add(createCustomerLeadCustomerLeadTextBox);
+            Controls.Add(createCustomerLeadCustomerLeadTitleTextBox);
             Controls.Add(createCustomerLeadCustomerLeadTypeComboBox);
             Controls.Add(createCustomerLeadTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -403,8 +403,8 @@
         private Label createCustomerLeadTitleLabel;
         private ComboBox createCustomerLeadCustomerContactPanelCustomerContactComboBox;
         private ComboBox createCustomerLeadCustomerLeadTypeComboBox;
-        private TextBox createCustomerLeadCustomerLeadTitleTextbox;
-        private TextBox createCustomerLeadCustomerLeadTextbox;
+        private TextBox createCustomerLeadCustomerLeadTitleTextBox;
+        private TextBox createCustomerLeadCustomerLeadTextBox;
         private ComboBox createCustomerLeadMarketingChannelPanelMarketingChannelComboBox;
         private DateTimePicker createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker;
         private Panel createCustomerLeadCustomerContactPanel;
@@ -413,8 +413,8 @@
         private RadioButton createCustomerLeadCustomerContactPanelYesRadioButton;
         private Label createCustomerLeadCustomerContactPanelCustomerContactComboBoxLabel;
         private Label createCustomerLeadCustomerContactPanelLabel;
-        private Label createCustomerLeadCustomerLeadTextboxLabel;
-        private Label createCustomerLeadCustomerLeadTitleTextboxLabel;
+        private Label createCustomerLeadCustomerLeadTextBoxLabel;
+        private Label createCustomerLeadCustomerLeadTitleTextBoxLabel;
         private Label createCustomerLeadCustomerLeadTypeComboBoxLabel;
         private Label createCustomerLeadMarketingChannelPanelMarketingChannelComboBoxLabel;
         private Label createCustomerLeadCustomerLeadTargetDatePanelTargetDatePickerLabel;

@@ -50,28 +50,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
+                createManufacturerTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
             else
             {
-                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
-                createManufacturerTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                createManufacturerTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
+                createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
 
         private async void createManufacturerSubmitButton_Click(object sender, EventArgs e)
         {
-            string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine4 = createManufacturerTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine4 = createManufacturerTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid manufacturerOverviewAddressLine5 = Guid.Parse(createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string manufacturerOverviewManufacturerName = createManufacturerTabControlOverviewTabPageManufacturerNameTextbox.Text.TrimEnd();
-            string manufacturerOverviewEmailAddress = createManufacturerTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
-            string manufacturerOverviewTelephoneNumber = createManufacturerTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string manufacturerOverviewManufacturerName = createManufacturerTabControlOverviewTabPageManufacturerNameTextBox.Text.TrimEnd();
+            string manufacturerOverviewEmailAddress = createManufacturerTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string manufacturerOverviewTelephoneNumber = createManufacturerTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

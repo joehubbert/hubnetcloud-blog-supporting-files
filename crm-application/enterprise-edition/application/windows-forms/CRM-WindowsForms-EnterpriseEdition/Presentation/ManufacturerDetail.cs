@@ -79,8 +79,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow manufacturerDataRow = manufacturerDataTable.Rows[0];
 
                     Guid paymentCurrencyId = (Guid)manufacturerDataRow["Payment Currency Id"];
-                    manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.Text = manufacturerDataRow["VAT Number"].ToString();
-                    if (manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.Text.Length > 0)
+                    manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text = manufacturerDataRow["VAT Number"].ToString();
+                    if (manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text.Length > 0)
                     {
                         manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
                     }
@@ -89,20 +89,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = false;
                     }
                     manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)manufacturerDataRow["Active Status"];
-                    manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox.Text = manufacturerDataRow["Address Line 1"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.Text = manufacturerDataRow["Address Line 2"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.Text = manufacturerDataRow["Address Line 3"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.Text = manufacturerDataRow["Address Line 4"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text = manufacturerDataRow["Address Line 1"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text = manufacturerDataRow["Address Line 2"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text = manufacturerDataRow["Address Line 3"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.Text = manufacturerDataRow["Address Line 4"].ToString();
                     Guid manufacturerAddressLine5 = (Guid)manufacturerDataRow["Address Line 5"];
                     await LoadCountryDataAsync(manufacturerAddressLine5);
-                    manufacturerDetailTabControlOverviewTabPageCreatedByTextbox.Text = manufacturerDataRow["Created By"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = manufacturerDataRow["Created Timestamp UTC"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.Text = manufacturerDataRow["Email Address"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = manufacturerDataRow["Modified By"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = manufacturerDataRow["Modified Timestamp UTC"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox.Text = manufacturerDataRow["Manufacturer Id"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.Text = manufacturerDataRow["Manufacturer Name"].ToString();
-                    manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text = manufacturerDataRow["Telephone Number"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageCreatedByTextBox.Text = manufacturerDataRow["Created By"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = manufacturerDataRow["Created Timestamp UTC"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.Text = manufacturerDataRow["Email Address"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = manufacturerDataRow["Modified By"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = manufacturerDataRow["Modified Timestamp UTC"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox.Text = manufacturerDataRow["Manufacturer Id"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.Text = manufacturerDataRow["Manufacturer Name"].ToString();
+                    manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text = manufacturerDataRow["Telephone Number"].ToString();
 
                     manufacturerDetailFinanceVATNumberOriginalValue = manufacturerDataRow["VAT Number"].ToString();
                     manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue = (bool)manufacturerDataRow["Active Status"];
@@ -140,7 +140,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (result == DialogResult.OK)
                 {
-                    manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                    manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
                 }
                 else
                 {
@@ -151,17 +151,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void ManufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
         {
-            string? manufacturerDetailFinanceVATNumber = manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            string? manufacturerDetailFinanceVATNumber = manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             bool manufacturerDetailTabControlOverviewTabPageActiveStatus = manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string manufacturerDetailTabControlOverviewTabPageAddressLine1 = manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? manufacturerDetailTabControlOverviewTabPageAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.Text.TrimEnd();
-            string? manufacturerDetailTabControlOverviewTabPageAddressLine4 = manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.Text.TrimEnd();
+            string manufacturerDetailTabControlOverviewTabPageAddressLine1 = manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? manufacturerDetailTabControlOverviewTabPageAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string manufacturerDetailTabControlOverviewTabPageAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string? manufacturerDetailTabControlOverviewTabPageAddressLine4 = manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid manufacturerDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string manufacturerDetailTabControlOverviewTabPageEmailAddress = manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageManufacturerName = manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageTelephoneNumber = manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string manufacturerDetailTabControlOverviewTabPageEmailAddress = manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string manufacturerDetailTabControlOverviewTabPageManufacturerName = manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.Text.TrimEnd();
+            string manufacturerDetailTabControlOverviewTabPageTelephoneNumber = manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Manufacturer";
 
@@ -430,22 +430,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void ManufacturerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            manufacturerDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly;
-            manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly = !manufacturerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly;
+            manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
             manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
-            manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
-            manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine1Textbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine2Textbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine3Textbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine4Textbox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled = !manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled;
-            manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerIdTextbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerNameTextbox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.ReadOnly;
+            manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly;
             manufacturerDetailUpdateManufacturerButton.Enabled = !manufacturerDetailUpdateManufacturerButton.Enabled;
         }
 

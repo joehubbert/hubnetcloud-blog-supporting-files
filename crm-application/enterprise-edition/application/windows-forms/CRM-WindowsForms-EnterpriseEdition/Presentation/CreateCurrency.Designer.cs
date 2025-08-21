@@ -30,11 +30,11 @@
         {
             createCurrencyTitleLabel = new Label();
             createCurrencyCurrencyCodeLabel = new Label();
-            createCurrencyCurrencyCodeTextbox = new TextBox();
+            createCurrencyCurrencyCodeTextBox = new TextBox();
             createCurrencyActiveStatusCheckbox = new CheckBox();
             createCurrencySubmitButton = new Button();
             createCurrencyCurrencyNameLabel = new Label();
-            createCurrencyCurrencyNameTextbox = new TextBox();
+            createCurrencyCurrencyNameTextBox = new TextBox();
             SuspendLayout();
             // 
             // createCurrencyTitleLabel
@@ -59,14 +59,14 @@
             createCurrencyCurrencyCodeLabel.Text = "Currency Code*";
             createCurrencyCurrencyCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyCurrencyCodeTextbox
+            // createCurrencyCurrencyCodeTextBox
             // 
-            createCurrencyCurrencyCodeTextbox.Location = new Point(202, 71);
-            createCurrencyCurrencyCodeTextbox.Margin = new Padding(3, 4, 3, 4);
-            createCurrencyCurrencyCodeTextbox.MaxLength = 3;
-            createCurrencyCurrencyCodeTextbox.Name = "createCurrencyCurrencyCodeTextbox";
-            createCurrencyCurrencyCodeTextbox.Size = new Size(48, 27);
-            createCurrencyCurrencyCodeTextbox.TabIndex = 0;
+            createCurrencyCurrencyCodeTextBox.Location = new Point(202, 71);
+            createCurrencyCurrencyCodeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCurrencyCurrencyCodeTextBox.MaxLength = 3;
+            createCurrencyCurrencyCodeTextBox.Name = "createCurrencyCurrencyCodeTextBox";
+            createCurrencyCurrencyCodeTextBox.Size = new Size(48, 27);
+            createCurrencyCurrencyCodeTextBox.TabIndex = 0;
             // 
             // createCurrencyActiveStatusCheckbox
             // 
@@ -106,14 +106,14 @@
             createCurrencyCurrencyNameLabel.Text = "Currency Name*";
             createCurrencyCurrencyNameLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyCurrencyNameTextbox
+            // createCurrencyCurrencyNameTextBox
             // 
-            createCurrencyCurrencyNameTextbox.Location = new Point(202, 111);
-            createCurrencyCurrencyNameTextbox.Margin = new Padding(3, 4, 3, 4);
-            createCurrencyCurrencyNameTextbox.MaxLength = 50;
-            createCurrencyCurrencyNameTextbox.Name = "createCurrencyCurrencyNameTextbox";
-            createCurrencyCurrencyNameTextbox.Size = new Size(284, 27);
-            createCurrencyCurrencyNameTextbox.TabIndex = 1;
+            createCurrencyCurrencyNameTextBox.Location = new Point(202, 111);
+            createCurrencyCurrencyNameTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCurrencyCurrencyNameTextBox.MaxLength = 50;
+            createCurrencyCurrencyNameTextBox.Name = "createCurrencyCurrencyNameTextBox";
+            createCurrencyCurrencyNameTextBox.Size = new Size(284, 27);
+            createCurrencyCurrencyNameTextBox.TabIndex = 1;
             // 
             // CreateCurrency
             // 
@@ -121,11 +121,11 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(543, 296);
-            Controls.Add(createCurrencyCurrencyNameTextbox);
+            Controls.Add(createCurrencyCurrencyNameTextBox);
             Controls.Add(createCurrencyCurrencyNameLabel);
             Controls.Add(createCurrencySubmitButton);
             Controls.Add(createCurrencyActiveStatusCheckbox);
-            Controls.Add(createCurrencyCurrencyCodeTextbox);
+            Controls.Add(createCurrencyCurrencyCodeTextBox);
             Controls.Add(createCurrencyCurrencyCodeLabel);
             Controls.Add(createCurrencyTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -143,10 +143,10 @@
 
         private Label createCurrencyTitleLabel;
         private Label createCurrencyCurrencyCodeLabel;
-        private TextBox createCurrencyCurrencyCodeTextbox;
+        private TextBox createCurrencyCurrencyCodeTextBox;
         private CheckBox createCurrencyActiveStatusCheckbox;
         private Button createCurrencySubmitButton;
         private Label createCurrencyCurrencyNameLabel;
-        private TextBox createCurrencyCurrencyNameTextbox;
+        private TextBox createCurrencyCurrencyNameTextBox;
     }
 }

@@ -38,7 +38,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void IntializeEventHandlers()
         {
             viewAllDataDataGridView.CellContentClick += viewAllDataDataGridView_CellContentClick;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(viewAllDataQuickFilterTextbox, viewAllDataDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(viewAllDataQuickFilterTextBox, viewAllDataDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

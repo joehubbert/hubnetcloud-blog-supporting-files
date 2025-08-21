@@ -32,8 +32,8 @@
             viewAllDataTitleLabel = new Label();
             viewAllDataRefreshDataButton = new Button();
             viewAllDataDataGridView = new DataGridView();
-            viewAllDataQuickFilterTextbox = new TextBox();
-            viewAllDataQuickFilterTextboxLabel = new Label();
+            viewAllDataQuickFilterTextBox = new TextBox();
+            viewAllDataQuickFilterTextBoxLabel = new Label();
             viewAllDataExportCSVButton = new Button();
             viewAllDataStatusStrip = new StatusStrip();
             viewAllDataStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
@@ -84,21 +84,21 @@
             viewAllDataDataGridView.Size = new Size(1162, 441);
             viewAllDataDataGridView.TabIndex = 1;
             // 
-            // viewAllDataQuickFilterTextbox
+            // viewAllDataQuickFilterTextBox
             // 
-            viewAllDataQuickFilterTextbox.Location = new Point(150, 75);
-            viewAllDataQuickFilterTextbox.Name = "viewAllDataQuickFilterTextbox";
-            viewAllDataQuickFilterTextbox.Size = new Size(843, 27);
-            viewAllDataQuickFilterTextbox.TabIndex = 0;
+            viewAllDataQuickFilterTextBox.Location = new Point(150, 75);
+            viewAllDataQuickFilterTextBox.Name = "viewAllDataQuickFilterTextBox";
+            viewAllDataQuickFilterTextBox.Size = new Size(843, 27);
+            viewAllDataQuickFilterTextBox.TabIndex = 0;
             // 
-            // viewAllDataQuickFilterTextboxLabel
+            // viewAllDataQuickFilterTextBoxLabel
             // 
-            viewAllDataQuickFilterTextboxLabel.AutoSize = true;
-            viewAllDataQuickFilterTextboxLabel.Location = new Point(61, 78);
-            viewAllDataQuickFilterTextboxLabel.Name = "viewAllDataQuickFilterTextboxLabel";
-            viewAllDataQuickFilterTextboxLabel.Size = new Size(83, 20);
-            viewAllDataQuickFilterTextboxLabel.TabIndex = 16;
-            viewAllDataQuickFilterTextboxLabel.Text = "Quick Filter";
+            viewAllDataQuickFilterTextBoxLabel.AutoSize = true;
+            viewAllDataQuickFilterTextBoxLabel.Location = new Point(61, 78);
+            viewAllDataQuickFilterTextBoxLabel.Name = "viewAllDataQuickFilterTextBoxLabel";
+            viewAllDataQuickFilterTextBoxLabel.Size = new Size(83, 20);
+            viewAllDataQuickFilterTextBoxLabel.TabIndex = 16;
+            viewAllDataQuickFilterTextBoxLabel.Text = "Quick Filter";
             // 
             // viewAllDataExportCSVButton
             // 
@@ -147,8 +147,8 @@
             ClientSize = new Size(1190, 606);
             Controls.Add(viewAllDataStatusStrip);
             Controls.Add(viewAllDataExportCSVButton);
-            Controls.Add(viewAllDataQuickFilterTextboxLabel);
-            Controls.Add(viewAllDataQuickFilterTextbox);
+            Controls.Add(viewAllDataQuickFilterTextBoxLabel);
+            Controls.Add(viewAllDataQuickFilterTextBox);
             Controls.Add(viewAllDataDataGridView);
             Controls.Add(viewAllDataRefreshDataButton);
             Controls.Add(viewAllDataTitleLabel);
@@ -171,8 +171,8 @@
         private Label viewAllDataTitleLabel;
         private Button viewAllDataRefreshDataButton;
         private DataGridView viewAllDataDataGridView;
-        private TextBox viewAllDataQuickFilterTextbox;
-        private Label viewAllDataQuickFilterTextboxLabel;
+        private TextBox viewAllDataQuickFilterTextBox;
+        private Label viewAllDataQuickFilterTextBoxLabel;
         private Button viewAllDataExportCSVButton;
         private StatusStrip viewAllDataStatusStrip;
         private ToolStripSplitButton viewAllDataStatusStripCompanyConfigurationPlaceholder;

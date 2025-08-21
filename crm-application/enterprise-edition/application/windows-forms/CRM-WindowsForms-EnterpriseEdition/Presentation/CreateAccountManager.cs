@@ -32,10 +32,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
-            string emailAddress = createAccountManagerEmailAddressTextbox.Text.TrimEnd();
-            string firstName = createAccountManagerFirstNameTextbox.Text.TrimEnd();
-            string lastName = createAccountManagerLastNameTextbox.Text.TrimEnd();
-            string telephoneNumber = createAccountManagerTelephoneNumberTextbox.Text.TrimEnd();
+            string emailAddress = createAccountManagerEmailAddressTextBox.Text.TrimEnd();
+            string firstName = createAccountManagerFirstNameTextBox.Text.TrimEnd();
+            string lastName = createAccountManagerLastNameTextBox.Text.TrimEnd();
+            string telephoneNumber = createAccountManagerTelephoneNumberTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

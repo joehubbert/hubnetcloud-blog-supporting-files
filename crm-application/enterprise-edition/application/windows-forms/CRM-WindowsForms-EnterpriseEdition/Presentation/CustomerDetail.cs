@@ -92,9 +92,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             customerDetailTabControl.SelectedIndexChanged += CustomerDetailTabControl_SelectedIndexChanged;
             customerDetailToggleEditModeButton.Click += customerDetailToggleEditModeButton_Click;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextbox, customerDetailTabControlCustomerContactTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextbox, customerDetailTabControlCustomerLeadTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextbox, customerDetailTabControlCustomerNoteTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextBox, customerDetailTabControlCustomerContactTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextBox, customerDetailTabControlCustomerLeadTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextBox, customerDetailTabControlCustomerNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -319,13 +319,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked)
             {
-                customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Enabled = true;
-                customerDetailTabControlFinanceTabPageTextboxB.Enabled = true;
+                customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = true;
+                customerDetailTabControlFinanceTabPageTextBoxB.Enabled = true;
             }
             else
             {
-                customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Enabled = false;
-                customerDetailTabControlFinanceTabPageTextboxB.Enabled = false;
+                customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = false;
+                customerDetailTabControlFinanceTabPageTextBoxB.Enabled = false;
             }
         }
 
@@ -333,12 +333,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                customerDetailTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
+                customerDetailTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
             else
             {
-                customerDetailTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
-                customerDetailTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                customerDetailTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
+                customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
 
@@ -354,7 +354,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (result == DialogResult.OK)
                 {
-                    customerDetailTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                    customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
                 }
                 else
                 {
@@ -392,51 +392,51 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     Guid companyConfigurationId = (Guid)customerDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
-                    customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.Text = customerDataRow["Billing Address Line 1"].ToString();
-                    customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Text = customerDataRow["Billing Address Line 2"].ToString();
-                    customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Text = customerDataRow["Billing Address Line 3"].ToString();
-                    customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Text = customerDataRow["Billing Address Line 4"].ToString();
+                    customerDetailTabControlBillingInformationTabPageAddressLine1TextBox.Text = customerDataRow["Billing Address Line 1"].ToString();
+                    customerDetailTabControlBillingInformationTabPageAddressLine2TextBox.Text = customerDataRow["Billing Address Line 2"].ToString();
+                    customerDetailTabControlBillingInformationTabPageAddressLine3TextBox.Text = customerDataRow["Billing Address Line 3"].ToString();
+                    customerDetailTabControlBillingInformationTabPageAddressLine4TextBox.Text = customerDataRow["Billing Address Line 4"].ToString();
                     Guid billingAddressLine5 = (Guid)customerDataRow["Billing Address Line 5"];
                     await LoadCountryDataAsync(billingAddressLine5, "billing");
-                    customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Text = customerDataRow["Billing Company Name"].ToString();
-                    customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Text = customerDataRow["Billing Email Address"].ToString();
-                    customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Text = customerDataRow["Billing First Name"].ToString();
-                    customerDetailTabControlBillingInformationTabPageLastNameTextbox.Text = customerDataRow["Billing Last Name"].ToString();
-                    customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.Text = customerDataRow["Billing Telephone Number"].ToString();
+                    customerDetailTabControlBillingInformationTabPageCompanyNameTextBox.Text = customerDataRow["Billing Company Name"].ToString();
+                    customerDetailTabControlBillingInformationTabPageEmailAddressTextBox.Text = customerDataRow["Billing Email Address"].ToString();
+                    customerDetailTabControlBillingInformationTabPageFirstNameTextBox.Text = customerDataRow["Billing First Name"].ToString();
+                    customerDetailTabControlBillingInformationTabPageLastNameTextBox.Text = customerDataRow["Billing Last Name"].ToString();
+                    customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.Text = customerDataRow["Billing Telephone Number"].ToString();
                     customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
                     string creditLimitPartA;
                     string creditLimitPartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit"], out creditLimitPartA, out creditLimitPartB);
-                    customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Text = creditLimitPartA;
-                    customerDetailTabControlFinanceTabPageTextboxB.Text = creditLimitPartB;
+                    customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Text = creditLimitPartA;
+                    customerDetailTabControlFinanceTabPageTextBoxB.Text = creditLimitPartB;
                     string creditLimitUsedPartA;
                     string creditLimitUsedPartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used"], out creditLimitUsedPartA, out creditLimitUsedPartB);
-                    customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxA.Text = creditLimitUsedPartA;
-                    customerDetailTabControlFinanceTabPageCreditLimitUsedTextboxB.Text = creditLimitUsedPartB;
+                    customerDetailTabControlFinanceTabPageCreditLimitUsedTextBoxA.Text = creditLimitUsedPartA;
+                    customerDetailTabControlFinanceTabPageCreditLimitUsedTextBoxB.Text = creditLimitUsedPartB;
                     string creditLimitUsedPercentagePartA;
                     string creditLimitUsedPercentagePartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used Percentage"], out creditLimitUsedPercentagePartA, out creditLimitUsedPercentagePartB);
-                    customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxA.Text = creditLimitUsedPercentagePartA;
-                    customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextboxB.Text = creditLimitUsedPercentagePartB;
+                    customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextBoxA.Text = creditLimitUsedPercentagePartA;
+                    customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextBoxB.Text = creditLimitUsedPercentagePartB;
                     customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
                     Guid paymentCurrencyId = (Guid)customerDataRow["Payment Currency Id"];
                     await LoadCurrencyDataAsync(paymentCurrencyId);
-                    customerDetailTabControlFinanceTabPagePaymentDaysTextbox.Text = customerDataRow["Payment Days"].ToString();
-                    customerDetailTabControlFinanceTabPageVATNumberTextbox.Text = customerDataRow["VAT Number"].ToString();
+                    customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = customerDataRow["Payment Days"].ToString();
+                    customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = customerDataRow["VAT Number"].ToString();
                     Guid accountManagerId = (Guid)customerDataRow["Account Manager Id"];
                     await LoadAccountManagerDataAsync(accountManagerId, companyConfigurationId);
                     customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerDataRow["Active Status"];
-                    customerDetailTabControlOverviewTabPageCompanyNameTextbox.Text = customerDataRow["Company Name"].ToString();
-                    customerDetailTabControlOverviewTabPageCreatedByTextbox.Text = customerDataRow["Created By"].ToString();
-                    customerDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = customerDataRow["Created Timestamp UTC"].ToString();
-                    customerDetailTabControlOverviewTabPageCustomerIdTextbox.Text = customerDataRow["Customer Id"].ToString();
+                    customerDetailTabControlOverviewTabPageCompanyNameTextBox.Text = customerDataRow["Company Name"].ToString();
+                    customerDetailTabControlOverviewTabPageCreatedByTextBox.Text = customerDataRow["Created By"].ToString();
+                    customerDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = customerDataRow["Created Timestamp UTC"].ToString();
+                    customerDetailTabControlOverviewTabPageCustomerIdTextBox.Text = customerDataRow["Customer Id"].ToString();
                     customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Value = (DateTime)customerDataRow["Customer Since"];
                     Guid customerTierId = (Guid)customerDataRow["Customer Tier Id"];
                     await LoadCustomerTierDataAsync(companyConfigurationId, customerTierId);
                     Guid customerTypeId = (Guid)customerDataRow["Customer Type Id"];
                     await LoadCustomerTypeAsync(companyConfigurationId, customerTypeId);
-                    customerDetailTabControlOverviewTabPageEmailAddressTextbox.Text = customerDataRow["Email Address"].ToString();
+                    customerDetailTabControlOverviewTabPageEmailAddressTextBox.Text = customerDataRow["Email Address"].ToString();
                     if ((bool)customerDataRow["Global Parent Customer"] || (bool)customerDataRow["Top Parent Customer"])
                     {
                         customerDetailTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.Checked = true;
@@ -475,26 +475,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         Guid existingTopParentCustomerId = (Guid)customerDataRow["Top Parent Customer Id"];
                         await LoadTopParentCustomerDataAsync(existingTopParentCustomerId);
                     }
-                    customerDetailTabControlOverviewTabPageFirstNameTextbox.Text = customerDataRow["First Name"].ToString();
-                    customerDetailTabControlOverviewTabPageLastNameTextbox.Text = customerDataRow["Last Name"].ToString();
-                    customerDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = customerDataRow["Modified By"].ToString();
-                    customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = customerDataRow["Modified Timestamp UTC"].ToString();
+                    customerDetailTabControlOverviewTabPageFirstNameTextBox.Text = customerDataRow["First Name"].ToString();
+                    customerDetailTabControlOverviewTabPageLastNameTextBox.Text = customerDataRow["Last Name"].ToString();
+                    customerDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = customerDataRow["Modified By"].ToString();
+                    customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = customerDataRow["Modified Timestamp UTC"].ToString();
                     Guid salesRegionId = (Guid)customerDataRow["Sales Region Id"];
                     await LoadSalesRegionDataAsync(companyConfigurationId, salesRegionId);
                     Guid salesSubRegionid = (Guid)customerDataRow["Sales Sub Region Id"];
                     await LoadSalesSubRegionAsync(salesRegionId, salesSubRegionid);
-                    customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text = customerDataRow["Telephone Number"].ToString();
-                    customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.Text = customerDataRow["Shipping Address Line 1"].ToString();
-                    customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Text = customerDataRow["Shipping Address Line 2"].ToString();
-                    customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Text = customerDataRow["Shipping Address Line 3"].ToString();
-                    customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Text = customerDataRow["Shipping Address Line 4"].ToString();
+                    customerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text = customerDataRow["Telephone Number"].ToString();
+                    customerDetailTabControlShippingInformationTabPageAddressLine1TextBox.Text = customerDataRow["Shipping Address Line 1"].ToString();
+                    customerDetailTabControlShippingInformationTabPageAddressLine2TextBox.Text = customerDataRow["Shipping Address Line 2"].ToString();
+                    customerDetailTabControlShippingInformationTabPageAddressLine3TextBox.Text = customerDataRow["Shipping Address Line 3"].ToString();
+                    customerDetailTabControlShippingInformationTabPageAddressLine4TextBox.Text = customerDataRow["Shipping Address Line 4"].ToString();
                     Guid shippingAddressLine5 = (Guid)customerDataRow["Shipping Address Line 5"];
                     await LoadCountryDataAsync(shippingAddressLine5, "shipping");
-                    customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Text = customerDataRow["Shipping Company Name"].ToString();
-                    customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Text = customerDataRow["Shipping Email Address"].ToString();
-                    customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Text = customerDataRow["Shipping First Name"].ToString();
-                    customerDetailTabControlShippingInformationTabPageLastNameTextbox.Text = customerDataRow["Shipping Last Name"].ToString();
-                    customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.Text = customerDataRow["Shipping Telephone Number"].ToString();
+                    customerDetailTabControlShippingInformationTabPageCompanyNameTextBox.Text = customerDataRow["Shipping Company Name"].ToString();
+                    customerDetailTabControlShippingInformationTabPageEmailAddressTextBox.Text = customerDataRow["Shipping Email Address"].ToString();
+                    customerDetailTabControlShippingInformationTabPageFirstNameTextBox.Text = customerDataRow["Shipping First Name"].ToString();
+                    customerDetailTabControlShippingInformationTabPageLastNameTextBox.Text = customerDataRow["Shipping Last Name"].ToString();
+                    customerDetailTabControlShippingInformationTabPageTelephoneNumberTextBox.Text = customerDataRow["Shipping Telephone Number"].ToString();
 
                     customerDetailTabControlBillingInformationTabPageAddressLine1OriginalValue = customerDataRow["Billing Address Line 1"].ToString();
                     customerDetailTabControlBillingInformationTabPageAddressLine2OriginalValue = customerDataRow["Billing Address Line 2"].ToString();
@@ -691,31 +691,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void customerDetailUpdateCustomerButton_Click(object sender, EventArgs e)
         {
-            string customerBillingInformationAddressLine1 = customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? customerBillingInformationAddressLine2 = customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine3 = customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine4 = customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine1 = customerDetailTabControlBillingInformationTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? customerBillingInformationAddressLine2 = customerDetailTabControlBillingInformationTabPageAddressLine2TextBox.Text.TrimEnd();
+            string customerBillingInformationAddressLine3 = customerDetailTabControlBillingInformationTabPageAddressLine3TextBox.Text.TrimEnd();
+            string customerBillingInformationAddressLine4 = customerDetailTabControlBillingInformationTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid customerBillingInformationAddressLine5 = Guid.Parse(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string? customerBillingInformationCompanyName = customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
-            string customerBillingInformationEmailAddress = customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
-            string customerBillingInformationFirstName = customerDetailTabControlBillingInformationTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerBillingInformationLastName = customerDetailTabControlBillingInformationTabPageLastNameTextbox.Text.TrimEnd();
-            string customerBillingInformationTelephoneNumber = customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string? customerBillingInformationCompanyName = customerDetailTabControlBillingInformationTabPageCompanyNameTextBox.Text.TrimEnd();
+            string customerBillingInformationEmailAddress = customerDetailTabControlBillingInformationTabPageEmailAddressTextBox.Text.TrimEnd();
+            string customerBillingInformationFirstName = customerDetailTabControlBillingInformationTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerBillingInformationLastName = customerDetailTabControlBillingInformationTabPageLastNameTextBox.Text.TrimEnd();
+            string customerBillingInformationTelephoneNumber = customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             bool customerFinanceCreditEnabled = customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
-            decimal customerFinanceCreditLimit = decimal.Parse($"{customerDetailTabControlFinanceTabPageCreditLimitTextboxA.Text.TrimEnd()}.{customerDetailTabControlFinanceTabPageTextboxB.Text.TrimEnd()}");
+            decimal customerFinanceCreditLimit = decimal.Parse($"{customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Text.TrimEnd()}.{customerDetailTabControlFinanceTabPageTextBoxB.Text.TrimEnd()}");
             Guid customerFinancePaymentCurrencyId = Guid.Parse(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte customerFinancePaymentDays = byte.Parse(customerDetailTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
-            string? customerFinanceVATNumber = customerDetailTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            byte customerFinancePaymentDays = byte.Parse(customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
+            string? customerFinanceVATNumber = customerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             Guid customerOverviewAccountManagerId = Guid.Parse(customerDetailTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
             Guid customerOverviewCompanyConfigurationId = Guid.Parse(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
-            string? customerOverviewCompanyName = customerDetailTabControlOverviewTabPageCompanyNameTextbox.Text.TrimEnd();
+            string? customerOverviewCompanyName = customerDetailTabControlOverviewTabPageCompanyNameTextBox.Text.TrimEnd();
             DateTime customerOverviewCustomerSince = customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(customerDetailTabControlOverviewTabPageCustomerTierComboBox.SelectedValue.ToString());
             Guid customerOverviewCustomerTypeId = Guid.Parse(customerDetailTabControlOverviewTabPageCustomerTypeComboBox.SelectedValue.ToString());
-            string customerOverviewEmailAddress = customerDetailTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
+            string customerOverviewEmailAddress = customerDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
             Guid? customerOverviewExistingGlobalParentCustomerId = null;
             if (customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue != null)
             {
@@ -726,23 +726,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerOverviewExistingTopParentCustomerId = Guid.Parse(customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue.ToString());
             }
-            string customerOverviewFirstName = customerDetailTabControlOverviewTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerOverviewLastName = customerDetailTabControlOverviewTabPageLastNameTextbox.Text.TrimEnd();
+            string customerOverviewFirstName = customerDetailTabControlOverviewTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerOverviewLastName = customerDetailTabControlOverviewTabPageLastNameTextBox.Text.TrimEnd();
             Guid customerOverviewSalesSubRegionId = Guid.Parse(customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue.ToString());
-            string customerOverviewTelephoneNumber = customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string customerOverviewTelephoneNumber = customerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
             bool customerOverviewWillBeGlobalParent = customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.Checked;
             bool customerOverviewWillBeTopParent = customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.Checked;
 
-            string customerShippingInformationAddressLine1 = customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? customerShippingInformationAddressLine2 = customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine3 = customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine4 = customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine1 = customerDetailTabControlShippingInformationTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? customerShippingInformationAddressLine2 = customerDetailTabControlShippingInformationTabPageAddressLine2TextBox.Text.TrimEnd();
+            string customerShippingInformationAddressLine3 = customerDetailTabControlShippingInformationTabPageAddressLine3TextBox.Text.TrimEnd();
+            string customerShippingInformationAddressLine4 = customerDetailTabControlShippingInformationTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid customerShippingInformationAddressLine5 = Guid.Parse(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string? customerShippingInformationCompanyName = customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
-            string customerShippingInformationEmailAddress = customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
-            string customerShippingInformationFirstName = customerDetailTabControlShippingInformationTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerShippingInformationLastName = customerDetailTabControlShippingInformationTabPageLastNameTextbox.Text.TrimEnd();
-            string customerShippingInformationTelephoneNumber = customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string? customerShippingInformationCompanyName = customerDetailTabControlShippingInformationTabPageCompanyNameTextBox.Text.TrimEnd();
+            string customerShippingInformationEmailAddress = customerDetailTabControlShippingInformationTabPageEmailAddressTextBox.Text.TrimEnd();
+            string customerShippingInformationFirstName = customerDetailTabControlShippingInformationTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerShippingInformationLastName = customerDetailTabControlShippingInformationTabPageLastNameTextBox.Text.TrimEnd();
+            string customerShippingInformationTelephoneNumber = customerDetailTabControlShippingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Customer";
 
@@ -1334,54 +1334,54 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine1Textbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine2Textbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine3Textbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine4Textbox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageAddressLine1TextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine1TextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageAddressLine2TextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine2TextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageAddressLine3TextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine3TextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageAddressLine4TextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageAddressLine4TextBox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Enabled = !customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.Enabled;
-            customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageCompanyNameTextbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageEmailAddressTextbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageFirstNameTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageFirstNameTextbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageLastNameTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageLastNameTextbox.ReadOnly;
-            customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.ReadOnly = !customerDetailTabControlBillingInformationTabPageTelephoneNumberTextbox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageCompanyNameTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageCompanyNameTextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageEmailAddressTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageEmailAddressTextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageFirstNameTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageFirstNameTextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageLastNameTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageLastNameTextBox.ReadOnly;
+            customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.ReadOnly;
             customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Enabled = !customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Enabled;
-            customerDetailTabControlFinanceTabPageCreditLimitTextboxA.ReadOnly = !customerDetailTabControlFinanceTabPageCreditLimitTextboxA.ReadOnly;
-            customerDetailTabControlFinanceTabPageTextboxB.ReadOnly = !customerDetailTabControlFinanceTabPageTextboxB.ReadOnly;
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.ReadOnly = !customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.ReadOnly;
+            customerDetailTabControlFinanceTabPageTextBoxB.ReadOnly = !customerDetailTabControlFinanceTabPageTextBoxB.ReadOnly;
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled = !customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled;
-            customerDetailTabControlFinanceTabPagePaymentDaysTextbox.ReadOnly = !customerDetailTabControlFinanceTabPagePaymentDaysTextbox.ReadOnly;
+            customerDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly = !customerDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly;
             customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
-            customerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly = !customerDetailTabControlFinanceTabPageVATNumberTextbox.ReadOnly;
+            customerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !customerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled = !customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled;
             customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
             customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled = !customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled;
-            customerDetailTabControlOverviewTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageCompanyNameTextbox.ReadOnly;
+            customerDetailTabControlOverviewTabPageCompanyNameTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageCompanyNameTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled = !customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled;
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.Enabled = !customerDetailTabControlOverviewTabPageCustomerTierComboBox.Enabled;
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Enabled = !customerDetailTabControlOverviewTabPageCustomerTypeComboBox.Enabled;
-            customerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageEmailAddressTextbox.ReadOnly;
+            customerDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageEmailAddressTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.Enabled = !customerDetailTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.Enabled;
             customerDetailTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.Enabled = !customerDetailTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.Enabled;
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Enabled = !customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.Enabled;
             customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Enabled = !customerDetailTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.Enabled;
-            customerDetailTabControlOverviewTabPageFirstNameTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageFirstNameTextbox.ReadOnly;
+            customerDetailTabControlOverviewTabPageFirstNameTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageFirstNameTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = !customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled;
-            customerDetailTabControlOverviewTabPageLastNameTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageLastNameTextbox.ReadOnly;
+            customerDetailTabControlOverviewTabPageLastNameTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageLastNameTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageSalesRegionComboBox.Enabled = !customerDetailTabControlOverviewTabPageSalesRegionComboBox.Enabled;
             customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Enabled = !customerDetailTabControlOverviewTabPageSalesSubRegionComboBox.Enabled;
-            customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly = !customerDetailTabControlOverviewTabPageTelephoneNumberTextbox.ReadOnly;
+            customerDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageTelephoneNumberTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = !customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Enabled;
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.Enabled = !customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.Enabled;
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.Enabled = !customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.Enabled;
-            customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine1Textbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine2Textbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine3Textbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine4Textbox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageAddressLine1TextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine1TextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageAddressLine2TextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine2TextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageAddressLine3TextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine3TextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageAddressLine4TextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageAddressLine4TextBox.ReadOnly;
             customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Enabled = !customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.Enabled;
-            customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageCompanyNameTextbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageEmailAddressTextbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageFirstNameTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageFirstNameTextbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageLastNameTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageLastNameTextbox.ReadOnly;
-            customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.ReadOnly = !customerDetailTabControlShippingInformationTabPageTelephoneNumberTextbox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageCompanyNameTextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageCompanyNameTextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageEmailAddressTextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageEmailAddressTextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageFirstNameTextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageFirstNameTextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageLastNameTextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageLastNameTextBox.ReadOnly;
+            customerDetailTabControlShippingInformationTabPageTelephoneNumberTextBox.ReadOnly = !customerDetailTabControlShippingInformationTabPageTelephoneNumberTextBox.ReadOnly;
             customerDetailUpdateCustomerButton.Enabled = !customerDetailUpdateCustomerButton.Enabled;
         }
 

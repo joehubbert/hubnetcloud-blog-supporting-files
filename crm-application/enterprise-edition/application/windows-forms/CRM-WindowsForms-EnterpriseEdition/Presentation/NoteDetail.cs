@@ -136,8 +136,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
             noteDetailTitleLabel.Text = $"{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
-            noteDetailNoteIdTextboxLabel.Text = noteDetailNoteIdFriendlyName;
-            noteDetailNoteTitleTextboxLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
+            noteDetailNoteIdTextBoxLabel.Text = noteDetailNoteIdFriendlyName;
+            noteDetailNoteTitleTextBoxLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
             noteDetailNoteTypeComboBoxLabel.Text = $"{noteDetailNoteTypeFriendlyName}*";
             noteDetailUpdateNoteButton.Text = $"Update {noteDetailModuleNoteTypeFriendlyName}";
         }
@@ -176,15 +176,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (noteDataTable != null)
                 {
                     DataRow noteDataRow = noteDataTable.Rows[0];
-                    noteDetailNoteIdTextbox.Text = noteDataRow[noteDetailNoteIdFriendlyName].ToString();
-                    noteDetailNoteTitleTextbox.Text = noteDataRow[noteDetailNoteTitleFriendlyName].ToString();
+                    noteDetailNoteIdTextBox.Text = noteDataRow[noteDetailNoteIdFriendlyName].ToString();
+                    noteDetailNoteTitleTextBox.Text = noteDataRow[noteDetailNoteTitleFriendlyName].ToString();
                     Guid noteTypeId = (Guid)noteDataRow[noteDetailNoteTypeIdFriendlyName];
                     await LoadNoteTypeAsync(noteTypeId);
-                    noteDetailNoteTextbox.Text = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
-                    noteDetailCreatedByTextbox.Text = noteDataRow["Created By"].ToString();
-                    noteDetailCreatedTimestampTextbox.Text = noteDataRow["Created Timestamp UTC"].ToString();
-                    noteDetailLastUpdatedByTextbox.Text = noteDataRow["Modified By"].ToString();
-                    noteDetailLastUpdatedTimestampTextbox.Text = noteDataRow["Modified Timestamp UTC"].ToString();
+                    noteDetailNoteTextBox.Text = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
+                    noteDetailCreatedByTextBox.Text = noteDataRow["Created By"].ToString();
+                    noteDetailCreatedTimestampTextBox.Text = noteDataRow["Created Timestamp UTC"].ToString();
+                    noteDetailLastUpdatedByTextBox.Text = noteDataRow["Modified By"].ToString();
+                    noteDetailLastUpdatedTimestampTextBox.Text = noteDataRow["Modified Timestamp UTC"].ToString();
 
                     noteDetailNoteOriginalValue = noteDataRow[noteDetailModuleNoteTypeFriendlyName].ToString();
                     noteDetailNoteTitleOriginalValue = noteDataRow[noteDetailNoteTitleFriendlyName].ToString();
@@ -203,8 +203,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void noteDetailUpdateNoteButton_Click(object sender, EventArgs e)
         {
-            string note = noteDetailNoteTextbox.Text.TrimEnd();
-            string noteTitle = noteDetailNoteTitleTextbox.Text.TrimEnd();
+            string note = noteDetailNoteTextBox.Text.TrimEnd();
+            string noteTitle = noteDetailNoteTitleTextBox.Text.TrimEnd();
             Guid noteTypeId = (Guid)noteDetailNoteTypeComboBox.SelectedValue;
 
             if (_databaseConnectionSettings == null)
@@ -327,8 +327,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void noteDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            noteDetailNoteTextbox.ReadOnly = !noteDetailNoteTextbox.ReadOnly;
-            noteDetailNoteTitleTextbox.ReadOnly = !noteDetailNoteTitleTextbox.ReadOnly;
+            noteDetailNoteTextBox.ReadOnly = !noteDetailNoteTextBox.ReadOnly;
+            noteDetailNoteTitleTextBox.ReadOnly = !noteDetailNoteTitleTextBox.ReadOnly;
             noteDetailNoteTypeComboBox.Enabled = !noteDetailNoteTypeComboBox.Enabled;
             noteDetailUpdateNoteButton.Enabled = !noteDetailUpdateNoteButton.Enabled;
         }

@@ -91,8 +91,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             dataSubjectName = functionTitle;
             createMasterDataEnhancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
-            createMasterDataEnhancedMasterDataTypeTextboxLabel.Text = $"{dataSubjectFriendlyName}*";
-            createMasterDataEnhancedMasterDataDescriptionTextboxLabel.Text = $"{dataSubjectFriendlyName} Description*";
+            createMasterDataEnhancedMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
+            createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description*";
             createMasterDataEnhancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}*";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }
@@ -100,8 +100,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createMasterDataEnhancedSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createMasterDataEnhancedActiveStatusCheckbox.Checked;
-            string dataSubjectDescriptionValue = createMasterDataEnhancedMasterDataDescriptionTextbox.Text.TrimEnd();
-            string dataSubjectValue = createMasterDataEnhancedMasterDataTypeTextbox.Text.TrimEnd();
+            string dataSubjectDescriptionValue = createMasterDataEnhancedMasterDataDescriptionTextBox.Text.TrimEnd();
+            string dataSubjectValue = createMasterDataEnhancedMasterDataTypeTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

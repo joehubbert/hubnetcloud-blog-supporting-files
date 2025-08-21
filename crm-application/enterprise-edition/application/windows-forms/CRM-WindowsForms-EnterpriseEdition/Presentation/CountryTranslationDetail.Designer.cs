@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             countryTranslationDetailTitleLabel = new Label();
-            countryTranslationDetailCountryTranslationIdTextboxLabel = new Label();
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel = new Label();
-            countryTranslationDetailLocalisedCountryNameTextboxLabel = new Label();
-            countryTranslationDetailCreatedByTextboxLabel = new Label();
-            countryTranslationDetailCreatedTimestampTextboxLabel = new Label();
-            countryTranslationDetailLastUpdatedByTextboxLabel = new Label();
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel = new Label();
-            countryTranslationDetailLastUpdatedByTextbox = new TextBox();
-            countryTranslationDetailCreatedByTextbox = new TextBox();
-            countryTranslationDetailLastUpdatedTimestampTextbox = new TextBox();
-            countryTranslationDetailCreatedTimestampTextbox = new TextBox();
-            countryTranslationDetailLocalisedCountryNameTextbox = new TextBox();
-            countryTranslationDetailCountryTranslationIdTextbox = new TextBox();
-            countryTranslationDetailBCP47LanguageTagCodeTextbox = new TextBox();
+            countryTranslationDetailCountryTranslationIdTextBoxLabel = new Label();
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel = new Label();
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel = new Label();
+            countryTranslationDetailCreatedByTextBoxLabel = new Label();
+            countryTranslationDetailCreatedTimestampTextBoxLabel = new Label();
+            countryTranslationDetailLastUpdatedByTextBoxLabel = new Label();
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            countryTranslationDetailLastUpdatedByTextBox = new TextBox();
+            countryTranslationDetailCreatedByTextBox = new TextBox();
+            countryTranslationDetailLastUpdatedTimestampTextBox = new TextBox();
+            countryTranslationDetailCreatedTimestampTextBox = new TextBox();
+            countryTranslationDetailLocalisedCountryNameTextBox = new TextBox();
+            countryTranslationDetailCountryTranslationIdTextBox = new TextBox();
+            countryTranslationDetailBCP47LanguageTagCodeTextBox = new TextBox();
             countryTranslationDetailToggleEditModeButton = new Button();
             countryTranslationDetailActiveStatusCheckbox = new CheckBox();
             countryTranslationDetailUpdateCountryTranslationButton = new Button();
@@ -61,138 +61,138 @@
             countryTranslationDetailTitleLabel.TabIndex = 7;
             countryTranslationDetailTitleLabel.Text = "Country Translation Detail";
             // 
-            // countryTranslationDetailCountryTranslationIdTextboxLabel
+            // countryTranslationDetailCountryTranslationIdTextBoxLabel
             // 
-            countryTranslationDetailCountryTranslationIdTextboxLabel.AutoSize = true;
-            countryTranslationDetailCountryTranslationIdTextboxLabel.Location = new Point(102, 141);
-            countryTranslationDetailCountryTranslationIdTextboxLabel.Name = "countryTranslationDetailCountryTranslationIdTextboxLabel";
-            countryTranslationDetailCountryTranslationIdTextboxLabel.Size = new Size(153, 20);
-            countryTranslationDetailCountryTranslationIdTextboxLabel.TabIndex = 8;
-            countryTranslationDetailCountryTranslationIdTextboxLabel.Text = "Country Translation Id";
-            countryTranslationDetailCountryTranslationIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.AutoSize = true;
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.Location = new Point(102, 141);
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.Name = "countryTranslationDetailCountryTranslationIdTextBoxLabel";
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.Size = new Size(153, 20);
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.TabIndex = 8;
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.Text = "Country Translation Id";
+            countryTranslationDetailCountryTranslationIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailBCP47LanguageTagCodeTextboxLabel
+            // countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel
             // 
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.AutoSize = true;
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Location = new Point(70, 221);
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Name = "countryTranslationDetailBCP47LanguageTagCodeTextboxLabel";
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Size = new Size(192, 20);
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.TabIndex = 9;
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.Text = "BCP47 Language Tag Code*";
-            countryTranslationDetailBCP47LanguageTagCodeTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.AutoSize = true;
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.Location = new Point(70, 221);
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.Name = "countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel";
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.Size = new Size(192, 20);
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.TabIndex = 9;
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.Text = "BCP47 Language Tag Code*";
+            countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailLocalisedCountryNameTextboxLabel
+            // countryTranslationDetailLocalisedCountryNameTextBoxLabel
             // 
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.AutoSize = true;
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Location = new Point(85, 261);
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Name = "countryTranslationDetailLocalisedCountryNameTextboxLabel";
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Size = new Size(176, 20);
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.TabIndex = 10;
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.Text = "Localised Country Name*";
-            countryTranslationDetailLocalisedCountryNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.AutoSize = true;
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.Location = new Point(85, 261);
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.Name = "countryTranslationDetailLocalisedCountryNameTextBoxLabel";
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.Size = new Size(176, 20);
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.TabIndex = 10;
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.Text = "Localised Country Name*";
+            countryTranslationDetailLocalisedCountryNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailCreatedByTextboxLabel
+            // countryTranslationDetailCreatedByTextBoxLabel
             // 
-            countryTranslationDetailCreatedByTextboxLabel.AutoSize = true;
-            countryTranslationDetailCreatedByTextboxLabel.Location = new Point(773, 141);
-            countryTranslationDetailCreatedByTextboxLabel.Name = "countryTranslationDetailCreatedByTextboxLabel";
-            countryTranslationDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            countryTranslationDetailCreatedByTextboxLabel.TabIndex = 11;
-            countryTranslationDetailCreatedByTextboxLabel.Text = "Created By";
-            countryTranslationDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailCreatedByTextBoxLabel.AutoSize = true;
+            countryTranslationDetailCreatedByTextBoxLabel.Location = new Point(773, 141);
+            countryTranslationDetailCreatedByTextBoxLabel.Name = "countryTranslationDetailCreatedByTextBoxLabel";
+            countryTranslationDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            countryTranslationDetailCreatedByTextBoxLabel.TabIndex = 11;
+            countryTranslationDetailCreatedByTextBoxLabel.Text = "Created By";
+            countryTranslationDetailCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailCreatedTimestampTextboxLabel
+            // countryTranslationDetailCreatedTimestampTextBoxLabel
             // 
-            countryTranslationDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            countryTranslationDetailCreatedTimestampTextboxLabel.Location = new Point(715, 181);
-            countryTranslationDetailCreatedTimestampTextboxLabel.Name = "countryTranslationDetailCreatedTimestampTextboxLabel";
-            countryTranslationDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            countryTranslationDetailCreatedTimestampTextboxLabel.TabIndex = 12;
-            countryTranslationDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            countryTranslationDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            countryTranslationDetailCreatedTimestampTextBoxLabel.Location = new Point(715, 181);
+            countryTranslationDetailCreatedTimestampTextBoxLabel.Name = "countryTranslationDetailCreatedTimestampTextBoxLabel";
+            countryTranslationDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            countryTranslationDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
+            countryTranslationDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            countryTranslationDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailLastUpdatedByTextboxLabel
+            // countryTranslationDetailLastUpdatedByTextBoxLabel
             // 
-            countryTranslationDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            countryTranslationDetailLastUpdatedByTextboxLabel.Location = new Point(737, 221);
-            countryTranslationDetailLastUpdatedByTextboxLabel.Name = "countryTranslationDetailLastUpdatedByTextboxLabel";
-            countryTranslationDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            countryTranslationDetailLastUpdatedByTextboxLabel.TabIndex = 13;
-            countryTranslationDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            countryTranslationDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            countryTranslationDetailLastUpdatedByTextBoxLabel.Location = new Point(737, 221);
+            countryTranslationDetailLastUpdatedByTextBoxLabel.Name = "countryTranslationDetailLastUpdatedByTextBoxLabel";
+            countryTranslationDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            countryTranslationDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
+            countryTranslationDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            countryTranslationDetailLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailLastUpdatedTimestampTextboxLabel
+            // countryTranslationDetailLastUpdatedTimestampTextBoxLabel
             // 
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Location = new Point(679, 261);
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Name = "countryTranslationDetailLastUpdatedTimestampTextboxLabel";
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            countryTranslationDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(679, 261);
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.Name = "countryTranslationDetailLastUpdatedTimestampTextBoxLabel";
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            countryTranslationDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // countryTranslationDetailLastUpdatedByTextbox
+            // countryTranslationDetailLastUpdatedByTextBox
             // 
-            countryTranslationDetailLastUpdatedByTextbox.Location = new Point(860, 218);
-            countryTranslationDetailLastUpdatedByTextbox.MaxLength = 50;
-            countryTranslationDetailLastUpdatedByTextbox.Name = "countryTranslationDetailLastUpdatedByTextbox";
-            countryTranslationDetailLastUpdatedByTextbox.ReadOnly = true;
-            countryTranslationDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLastUpdatedByTextbox.TabIndex = 7;
+            countryTranslationDetailLastUpdatedByTextBox.Location = new Point(860, 218);
+            countryTranslationDetailLastUpdatedByTextBox.MaxLength = 50;
+            countryTranslationDetailLastUpdatedByTextBox.Name = "countryTranslationDetailLastUpdatedByTextBox";
+            countryTranslationDetailLastUpdatedByTextBox.ReadOnly = true;
+            countryTranslationDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            countryTranslationDetailLastUpdatedByTextBox.TabIndex = 7;
             // 
-            // countryTranslationDetailCreatedByTextbox
+            // countryTranslationDetailCreatedByTextBox
             // 
-            countryTranslationDetailCreatedByTextbox.Location = new Point(860, 138);
-            countryTranslationDetailCreatedByTextbox.MaxLength = 50;
-            countryTranslationDetailCreatedByTextbox.Name = "countryTranslationDetailCreatedByTextbox";
-            countryTranslationDetailCreatedByTextbox.ReadOnly = true;
-            countryTranslationDetailCreatedByTextbox.Size = new Size(370, 27);
-            countryTranslationDetailCreatedByTextbox.TabIndex = 5;
+            countryTranslationDetailCreatedByTextBox.Location = new Point(860, 138);
+            countryTranslationDetailCreatedByTextBox.MaxLength = 50;
+            countryTranslationDetailCreatedByTextBox.Name = "countryTranslationDetailCreatedByTextBox";
+            countryTranslationDetailCreatedByTextBox.ReadOnly = true;
+            countryTranslationDetailCreatedByTextBox.Size = new Size(370, 27);
+            countryTranslationDetailCreatedByTextBox.TabIndex = 5;
             // 
-            // countryTranslationDetailLastUpdatedTimestampTextbox
+            // countryTranslationDetailLastUpdatedTimestampTextBox
             // 
-            countryTranslationDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
-            countryTranslationDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            countryTranslationDetailLastUpdatedTimestampTextbox.Name = "countryTranslationDetailLastUpdatedTimestampTextbox";
-            countryTranslationDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            countryTranslationDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLastUpdatedTimestampTextbox.TabIndex = 8;
+            countryTranslationDetailLastUpdatedTimestampTextBox.Location = new Point(860, 258);
+            countryTranslationDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            countryTranslationDetailLastUpdatedTimestampTextBox.Name = "countryTranslationDetailLastUpdatedTimestampTextBox";
+            countryTranslationDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            countryTranslationDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            countryTranslationDetailLastUpdatedTimestampTextBox.TabIndex = 8;
             // 
-            // countryTranslationDetailCreatedTimestampTextbox
+            // countryTranslationDetailCreatedTimestampTextBox
             // 
-            countryTranslationDetailCreatedTimestampTextbox.Location = new Point(860, 178);
-            countryTranslationDetailCreatedTimestampTextbox.MaxLength = 50;
-            countryTranslationDetailCreatedTimestampTextbox.Name = "countryTranslationDetailCreatedTimestampTextbox";
-            countryTranslationDetailCreatedTimestampTextbox.ReadOnly = true;
-            countryTranslationDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            countryTranslationDetailCreatedTimestampTextbox.TabIndex = 6;
+            countryTranslationDetailCreatedTimestampTextBox.Location = new Point(860, 178);
+            countryTranslationDetailCreatedTimestampTextBox.MaxLength = 50;
+            countryTranslationDetailCreatedTimestampTextBox.Name = "countryTranslationDetailCreatedTimestampTextBox";
+            countryTranslationDetailCreatedTimestampTextBox.ReadOnly = true;
+            countryTranslationDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            countryTranslationDetailCreatedTimestampTextBox.TabIndex = 6;
             // 
-            // countryTranslationDetailLocalisedCountryNameTextbox
+            // countryTranslationDetailLocalisedCountryNameTextBox
             // 
-            countryTranslationDetailLocalisedCountryNameTextbox.Location = new Point(261, 258);
-            countryTranslationDetailLocalisedCountryNameTextbox.MaxLength = 100;
-            countryTranslationDetailLocalisedCountryNameTextbox.Name = "countryTranslationDetailLocalisedCountryNameTextbox";
-            countryTranslationDetailLocalisedCountryNameTextbox.ReadOnly = true;
-            countryTranslationDetailLocalisedCountryNameTextbox.Size = new Size(370, 27);
-            countryTranslationDetailLocalisedCountryNameTextbox.TabIndex = 3;
+            countryTranslationDetailLocalisedCountryNameTextBox.Location = new Point(261, 258);
+            countryTranslationDetailLocalisedCountryNameTextBox.MaxLength = 100;
+            countryTranslationDetailLocalisedCountryNameTextBox.Name = "countryTranslationDetailLocalisedCountryNameTextBox";
+            countryTranslationDetailLocalisedCountryNameTextBox.ReadOnly = true;
+            countryTranslationDetailLocalisedCountryNameTextBox.Size = new Size(370, 27);
+            countryTranslationDetailLocalisedCountryNameTextBox.TabIndex = 3;
             // 
-            // countryTranslationDetailCountryTranslationIdTextbox
+            // countryTranslationDetailCountryTranslationIdTextBox
             // 
-            countryTranslationDetailCountryTranslationIdTextbox.Location = new Point(261, 138);
-            countryTranslationDetailCountryTranslationIdTextbox.MaxLength = 36;
-            countryTranslationDetailCountryTranslationIdTextbox.Name = "countryTranslationDetailCountryTranslationIdTextbox";
-            countryTranslationDetailCountryTranslationIdTextbox.ReadOnly = true;
-            countryTranslationDetailCountryTranslationIdTextbox.Size = new Size(370, 27);
-            countryTranslationDetailCountryTranslationIdTextbox.TabIndex = 0;
+            countryTranslationDetailCountryTranslationIdTextBox.Location = new Point(261, 138);
+            countryTranslationDetailCountryTranslationIdTextBox.MaxLength = 36;
+            countryTranslationDetailCountryTranslationIdTextBox.Name = "countryTranslationDetailCountryTranslationIdTextBox";
+            countryTranslationDetailCountryTranslationIdTextBox.ReadOnly = true;
+            countryTranslationDetailCountryTranslationIdTextBox.Size = new Size(370, 27);
+            countryTranslationDetailCountryTranslationIdTextBox.TabIndex = 0;
             // 
-            // countryTranslationDetailBCP47LanguageTagCodeTextbox
+            // countryTranslationDetailBCP47LanguageTagCodeTextBox
             // 
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.Location = new Point(262, 218);
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.MaxLength = 5;
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.Name = "countryTranslationDetailBCP47LanguageTagCodeTextbox";
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.ReadOnly = true;
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.Size = new Size(66, 27);
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.TabIndex = 2;
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.Location = new Point(262, 218);
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.MaxLength = 5;
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.Name = "countryTranslationDetailBCP47LanguageTagCodeTextBox";
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.ReadOnly = true;
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.Size = new Size(66, 27);
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.TabIndex = 2;
             // 
             // countryTranslationDetailToggleEditModeButton
             // 
@@ -264,20 +264,20 @@
             Controls.Add(countryTranslationDetailUpdateCountryTranslationButton);
             Controls.Add(countryTranslationDetailActiveStatusCheckbox);
             Controls.Add(countryTranslationDetailToggleEditModeButton);
-            Controls.Add(countryTranslationDetailBCP47LanguageTagCodeTextbox);
-            Controls.Add(countryTranslationDetailCountryTranslationIdTextbox);
-            Controls.Add(countryTranslationDetailLocalisedCountryNameTextbox);
-            Controls.Add(countryTranslationDetailCreatedTimestampTextbox);
-            Controls.Add(countryTranslationDetailLastUpdatedTimestampTextbox);
-            Controls.Add(countryTranslationDetailCreatedByTextbox);
-            Controls.Add(countryTranslationDetailLastUpdatedByTextbox);
-            Controls.Add(countryTranslationDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(countryTranslationDetailLastUpdatedByTextboxLabel);
-            Controls.Add(countryTranslationDetailCreatedTimestampTextboxLabel);
-            Controls.Add(countryTranslationDetailCreatedByTextboxLabel);
-            Controls.Add(countryTranslationDetailLocalisedCountryNameTextboxLabel);
-            Controls.Add(countryTranslationDetailBCP47LanguageTagCodeTextboxLabel);
-            Controls.Add(countryTranslationDetailCountryTranslationIdTextboxLabel);
+            Controls.Add(countryTranslationDetailBCP47LanguageTagCodeTextBox);
+            Controls.Add(countryTranslationDetailCountryTranslationIdTextBox);
+            Controls.Add(countryTranslationDetailLocalisedCountryNameTextBox);
+            Controls.Add(countryTranslationDetailCreatedTimestampTextBox);
+            Controls.Add(countryTranslationDetailLastUpdatedTimestampTextBox);
+            Controls.Add(countryTranslationDetailCreatedByTextBox);
+            Controls.Add(countryTranslationDetailLastUpdatedByTextBox);
+            Controls.Add(countryTranslationDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(countryTranslationDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(countryTranslationDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(countryTranslationDetailCreatedByTextBoxLabel);
+            Controls.Add(countryTranslationDetailLocalisedCountryNameTextBoxLabel);
+            Controls.Add(countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel);
+            Controls.Add(countryTranslationDetailCountryTranslationIdTextBoxLabel);
             Controls.Add(countryTranslationDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -293,20 +293,20 @@
         #endregion
 
         private Label countryTranslationDetailTitleLabel;
-        private Label countryTranslationDetailCountryTranslationIdTextboxLabel;
-        private Label countryTranslationDetailBCP47LanguageTagCodeTextboxLabel;
-        private Label countryTranslationDetailLocalisedCountryNameTextboxLabel;
-        private Label countryTranslationDetailCreatedByTextboxLabel;
-        private Label countryTranslationDetailCreatedTimestampTextboxLabel;
-        private Label countryTranslationDetailLastUpdatedByTextboxLabel;
-        private Label countryTranslationDetailLastUpdatedTimestampTextboxLabel;
-        private TextBox countryTranslationDetailLastUpdatedByTextbox;
-        private TextBox countryTranslationDetailCreatedByTextbox;
-        private TextBox countryTranslationDetailLastUpdatedTimestampTextbox;
-        private TextBox countryTranslationDetailCreatedTimestampTextbox;
-        private TextBox countryTranslationDetailLocalisedCountryNameTextbox;
-        private TextBox countryTranslationDetailCountryTranslationIdTextbox;
-        private TextBox countryTranslationDetailBCP47LanguageTagCodeTextbox;
+        private Label countryTranslationDetailCountryTranslationIdTextBoxLabel;
+        private Label countryTranslationDetailBCP47LanguageTagCodeTextBoxLabel;
+        private Label countryTranslationDetailLocalisedCountryNameTextBoxLabel;
+        private Label countryTranslationDetailCreatedByTextBoxLabel;
+        private Label countryTranslationDetailCreatedTimestampTextBoxLabel;
+        private Label countryTranslationDetailLastUpdatedByTextBoxLabel;
+        private Label countryTranslationDetailLastUpdatedTimestampTextBoxLabel;
+        private TextBox countryTranslationDetailLastUpdatedByTextBox;
+        private TextBox countryTranslationDetailCreatedByTextBox;
+        private TextBox countryTranslationDetailLastUpdatedTimestampTextBox;
+        private TextBox countryTranslationDetailCreatedTimestampTextBox;
+        private TextBox countryTranslationDetailLocalisedCountryNameTextBox;
+        private TextBox countryTranslationDetailCountryTranslationIdTextBox;
+        private TextBox countryTranslationDetailBCP47LanguageTagCodeTextBox;
         private Button countryTranslationDetailToggleEditModeButton;
         private CheckBox countryTranslationDetailActiveStatusCheckbox;
         private Button countryTranslationDetailUpdateCountryTranslationButton;

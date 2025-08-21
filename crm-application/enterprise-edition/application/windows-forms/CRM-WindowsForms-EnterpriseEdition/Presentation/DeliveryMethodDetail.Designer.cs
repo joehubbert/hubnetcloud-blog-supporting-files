@@ -32,25 +32,25 @@
             deliveryMethodDetailDeliveryMethodIdLabel = new Label();
             deliveryMethodDetailDeliveryMethodLabel = new Label();
             deliveryMethodDetailDeliveryCostLabel = new Label();
-            deliveryMethodDetailCreatedByTextboxLabel = new Label();
-            deliveryMethodDetailCreatedTimestampTextboxLabel = new Label();
-            deliveryMethodDetailLastUpdatedByTextboxLabel = new Label();
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel = new Label();
-            deliveryMethodDetailLastUpdatedByTextbox = new TextBox();
-            deliveryMethodDetailCreatedByTextbox = new TextBox();
-            deliveryMethodDetailLastUpdatedTimestampTextbox = new TextBox();
-            deliveryMethodDetailCreatedTimestampTextbox = new TextBox();
-            deliveryMethodDetailDeliveryCostTextboxA = new TextBox();
-            deliveryMethodDetailDeliveryMethodIdTextbox = new TextBox();
-            deliveryMethodDetailDeliveryMethodTextbox = new TextBox();
+            deliveryMethodDetailCreatedByTextBoxLabel = new Label();
+            deliveryMethodDetailCreatedTimestampTextBoxLabel = new Label();
+            deliveryMethodDetailLastUpdatedByTextBoxLabel = new Label();
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            deliveryMethodDetailLastUpdatedByTextBox = new TextBox();
+            deliveryMethodDetailCreatedByTextBox = new TextBox();
+            deliveryMethodDetailLastUpdatedTimestampTextBox = new TextBox();
+            deliveryMethodDetailCreatedTimestampTextBox = new TextBox();
+            deliveryMethodDetailDeliveryCostTextBoxA = new TextBox();
+            deliveryMethodDetailDeliveryMethodIdTextBox = new TextBox();
+            deliveryMethodDetailDeliveryMethodTextBox = new TextBox();
             deliveryMethodDetailToggleEditModeButton = new Button();
             deliveryMethodDetailActiveStatusCheckbox = new CheckBox();
             deliveryMethodDetailUpdateDeliveryMethodButton = new Button();
-            deliveryMethodDetailDeliveryCostTextboxB = new TextBox();
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel = new Label();
+            deliveryMethodDetailDeliveryCostTextBoxB = new TextBox();
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel = new Label();
             deliveryMethodDetailTaxProfileLabel = new Label();
             deliveryMethodDetailTaxProfileComboBox = new ComboBox();
-            deliveryMethodDetailDeliveryTimeTextbox = new TextBox();
+            deliveryMethodDetailDeliveryTimeTextBox = new TextBox();
             deliveryMethodDetailDeliveryTimeLabel = new Label();
             SuspendLayout();
             // 
@@ -95,110 +95,110 @@
             deliveryMethodDetailDeliveryCostLabel.Text = "Delivery Cost*";
             deliveryMethodDetailDeliveryCostLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // deliveryMethodDetailCreatedByTextboxLabel
+            // deliveryMethodDetailCreatedByTextBoxLabel
             // 
-            deliveryMethodDetailCreatedByTextboxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedByTextboxLabel.Location = new Point(763, 141);
-            deliveryMethodDetailCreatedByTextboxLabel.Name = "deliveryMethodDetailCreatedByTextboxLabel";
-            deliveryMethodDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            deliveryMethodDetailCreatedByTextboxLabel.TabIndex = 11;
-            deliveryMethodDetailCreatedByTextboxLabel.Text = "Created By";
-            deliveryMethodDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            deliveryMethodDetailCreatedByTextBoxLabel.AutoSize = true;
+            deliveryMethodDetailCreatedByTextBoxLabel.Location = new Point(763, 141);
+            deliveryMethodDetailCreatedByTextBoxLabel.Name = "deliveryMethodDetailCreatedByTextBoxLabel";
+            deliveryMethodDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            deliveryMethodDetailCreatedByTextBoxLabel.TabIndex = 11;
+            deliveryMethodDetailCreatedByTextBoxLabel.Text = "Created By";
+            deliveryMethodDetailCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // deliveryMethodDetailCreatedTimestampTextboxLabel
+            // deliveryMethodDetailCreatedTimestampTextBoxLabel
             // 
-            deliveryMethodDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedTimestampTextboxLabel.Location = new Point(705, 181);
-            deliveryMethodDetailCreatedTimestampTextboxLabel.Name = "deliveryMethodDetailCreatedTimestampTextboxLabel";
-            deliveryMethodDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            deliveryMethodDetailCreatedTimestampTextboxLabel.TabIndex = 12;
-            deliveryMethodDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            deliveryMethodDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Location = new Point(705, 181);
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Name = "deliveryMethodDetailCreatedTimestampTextBoxLabel";
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // deliveryMethodDetailLastUpdatedByTextboxLabel
+            // deliveryMethodDetailLastUpdatedByTextBoxLabel
             // 
-            deliveryMethodDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedByTextboxLabel.Location = new Point(727, 221);
-            deliveryMethodDetailLastUpdatedByTextboxLabel.Name = "deliveryMethodDetailLastUpdatedByTextboxLabel";
-            deliveryMethodDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            deliveryMethodDetailLastUpdatedByTextboxLabel.TabIndex = 13;
-            deliveryMethodDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            deliveryMethodDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.Location = new Point(727, 221);
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.Name = "deliveryMethodDetailLastUpdatedByTextBoxLabel";
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // deliveryMethodDetailLastUpdatedTimestampTextboxLabel
+            // deliveryMethodDetailLastUpdatedTimestampTextBoxLabel
             // 
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Location = new Point(669, 265);
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Name = "deliveryMethodDetailLastUpdatedTimestampTextboxLabel";
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            deliveryMethodDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(669, 265);
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Name = "deliveryMethodDetailLastUpdatedTimestampTextBoxLabel";
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // deliveryMethodDetailLastUpdatedByTextbox
+            // deliveryMethodDetailLastUpdatedByTextBox
             // 
-            deliveryMethodDetailLastUpdatedByTextbox.Location = new Point(860, 218);
-            deliveryMethodDetailLastUpdatedByTextbox.MaxLength = 50;
-            deliveryMethodDetailLastUpdatedByTextbox.Name = "deliveryMethodDetailLastUpdatedByTextbox";
-            deliveryMethodDetailLastUpdatedByTextbox.ReadOnly = true;
-            deliveryMethodDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailLastUpdatedByTextbox.TabIndex = 9;
+            deliveryMethodDetailLastUpdatedByTextBox.Location = new Point(860, 218);
+            deliveryMethodDetailLastUpdatedByTextBox.MaxLength = 50;
+            deliveryMethodDetailLastUpdatedByTextBox.Name = "deliveryMethodDetailLastUpdatedByTextBox";
+            deliveryMethodDetailLastUpdatedByTextBox.ReadOnly = true;
+            deliveryMethodDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailLastUpdatedByTextBox.TabIndex = 9;
             // 
-            // deliveryMethodDetailCreatedByTextbox
+            // deliveryMethodDetailCreatedByTextBox
             // 
-            deliveryMethodDetailCreatedByTextbox.Location = new Point(860, 138);
-            deliveryMethodDetailCreatedByTextbox.MaxLength = 50;
-            deliveryMethodDetailCreatedByTextbox.Name = "deliveryMethodDetailCreatedByTextbox";
-            deliveryMethodDetailCreatedByTextbox.ReadOnly = true;
-            deliveryMethodDetailCreatedByTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailCreatedByTextbox.TabIndex = 7;
+            deliveryMethodDetailCreatedByTextBox.Location = new Point(860, 138);
+            deliveryMethodDetailCreatedByTextBox.MaxLength = 50;
+            deliveryMethodDetailCreatedByTextBox.Name = "deliveryMethodDetailCreatedByTextBox";
+            deliveryMethodDetailCreatedByTextBox.ReadOnly = true;
+            deliveryMethodDetailCreatedByTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailCreatedByTextBox.TabIndex = 7;
             // 
-            // deliveryMethodDetailLastUpdatedTimestampTextbox
+            // deliveryMethodDetailLastUpdatedTimestampTextBox
             // 
-            deliveryMethodDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
-            deliveryMethodDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            deliveryMethodDetailLastUpdatedTimestampTextbox.Name = "deliveryMethodDetailLastUpdatedTimestampTextbox";
-            deliveryMethodDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            deliveryMethodDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailLastUpdatedTimestampTextbox.TabIndex = 10;
+            deliveryMethodDetailLastUpdatedTimestampTextBox.Location = new Point(860, 258);
+            deliveryMethodDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            deliveryMethodDetailLastUpdatedTimestampTextBox.Name = "deliveryMethodDetailLastUpdatedTimestampTextBox";
+            deliveryMethodDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            deliveryMethodDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailLastUpdatedTimestampTextBox.TabIndex = 10;
             // 
-            // deliveryMethodDetailCreatedTimestampTextbox
+            // deliveryMethodDetailCreatedTimestampTextBox
             // 
-            deliveryMethodDetailCreatedTimestampTextbox.Location = new Point(860, 178);
-            deliveryMethodDetailCreatedTimestampTextbox.MaxLength = 50;
-            deliveryMethodDetailCreatedTimestampTextbox.Name = "deliveryMethodDetailCreatedTimestampTextbox";
-            deliveryMethodDetailCreatedTimestampTextbox.ReadOnly = true;
-            deliveryMethodDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailCreatedTimestampTextbox.TabIndex = 8;
+            deliveryMethodDetailCreatedTimestampTextBox.Location = new Point(860, 178);
+            deliveryMethodDetailCreatedTimestampTextBox.MaxLength = 50;
+            deliveryMethodDetailCreatedTimestampTextBox.Name = "deliveryMethodDetailCreatedTimestampTextBox";
+            deliveryMethodDetailCreatedTimestampTextBox.ReadOnly = true;
+            deliveryMethodDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailCreatedTimestampTextBox.TabIndex = 8;
             // 
-            // deliveryMethodDetailDeliveryCostTextboxA
+            // deliveryMethodDetailDeliveryCostTextBoxA
             // 
-            deliveryMethodDetailDeliveryCostTextboxA.Enabled = false;
-            deliveryMethodDetailDeliveryCostTextboxA.Location = new Point(243, 218);
-            deliveryMethodDetailDeliveryCostTextboxA.MaxLength = 10;
-            deliveryMethodDetailDeliveryCostTextboxA.Name = "deliveryMethodDetailDeliveryCostTextboxA";
-            deliveryMethodDetailDeliveryCostTextboxA.ReadOnly = true;
-            deliveryMethodDetailDeliveryCostTextboxA.Size = new Size(142, 27);
-            deliveryMethodDetailDeliveryCostTextboxA.TabIndex = 2;
+            deliveryMethodDetailDeliveryCostTextBoxA.Enabled = false;
+            deliveryMethodDetailDeliveryCostTextBoxA.Location = new Point(243, 218);
+            deliveryMethodDetailDeliveryCostTextBoxA.MaxLength = 10;
+            deliveryMethodDetailDeliveryCostTextBoxA.Name = "deliveryMethodDetailDeliveryCostTextBoxA";
+            deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly = true;
+            deliveryMethodDetailDeliveryCostTextBoxA.Size = new Size(142, 27);
+            deliveryMethodDetailDeliveryCostTextBoxA.TabIndex = 2;
             // 
-            // deliveryMethodDetailDeliveryMethodIdTextbox
+            // deliveryMethodDetailDeliveryMethodIdTextBox
             // 
-            deliveryMethodDetailDeliveryMethodIdTextbox.Location = new Point(243, 138);
-            deliveryMethodDetailDeliveryMethodIdTextbox.MaxLength = 36;
-            deliveryMethodDetailDeliveryMethodIdTextbox.Name = "deliveryMethodDetailDeliveryMethodIdTextbox";
-            deliveryMethodDetailDeliveryMethodIdTextbox.ReadOnly = true;
-            deliveryMethodDetailDeliveryMethodIdTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailDeliveryMethodIdTextbox.TabIndex = 0;
+            deliveryMethodDetailDeliveryMethodIdTextBox.Location = new Point(243, 138);
+            deliveryMethodDetailDeliveryMethodIdTextBox.MaxLength = 36;
+            deliveryMethodDetailDeliveryMethodIdTextBox.Name = "deliveryMethodDetailDeliveryMethodIdTextBox";
+            deliveryMethodDetailDeliveryMethodIdTextBox.ReadOnly = true;
+            deliveryMethodDetailDeliveryMethodIdTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailDeliveryMethodIdTextBox.TabIndex = 0;
             // 
-            // deliveryMethodDetailDeliveryMethodTextbox
+            // deliveryMethodDetailDeliveryMethodTextBox
             // 
-            deliveryMethodDetailDeliveryMethodTextbox.Enabled = false;
-            deliveryMethodDetailDeliveryMethodTextbox.Location = new Point(243, 178);
-            deliveryMethodDetailDeliveryMethodTextbox.MaxLength = 50;
-            deliveryMethodDetailDeliveryMethodTextbox.Name = "deliveryMethodDetailDeliveryMethodTextbox";
-            deliveryMethodDetailDeliveryMethodTextbox.ReadOnly = true;
-            deliveryMethodDetailDeliveryMethodTextbox.Size = new Size(370, 27);
-            deliveryMethodDetailDeliveryMethodTextbox.TabIndex = 1;
+            deliveryMethodDetailDeliveryMethodTextBox.Enabled = false;
+            deliveryMethodDetailDeliveryMethodTextBox.Location = new Point(243, 178);
+            deliveryMethodDetailDeliveryMethodTextBox.MaxLength = 50;
+            deliveryMethodDetailDeliveryMethodTextBox.Name = "deliveryMethodDetailDeliveryMethodTextBox";
+            deliveryMethodDetailDeliveryMethodTextBox.ReadOnly = true;
+            deliveryMethodDetailDeliveryMethodTextBox.Size = new Size(370, 27);
+            deliveryMethodDetailDeliveryMethodTextBox.TabIndex = 1;
             // 
             // deliveryMethodDetailToggleEditModeButton
             // 
@@ -239,24 +239,24 @@
             deliveryMethodDetailUpdateDeliveryMethodButton.UseVisualStyleBackColor = true;
             deliveryMethodDetailUpdateDeliveryMethodButton.Click += deliveryMethodDetailUpdateDeliveryMethodButton_Click;
             // 
-            // deliveryMethodDetailDeliveryCostTextboxB
+            // deliveryMethodDetailDeliveryCostTextBoxB
             // 
-            deliveryMethodDetailDeliveryCostTextboxB.Enabled = false;
-            deliveryMethodDetailDeliveryCostTextboxB.Location = new Point(409, 218);
-            deliveryMethodDetailDeliveryCostTextboxB.MaxLength = 4;
-            deliveryMethodDetailDeliveryCostTextboxB.Name = "deliveryMethodDetailDeliveryCostTextboxB";
-            deliveryMethodDetailDeliveryCostTextboxB.ReadOnly = true;
-            deliveryMethodDetailDeliveryCostTextboxB.Size = new Size(62, 27);
-            deliveryMethodDetailDeliveryCostTextboxB.TabIndex = 3;
+            deliveryMethodDetailDeliveryCostTextBoxB.Enabled = false;
+            deliveryMethodDetailDeliveryCostTextBoxB.Location = new Point(409, 218);
+            deliveryMethodDetailDeliveryCostTextBoxB.MaxLength = 4;
+            deliveryMethodDetailDeliveryCostTextBoxB.Name = "deliveryMethodDetailDeliveryCostTextBoxB";
+            deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly = true;
+            deliveryMethodDetailDeliveryCostTextBoxB.Size = new Size(62, 27);
+            deliveryMethodDetailDeliveryCostTextBoxB.TabIndex = 3;
             // 
-            // deliveryMethodDetailDeliveryCostTextboxSeparatorLabel
+            // deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel
             // 
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.AutoSize = true;
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.Location = new Point(391, 224);
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.Name = "deliveryMethodDetailDeliveryCostTextboxSeparatorLabel";
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.Size = new Size(12, 20);
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.TabIndex = 29;
-            deliveryMethodDetailDeliveryCostTextboxSeparatorLabel.Text = ".";
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.AutoSize = true;
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.Location = new Point(391, 224);
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.Name = "deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel";
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.Size = new Size(12, 20);
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.TabIndex = 29;
+            deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel.Text = ".";
             // 
             // deliveryMethodDetailTaxProfileLabel
             // 
@@ -280,16 +280,16 @@
             deliveryMethodDetailTaxProfileComboBox.Size = new Size(370, 28);
             deliveryMethodDetailTaxProfileComboBox.TabIndex = 5;
             // 
-            // deliveryMethodDetailDeliveryTimeTextbox
+            // deliveryMethodDetailDeliveryTimeTextBox
             // 
-            deliveryMethodDetailDeliveryTimeTextbox.Enabled = false;
-            deliveryMethodDetailDeliveryTimeTextbox.Location = new Point(243, 258);
-            deliveryMethodDetailDeliveryTimeTextbox.Margin = new Padding(3, 4, 3, 4);
-            deliveryMethodDetailDeliveryTimeTextbox.MaxLength = 3;
-            deliveryMethodDetailDeliveryTimeTextbox.Name = "deliveryMethodDetailDeliveryTimeTextbox";
-            deliveryMethodDetailDeliveryTimeTextbox.ReadOnly = true;
-            deliveryMethodDetailDeliveryTimeTextbox.Size = new Size(41, 27);
-            deliveryMethodDetailDeliveryTimeTextbox.TabIndex = 4;
+            deliveryMethodDetailDeliveryTimeTextBox.Enabled = false;
+            deliveryMethodDetailDeliveryTimeTextBox.Location = new Point(243, 258);
+            deliveryMethodDetailDeliveryTimeTextBox.Margin = new Padding(3, 4, 3, 4);
+            deliveryMethodDetailDeliveryTimeTextBox.MaxLength = 3;
+            deliveryMethodDetailDeliveryTimeTextBox.Name = "deliveryMethodDetailDeliveryTimeTextBox";
+            deliveryMethodDetailDeliveryTimeTextBox.ReadOnly = true;
+            deliveryMethodDetailDeliveryTimeTextBox.Size = new Size(41, 27);
+            deliveryMethodDetailDeliveryTimeTextBox.TabIndex = 4;
             // 
             // deliveryMethodDetailDeliveryTimeLabel
             // 
@@ -310,24 +310,24 @@
             ClientSize = new Size(1265, 498);
             Controls.Add(deliveryMethodDetailTaxProfileLabel);
             Controls.Add(deliveryMethodDetailTaxProfileComboBox);
-            Controls.Add(deliveryMethodDetailDeliveryTimeTextbox);
+            Controls.Add(deliveryMethodDetailDeliveryTimeTextBox);
             Controls.Add(deliveryMethodDetailDeliveryTimeLabel);
-            Controls.Add(deliveryMethodDetailDeliveryCostTextboxSeparatorLabel);
-            Controls.Add(deliveryMethodDetailDeliveryCostTextboxB);
+            Controls.Add(deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel);
+            Controls.Add(deliveryMethodDetailDeliveryCostTextBoxB);
             Controls.Add(deliveryMethodDetailUpdateDeliveryMethodButton);
             Controls.Add(deliveryMethodDetailActiveStatusCheckbox);
             Controls.Add(deliveryMethodDetailToggleEditModeButton);
-            Controls.Add(deliveryMethodDetailDeliveryMethodTextbox);
-            Controls.Add(deliveryMethodDetailDeliveryMethodIdTextbox);
-            Controls.Add(deliveryMethodDetailDeliveryCostTextboxA);
-            Controls.Add(deliveryMethodDetailCreatedTimestampTextbox);
-            Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextbox);
-            Controls.Add(deliveryMethodDetailCreatedByTextbox);
-            Controls.Add(deliveryMethodDetailLastUpdatedByTextbox);
-            Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(deliveryMethodDetailLastUpdatedByTextboxLabel);
-            Controls.Add(deliveryMethodDetailCreatedTimestampTextboxLabel);
-            Controls.Add(deliveryMethodDetailCreatedByTextboxLabel);
+            Controls.Add(deliveryMethodDetailDeliveryMethodTextBox);
+            Controls.Add(deliveryMethodDetailDeliveryMethodIdTextBox);
+            Controls.Add(deliveryMethodDetailDeliveryCostTextBoxA);
+            Controls.Add(deliveryMethodDetailCreatedTimestampTextBox);
+            Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextBox);
+            Controls.Add(deliveryMethodDetailCreatedByTextBox);
+            Controls.Add(deliveryMethodDetailLastUpdatedByTextBox);
+            Controls.Add(deliveryMethodDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(deliveryMethodDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(deliveryMethodDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(deliveryMethodDetailCreatedByTextBoxLabel);
             Controls.Add(deliveryMethodDetailDeliveryCostLabel);
             Controls.Add(deliveryMethodDetailDeliveryMethodLabel);
             Controls.Add(deliveryMethodDetailDeliveryMethodIdLabel);
@@ -349,25 +349,25 @@
         private Label deliveryMethodDetailDeliveryMethodIdLabel;
         private Label deliveryMethodDetailDeliveryMethodLabel;
         private Label deliveryMethodDetailDeliveryCostLabel;
-        private Label deliveryMethodDetailCreatedByTextboxLabel;
-        private Label deliveryMethodDetailCreatedTimestampTextboxLabel;
-        private Label deliveryMethodDetailLastUpdatedByTextboxLabel;
-        private Label deliveryMethodDetailLastUpdatedTimestampTextboxLabel;
-        private TextBox deliveryMethodDetailLastUpdatedByTextbox;
-        private TextBox deliveryMethodDetailCreatedByTextbox;
-        private TextBox deliveryMethodDetailLastUpdatedTimestampTextbox;
-        private TextBox deliveryMethodDetailCreatedTimestampTextbox;
-        private TextBox deliveryMethodDetailDeliveryCostTextboxA;
-        private TextBox deliveryMethodDetailDeliveryMethodIdTextbox;
-        private TextBox deliveryMethodDetailDeliveryMethodTextbox;
+        private Label deliveryMethodDetailCreatedByTextBoxLabel;
+        private Label deliveryMethodDetailCreatedTimestampTextBoxLabel;
+        private Label deliveryMethodDetailLastUpdatedByTextBoxLabel;
+        private Label deliveryMethodDetailLastUpdatedTimestampTextBoxLabel;
+        private TextBox deliveryMethodDetailLastUpdatedByTextBox;
+        private TextBox deliveryMethodDetailCreatedByTextBox;
+        private TextBox deliveryMethodDetailLastUpdatedTimestampTextBox;
+        private TextBox deliveryMethodDetailCreatedTimestampTextBox;
+        private TextBox deliveryMethodDetailDeliveryCostTextBoxA;
+        private TextBox deliveryMethodDetailDeliveryMethodIdTextBox;
+        private TextBox deliveryMethodDetailDeliveryMethodTextBox;
         private Button deliveryMethodDetailToggleEditModeButton;
         private CheckBox deliveryMethodDetailActiveStatusCheckbox;
         private Button deliveryMethodDetailUpdateDeliveryMethodButton;
-        private TextBox deliveryMethodDetailDeliveryCostTextboxB;
-        private Label deliveryMethodDetailDeliveryCostTextboxSeparatorLabel;
+        private TextBox deliveryMethodDetailDeliveryCostTextBoxB;
+        private Label deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel;
         private Label deliveryMethodDetailTaxProfileLabel;
         private ComboBox deliveryMethodDetailTaxProfileComboBox;
-        private TextBox deliveryMethodDetailDeliveryTimeTextbox;
+        private TextBox deliveryMethodDetailDeliveryTimeTextBox;
         private Label deliveryMethodDetailDeliveryTimeLabel;
     }
 }

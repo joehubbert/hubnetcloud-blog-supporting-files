@@ -30,25 +30,25 @@
         {
             customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox = new TextBox();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox = new ComboBox();
             customerLeadDetailTabControlOverviewTabPageTitleLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel = new Label();
             customerLeadDetailUpdateCustomerLeadButton = new Button();
             customerLeadDetailTabControl = new TabControl();
             customerLeadDetailTabControlOverviewTabPage = new TabPage();
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox = new TextBox();
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel = new Label();
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox = new TextBox();
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel = new Label();
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel = new Label();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelLabel = new Label();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelLabel = new Label();
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelLabel = new Label();
@@ -68,8 +68,8 @@
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox = new ComboBox();
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton = new RadioButton();
             customerLeadDetailTabControlCustomerLeadNoteTabPage = new TabPage();
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel = new Label();
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox = new TextBox();
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel = new Label();
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox = new TextBox();
             customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton = new Button();
             customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton = new Button();
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView = new DataGridView();
@@ -107,46 +107,46 @@
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel.Text = "Customer Lead Type*";
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.Location = new Point(17, 95);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.Size = new Size(147, 20);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.TabIndex = 70;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.Text = "Customer Lead Title*";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.Location = new Point(17, 95);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.Size = new Size(147, 20);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.TabIndex = 70;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.Text = "Customer Lead Title*";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.Location = new Point(50, 141);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.Size = new Size(114, 20);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.TabIndex = 69;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.Text = "Customer Lead*";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.Location = new Point(50, 141);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.Size = new Size(114, 20);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.TabIndex = 69;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.Text = "Customer Lead*";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Anchor = AnchorStyles.None;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Location = new Point(170, 138);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.MaxLength = 4000;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Multiline = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ScrollBars = ScrollBars.Vertical;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Size = new Size(427, 274);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.TabIndex = 4;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Anchor = AnchorStyles.None;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Location = new Point(170, 138);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.MaxLength = 4000;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Multiline = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ScrollBars = ScrollBars.Vertical;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Size = new Size(427, 274);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.TabIndex = 4;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Location = new Point(170, 92);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.MaxLength = 50;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Size = new Size(301, 27);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.TabIndex = 3;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Location = new Point(170, 92);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.MaxLength = 50;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Size = new Size(301, 27);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.TabIndex = 3;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox
             // 
@@ -169,24 +169,24 @@
             customerLeadDetailTabControlOverviewTabPageTitleLabel.TabIndex = 63;
             customerLeadDetailTabControlOverviewTabPageTitleLabel.Text = "Customer Lead Detail";
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Location = new Point(170, 6);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.MaxLength = 36;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Size = new Size(301, 27);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.TabIndex = 1;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.Location = new Point(170, 6);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.MaxLength = 36;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.Size = new Size(301, 27);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.TabIndex = 1;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.Location = new Point(39, 9);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.Size = new Size(125, 20);
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.TabIndex = 75;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.Text = "Customer Lead Id";
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.Location = new Point(39, 9);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.Size = new Size(125, 20);
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.TabIndex = 75;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.Text = "Customer Lead Id";
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerLeadDetailUpdateCustomerLeadButton
             // 
@@ -216,14 +216,14 @@
             // customerLeadDetailTabControlOverviewTabPage
             // 
             customerLeadDetailTabControlOverviewTabPage.BackColor = Color.LightGreen;
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedByTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedByTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelLabel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelLabel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelLabel);
@@ -231,14 +231,14 @@
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerContactPanel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel);
             customerLeadDetailTabControlOverviewTabPage.Location = new Point(4, 32);
             customerLeadDetailTabControlOverviewTabPage.Name = "customerLeadDetailTabControlOverviewTabPage";
             customerLeadDetailTabControlOverviewTabPage.Padding = new Padding(3);
@@ -246,81 +246,81 @@
             customerLeadDetailTabControlOverviewTabPage.TabIndex = 0;
             customerLeadDetailTabControlOverviewTabPage.Text = "Overview";
             // 
-            // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox
+            // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Location = new Point(839, 430);
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.MaxLength = 50;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox";
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.TabIndex = 16;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.Location = new Point(839, 430);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.MaxLength = 50;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox";
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.Size = new Size(370, 27);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.TabIndex = 16;
             // 
-            // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox
+            // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Location = new Point(839, 510);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.MaxLength = 50;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.TabIndex = 18;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Location = new Point(839, 510);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.MaxLength = 50;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.TabIndex = 18;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCreatedByTextbox
+            // customerLeadDetailTabControlOverviewTabPageCreatedByTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Location = new Point(839, 390);
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.MaxLength = 50;
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedByTextbox";
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.TabIndex = 15;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.Location = new Point(839, 390);
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.MaxLength = 50;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.Name = "customerLeadDetailTabControlOverviewTabPageCreatedByTextBox";
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.Size = new Size(370, 27);
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.TabIndex = 15;
             // 
-            // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox
+            // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox
             // 
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Location = new Point(839, 470);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.MaxLength = 50;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.ReadOnly = true;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.TabIndex = 17;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.Location = new Point(839, 470);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.MaxLength = 50;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = true;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.Size = new Size(370, 27);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.TabIndex = 17;
             // 
-            // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Location = new Point(658, 513);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.TabIndex = 97;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(658, 513);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 97;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Location = new Point(716, 473);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.TabIndex = 96;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.Location = new Point(716, 473);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.TabIndex = 96;
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Location = new Point(694, 433);
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.TabIndex = 95;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(694, 433);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TabIndex = 95;
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel
+            // customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel
             // 
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.Location = new Point(752, 393);
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel";
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.Size = new Size(81, 20);
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.TabIndex = 94;
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.Text = "Created By";
-            customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.Location = new Point(752, 393);
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel";
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.Size = new Size(81, 20);
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.TabIndex = 94;
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.Text = "Created By";
+            customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelLabel
             // 
@@ -509,8 +509,8 @@
             // customerLeadDetailTabControlCustomerLeadNoteTabPage
             // 
             customerLeadDetailTabControlCustomerLeadNoteTabPage.BackColor = Color.LightGreen;
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
@@ -521,21 +521,21 @@
             customerLeadDetailTabControlCustomerLeadNoteTabPage.TabIndex = 1;
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Text = "Customer Lead Notes";
             // 
-            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel
+            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel
             // 
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.AutoSize = true;
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Location = new Point(21, 18);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel";
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Size = new Size(83, 20);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.TabIndex = 67;
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel.Text = "Quick Filter";
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.AutoSize = true;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.Location = new Point(21, 18);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel";
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.Size = new Size(83, 20);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.TabIndex = 67;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel.Text = "Quick Filter";
             // 
-            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox
+            // customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox
             // 
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Location = new Point(110, 15);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox";
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.Size = new Size(843, 27);
-            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox.TabIndex = 19;
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox.Location = new Point(110, 15);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox";
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox.Size = new Size(843, 27);
+            customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox.TabIndex = 19;
             // 
             // customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton
             // 
@@ -644,26 +644,26 @@
 
         private CheckBox customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel;
-        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextboxLabel;
-        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTextboxLabel;
-        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox;
-        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox;
+        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel;
+        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel;
+        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox;
+        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox;
         private ComboBox customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox;
         private Label customerLeadDetailTabControlOverviewTabPageTitleLabel;
-        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox;
-        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextboxLabel;
+        private TextBox customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox;
+        private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBoxLabel;
         private Button customerLeadDetailUpdateCustomerLeadButton;
         private TabControl customerLeadDetailTabControl;
         private TabPage customerLeadDetailTabControlOverviewTabPage;
         private TabPage customerLeadDetailTabControlCustomerLeadNoteTabPage;
-        private TextBox customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox;
-        private TextBox customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox;
-        private TextBox customerLeadDetailTabControlOverviewTabPageCreatedByTextbox;
-        private TextBox customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox;
-        private Label customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextboxLabel;
-        private Label customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextboxLabel;
-        private Label customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextboxLabel;
-        private Label customerLeadDetailTabControlOverviewTabPageCreatedByTextboxLabel;
+        private TextBox customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox;
+        private TextBox customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox;
+        private TextBox customerLeadDetailTabControlOverviewTabPageCreatedByTextBox;
+        private TextBox customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox;
+        private Label customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel;
+        private Label customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel;
+        private Label customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel;
+        private Label customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelLabel;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerContactPanelLabel;
         private Label customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelLabel;
@@ -688,7 +688,7 @@
         private DataGridView customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView;
         private StatusStrip customerLeadDetailStatusStrip;
         private ToolStripStatusLabel customerLeadDetailStatusStripCustomerPlaceholder;
-        private Label customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextboxLabel;
-        private TextBox customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox;
+        private Label customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBoxLabel;
+        private TextBox customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox;
     }
 }

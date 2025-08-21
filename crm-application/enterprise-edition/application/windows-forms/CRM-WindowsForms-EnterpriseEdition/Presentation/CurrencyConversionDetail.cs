@@ -110,10 +110,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (currencyConversionDataTable != null)
                 {
                     DataRow currencyConversionDataRow = currencyConversionDataTable.Rows[0];
-                    currencyConversionDetailCurrencyConversionIdTextbox.Text = currencyConversionDataRow["Currency Conversion Id"].ToString();
+                    currencyConversionDetailCurrencyConversionIdTextBox.Text = currencyConversionDataRow["Currency Conversion Id"].ToString();
                     Guid baseCurrencyId = (Guid)currencyConversionDataRow["Base Currency Id"];
                     await LoadCurrencyDataAsync("base", baseCurrencyId);
-                    currencyConversionDetailBaseCurrencyValueTextbox.Text = currencyConversionDataRow["Base Currency Conversion Rate]"].ToString();
+                    currencyConversionDetailBaseCurrencyValueTextBox.Text = currencyConversionDataRow["Base Currency Conversion Rate]"].ToString();
                     currencyConversionDetailEffectiveDatePicker.Value = (DateTime)currencyConversionDataRow["Effective Date"];
                     if (currencyConversionDataRow["Expiry Date"] != DBNull.Value)
                     {
@@ -130,12 +130,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     string targetCurrencyValuePartA;
                     string targetCurrencyValuePartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)currencyConversionDataRow["Target Currency Conversion Rate"], out targetCurrencyValuePartA, out targetCurrencyValuePartB);
-                    currencyConversionDetailTargetCurrencyValueTextboxA.Text = targetCurrencyValuePartA;
-                    currencyConversionDetailTargetCurrencyValueTextboxB.Text = targetCurrencyValuePartB;
-                    currencyConversionDetailCreatedByTextbox.Text = currencyConversionDataRow["Created By"].ToString();
-                    currencyConversionDetailCreatedTimestampTextbox.Text = currencyConversionDataRow["Created Timestamp UTC"].ToString();
-                    currencyConversionDetailLastUpdatedByTextbox.Text = currencyConversionDataRow["Modified By"].ToString();
-                    currencyConversionDetailLastUpdatedTimestampTextbox.Text = currencyConversionDataRow["Modified Timestamp UTC"].ToString();
+                    currencyConversionDetailTargetCurrencyValueTextBoxA.Text = targetCurrencyValuePartA;
+                    currencyConversionDetailTargetCurrencyValueTextBoxB.Text = targetCurrencyValuePartB;
+                    currencyConversionDetailCreatedByTextBox.Text = currencyConversionDataRow["Created By"].ToString();
+                    currencyConversionDetailCreatedTimestampTextBox.Text = currencyConversionDataRow["Created Timestamp UTC"].ToString();
+                    currencyConversionDetailLastUpdatedByTextBox.Text = currencyConversionDataRow["Modified By"].ToString();
+                    currencyConversionDetailLastUpdatedTimestampTextBox.Text = currencyConversionDataRow["Modified Timestamp UTC"].ToString();
                     currencyConversionDetailActiveStatusCheckbox.Checked = (bool)currencyConversionDataRow["Active Status"];
                     Guid companyConfigurationId = (Guid)currencyConversionDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
@@ -178,9 +178,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = currencyConversionDetailActiveStatusCheckbox.Checked;
 
-            if (string.IsNullOrWhiteSpace(currencyConversionDetailBaseCurrencyValueTextbox.Text) ||
-                string.IsNullOrWhiteSpace(currencyConversionDetailTargetCurrencyValueTextboxA.Text) ||
-                string.IsNullOrWhiteSpace(currencyConversionDetailTargetCurrencyValueTextboxB.Text))
+            if (string.IsNullOrWhiteSpace(currencyConversionDetailBaseCurrencyValueTextBox.Text) ||
+                string.IsNullOrWhiteSpace(currencyConversionDetailTargetCurrencyValueTextBoxA.Text) ||
+                string.IsNullOrWhiteSpace(currencyConversionDetailTargetCurrencyValueTextBoxB.Text))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.CurrencyConversion.MissingValues");
                 return;
@@ -211,14 +211,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             }
 
-            if (!decimal.TryParse(currencyConversionDetailBaseCurrencyValueTextbox.Text, out decimal baseCurrencyConversionRate))
+            if (!decimal.TryParse(currencyConversionDetailBaseCurrencyValueTextBox.Text, out decimal baseCurrencyConversionRate))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Base Currency Conversion Rate");
                 return;
             }
 
-            if (!decimal.TryParse(currencyConversionDetailTargetCurrencyValueTextboxA.Text.TrimEnd(), out decimal targetA) ||
-                !decimal.TryParse(currencyConversionDetailTargetCurrencyValueTextboxB.Text.TrimEnd(), out decimal targetB))
+            if (!decimal.TryParse(currencyConversionDetailTargetCurrencyValueTextBoxA.Text.TrimEnd(), out decimal targetA) ||
+                !decimal.TryParse(currencyConversionDetailTargetCurrencyValueTextBoxB.Text.TrimEnd(), out decimal targetB))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Target Currency Conversion Rate");
                 return;
@@ -454,8 +454,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             currencyConversionDetailBaseCurrencyComboBox.Enabled = !currencyConversionDetailBaseCurrencyComboBox.Enabled;
             currencyConversionDetailEffectiveDatePicker.Enabled = !currencyConversionDetailEffectiveDatePicker.Enabled;
             currencyConversionDetailTargetCurrencyComboBox.Enabled = !currencyConversionDetailTargetCurrencyComboBox.Enabled;
-            currencyConversionDetailTargetCurrencyValueTextboxA.ReadOnly = !currencyConversionDetailTargetCurrencyValueTextboxA.ReadOnly;
-            currencyConversionDetailTargetCurrencyValueTextboxB.ReadOnly = !currencyConversionDetailTargetCurrencyValueTextboxB.ReadOnly;
+            currencyConversionDetailTargetCurrencyValueTextBoxA.ReadOnly = !currencyConversionDetailTargetCurrencyValueTextBoxA.ReadOnly;
+            currencyConversionDetailTargetCurrencyValueTextBoxB.ReadOnly = !currencyConversionDetailTargetCurrencyValueTextBoxB.ReadOnly;
         }
     }
 }

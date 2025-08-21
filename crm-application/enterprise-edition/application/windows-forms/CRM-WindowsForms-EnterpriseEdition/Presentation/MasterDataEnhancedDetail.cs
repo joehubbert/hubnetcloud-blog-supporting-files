@@ -106,9 +106,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             dataSubjectName = functionTitle;
 
             masterDataEnhancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
-            masterDataEnhancedDetailDataSubjectIdTextboxLabel.Text = dataSubjectIdFriendlyName;
-            masterDataEnhancedDetailDataSubjectTextboxLabel.Text = dataSubjectFriendlyName;
-            masterDataEnhancedDetailDataSubjectDescriptionTextboxLabel.Text = $"{dataSubjectFriendlyName} Description";
+            masterDataEnhancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
+            masterDataEnhancedDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
+            masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description";
             masterDataEnhancedDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
             masterDataEnhancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
@@ -141,13 +141,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (masterDataEnhancedDetailDataTable != null)
                 {
                     DataRow masterDataEnhancedDetailDataRow = masterDataEnhancedDetailDataTable.Rows[0];
-                    masterDataEnhancedDetailDataSubjectIdTextbox.Text = masterDataEnhancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
-                    masterDataEnhancedDetailDataSubjectTextbox.Text = masterDataEnhancedDetailDataRow[dataSubjectFriendlyName].ToString();
-                    masterDataEnhancedDetailDataSubjectDescriptionTextbox.Text = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName} Description"].ToString();
-                    masterDataEnhancedDetailCreatedByTextbox.Text = masterDataEnhancedDetailDataRow["Created By"].ToString();
-                    masterDataEnhancedDetailCreatedTimestampTextbox.Text = masterDataEnhancedDetailDataRow["Created Timestamp UTC"].ToString();
-                    masterDataEnhancedDetailLastUpdatedByTextbox.Text = masterDataEnhancedDetailDataRow["Modified By"].ToString();
-                    masterDataEnhancedDetailLastUpdatedTimestampTextbox.Text = masterDataEnhancedDetailDataRow["Modified Timestamp UTC"].ToString();
+                    masterDataEnhancedDetailDataSubjectIdTextBox.Text = masterDataEnhancedDetailDataRow[dataSubjectIdFriendlyName].ToString();
+                    masterDataEnhancedDetailDataSubjectTextBox.Text = masterDataEnhancedDetailDataRow[dataSubjectFriendlyName].ToString();
+                    masterDataEnhancedDetailDataSubjectDescriptionTextBox.Text = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName} Description"].ToString();
+                    masterDataEnhancedDetailCreatedByTextBox.Text = masterDataEnhancedDetailDataRow["Created By"].ToString();
+                    masterDataEnhancedDetailCreatedTimestampTextBox.Text = masterDataEnhancedDetailDataRow["Created Timestamp UTC"].ToString();
+                    masterDataEnhancedDetailLastUpdatedByTextBox.Text = masterDataEnhancedDetailDataRow["Modified By"].ToString();
+                    masterDataEnhancedDetailLastUpdatedTimestampTextBox.Text = masterDataEnhancedDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataEnhancedDetailActiveStatusCheckbox.Checked = (bool)masterDataEnhancedDetailDataRow["Active Status"];
                     if(_functionTitle == "CustomerLeadType" || _functionTitle == "CustomerType")
                     {
@@ -181,8 +181,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = masterDataEnhancedDetailActiveStatusCheckbox.Checked;
             Guid? companyConfigurationId = (Guid?)masterDataEnhancedDetailCompanyConfigurationComboBox.SelectedValue;
-            string dataSubjectDescriptionValue = masterDataEnhancedDetailDataSubjectDescriptionTextbox.Text.TrimEnd();
-            string dataSubjectValue = masterDataEnhancedDetailDataSubjectTextbox.Text.TrimEnd();
+            string dataSubjectDescriptionValue = masterDataEnhancedDetailDataSubjectDescriptionTextBox.Text.TrimEnd();
+            string dataSubjectValue = masterDataEnhancedDetailDataSubjectTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -328,8 +328,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void masterDataEnhancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            masterDataEnhancedDetailDataSubjectTextbox.ReadOnly = !masterDataEnhancedDetailDataSubjectTextbox.ReadOnly;
-            masterDataEnhancedDetailDataSubjectDescriptionTextbox.ReadOnly = !masterDataEnhancedDetailDataSubjectDescriptionTextbox.ReadOnly;
+            masterDataEnhancedDetailDataSubjectTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectTextBox.ReadOnly;
+            masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly;
             masterDataEnhancedDetailActiveStatusCheckbox.Enabled = !masterDataEnhancedDetailActiveStatusCheckbox.Enabled;
             masterDataEnhancedDetailUpdateDataSubjectButton.Enabled = !masterDataEnhancedDetailUpdateDataSubjectButton.Enabled;
             if(companyConfigurationEnabledDataSubjects.Contains(_functionTitle))

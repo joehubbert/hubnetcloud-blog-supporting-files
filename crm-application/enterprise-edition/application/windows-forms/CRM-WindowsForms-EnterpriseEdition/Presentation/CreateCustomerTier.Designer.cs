@@ -31,11 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateCustomerTier));
             createCustomerTierTitleLabel = new Label();
             createCustomerTierCustomerTierCodeLabel = new Label();
-            createCustomerTierCustomerTierCodeTextbox = new TextBox();
+            createCustomerTierCustomerTierCodeTextBox = new TextBox();
             createCustomerTierActiveStatusCheckbox = new CheckBox();
             createCustomerTierSubmitButton = new Button();
             createCustomerTierCustomerTierDescriptionLabel = new Label();
-            createCustomerTierCustomerTierDescriptionTextbox = new TextBox();
+            createCustomerTierCustomerTierDescriptionTextBox = new TextBox();
             createCustomerTierStatusStrip = new StatusStrip();
             createCustomerTierStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
@@ -64,14 +64,14 @@
             createCustomerTierCustomerTierCodeLabel.Text = "Customer Tier Code*";
             createCustomerTierCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerTierCustomerTierCodeTextbox
+            // createCustomerTierCustomerTierCodeTextBox
             // 
-            createCustomerTierCustomerTierCodeTextbox.Location = new Point(236, 71);
-            createCustomerTierCustomerTierCodeTextbox.Margin = new Padding(3, 4, 3, 4);
-            createCustomerTierCustomerTierCodeTextbox.MaxLength = 1;
-            createCustomerTierCustomerTierCodeTextbox.Name = "createCustomerTierCustomerTierCodeTextbox";
-            createCustomerTierCustomerTierCodeTextbox.Size = new Size(34, 27);
-            createCustomerTierCustomerTierCodeTextbox.TabIndex = 0;
+            createCustomerTierCustomerTierCodeTextBox.Location = new Point(236, 71);
+            createCustomerTierCustomerTierCodeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCustomerTierCustomerTierCodeTextBox.MaxLength = 1;
+            createCustomerTierCustomerTierCodeTextBox.Name = "createCustomerTierCustomerTierCodeTextBox";
+            createCustomerTierCustomerTierCodeTextBox.Size = new Size(34, 27);
+            createCustomerTierCustomerTierCodeTextBox.TabIndex = 0;
             // 
             // createCustomerTierActiveStatusCheckbox
             // 
@@ -111,14 +111,14 @@
             createCustomerTierCustomerTierDescriptionLabel.Text = "Customer Tier Description*";
             createCustomerTierCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCustomerTierCustomerTierDescriptionTextbox
+            // createCustomerTierCustomerTierDescriptionTextBox
             // 
-            createCustomerTierCustomerTierDescriptionTextbox.Location = new Point(236, 111);
-            createCustomerTierCustomerTierDescriptionTextbox.Margin = new Padding(3, 4, 3, 4);
-            createCustomerTierCustomerTierDescriptionTextbox.MaxLength = 50;
-            createCustomerTierCustomerTierDescriptionTextbox.Name = "createCustomerTierCustomerTierDescriptionTextbox";
-            createCustomerTierCustomerTierDescriptionTextbox.Size = new Size(284, 27);
-            createCustomerTierCustomerTierDescriptionTextbox.TabIndex = 1;
+            createCustomerTierCustomerTierDescriptionTextBox.Location = new Point(236, 111);
+            createCustomerTierCustomerTierDescriptionTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCustomerTierCustomerTierDescriptionTextBox.MaxLength = 50;
+            createCustomerTierCustomerTierDescriptionTextBox.Name = "createCustomerTierCustomerTierDescriptionTextBox";
+            createCustomerTierCustomerTierDescriptionTextBox.Size = new Size(284, 27);
+            createCustomerTierCustomerTierDescriptionTextBox.TabIndex = 1;
             // 
             // createCustomerTierStatusStrip
             // 
@@ -155,11 +155,11 @@
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(543, 326);
             Controls.Add(createCustomerTierStatusStrip);
-            Controls.Add(createCustomerTierCustomerTierDescriptionTextbox);
+            Controls.Add(createCustomerTierCustomerTierDescriptionTextBox);
             Controls.Add(createCustomerTierCustomerTierDescriptionLabel);
             Controls.Add(createCustomerTierSubmitButton);
             Controls.Add(createCustomerTierActiveStatusCheckbox);
-            Controls.Add(createCustomerTierCustomerTierCodeTextbox);
+            Controls.Add(createCustomerTierCustomerTierCodeTextBox);
             Controls.Add(createCustomerTierCustomerTierCodeLabel);
             Controls.Add(createCustomerTierTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -179,11 +179,11 @@
 
         private Label createCustomerTierTitleLabel;
         private Label createCustomerTierCustomerTierCodeLabel;
-        private TextBox createCustomerTierCustomerTierCodeTextbox;
+        private TextBox createCustomerTierCustomerTierCodeTextBox;
         private CheckBox createCustomerTierActiveStatusCheckbox;
         private Button createCustomerTierSubmitButton;
         private Label createCustomerTierCustomerTierDescriptionLabel;
-        private TextBox createCustomerTierCustomerTierDescriptionTextbox;
+        private TextBox createCustomerTierCustomerTierDescriptionTextBox;
         private StatusStrip createCustomerTierStatusStrip;
         private ToolStripSplitButton createCustomerTierStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;

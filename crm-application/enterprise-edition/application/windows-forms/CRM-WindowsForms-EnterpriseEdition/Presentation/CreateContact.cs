@@ -61,11 +61,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createContactSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createContactActiveStatusCheckbox.Checked;
-            string emailAddress = createContactEmailAddressTextbox.Text.TrimEnd();
-            string firstName = createContactFirstNameTextbox.Text.TrimEnd();
-            string lastName = createContactLastNameTextbox.Text.TrimEnd();
-            string role = createContactRoleTextbox.Text.TrimEnd();
-            string telephoneNumber = createContactTelephoneNumberTextbox.Text.TrimEnd();
+            string emailAddress = createContactEmailAddressTextBox.Text.TrimEnd();
+            string firstName = createContactFirstNameTextBox.Text.TrimEnd();
+            string lastName = createContactLastNameTextBox.Text.TrimEnd();
+            string role = createContactRoleTextBox.Text.TrimEnd();
+            string telephoneNumber = createContactTelephoneNumberTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

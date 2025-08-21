@@ -126,8 +126,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerContactId = (Guid)createCustomerLeadCustomerContactPanelCustomerContactComboBox.SelectedValue;
             }
-            string customerLead = createCustomerLeadCustomerLeadTextbox.Text.TrimEnd();
-            string customerLeadTitle = createCustomerLeadCustomerLeadTitleTextbox.Text.TrimEnd();
+            string customerLead = createCustomerLeadCustomerLeadTextBox.Text.TrimEnd();
+            string customerLeadTitle = createCustomerLeadCustomerLeadTitleTextBox.Text.TrimEnd();
             Guid customerLeadType = (Guid)createCustomerLeadCustomerLeadTypeComboBox.SelectedValue;
             Guid? marketingChannelId = null;
             if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)

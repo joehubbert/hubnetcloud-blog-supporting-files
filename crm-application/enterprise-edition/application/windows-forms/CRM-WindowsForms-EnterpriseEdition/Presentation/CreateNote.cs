@@ -124,7 +124,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{createNoteModuleNoteTypeFriendlyName}";
             createNoteTitleLabel.Text = createNoteModuleNoteTypeFriendlyName;
-            createNoteNoteTitleTextboxLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
+            createNoteNoteTitleTextBoxLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
             createNoteNoteTypeComboBoxLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
         }
 
@@ -141,8 +141,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createNoteSubmitButton_Click(object sender, EventArgs e)
         {
-            string note = createNoteNoteTextbox.Text.TrimEnd();
-            string noteTitle = createNoteNoteTitleTextbox.Text.TrimEnd();
+            string note = createNoteNoteTextBox.Text.TrimEnd();
+            string noteTitle = createNoteNoteTitleTextBox.Text.TrimEnd();
             Guid noteTypeId = Guid.Parse(createNoteNoteTypeComboBox.SelectedValue.ToString());
 
             if (_databaseConnectionSettings == null)

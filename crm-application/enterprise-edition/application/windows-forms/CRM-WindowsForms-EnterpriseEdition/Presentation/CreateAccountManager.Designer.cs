@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             createAccountManagerTitleLabel = new Label();
-            createAccountManagerFirstNameTextbox = new TextBox();
-            createAccountManagerTelephoneNumberTextbox = new TextBox();
-            createAccountManagerEmailAddressTextbox = new TextBox();
-            createAccountManagerLastNameTextbox = new TextBox();
+            createAccountManagerFirstNameTextBox = new TextBox();
+            createAccountManagerTelephoneNumberTextBox = new TextBox();
+            createAccountManagerEmailAddressTextBox = new TextBox();
+            createAccountManagerLastNameTextBox = new TextBox();
             createAccountManagerSubmitButton = new Button();
             createAccountManagerFirstNameLabel = new Label();
             createAccountManagerLastNameLabel = new Label();
@@ -56,45 +56,45 @@
             createAccountManagerTitleLabel.TabIndex = 5;
             createAccountManagerTitleLabel.Text = "Create Account Manager";
             // 
-            // createAccountManagerFirstNameTextbox
+            // createAccountManagerFirstNameTextBox
             // 
-            createAccountManagerFirstNameTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerFirstNameTextbox.Location = new Point(165, 61);
-            createAccountManagerFirstNameTextbox.Margin = new Padding(4);
-            createAccountManagerFirstNameTextbox.MaxLength = 50;
-            createAccountManagerFirstNameTextbox.Name = "createAccountManagerFirstNameTextbox";
-            createAccountManagerFirstNameTextbox.Size = new Size(340, 27);
-            createAccountManagerFirstNameTextbox.TabIndex = 0;
+            createAccountManagerFirstNameTextBox.Font = new Font("Segoe UI", 11F);
+            createAccountManagerFirstNameTextBox.Location = new Point(165, 61);
+            createAccountManagerFirstNameTextBox.Margin = new Padding(4);
+            createAccountManagerFirstNameTextBox.MaxLength = 50;
+            createAccountManagerFirstNameTextBox.Name = "createAccountManagerFirstNameTextBox";
+            createAccountManagerFirstNameTextBox.Size = new Size(340, 27);
+            createAccountManagerFirstNameTextBox.TabIndex = 0;
             // 
-            // createAccountManagerTelephoneNumberTextbox
+            // createAccountManagerTelephoneNumberTextBox
             // 
-            createAccountManagerTelephoneNumberTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerTelephoneNumberTextbox.Location = new Point(164, 184);
-            createAccountManagerTelephoneNumberTextbox.Margin = new Padding(4);
-            createAccountManagerTelephoneNumberTextbox.MaxLength = 13;
-            createAccountManagerTelephoneNumberTextbox.Name = "createAccountManagerTelephoneNumberTextbox";
-            createAccountManagerTelephoneNumberTextbox.Size = new Size(340, 27);
-            createAccountManagerTelephoneNumberTextbox.TabIndex = 3;
+            createAccountManagerTelephoneNumberTextBox.Font = new Font("Segoe UI", 11F);
+            createAccountManagerTelephoneNumberTextBox.Location = new Point(164, 184);
+            createAccountManagerTelephoneNumberTextBox.Margin = new Padding(4);
+            createAccountManagerTelephoneNumberTextBox.MaxLength = 13;
+            createAccountManagerTelephoneNumberTextBox.Name = "createAccountManagerTelephoneNumberTextBox";
+            createAccountManagerTelephoneNumberTextBox.Size = new Size(340, 27);
+            createAccountManagerTelephoneNumberTextBox.TabIndex = 3;
             // 
-            // createAccountManagerEmailAddressTextbox
+            // createAccountManagerEmailAddressTextBox
             // 
-            createAccountManagerEmailAddressTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerEmailAddressTextbox.Location = new Point(165, 143);
-            createAccountManagerEmailAddressTextbox.Margin = new Padding(4);
-            createAccountManagerEmailAddressTextbox.MaxLength = 50;
-            createAccountManagerEmailAddressTextbox.Name = "createAccountManagerEmailAddressTextbox";
-            createAccountManagerEmailAddressTextbox.Size = new Size(340, 27);
-            createAccountManagerEmailAddressTextbox.TabIndex = 2;
+            createAccountManagerEmailAddressTextBox.Font = new Font("Segoe UI", 11F);
+            createAccountManagerEmailAddressTextBox.Location = new Point(165, 143);
+            createAccountManagerEmailAddressTextBox.Margin = new Padding(4);
+            createAccountManagerEmailAddressTextBox.MaxLength = 50;
+            createAccountManagerEmailAddressTextBox.Name = "createAccountManagerEmailAddressTextBox";
+            createAccountManagerEmailAddressTextBox.Size = new Size(340, 27);
+            createAccountManagerEmailAddressTextBox.TabIndex = 2;
             // 
-            // createAccountManagerLastNameTextbox
+            // createAccountManagerLastNameTextBox
             // 
-            createAccountManagerLastNameTextbox.Font = new Font("Segoe UI", 11F);
-            createAccountManagerLastNameTextbox.Location = new Point(165, 101);
-            createAccountManagerLastNameTextbox.Margin = new Padding(4);
-            createAccountManagerLastNameTextbox.MaxLength = 50;
-            createAccountManagerLastNameTextbox.Name = "createAccountManagerLastNameTextbox";
-            createAccountManagerLastNameTextbox.Size = new Size(340, 27);
-            createAccountManagerLastNameTextbox.TabIndex = 1;
+            createAccountManagerLastNameTextBox.Font = new Font("Segoe UI", 11F);
+            createAccountManagerLastNameTextBox.Location = new Point(165, 101);
+            createAccountManagerLastNameTextBox.Margin = new Padding(4);
+            createAccountManagerLastNameTextBox.MaxLength = 50;
+            createAccountManagerLastNameTextBox.Name = "createAccountManagerLastNameTextBox";
+            createAccountManagerLastNameTextBox.Size = new Size(340, 27);
+            createAccountManagerLastNameTextBox.TabIndex = 1;
             // 
             // createAccountManagerSubmitButton
             // 
@@ -210,10 +210,10 @@
             Controls.Add(createAccountManagerLastNameLabel);
             Controls.Add(createAccountManagerFirstNameLabel);
             Controls.Add(createAccountManagerSubmitButton);
-            Controls.Add(createAccountManagerLastNameTextbox);
-            Controls.Add(createAccountManagerEmailAddressTextbox);
-            Controls.Add(createAccountManagerTelephoneNumberTextbox);
-            Controls.Add(createAccountManagerFirstNameTextbox);
+            Controls.Add(createAccountManagerLastNameTextBox);
+            Controls.Add(createAccountManagerEmailAddressTextBox);
+            Controls.Add(createAccountManagerTelephoneNumberTextBox);
+            Controls.Add(createAccountManagerFirstNameTextBox);
             Controls.Add(createAccountManagerTitleLabel);
             Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -231,10 +231,10 @@
         #endregion
 
         private Label createAccountManagerTitleLabel;
-        private TextBox createAccountManagerFirstNameTextbox;
-        private TextBox createAccountManagerTelephoneNumberTextbox;
-        private TextBox createAccountManagerEmailAddressTextbox;
-        private TextBox createAccountManagerLastNameTextbox;
+        private TextBox createAccountManagerFirstNameTextBox;
+        private TextBox createAccountManagerTelephoneNumberTextBox;
+        private TextBox createAccountManagerEmailAddressTextBox;
+        private TextBox createAccountManagerLastNameTextBox;
         private Button createAccountManagerSubmitButton;
         private Label createAccountManagerFirstNameLabel;
         private Label createAccountManagerLastNameLabel;

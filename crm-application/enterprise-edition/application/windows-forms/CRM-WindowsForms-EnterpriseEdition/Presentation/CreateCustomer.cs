@@ -22,35 +22,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine1TextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine2TextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine3TextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageAddressLine4TextBox.TextChanged += AutoPopulateShippingInformation;
             createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageLastNameTextbox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageCompanyNameTextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageEmailAddressTextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageFirstNameTextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageLastNameTextBox.TextChanged += AutoPopulateShippingInformation;
+            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.TextChanged += AutoPopulateShippingInformation;
             createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged;
             createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged;
             createCustomerTabControlOverviewTabPageAccountManagerComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            createCustomerTabControlOverviewTabPageCompanyNameTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageCompanyNameTextBox.TextChanged += AutoPopulateBillingInformation;
             createCustomerTabControlOverviewTabPageCustomerTierComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCustomerTabControlOverviewTabPageCustomerTypeComboBox.DropDown += AdjustComboBoxWidth_DropDown;
-            createCustomerTabControlOverviewTabPageEmailAddressTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageEmailAddressTextBox.TextChanged += AutoPopulateBillingInformation;
             createCustomerTabControlOverviewTabPageExistingParentCompanyPanelNoRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged;
             createCustomerTabControlOverviewTabPageExistingParentCompanyPanelYesRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCustomerRadioButton_CheckedChanged;
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCompanyType_CheckedChanged;
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewExistingParentCompanyType_CheckedChanged;
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
-            createCustomerTabControlOverviewTabPageFirstNameTextbox.TextChanged += AutoPopulateBillingInformation;
-            createCustomerTabControlOverviewTabPageLastNameTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageFirstNameTextBox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageLastNameTextBox.TextChanged += AutoPopulateBillingInformation;
             createCustomerTabControlOverviewTabPageSalesRegionComboBox.DropDown += AdjustComboBoxWidth_DropDown;
             createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedIndexChanged += CreateCustomerOverviewSalesRegionComboBox_SelectedIndexChanged;
-            createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.TextChanged += AutoPopulateBillingInformation;
+            createCustomerTabControlOverviewTabPageTelephoneNumberTextBox.TextChanged += AutoPopulateBillingInformation;
             createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelNoRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
             createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
             createCustomerTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
@@ -277,38 +277,38 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void AutoPopulateBillingInformation(object? sender, EventArgs e)
         {
-            createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text = createCustomerTabControlOverviewTabPageFirstNameTextbox.Text;
-            createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text = createCustomerTabControlOverviewTabPageLastNameTextbox.Text;
-            createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text = createCustomerTabControlOverviewTabPageCompanyNameTextbox.Text;
-            createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text = createCustomerTabControlOverviewTabPageEmailAddressTextbox.Text;
-            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text = createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.Text;
+            createCustomerTabControlBillingInformationTabPageFirstNameTextBox.Text = createCustomerTabControlOverviewTabPageFirstNameTextBox.Text;
+            createCustomerTabControlBillingInformationTabPageLastNameTextBox.Text = createCustomerTabControlOverviewTabPageLastNameTextBox.Text;
+            createCustomerTabControlBillingInformationTabPageCompanyNameTextBox.Text = createCustomerTabControlOverviewTabPageCompanyNameTextBox.Text;
+            createCustomerTabControlBillingInformationTabPageEmailAddressTextBox.Text = createCustomerTabControlOverviewTabPageEmailAddressTextBox.Text;
+            createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.Text = createCustomerTabControlOverviewTabPageTelephoneNumberTextBox.Text;
         }
 
         private void AutoPopulateShippingInformation(object? sender, EventArgs e)
         {
-            createCustomerTabControlShippingInformationTabPageAddressLine1Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.Text;
-            createCustomerTabControlShippingInformationTabPageAddressLine2Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.Text;
-            createCustomerTabControlShippingInformationTabPageAddressLine3Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.Text;
-            createCustomerTabControlShippingInformationTabPageAddressLine4Textbox.Text = createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine1TextBox.Text = createCustomerTabControlBillingInformationTabPageAddressLine1TextBox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine2TextBox.Text = createCustomerTabControlBillingInformationTabPageAddressLine2TextBox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine3TextBox.Text = createCustomerTabControlBillingInformationTabPageAddressLine3TextBox.Text;
+            createCustomerTabControlShippingInformationTabPageAddressLine4TextBox.Text = createCustomerTabControlBillingInformationTabPageAddressLine4TextBox.Text;
             createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.SelectedValue = createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedValue;
-            createCustomerTabControlShippingInformationTabPageCompanyNameTextbox.Text = createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text;
-            createCustomerTabControlShippingInformationTabPageEmailAddressTextbox.Text = createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text;
-            createCustomerTabControlShippingInformationTabPageFirstNameTextbox.Text = createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text;
-            createCustomerTabControlShippingInformationTabPageLastNameTextbox.Text = createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text;
-            createCustomerTabControlShippingInformationTabPageTelephoneNumberTextbox.Text = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text;
+            createCustomerTabControlShippingInformationTabPageCompanyNameTextBox.Text = createCustomerTabControlBillingInformationTabPageCompanyNameTextBox.Text;
+            createCustomerTabControlShippingInformationTabPageEmailAddressTextBox.Text = createCustomerTabControlBillingInformationTabPageEmailAddressTextBox.Text;
+            createCustomerTabControlShippingInformationTabPageFirstNameTextBox.Text = createCustomerTabControlBillingInformationTabPageFirstNameTextBox.Text;
+            createCustomerTabControlShippingInformationTabPageLastNameTextBox.Text = createCustomerTabControlBillingInformationTabPageLastNameTextBox.Text;
+            createCustomerTabControlShippingInformationTabPageTelephoneNumberTextBox.Text = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.Text;
         }
 
         private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked)
             {
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Enabled = true;
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Enabled = true;
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = true;
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxB.Enabled = true;
             }
             else
             {
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Enabled = false;
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Enabled = false;
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = false;
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxB.Enabled = false;
             }
         }
 
@@ -316,12 +316,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             if (createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
             {
-                createCustomerTabControlFinanceTabPageVATNumberTextbox.Enabled = true;
+                createCustomerTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
             else
             {
-                createCustomerTabControlFinanceTabPageVATNumberTextbox.Enabled = false;
-                createCustomerTabControlFinanceTabPageVATNumberTextbox.Text = string.Empty;
+                createCustomerTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
+                createCustomerTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
 
@@ -333,34 +333,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCustomerSubmitButton_Click(object sender, EventArgs e)
         {
-            string customerBillingInformationAddressLine1 = createCustomerTabControlBillingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? customerBillingInformationAddressLine2 = createCustomerTabControlBillingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine3 = createCustomerTabControlBillingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
-            string customerBillingInformationAddressLine4 = createCustomerTabControlBillingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerBillingInformationAddressLine1 = createCustomerTabControlBillingInformationTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? customerBillingInformationAddressLine2 = createCustomerTabControlBillingInformationTabPageAddressLine2TextBox.Text.TrimEnd();
+            string customerBillingInformationAddressLine3 = createCustomerTabControlBillingInformationTabPageAddressLine3TextBox.Text.TrimEnd();
+            string customerBillingInformationAddressLine4 = createCustomerTabControlBillingInformationTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid customerBillingInformationAddressLine5 = Guid.Parse(createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string? customerBillingInformationCompanyName = createCustomerTabControlBillingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
-            string customerBillingInformationEmailAddress = createCustomerTabControlBillingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
-            string customerBillingInformationFirstName = createCustomerTabControlBillingInformationTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerBillingInformationLastName = createCustomerTabControlBillingInformationTabPageLastNameTextbox.Text.TrimEnd();
-            string customerBillingInformationTelephoneNumber = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string? customerBillingInformationCompanyName = createCustomerTabControlBillingInformationTabPageCompanyNameTextBox.Text.TrimEnd();
+            string customerBillingInformationEmailAddress = createCustomerTabControlBillingInformationTabPageEmailAddressTextBox.Text.TrimEnd();
+            string customerBillingInformationFirstName = createCustomerTabControlBillingInformationTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerBillingInformationLastName = createCustomerTabControlBillingInformationTabPageLastNameTextBox.Text.TrimEnd();
+            string customerBillingInformationTelephoneNumber = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
             bool customerFinanceCreditEnabled = createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
             if (!customerFinanceCreditEnabled)
             {
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Text = "0";
-                createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Text = "00";
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Text = "0";
+                createCustomerTabControlFinanceTabPageCreditLimitTextBoxB.Text = "00";
             }
-            decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerTabControlFinanceTabPageCreditLimitTextboxA.Text.TrimEnd()}.{createCustomerTabControlFinanceTabPageCreditLimitTextboxB.Text.TrimEnd()}");
+            decimal customerFinanceCreditLimit = decimal.Parse($"{createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Text.TrimEnd()}.{createCustomerTabControlFinanceTabPageCreditLimitTextBoxB.Text.TrimEnd()}");
             Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte customerFinancePaymentDays = byte.Parse(createCustomerTabControlFinanceTabPagePaymentDaysTextbox.Text.TrimEnd());
-            string? customerFinanceVATNumber = createCustomerTabControlFinanceTabPageVATNumberTextbox.Text.TrimEnd();
+            byte customerFinancePaymentDays = byte.Parse(createCustomerTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
+            string? customerFinanceVATNumber = createCustomerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
 
             Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
-            string? customerOverviewCompanyName = createCustomerTabControlOverviewTabPageCompanyNameTextbox.Text.TrimEnd();
+            string? customerOverviewCompanyName = createCustomerTabControlOverviewTabPageCompanyNameTextBox.Text.TrimEnd();
             DateTime customerOverviewCustomerSince = createCustomerTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerTabControlOverviewTabPageCustomerTierComboBox.SelectedValue.ToString());
             Guid customerOverviewCustomerTypeId = Guid.Parse(createCustomerTabControlOverviewTabPageCustomerTypeComboBox.SelectedValue.ToString());
-            string customerOverviewEmailAddress = createCustomerTabControlOverviewTabPageEmailAddressTextbox.Text.TrimEnd();
+            string customerOverviewEmailAddress = createCustomerTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
             Guid? customerOverviewExistingGlobalParentCustomerId = null;
             if (createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox.SelectedValue != null)
             {
@@ -371,23 +371,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerOverviewExistingTopParentCustomerId = Guid.Parse(createCustomerTabControlOverviewTabPageTopParentCustomerComboBox.SelectedValue.ToString());
             }
-            string customerOverviewFirstName = createCustomerTabControlOverviewTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerOverviewLastName = createCustomerTabControlOverviewTabPageLastNameTextbox.Text.TrimEnd();
+            string customerOverviewFirstName = createCustomerTabControlOverviewTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerOverviewLastName = createCustomerTabControlOverviewTabPageLastNameTextBox.Text.TrimEnd();
             Guid customerOverviewSalesSubRegionId = Guid.Parse(createCustomerTabControlOverviewTabPageSalesSubRegionComboBox.SelectedValue.ToString());
-            string customerOverviewTelephoneNumber = createCustomerTabControlOverviewTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string customerOverviewTelephoneNumber = createCustomerTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
             bool customerOverviewWillBeGlobalParent = createCustomerTabControlOverviewTabPageWillBeParentTypePanelGlobalParentRadioButton.Checked;
             bool customerOverviewWillBeTopParent = createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.Checked;
 
-            string customerShippingInformationAddressLine1 = createCustomerTabControlShippingInformationTabPageAddressLine1Textbox.Text.TrimEnd();
-            string? customerShippingInformationAddressLine2 = createCustomerTabControlShippingInformationTabPageAddressLine2Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine3 = createCustomerTabControlShippingInformationTabPageAddressLine3Textbox.Text.TrimEnd();
-            string customerShippingInformationAddressLine4 = createCustomerTabControlShippingInformationTabPageAddressLine4Textbox.Text.TrimEnd();
+            string customerShippingInformationAddressLine1 = createCustomerTabControlShippingInformationTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? customerShippingInformationAddressLine2 = createCustomerTabControlShippingInformationTabPageAddressLine2TextBox.Text.TrimEnd();
+            string customerShippingInformationAddressLine3 = createCustomerTabControlShippingInformationTabPageAddressLine3TextBox.Text.TrimEnd();
+            string customerShippingInformationAddressLine4 = createCustomerTabControlShippingInformationTabPageAddressLine4TextBox.Text.TrimEnd();
             Guid customerShippingInformationAddressLine5 = Guid.Parse(createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string? customerShippingInformationCompanyName = createCustomerTabControlShippingInformationTabPageCompanyNameTextbox.Text.TrimEnd();
-            string customerShippingInformationEmailAddress = createCustomerTabControlShippingInformationTabPageEmailAddressTextbox.Text.TrimEnd();
-            string customerShippingInformationFirstName = createCustomerTabControlShippingInformationTabPageFirstNameTextbox.Text.TrimEnd();
-            string customerShippingInformationLastName = createCustomerTabControlShippingInformationTabPageLastNameTextbox.Text.TrimEnd();
-            string customerShippingInformationTelephoneNumber = createCustomerTabControlShippingInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string? customerShippingInformationCompanyName = createCustomerTabControlShippingInformationTabPageCompanyNameTextBox.Text.TrimEnd();
+            string customerShippingInformationEmailAddress = createCustomerTabControlShippingInformationTabPageEmailAddressTextBox.Text.TrimEnd();
+            string customerShippingInformationFirstName = createCustomerTabControlShippingInformationTabPageFirstNameTextBox.Text.TrimEnd();
+            string customerShippingInformationLastName = createCustomerTabControlShippingInformationTabPageLastNameTextBox.Text.TrimEnd();
+            string customerShippingInformationTelephoneNumber = createCustomerTabControlShippingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Customer";
 

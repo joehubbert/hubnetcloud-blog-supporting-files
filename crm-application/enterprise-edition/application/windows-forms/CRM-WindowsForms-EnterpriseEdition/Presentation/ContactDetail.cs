@@ -66,7 +66,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{contactDetailModuleContactTypeFriendlyName}{titleLabelSuffix}";
             contactDetailTitleLabel.Text = $"{contactDetailModuleContactTypeFriendlyName}{titleLabelSuffix}";
-            contactDetailContactIdTextboxLabel.Text = contactDetailContactIdFriendlyName;
+            contactDetailContactIdTextBoxLabel.Text = contactDetailContactIdFriendlyName;
             contactDetailUpdateContactButton.Text = $"Update {contactDetailModuleContactTypeFriendlyName}";
         }
 
@@ -99,16 +99,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow contactDataRow = contactDataTable.Rows[0];
                     contactDetailActiveStatusCheckbox.Checked = (bool)contactDataRow["Active Status"];
-                    contactDetailContactIdTextbox.Text = contactDataRow[contactDetailContactIdFriendlyName].ToString();
-                    contactDetailEmailAddressTextbox.Text = contactDataRow["Email Address"].ToString();
-                    contactDetailFirstNameTextbox.Text = contactDataRow["First Name"].ToString();
-                    contactDetailLastNameTextbox.Text = contactDataRow["Last Name"].ToString();
-                    contactDetailRoleTextbox.Text = contactDataRow["Role"].ToString();
-                    contactDetailTelephoneNumberTextbox.Text = contactDataRow["Telephone Number"].ToString();
-                    contactDetailCreatedByTextbox.Text = contactDataRow["Created By"].ToString();
-                    contactDetailCreatedTimestampTextbox.Text = contactDataRow["Created Timestamp UTC"].ToString();
-                    contactDetailLastUpdatedByTextbox.Text = contactDataRow["Modified By"].ToString();
-                    contactDetailLastUpdatedTimestampTextbox.Text = contactDataRow["Modified Timestamp UTC"].ToString();
+                    contactDetailContactIdTextBox.Text = contactDataRow[contactDetailContactIdFriendlyName].ToString();
+                    contactDetailEmailAddressTextBox.Text = contactDataRow["Email Address"].ToString();
+                    contactDetailFirstNameTextBox.Text = contactDataRow["First Name"].ToString();
+                    contactDetailLastNameTextBox.Text = contactDataRow["Last Name"].ToString();
+                    contactDetailRoleTextBox.Text = contactDataRow["Role"].ToString();
+                    contactDetailTelephoneNumberTextBox.Text = contactDataRow["Telephone Number"].ToString();
+                    contactDetailCreatedByTextBox.Text = contactDataRow["Created By"].ToString();
+                    contactDetailCreatedTimestampTextBox.Text = contactDataRow["Created Timestamp UTC"].ToString();
+                    contactDetailLastUpdatedByTextBox.Text = contactDataRow["Modified By"].ToString();
+                    contactDetailLastUpdatedTimestampTextBox.Text = contactDataRow["Modified Timestamp UTC"].ToString();
                     switch (_functionTitle)
                     {
                         case "Customer":
@@ -145,11 +145,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void contactDetailUpdateContactButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = contactDetailActiveStatusCheckbox.Checked;
-            string emailAddress = contactDetailEmailAddressTextbox.Text.TrimEnd();
-            string firstName = contactDetailFirstNameTextbox.Text.TrimEnd();
-            string lastName = contactDetailLastNameTextbox.Text.TrimEnd();
-            string role = contactDetailRoleTextbox.Text.TrimEnd();
-            string telephoneNumber = contactDetailTelephoneNumberTextbox.Text.TrimEnd();
+            string emailAddress = contactDetailEmailAddressTextBox.Text.TrimEnd();
+            string firstName = contactDetailFirstNameTextBox.Text.TrimEnd();
+            string lastName = contactDetailLastNameTextBox.Text.TrimEnd();
+            string role = contactDetailRoleTextBox.Text.TrimEnd();
+            string telephoneNumber = contactDetailTelephoneNumberTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -336,11 +336,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void contactDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             contactDetailActiveStatusCheckbox.Enabled = !contactDetailActiveStatusCheckbox.Enabled;
-            contactDetailEmailAddressTextbox.ReadOnly = !contactDetailEmailAddressTextbox.ReadOnly;
-            contactDetailFirstNameTextbox.ReadOnly = !contactDetailFirstNameTextbox.ReadOnly;
-            contactDetailLastNameTextbox.ReadOnly = !contactDetailLastNameTextbox.ReadOnly;
-            contactDetailRoleTextbox.ReadOnly = !contactDetailRoleTextbox.ReadOnly;
-            contactDetailTelephoneNumberTextbox.ReadOnly = !contactDetailTelephoneNumberTextbox.ReadOnly;
+            contactDetailEmailAddressTextBox.ReadOnly = !contactDetailEmailAddressTextBox.ReadOnly;
+            contactDetailFirstNameTextBox.ReadOnly = !contactDetailFirstNameTextBox.ReadOnly;
+            contactDetailLastNameTextBox.ReadOnly = !contactDetailLastNameTextBox.ReadOnly;
+            contactDetailRoleTextBox.ReadOnly = !contactDetailRoleTextBox.ReadOnly;
+            contactDetailTelephoneNumberTextBox.ReadOnly = !contactDetailTelephoneNumberTextBox.ReadOnly;
             contactDetailUpdateContactButton.Enabled = !contactDetailUpdateContactButton.Enabled;
         }
     }

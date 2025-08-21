@@ -83,15 +83,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     DataRow htmlTemplateDataRow = htmlTemplateDataTable.Rows[0];
                     Guid companyConfigurationId = (Guid)htmlTemplateDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
-                    htmlTemplateDetailHTMLTemplateIdTextbox.Text = htmlTemplateDataRow["HTML Template Id"].ToString();
-                    htmlTemplateDetailHTMLTemplateTitleTextbox.Text = htmlTemplateDataRow["HTML Template Title"].ToString();
+                    htmlTemplateDetailHTMLTemplateIdTextBox.Text = htmlTemplateDataRow["HTML Template Id"].ToString();
+                    htmlTemplateDetailHTMLTemplateTitleTextBox.Text = htmlTemplateDataRow["HTML Template Title"].ToString();
                     Guid htmlTemplateTypeId = (Guid)htmlTemplateDataRow["HTML Template Type Id"];
                     await LoadHTMLTemplateTypeAsync(htmlTemplateTypeId);
-                    htmlTemplateDetailHTMLTemplateTextbox.Text = htmlTemplateDataRow["HTML Template"].ToString();
-                    htmlTemplateDetailCreatedByTextbox.Text = htmlTemplateDataRow["Created By"].ToString();
-                    htmlTemplateDetailCreatedTimestampTextbox.Text = htmlTemplateDataRow["Created Timestamp UTC"].ToString();
-                    htmlTemplateDetailLastUpdatedByTextbox.Text = htmlTemplateDataRow["Modified By"].ToString();
-                    htmlTemplateDetailLastUpdatedTimestampTextbox.Text = htmlTemplateDataRow["Modified Timestamp UTC"].ToString();
+                    htmlTemplateDetailHTMLTemplateTextBox.Text = htmlTemplateDataRow["HTML Template"].ToString();
+                    htmlTemplateDetailCreatedByTextBox.Text = htmlTemplateDataRow["Created By"].ToString();
+                    htmlTemplateDetailCreatedTimestampTextBox.Text = htmlTemplateDataRow["Created Timestamp UTC"].ToString();
+                    htmlTemplateDetailLastUpdatedByTextBox.Text = htmlTemplateDataRow["Modified By"].ToString();
+                    htmlTemplateDetailLastUpdatedTimestampTextBox.Text = htmlTemplateDataRow["Modified Timestamp UTC"].ToString();
 
                     htmlTemplateDetailCompanyConfigurationIdOriginalValue = (Guid)htmlTemplateDataRow["Company Configuration Id"];
                     htmlTemplateDetailHTMLTemplateOriginalValue = htmlTemplateDataRow["HTML Template"].ToString();
@@ -114,8 +114,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void htmlTemplateDetailUpdateHTMLTemplateButton_Click(object sender, EventArgs e)
         {
             Guid companyConfigurationId = Guid.Parse(htmlTemplateDetailCompanyConfigurationComboBox.SelectedValue.ToString());
-            string htmlTemplate = htmlTemplateDetailHTMLTemplateTextbox.Text.TrimEnd();
-            string htmlTemplateTitle = htmlTemplateDetailHTMLTemplateTitleTextbox.Text.TrimEnd();
+            string htmlTemplate = htmlTemplateDetailHTMLTemplateTextBox.Text.TrimEnd();
+            string htmlTemplateTitle = htmlTemplateDetailHTMLTemplateTitleTextBox.Text.TrimEnd();
             Guid htmlTemplateTypeId = Guid.Parse(htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue.ToString());
 
             string dataSubject = "HTML Template";
@@ -261,8 +261,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void htmlTemplateDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             htmlTemplateDetailCompanyConfigurationComboBox.Enabled = !htmlTemplateDetailCompanyConfigurationComboBox.Enabled;
-            htmlTemplateDetailHTMLTemplateTextbox.ReadOnly = !htmlTemplateDetailHTMLTemplateTextbox.ReadOnly;
-            htmlTemplateDetailHTMLTemplateTitleTextbox.ReadOnly = !htmlTemplateDetailHTMLTemplateTitleTextbox.ReadOnly;
+            htmlTemplateDetailHTMLTemplateTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTextBox.ReadOnly;
+            htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly;
             htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled = !htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled;
             htmlTemplateDetailUpdateHTMLTemplateButton.Enabled = !htmlTemplateDetailUpdateHTMLTemplateButton.Enabled;
         }

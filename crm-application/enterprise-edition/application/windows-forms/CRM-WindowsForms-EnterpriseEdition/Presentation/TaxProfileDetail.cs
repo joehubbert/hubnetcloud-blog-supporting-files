@@ -62,14 +62,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)taxProfileDataRow["Tax Rate"], out taxRatePartA, out taxRatePartB);
 
-                    taxProfileDetailTaxProfileIdTextbox.Text = taxProfileDataRow["Tax Profile Id"].ToString();
-                    taxProfileDetailTaxProfileTextbox.Text = taxProfileDataRow["Tax Profile"].ToString();
-                    taxProfileDetailTaxRateTextboxA.Text = taxRatePartA;
-                    taxProfileDetailTaxRateTextboxB.Text = taxRatePartB;
-                    taxProfileDetailCreatedByTextbox.Text = taxProfileDataRow["Created By"].ToString();
-                    taxProfileDetailCreatedTimestampTextbox.Text = taxProfileDataRow["Created Timestamp UTC"].ToString();
-                    taxProfileDetailLastUpdatedByTextbox.Text = taxProfileDataRow["Modified By"].ToString();
-                    taxProfileDetailLastUpdatedTimestampTextbox.Text = taxProfileDataRow["Modified Timestamp UTC"].ToString();
+                    taxProfileDetailTaxProfileIdTextBox.Text = taxProfileDataRow["Tax Profile Id"].ToString();
+                    taxProfileDetailTaxProfileTextBox.Text = taxProfileDataRow["Tax Profile"].ToString();
+                    taxProfileDetailTaxRateTextBoxA.Text = taxRatePartA;
+                    taxProfileDetailTaxRateTextBoxB.Text = taxRatePartB;
+                    taxProfileDetailCreatedByTextBox.Text = taxProfileDataRow["Created By"].ToString();
+                    taxProfileDetailCreatedTimestampTextBox.Text = taxProfileDataRow["Created Timestamp UTC"].ToString();
+                    taxProfileDetailLastUpdatedByTextBox.Text = taxProfileDataRow["Modified By"].ToString();
+                    taxProfileDetailLastUpdatedTimestampTextBox.Text = taxProfileDataRow["Modified Timestamp UTC"].ToString();
                     taxProfileDetailActiveStatusCheckbox.Checked = (bool)taxProfileDataRow["Active Status"];
 
                     taxProfileDetailTaxProfileOriginalValue = taxProfileDataRow["Tax Profile"].ToString();
@@ -92,8 +92,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = taxProfileDetailActiveStatusCheckbox.Checked;
-            string taxProfile = taxProfileDetailTaxProfileTextbox.Text.TrimEnd();
-            decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextboxA.Text.TrimEnd()) + (decimal.Parse(taxProfileDetailTaxRateTextboxB.Text.TrimEnd()) / 100);
+            string taxProfile = taxProfileDetailTaxProfileTextBox.Text.TrimEnd();
+            decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextBoxA.Text.TrimEnd()) + (decimal.Parse(taxProfileDetailTaxRateTextBoxB.Text.TrimEnd()) / 100);
 
             if (_databaseConnectionSettings == null)
             {
@@ -214,9 +214,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            taxProfileDetailTaxProfileTextbox.ReadOnly = !taxProfileDetailTaxProfileTextbox.ReadOnly;
-            taxProfileDetailTaxRateTextboxA.ReadOnly = !taxProfileDetailTaxRateTextboxA.ReadOnly;
-            taxProfileDetailTaxRateTextboxB.ReadOnly = !taxProfileDetailTaxRateTextboxB.ReadOnly;
+            taxProfileDetailTaxProfileTextBox.ReadOnly = !taxProfileDetailTaxProfileTextBox.ReadOnly;
+            taxProfileDetailTaxRateTextBoxA.ReadOnly = !taxProfileDetailTaxRateTextBoxA.ReadOnly;
+            taxProfileDetailTaxRateTextBoxB.ReadOnly = !taxProfileDetailTaxRateTextBoxB.ReadOnly;
             taxProfileDetailActiveStatusCheckbox.Enabled = !taxProfileDetailActiveStatusCheckbox.Enabled;
             taxProfileDetailUpdateTaxProfileButton.Enabled = !taxProfileDetailUpdateTaxProfileButton.Enabled;
         }

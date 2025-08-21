@@ -250,8 +250,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             dataSubjectName = functionTitle;
 
             masterDataSimpleDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
-            masterDataSimpleDetailDataSubjectIdTextboxLabel.Text = dataSubjectIdFriendlyName;
-            masterDataSimpleDetailDataSubjectTextboxLabel.Text = dataSubjectFriendlyName;
+            masterDataSimpleDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
+            masterDataSimpleDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
             masterDataSimpleDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
             masterDataSimpleDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
@@ -284,12 +284,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (masterDataSimpleDetailDataTable != null)
                 {
                     DataRow masterDataSimpleDetailDataRow = masterDataSimpleDetailDataTable.Rows[0];
-                    masterDataSimpleDetailDataSubjectIdTextbox.Text = masterDataSimpleDetailDataRow[dataSubjectIdFriendlyName].ToString();
-                    masterDataSimpleDetailDataSubjectTextbox.Text = masterDataSimpleDetailDataRow[dataSubjectFriendlyName].ToString();
-                    masterDataSimpleDetailCreatedByTextbox.Text = masterDataSimpleDetailDataRow["Created By"].ToString();
-                    masterDataSimpleDetailCreatedTimestampTextbox.Text = masterDataSimpleDetailDataRow["Created Timestamp UTC"].ToString();
-                    masterDataSimpleDetailLastUpdatedByTextbox.Text = masterDataSimpleDetailDataRow["Modified By"].ToString();
-                    masterDataSimpleDetailLastUpdatedTimestampTextbox.Text = masterDataSimpleDetailDataRow["Modified Timestamp UTC"].ToString();
+                    masterDataSimpleDetailDataSubjectIdTextBox.Text = masterDataSimpleDetailDataRow[dataSubjectIdFriendlyName].ToString();
+                    masterDataSimpleDetailDataSubjectTextBox.Text = masterDataSimpleDetailDataRow[dataSubjectFriendlyName].ToString();
+                    masterDataSimpleDetailCreatedByTextBox.Text = masterDataSimpleDetailDataRow["Created By"].ToString();
+                    masterDataSimpleDetailCreatedTimestampTextBox.Text = masterDataSimpleDetailDataRow["Created Timestamp UTC"].ToString();
+                    masterDataSimpleDetailLastUpdatedByTextBox.Text = masterDataSimpleDetailDataRow["Modified By"].ToString();
+                    masterDataSimpleDetailLastUpdatedTimestampTextBox.Text = masterDataSimpleDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataSimpleDetailActiveStatusCheckbox.Checked = (bool)masterDataSimpleDetailDataRow["Active Status"];
                     if(companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                     {
@@ -322,7 +322,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = masterDataSimpleDetailActiveStatusCheckbox.Checked;
             Guid? companyConfigurationId = (Guid?)masterDataSimpleDetailCompanyConfigurationComboBox.SelectedValue;
-            string dataSubjectValue = masterDataSimpleDetailDataSubjectTextbox.Text.TrimEnd();
+            string dataSubjectValue = masterDataSimpleDetailDataSubjectTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -448,7 +448,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void masterDataSimpleDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            masterDataSimpleDetailDataSubjectTextbox.ReadOnly = !masterDataSimpleDetailDataSubjectTextbox.ReadOnly;
+            masterDataSimpleDetailDataSubjectTextBox.ReadOnly = !masterDataSimpleDetailDataSubjectTextBox.ReadOnly;
             masterDataSimpleDetailActiveStatusCheckbox.Enabled = !masterDataSimpleDetailActiveStatusCheckbox.Enabled;
             masterDataSimpleDetailUpdateDataSubjectButton.Enabled = !masterDataSimpleDetailUpdateDataSubjectButton.Enabled;
             if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))

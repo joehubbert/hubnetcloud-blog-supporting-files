@@ -58,13 +58,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (currencyDataTable != null)
                 {
                     DataRow currencyDataRow = currencyDataTable.Rows[0];
-                    currencyDetailCurrencyIdTextbox.Text = currencyDataRow["Currency Id"].ToString();
-                    currencyDetailCurrencyCodeTextbox.Text = currencyDataRow["Currency Code"].ToString();
-                    currencyDetailCurrencyNameTextbox.Text = currencyDataRow["Currency Name"].ToString();
-                    currencyDetailCreatedByTextbox.Text = currencyDataRow["Created By"].ToString();
-                    currencyDetailCreatedTimestampTextbox.Text = currencyDataRow["Created Timestamp UTC"].ToString();
-                    currencyDetailLastUpdatedByTextbox.Text = currencyDataRow["Modified By"].ToString();
-                    currencyDetailLastUpdatedTimestampTextbox.Text = currencyDataRow["Modified Timestamp UTC"].ToString();
+                    currencyDetailCurrencyIdTextBox.Text = currencyDataRow["Currency Id"].ToString();
+                    currencyDetailCurrencyCodeTextBox.Text = currencyDataRow["Currency Code"].ToString();
+                    currencyDetailCurrencyNameTextBox.Text = currencyDataRow["Currency Name"].ToString();
+                    currencyDetailCreatedByTextBox.Text = currencyDataRow["Created By"].ToString();
+                    currencyDetailCreatedTimestampTextBox.Text = currencyDataRow["Created Timestamp UTC"].ToString();
+                    currencyDetailLastUpdatedByTextBox.Text = currencyDataRow["Modified By"].ToString();
+                    currencyDetailLastUpdatedTimestampTextBox.Text = currencyDataRow["Modified Timestamp UTC"].ToString();
                     currencyDetailActiveStatusCheckbox.Checked = (bool)currencyDataRow["Active Status"];
 
                     currencyDetailCurrencyCodeOriginalValue = currencyDataRow["Currency Code"].ToString();
@@ -87,8 +87,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = currencyDetailActiveStatusCheckbox.Checked;
-            string currencyCode = currencyDetailCurrencyCodeTextbox.Text.TrimEnd();
-            string currencyName = currencyDetailCurrencyNameTextbox.Text.TrimEnd();
+            string currencyCode = currencyDetailCurrencyCodeTextBox.Text.TrimEnd();
+            string currencyName = currencyDetailCurrencyNameTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -210,8 +210,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            currencyDetailCurrencyCodeTextbox.ReadOnly = !currencyDetailCurrencyCodeTextbox.ReadOnly;
-            currencyDetailCurrencyNameTextbox.ReadOnly = !currencyDetailCurrencyNameTextbox.ReadOnly;
+            currencyDetailCurrencyCodeTextBox.ReadOnly = !currencyDetailCurrencyCodeTextBox.ReadOnly;
+            currencyDetailCurrencyNameTextBox.ReadOnly = !currencyDetailCurrencyNameTextBox.ReadOnly;
             currencyDetailActiveStatusCheckbox.Enabled = !currencyDetailActiveStatusCheckbox.Enabled;
             currencyDetailUpdateCurrencyButton.Enabled = !currencyDetailUpdateCurrencyButton.Enabled;
         }

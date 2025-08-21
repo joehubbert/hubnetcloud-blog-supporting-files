@@ -94,7 +94,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             createMasterDataAdvancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = $"{dataParentSubjectFriendlyName}*";
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = $"{dataSubjectFriendlyName}*";
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataAdvancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}*";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
             InitializeEventHandlers();
@@ -116,7 +116,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = createMasterDataAdvancedActiveStatusCheckbox.Checked;
             Guid dataParentSubjectValue = Guid.Parse(createMasterDataAdvancedDataParentSubjectComboBox.SelectedValue.ToString());
-            string dataSubjectValue = createMasterDataAdvancedMasterDataTypeTextbox.Text.TrimEnd();
+            string dataSubjectValue = createMasterDataAdvancedMasterDataTypeTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {

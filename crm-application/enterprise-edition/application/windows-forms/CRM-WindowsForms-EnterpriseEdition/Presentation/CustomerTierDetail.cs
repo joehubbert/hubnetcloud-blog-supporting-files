@@ -65,13 +65,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (customerTierDataTable != null)
                 {
                     DataRow customerTierDataRow = customerTierDataTable.Rows[0];
-                    customerTierDetailCustomerTierIdTextbox.Text = customerTierDataRow["Customer Tier Id"].ToString();
-                    customerTierDetailCustomerTierCodeTextbox.Text = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionTextbox.Text = customerTierDataRow["Customer Tier Description"].ToString();
-                    customerTierDetailCreatedByTextbox.Text = customerTierDataRow["Created By"].ToString();
-                    customerTierDetailCreatedTimestampTextbox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
-                    customerTierDetailLastUpdatedByTextbox.Text = customerTierDataRow["Modified By"].ToString();
-                    customerTierDetailLastUpdatedTimestampTextbox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
+                    customerTierDetailCustomerTierIdTextBox.Text = customerTierDataRow["Customer Tier Id"].ToString();
+                    customerTierDetailCustomerTierCodeTextBox.Text = customerTierDataRow["Customer Tier Code"].ToString();
+                    customerTierDetailCustomerTierDescriptionTextBox.Text = customerTierDataRow["Customer Tier Description"].ToString();
+                    customerTierDetailCreatedByTextBox.Text = customerTierDataRow["Created By"].ToString();
+                    customerTierDetailCreatedTimestampTextBox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
+                    customerTierDetailLastUpdatedByTextBox.Text = customerTierDataRow["Modified By"].ToString();
+                    customerTierDetailLastUpdatedTimestampTextBox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
                     customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
                     Guid companyConfigurationId = (Guid)customerTierDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
@@ -98,8 +98,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             bool activeStatus = customerTierDetailActiveStatusCheckbox.Checked;
             Guid companyConfigurationId = Guid.Parse(customerTierDetailCompanyConfigurationComboBox.SelectedValue.ToString());
-            string customerTierCode = customerTierDetailCustomerTierCodeTextbox.Text.TrimEnd();
-            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextbox.Text.TrimEnd();
+            string customerTierCode = customerTierDetailCustomerTierCodeTextBox.Text.TrimEnd();
+            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextBox.Text.TrimEnd();
 
             if (_databaseConnectionSettings == null)
             {
@@ -241,8 +241,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             customerTierDetailCompanyConfigurationComboBox.Enabled = !customerTierDetailCompanyConfigurationComboBox.Enabled;
-            customerTierDetailCustomerTierCodeTextbox.ReadOnly = !customerTierDetailCustomerTierCodeTextbox.ReadOnly;
-            customerTierDetailCustomerTierDescriptionTextbox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextbox.ReadOnly;
+            customerTierDetailCustomerTierCodeTextBox.ReadOnly = !customerTierDetailCustomerTierCodeTextBox.ReadOnly;
+            customerTierDetailCustomerTierDescriptionTextBox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextBox.ReadOnly;
             customerTierDetailActiveStatusCheckbox.Enabled = !customerTierDetailActiveStatusCheckbox.Enabled;
             customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;
         }

@@ -29,20 +29,20 @@
         private void InitializeComponent()
         {
             htmlTemplateDetailTitleLabel = new Label();
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel = new Label();
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel = new Label();
-            htmlTemplateDetailHTMLTemplateTextboxLabel = new Label();
-            htmlTemplateDetailCreatedByTextboxLabel = new Label();
-            htmlTemplateDetailCreatedTimestampTextboxLabel = new Label();
-            htmlTemplateDetailLastUpdatedByTextboxLabel = new Label();
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel = new Label();
-            htmlTemplateDetailLastUpdatedByTextbox = new TextBox();
-            htmlTemplateDetailCreatedByTextbox = new TextBox();
-            htmlTemplateDetailLastUpdatedTimestampTextbox = new TextBox();
-            htmlTemplateDetailCreatedTimestampTextbox = new TextBox();
-            htmlTemplateDetailHTMLTemplateTextbox = new TextBox();
-            htmlTemplateDetailHTMLTemplateIdTextbox = new TextBox();
-            htmlTemplateDetailHTMLTemplateTitleTextbox = new TextBox();
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel = new Label();
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel = new Label();
+            htmlTemplateDetailHTMLTemplateTextBoxLabel = new Label();
+            htmlTemplateDetailCreatedByTextBoxLabel = new Label();
+            htmlTemplateDetailCreatedTimestampTextBoxLabel = new Label();
+            htmlTemplateDetailLastUpdatedByTextBoxLabel = new Label();
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            htmlTemplateDetailLastUpdatedByTextBox = new TextBox();
+            htmlTemplateDetailCreatedByTextBox = new TextBox();
+            htmlTemplateDetailLastUpdatedTimestampTextBox = new TextBox();
+            htmlTemplateDetailCreatedTimestampTextBox = new TextBox();
+            htmlTemplateDetailHTMLTemplateTextBox = new TextBox();
+            htmlTemplateDetailHTMLTemplateIdTextBox = new TextBox();
+            htmlTemplateDetailHTMLTemplateTitleTextBox = new TextBox();
             htmlTemplateDetailToggleEditModeButton = new Button();
             htmlTemplateDetailUpdateHTMLTemplateButton = new Button();
             htmlTemplateDetailHTMLTemplateTypeComboBoxLabel = new Label();
@@ -62,141 +62,141 @@
             htmlTemplateDetailTitleLabel.TabIndex = 7;
             htmlTemplateDetailTitleLabel.Text = "HTML Template Detail";
             // 
-            // htmlTemplateDetailHTMLTemplateIdTextboxLabel
+            // htmlTemplateDetailHTMLTemplateIdTextBoxLabel
             // 
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.AutoSize = true;
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Location = new Point(98, 100);
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Name = "htmlTemplateDetailHTMLTemplateIdTextboxLabel";
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Size = new Size(131, 20);
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.TabIndex = 8;
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.Text = "HTML Template Id";
-            htmlTemplateDetailHTMLTemplateIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.Location = new Point(98, 100);
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.Name = "htmlTemplateDetailHTMLTemplateIdTextBoxLabel";
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.Size = new Size(131, 20);
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.TabIndex = 8;
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.Text = "HTML Template Id";
+            htmlTemplateDetailHTMLTemplateIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailHTMLTemplateTitleTextboxLabel
+            // htmlTemplateDetailHTMLTemplateTitleTextBoxLabel
             // 
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.AutoSize = true;
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Location = new Point(82, 181);
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Name = "htmlTemplateDetailHTMLTemplateTitleTextboxLabel";
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Size = new Size(153, 20);
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.TabIndex = 9;
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title*";
-            htmlTemplateDetailHTMLTemplateTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.Location = new Point(82, 181);
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.Name = "htmlTemplateDetailHTMLTemplateTitleTextBoxLabel";
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.Size = new Size(153, 20);
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.TabIndex = 9;
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.Text = "HTML Template Title*";
+            htmlTemplateDetailHTMLTemplateTitleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailHTMLTemplateTextboxLabel
+            // htmlTemplateDetailHTMLTemplateTextBoxLabel
             // 
-            htmlTemplateDetailHTMLTemplateTextboxLabel.AutoSize = true;
-            htmlTemplateDetailHTMLTemplateTextboxLabel.Location = new Point(105, 261);
-            htmlTemplateDetailHTMLTemplateTextboxLabel.Name = "htmlTemplateDetailHTMLTemplateTextboxLabel";
-            htmlTemplateDetailHTMLTemplateTextboxLabel.Size = new Size(124, 20);
-            htmlTemplateDetailHTMLTemplateTextboxLabel.TabIndex = 10;
-            htmlTemplateDetailHTMLTemplateTextboxLabel.Text = " HTML Template*";
-            htmlTemplateDetailHTMLTemplateTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.Location = new Point(105, 261);
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.Name = "htmlTemplateDetailHTMLTemplateTextBoxLabel";
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.Size = new Size(124, 20);
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.TabIndex = 10;
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.Text = " HTML Template*";
+            htmlTemplateDetailHTMLTemplateTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailCreatedByTextboxLabel
+            // htmlTemplateDetailCreatedByTextBoxLabel
             // 
-            htmlTemplateDetailCreatedByTextboxLabel.AutoSize = true;
-            htmlTemplateDetailCreatedByTextboxLabel.Location = new Point(949, 141);
-            htmlTemplateDetailCreatedByTextboxLabel.Name = "htmlTemplateDetailCreatedByTextboxLabel";
-            htmlTemplateDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            htmlTemplateDetailCreatedByTextboxLabel.TabIndex = 11;
-            htmlTemplateDetailCreatedByTextboxLabel.Text = "Created By";
-            htmlTemplateDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailCreatedByTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailCreatedByTextBoxLabel.Location = new Point(949, 141);
+            htmlTemplateDetailCreatedByTextBoxLabel.Name = "htmlTemplateDetailCreatedByTextBoxLabel";
+            htmlTemplateDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            htmlTemplateDetailCreatedByTextBoxLabel.TabIndex = 11;
+            htmlTemplateDetailCreatedByTextBoxLabel.Text = "Created By";
+            htmlTemplateDetailCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailCreatedTimestampTextboxLabel
+            // htmlTemplateDetailCreatedTimestampTextBoxLabel
             // 
-            htmlTemplateDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            htmlTemplateDetailCreatedTimestampTextboxLabel.Location = new Point(891, 181);
-            htmlTemplateDetailCreatedTimestampTextboxLabel.Name = "htmlTemplateDetailCreatedTimestampTextboxLabel";
-            htmlTemplateDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            htmlTemplateDetailCreatedTimestampTextboxLabel.TabIndex = 12;
-            htmlTemplateDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            htmlTemplateDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Location = new Point(891, 181);
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Name = "htmlTemplateDetailCreatedTimestampTextBoxLabel";
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailLastUpdatedByTextboxLabel
+            // htmlTemplateDetailLastUpdatedByTextBoxLabel
             // 
-            htmlTemplateDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            htmlTemplateDetailLastUpdatedByTextboxLabel.Location = new Point(913, 221);
-            htmlTemplateDetailLastUpdatedByTextboxLabel.Name = "htmlTemplateDetailLastUpdatedByTextboxLabel";
-            htmlTemplateDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            htmlTemplateDetailLastUpdatedByTextboxLabel.TabIndex = 13;
-            htmlTemplateDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            htmlTemplateDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.Location = new Point(913, 221);
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.Name = "htmlTemplateDetailLastUpdatedByTextBoxLabel";
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            htmlTemplateDetailLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailLastUpdatedTimestampTextboxLabel
+            // htmlTemplateDetailLastUpdatedTimestampTextBoxLabel
             // 
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.Location = new Point(855, 261);
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.Name = "htmlTemplateDetailLastUpdatedTimestampTextboxLabel";
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            htmlTemplateDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(855, 261);
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Name = "htmlTemplateDetailLastUpdatedTimestampTextBoxLabel";
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // htmlTemplateDetailLastUpdatedByTextbox
+            // htmlTemplateDetailLastUpdatedByTextBox
             // 
-            htmlTemplateDetailLastUpdatedByTextbox.Location = new Point(1036, 218);
-            htmlTemplateDetailLastUpdatedByTextbox.MaxLength = 50;
-            htmlTemplateDetailLastUpdatedByTextbox.Name = "htmlTemplateDetailLastUpdatedByTextbox";
-            htmlTemplateDetailLastUpdatedByTextbox.ReadOnly = true;
-            htmlTemplateDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            htmlTemplateDetailLastUpdatedByTextbox.TabIndex = 6;
+            htmlTemplateDetailLastUpdatedByTextBox.Location = new Point(1036, 218);
+            htmlTemplateDetailLastUpdatedByTextBox.MaxLength = 50;
+            htmlTemplateDetailLastUpdatedByTextBox.Name = "htmlTemplateDetailLastUpdatedByTextBox";
+            htmlTemplateDetailLastUpdatedByTextBox.ReadOnly = true;
+            htmlTemplateDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            htmlTemplateDetailLastUpdatedByTextBox.TabIndex = 6;
             // 
-            // htmlTemplateDetailCreatedByTextbox
+            // htmlTemplateDetailCreatedByTextBox
             // 
-            htmlTemplateDetailCreatedByTextbox.Location = new Point(1036, 138);
-            htmlTemplateDetailCreatedByTextbox.MaxLength = 50;
-            htmlTemplateDetailCreatedByTextbox.Name = "htmlTemplateDetailCreatedByTextbox";
-            htmlTemplateDetailCreatedByTextbox.ReadOnly = true;
-            htmlTemplateDetailCreatedByTextbox.Size = new Size(370, 27);
-            htmlTemplateDetailCreatedByTextbox.TabIndex = 4;
+            htmlTemplateDetailCreatedByTextBox.Location = new Point(1036, 138);
+            htmlTemplateDetailCreatedByTextBox.MaxLength = 50;
+            htmlTemplateDetailCreatedByTextBox.Name = "htmlTemplateDetailCreatedByTextBox";
+            htmlTemplateDetailCreatedByTextBox.ReadOnly = true;
+            htmlTemplateDetailCreatedByTextBox.Size = new Size(370, 27);
+            htmlTemplateDetailCreatedByTextBox.TabIndex = 4;
             // 
-            // htmlTemplateDetailLastUpdatedTimestampTextbox
+            // htmlTemplateDetailLastUpdatedTimestampTextBox
             // 
-            htmlTemplateDetailLastUpdatedTimestampTextbox.Location = new Point(1036, 258);
-            htmlTemplateDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            htmlTemplateDetailLastUpdatedTimestampTextbox.Name = "htmlTemplateDetailLastUpdatedTimestampTextbox";
-            htmlTemplateDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            htmlTemplateDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            htmlTemplateDetailLastUpdatedTimestampTextbox.TabIndex = 7;
+            htmlTemplateDetailLastUpdatedTimestampTextBox.Location = new Point(1036, 258);
+            htmlTemplateDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            htmlTemplateDetailLastUpdatedTimestampTextBox.Name = "htmlTemplateDetailLastUpdatedTimestampTextBox";
+            htmlTemplateDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            htmlTemplateDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            htmlTemplateDetailLastUpdatedTimestampTextBox.TabIndex = 7;
             // 
-            // htmlTemplateDetailCreatedTimestampTextbox
+            // htmlTemplateDetailCreatedTimestampTextBox
             // 
-            htmlTemplateDetailCreatedTimestampTextbox.Location = new Point(1036, 178);
-            htmlTemplateDetailCreatedTimestampTextbox.MaxLength = 50;
-            htmlTemplateDetailCreatedTimestampTextbox.Name = "htmlTemplateDetailCreatedTimestampTextbox";
-            htmlTemplateDetailCreatedTimestampTextbox.ReadOnly = true;
-            htmlTemplateDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            htmlTemplateDetailCreatedTimestampTextbox.TabIndex = 5;
+            htmlTemplateDetailCreatedTimestampTextBox.Location = new Point(1036, 178);
+            htmlTemplateDetailCreatedTimestampTextBox.MaxLength = 50;
+            htmlTemplateDetailCreatedTimestampTextBox.Name = "htmlTemplateDetailCreatedTimestampTextBox";
+            htmlTemplateDetailCreatedTimestampTextBox.ReadOnly = true;
+            htmlTemplateDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            htmlTemplateDetailCreatedTimestampTextBox.TabIndex = 5;
             // 
-            // htmlTemplateDetailHTMLTemplateTextbox
+            // htmlTemplateDetailHTMLTemplateTextBox
             // 
-            htmlTemplateDetailHTMLTemplateTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            htmlTemplateDetailHTMLTemplateTextbox.Location = new Point(235, 258);
-            htmlTemplateDetailHTMLTemplateTextbox.MaxLength = 1070000000;
-            htmlTemplateDetailHTMLTemplateTextbox.Multiline = true;
-            htmlTemplateDetailHTMLTemplateTextbox.Name = "htmlTemplateDetailHTMLTemplateTextbox";
-            htmlTemplateDetailHTMLTemplateTextbox.ReadOnly = true;
-            htmlTemplateDetailHTMLTemplateTextbox.ScrollBars = ScrollBars.Vertical;
-            htmlTemplateDetailHTMLTemplateTextbox.Size = new Size(524, 259);
-            htmlTemplateDetailHTMLTemplateTextbox.TabIndex = 3;
+            htmlTemplateDetailHTMLTemplateTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            htmlTemplateDetailHTMLTemplateTextBox.Location = new Point(235, 258);
+            htmlTemplateDetailHTMLTemplateTextBox.MaxLength = 1070000000;
+            htmlTemplateDetailHTMLTemplateTextBox.Multiline = true;
+            htmlTemplateDetailHTMLTemplateTextBox.Name = "htmlTemplateDetailHTMLTemplateTextBox";
+            htmlTemplateDetailHTMLTemplateTextBox.ReadOnly = true;
+            htmlTemplateDetailHTMLTemplateTextBox.ScrollBars = ScrollBars.Vertical;
+            htmlTemplateDetailHTMLTemplateTextBox.Size = new Size(524, 259);
+            htmlTemplateDetailHTMLTemplateTextBox.TabIndex = 3;
             // 
-            // htmlTemplateDetailHTMLTemplateIdTextbox
+            // htmlTemplateDetailHTMLTemplateIdTextBox
             // 
-            htmlTemplateDetailHTMLTemplateIdTextbox.Location = new Point(235, 97);
-            htmlTemplateDetailHTMLTemplateIdTextbox.MaxLength = 36;
-            htmlTemplateDetailHTMLTemplateIdTextbox.Name = "htmlTemplateDetailHTMLTemplateIdTextbox";
-            htmlTemplateDetailHTMLTemplateIdTextbox.ReadOnly = true;
-            htmlTemplateDetailHTMLTemplateIdTextbox.Size = new Size(524, 27);
-            htmlTemplateDetailHTMLTemplateIdTextbox.TabIndex = 0;
+            htmlTemplateDetailHTMLTemplateIdTextBox.Location = new Point(235, 97);
+            htmlTemplateDetailHTMLTemplateIdTextBox.MaxLength = 36;
+            htmlTemplateDetailHTMLTemplateIdTextBox.Name = "htmlTemplateDetailHTMLTemplateIdTextBox";
+            htmlTemplateDetailHTMLTemplateIdTextBox.ReadOnly = true;
+            htmlTemplateDetailHTMLTemplateIdTextBox.Size = new Size(524, 27);
+            htmlTemplateDetailHTMLTemplateIdTextBox.TabIndex = 0;
             // 
-            // htmlTemplateDetailHTMLTemplateTitleTextbox
+            // htmlTemplateDetailHTMLTemplateTitleTextBox
             // 
-            htmlTemplateDetailHTMLTemplateTitleTextbox.Location = new Point(235, 177);
-            htmlTemplateDetailHTMLTemplateTitleTextbox.MaxLength = 50;
-            htmlTemplateDetailHTMLTemplateTitleTextbox.Name = "htmlTemplateDetailHTMLTemplateTitleTextbox";
-            htmlTemplateDetailHTMLTemplateTitleTextbox.ReadOnly = true;
-            htmlTemplateDetailHTMLTemplateTitleTextbox.Size = new Size(524, 27);
-            htmlTemplateDetailHTMLTemplateTitleTextbox.TabIndex = 1;
+            htmlTemplateDetailHTMLTemplateTitleTextBox.Location = new Point(235, 177);
+            htmlTemplateDetailHTMLTemplateTitleTextBox.MaxLength = 50;
+            htmlTemplateDetailHTMLTemplateTitleTextBox.Name = "htmlTemplateDetailHTMLTemplateTitleTextBox";
+            htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly = true;
+            htmlTemplateDetailHTMLTemplateTitleTextBox.Size = new Size(524, 27);
+            htmlTemplateDetailHTMLTemplateTitleTextBox.TabIndex = 1;
             // 
             // htmlTemplateDetailToggleEditModeButton
             // 
@@ -279,20 +279,20 @@
             Controls.Add(htmlTemplateDetailHTMLTemplateTypeComboBox);
             Controls.Add(htmlTemplateDetailUpdateHTMLTemplateButton);
             Controls.Add(htmlTemplateDetailToggleEditModeButton);
-            Controls.Add(htmlTemplateDetailHTMLTemplateTitleTextbox);
-            Controls.Add(htmlTemplateDetailHTMLTemplateIdTextbox);
-            Controls.Add(htmlTemplateDetailHTMLTemplateTextbox);
-            Controls.Add(htmlTemplateDetailCreatedTimestampTextbox);
-            Controls.Add(htmlTemplateDetailLastUpdatedTimestampTextbox);
-            Controls.Add(htmlTemplateDetailCreatedByTextbox);
-            Controls.Add(htmlTemplateDetailLastUpdatedByTextbox);
-            Controls.Add(htmlTemplateDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(htmlTemplateDetailLastUpdatedByTextboxLabel);
-            Controls.Add(htmlTemplateDetailCreatedTimestampTextboxLabel);
-            Controls.Add(htmlTemplateDetailCreatedByTextboxLabel);
-            Controls.Add(htmlTemplateDetailHTMLTemplateTextboxLabel);
-            Controls.Add(htmlTemplateDetailHTMLTemplateTitleTextboxLabel);
-            Controls.Add(htmlTemplateDetailHTMLTemplateIdTextboxLabel);
+            Controls.Add(htmlTemplateDetailHTMLTemplateTitleTextBox);
+            Controls.Add(htmlTemplateDetailHTMLTemplateIdTextBox);
+            Controls.Add(htmlTemplateDetailHTMLTemplateTextBox);
+            Controls.Add(htmlTemplateDetailCreatedTimestampTextBox);
+            Controls.Add(htmlTemplateDetailLastUpdatedTimestampTextBox);
+            Controls.Add(htmlTemplateDetailCreatedByTextBox);
+            Controls.Add(htmlTemplateDetailLastUpdatedByTextBox);
+            Controls.Add(htmlTemplateDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(htmlTemplateDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(htmlTemplateDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(htmlTemplateDetailCreatedByTextBoxLabel);
+            Controls.Add(htmlTemplateDetailHTMLTemplateTextBoxLabel);
+            Controls.Add(htmlTemplateDetailHTMLTemplateTitleTextBoxLabel);
+            Controls.Add(htmlTemplateDetailHTMLTemplateIdTextBoxLabel);
             Controls.Add(htmlTemplateDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -308,20 +308,20 @@
         #endregion
 
         private Label htmlTemplateDetailTitleLabel;
-        private Label htmlTemplateDetailHTMLTemplateIdTextboxLabel;
-        private Label htmlTemplateDetailHTMLTemplateTitleTextboxLabel;
-        private Label htmlTemplateDetailHTMLTemplateTextboxLabel;
-        private Label htmlTemplateDetailCreatedByTextboxLabel;
-        private Label htmlTemplateDetailCreatedTimestampTextboxLabel;
-        private Label htmlTemplateDetailLastUpdatedByTextboxLabel;
-        private Label htmlTemplateDetailLastUpdatedTimestampTextboxLabel;
-        private TextBox htmlTemplateDetailLastUpdatedByTextbox;
-        private TextBox htmlTemplateDetailCreatedByTextbox;
-        private TextBox htmlTemplateDetailLastUpdatedTimestampTextbox;
-        private TextBox htmlTemplateDetailCreatedTimestampTextbox;
-        private TextBox htmlTemplateDetailHTMLTemplateTextbox;
-        private TextBox htmlTemplateDetailHTMLTemplateIdTextbox;
-        private TextBox htmlTemplateDetailHTMLTemplateTitleTextbox;
+        private Label htmlTemplateDetailHTMLTemplateIdTextBoxLabel;
+        private Label htmlTemplateDetailHTMLTemplateTitleTextBoxLabel;
+        private Label htmlTemplateDetailHTMLTemplateTextBoxLabel;
+        private Label htmlTemplateDetailCreatedByTextBoxLabel;
+        private Label htmlTemplateDetailCreatedTimestampTextBoxLabel;
+        private Label htmlTemplateDetailLastUpdatedByTextBoxLabel;
+        private Label htmlTemplateDetailLastUpdatedTimestampTextBoxLabel;
+        private TextBox htmlTemplateDetailLastUpdatedByTextBox;
+        private TextBox htmlTemplateDetailCreatedByTextBox;
+        private TextBox htmlTemplateDetailLastUpdatedTimestampTextBox;
+        private TextBox htmlTemplateDetailCreatedTimestampTextBox;
+        private TextBox htmlTemplateDetailHTMLTemplateTextBox;
+        private TextBox htmlTemplateDetailHTMLTemplateIdTextBox;
+        private TextBox htmlTemplateDetailHTMLTemplateTitleTextBox;
         private Button htmlTemplateDetailToggleEditModeButton;
         private Button htmlTemplateDetailUpdateHTMLTemplateButton;
         private Label htmlTemplateDetailHTMLTemplateTypeComboBoxLabel;

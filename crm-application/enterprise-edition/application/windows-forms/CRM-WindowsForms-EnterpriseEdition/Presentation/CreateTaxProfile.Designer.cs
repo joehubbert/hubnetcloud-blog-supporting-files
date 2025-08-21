@@ -30,13 +30,13 @@
         {
             createTaxProfileTitleLabel = new Label();
             createTaxProfileTaxProfileLabel = new Label();
-            createTaxProfileTaxProfileTextbox = new TextBox();
+            createTaxProfileTaxProfileTextBox = new TextBox();
             createTaxProfileActiveStatusCheckbox = new CheckBox();
             createTaxProfileSubmitButton = new Button();
             createTaxProfileTaxRateLabel = new Label();
-            createTaxProfileTaxRateTextboxA = new TextBox();
-            createTaxProfileTaxRateTextboxB = new TextBox();
-            createTaxProfileTaxRateTextboxSeparatorLabel = new Label();
+            createTaxProfileTaxRateTextBoxA = new TextBox();
+            createTaxProfileTaxRateTextBoxB = new TextBox();
+            createTaxProfileTaxRateTextBoxSeparatorLabel = new Label();
             SuspendLayout();
             // 
             // createTaxProfileTitleLabel
@@ -61,14 +61,14 @@
             createTaxProfileTaxProfileLabel.Text = "Tax Profile";
             createTaxProfileTaxProfileLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createTaxProfileTaxProfileTextbox
+            // createTaxProfileTaxProfileTextBox
             // 
-            createTaxProfileTaxProfileTextbox.Location = new Point(140, 67);
-            createTaxProfileTaxProfileTextbox.Margin = new Padding(3, 4, 3, 4);
-            createTaxProfileTaxProfileTextbox.MaxLength = 50;
-            createTaxProfileTaxProfileTextbox.Name = "createTaxProfileTaxProfileTextbox";
-            createTaxProfileTaxProfileTextbox.Size = new Size(284, 27);
-            createTaxProfileTaxProfileTextbox.TabIndex = 0;
+            createTaxProfileTaxProfileTextBox.Location = new Point(140, 67);
+            createTaxProfileTaxProfileTextBox.Margin = new Padding(3, 4, 3, 4);
+            createTaxProfileTaxProfileTextBox.MaxLength = 50;
+            createTaxProfileTaxProfileTextBox.Name = "createTaxProfileTaxProfileTextBox";
+            createTaxProfileTaxProfileTextBox.Size = new Size(284, 27);
+            createTaxProfileTaxProfileTextBox.TabIndex = 0;
             // 
             // createTaxProfileActiveStatusCheckbox
             // 
@@ -108,32 +108,32 @@
             createTaxProfileTaxRateLabel.Text = "Tax Rate";
             createTaxProfileTaxRateLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createTaxProfileTaxRateTextboxA
+            // createTaxProfileTaxRateTextBoxA
             // 
-            createTaxProfileTaxRateTextboxA.Location = new Point(140, 109);
-            createTaxProfileTaxRateTextboxA.Margin = new Padding(3, 4, 3, 4);
-            createTaxProfileTaxRateTextboxA.MaxLength = 5;
-            createTaxProfileTaxRateTextboxA.Name = "createTaxProfileTaxRateTextboxA";
-            createTaxProfileTaxRateTextboxA.Size = new Size(87, 27);
-            createTaxProfileTaxRateTextboxA.TabIndex = 1;
+            createTaxProfileTaxRateTextBoxA.Location = new Point(140, 109);
+            createTaxProfileTaxRateTextBoxA.Margin = new Padding(3, 4, 3, 4);
+            createTaxProfileTaxRateTextBoxA.MaxLength = 5;
+            createTaxProfileTaxRateTextBoxA.Name = "createTaxProfileTaxRateTextBoxA";
+            createTaxProfileTaxRateTextBoxA.Size = new Size(87, 27);
+            createTaxProfileTaxRateTextBoxA.TabIndex = 1;
             // 
-            // createTaxProfileTaxRateTextboxB
+            // createTaxProfileTaxRateTextBoxB
             // 
-            createTaxProfileTaxRateTextboxB.Location = new Point(251, 109);
-            createTaxProfileTaxRateTextboxB.Margin = new Padding(3, 4, 3, 4);
-            createTaxProfileTaxRateTextboxB.MaxLength = 2;
-            createTaxProfileTaxRateTextboxB.Name = "createTaxProfileTaxRateTextboxB";
-            createTaxProfileTaxRateTextboxB.Size = new Size(38, 27);
-            createTaxProfileTaxRateTextboxB.TabIndex = 2;
+            createTaxProfileTaxRateTextBoxB.Location = new Point(251, 109);
+            createTaxProfileTaxRateTextBoxB.Margin = new Padding(3, 4, 3, 4);
+            createTaxProfileTaxRateTextBoxB.MaxLength = 2;
+            createTaxProfileTaxRateTextBoxB.Name = "createTaxProfileTaxRateTextBoxB";
+            createTaxProfileTaxRateTextBoxB.Size = new Size(38, 27);
+            createTaxProfileTaxRateTextBoxB.TabIndex = 2;
             // 
-            // createTaxProfileTaxRateTextboxSeparatorLabel
+            // createTaxProfileTaxRateTextBoxSeparatorLabel
             // 
-            createTaxProfileTaxRateTextboxSeparatorLabel.AutoSize = true;
-            createTaxProfileTaxRateTextboxSeparatorLabel.Location = new Point(233, 112);
-            createTaxProfileTaxRateTextboxSeparatorLabel.Name = "createTaxProfileTaxRateTextboxSeparatorLabel";
-            createTaxProfileTaxRateTextboxSeparatorLabel.Size = new Size(12, 20);
-            createTaxProfileTaxRateTextboxSeparatorLabel.TabIndex = 16;
-            createTaxProfileTaxRateTextboxSeparatorLabel.Text = ".";
+            createTaxProfileTaxRateTextBoxSeparatorLabel.AutoSize = true;
+            createTaxProfileTaxRateTextBoxSeparatorLabel.Location = new Point(233, 112);
+            createTaxProfileTaxRateTextBoxSeparatorLabel.Name = "createTaxProfileTaxRateTextBoxSeparatorLabel";
+            createTaxProfileTaxRateTextBoxSeparatorLabel.Size = new Size(12, 20);
+            createTaxProfileTaxRateTextBoxSeparatorLabel.TabIndex = 16;
+            createTaxProfileTaxRateTextBoxSeparatorLabel.Text = ".";
             // 
             // CreateTaxProfile
             // 
@@ -141,13 +141,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(464, 277);
-            Controls.Add(createTaxProfileTaxRateTextboxSeparatorLabel);
-            Controls.Add(createTaxProfileTaxRateTextboxB);
-            Controls.Add(createTaxProfileTaxRateTextboxA);
+            Controls.Add(createTaxProfileTaxRateTextBoxSeparatorLabel);
+            Controls.Add(createTaxProfileTaxRateTextBoxB);
+            Controls.Add(createTaxProfileTaxRateTextBoxA);
             Controls.Add(createTaxProfileTaxRateLabel);
             Controls.Add(createTaxProfileSubmitButton);
             Controls.Add(createTaxProfileActiveStatusCheckbox);
-            Controls.Add(createTaxProfileTaxProfileTextbox);
+            Controls.Add(createTaxProfileTaxProfileTextBox);
             Controls.Add(createTaxProfileTaxProfileLabel);
             Controls.Add(createTaxProfileTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -165,12 +165,12 @@
 
         private Label createTaxProfileTitleLabel;
         private Label createTaxProfileTaxProfileLabel;
-        private TextBox createTaxProfileTaxProfileTextbox;
+        private TextBox createTaxProfileTaxProfileTextBox;
         private CheckBox createTaxProfileActiveStatusCheckbox;
         private Button createTaxProfileSubmitButton;
         private Label createTaxProfileTaxRateLabel;
-        private TextBox createTaxProfileTaxRateTextboxA;
-        private TextBox createTaxProfileTaxRateTextboxB;
-        private Label createTaxProfileTaxRateTextboxSeparatorLabel;
+        private TextBox createTaxProfileTaxRateTextBoxA;
+        private TextBox createTaxProfileTaxRateTextBoxB;
+        private Label createTaxProfileTaxRateTextBoxSeparatorLabel;
     }
 }

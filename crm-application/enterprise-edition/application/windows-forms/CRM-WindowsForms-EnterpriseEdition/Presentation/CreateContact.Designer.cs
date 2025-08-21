@@ -29,18 +29,18 @@
         private void InitializeComponent()
         {
             createContactTitleLabel = new Label();
-            createContactEmailAddressTextbox = new TextBox();
-            createContactEmailAddressTextboxLabel = new Label();
+            createContactEmailAddressTextBox = new TextBox();
+            createContactEmailAddressTextBoxLabel = new Label();
             createContactSubmitButton = new Button();
             createContactActiveStatusCheckbox = new CheckBox();
-            createContactFirstNameTextboxLabel = new Label();
-            createContactFirstNameTextbox = new TextBox();
-            createContactLastNameTextboxLabel = new Label();
-            createContactLastNameTextbox = new TextBox();
-            createContactTelephoneNumberTextboxLabel = new Label();
-            createContactTelephoneNumberTextbox = new TextBox();
-            createContactRoleTextboxLabel = new Label();
-            createContactRoleTextbox = new TextBox();
+            createContactFirstNameTextBoxLabel = new Label();
+            createContactFirstNameTextBox = new TextBox();
+            createContactLastNameTextBoxLabel = new Label();
+            createContactLastNameTextBox = new TextBox();
+            createContactTelephoneNumberTextBoxLabel = new Label();
+            createContactTelephoneNumberTextBox = new TextBox();
+            createContactRoleTextBoxLabel = new Label();
+            createContactRoleTextBox = new TextBox();
             createContactStatusStrip = new StatusStrip();
             createContactStatusStripDataSubjectPlaceholder = new ToolStripStatusLabel();
             createContactStatusStrip.SuspendLayout();
@@ -57,23 +57,23 @@
             createContactTitleLabel.TabIndex = 7;
             createContactTitleLabel.Text = "{Create Contact Title Placeholder}";
             // 
-            // createContactEmailAddressTextbox
+            // createContactEmailAddressTextBox
             // 
-            createContactEmailAddressTextbox.Location = new Point(193, 150);
-            createContactEmailAddressTextbox.MaxLength = 50;
-            createContactEmailAddressTextbox.Name = "createContactEmailAddressTextbox";
-            createContactEmailAddressTextbox.Size = new Size(280, 27);
-            createContactEmailAddressTextbox.TabIndex = 2;
+            createContactEmailAddressTextBox.Location = new Point(193, 150);
+            createContactEmailAddressTextBox.MaxLength = 50;
+            createContactEmailAddressTextBox.Name = "createContactEmailAddressTextBox";
+            createContactEmailAddressTextBox.Size = new Size(280, 27);
+            createContactEmailAddressTextBox.TabIndex = 2;
             // 
-            // createContactEmailAddressTextboxLabel
+            // createContactEmailAddressTextBoxLabel
             // 
-            createContactEmailAddressTextboxLabel.AutoSize = true;
-            createContactEmailAddressTextboxLabel.Location = new Point(85, 153);
-            createContactEmailAddressTextboxLabel.Name = "createContactEmailAddressTextboxLabel";
-            createContactEmailAddressTextboxLabel.Size = new Size(109, 20);
-            createContactEmailAddressTextboxLabel.TabIndex = 11;
-            createContactEmailAddressTextboxLabel.Text = "Email Address*";
-            createContactEmailAddressTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createContactEmailAddressTextBoxLabel.AutoSize = true;
+            createContactEmailAddressTextBoxLabel.Location = new Point(85, 153);
+            createContactEmailAddressTextBoxLabel.Name = "createContactEmailAddressTextBoxLabel";
+            createContactEmailAddressTextBoxLabel.Size = new Size(109, 20);
+            createContactEmailAddressTextBoxLabel.TabIndex = 11;
+            createContactEmailAddressTextBoxLabel.Text = "Email Address*";
+            createContactEmailAddressTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createContactSubmitButton
             // 
@@ -102,77 +102,77 @@
             createContactActiveStatusCheckbox.Text = "Active {Contact Type}*";
             createContactActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
-            // createContactFirstNameTextboxLabel
+            // createContactFirstNameTextBoxLabel
             // 
-            createContactFirstNameTextboxLabel.AutoSize = true;
-            createContactFirstNameTextboxLabel.Location = new Point(107, 75);
-            createContactFirstNameTextboxLabel.Name = "createContactFirstNameTextboxLabel";
-            createContactFirstNameTextboxLabel.Size = new Size(86, 20);
-            createContactFirstNameTextboxLabel.TabIndex = 16;
-            createContactFirstNameTextboxLabel.Text = "First Name*";
-            createContactFirstNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createContactFirstNameTextBoxLabel.AutoSize = true;
+            createContactFirstNameTextBoxLabel.Location = new Point(107, 75);
+            createContactFirstNameTextBoxLabel.Name = "createContactFirstNameTextBoxLabel";
+            createContactFirstNameTextBoxLabel.Size = new Size(86, 20);
+            createContactFirstNameTextBoxLabel.TabIndex = 16;
+            createContactFirstNameTextBoxLabel.Text = "First Name*";
+            createContactFirstNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createContactFirstNameTextbox
+            // createContactFirstNameTextBox
             // 
-            createContactFirstNameTextbox.Location = new Point(193, 72);
-            createContactFirstNameTextbox.MaxLength = 30;
-            createContactFirstNameTextbox.Name = "createContactFirstNameTextbox";
-            createContactFirstNameTextbox.Size = new Size(280, 27);
-            createContactFirstNameTextbox.TabIndex = 0;
+            createContactFirstNameTextBox.Location = new Point(193, 72);
+            createContactFirstNameTextBox.MaxLength = 30;
+            createContactFirstNameTextBox.Name = "createContactFirstNameTextBox";
+            createContactFirstNameTextBox.Size = new Size(280, 27);
+            createContactFirstNameTextBox.TabIndex = 0;
             // 
-            // createContactLastNameTextboxLabel
+            // createContactLastNameTextBoxLabel
             // 
-            createContactLastNameTextboxLabel.AutoSize = true;
-            createContactLastNameTextboxLabel.Location = new Point(107, 114);
-            createContactLastNameTextboxLabel.Name = "createContactLastNameTextboxLabel";
-            createContactLastNameTextboxLabel.Size = new Size(85, 20);
-            createContactLastNameTextboxLabel.TabIndex = 18;
-            createContactLastNameTextboxLabel.Text = "Last Name*";
-            createContactLastNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createContactLastNameTextBoxLabel.AutoSize = true;
+            createContactLastNameTextBoxLabel.Location = new Point(107, 114);
+            createContactLastNameTextBoxLabel.Name = "createContactLastNameTextBoxLabel";
+            createContactLastNameTextBoxLabel.Size = new Size(85, 20);
+            createContactLastNameTextBoxLabel.TabIndex = 18;
+            createContactLastNameTextBoxLabel.Text = "Last Name*";
+            createContactLastNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createContactLastNameTextbox
+            // createContactLastNameTextBox
             // 
-            createContactLastNameTextbox.Location = new Point(193, 111);
-            createContactLastNameTextbox.MaxLength = 30;
-            createContactLastNameTextbox.Name = "createContactLastNameTextbox";
-            createContactLastNameTextbox.Size = new Size(280, 27);
-            createContactLastNameTextbox.TabIndex = 1;
+            createContactLastNameTextBox.Location = new Point(193, 111);
+            createContactLastNameTextBox.MaxLength = 30;
+            createContactLastNameTextBox.Name = "createContactLastNameTextBox";
+            createContactLastNameTextBox.Size = new Size(280, 27);
+            createContactLastNameTextBox.TabIndex = 1;
             // 
-            // createContactTelephoneNumberTextboxLabel
+            // createContactTelephoneNumberTextBoxLabel
             // 
-            createContactTelephoneNumberTextboxLabel.AutoSize = true;
-            createContactTelephoneNumberTextboxLabel.Location = new Point(51, 192);
-            createContactTelephoneNumberTextboxLabel.Name = "createContactTelephoneNumberTextboxLabel";
-            createContactTelephoneNumberTextboxLabel.Size = new Size(142, 20);
-            createContactTelephoneNumberTextboxLabel.TabIndex = 20;
-            createContactTelephoneNumberTextboxLabel.Text = "Telephone Number*";
-            createContactTelephoneNumberTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createContactTelephoneNumberTextBoxLabel.AutoSize = true;
+            createContactTelephoneNumberTextBoxLabel.Location = new Point(51, 192);
+            createContactTelephoneNumberTextBoxLabel.Name = "createContactTelephoneNumberTextBoxLabel";
+            createContactTelephoneNumberTextBoxLabel.Size = new Size(142, 20);
+            createContactTelephoneNumberTextBoxLabel.TabIndex = 20;
+            createContactTelephoneNumberTextBoxLabel.Text = "Telephone Number*";
+            createContactTelephoneNumberTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createContactTelephoneNumberTextbox
+            // createContactTelephoneNumberTextBox
             // 
-            createContactTelephoneNumberTextbox.Location = new Point(193, 189);
-            createContactTelephoneNumberTextbox.MaxLength = 13;
-            createContactTelephoneNumberTextbox.Name = "createContactTelephoneNumberTextbox";
-            createContactTelephoneNumberTextbox.Size = new Size(280, 27);
-            createContactTelephoneNumberTextbox.TabIndex = 3;
+            createContactTelephoneNumberTextBox.Location = new Point(193, 189);
+            createContactTelephoneNumberTextBox.MaxLength = 13;
+            createContactTelephoneNumberTextBox.Name = "createContactTelephoneNumberTextBox";
+            createContactTelephoneNumberTextBox.Size = new Size(280, 27);
+            createContactTelephoneNumberTextBox.TabIndex = 3;
             // 
-            // createContactRoleTextboxLabel
+            // createContactRoleTextBoxLabel
             // 
-            createContactRoleTextboxLabel.AutoSize = true;
-            createContactRoleTextboxLabel.Location = new Point(148, 231);
-            createContactRoleTextboxLabel.Name = "createContactRoleTextboxLabel";
-            createContactRoleTextboxLabel.Size = new Size(45, 20);
-            createContactRoleTextboxLabel.TabIndex = 22;
-            createContactRoleTextboxLabel.Text = "Role*";
-            createContactRoleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createContactRoleTextBoxLabel.AutoSize = true;
+            createContactRoleTextBoxLabel.Location = new Point(148, 231);
+            createContactRoleTextBoxLabel.Name = "createContactRoleTextBoxLabel";
+            createContactRoleTextBoxLabel.Size = new Size(45, 20);
+            createContactRoleTextBoxLabel.TabIndex = 22;
+            createContactRoleTextBoxLabel.Text = "Role*";
+            createContactRoleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createContactRoleTextbox
+            // createContactRoleTextBox
             // 
-            createContactRoleTextbox.Location = new Point(193, 228);
-            createContactRoleTextbox.MaxLength = 50;
-            createContactRoleTextbox.Name = "createContactRoleTextbox";
-            createContactRoleTextbox.Size = new Size(280, 27);
-            createContactRoleTextbox.TabIndex = 4;
+            createContactRoleTextBox.Location = new Point(193, 228);
+            createContactRoleTextBox.MaxLength = 50;
+            createContactRoleTextBox.Name = "createContactRoleTextBox";
+            createContactRoleTextBox.Size = new Size(280, 27);
+            createContactRoleTextBox.TabIndex = 4;
             // 
             // createContactStatusStrip
             // 
@@ -196,18 +196,18 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(538, 437);
             Controls.Add(createContactStatusStrip);
-            Controls.Add(createContactRoleTextboxLabel);
-            Controls.Add(createContactRoleTextbox);
-            Controls.Add(createContactTelephoneNumberTextboxLabel);
-            Controls.Add(createContactTelephoneNumberTextbox);
-            Controls.Add(createContactLastNameTextboxLabel);
-            Controls.Add(createContactLastNameTextbox);
-            Controls.Add(createContactFirstNameTextboxLabel);
-            Controls.Add(createContactFirstNameTextbox);
+            Controls.Add(createContactRoleTextBoxLabel);
+            Controls.Add(createContactRoleTextBox);
+            Controls.Add(createContactTelephoneNumberTextBoxLabel);
+            Controls.Add(createContactTelephoneNumberTextBox);
+            Controls.Add(createContactLastNameTextBoxLabel);
+            Controls.Add(createContactLastNameTextBox);
+            Controls.Add(createContactFirstNameTextBoxLabel);
+            Controls.Add(createContactFirstNameTextBox);
             Controls.Add(createContactActiveStatusCheckbox);
             Controls.Add(createContactSubmitButton);
-            Controls.Add(createContactEmailAddressTextboxLabel);
-            Controls.Add(createContactEmailAddressTextbox);
+            Controls.Add(createContactEmailAddressTextBoxLabel);
+            Controls.Add(createContactEmailAddressTextBox);
             Controls.Add(createContactTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -225,18 +225,18 @@
         #endregion
 
         private Label createContactTitleLabel;
-        private TextBox createContactEmailAddressTextbox;
-        private Label createContactEmailAddressTextboxLabel;
+        private TextBox createContactEmailAddressTextBox;
+        private Label createContactEmailAddressTextBoxLabel;
         private Button createContactSubmitButton;
         private CheckBox createContactActiveStatusCheckbox;
-        private Label createContactFirstNameTextboxLabel;
-        private TextBox createContactFirstNameTextbox;
-        private Label createContactLastNameTextboxLabel;
-        private TextBox createContactLastNameTextbox;
-        private Label createContactTelephoneNumberTextboxLabel;
-        private TextBox createContactTelephoneNumberTextbox;
-        private Label createContactRoleTextboxLabel;
-        private TextBox createContactRoleTextbox;
+        private Label createContactFirstNameTextBoxLabel;
+        private TextBox createContactFirstNameTextBox;
+        private Label createContactLastNameTextBoxLabel;
+        private TextBox createContactLastNameTextBox;
+        private Label createContactTelephoneNumberTextBoxLabel;
+        private TextBox createContactTelephoneNumberTextBox;
+        private Label createContactRoleTextBoxLabel;
+        private TextBox createContactRoleTextBox;
         private StatusStrip createContactStatusStrip;
         private ToolStripStatusLabel createContactStatusStripDataSubjectPlaceholder;
     }

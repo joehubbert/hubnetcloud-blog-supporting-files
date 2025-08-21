@@ -31,8 +31,8 @@
             createCurrencyConversionTitleLabel = new Label();
             createCurrencyConversionBaseCurrencyComboBox = new ComboBox();
             createCurrencyConversionTargetCurrencyComboBox = new ComboBox();
-            createCurrencyConversionBaseCurrencyValueTextbox = new TextBox();
-            createCurrencyConversionTargetCurrencyValueTextboxA = new TextBox();
+            createCurrencyConversionBaseCurrencyValueTextBox = new TextBox();
+            createCurrencyConversionTargetCurrencyValueTextBoxA = new TextBox();
             createCurrencyConversionEffectiveDatePicker = new DateTimePicker();
             createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanel = new Panel();
             createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton = new RadioButton();
@@ -42,13 +42,13 @@
             createCurrencyConversionExpiryDatePickerLabel = new Label();
             createCurrencyConversionTargetCurrencyComboBoxLabel = new Label();
             createCurrencyConversionBaseCurrencyComboBoxLabel = new Label();
-            createCurrencyConversionBaseCurrencyValueTextboxLabel = new Label();
-            createCurrencyConversionTargetCurrencyValueTextboxLabel = new Label();
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel = new Label();
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel = new Label();
             createCurrencyConversionActiveStatusCheckbox = new CheckBox();
             createCurrencyConversionSubmitButton = new Button();
             createCurrencyConversionEffectiveDatePickerLabel = new Label();
-            createCurrencyConversionTargetCurrencyValueTextboxB = new TextBox();
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel = new Label();
+            createCurrencyConversionTargetCurrencyValueTextBoxB = new TextBox();
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel = new Label();
             createCurrencyConversionStatusStrip = new StatusStrip();
             createCurrencyConversionStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
@@ -85,24 +85,24 @@
             createCurrencyConversionTargetCurrencyComboBox.Size = new Size(240, 28);
             createCurrencyConversionTargetCurrencyComboBox.TabIndex = 1;
             // 
-            // createCurrencyConversionBaseCurrencyValueTextbox
+            // createCurrencyConversionBaseCurrencyValueTextBox
             // 
-            createCurrencyConversionBaseCurrencyValueTextbox.Location = new Point(667, 87);
-            createCurrencyConversionBaseCurrencyValueTextbox.Name = "createCurrencyConversionBaseCurrencyValueTextbox";
-            createCurrencyConversionBaseCurrencyValueTextbox.ReadOnly = true;
-            createCurrencyConversionBaseCurrencyValueTextbox.Size = new Size(294, 27);
-            createCurrencyConversionBaseCurrencyValueTextbox.TabIndex = 7;
-            createCurrencyConversionBaseCurrencyValueTextbox.Text = "1";
-            createCurrencyConversionBaseCurrencyValueTextbox.TextAlign = HorizontalAlignment.Right;
+            createCurrencyConversionBaseCurrencyValueTextBox.Location = new Point(667, 87);
+            createCurrencyConversionBaseCurrencyValueTextBox.Name = "createCurrencyConversionBaseCurrencyValueTextBox";
+            createCurrencyConversionBaseCurrencyValueTextBox.ReadOnly = true;
+            createCurrencyConversionBaseCurrencyValueTextBox.Size = new Size(294, 27);
+            createCurrencyConversionBaseCurrencyValueTextBox.TabIndex = 7;
+            createCurrencyConversionBaseCurrencyValueTextBox.Text = "1";
+            createCurrencyConversionBaseCurrencyValueTextBox.TextAlign = HorizontalAlignment.Right;
             // 
-            // createCurrencyConversionTargetCurrencyValueTextboxA
+            // createCurrencyConversionTargetCurrencyValueTextBoxA
             // 
-            createCurrencyConversionTargetCurrencyValueTextboxA.Location = new Point(667, 133);
-            createCurrencyConversionTargetCurrencyValueTextboxA.MaxLength = 10;
-            createCurrencyConversionTargetCurrencyValueTextboxA.Name = "createCurrencyConversionTargetCurrencyValueTextboxA";
-            createCurrencyConversionTargetCurrencyValueTextboxA.Size = new Size(138, 27);
-            createCurrencyConversionTargetCurrencyValueTextboxA.TabIndex = 8;
-            createCurrencyConversionTargetCurrencyValueTextboxA.TextAlign = HorizontalAlignment.Right;
+            createCurrencyConversionTargetCurrencyValueTextBoxA.Location = new Point(667, 133);
+            createCurrencyConversionTargetCurrencyValueTextBoxA.MaxLength = 10;
+            createCurrencyConversionTargetCurrencyValueTextBoxA.Name = "createCurrencyConversionTargetCurrencyValueTextBoxA";
+            createCurrencyConversionTargetCurrencyValueTextBoxA.Size = new Size(138, 27);
+            createCurrencyConversionTargetCurrencyValueTextBoxA.TabIndex = 8;
+            createCurrencyConversionTargetCurrencyValueTextBoxA.TextAlign = HorizontalAlignment.Right;
             // 
             // createCurrencyConversionEffectiveDatePicker
             // 
@@ -189,25 +189,25 @@
             createCurrencyConversionBaseCurrencyComboBoxLabel.Text = "Base Currency*";
             createCurrencyConversionBaseCurrencyComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyConversionBaseCurrencyValueTextboxLabel
+            // createCurrencyConversionBaseCurrencyValueTextBoxLabel
             // 
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.AutoSize = true;
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Location = new Point(520, 90);
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Name = "createCurrencyConversionBaseCurrencyValueTextboxLabel";
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Size = new Size(147, 20);
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.TabIndex = 58;
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.Text = "Base Currency Value*";
-            createCurrencyConversionBaseCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.AutoSize = true;
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.Location = new Point(520, 90);
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.Name = "createCurrencyConversionBaseCurrencyValueTextBoxLabel";
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.Size = new Size(147, 20);
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.TabIndex = 58;
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.Text = "Base Currency Value*";
+            createCurrencyConversionBaseCurrencyValueTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyConversionTargetCurrencyValueTextboxLabel
+            // createCurrencyConversionTargetCurrencyValueTextBoxLabel
             // 
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.AutoSize = true;
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Location = new Point(510, 136);
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Name = "createCurrencyConversionTargetCurrencyValueTextboxLabel";
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Size = new Size(157, 20);
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.TabIndex = 59;
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.Text = "Target Currency Value*";
-            createCurrencyConversionTargetCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.AutoSize = true;
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.Location = new Point(510, 136);
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.Name = "createCurrencyConversionTargetCurrencyValueTextBoxLabel";
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.Size = new Size(157, 20);
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.TabIndex = 59;
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.Text = "Target Currency Value*";
+            createCurrencyConversionTargetCurrencyValueTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionActiveStatusCheckbox
             // 
@@ -246,24 +246,24 @@
             createCurrencyConversionEffectiveDatePickerLabel.Text = "Effective Date*";
             createCurrencyConversionEffectiveDatePickerLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyConversionTargetCurrencyValueTextboxB
+            // createCurrencyConversionTargetCurrencyValueTextBoxB
             // 
-            createCurrencyConversionTargetCurrencyValueTextboxB.Location = new Point(829, 133);
-            createCurrencyConversionTargetCurrencyValueTextboxB.MaxLength = 8;
-            createCurrencyConversionTargetCurrencyValueTextboxB.Name = "createCurrencyConversionTargetCurrencyValueTextboxB";
-            createCurrencyConversionTargetCurrencyValueTextboxB.Size = new Size(132, 27);
-            createCurrencyConversionTargetCurrencyValueTextboxB.TabIndex = 9;
-            createCurrencyConversionTargetCurrencyValueTextboxB.TextAlign = HorizontalAlignment.Right;
+            createCurrencyConversionTargetCurrencyValueTextBoxB.Location = new Point(829, 133);
+            createCurrencyConversionTargetCurrencyValueTextBoxB.MaxLength = 8;
+            createCurrencyConversionTargetCurrencyValueTextBoxB.Name = "createCurrencyConversionTargetCurrencyValueTextBoxB";
+            createCurrencyConversionTargetCurrencyValueTextBoxB.Size = new Size(132, 27);
+            createCurrencyConversionTargetCurrencyValueTextBoxB.TabIndex = 9;
+            createCurrencyConversionTargetCurrencyValueTextBoxB.TextAlign = HorizontalAlignment.Right;
             // 
-            // createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel
+            // createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel
             // 
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.AutoSize = true;
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.Location = new Point(811, 140);
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.Name = "createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel";
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.Size = new Size(12, 20);
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.TabIndex = 63;
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.Text = ".";
-            createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel.TextAlign = ContentAlignment.TopRight;
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.AutoSize = true;
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.Location = new Point(811, 140);
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.Name = "createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel";
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.Size = new Size(12, 20);
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.TabIndex = 63;
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.Text = ".";
+            createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createCurrencyConversionStatusStrip
             // 
@@ -299,13 +299,13 @@
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(1001, 480);
             Controls.Add(createCurrencyConversionStatusStrip);
-            Controls.Add(createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel);
-            Controls.Add(createCurrencyConversionTargetCurrencyValueTextboxB);
+            Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel);
+            Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxB);
             Controls.Add(createCurrencyConversionEffectiveDatePickerLabel);
             Controls.Add(createCurrencyConversionActiveStatusCheckbox);
             Controls.Add(createCurrencyConversionSubmitButton);
-            Controls.Add(createCurrencyConversionTargetCurrencyValueTextboxLabel);
-            Controls.Add(createCurrencyConversionBaseCurrencyValueTextboxLabel);
+            Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxLabel);
+            Controls.Add(createCurrencyConversionBaseCurrencyValueTextBoxLabel);
             Controls.Add(createCurrencyConversionBaseCurrencyComboBoxLabel);
             Controls.Add(createCurrencyConversionTargetCurrencyComboBoxLabel);
             Controls.Add(createCurrencyConversionExpiryDatePickerLabel);
@@ -313,8 +313,8 @@
             Controls.Add(createCurrencyConversionExpiryDatePicker);
             Controls.Add(createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanel);
             Controls.Add(createCurrencyConversionEffectiveDatePicker);
-            Controls.Add(createCurrencyConversionTargetCurrencyValueTextboxA);
-            Controls.Add(createCurrencyConversionBaseCurrencyValueTextbox);
+            Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxA);
+            Controls.Add(createCurrencyConversionBaseCurrencyValueTextBox);
             Controls.Add(createCurrencyConversionTargetCurrencyComboBox);
             Controls.Add(createCurrencyConversionBaseCurrencyComboBox);
             Controls.Add(createCurrencyConversionTitleLabel);
@@ -338,8 +338,8 @@
         private Label createCurrencyConversionTitleLabel;
         private ComboBox createCurrencyConversionBaseCurrencyComboBox;
         private ComboBox createCurrencyConversionTargetCurrencyComboBox;
-        private TextBox createCurrencyConversionBaseCurrencyValueTextbox;
-        private TextBox createCurrencyConversionTargetCurrencyValueTextboxA;
+        private TextBox createCurrencyConversionBaseCurrencyValueTextBox;
+        private TextBox createCurrencyConversionTargetCurrencyValueTextBoxA;
         private DateTimePicker createCurrencyConversionEffectiveDatePicker;
         private Panel createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanel;
         private RadioButton createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton;
@@ -349,13 +349,13 @@
         private Label createCurrencyConversionExpiryDatePickerLabel;
         private Label createCurrencyConversionTargetCurrencyComboBoxLabel;
         private Label createCurrencyConversionBaseCurrencyComboBoxLabel;
-        private Label createCurrencyConversionBaseCurrencyValueTextboxLabel;
-        private Label createCurrencyConversionTargetCurrencyValueTextboxLabel;
+        private Label createCurrencyConversionBaseCurrencyValueTextBoxLabel;
+        private Label createCurrencyConversionTargetCurrencyValueTextBoxLabel;
         private CheckBox createCurrencyConversionActiveStatusCheckbox;
         private Button createCurrencyConversionSubmitButton;
         private Label createCurrencyConversionEffectiveDatePickerLabel;
-        private TextBox createCurrencyConversionTargetCurrencyValueTextboxB;
-        private Label createCurrencyConversionTargetCurrencyValueTextboxSeparatorLabel;
+        private TextBox createCurrencyConversionTargetCurrencyValueTextBoxB;
+        private Label createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel;
         private StatusStrip createCurrencyConversionStatusStrip;
         private ToolStripSplitButton createCurrencyConversionStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;

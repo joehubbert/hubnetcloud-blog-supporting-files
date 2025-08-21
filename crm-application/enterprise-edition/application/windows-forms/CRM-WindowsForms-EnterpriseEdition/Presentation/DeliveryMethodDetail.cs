@@ -78,17 +78,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)deliveryMethodDataRow["Delivery Cost"], out deliveryCostPartA, out deliveryCostPartB);
 
-                    deliveryMethodDetailDeliveryMethodIdTextbox.Text = deliveryMethodDataRow["Delivery Method Id"].ToString();
-                    deliveryMethodDetailDeliveryMethodTextbox.Text = deliveryMethodDataRow["Delivery Method"].ToString();
-                    deliveryMethodDetailDeliveryCostTextboxA.Text = deliveryCostPartA;
-                    deliveryMethodDetailDeliveryCostTextboxB.Text = deliveryCostPartB;
-                    deliveryMethodDetailDeliveryTimeTextbox.Text = deliveryMethodDataRow["Delivery Time"].ToString();
+                    deliveryMethodDetailDeliveryMethodIdTextBox.Text = deliveryMethodDataRow["Delivery Method Id"].ToString();
+                    deliveryMethodDetailDeliveryMethodTextBox.Text = deliveryMethodDataRow["Delivery Method"].ToString();
+                    deliveryMethodDetailDeliveryCostTextBoxA.Text = deliveryCostPartA;
+                    deliveryMethodDetailDeliveryCostTextBoxB.Text = deliveryCostPartB;
+                    deliveryMethodDetailDeliveryTimeTextBox.Text = deliveryMethodDataRow["Delivery Time"].ToString();
                     Guid taxProfileId = (Guid)deliveryMethodDataRow["Tax Profile Id"];
                     await LoadTaxProfileAsync(taxProfileId);
-                    deliveryMethodDetailCreatedByTextbox.Text = deliveryMethodDataRow["Created By"].ToString();
-                    deliveryMethodDetailCreatedTimestampTextbox.Text = deliveryMethodDataRow["Created Timestamp UTC"].ToString();
-                    deliveryMethodDetailLastUpdatedByTextbox.Text = deliveryMethodDataRow["Modified By"].ToString();
-                    deliveryMethodDetailLastUpdatedTimestampTextbox.Text = deliveryMethodDataRow["Modified Timestamp UTC"].ToString();
+                    deliveryMethodDetailCreatedByTextBox.Text = deliveryMethodDataRow["Created By"].ToString();
+                    deliveryMethodDetailCreatedTimestampTextBox.Text = deliveryMethodDataRow["Created Timestamp UTC"].ToString();
+                    deliveryMethodDetailLastUpdatedByTextBox.Text = deliveryMethodDataRow["Modified By"].ToString();
+                    deliveryMethodDetailLastUpdatedTimestampTextBox.Text = deliveryMethodDataRow["Modified Timestamp UTC"].ToString();
                     deliveryMethodDetailActiveStatusCheckbox.Checked = (bool)deliveryMethodDataRow["Active Status"];
 
                     deliveryMethodDetailDeliveryMethodOriginalValue = deliveryMethodDataRow["Delivery Method"].ToString();
@@ -113,9 +113,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = deliveryMethodDetailActiveStatusCheckbox.Checked;
-            decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextboxA.Text.TrimEnd()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextboxB.Text.TrimEnd()) / 100);
-            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextbox.Text.TrimEnd();
-            int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextbox.Text.TrimEnd());
+            decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxA.Text.TrimEnd()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxB.Text.TrimEnd()) / 100);
+            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextBox.Text.TrimEnd();
+            int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextBox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(deliveryMethodDetailTaxProfileComboBox.SelectedValue.ToString());
 
             string dataSubject = "Delivery Method";
@@ -278,10 +278,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            deliveryMethodDetailDeliveryMethodTextbox.ReadOnly = !deliveryMethodDetailDeliveryMethodTextbox.ReadOnly;
-            deliveryMethodDetailDeliveryCostTextboxA.ReadOnly = !deliveryMethodDetailDeliveryCostTextboxA.ReadOnly;
-            deliveryMethodDetailDeliveryCostTextboxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextboxB.ReadOnly;
-            deliveryMethodDetailDeliveryTimeTextbox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextbox.ReadOnly;
+            deliveryMethodDetailDeliveryMethodTextBox.ReadOnly = !deliveryMethodDetailDeliveryMethodTextBox.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly;
+            deliveryMethodDetailDeliveryTimeTextBox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextBox.ReadOnly;
             deliveryMethodDetailTaxProfileComboBox.Enabled = !deliveryMethodDetailTaxProfileComboBox.Enabled;
             deliveryMethodDetailActiveStatusCheckbox.Enabled = !deliveryMethodDetailActiveStatusCheckbox.Enabled;
             deliveryMethodDetailUpdateDeliveryMethodButton.Enabled = !deliveryMethodDetailUpdateDeliveryMethodButton.Enabled;

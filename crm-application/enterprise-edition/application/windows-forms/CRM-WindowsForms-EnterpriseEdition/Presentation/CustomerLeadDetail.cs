@@ -45,7 +45,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
             customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextbox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -166,11 +166,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (customerLeadTable != null)
                 {
                     DataRow customerLeadDataRow = customerLeadTable.Rows[0];
-                    customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextbox.Text = customerLeadDataRow["Customer Lead Id"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox.Text = customerLeadDataRow["Customer Lead Id"].ToString();
                     Guid customerLeadTypeId = (Guid)customerLeadDataRow["Customer Lead Type Id"];
                     await LoadCustomerLeadTypeAsync(customerLeadTypeId);
-                    customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Text = customerLeadDataRow["Customer Lead Title"].ToString();
-                    customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Text = customerLeadDataRow["Customer Lead"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Text = customerLeadDataRow["Customer Lead Title"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Text = customerLeadDataRow["Customer Lead"].ToString();
                     if (customerLeadDataRow["Marketing Channel Id"] != DBNull.Value)
                     {
                         customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked = true;
@@ -200,10 +200,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Checked = true;
                     }
-                    customerLeadDetailTabControlOverviewTabPageCreatedByTextbox.Text = customerLeadDataRow["Created By"].ToString();
-                    customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = customerLeadDataRow["Created Timestamp UTC"].ToString();
-                    customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = customerLeadDataRow["Modified By"].ToString();
-                    customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = customerLeadDataRow["Modified Timestamp UTC"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageCreatedByTextBox.Text = customerLeadDataRow["Created By"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = customerLeadDataRow["Created Timestamp UTC"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = customerLeadDataRow["Modified By"].ToString();
+                    customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = customerLeadDataRow["Modified Timestamp UTC"].ToString();
                     customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerLeadDataRow["Active Status"];
 
                     customerLeadDetailTabControlOverviewTabPageActiveStatusOriginalValue = (bool)customerLeadDataRow["Active Status"];
@@ -293,13 +293,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerContactId = (Guid)customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.SelectedValue;
             }
-            string customerLead = customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.Text;
+            string customerLead = customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Text;
             DateTime? customerLeadTargetDate = null;
             if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Checked)
             {
                 customerLeadTargetDate = customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Value;
             }
-            string customerLeadTitle = customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.Text;
+            string customerLeadTitle = customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Text;
             Guid customerLeadTypeId = (Guid)customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.SelectedValue;
             Guid? marketingChannelId = null;
             if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked)
@@ -536,8 +536,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextbox.ReadOnly;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTextbox.ReadOnly;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled;

@@ -32,17 +32,17 @@
             customerTierDetailCustomerTierIdLabel = new Label();
             customerTierDetailCustomerTierCodeLabel = new Label();
             customerTierDetailCustomerTierDescriptionLabel = new Label();
-            customerTierDetailCreatedByTextboxLabel = new Label();
-            customerTierDetailCreatedTimestampTextboxLabel = new Label();
-            customerTierDetailLastUpdatedByTextboxLabel = new Label();
-            customerTierDetailLastUpdatedTimestampTextboxLabel = new Label();
-            customerTierDetailLastUpdatedByTextbox = new TextBox();
-            customerTierDetailCreatedByTextbox = new TextBox();
-            customerTierDetailLastUpdatedTimestampTextbox = new TextBox();
-            customerTierDetailCreatedTimestampTextbox = new TextBox();
-            customerTierDetailCustomerTierDescriptionTextbox = new TextBox();
-            customerTierDetailCustomerTierIdTextbox = new TextBox();
-            customerTierDetailCustomerTierCodeTextbox = new TextBox();
+            customerTierDetailCreatedByTextBoxLabel = new Label();
+            customerTierDetailCreatedTimestampTextBoxLabel = new Label();
+            customerTierDetailLastUpdatedByTextBoxLabel = new Label();
+            customerTierDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            customerTierDetailLastUpdatedByTextBox = new TextBox();
+            customerTierDetailCreatedByTextBox = new TextBox();
+            customerTierDetailLastUpdatedTimestampTextBox = new TextBox();
+            customerTierDetailCreatedTimestampTextBox = new TextBox();
+            customerTierDetailCustomerTierDescriptionTextBox = new TextBox();
+            customerTierDetailCustomerTierIdTextBox = new TextBox();
+            customerTierDetailCustomerTierCodeTextBox = new TextBox();
             customerTierDetailToggleEditModeButton = new Button();
             customerTierDetailActiveStatusCheckbox = new CheckBox();
             customerTierDetailUpdateCustomerTierButton = new Button();
@@ -91,108 +91,108 @@
             customerTierDetailCustomerTierDescriptionLabel.Text = "Customer Tier Description*";
             customerTierDetailCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerTierDetailCreatedByTextboxLabel
+            // customerTierDetailCreatedByTextBoxLabel
             // 
-            customerTierDetailCreatedByTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedByTextboxLabel.Location = new Point(773, 141);
-            customerTierDetailCreatedByTextboxLabel.Name = "customerTierDetailCreatedByTextboxLabel";
-            customerTierDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            customerTierDetailCreatedByTextboxLabel.TabIndex = 11;
-            customerTierDetailCreatedByTextboxLabel.Text = "Created By";
-            customerTierDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerTierDetailCreatedByTextBoxLabel.AutoSize = true;
+            customerTierDetailCreatedByTextBoxLabel.Location = new Point(773, 141);
+            customerTierDetailCreatedByTextBoxLabel.Name = "customerTierDetailCreatedByTextBoxLabel";
+            customerTierDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            customerTierDetailCreatedByTextBoxLabel.TabIndex = 11;
+            customerTierDetailCreatedByTextBoxLabel.Text = "Created By";
+            customerTierDetailCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerTierDetailCreatedTimestampTextboxLabel
+            // customerTierDetailCreatedTimestampTextBoxLabel
             // 
-            customerTierDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailCreatedTimestampTextboxLabel.Location = new Point(715, 181);
-            customerTierDetailCreatedTimestampTextboxLabel.Name = "customerTierDetailCreatedTimestampTextboxLabel";
-            customerTierDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            customerTierDetailCreatedTimestampTextboxLabel.TabIndex = 12;
-            customerTierDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            customerTierDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerTierDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            customerTierDetailCreatedTimestampTextBoxLabel.Location = new Point(715, 181);
+            customerTierDetailCreatedTimestampTextBoxLabel.Name = "customerTierDetailCreatedTimestampTextBoxLabel";
+            customerTierDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            customerTierDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
+            customerTierDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            customerTierDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerTierDetailLastUpdatedByTextboxLabel
+            // customerTierDetailLastUpdatedByTextBoxLabel
             // 
-            customerTierDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedByTextboxLabel.Location = new Point(737, 221);
-            customerTierDetailLastUpdatedByTextboxLabel.Name = "customerTierDetailLastUpdatedByTextboxLabel";
-            customerTierDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            customerTierDetailLastUpdatedByTextboxLabel.TabIndex = 13;
-            customerTierDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            customerTierDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerTierDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            customerTierDetailLastUpdatedByTextBoxLabel.Location = new Point(737, 221);
+            customerTierDetailLastUpdatedByTextBoxLabel.Name = "customerTierDetailLastUpdatedByTextBoxLabel";
+            customerTierDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            customerTierDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
+            customerTierDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            customerTierDetailLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerTierDetailLastUpdatedTimestampTextboxLabel
+            // customerTierDetailLastUpdatedTimestampTextBoxLabel
             // 
-            customerTierDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Location = new Point(679, 261);
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Name = "customerTierDetailLastUpdatedTimestampTextboxLabel";
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            customerTierDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
-            customerTierDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            customerTierDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(679, 261);
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.Name = "customerTierDetailLastUpdatedTimestampTextBoxLabel";
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            customerTierDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // customerTierDetailLastUpdatedByTextbox
+            // customerTierDetailLastUpdatedByTextBox
             // 
-            customerTierDetailLastUpdatedByTextbox.Location = new Point(860, 218);
-            customerTierDetailLastUpdatedByTextbox.MaxLength = 50;
-            customerTierDetailLastUpdatedByTextbox.Name = "customerTierDetailLastUpdatedByTextbox";
-            customerTierDetailLastUpdatedByTextbox.ReadOnly = true;
-            customerTierDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            customerTierDetailLastUpdatedByTextbox.TabIndex = 7;
+            customerTierDetailLastUpdatedByTextBox.Location = new Point(860, 218);
+            customerTierDetailLastUpdatedByTextBox.MaxLength = 50;
+            customerTierDetailLastUpdatedByTextBox.Name = "customerTierDetailLastUpdatedByTextBox";
+            customerTierDetailLastUpdatedByTextBox.ReadOnly = true;
+            customerTierDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            customerTierDetailLastUpdatedByTextBox.TabIndex = 7;
             // 
-            // customerTierDetailCreatedByTextbox
+            // customerTierDetailCreatedByTextBox
             // 
-            customerTierDetailCreatedByTextbox.Location = new Point(860, 138);
-            customerTierDetailCreatedByTextbox.MaxLength = 50;
-            customerTierDetailCreatedByTextbox.Name = "customerTierDetailCreatedByTextbox";
-            customerTierDetailCreatedByTextbox.ReadOnly = true;
-            customerTierDetailCreatedByTextbox.Size = new Size(370, 27);
-            customerTierDetailCreatedByTextbox.TabIndex = 5;
+            customerTierDetailCreatedByTextBox.Location = new Point(860, 138);
+            customerTierDetailCreatedByTextBox.MaxLength = 50;
+            customerTierDetailCreatedByTextBox.Name = "customerTierDetailCreatedByTextBox";
+            customerTierDetailCreatedByTextBox.ReadOnly = true;
+            customerTierDetailCreatedByTextBox.Size = new Size(370, 27);
+            customerTierDetailCreatedByTextBox.TabIndex = 5;
             // 
-            // customerTierDetailLastUpdatedTimestampTextbox
+            // customerTierDetailLastUpdatedTimestampTextBox
             // 
-            customerTierDetailLastUpdatedTimestampTextbox.Location = new Point(860, 258);
-            customerTierDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            customerTierDetailLastUpdatedTimestampTextbox.Name = "customerTierDetailLastUpdatedTimestampTextbox";
-            customerTierDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            customerTierDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            customerTierDetailLastUpdatedTimestampTextbox.TabIndex = 8;
+            customerTierDetailLastUpdatedTimestampTextBox.Location = new Point(860, 258);
+            customerTierDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            customerTierDetailLastUpdatedTimestampTextBox.Name = "customerTierDetailLastUpdatedTimestampTextBox";
+            customerTierDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            customerTierDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            customerTierDetailLastUpdatedTimestampTextBox.TabIndex = 8;
             // 
-            // customerTierDetailCreatedTimestampTextbox
+            // customerTierDetailCreatedTimestampTextBox
             // 
-            customerTierDetailCreatedTimestampTextbox.Location = new Point(860, 178);
-            customerTierDetailCreatedTimestampTextbox.MaxLength = 50;
-            customerTierDetailCreatedTimestampTextbox.Name = "customerTierDetailCreatedTimestampTextbox";
-            customerTierDetailCreatedTimestampTextbox.ReadOnly = true;
-            customerTierDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            customerTierDetailCreatedTimestampTextbox.TabIndex = 6;
+            customerTierDetailCreatedTimestampTextBox.Location = new Point(860, 178);
+            customerTierDetailCreatedTimestampTextBox.MaxLength = 50;
+            customerTierDetailCreatedTimestampTextBox.Name = "customerTierDetailCreatedTimestampTextBox";
+            customerTierDetailCreatedTimestampTextBox.ReadOnly = true;
+            customerTierDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            customerTierDetailCreatedTimestampTextBox.TabIndex = 6;
             // 
-            // customerTierDetailCustomerTierDescriptionTextbox
+            // customerTierDetailCustomerTierDescriptionTextBox
             // 
-            customerTierDetailCustomerTierDescriptionTextbox.Location = new Point(235, 217);
-            customerTierDetailCustomerTierDescriptionTextbox.MaxLength = 50;
-            customerTierDetailCustomerTierDescriptionTextbox.Name = "customerTierDetailCustomerTierDescriptionTextbox";
-            customerTierDetailCustomerTierDescriptionTextbox.ReadOnly = true;
-            customerTierDetailCustomerTierDescriptionTextbox.Size = new Size(370, 27);
-            customerTierDetailCustomerTierDescriptionTextbox.TabIndex = 2;
+            customerTierDetailCustomerTierDescriptionTextBox.Location = new Point(235, 217);
+            customerTierDetailCustomerTierDescriptionTextBox.MaxLength = 50;
+            customerTierDetailCustomerTierDescriptionTextBox.Name = "customerTierDetailCustomerTierDescriptionTextBox";
+            customerTierDetailCustomerTierDescriptionTextBox.ReadOnly = true;
+            customerTierDetailCustomerTierDescriptionTextBox.Size = new Size(370, 27);
+            customerTierDetailCustomerTierDescriptionTextBox.TabIndex = 2;
             // 
-            // customerTierDetailCustomerTierIdTextbox
+            // customerTierDetailCustomerTierIdTextBox
             // 
-            customerTierDetailCustomerTierIdTextbox.Location = new Point(235, 138);
-            customerTierDetailCustomerTierIdTextbox.MaxLength = 36;
-            customerTierDetailCustomerTierIdTextbox.Name = "customerTierDetailCustomerTierIdTextbox";
-            customerTierDetailCustomerTierIdTextbox.ReadOnly = true;
-            customerTierDetailCustomerTierIdTextbox.Size = new Size(370, 27);
-            customerTierDetailCustomerTierIdTextbox.TabIndex = 0;
+            customerTierDetailCustomerTierIdTextBox.Location = new Point(235, 138);
+            customerTierDetailCustomerTierIdTextBox.MaxLength = 36;
+            customerTierDetailCustomerTierIdTextBox.Name = "customerTierDetailCustomerTierIdTextBox";
+            customerTierDetailCustomerTierIdTextBox.ReadOnly = true;
+            customerTierDetailCustomerTierIdTextBox.Size = new Size(370, 27);
+            customerTierDetailCustomerTierIdTextBox.TabIndex = 0;
             // 
-            // customerTierDetailCustomerTierCodeTextbox
+            // customerTierDetailCustomerTierCodeTextBox
             // 
-            customerTierDetailCustomerTierCodeTextbox.Location = new Point(235, 177);
-            customerTierDetailCustomerTierCodeTextbox.MaxLength = 3;
-            customerTierDetailCustomerTierCodeTextbox.Name = "customerTierDetailCustomerTierCodeTextbox";
-            customerTierDetailCustomerTierCodeTextbox.ReadOnly = true;
-            customerTierDetailCustomerTierCodeTextbox.Size = new Size(64, 27);
-            customerTierDetailCustomerTierCodeTextbox.TabIndex = 1;
+            customerTierDetailCustomerTierCodeTextBox.Location = new Point(235, 177);
+            customerTierDetailCustomerTierCodeTextBox.MaxLength = 3;
+            customerTierDetailCustomerTierCodeTextBox.Name = "customerTierDetailCustomerTierCodeTextBox";
+            customerTierDetailCustomerTierCodeTextBox.ReadOnly = true;
+            customerTierDetailCustomerTierCodeTextBox.Size = new Size(64, 27);
+            customerTierDetailCustomerTierCodeTextBox.TabIndex = 1;
             // 
             // customerTierDetailToggleEditModeButton
             // 
@@ -264,17 +264,17 @@
             Controls.Add(customerTierDetailUpdateCustomerTierButton);
             Controls.Add(customerTierDetailActiveStatusCheckbox);
             Controls.Add(customerTierDetailToggleEditModeButton);
-            Controls.Add(customerTierDetailCustomerTierCodeTextbox);
-            Controls.Add(customerTierDetailCustomerTierIdTextbox);
-            Controls.Add(customerTierDetailCustomerTierDescriptionTextbox);
-            Controls.Add(customerTierDetailCreatedTimestampTextbox);
-            Controls.Add(customerTierDetailLastUpdatedTimestampTextbox);
-            Controls.Add(customerTierDetailCreatedByTextbox);
-            Controls.Add(customerTierDetailLastUpdatedByTextbox);
-            Controls.Add(customerTierDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(customerTierDetailLastUpdatedByTextboxLabel);
-            Controls.Add(customerTierDetailCreatedTimestampTextboxLabel);
-            Controls.Add(customerTierDetailCreatedByTextboxLabel);
+            Controls.Add(customerTierDetailCustomerTierCodeTextBox);
+            Controls.Add(customerTierDetailCustomerTierIdTextBox);
+            Controls.Add(customerTierDetailCustomerTierDescriptionTextBox);
+            Controls.Add(customerTierDetailCreatedTimestampTextBox);
+            Controls.Add(customerTierDetailLastUpdatedTimestampTextBox);
+            Controls.Add(customerTierDetailCreatedByTextBox);
+            Controls.Add(customerTierDetailLastUpdatedByTextBox);
+            Controls.Add(customerTierDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(customerTierDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(customerTierDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(customerTierDetailCreatedByTextBoxLabel);
             Controls.Add(customerTierDetailCustomerTierDescriptionLabel);
             Controls.Add(customerTierDetailCustomerTierCodeLabel);
             Controls.Add(customerTierDetailCustomerTierIdLabel);
@@ -296,17 +296,17 @@
         private Label customerTierDetailCustomerTierIdLabel;
         private Label customerTierDetailCustomerTierCodeLabel;
         private Label customerTierDetailCustomerTierDescriptionLabel;
-        private Label customerTierDetailCreatedByTextboxLabel;
-        private Label customerTierDetailCreatedTimestampTextboxLabel;
-        private Label customerTierDetailLastUpdatedByTextboxLabel;
-        private Label customerTierDetailLastUpdatedTimestampTextboxLabel;
-        private TextBox customerTierDetailLastUpdatedByTextbox;
-        private TextBox customerTierDetailCreatedByTextbox;
-        private TextBox customerTierDetailLastUpdatedTimestampTextbox;
-        private TextBox customerTierDetailCreatedTimestampTextbox;
-        private TextBox customerTierDetailCustomerTierDescriptionTextbox;
-        private TextBox customerTierDetailCustomerTierIdTextbox;
-        private TextBox customerTierDetailCustomerTierCodeTextbox;
+        private Label customerTierDetailCreatedByTextBoxLabel;
+        private Label customerTierDetailCreatedTimestampTextBoxLabel;
+        private Label customerTierDetailLastUpdatedByTextBoxLabel;
+        private Label customerTierDetailLastUpdatedTimestampTextBoxLabel;
+        private TextBox customerTierDetailLastUpdatedByTextBox;
+        private TextBox customerTierDetailCreatedByTextBox;
+        private TextBox customerTierDetailLastUpdatedTimestampTextBox;
+        private TextBox customerTierDetailCreatedTimestampTextBox;
+        private TextBox customerTierDetailCustomerTierDescriptionTextBox;
+        private TextBox customerTierDetailCustomerTierIdTextBox;
+        private TextBox customerTierDetailCustomerTierCodeTextBox;
         private Button customerTierDetailToggleEditModeButton;
         private CheckBox customerTierDetailActiveStatusCheckbox;
         private Button customerTierDetailUpdateCustomerTierButton;

@@ -35,63 +35,63 @@
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox = new ComboBox();
             appConfigurationTabControlDatabaseTabPageTabControl = new TabControl();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage = new TabPage();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox = new CheckBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanel = new Panel();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton = new RadioButton();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton = new RadioButton();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton = new RadioButton();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox = new CheckBox();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage = new TabPage();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBoxLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox = new ComboBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanel = new Panel();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton = new RadioButton();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton = new RadioButton();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage = new TabPage();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBoxLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox = new ComboBox();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel = new Panel();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton = new RadioButton();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton = new RadioButton();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel = new Label();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel = new Label();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox = new TextBox();
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTestConnectionButton = new Button();
             appConfigurationTabControlRegionLanguageTabPage = new TabPage();
             appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel = new Label();
@@ -192,21 +192,21 @@
             // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage
             // 
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.BackColor = Color.Plum;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Location = new Point(4, 32);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage";
@@ -215,86 +215,86 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.TabIndex = 0;
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Text = "MSSQL";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.Location = new Point(463, 317);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.Size = new Size(204, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.TabIndex = 28;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel.Text = "Connection Timout (Seconds)";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.Location = new Point(463, 317);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.Size = new Size(204, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.TabIndex = 28;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel.Text = "Connection Timout (Seconds)";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Location = new Point(672, 314);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.MaxLength = 2;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Size = new Size(42, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.TabIndex = 12;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox.Text = "30";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Location = new Point(672, 314);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.MaxLength = 2;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Size = new Size(42, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.TabIndex = 12;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text = "30";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Location = new Point(71, 241);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Size = new Size(152, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.TabIndex = 26;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel.Text = "Certficate Host Name";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Location = new Point(71, 241);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Size = new Size(152, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.TabIndex = 26;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel.Text = "Certficate Host Name";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Location = new Point(227, 238);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.MaxLength = 150;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox.TabIndex = 9;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Location = new Point(227, 238);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.MaxLength = 150;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.TabIndex = 9;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Location = new Point(153, 199);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Size = new Size(70, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.TabIndex = 24;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel.Text = "Password";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Location = new Point(153, 199);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Size = new Size(70, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.TabIndex = 24;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel.Text = "Password";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Location = new Point(148, 157);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Size = new Size(75, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.TabIndex = 23;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.Text = "Username";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Location = new Point(148, 157);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Size = new Size(75, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.TabIndex = 23;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.Text = "Username";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Location = new Point(227, 196);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.MaxLength = 512;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.TabIndex = 8;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox.UseSystemPasswordChar = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Location = new Point(227, 196);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.MaxLength = 512;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.TabIndex = 8;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Location = new Point(227, 154);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox.TabIndex = 7;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Location = new Point(227, 154);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.TabIndex = 7;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox
             // 
@@ -360,46 +360,46 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Text = "Microsoft Entra Id (MFA)";
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.UseVisualStyleBackColor = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Location = new Point(107, 115);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Size = new Size(116, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.TabIndex = 17;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel.Text = "Database Name";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Location = new Point(107, 115);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Size = new Size(116, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.TabIndex = 17;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel.Text = "Database Name";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Location = new Point(129, 74);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Size = new Size(94, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.TabIndex = 16;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.Text = "Server Name";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Location = new Point(129, 74);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Size = new Size(94, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.TabIndex = 16;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.Text = "Server Name";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Location = new Point(227, 112);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox.TabIndex = 6;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Location = new Point(227, 112);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.TabIndex = 6;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Location = new Point(227, 71);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.MaxLength = 256;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox.TabIndex = 5;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Location = new Point(227, 71);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.MaxLength = 256;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.TabIndex = 5;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox
             // 
@@ -418,20 +418,20 @@
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.BackColor = Color.Plum;
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Location = new Point(4, 32);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage";
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Padding = new Padding(3);
@@ -457,84 +457,84 @@
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.Size = new Size(200, 28);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.TabIndex = 20;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.Location = new Point(500, 33);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.Size = new Size(93, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.TabIndex = 46;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel.Text = "Port Number";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.Location = new Point(500, 33);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.Size = new Size(93, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.TabIndex = 46;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel.Text = "Port Number";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Location = new Point(599, 30);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.MaxLength = 5;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Size = new Size(68, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.TabIndex = 15;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox.Text = "3306";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Location = new Point(599, 30);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.MaxLength = 5;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Size = new Size(68, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.TabIndex = 15;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Text = "3306";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.Location = new Point(463, 317);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.Size = new Size(204, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.TabIndex = 44;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel.Text = "Connection Timout (Seconds)";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.Location = new Point(463, 317);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.Size = new Size(204, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.TabIndex = 44;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel.Text = "Connection Timout (Seconds)";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Location = new Point(672, 314);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.MaxLength = 2;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Size = new Size(42, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.TabIndex = 21;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox.Text = "30";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Location = new Point(672, 314);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.MaxLength = 2;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Size = new Size(42, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.TabIndex = 21;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Text = "30";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Location = new Point(153, 199);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Size = new Size(70, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.TabIndex = 40;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel.Text = "Password";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Location = new Point(153, 199);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Size = new Size(70, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.TabIndex = 40;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel.Text = "Password";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Location = new Point(148, 157);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Size = new Size(75, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.TabIndex = 39;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.Text = "Username";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Location = new Point(148, 157);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Size = new Size(75, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.TabIndex = 39;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.Text = "Username";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Location = new Point(227, 196);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.MaxLength = 512;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.TabIndex = 19;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox.UseSystemPasswordChar = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Location = new Point(227, 196);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.MaxLength = 512;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.TabIndex = 19;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Location = new Point(227, 154);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox.TabIndex = 18;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Location = new Point(227, 154);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.TabIndex = 18;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelLabel
             // 
@@ -576,66 +576,66 @@
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Text = "Microsoft Entra Id (MFA)";
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.UseVisualStyleBackColor = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Location = new Point(107, 115);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Size = new Size(116, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.TabIndex = 33;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel.Text = "Database Name";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Location = new Point(107, 115);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Size = new Size(116, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.TabIndex = 33;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel.Text = "Database Name";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Location = new Point(129, 74);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Size = new Size(94, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.TabIndex = 32;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.Text = "Server Name";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Location = new Point(129, 74);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Size = new Size(94, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.TabIndex = 32;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.Text = "Server Name";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Location = new Point(227, 112);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox.TabIndex = 17;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Location = new Point(227, 112);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.TabIndex = 17;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Location = new Point(227, 71);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.MaxLength = 256;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox.TabIndex = 16;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Location = new Point(227, 71);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.MaxLength = 256;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.TabIndex = 16;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage
             // 
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.BackColor = Color.Plum;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelLabel);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Location = new Point(4, 32);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage";
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Size = new Size(743, 358);
@@ -660,84 +660,84 @@
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.Size = new Size(200, 28);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.TabIndex = 29;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.Location = new Point(500, 33);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.Size = new Size(93, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.TabIndex = 62;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel.Text = "Port Number";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.Location = new Point(500, 33);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.Size = new Size(93, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.TabIndex = 62;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel.Text = "Port Number";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Location = new Point(599, 30);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.MaxLength = 5;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Size = new Size(68, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.TabIndex = 24;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox.Text = "5432";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Location = new Point(599, 30);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.MaxLength = 5;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Size = new Size(68, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.TabIndex = 24;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Text = "5432";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.Location = new Point(463, 317);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.Size = new Size(204, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.TabIndex = 60;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel.Text = "Connection Timout (Seconds)";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.Location = new Point(463, 317);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.Size = new Size(204, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.TabIndex = 60;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel.Text = "Connection Timout (Seconds)";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Location = new Point(672, 314);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.MaxLength = 2;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Size = new Size(42, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.TabIndex = 30;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox.Text = "30";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Location = new Point(672, 314);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.MaxLength = 2;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Size = new Size(42, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.TabIndex = 30;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Text = "30";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Location = new Point(153, 199);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Size = new Size(70, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.TabIndex = 58;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel.Text = "Password";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Location = new Point(153, 199);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Size = new Size(70, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.TabIndex = 58;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel.Text = "Password";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Location = new Point(148, 157);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Size = new Size(75, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.TabIndex = 57;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.Text = "Username";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Location = new Point(148, 157);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Size = new Size(75, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.TabIndex = 57;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.Text = "Username";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Location = new Point(227, 196);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.MaxLength = 512;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.TabIndex = 28;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox.UseSystemPasswordChar = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Location = new Point(227, 196);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.MaxLength = 512;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.TabIndex = 28;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.UseSystemPasswordChar = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Location = new Point(227, 154);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox.TabIndex = 27;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Location = new Point(227, 154);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.TabIndex = 27;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelLabel
             // 
@@ -779,46 +779,46 @@
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Text = "Microsoft Entra Id (MFA)";
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.UseVisualStyleBackColor = true;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Location = new Point(107, 115);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Size = new Size(116, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.TabIndex = 52;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel.Text = "Database Name";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Location = new Point(107, 115);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Size = new Size(116, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.TabIndex = 52;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel.Text = "Database Name";
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Font = new Font("Segoe UI", 11F);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Location = new Point(129, 74);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Margin = new Padding(2, 0, 2, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Size = new Size(94, 20);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.TabIndex = 51;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.Text = "Server Name";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Location = new Point(129, 74);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Margin = new Padding(2, 0, 2, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Size = new Size(94, 20);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.TabIndex = 51;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.Text = "Server Name";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Location = new Point(227, 112);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.MaxLength = 50;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox.TabIndex = 26;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Location = new Point(227, 112);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.MaxLength = 50;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.TabIndex = 26;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox
+            // appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Location = new Point(227, 71);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.MaxLength = 256;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.Size = new Size(440, 27);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox.TabIndex = 25;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Location = new Point(227, 71);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.MaxLength = 256;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox";
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Size = new Size(440, 27);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.TabIndex = 25;
             // 
             // appConfigurationTabControlDatabaseTabPageTestConnectionButton
             // 
@@ -1034,10 +1034,10 @@
         private TabControl appConfigurationTabControlDatabaseTabPageTabControl;
         private TabPage appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage;
         private TabPage appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextbox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox;
         private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox;
         private TabPage appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage;
         private ComboBox appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox;
@@ -1054,51 +1054,51 @@
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton;
         private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextbox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox;
         private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelLabel;
         private Panel appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanel;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextbox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox;
         private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUseSSLCheckbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextbox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextboxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBoxLabel;
         private ComboBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox;
         private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBoxLabel;
         private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBoxLabel;
         private ComboBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextbox;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextbox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox;
         private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelLabel;
         private Panel appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextboxLabel;
-        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextboxLabel;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextbox;
-        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextbox;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBoxLabel;
+        private Label appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox;
+        private TextBox appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox;
         private Label appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxLabel;
         private ComboBox appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox;
         private Button appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton;

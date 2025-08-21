@@ -41,9 +41,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createCountryTranslationSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCountryTranslationActiveStatusCheckbox.Checked;
-            string bcp47LanguageTagCode = createCountryTranslationBCP47LanguageTagCodeTextbox.Text.TrimEnd().ToLower();
+            string bcp47LanguageTagCode = createCountryTranslationBCP47LanguageTagCodeTextBox.Text.TrimEnd().ToLower();
             Guid countryId = (Guid)createCountryTranslationCountryComboBox.SelectedValue;
-            string localisedCountryName = createCountryTranslationLocalisedCountryNameTextbox.Text.TrimEnd();
+            string localisedCountryName = createCountryTranslationLocalisedCountryNameTextBox.Text.TrimEnd();
 
             string dataSubject = "Country Translation";
 

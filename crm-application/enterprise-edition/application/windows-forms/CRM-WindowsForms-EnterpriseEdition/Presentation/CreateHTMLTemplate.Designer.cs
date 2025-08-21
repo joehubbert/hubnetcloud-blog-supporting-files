@@ -30,11 +30,11 @@
         {
             createHTMLTemplateTitleLabel = new Label();
             createHTMLTemplateHTMLTemplateTypeComboBox = new ComboBox();
-            createHTMLTemplateHTMLTemplateTitleTextbox = new TextBox();
-            createHTMLTemplateHTMLTemplateTextbox = new TextBox();
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel = new Label();
+            createHTMLTemplateHTMLTemplateTitleTextBox = new TextBox();
+            createHTMLTemplateHTMLTemplateTextBox = new TextBox();
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel = new Label();
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel = new Label();
-            createHTMLTemplateHTMLTemplateTextboxLabel = new Label();
+            createHTMLTemplateHTMLTemplateTextBoxLabel = new Label();
             createHTMLTemplateSubmitButton = new Button();
             createHTMLTemplateStatusStrip = new StatusStrip();
             createHTMLTemplateStatusStripCompanyConfigurationPlaceholder = new ToolStripStatusLabel();
@@ -61,34 +61,34 @@
             createHTMLTemplateHTMLTemplateTypeComboBox.Size = new Size(558, 28);
             createHTMLTemplateHTMLTemplateTypeComboBox.TabIndex = 1;
             // 
-            // createHTMLTemplateHTMLTemplateTitleTextbox
+            // createHTMLTemplateHTMLTemplateTitleTextBox
             // 
-            createHTMLTemplateHTMLTemplateTitleTextbox.Location = new Point(193, 61);
-            createHTMLTemplateHTMLTemplateTitleTextbox.MaxLength = 50;
-            createHTMLTemplateHTMLTemplateTitleTextbox.Name = "createHTMLTemplateHTMLTemplateTitleTextbox";
-            createHTMLTemplateHTMLTemplateTitleTextbox.Size = new Size(558, 27);
-            createHTMLTemplateHTMLTemplateTitleTextbox.TabIndex = 0;
+            createHTMLTemplateHTMLTemplateTitleTextBox.Location = new Point(193, 61);
+            createHTMLTemplateHTMLTemplateTitleTextBox.MaxLength = 50;
+            createHTMLTemplateHTMLTemplateTitleTextBox.Name = "createHTMLTemplateHTMLTemplateTitleTextBox";
+            createHTMLTemplateHTMLTemplateTitleTextBox.Size = new Size(558, 27);
+            createHTMLTemplateHTMLTemplateTitleTextBox.TabIndex = 0;
             // 
-            // createHTMLTemplateHTMLTemplateTextbox
+            // createHTMLTemplateHTMLTemplateTextBox
             // 
-            createHTMLTemplateHTMLTemplateTextbox.Anchor = AnchorStyles.None;
-            createHTMLTemplateHTMLTemplateTextbox.Location = new Point(193, 156);
-            createHTMLTemplateHTMLTemplateTextbox.MaxLength = 1070000000;
-            createHTMLTemplateHTMLTemplateTextbox.Multiline = true;
-            createHTMLTemplateHTMLTemplateTextbox.Name = "createHTMLTemplateHTMLTemplateTextbox";
-            createHTMLTemplateHTMLTemplateTextbox.ScrollBars = ScrollBars.Vertical;
-            createHTMLTemplateHTMLTemplateTextbox.Size = new Size(558, 259);
-            createHTMLTemplateHTMLTemplateTextbox.TabIndex = 2;
+            createHTMLTemplateHTMLTemplateTextBox.Anchor = AnchorStyles.None;
+            createHTMLTemplateHTMLTemplateTextBox.Location = new Point(193, 156);
+            createHTMLTemplateHTMLTemplateTextBox.MaxLength = 1070000000;
+            createHTMLTemplateHTMLTemplateTextBox.Multiline = true;
+            createHTMLTemplateHTMLTemplateTextBox.Name = "createHTMLTemplateHTMLTemplateTextBox";
+            createHTMLTemplateHTMLTemplateTextBox.ScrollBars = ScrollBars.Vertical;
+            createHTMLTemplateHTMLTemplateTextBox.Size = new Size(558, 259);
+            createHTMLTemplateHTMLTemplateTextBox.TabIndex = 2;
             // 
-            // createHTMLTemplateHTMLTemplateTitleTextboxLabel
+            // createHTMLTemplateHTMLTemplateTitleTextBoxLabel
             // 
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.AutoSize = true;
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Location = new Point(34, 64);
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Name = "createHTMLTemplateHTMLTemplateTitleTextboxLabel";
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Size = new Size(153, 20);
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.TabIndex = 11;
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.Text = "HTML Template Title*";
-            createHTMLTemplateHTMLTemplateTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.AutoSize = true;
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.Location = new Point(34, 64);
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.Name = "createHTMLTemplateHTMLTemplateTitleTextBoxLabel";
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.Size = new Size(153, 20);
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.TabIndex = 11;
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.Text = "HTML Template Title*";
+            createHTMLTemplateHTMLTemplateTitleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createHTMLTemplateHTMLTemplateTypeComboBoxLabel
             // 
@@ -100,15 +100,15 @@
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.Text = "HTML Template Type*";
             createHTMLTemplateHTMLTemplateTypeComboBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createHTMLTemplateHTMLTemplateTextboxLabel
+            // createHTMLTemplateHTMLTemplateTextBoxLabel
             // 
-            createHTMLTemplateHTMLTemplateTextboxLabel.AutoSize = true;
-            createHTMLTemplateHTMLTemplateTextboxLabel.Location = new Point(63, 159);
-            createHTMLTemplateHTMLTemplateTextboxLabel.Name = "createHTMLTemplateHTMLTemplateTextboxLabel";
-            createHTMLTemplateHTMLTemplateTextboxLabel.Size = new Size(124, 20);
-            createHTMLTemplateHTMLTemplateTextboxLabel.TabIndex = 13;
-            createHTMLTemplateHTMLTemplateTextboxLabel.Text = " HTML Template*";
-            createHTMLTemplateHTMLTemplateTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createHTMLTemplateHTMLTemplateTextBoxLabel.AutoSize = true;
+            createHTMLTemplateHTMLTemplateTextBoxLabel.Location = new Point(63, 159);
+            createHTMLTemplateHTMLTemplateTextBoxLabel.Name = "createHTMLTemplateHTMLTemplateTextBoxLabel";
+            createHTMLTemplateHTMLTemplateTextBoxLabel.Size = new Size(124, 20);
+            createHTMLTemplateHTMLTemplateTextBoxLabel.TabIndex = 13;
+            createHTMLTemplateHTMLTemplateTextBoxLabel.Text = " HTML Template*";
+            createHTMLTemplateHTMLTemplateTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createHTMLTemplateSubmitButton
             // 
@@ -147,11 +147,11 @@
             ClientSize = new Size(820, 541);
             Controls.Add(createHTMLTemplateStatusStrip);
             Controls.Add(createHTMLTemplateSubmitButton);
-            Controls.Add(createHTMLTemplateHTMLTemplateTextboxLabel);
+            Controls.Add(createHTMLTemplateHTMLTemplateTextBoxLabel);
             Controls.Add(createHTMLTemplateHTMLTemplateTypeComboBoxLabel);
-            Controls.Add(createHTMLTemplateHTMLTemplateTitleTextboxLabel);
-            Controls.Add(createHTMLTemplateHTMLTemplateTextbox);
-            Controls.Add(createHTMLTemplateHTMLTemplateTitleTextbox);
+            Controls.Add(createHTMLTemplateHTMLTemplateTitleTextBoxLabel);
+            Controls.Add(createHTMLTemplateHTMLTemplateTextBox);
+            Controls.Add(createHTMLTemplateHTMLTemplateTitleTextBox);
             Controls.Add(createHTMLTemplateHTMLTemplateTypeComboBox);
             Controls.Add(createHTMLTemplateTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -171,11 +171,11 @@
 
         private Label createHTMLTemplateTitleLabel;
         private ComboBox createHTMLTemplateHTMLTemplateTypeComboBox;
-        private TextBox createHTMLTemplateHTMLTemplateTitleTextbox;
-        private TextBox createHTMLTemplateHTMLTemplateTextbox;
-        private Label createHTMLTemplateHTMLTemplateTitleTextboxLabel;
+        private TextBox createHTMLTemplateHTMLTemplateTitleTextBox;
+        private TextBox createHTMLTemplateHTMLTemplateTextBox;
+        private Label createHTMLTemplateHTMLTemplateTitleTextBoxLabel;
         private Label createHTMLTemplateHTMLTemplateTypeComboBoxLabel;
-        private Label createHTMLTemplateHTMLTemplateTextboxLabel;
+        private Label createHTMLTemplateHTMLTemplateTextBoxLabel;
         private Button createHTMLTemplateSubmitButton;
         private StatusStrip createHTMLTemplateStatusStrip;
         private ToolStripStatusLabel createHTMLTemplateStatusStripCompanyConfigurationPlaceholder;

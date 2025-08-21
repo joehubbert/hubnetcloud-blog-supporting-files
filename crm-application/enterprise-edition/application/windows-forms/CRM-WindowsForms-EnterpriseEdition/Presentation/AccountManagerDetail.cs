@@ -32,7 +32,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick;
             accountManagerDetailTabControl.SelectedIndexChanged += AccountManagerDetailTabControl_SelectedIndexChanged;
             accountManagerDetailToggleEditModeButton.Click += accountManagerDetailToggleEditModeButton_Click;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextbox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -77,17 +77,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (accountManagerDataTable != null)
                 {
                     DataRow accountManagerDataRow = accountManagerDataTable.Rows[0];
-                    accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Text = accountManagerDataRow["First Name"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Text = accountManagerDataRow["Last Name"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text = accountManagerDataRow["Email Address"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text = accountManagerDataRow["Telephone Number"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextbox.Text = accountManagerDataRow["Account Manager Id"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Text = accountManagerDataRow["First Name"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Text = accountManagerDataRow["Last Name"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Text = accountManagerDataRow["Email Address"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Text = accountManagerDataRow["Telephone Number"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Text = accountManagerDataRow["Account Manager Id"].ToString();
                     Guid companyConfigurationId = (Guid)accountManagerDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
-                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextbox.Text = accountManagerDataRow["Created By"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextbox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextbox.Text = accountManagerDataRow["Modified By"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextbox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox.Text = accountManagerDataRow["Created By"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Text = accountManagerDataRow["Modified By"].ToString();
+                    accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
 
                     accountManagerInformationFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
@@ -157,10 +157,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             bool activeStatus = accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked;
             Guid companyConfigurationId = Guid.Parse(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
-            string firstName = accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.Text.TrimEnd();
-            string lastName = accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.Text.TrimEnd();
-            string emailAddress = accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.Text.TrimEnd();
-            string telephoneNumber = accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.Text.TrimEnd();
+            string firstName = accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Text.TrimEnd();
+            string lastName = accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Text.TrimEnd();
+            string emailAddress = accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Text.TrimEnd();
+            string telephoneNumber = accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             var dataToValidate = new List<ValidateDataInputService.DataProperty>
             {
@@ -342,10 +342,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextbox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextbox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextbox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextbox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly;
             accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled;
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled;
             accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;

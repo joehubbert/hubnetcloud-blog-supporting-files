@@ -41,9 +41,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createDeliveryMethodSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createDeliveryMethodActiveStatusCheckbox.Checked;
-            decimal deliveryCost = decimal.Parse(createDeliveryMethodDeliveryCostTextboxA.Text.TrimEnd()) + (decimal.Parse(createDeliveryMethodDeliveryCostTextboxB.Text.TrimEnd()) / 100);
-            string deliveryMethod = createDeliveryMethodDeliveryMethodTextbox.Text.TrimEnd();
-            int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextbox.Text.TrimEnd());
+            decimal deliveryCost = decimal.Parse(createDeliveryMethodDeliveryCostTextBoxA.Text.TrimEnd()) + (decimal.Parse(createDeliveryMethodDeliveryCostTextBoxB.Text.TrimEnd()) / 100);
+            string deliveryMethod = createDeliveryMethodDeliveryMethodTextBox.Text.TrimEnd();
+            int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextBox.Text.TrimEnd());
             Guid taxProfileId = Guid.Parse(createDeliveryMethodTaxProfileComboBox.SelectedValue.ToString());
 
             string dataSubject = "Delivery Method";

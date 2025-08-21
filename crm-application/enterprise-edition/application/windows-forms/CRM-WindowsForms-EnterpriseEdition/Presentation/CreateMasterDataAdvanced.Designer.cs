@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataAdvanced));
             createMasterDataAdvancedTitleLabel = new Label();
-            createMasterDataAdvancedMasterDataTypeTextbox = new TextBox();
-            createMasterDataAdvancedMasterDataTypeTextboxLabel = new Label();
+            createMasterDataAdvancedMasterDataTypeTextBox = new TextBox();
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel = new Label();
             createMasterDataAdvancedSubmitButton = new Button();
             createMasterDataAdvancedActiveStatusCheckbox = new CheckBox();
             createMasterDataAdvancedDataParentSubjectComboBoxLabel = new Label();
@@ -53,25 +53,25 @@
             createMasterDataAdvancedTitleLabel.TabIndex = 8;
             createMasterDataAdvancedTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
-            // createMasterDataAdvancedMasterDataTypeTextbox
+            // createMasterDataAdvancedMasterDataTypeTextBox
             // 
-            createMasterDataAdvancedMasterDataTypeTextbox.Location = new Point(237, 101);
-            createMasterDataAdvancedMasterDataTypeTextbox.Margin = new Padding(3, 4, 3, 4);
-            createMasterDataAdvancedMasterDataTypeTextbox.MaxLength = 50;
-            createMasterDataAdvancedMasterDataTypeTextbox.Name = "createMasterDataAdvancedMasterDataTypeTextbox";
-            createMasterDataAdvancedMasterDataTypeTextbox.Size = new Size(272, 27);
-            createMasterDataAdvancedMasterDataTypeTextbox.TabIndex = 1;
+            createMasterDataAdvancedMasterDataTypeTextBox.Location = new Point(237, 101);
+            createMasterDataAdvancedMasterDataTypeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createMasterDataAdvancedMasterDataTypeTextBox.MaxLength = 50;
+            createMasterDataAdvancedMasterDataTypeTextBox.Name = "createMasterDataAdvancedMasterDataTypeTextBox";
+            createMasterDataAdvancedMasterDataTypeTextBox.Size = new Size(272, 27);
+            createMasterDataAdvancedMasterDataTypeTextBox.TabIndex = 1;
             // 
-            // createMasterDataAdvancedMasterDataTypeTextboxLabel
+            // createMasterDataAdvancedMasterDataTypeTextBoxLabel
             // 
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.AutoSize = true;
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Location = new Point(24, 104);
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Name = "createMasterDataAdvancedMasterDataTypeTextboxLabel";
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Size = new Size(213, 20);
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.TabIndex = 23;
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
-            createMasterDataAdvancedMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.AutoSize = true;
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Location = new Point(24, 104);
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Name = "createMasterDataAdvancedMasterDataTypeTextBoxLabel";
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Size = new Size(213, 20);
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.TabIndex = 23;
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.Text = "{MasterData Type Placeholder}";
+            createMasterDataAdvancedMasterDataTypeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataAdvancedSubmitButton
             // 
@@ -155,8 +155,8 @@
             Controls.Add(createMasterDataAdvancedStatusStrip);
             Controls.Add(createMasterDataAdvancedDataParentSubjectComboBox);
             Controls.Add(createMasterDataAdvancedDataParentSubjectComboBoxLabel);
-            Controls.Add(createMasterDataAdvancedMasterDataTypeTextbox);
-            Controls.Add(createMasterDataAdvancedMasterDataTypeTextboxLabel);
+            Controls.Add(createMasterDataAdvancedMasterDataTypeTextBox);
+            Controls.Add(createMasterDataAdvancedMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataAdvancedSubmitButton);
             Controls.Add(createMasterDataAdvancedActiveStatusCheckbox);
             Controls.Add(createMasterDataAdvancedTitleLabel);
@@ -176,8 +176,8 @@
         #endregion
 
         private Label createMasterDataAdvancedTitleLabel;
-        private TextBox createMasterDataAdvancedMasterDataTypeTextbox;
-        private Label createMasterDataAdvancedMasterDataTypeTextboxLabel;
+        private TextBox createMasterDataAdvancedMasterDataTypeTextBox;
+        private Label createMasterDataAdvancedMasterDataTypeTextBoxLabel;
         private Button createMasterDataAdvancedSubmitButton;
         private CheckBox createMasterDataAdvancedActiveStatusCheckbox;
         private Label createMasterDataAdvancedDataParentSubjectComboBoxLabel;

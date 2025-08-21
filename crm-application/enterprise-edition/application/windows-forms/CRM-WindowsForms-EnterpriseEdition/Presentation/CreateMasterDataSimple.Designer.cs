@@ -30,8 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateMasterDataSimple));
             createMasterDataSimpleTitleLabel = new Label();
-            createMasterDataSimpleMasterDataTypeTextbox = new TextBox();
-            createMasterDataSimpleMasterDataTypeTextboxLabel = new Label();
+            createMasterDataSimpleMasterDataTypeTextBox = new TextBox();
+            createMasterDataSimpleMasterDataTypeTextBoxLabel = new Label();
             createMasterDataSimpleSubmitButton = new Button();
             createMasterDataSimpleActiveStatusCheckbox = new CheckBox();
             createMasterDataSimpleStatusStrip = new StatusStrip();
@@ -51,25 +51,25 @@
             createMasterDataSimpleTitleLabel.TabIndex = 8;
             createMasterDataSimpleTitleLabel.Text = "{MasterData Type Placeholder}";
             // 
-            // createMasterDataSimpleMasterDataTypeTextbox
+            // createMasterDataSimpleMasterDataTypeTextBox
             // 
-            createMasterDataSimpleMasterDataTypeTextbox.Location = new Point(225, 59);
-            createMasterDataSimpleMasterDataTypeTextbox.Margin = new Padding(3, 4, 3, 4);
-            createMasterDataSimpleMasterDataTypeTextbox.MaxLength = 50;
-            createMasterDataSimpleMasterDataTypeTextbox.Name = "createMasterDataSimpleMasterDataTypeTextbox";
-            createMasterDataSimpleMasterDataTypeTextbox.Size = new Size(271, 27);
-            createMasterDataSimpleMasterDataTypeTextbox.TabIndex = 0;
+            createMasterDataSimpleMasterDataTypeTextBox.Location = new Point(225, 59);
+            createMasterDataSimpleMasterDataTypeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createMasterDataSimpleMasterDataTypeTextBox.MaxLength = 50;
+            createMasterDataSimpleMasterDataTypeTextBox.Name = "createMasterDataSimpleMasterDataTypeTextBox";
+            createMasterDataSimpleMasterDataTypeTextBox.Size = new Size(271, 27);
+            createMasterDataSimpleMasterDataTypeTextBox.TabIndex = 0;
             // 
-            // createMasterDataSimpleMasterDataTypeTextboxLabel
+            // createMasterDataSimpleMasterDataTypeTextBoxLabel
             // 
-            createMasterDataSimpleMasterDataTypeTextboxLabel.AutoSize = true;
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Font = new Font("Segoe UI", 11F);
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Location = new Point(12, 62);
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Name = "createMasterDataSimpleMasterDataTypeTextboxLabel";
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Size = new Size(213, 20);
-            createMasterDataSimpleMasterDataTypeTextboxLabel.TabIndex = 23;
-            createMasterDataSimpleMasterDataTypeTextboxLabel.Text = "{MasterData Type Placeholder}";
-            createMasterDataSimpleMasterDataTypeTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.AutoSize = true;
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.Font = new Font("Segoe UI", 11F);
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.Location = new Point(12, 62);
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.Name = "createMasterDataSimpleMasterDataTypeTextBoxLabel";
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.Size = new Size(213, 20);
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.TabIndex = 23;
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.Text = "{MasterData Type Placeholder}";
+            createMasterDataSimpleMasterDataTypeTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // createMasterDataSimpleSubmitButton
             // 
@@ -133,8 +133,8 @@
             BackColor = SystemColors.Control;
             ClientSize = new Size(524, 268);
             Controls.Add(createMasterDataSimpleStatusStrip);
-            Controls.Add(createMasterDataSimpleMasterDataTypeTextbox);
-            Controls.Add(createMasterDataSimpleMasterDataTypeTextboxLabel);
+            Controls.Add(createMasterDataSimpleMasterDataTypeTextBox);
+            Controls.Add(createMasterDataSimpleMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataSimpleSubmitButton);
             Controls.Add(createMasterDataSimpleActiveStatusCheckbox);
             Controls.Add(createMasterDataSimpleTitleLabel);
@@ -154,8 +154,8 @@
         #endregion
 
         private Label createMasterDataSimpleTitleLabel;
-        private TextBox createMasterDataSimpleMasterDataTypeTextbox;
-        private Label createMasterDataSimpleMasterDataTypeTextboxLabel;
+        private TextBox createMasterDataSimpleMasterDataTypeTextBox;
+        private Label createMasterDataSimpleMasterDataTypeTextBoxLabel;
         private Button createMasterDataSimpleSubmitButton;
         private CheckBox createMasterDataSimpleActiveStatusCheckbox;
         private StatusStrip createMasterDataSimpleStatusStrip;

@@ -72,15 +72,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (countryDataTable != null)
                 {
                     DataRow countryDataRow = countryDataTable.Rows[0];
-                    countryTranslationDetailCountryTranslationIdTextbox.Text = countryDataRow["Country Translation Id"].ToString();
+                    countryTranslationDetailCountryTranslationIdTextBox.Text = countryDataRow["Country Translation Id"].ToString();
                     Guid countryId = (Guid)countryDataRow["Country Id"];
                     await LoadCountryAsync(countryId);
-                    countryTranslationDetailBCP47LanguageTagCodeTextbox.Text = countryDataRow["BCP 47 Language Tag Code"].ToString();
-                    countryTranslationDetailLocalisedCountryNameTextbox.Text = countryDataRow["Localised Country Name"].ToString();
-                    countryTranslationDetailCreatedByTextbox.Text = countryDataRow["Created By"].ToString();
-                    countryTranslationDetailCreatedTimestampTextbox.Text = countryDataRow["Created Timestamp UTC"].ToString();
-                    countryTranslationDetailLastUpdatedByTextbox.Text = countryDataRow["Modified By"].ToString();
-                    countryTranslationDetailLastUpdatedTimestampTextbox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
+                    countryTranslationDetailBCP47LanguageTagCodeTextBox.Text = countryDataRow["BCP 47 Language Tag Code"].ToString();
+                    countryTranslationDetailLocalisedCountryNameTextBox.Text = countryDataRow["Localised Country Name"].ToString();
+                    countryTranslationDetailCreatedByTextBox.Text = countryDataRow["Created By"].ToString();
+                    countryTranslationDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
+                    countryTranslationDetailLastUpdatedByTextBox.Text = countryDataRow["Modified By"].ToString();
+                    countryTranslationDetailLastUpdatedTimestampTextBox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
                     countryTranslationDetailActiveStatusCheckbox.Checked = (bool)countryDataRow["Active Status"];
 
                     countryTranslationDetailActiveStatusOriginalValue = (bool)countryDataRow["Active Status"];
@@ -104,9 +104,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void countryTranslationDetailUpdateCountryTranslationButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = countryTranslationDetailActiveStatusCheckbox.Checked;
-            string bcp47LanguageTagCode = countryTranslationDetailBCP47LanguageTagCodeTextbox.Text.TrimEnd().ToLower();
+            string bcp47LanguageTagCode = countryTranslationDetailBCP47LanguageTagCodeTextBox.Text.TrimEnd().ToLower();
             Guid countryId = Guid.Parse(countryTranslationDetailCountryComboBox.SelectedValue.ToString());
-            string localisedCountryName = countryTranslationDetailLocalisedCountryNameTextbox.Text.TrimEnd();
+            string localisedCountryName = countryTranslationDetailLocalisedCountryNameTextBox.Text.TrimEnd();
 
             string dataSubject = "Country Translation";
 
@@ -250,8 +250,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void countryTranslationDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             countryTranslationDetailCountryComboBox.Enabled = !countryTranslationDetailCountryComboBox.Enabled;
-            countryTranslationDetailBCP47LanguageTagCodeTextbox.ReadOnly = !countryTranslationDetailBCP47LanguageTagCodeTextbox.ReadOnly;
-            countryTranslationDetailLocalisedCountryNameTextbox.ReadOnly = !countryTranslationDetailLocalisedCountryNameTextbox.ReadOnly;
+            countryTranslationDetailBCP47LanguageTagCodeTextBox.ReadOnly = !countryTranslationDetailBCP47LanguageTagCodeTextBox.ReadOnly;
+            countryTranslationDetailLocalisedCountryNameTextBox.ReadOnly = !countryTranslationDetailLocalisedCountryNameTextBox.ReadOnly;
             countryTranslationDetailActiveStatusCheckbox.Enabled = !countryTranslationDetailActiveStatusCheckbox.Enabled;
             countryTranslationDetailUpdateCountryTranslationButton.Enabled = !countryTranslationDetailUpdateCountryTranslationButton.Enabled;
         }

@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel = new Label();
-            currencyConversionDetailTargetCurrencyValueTextboxB = new TextBox();
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel = new Label();
+            currencyConversionDetailTargetCurrencyValueTextBoxB = new TextBox();
             currencyConversionDetailEffectiveDatePickerLabel = new Label();
             currencyConversionDetailActiveStatusCheckbox = new CheckBox();
-            currencyConversionDetailTargetCurrencyValueTextboxLabel = new Label();
-            currencyConversionDetailBaseCurrencyValueTextboxLabel = new Label();
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel = new Label();
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel = new Label();
             currencyConversionDetailBaseCurrencyComboBoxLabel = new Label();
             currencyConversionDetailTargetCurrencyComboBoxLabel = new Label();
             currencyConversionDetailExpiryDatePickerLabel = new Label();
@@ -43,20 +43,20 @@
             currencyConversionDetailExpiryDatePicker = new DateTimePicker();
             currencyConversionDetailAddExpiryDateRadioButtonChoiceContainerPanel = new Panel();
             currencyConversionDetailEffectiveDatePicker = new DateTimePicker();
-            currencyConversionDetailTargetCurrencyValueTextboxA = new TextBox();
-            currencyConversionDetailBaseCurrencyValueTextbox = new TextBox();
+            currencyConversionDetailTargetCurrencyValueTextBoxA = new TextBox();
+            currencyConversionDetailBaseCurrencyValueTextBox = new TextBox();
             currencyConversionDetailTargetCurrencyComboBox = new ComboBox();
             currencyConversionDetailBaseCurrencyComboBox = new ComboBox();
             currencyConversionDetailTitleLabel = new Label();
-            currencyConversionDetailCreatedTimestampTextbox = new TextBox();
-            currencyConversionDetailLastUpdatedTimestampTextbox = new TextBox();
-            currencyConversionDetailCreatedByTextbox = new TextBox();
-            currencyConversionDetailLastUpdatedByTextbox = new TextBox();
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel = new Label();
-            currencyConversionDetailLastUpdatedByTextboxLabel = new Label();
-            currencyConversionDetailCreatedTimestampTextboxLabel = new Label();
-            currencyConversionDetailCreatedByTextboxLabel = new Label();
-            currencyConversionDetailCurrencyConversionIdTextbox = new TextBox();
+            currencyConversionDetailCreatedTimestampTextBox = new TextBox();
+            currencyConversionDetailLastUpdatedTimestampTextBox = new TextBox();
+            currencyConversionDetailCreatedByTextBox = new TextBox();
+            currencyConversionDetailLastUpdatedByTextBox = new TextBox();
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            currencyConversionDetailLastUpdatedByTextBoxLabel = new Label();
+            currencyConversionDetailCreatedTimestampTextBoxLabel = new Label();
+            currencyConversionDetailCreatedByTextBoxLabel = new Label();
+            currencyConversionDetailCurrencyConversionIdTextBox = new TextBox();
             currencyConversionDetailCurrencyConversionIdLabel = new Label();
             currencyConversionDetailUpdateCurrencyConversionButton = new Button();
             currencyConversionDetailToggleEditModeButton = new Button();
@@ -65,25 +65,25 @@
             currencyConversionDetailAddExpiryDateRadioButtonChoiceContainerPanel.SuspendLayout();
             SuspendLayout();
             // 
-            // currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel
+            // currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel
             // 
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.AutoSize = true;
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.Location = new Point(953, 177);
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.Name = "currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel";
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.Size = new Size(12, 20);
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.TabIndex = 82;
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.Text = ".";
-            currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel.TextAlign = ContentAlignment.TopRight;
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.AutoSize = true;
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.Location = new Point(953, 177);
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.Name = "currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel";
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.Size = new Size(12, 20);
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.TabIndex = 82;
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.Text = ".";
+            currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // currencyConversionDetailTargetCurrencyValueTextboxB
+            // currencyConversionDetailTargetCurrencyValueTextBoxB
             // 
-            currencyConversionDetailTargetCurrencyValueTextboxB.Location = new Point(971, 170);
-            currencyConversionDetailTargetCurrencyValueTextboxB.MaxLength = 8;
-            currencyConversionDetailTargetCurrencyValueTextboxB.Name = "currencyConversionDetailTargetCurrencyValueTextboxB";
-            currencyConversionDetailTargetCurrencyValueTextboxB.ReadOnly = true;
-            currencyConversionDetailTargetCurrencyValueTextboxB.Size = new Size(132, 27);
-            currencyConversionDetailTargetCurrencyValueTextboxB.TabIndex = 11;
-            currencyConversionDetailTargetCurrencyValueTextboxB.TextAlign = HorizontalAlignment.Right;
+            currencyConversionDetailTargetCurrencyValueTextBoxB.Location = new Point(971, 170);
+            currencyConversionDetailTargetCurrencyValueTextBoxB.MaxLength = 8;
+            currencyConversionDetailTargetCurrencyValueTextBoxB.Name = "currencyConversionDetailTargetCurrencyValueTextBoxB";
+            currencyConversionDetailTargetCurrencyValueTextBoxB.ReadOnly = true;
+            currencyConversionDetailTargetCurrencyValueTextBoxB.Size = new Size(132, 27);
+            currencyConversionDetailTargetCurrencyValueTextBoxB.TabIndex = 11;
+            currencyConversionDetailTargetCurrencyValueTextBoxB.TextAlign = HorizontalAlignment.Right;
             // 
             // currencyConversionDetailEffectiveDatePickerLabel
             // 
@@ -109,25 +109,25 @@
             currencyConversionDetailActiveStatusCheckbox.Text = "Active Currency Conversion*";
             currencyConversionDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
             // 
-            // currencyConversionDetailTargetCurrencyValueTextboxLabel
+            // currencyConversionDetailTargetCurrencyValueTextBoxLabel
             // 
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.AutoSize = true;
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.Location = new Point(652, 173);
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.Name = "currencyConversionDetailTargetCurrencyValueTextboxLabel";
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.Size = new Size(157, 20);
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.TabIndex = 80;
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.Text = "Target Currency Value*";
-            currencyConversionDetailTargetCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.AutoSize = true;
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.Location = new Point(652, 173);
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.Name = "currencyConversionDetailTargetCurrencyValueTextBoxLabel";
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.Size = new Size(157, 20);
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.TabIndex = 80;
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.Text = "Target Currency Value*";
+            currencyConversionDetailTargetCurrencyValueTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // currencyConversionDetailBaseCurrencyValueTextboxLabel
+            // currencyConversionDetailBaseCurrencyValueTextBoxLabel
             // 
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.AutoSize = true;
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.Location = new Point(662, 127);
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.Name = "currencyConversionDetailBaseCurrencyValueTextboxLabel";
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.Size = new Size(147, 20);
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.TabIndex = 79;
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.Text = "Base Currency Value*";
-            currencyConversionDetailBaseCurrencyValueTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.AutoSize = true;
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.Location = new Point(662, 127);
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.Name = "currencyConversionDetailBaseCurrencyValueTextBoxLabel";
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.Size = new Size(147, 20);
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.TabIndex = 79;
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.Text = "Base Currency Value*";
+            currencyConversionDetailBaseCurrencyValueTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyConversionDetailBaseCurrencyComboBoxLabel
             // 
@@ -213,24 +213,24 @@
             currencyConversionDetailEffectiveDatePicker.Size = new Size(240, 27);
             currencyConversionDetailEffectiveDatePicker.TabIndex = 3;
             // 
-            // currencyConversionDetailTargetCurrencyValueTextboxA
+            // currencyConversionDetailTargetCurrencyValueTextBoxA
             // 
-            currencyConversionDetailTargetCurrencyValueTextboxA.Location = new Point(809, 170);
-            currencyConversionDetailTargetCurrencyValueTextboxA.MaxLength = 10;
-            currencyConversionDetailTargetCurrencyValueTextboxA.Name = "currencyConversionDetailTargetCurrencyValueTextboxA";
-            currencyConversionDetailTargetCurrencyValueTextboxA.ReadOnly = true;
-            currencyConversionDetailTargetCurrencyValueTextboxA.Size = new Size(138, 27);
-            currencyConversionDetailTargetCurrencyValueTextboxA.TabIndex = 10;
-            currencyConversionDetailTargetCurrencyValueTextboxA.TextAlign = HorizontalAlignment.Right;
+            currencyConversionDetailTargetCurrencyValueTextBoxA.Location = new Point(809, 170);
+            currencyConversionDetailTargetCurrencyValueTextBoxA.MaxLength = 10;
+            currencyConversionDetailTargetCurrencyValueTextBoxA.Name = "currencyConversionDetailTargetCurrencyValueTextBoxA";
+            currencyConversionDetailTargetCurrencyValueTextBoxA.ReadOnly = true;
+            currencyConversionDetailTargetCurrencyValueTextBoxA.Size = new Size(138, 27);
+            currencyConversionDetailTargetCurrencyValueTextBoxA.TabIndex = 10;
+            currencyConversionDetailTargetCurrencyValueTextBoxA.TextAlign = HorizontalAlignment.Right;
             // 
-            // currencyConversionDetailBaseCurrencyValueTextbox
+            // currencyConversionDetailBaseCurrencyValueTextBox
             // 
-            currencyConversionDetailBaseCurrencyValueTextbox.Location = new Point(809, 124);
-            currencyConversionDetailBaseCurrencyValueTextbox.Name = "currencyConversionDetailBaseCurrencyValueTextbox";
-            currencyConversionDetailBaseCurrencyValueTextbox.ReadOnly = true;
-            currencyConversionDetailBaseCurrencyValueTextbox.Size = new Size(294, 27);
-            currencyConversionDetailBaseCurrencyValueTextbox.TabIndex = 9;
-            currencyConversionDetailBaseCurrencyValueTextbox.TextAlign = HorizontalAlignment.Right;
+            currencyConversionDetailBaseCurrencyValueTextBox.Location = new Point(809, 124);
+            currencyConversionDetailBaseCurrencyValueTextBox.Name = "currencyConversionDetailBaseCurrencyValueTextBox";
+            currencyConversionDetailBaseCurrencyValueTextBox.ReadOnly = true;
+            currencyConversionDetailBaseCurrencyValueTextBox.Size = new Size(294, 27);
+            currencyConversionDetailBaseCurrencyValueTextBox.TabIndex = 9;
+            currencyConversionDetailBaseCurrencyValueTextBox.TextAlign = HorizontalAlignment.Right;
             // 
             // currencyConversionDetailTargetCurrencyComboBox
             // 
@@ -263,86 +263,86 @@
             currencyConversionDetailTitleLabel.TabIndex = 69;
             currencyConversionDetailTitleLabel.Text = "Currency Conversion Detail";
             // 
-            // currencyConversionDetailCreatedTimestampTextbox
+            // currencyConversionDetailCreatedTimestampTextBox
             // 
-            currencyConversionDetailCreatedTimestampTextbox.Location = new Point(809, 254);
-            currencyConversionDetailCreatedTimestampTextbox.MaxLength = 50;
-            currencyConversionDetailCreatedTimestampTextbox.Name = "currencyConversionDetailCreatedTimestampTextbox";
-            currencyConversionDetailCreatedTimestampTextbox.ReadOnly = true;
-            currencyConversionDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            currencyConversionDetailCreatedTimestampTextbox.TabIndex = 13;
+            currencyConversionDetailCreatedTimestampTextBox.Location = new Point(809, 254);
+            currencyConversionDetailCreatedTimestampTextBox.MaxLength = 50;
+            currencyConversionDetailCreatedTimestampTextBox.Name = "currencyConversionDetailCreatedTimestampTextBox";
+            currencyConversionDetailCreatedTimestampTextBox.ReadOnly = true;
+            currencyConversionDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            currencyConversionDetailCreatedTimestampTextBox.TabIndex = 13;
             // 
-            // currencyConversionDetailLastUpdatedTimestampTextbox
+            // currencyConversionDetailLastUpdatedTimestampTextBox
             // 
-            currencyConversionDetailLastUpdatedTimestampTextbox.Location = new Point(809, 334);
-            currencyConversionDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            currencyConversionDetailLastUpdatedTimestampTextbox.Name = "currencyConversionDetailLastUpdatedTimestampTextbox";
-            currencyConversionDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            currencyConversionDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            currencyConversionDetailLastUpdatedTimestampTextbox.TabIndex = 15;
+            currencyConversionDetailLastUpdatedTimestampTextBox.Location = new Point(809, 334);
+            currencyConversionDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            currencyConversionDetailLastUpdatedTimestampTextBox.Name = "currencyConversionDetailLastUpdatedTimestampTextBox";
+            currencyConversionDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            currencyConversionDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            currencyConversionDetailLastUpdatedTimestampTextBox.TabIndex = 15;
             // 
-            // currencyConversionDetailCreatedByTextbox
+            // currencyConversionDetailCreatedByTextBox
             // 
-            currencyConversionDetailCreatedByTextbox.Location = new Point(809, 214);
-            currencyConversionDetailCreatedByTextbox.MaxLength = 50;
-            currencyConversionDetailCreatedByTextbox.Name = "currencyConversionDetailCreatedByTextbox";
-            currencyConversionDetailCreatedByTextbox.ReadOnly = true;
-            currencyConversionDetailCreatedByTextbox.Size = new Size(370, 27);
-            currencyConversionDetailCreatedByTextbox.TabIndex = 12;
+            currencyConversionDetailCreatedByTextBox.Location = new Point(809, 214);
+            currencyConversionDetailCreatedByTextBox.MaxLength = 50;
+            currencyConversionDetailCreatedByTextBox.Name = "currencyConversionDetailCreatedByTextBox";
+            currencyConversionDetailCreatedByTextBox.ReadOnly = true;
+            currencyConversionDetailCreatedByTextBox.Size = new Size(370, 27);
+            currencyConversionDetailCreatedByTextBox.TabIndex = 12;
             // 
-            // currencyConversionDetailLastUpdatedByTextbox
+            // currencyConversionDetailLastUpdatedByTextBox
             // 
-            currencyConversionDetailLastUpdatedByTextbox.Location = new Point(809, 294);
-            currencyConversionDetailLastUpdatedByTextbox.MaxLength = 50;
-            currencyConversionDetailLastUpdatedByTextbox.Name = "currencyConversionDetailLastUpdatedByTextbox";
-            currencyConversionDetailLastUpdatedByTextbox.ReadOnly = true;
-            currencyConversionDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            currencyConversionDetailLastUpdatedByTextbox.TabIndex = 14;
+            currencyConversionDetailLastUpdatedByTextBox.Location = new Point(809, 294);
+            currencyConversionDetailLastUpdatedByTextBox.MaxLength = 50;
+            currencyConversionDetailLastUpdatedByTextBox.Name = "currencyConversionDetailLastUpdatedByTextBox";
+            currencyConversionDetailLastUpdatedByTextBox.ReadOnly = true;
+            currencyConversionDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            currencyConversionDetailLastUpdatedByTextBox.TabIndex = 14;
             // 
-            // currencyConversionDetailLastUpdatedTimestampTextboxLabel
+            // currencyConversionDetailLastUpdatedTimestampTextBoxLabel
             // 
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.Location = new Point(628, 337);
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.Name = "currencyConversionDetailLastUpdatedTimestampTextboxLabel";
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.TabIndex = 90;
-            currencyConversionDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(628, 337);
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Name = "currencyConversionDetailLastUpdatedTimestampTextBoxLabel";
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 90;
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
             // 
-            // currencyConversionDetailLastUpdatedByTextboxLabel
+            // currencyConversionDetailLastUpdatedByTextBoxLabel
             // 
-            currencyConversionDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            currencyConversionDetailLastUpdatedByTextboxLabel.Location = new Point(686, 297);
-            currencyConversionDetailLastUpdatedByTextboxLabel.Name = "currencyConversionDetailLastUpdatedByTextboxLabel";
-            currencyConversionDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            currencyConversionDetailLastUpdatedByTextboxLabel.TabIndex = 89;
-            currencyConversionDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
+            currencyConversionDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            currencyConversionDetailLastUpdatedByTextBoxLabel.Location = new Point(686, 297);
+            currencyConversionDetailLastUpdatedByTextBoxLabel.Name = "currencyConversionDetailLastUpdatedByTextBoxLabel";
+            currencyConversionDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            currencyConversionDetailLastUpdatedByTextBoxLabel.TabIndex = 89;
+            currencyConversionDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
             // 
-            // currencyConversionDetailCreatedTimestampTextboxLabel
+            // currencyConversionDetailCreatedTimestampTextBoxLabel
             // 
-            currencyConversionDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            currencyConversionDetailCreatedTimestampTextboxLabel.Location = new Point(664, 257);
-            currencyConversionDetailCreatedTimestampTextboxLabel.Name = "currencyConversionDetailCreatedTimestampTextboxLabel";
-            currencyConversionDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            currencyConversionDetailCreatedTimestampTextboxLabel.TabIndex = 88;
-            currencyConversionDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
+            currencyConversionDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Location = new Point(664, 257);
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Name = "currencyConversionDetailCreatedTimestampTextBoxLabel";
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            currencyConversionDetailCreatedTimestampTextBoxLabel.TabIndex = 88;
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
             // 
-            // currencyConversionDetailCreatedByTextboxLabel
+            // currencyConversionDetailCreatedByTextBoxLabel
             // 
-            currencyConversionDetailCreatedByTextboxLabel.AutoSize = true;
-            currencyConversionDetailCreatedByTextboxLabel.Location = new Point(722, 217);
-            currencyConversionDetailCreatedByTextboxLabel.Name = "currencyConversionDetailCreatedByTextboxLabel";
-            currencyConversionDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            currencyConversionDetailCreatedByTextboxLabel.TabIndex = 87;
-            currencyConversionDetailCreatedByTextboxLabel.Text = "Created By";
+            currencyConversionDetailCreatedByTextBoxLabel.AutoSize = true;
+            currencyConversionDetailCreatedByTextBoxLabel.Location = new Point(722, 217);
+            currencyConversionDetailCreatedByTextBoxLabel.Name = "currencyConversionDetailCreatedByTextBoxLabel";
+            currencyConversionDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            currencyConversionDetailCreatedByTextBoxLabel.TabIndex = 87;
+            currencyConversionDetailCreatedByTextBoxLabel.Text = "Created By";
             // 
-            // currencyConversionDetailCurrencyConversionIdTextbox
+            // currencyConversionDetailCurrencyConversionIdTextBox
             // 
-            currencyConversionDetailCurrencyConversionIdTextbox.Location = new Point(252, 77);
-            currencyConversionDetailCurrencyConversionIdTextbox.MaxLength = 36;
-            currencyConversionDetailCurrencyConversionIdTextbox.Name = "currencyConversionDetailCurrencyConversionIdTextbox";
-            currencyConversionDetailCurrencyConversionIdTextbox.ReadOnly = true;
-            currencyConversionDetailCurrencyConversionIdTextbox.Size = new Size(330, 27);
-            currencyConversionDetailCurrencyConversionIdTextbox.TabIndex = 0;
+            currencyConversionDetailCurrencyConversionIdTextBox.Location = new Point(252, 77);
+            currencyConversionDetailCurrencyConversionIdTextBox.MaxLength = 36;
+            currencyConversionDetailCurrencyConversionIdTextBox.Name = "currencyConversionDetailCurrencyConversionIdTextBox";
+            currencyConversionDetailCurrencyConversionIdTextBox.ReadOnly = true;
+            currencyConversionDetailCurrencyConversionIdTextBox.Size = new Size(330, 27);
+            currencyConversionDetailCurrencyConversionIdTextBox.TabIndex = 0;
             // 
             // currencyConversionDetailCurrencyConversionIdLabel
             // 
@@ -411,22 +411,22 @@
             Controls.Add(currencyConversionDetailCompanyConfigurationComboBox);
             Controls.Add(currencyConversionDetailToggleEditModeButton);
             Controls.Add(currencyConversionDetailUpdateCurrencyConversionButton);
-            Controls.Add(currencyConversionDetailCurrencyConversionIdTextbox);
+            Controls.Add(currencyConversionDetailCurrencyConversionIdTextBox);
             Controls.Add(currencyConversionDetailCurrencyConversionIdLabel);
-            Controls.Add(currencyConversionDetailCreatedTimestampTextbox);
-            Controls.Add(currencyConversionDetailLastUpdatedTimestampTextbox);
-            Controls.Add(currencyConversionDetailCreatedByTextbox);
-            Controls.Add(currencyConversionDetailLastUpdatedByTextbox);
-            Controls.Add(currencyConversionDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(currencyConversionDetailLastUpdatedByTextboxLabel);
-            Controls.Add(currencyConversionDetailCreatedTimestampTextboxLabel);
-            Controls.Add(currencyConversionDetailCreatedByTextboxLabel);
-            Controls.Add(currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel);
-            Controls.Add(currencyConversionDetailTargetCurrencyValueTextboxB);
+            Controls.Add(currencyConversionDetailCreatedTimestampTextBox);
+            Controls.Add(currencyConversionDetailLastUpdatedTimestampTextBox);
+            Controls.Add(currencyConversionDetailCreatedByTextBox);
+            Controls.Add(currencyConversionDetailLastUpdatedByTextBox);
+            Controls.Add(currencyConversionDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(currencyConversionDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(currencyConversionDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(currencyConversionDetailCreatedByTextBoxLabel);
+            Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel);
+            Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxB);
             Controls.Add(currencyConversionDetailEffectiveDatePickerLabel);
             Controls.Add(currencyConversionDetailActiveStatusCheckbox);
-            Controls.Add(currencyConversionDetailTargetCurrencyValueTextboxLabel);
-            Controls.Add(currencyConversionDetailBaseCurrencyValueTextboxLabel);
+            Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxLabel);
+            Controls.Add(currencyConversionDetailBaseCurrencyValueTextBoxLabel);
             Controls.Add(currencyConversionDetailBaseCurrencyComboBoxLabel);
             Controls.Add(currencyConversionDetailTargetCurrencyComboBoxLabel);
             Controls.Add(currencyConversionDetailExpiryDatePickerLabel);
@@ -434,8 +434,8 @@
             Controls.Add(currencyConversionDetailExpiryDatePicker);
             Controls.Add(currencyConversionDetailAddExpiryDateRadioButtonChoiceContainerPanel);
             Controls.Add(currencyConversionDetailEffectiveDatePicker);
-            Controls.Add(currencyConversionDetailTargetCurrencyValueTextboxA);
-            Controls.Add(currencyConversionDetailBaseCurrencyValueTextbox);
+            Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxA);
+            Controls.Add(currencyConversionDetailBaseCurrencyValueTextBox);
             Controls.Add(currencyConversionDetailTargetCurrencyComboBox);
             Controls.Add(currencyConversionDetailBaseCurrencyComboBox);
             Controls.Add(currencyConversionDetailTitleLabel);
@@ -454,12 +454,12 @@
 
         #endregion
 
-        private Label currencyConversionDetailTargetCurrencyValueTextboxSeparatorLabel;
-        private TextBox currencyConversionDetailTargetCurrencyValueTextboxB;
+        private Label currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel;
+        private TextBox currencyConversionDetailTargetCurrencyValueTextBoxB;
         private Label currencyConversionDetailEffectiveDatePickerLabel;
         private CheckBox currencyConversionDetailActiveStatusCheckbox;
-        private Label currencyConversionDetailTargetCurrencyValueTextboxLabel;
-        private Label currencyConversionDetailBaseCurrencyValueTextboxLabel;
+        private Label currencyConversionDetailTargetCurrencyValueTextBoxLabel;
+        private Label currencyConversionDetailBaseCurrencyValueTextBoxLabel;
         private Label currencyConversionDetailBaseCurrencyComboBoxLabel;
         private Label currencyConversionDetailTargetCurrencyComboBoxLabel;
         private Label currencyConversionDetailExpiryDatePickerLabel;
@@ -469,20 +469,20 @@
         private DateTimePicker currencyConversionDetailExpiryDatePicker;
         private Panel currencyConversionDetailAddExpiryDateRadioButtonChoiceContainerPanel;
         private DateTimePicker currencyConversionDetailEffectiveDatePicker;
-        private TextBox currencyConversionDetailTargetCurrencyValueTextboxA;
-        private TextBox currencyConversionDetailBaseCurrencyValueTextbox;
+        private TextBox currencyConversionDetailTargetCurrencyValueTextBoxA;
+        private TextBox currencyConversionDetailBaseCurrencyValueTextBox;
         private ComboBox currencyConversionDetailTargetCurrencyComboBox;
         private ComboBox currencyConversionDetailBaseCurrencyComboBox;
         private Label currencyConversionDetailTitleLabel;
-        private TextBox currencyConversionDetailCreatedTimestampTextbox;
-        private TextBox currencyConversionDetailLastUpdatedTimestampTextbox;
-        private TextBox currencyConversionDetailCreatedByTextbox;
-        private TextBox currencyConversionDetailLastUpdatedByTextbox;
-        private Label currencyConversionDetailLastUpdatedTimestampTextboxLabel;
-        private Label currencyConversionDetailLastUpdatedByTextboxLabel;
-        private Label currencyConversionDetailCreatedTimestampTextboxLabel;
-        private Label currencyConversionDetailCreatedByTextboxLabel;
-        private TextBox currencyConversionDetailCurrencyConversionIdTextbox;
+        private TextBox currencyConversionDetailCreatedTimestampTextBox;
+        private TextBox currencyConversionDetailLastUpdatedTimestampTextBox;
+        private TextBox currencyConversionDetailCreatedByTextBox;
+        private TextBox currencyConversionDetailLastUpdatedByTextBox;
+        private Label currencyConversionDetailLastUpdatedTimestampTextBoxLabel;
+        private Label currencyConversionDetailLastUpdatedByTextBoxLabel;
+        private Label currencyConversionDetailCreatedTimestampTextBoxLabel;
+        private Label currencyConversionDetailCreatedByTextBoxLabel;
+        private TextBox currencyConversionDetailCurrencyConversionIdTextBox;
         private Label currencyConversionDetailCurrencyConversionIdLabel;
         private Button currencyConversionDetailUpdateCurrencyConversionButton;
         private Button currencyConversionDetailToggleEditModeButton;

@@ -22,8 +22,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createTaxProfileSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createTaxProfileActiveStatusCheckbox.Checked;
-            string taxProfile = createTaxProfileTaxProfileTextbox.Text.TrimEnd();
-            decimal taxRate = decimal.Parse(createTaxProfileTaxRateTextboxA.Text.TrimEnd()) + (decimal.Parse(createTaxProfileTaxRateTextboxB.Text.TrimEnd()) / 100);
+            string taxProfile = createTaxProfileTaxProfileTextBox.Text.TrimEnd();
+            decimal taxRate = decimal.Parse(createTaxProfileTaxRateTextBoxA.Text.TrimEnd()) + (decimal.Parse(createTaxProfileTaxRateTextBoxB.Text.TrimEnd()) / 100);
 
             if (_databaseConnectionSettings == null)
             {

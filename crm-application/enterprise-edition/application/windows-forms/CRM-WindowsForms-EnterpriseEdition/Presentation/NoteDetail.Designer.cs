@@ -30,20 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NoteDetail));
             noteDetailTitleLabel = new Label();
-            noteDetailNoteIdTextboxLabel = new Label();
-            noteDetailNoteTitleTextboxLabel = new Label();
-            noteDetailNoteTextboxLabel = new Label();
-            noteDetailCreatedByTextboxLabel = new Label();
-            noteDetailCreatedTimestampTextboxLabel = new Label();
-            noteDetailLastUpdatedByTextboxLabel = new Label();
-            noteDetailLastUpdatedTimestampTextboxLabel = new Label();
-            noteDetailLastUpdatedByTextbox = new TextBox();
-            noteDetailCreatedByTextbox = new TextBox();
-            noteDetailLastUpdatedTimestampTextbox = new TextBox();
-            noteDetailCreatedTimestampTextbox = new TextBox();
-            noteDetailNoteTextbox = new TextBox();
-            noteDetailNoteIdTextbox = new TextBox();
-            noteDetailNoteTitleTextbox = new TextBox();
+            noteDetailNoteIdTextBoxLabel = new Label();
+            noteDetailNoteTitleTextBoxLabel = new Label();
+            noteDetailNoteTextBoxLabel = new Label();
+            noteDetailCreatedByTextBoxLabel = new Label();
+            noteDetailCreatedTimestampTextBoxLabel = new Label();
+            noteDetailLastUpdatedByTextBoxLabel = new Label();
+            noteDetailLastUpdatedTimestampTextBoxLabel = new Label();
+            noteDetailLastUpdatedByTextBox = new TextBox();
+            noteDetailCreatedByTextBox = new TextBox();
+            noteDetailLastUpdatedTimestampTextBox = new TextBox();
+            noteDetailCreatedTimestampTextBox = new TextBox();
+            noteDetailNoteTextBox = new TextBox();
+            noteDetailNoteIdTextBox = new TextBox();
+            noteDetailNoteTitleTextBox = new TextBox();
             noteDetailToggleEditModeButton = new Button();
             noteDetailUpdateNoteButton = new Button();
             noteDetailNoteTypeComboBoxLabel = new Label();
@@ -64,141 +64,141 @@
             noteDetailTitleLabel.TabIndex = 7;
             noteDetailTitleLabel.Text = "{Note Detail Placeholder}";
             // 
-            // noteDetailNoteIdTextboxLabel
+            // noteDetailNoteIdTextBoxLabel
             // 
-            noteDetailNoteIdTextboxLabel.AutoSize = true;
-            noteDetailNoteIdTextboxLabel.Location = new Point(6, 145);
-            noteDetailNoteIdTextboxLabel.Name = "noteDetailNoteIdTextboxLabel";
-            noteDetailNoteIdTextboxLabel.Size = new Size(223, 20);
-            noteDetailNoteIdTextboxLabel.TabIndex = 8;
-            noteDetailNoteIdTextboxLabel.Text = "{Note Type Note Id Placeholder}";
-            noteDetailNoteIdTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteIdTextBoxLabel.AutoSize = true;
+            noteDetailNoteIdTextBoxLabel.Location = new Point(6, 145);
+            noteDetailNoteIdTextBoxLabel.Name = "noteDetailNoteIdTextBoxLabel";
+            noteDetailNoteIdTextBoxLabel.Size = new Size(223, 20);
+            noteDetailNoteIdTextBoxLabel.TabIndex = 8;
+            noteDetailNoteIdTextBoxLabel.Text = "{Note Type Note Id Placeholder}";
+            noteDetailNoteIdTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailNoteTitleTextboxLabel
+            // noteDetailNoteTitleTextBoxLabel
             // 
-            noteDetailNoteTitleTextboxLabel.AutoSize = true;
-            noteDetailNoteTitleTextboxLabel.Location = new Point(62, 181);
-            noteDetailNoteTitleTextboxLabel.Name = "noteDetailNoteTitleTextboxLabel";
-            noteDetailNoteTitleTextboxLabel.Size = new Size(167, 20);
-            noteDetailNoteTitleTextboxLabel.TabIndex = 9;
-            noteDetailNoteTitleTextboxLabel.Text = "{Note Title Placeholder}";
-            noteDetailNoteTitleTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteTitleTextBoxLabel.AutoSize = true;
+            noteDetailNoteTitleTextBoxLabel.Location = new Point(62, 181);
+            noteDetailNoteTitleTextBoxLabel.Name = "noteDetailNoteTitleTextBoxLabel";
+            noteDetailNoteTitleTextBoxLabel.Size = new Size(167, 20);
+            noteDetailNoteTitleTextBoxLabel.TabIndex = 9;
+            noteDetailNoteTitleTextBoxLabel.Text = "{Note Title Placeholder}";
+            noteDetailNoteTitleTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailNoteTextboxLabel
+            // noteDetailNoteTextBoxLabel
             // 
-            noteDetailNoteTextboxLabel.AutoSize = true;
-            noteDetailNoteTextboxLabel.Location = new Point(177, 258);
-            noteDetailNoteTextboxLabel.Name = "noteDetailNoteTextboxLabel";
-            noteDetailNoteTextboxLabel.Size = new Size(52, 20);
-            noteDetailNoteTextboxLabel.TabIndex = 10;
-            noteDetailNoteTextboxLabel.Text = " Note*";
-            noteDetailNoteTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailNoteTextBoxLabel.AutoSize = true;
+            noteDetailNoteTextBoxLabel.Location = new Point(177, 258);
+            noteDetailNoteTextBoxLabel.Name = "noteDetailNoteTextBoxLabel";
+            noteDetailNoteTextBoxLabel.Size = new Size(52, 20);
+            noteDetailNoteTextBoxLabel.TabIndex = 10;
+            noteDetailNoteTextBoxLabel.Text = " Note*";
+            noteDetailNoteTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailCreatedByTextboxLabel
+            // noteDetailCreatedByTextBoxLabel
             // 
-            noteDetailCreatedByTextboxLabel.AutoSize = true;
-            noteDetailCreatedByTextboxLabel.Location = new Point(891, 141);
-            noteDetailCreatedByTextboxLabel.Name = "noteDetailCreatedByTextboxLabel";
-            noteDetailCreatedByTextboxLabel.Size = new Size(81, 20);
-            noteDetailCreatedByTextboxLabel.TabIndex = 11;
-            noteDetailCreatedByTextboxLabel.Text = "Created By";
-            noteDetailCreatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailCreatedByTextBoxLabel.AutoSize = true;
+            noteDetailCreatedByTextBoxLabel.Location = new Point(891, 141);
+            noteDetailCreatedByTextBoxLabel.Name = "noteDetailCreatedByTextBoxLabel";
+            noteDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
+            noteDetailCreatedByTextBoxLabel.TabIndex = 11;
+            noteDetailCreatedByTextBoxLabel.Text = "Created By";
+            noteDetailCreatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailCreatedTimestampTextboxLabel
+            // noteDetailCreatedTimestampTextBoxLabel
             // 
-            noteDetailCreatedTimestampTextboxLabel.AutoSize = true;
-            noteDetailCreatedTimestampTextboxLabel.Location = new Point(833, 181);
-            noteDetailCreatedTimestampTextboxLabel.Name = "noteDetailCreatedTimestampTextboxLabel";
-            noteDetailCreatedTimestampTextboxLabel.Size = new Size(139, 20);
-            noteDetailCreatedTimestampTextboxLabel.TabIndex = 12;
-            noteDetailCreatedTimestampTextboxLabel.Text = "Created Timestamp";
-            noteDetailCreatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailCreatedTimestampTextBoxLabel.AutoSize = true;
+            noteDetailCreatedTimestampTextBoxLabel.Location = new Point(833, 181);
+            noteDetailCreatedTimestampTextBoxLabel.Name = "noteDetailCreatedTimestampTextBoxLabel";
+            noteDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            noteDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
+            noteDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            noteDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailLastUpdatedByTextboxLabel
+            // noteDetailLastUpdatedByTextBoxLabel
             // 
-            noteDetailLastUpdatedByTextboxLabel.AutoSize = true;
-            noteDetailLastUpdatedByTextboxLabel.Location = new Point(855, 221);
-            noteDetailLastUpdatedByTextboxLabel.Name = "noteDetailLastUpdatedByTextboxLabel";
-            noteDetailLastUpdatedByTextboxLabel.Size = new Size(117, 20);
-            noteDetailLastUpdatedByTextboxLabel.TabIndex = 13;
-            noteDetailLastUpdatedByTextboxLabel.Text = "Last Updated By";
-            noteDetailLastUpdatedByTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailLastUpdatedByTextBoxLabel.AutoSize = true;
+            noteDetailLastUpdatedByTextBoxLabel.Location = new Point(855, 221);
+            noteDetailLastUpdatedByTextBoxLabel.Name = "noteDetailLastUpdatedByTextBoxLabel";
+            noteDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
+            noteDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
+            noteDetailLastUpdatedByTextBoxLabel.Text = "Last Updated By";
+            noteDetailLastUpdatedByTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailLastUpdatedTimestampTextboxLabel
+            // noteDetailLastUpdatedTimestampTextBoxLabel
             // 
-            noteDetailLastUpdatedTimestampTextboxLabel.AutoSize = true;
-            noteDetailLastUpdatedTimestampTextboxLabel.Location = new Point(797, 261);
-            noteDetailLastUpdatedTimestampTextboxLabel.Name = "noteDetailLastUpdatedTimestampTextboxLabel";
-            noteDetailLastUpdatedTimestampTextboxLabel.Size = new Size(175, 20);
-            noteDetailLastUpdatedTimestampTextboxLabel.TabIndex = 14;
-            noteDetailLastUpdatedTimestampTextboxLabel.Text = "Last Updated Timestamp";
-            noteDetailLastUpdatedTimestampTextboxLabel.TextAlign = ContentAlignment.TopRight;
+            noteDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
+            noteDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(797, 261);
+            noteDetailLastUpdatedTimestampTextBoxLabel.Name = "noteDetailLastUpdatedTimestampTextBoxLabel";
+            noteDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            noteDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
+            noteDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            noteDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // noteDetailLastUpdatedByTextbox
+            // noteDetailLastUpdatedByTextBox
             // 
-            noteDetailLastUpdatedByTextbox.Location = new Point(978, 218);
-            noteDetailLastUpdatedByTextbox.MaxLength = 50;
-            noteDetailLastUpdatedByTextbox.Name = "noteDetailLastUpdatedByTextbox";
-            noteDetailLastUpdatedByTextbox.ReadOnly = true;
-            noteDetailLastUpdatedByTextbox.Size = new Size(370, 27);
-            noteDetailLastUpdatedByTextbox.TabIndex = 6;
+            noteDetailLastUpdatedByTextBox.Location = new Point(978, 218);
+            noteDetailLastUpdatedByTextBox.MaxLength = 50;
+            noteDetailLastUpdatedByTextBox.Name = "noteDetailLastUpdatedByTextBox";
+            noteDetailLastUpdatedByTextBox.ReadOnly = true;
+            noteDetailLastUpdatedByTextBox.Size = new Size(370, 27);
+            noteDetailLastUpdatedByTextBox.TabIndex = 6;
             // 
-            // noteDetailCreatedByTextbox
+            // noteDetailCreatedByTextBox
             // 
-            noteDetailCreatedByTextbox.Location = new Point(978, 138);
-            noteDetailCreatedByTextbox.MaxLength = 50;
-            noteDetailCreatedByTextbox.Name = "noteDetailCreatedByTextbox";
-            noteDetailCreatedByTextbox.ReadOnly = true;
-            noteDetailCreatedByTextbox.Size = new Size(370, 27);
-            noteDetailCreatedByTextbox.TabIndex = 4;
+            noteDetailCreatedByTextBox.Location = new Point(978, 138);
+            noteDetailCreatedByTextBox.MaxLength = 50;
+            noteDetailCreatedByTextBox.Name = "noteDetailCreatedByTextBox";
+            noteDetailCreatedByTextBox.ReadOnly = true;
+            noteDetailCreatedByTextBox.Size = new Size(370, 27);
+            noteDetailCreatedByTextBox.TabIndex = 4;
             // 
-            // noteDetailLastUpdatedTimestampTextbox
+            // noteDetailLastUpdatedTimestampTextBox
             // 
-            noteDetailLastUpdatedTimestampTextbox.Location = new Point(978, 258);
-            noteDetailLastUpdatedTimestampTextbox.MaxLength = 50;
-            noteDetailLastUpdatedTimestampTextbox.Name = "noteDetailLastUpdatedTimestampTextbox";
-            noteDetailLastUpdatedTimestampTextbox.ReadOnly = true;
-            noteDetailLastUpdatedTimestampTextbox.Size = new Size(370, 27);
-            noteDetailLastUpdatedTimestampTextbox.TabIndex = 7;
+            noteDetailLastUpdatedTimestampTextBox.Location = new Point(978, 258);
+            noteDetailLastUpdatedTimestampTextBox.MaxLength = 50;
+            noteDetailLastUpdatedTimestampTextBox.Name = "noteDetailLastUpdatedTimestampTextBox";
+            noteDetailLastUpdatedTimestampTextBox.ReadOnly = true;
+            noteDetailLastUpdatedTimestampTextBox.Size = new Size(370, 27);
+            noteDetailLastUpdatedTimestampTextBox.TabIndex = 7;
             // 
-            // noteDetailCreatedTimestampTextbox
+            // noteDetailCreatedTimestampTextBox
             // 
-            noteDetailCreatedTimestampTextbox.Location = new Point(978, 178);
-            noteDetailCreatedTimestampTextbox.MaxLength = 50;
-            noteDetailCreatedTimestampTextbox.Name = "noteDetailCreatedTimestampTextbox";
-            noteDetailCreatedTimestampTextbox.ReadOnly = true;
-            noteDetailCreatedTimestampTextbox.Size = new Size(370, 27);
-            noteDetailCreatedTimestampTextbox.TabIndex = 5;
+            noteDetailCreatedTimestampTextBox.Location = new Point(978, 178);
+            noteDetailCreatedTimestampTextBox.MaxLength = 50;
+            noteDetailCreatedTimestampTextBox.Name = "noteDetailCreatedTimestampTextBox";
+            noteDetailCreatedTimestampTextBox.ReadOnly = true;
+            noteDetailCreatedTimestampTextBox.Size = new Size(370, 27);
+            noteDetailCreatedTimestampTextBox.TabIndex = 5;
             // 
-            // noteDetailNoteTextbox
+            // noteDetailNoteTextBox
             // 
-            noteDetailNoteTextbox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            noteDetailNoteTextbox.Location = new Point(235, 258);
-            noteDetailNoteTextbox.MaxLength = 4000;
-            noteDetailNoteTextbox.Multiline = true;
-            noteDetailNoteTextbox.Name = "noteDetailNoteTextbox";
-            noteDetailNoteTextbox.ReadOnly = true;
-            noteDetailNoteTextbox.ScrollBars = ScrollBars.Vertical;
-            noteDetailNoteTextbox.Size = new Size(524, 273);
-            noteDetailNoteTextbox.TabIndex = 3;
+            noteDetailNoteTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            noteDetailNoteTextBox.Location = new Point(235, 258);
+            noteDetailNoteTextBox.MaxLength = 4000;
+            noteDetailNoteTextBox.Multiline = true;
+            noteDetailNoteTextBox.Name = "noteDetailNoteTextBox";
+            noteDetailNoteTextBox.ReadOnly = true;
+            noteDetailNoteTextBox.ScrollBars = ScrollBars.Vertical;
+            noteDetailNoteTextBox.Size = new Size(524, 273);
+            noteDetailNoteTextBox.TabIndex = 3;
             // 
-            // noteDetailNoteIdTextbox
+            // noteDetailNoteIdTextBox
             // 
-            noteDetailNoteIdTextbox.Location = new Point(235, 138);
-            noteDetailNoteIdTextbox.MaxLength = 36;
-            noteDetailNoteIdTextbox.Name = "noteDetailNoteIdTextbox";
-            noteDetailNoteIdTextbox.ReadOnly = true;
-            noteDetailNoteIdTextbox.Size = new Size(524, 27);
-            noteDetailNoteIdTextbox.TabIndex = 0;
+            noteDetailNoteIdTextBox.Location = new Point(235, 138);
+            noteDetailNoteIdTextBox.MaxLength = 36;
+            noteDetailNoteIdTextBox.Name = "noteDetailNoteIdTextBox";
+            noteDetailNoteIdTextBox.ReadOnly = true;
+            noteDetailNoteIdTextBox.Size = new Size(524, 27);
+            noteDetailNoteIdTextBox.TabIndex = 0;
             // 
-            // noteDetailNoteTitleTextbox
+            // noteDetailNoteTitleTextBox
             // 
-            noteDetailNoteTitleTextbox.Location = new Point(235, 177);
-            noteDetailNoteTitleTextbox.MaxLength = 50;
-            noteDetailNoteTitleTextbox.Name = "noteDetailNoteTitleTextbox";
-            noteDetailNoteTitleTextbox.ReadOnly = true;
-            noteDetailNoteTitleTextbox.Size = new Size(524, 27);
-            noteDetailNoteTitleTextbox.TabIndex = 1;
+            noteDetailNoteTitleTextBox.Location = new Point(235, 177);
+            noteDetailNoteTitleTextBox.MaxLength = 50;
+            noteDetailNoteTitleTextBox.Name = "noteDetailNoteTitleTextBox";
+            noteDetailNoteTitleTextBox.ReadOnly = true;
+            noteDetailNoteTitleTextBox.Size = new Size(524, 27);
+            noteDetailNoteTitleTextBox.TabIndex = 1;
             // 
             // noteDetailToggleEditModeButton
             // 
@@ -278,20 +278,20 @@
             Controls.Add(noteDetailNoteTypeComboBox);
             Controls.Add(noteDetailUpdateNoteButton);
             Controls.Add(noteDetailToggleEditModeButton);
-            Controls.Add(noteDetailNoteTitleTextbox);
-            Controls.Add(noteDetailNoteIdTextbox);
-            Controls.Add(noteDetailNoteTextbox);
-            Controls.Add(noteDetailCreatedTimestampTextbox);
-            Controls.Add(noteDetailLastUpdatedTimestampTextbox);
-            Controls.Add(noteDetailCreatedByTextbox);
-            Controls.Add(noteDetailLastUpdatedByTextbox);
-            Controls.Add(noteDetailLastUpdatedTimestampTextboxLabel);
-            Controls.Add(noteDetailLastUpdatedByTextboxLabel);
-            Controls.Add(noteDetailCreatedTimestampTextboxLabel);
-            Controls.Add(noteDetailCreatedByTextboxLabel);
-            Controls.Add(noteDetailNoteTextboxLabel);
-            Controls.Add(noteDetailNoteTitleTextboxLabel);
-            Controls.Add(noteDetailNoteIdTextboxLabel);
+            Controls.Add(noteDetailNoteTitleTextBox);
+            Controls.Add(noteDetailNoteIdTextBox);
+            Controls.Add(noteDetailNoteTextBox);
+            Controls.Add(noteDetailCreatedTimestampTextBox);
+            Controls.Add(noteDetailLastUpdatedTimestampTextBox);
+            Controls.Add(noteDetailCreatedByTextBox);
+            Controls.Add(noteDetailLastUpdatedByTextBox);
+            Controls.Add(noteDetailLastUpdatedTimestampTextBoxLabel);
+            Controls.Add(noteDetailLastUpdatedByTextBoxLabel);
+            Controls.Add(noteDetailCreatedTimestampTextBoxLabel);
+            Controls.Add(noteDetailCreatedByTextBoxLabel);
+            Controls.Add(noteDetailNoteTextBoxLabel);
+            Controls.Add(noteDetailNoteTitleTextBoxLabel);
+            Controls.Add(noteDetailNoteIdTextBoxLabel);
             Controls.Add(noteDetailTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -309,20 +309,20 @@
         #endregion
 
         private Label noteDetailTitleLabel;
-        private Label noteDetailNoteIdTextboxLabel;
-        private Label noteDetailNoteTitleTextboxLabel;
-        private Label noteDetailNoteTextboxLabel;
-        private Label noteDetailCreatedByTextboxLabel;
-        private Label noteDetailCreatedTimestampTextboxLabel;
-        private Label noteDetailLastUpdatedByTextboxLabel;
-        private Label noteDetailLastUpdatedTimestampTextboxLabel;
-        private TextBox noteDetailLastUpdatedByTextbox;
-        private TextBox noteDetailCreatedByTextbox;
-        private TextBox noteDetailLastUpdatedTimestampTextbox;
-        private TextBox noteDetailCreatedTimestampTextbox;
-        private TextBox noteDetailNoteTextbox;
-        private TextBox noteDetailNoteIdTextbox;
-        private TextBox noteDetailNoteTitleTextbox;
+        private Label noteDetailNoteIdTextBoxLabel;
+        private Label noteDetailNoteTitleTextBoxLabel;
+        private Label noteDetailNoteTextBoxLabel;
+        private Label noteDetailCreatedByTextBoxLabel;
+        private Label noteDetailCreatedTimestampTextBoxLabel;
+        private Label noteDetailLastUpdatedByTextBoxLabel;
+        private Label noteDetailLastUpdatedTimestampTextBoxLabel;
+        private TextBox noteDetailLastUpdatedByTextBox;
+        private TextBox noteDetailCreatedByTextBox;
+        private TextBox noteDetailLastUpdatedTimestampTextBox;
+        private TextBox noteDetailCreatedTimestampTextBox;
+        private TextBox noteDetailNoteTextBox;
+        private TextBox noteDetailNoteIdTextBox;
+        private TextBox noteDetailNoteTitleTextBox;
         private Button noteDetailToggleEditModeButton;
         private Button noteDetailUpdateNoteButton;
         private Label noteDetailNoteTypeComboBoxLabel;

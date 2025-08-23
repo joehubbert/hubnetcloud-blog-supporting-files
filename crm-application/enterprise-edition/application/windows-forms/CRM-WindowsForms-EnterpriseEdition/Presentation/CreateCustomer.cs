@@ -348,6 +348,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte customerFinancePaymentDays = byte.Parse(createCustomerTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? customerFinanceVATNumber = createCustomerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool customerFinanceVATRegistered = createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
             Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
@@ -515,6 +516,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = customerFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Customer Finance: VAT Registered",
+                    Value = customerFinanceVATRegistered,
+                    ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -891,6 +899,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "topParentCustomer",
                         ParameterValue = customerOverviewWillBeTopParent
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "vatRegistered",
+                        ParameterValue = customerFinanceVATRegistered
                     }
                 };
 

@@ -37,7 +37,8 @@
     @telephoneNumber NVARCHAR(13),
     @topParentCustomer BIT,
     @topParentCustomerId UNIQUEIDENTIFIER = NULL,
-    @vatNumber NVARCHAR(50) = NULL
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT
 AS
 
 BEGIN
@@ -84,7 +85,8 @@ BEGIN
                 [TelephoneNumber] = @telephoneNumber,
                 [TopParentCustomer] = @topParentCustomer,
                 [TopParentCustomerId] = @topParentCustomerId,
-                [VATNumber] = @vatNumber
+                [VATNumber] = @vatNumber,
+                [VATRegistered] = @vatRegistered
             WHERE [CustomerId] = @customerId
 
 		COMMIT TRANSACTION;

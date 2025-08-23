@@ -59,6 +59,7 @@ ISNULL(
 C.[PaymentDays] AS [Payment Days],
 CUR.[CurrencyId] AS [Payment Currency Id],
 CUR.[CurrencyCode] AS [Payment Currency Code],
+C.[VATRegistered] AS [VAT Registered],
 C.[VATNumber] AS [VAT Number],
 C.[GlobalParentCustomer] AS [Global Parent Customer],
 C.[TopParentCustomer] AS [Top Parent Customer],

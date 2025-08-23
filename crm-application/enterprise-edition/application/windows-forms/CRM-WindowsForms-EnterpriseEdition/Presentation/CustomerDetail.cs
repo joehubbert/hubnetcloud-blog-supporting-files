@@ -425,6 +425,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     await LoadCurrencyDataAsync(paymentCurrencyId);
                     customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = customerDataRow["Payment Days"].ToString();
                     customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = customerDataRow["VAT Number"].ToString();
+                    customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)customerDataRow["VAT Registered"];
                     Guid accountManagerId = (Guid)customerDataRow["Account Manager Id"];
                     await LoadAccountManagerDataAsync(accountManagerId, companyConfigurationId);
                     customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerDataRow["Active Status"];
@@ -511,11 +512,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlFinanceCreditLimitOriginalValue = (decimal)customerDataRow["Credit Limit"];
                     customerDetailTabControlFinancePaymentCurrencyIdOriginalValue = (Guid)customerDataRow["Payment Currency Id"];
                     customerDetailTabControlFinancePaymentDaysOriginalValue = (int)customerDataRow["Payment Days"];
-                    if (customerDataRow["VAT Number"] != DBNull.Value && customerDataRow["VAT Number"] != null)
-                    {
-                        customerDetailTabControlFinanceVATNumberOriginalValue = customerDataRow["VAT Number"].ToString();
-                        customerDetailTabControlFinanceVATRegisteredOriginalValue = true;
-                    }
+                    customerDetailTabControlFinanceVATNumberOriginalValue = customerDataRow["VAT Number"].ToString();
+                    customerDetailTabControlFinanceVATRegisteredOriginalValue = (bool)customerDataRow["VAT Registered"];
                     customerDetailTabControlOverviewTabPageAccountManagerIdOriginalValue = (Guid)customerDataRow["Account Manager Id"];
                     customerDetailTabControlOverviewTabPageActiveStatusOriginalValue = (bool)customerDataRow["Active Status"];
                     customerDetailTabControlOverviewTabPageCompanyConfigurationIdOriginalValue = (Guid)customerDataRow["Company Configuration Id"];
@@ -708,6 +706,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid customerFinancePaymentCurrencyId = Guid.Parse(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte customerFinancePaymentDays = byte.Parse(customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? customerFinanceVATNumber = customerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool customerFinanceVATRegistered = customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
             Guid customerOverviewAccountManagerId = Guid.Parse(customerDetailTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
             bool customerOverviewActiveStatus = customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
@@ -869,6 +868,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = customerFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Customer Finance: VAT Registered",
+                    Value = customerFinanceVATRegistered,
+                    ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -1250,8 +1256,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new Parameter
                     {
-                        ParameterName = "vatNumber",
-                        ParameterValue = customerFinanceVATNumber
+                        ParameterName = "vatRegistered",
+                        ParameterValue = customerFinanceVATRegistered
                     }
                 };
 
@@ -1315,6 +1321,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "topParentCustomerId",
                         ParameterValue = customerOverviewExistingTopParentCustomerId
+                    });
+                }
+
+                if (string.IsNullOrEmpty(customerFinanceVATNumber))
+                {
+                    parameters.Add(new Parameter
+                    {
+                        ParameterName = "vatNumber",
+                        ParameterValue = customerFinanceVATNumber
                     });
                 }
 

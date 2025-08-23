@@ -39,7 +39,8 @@
     @telephoneNumber NVARCHAR(13),
     @topParentCustomer BIT,
     @topParentCustomerId UNIQUEIDENTIFIER = NULL,
-    @vatNumber NVARCHAR(50) = NULL
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT
     
 AS
 
@@ -86,6 +87,7 @@ BEGIN
                 [CreditEnabled] BIT NOT NULL,
                 [CreditLimit] MONEY NOT NULL,
                 [PaymentDays] TINYINT NOT NULL,
+                [VATRegistered] BIT NOT NULL,
                 [VATNumber] NVARCHAR(50) NULL,
                 [GlobalParentCustomer] BIT NOT NULL,
                 [TopParentCustomer] BIT NOT NULL,
@@ -131,6 +133,7 @@ BEGIN
                 [CreditEnabled],
                 [CreditLimit],
                 [PaymentDays],
+                [VATRegistered],
                 [VATNumber],
                 [GlobalParentCustomer],
                 [TopParentCustomer],
@@ -175,6 +178,7 @@ BEGIN
                 @creditEnabled,
                 @creditLimit,
                 @paymentDays,
+                @vatRegistered,
                 @vatNumber,
                 @globalParentCustomer,
                 @topParentCustomer,
@@ -279,6 +283,7 @@ BEGIN
             AND target.[CreditEnabled] = source.[CreditEnabled]
             AND target.[CreditLimit] = source.[CreditLimit]
             AND target.[PaymentDays] = source.[PaymentDays]
+            AND target.[VATRegistered] = source.[VATRegistered]
             AND target.[VATNumber] = source.[VATNumber]
             AND target.[GlobalParentCustomer] = source.[GlobalParentCustomer]
             AND target.[TopParentCustomer] = source.[TopParentCustomer]
@@ -323,6 +328,7 @@ BEGIN
                 [CreditEnabled],
                 [CreditLimit],
                 [PaymentDays],
+                [VATRegistered],
                 [VATNumber],
                 [GlobalParentCustomer],
                 [TopParentCustomer],
@@ -367,6 +373,7 @@ BEGIN
                 source.[CreditEnabled],
                 source.[CreditLimit],
                 source.[PaymentDays],
+                source.[VATRegistered],
                 source.[VATNumber],
                 source.[GlobalParentCustomer],
                 source.[TopParentCustomer],

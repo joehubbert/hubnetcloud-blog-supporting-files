@@ -260,14 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeMaskedTextBoxC.Text = bankAccountSortCodeC;
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextBox.Text = companyConfigurationDataRow["Bank Account SWIFT Code"].ToString();
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.Text = companyConfigurationDataRow["VAT Number"].ToString();
-                    if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox != null)
-                    {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = true;
-                    }
-                    else
-                    {
-                        companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = false;
-                    }
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = (bool)companyConfigurationDataRow["VAT Registered"];
                     if (companyConfigurationDataRow["Bank Account Vipps Id"].ToString() != null)
                     {
                         companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextBox.Text = companyConfigurationDataRow["Bank Account Vipps Id"].ToString();

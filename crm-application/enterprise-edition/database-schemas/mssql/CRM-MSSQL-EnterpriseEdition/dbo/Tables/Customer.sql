@@ -37,6 +37,7 @@
     [CreditEnabled] BIT NOT NULL,
     [CreditLimit] MONEY NOT NULL,
     [PaymentDays] TINYINT NOT NULL,
+    [VATRegistered] BIT NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [GlobalParentCustomer] BIT NOT NULL,
     [TopParentCustomer] BIT NOT NULL,

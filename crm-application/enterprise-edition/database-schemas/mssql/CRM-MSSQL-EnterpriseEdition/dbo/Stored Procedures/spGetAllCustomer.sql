@@ -25,6 +25,7 @@ BEGIN
 			[Credit Limit],
 			[Payment Currency Code],
 			[Payment Days],
+			[VAT Registered],
 			[VAT Number],
 			[Global Parent Customer],
 			[Top Parent Customer],

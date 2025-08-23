@@ -20,6 +20,7 @@ BEGIN
 			[Email Address],
 			[Payment Days],
 			[Payment Currency],
+			[VAT Registered],
 			[VAT Number]
 			FROM [dbo].[vwSupplier]
 

@@ -10,9 +10,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _supplierId;
-        private string? supplierDetailFinancePaymentDaysOriginalValue;
-        private Guid? supplierDetailFinancePaymentCurrencyIdOriginalValue;
-        private string? supplierDetailFinanceVATNumberOriginalValue;
+        private string? supplierDetailTabControlFinanceTabPagePaymentDaysOriginalValue;
+        private Guid? supplierDetailTabControlFinanceTabPagePaymentCurrencyIdOriginalValue;
+        private string? supplierDetailTabControlFinanceTabPageVATNumberOriginalValue;
+        private bool supplierDetailTabControlFinanceTabPageVATRegisteredOriginalValue;
         private bool? supplierDetailTabControlOverviewTabPageActiveStatusOrginalValue;
         private string supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue;
         private string? supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue;
@@ -92,14 +93,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     await LoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text = supplierDataRow["VAT Number"].ToString();
-                    if (supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text.Length > 0)
-                    {
-                        supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
-                    }
-                    else
-                    {
-                        supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = false;
-                    }
+                    supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)supplierDataRow["VAT Registered"];
                     supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
                     supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text = supplierDataRow["Address Line 2"].ToString();
@@ -116,9 +110,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     supplierDetailTabControlOverviewTabPageSupplierNameTextBox.Text = supplierDataRow["Supplier Name"].ToString();
                     supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text = supplierDataRow["Telephone Number"].ToString();
 
-                    supplierDetailFinancePaymentCurrencyIdOriginalValue = paymentCurrencyId;
-                    supplierDetailFinancePaymentDaysOriginalValue = supplierDataRow["Payment Days"].ToString();
-                    supplierDetailFinanceVATNumberOriginalValue = supplierDataRow["VAT Number"].ToString();
+                    supplierDetailTabControlFinanceTabPagePaymentCurrencyIdOriginalValue = paymentCurrencyId;
+                    supplierDetailTabControlFinanceTabPagePaymentDaysOriginalValue = supplierDataRow["Payment Days"].ToString();
+                    supplierDetailTabControlFinanceTabPageVATNumberOriginalValue = supplierDataRow["VAT Number"].ToString();
+                    supplierDetailTabControlFinanceTabPageVATRegisteredOriginalValue = (bool)supplierDataRow["VAT Registered"];
                     supplierDetailTabControlOverviewTabPageActiveStatusOrginalValue = (bool)supplierDataRow["Active Status"];
                     supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue = supplierDataRow["Address Line 2"].ToString();
@@ -238,16 +233,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid supplierDetailFinancePaymentCurrencyId = (Guid)supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue;
             byte supplierDetailFinancePaymentDays = byte.Parse(supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? supplierDetailFinanceVATNumber = supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool supplierDetailFinanceVATRegistered = supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
-            bool supplierDetailTabControlOverviewTabPageActiveStatus = supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string supplierDetailTabControlOverviewTabPageAddressLine1 = supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
-            string? supplierDetailTabControlOverviewTabPageAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
-            string? supplierDetailTabControlOverviewTabPageAddressLine4 = supplierDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
-            Guid supplierDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string supplierDetailTabControlOverviewTabPageEmailAddress = supplierDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageSupplierName = supplierDetailTabControlOverviewTabPageSupplierNameTextBox.Text.TrimEnd();
-            string supplierDetailTabControlOverviewTabPageTelephoneNumber = supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
+            bool supplierDetailOverviewActiveStatus = supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            string supplierDetailOverviewAddressLine1 = supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? supplierDetailOverviewAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string supplierDetailOverviewAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string? supplierDetailOverviewAddressLine4 = supplierDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
+            Guid supplierDetailOverviewAddressLine5 = Guid.Parse(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
+            string supplierDetailOverviewEmailAddress = supplierDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string supplierDetailOverviewSupplierName = supplierDetailTabControlOverviewTabPageSupplierNameTextBox.Text.TrimEnd();
+            string supplierDetailOverviewTelephoneNumber = supplierDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Supplier";
 
@@ -275,7 +271,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 },
                 new ValidateDataInputService.DataProperty
                 {
-                    AllowNullValue = false,
+                    AllowNullValue = true,
                     Name = "Supplier Detail Finance: VAT Number",
                     Value = supplierDetailFinanceVATNumber,
                     MaxLength = 50,
@@ -284,15 +280,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
+                    Name = "Supplier Detail Finance: VAT Registered",
+                    Value = supplierDetailFinanceVATRegistered,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
                     Name = "Supplier Detail Overview: Active Status",
-                    Value = supplierDetailTabControlOverviewTabPageActiveStatus,
+                    Value = supplierDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 1",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine1,
+                    Value = supplierDetailOverviewAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -300,14 +303,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = true,
                     Name = "Supplier Detail Overview: Address Line 2",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine2,
+                    Value = supplierDetailOverviewAddressLine2,
                     MaxLength = 50
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 3",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine3,
+                    Value = supplierDetailOverviewAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -315,7 +318,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 4",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine4,
+                    Value = supplierDetailOverviewAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -323,21 +326,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 5",
-                    Value = supplierDetailTabControlOverviewTabPageAddressLine5,
+                    Value = supplierDetailOverviewAddressLine5,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Email Address",
-                    Value = supplierDetailTabControlOverviewTabPageEmailAddress,
+                    Value = supplierDetailOverviewEmailAddress,
                     ValueType = typeof(string)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Supplier Name",
-                    Value = supplierDetailTabControlOverviewTabPageSupplierName,
+                    Value = supplierDetailOverviewSupplierName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -345,7 +348,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Telephone Number",
-                    Value = supplierDetailTabControlOverviewTabPageTelephoneNumber,
+                    Value = supplierDetailOverviewTelephoneNumber,
                     ValueType = typeof(string)
                 }
             };
@@ -366,89 +369,96 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         VariableName = "Supplier Detail Finance: Payment Currency Id",
                         VariableType = "Guid",
-                        OriginalValue = supplierDetailFinancePaymentCurrencyIdOriginalValue,
+                        OriginalValue = supplierDetailTabControlFinanceTabPagePaymentCurrencyIdOriginalValue,
                         NewValue = supplierDetailFinancePaymentCurrencyId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: Payment Days",
                         VariableType = "int",
-                        OriginalValue = supplierDetailFinancePaymentDaysOriginalValue,
+                        OriginalValue = supplierDetailTabControlFinanceTabPagePaymentDaysOriginalValue,
                         NewValue = supplierDetailFinancePaymentDays
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: VAT Number",
                         VariableType = "string",
-                        OriginalValue = supplierDetailFinanceVATNumberOriginalValue,
+                        OriginalValue = supplierDetailTabControlFinanceTabPageVATNumberOriginalValue,
                         NewValue = supplierDetailFinanceVATNumber
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Supplier Detail Finance: VAT Registered",
+                        VariableType = "bool",
+                        OriginalValue = supplierDetailTabControlFinanceTabPageVATRegisteredOriginalValue,
+                        NewValue = supplierDetailFinanceVATRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Active Status",
                         VariableType = "bool",
                         OriginalValue = supplierDetailTabControlOverviewTabPageActiveStatusOrginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageActiveStatus
+                        NewValue = supplierDetailOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 1",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageAddressLine1
+                        NewValue = supplierDetailOverviewAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 3",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageAddressLine3
+                        NewValue = supplierDetailOverviewAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 4",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageAddressLine4
+                        NewValue = supplierDetailOverviewAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 5",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageAddressLine5
+                        NewValue = supplierDetailOverviewAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Email Address",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageEmailAddress
+                        NewValue = supplierDetailOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Supplier Name",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageSupplierName
+                        NewValue = supplierDetailOverviewSupplierName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Telephone Number",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageTelephoneNumber
+                        NewValue = supplierDetailOverviewTelephoneNumber
                     }
                 };
 
-                if (!string.IsNullOrEmpty(supplierDetailTabControlOverviewTabPageAddressLine2))
+                if (!string.IsNullOrEmpty(supplierDetailOverviewAddressLine2))
                 {
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 2",
                         VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue,
-                        NewValue = supplierDetailTabControlOverviewTabPageAddressLine2
+                        NewValue = supplierDetailOverviewAddressLine2
                     });
                 }
 
@@ -463,32 +473,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         new Parameter
                         {
                             ParameterName = "activeStatus",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageActiveStatus
+                            ParameterValue = supplierDetailOverviewActiveStatus
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine1",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine1
+                            ParameterValue = supplierDetailOverviewAddressLine1
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine3",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine3
+                            ParameterValue = supplierDetailOverviewAddressLine3
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine4",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine4
+                            ParameterValue = supplierDetailOverviewAddressLine4
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine5",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine5
+                            ParameterValue = supplierDetailOverviewAddressLine5
                         },
                         new Parameter
                         {
                             ParameterName = "emailAddress",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageEmailAddress
+                            ParameterValue = supplierDetailOverviewEmailAddress
                         },
                         new Parameter
                         {
@@ -508,26 +518,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         new Parameter
                         {
                             ParameterName = "supplierName",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageSupplierName
+                            ParameterValue = supplierDetailOverviewSupplierName
                         },
                         new Parameter
                         {
                             ParameterName = "telephoneNumber",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageTelephoneNumber
+                            ParameterValue = supplierDetailOverviewTelephoneNumber
                         },
                         new Parameter
                         {
-                            ParameterName = "vatNumber",
-                            ParameterValue = supplierDetailFinanceVATNumber
+                            ParameterName = "vatRegistered",
+                            ParameterValue = supplierDetailFinanceVATRegistered
                         }
                     };
 
-                    if (!string.IsNullOrEmpty(supplierDetailTabControlOverviewTabPageAddressLine2))
+                    if (!string.IsNullOrEmpty(supplierDetailOverviewAddressLine2))
                     {
                         parameters.Add(new Parameter
                         {
                             ParameterName = "addressLine2",
-                            ParameterValue = supplierDetailTabControlOverviewTabPageAddressLine2
+                            ParameterValue = supplierDetailOverviewAddressLine2
+                        });
+                    }
+
+                    if (!string.IsNullOrEmpty(supplierDetailFinanceVATNumber))
+                    {
+                        parameters.Add(new Parameter
+                        {
+                            ParameterName = "vatNumber",
+                            ParameterValue = supplierDetailFinanceVATNumber
                         });
                     }
 

@@ -12,6 +12,7 @@
     [EmailAddress] NVARCHAR(50) NOT NULL,
     [PaymentDays] TINYINT NOT NULL,
     [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
+    [VATRegistered] BIT NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL,
     [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),

@@ -11,7 +11,8 @@
     @paymentDays TINYINT,
     @supplierName NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
-    @vatNumber NVARCHAR(50) = NULL
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT
 AS
 
 BEGIN
@@ -32,6 +33,7 @@ BEGIN
                 [EmailAddress] NVARCHAR(50) NOT NULL,
                 [PaymentDays] TINYINT NOT NULL,
                 [PaymentCurrencyId] UNIQUEIDENTIFIER NOT NULL,
+                [VATRegistered] BIT NOT NULL,
                 [VATNumber] NVARCHAR(50) NULL,
                 [ActiveStatus] BIT NOT NULL
             )
@@ -49,6 +51,7 @@ BEGIN
                 [EmailAddress],
                 [PaymentDays],
                 [PaymentCurrencyId],
+                [VATRegistered],
                 [VATNumber],
                 [ActiveStatus]
             )
@@ -65,6 +68,7 @@ BEGIN
                 @emailAddress,
                 @paymentDays,
                 @paymentCurrencyId,
+                @vatRegistered,
                 @vatNumber,
                 @activeStatus
             )
@@ -80,6 +84,7 @@ BEGIN
             AND S.[AddressLine5] = ST.[AddressLine5]
             AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
             AND S.[SupplierName] = ST.[SupplierName]
+            AND S.[VATRegistered] = ST.[VATRegistered]
             AND S.[VATNumber] = ST.[VATNumber]
             WHERE S.[AddressLine1] = ST.[AddressLine1]
             AND S.[AddressLine2] = ST.[AddressLine2]
@@ -88,6 +93,7 @@ BEGIN
             AND S.[AddressLine5] = ST.[AddressLine5]
             AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
             AND S.[SupplierName] = ST.[SupplierName]
+            AND S.[VATRegistered] = ST.[VATRegistered]
             AND S.[VATNumber] = ST.[VATNumber]
             )
             THROW 50000, 'Supplier already exists, please update the existing record.', 1;
@@ -101,6 +107,7 @@ BEGIN
             AND target.[AddressLine5] = source.[AddressLine5]
             AND target.[CompanyConfigurationId] = source.[CompanyConfigurationId]
             AND target.[SupplierName] = source.[SupplierName]
+            AND target.[VATRegistered] = source.[VATRegistered]
             AND target.[VATNumber] = source.[VATNumber]
             WHEN NOT MATCHED THEN
             INSERT
@@ -116,6 +123,7 @@ BEGIN
                 [EmailAddress],
                 [PaymentDays],
                 [PaymentCurrencyId],
+                [VATRegistered],
                 [VATNumber],
                 [ActiveStatus]
             )
@@ -132,6 +140,7 @@ BEGIN
                 source.[EmailAddress],
                 source.[PaymentDays],
                 source.[PaymentCurrencyId],
+                source.[VATRegistered],
                 source.[VATNumber],
                 source.[ActiveStatus]
             );

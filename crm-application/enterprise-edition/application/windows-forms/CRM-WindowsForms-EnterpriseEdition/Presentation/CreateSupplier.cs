@@ -70,6 +70,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool supplierFinanceVATRegistered = createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
             bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Checked;
             string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
@@ -117,6 +118,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = supplierFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Supplier Finance: VAT Registered",
+                    Value = supplierFinanceVATRegistered,
+                    ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -256,6 +264,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = supplierOverviewTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "vatRegistered",
+                        ParameterValue = supplierFinanceVATRegistered
                     }
                 };
 

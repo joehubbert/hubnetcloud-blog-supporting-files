@@ -9,6 +9,7 @@
     [AddressLine5] UNIQUEIDENTIFIER NOT NULL,
     [TelephoneNumber] NVARCHAR(50) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
+    [VATRegistered] BIT NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [ActiveStatus] BIT NOT NULL,
     [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),

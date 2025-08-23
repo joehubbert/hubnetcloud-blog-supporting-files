@@ -9,7 +9,8 @@
     @manufacturerId UNIQUEIDENTIFIER,
     @manufacturerName NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
-    @vatNumber NVARCHAR(50) = NULL
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT
 AS
 
 BEGIN
@@ -28,7 +29,8 @@ BEGIN
                 [EmailAddress] = @emailAddress,
                 [ManufacturerName] = @manufacturerName,
                 [TelephoneNumber] = @telephoneNumber,
-                [VATNumber] = @vatNumber
+                [VATNumber] = @vatNumber,
+                [VATRegistered] = @vatRegistered
             WHERE [ManufacturerId] = @manufacturerId
 
 		COMMIT TRANSACTION;

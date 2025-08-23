@@ -11,6 +11,7 @@ SELECT
 [AddressLine5] AS [Address Line 5],
 [TelephoneNumber] AS [Telephone Number],
 [EmailAddress] AS [Email Address],
+[VATRegistered] AS [VAT Registered],
 [VATNumber] AS [VAT Number],
 [ActiveStatus] AS [Active Status],
 [CreatedTimestampUTC] AS [Created Timestamp UTC],

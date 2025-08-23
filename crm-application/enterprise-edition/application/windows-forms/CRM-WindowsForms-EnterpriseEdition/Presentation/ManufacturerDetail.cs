@@ -9,7 +9,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _manufacturerId;
-        private string? manufacturerDetailFinanceVATNumberOriginalValue;
+        private string? manufacturerDetailTabControlFinanceTabPageFinanceVATNumberOriginalValue;
+        private bool manufacturerDetailTabControlFinanceTabPageFinanceVATRegisteredOriginalValue;
         private bool? manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue;
         private string manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue;
         private string? manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue;
@@ -75,14 +76,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     Guid paymentCurrencyId = (Guid)manufacturerDataRow["Payment Currency Id"];
                     manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text = manufacturerDataRow["VAT Number"].ToString();
-                    if (manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text.Length > 0)
-                    {
-                        manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
-                    }
-                    else
-                    {
-                        manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = false;
-                    }
+                    manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)manufacturerDataRow["VAT Registered"];
+
                     manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)manufacturerDataRow["Active Status"];
                     manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text = manufacturerDataRow["Address Line 1"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text = manufacturerDataRow["Address Line 2"].ToString();
@@ -99,7 +94,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.Text = manufacturerDataRow["Manufacturer Name"].ToString();
                     manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text = manufacturerDataRow["Telephone Number"].ToString();
 
-                    manufacturerDetailFinanceVATNumberOriginalValue = manufacturerDataRow["VAT Number"].ToString();
+                    manufacturerDetailTabControlFinanceTabPageFinanceVATNumberOriginalValue = manufacturerDataRow["VAT Number"].ToString();
+                    manufacturerDetailTabControlFinanceTabPageFinanceVATRegisteredOriginalValue = (bool)manufacturerDataRow["VAT Registered"];
                     manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue = (bool)manufacturerDataRow["Active Status"];
                     manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue = manufacturerDataRow["Address Line 1"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue = manufacturerDataRow["Address Line 2"].ToString();
@@ -144,19 +140,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void ManufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
+        private async void manufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
         {
             string? manufacturerDetailFinanceVATNumber = manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool manufacturerDetailFinanceVATRegistered = manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
-            bool manufacturerDetailTabControlOverviewTabPageActiveStatus = manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
-            string manufacturerDetailTabControlOverviewTabPageAddressLine1 = manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
-            string? manufacturerDetailTabControlOverviewTabPageAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
-            string? manufacturerDetailTabControlOverviewTabPageAddressLine4 = manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
-            Guid manufacturerDetailTabControlOverviewTabPageAddressLine5 = Guid.Parse(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string manufacturerDetailTabControlOverviewTabPageEmailAddress = manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageManufacturerName = manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.Text.TrimEnd();
-            string manufacturerDetailTabControlOverviewTabPageTelephoneNumber = manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
+            bool manufacturerDetailOverviewActiveStatus = manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            string manufacturerDetailOverviewAddressLine1 = manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
+            string? manufacturerDetailOverviewAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
+            string manufacturerDetailOverviewAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
+            string? manufacturerDetailOverviewAddressLine4 = manufacturerDetailTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
+            Guid manufacturerDetailOverviewAddressLine5 = Guid.Parse(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
+            string manufacturerDetailOverviewEmailAddress = manufacturerDetailTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
+            string manufacturerDetailOverviewManufacturerName = manufacturerDetailTabControlOverviewTabPageManufacturerNameTextBox.Text.TrimEnd();
+            string manufacturerDetailOverviewTelephoneNumber = manufacturerDetailTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
             string dataSubject = "Manufacturer";
 
@@ -170,7 +167,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new ValidateDataInputService.DataProperty
                 {
-                    AllowNullValue = false,
+                    AllowNullValue = true,
                     Name = "Manufacturer Detail Finance: VAT Number",
                     Value = manufacturerDetailFinanceVATNumber,
                     MaxLength = 50,
@@ -179,15 +176,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
+                    Name = "Manufacturer Detail Finance: VAT Registered",
+                    Value = manufacturerDetailFinanceVATRegistered,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Active Status",
-                    Value = manufacturerDetailTabControlOverviewTabPageActiveStatus,
+                    Value = manufacturerDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 1",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine1,
+                    Value = manufacturerDetailOverviewAddressLine1,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -195,14 +199,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = true,
                     Name = "Manufacturer Detail Overview: Address Line 2",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine2,
+                    Value = manufacturerDetailOverviewAddressLine2,
                     MaxLength = 50
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 3",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine3,
+                    Value = manufacturerDetailOverviewAddressLine3,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -210,7 +214,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 4",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine4,
+                    Value = manufacturerDetailOverviewAddressLine4,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -218,21 +222,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 5",
-                    Value = manufacturerDetailTabControlOverviewTabPageAddressLine5,
+                    Value = manufacturerDetailOverviewAddressLine5,
                     ValueType = typeof(Guid)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Email Address",
-                    Value = manufacturerDetailTabControlOverviewTabPageEmailAddress,
+                    Value = manufacturerDetailOverviewEmailAddress,
                     ValueType = typeof(string)
                 },
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Manufacturer Name",
-                    Value = manufacturerDetailTabControlOverviewTabPageManufacturerName,
+                    Value = manufacturerDetailOverviewManufacturerName,
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
@@ -240,7 +244,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Telephone Number",
-                    Value = manufacturerDetailTabControlOverviewTabPageTelephoneNumber,
+                    Value = manufacturerDetailOverviewTelephoneNumber,
                     ValueType = typeof(string)
                 }
             };
@@ -261,75 +265,82 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         VariableName = "Manufacturer Detail Finance: VAT Number",
                         VariableType = "string",
-                        OriginalValue = manufacturerDetailFinanceVATNumberOriginalValue,
+                        OriginalValue = manufacturerDetailTabControlFinanceTabPageFinanceVATNumberOriginalValue,
                         NewValue = manufacturerDetailFinanceVATNumber
+                    },
+                    new ChangeDetail
+                    {
+                        VariableName = "Manufacturer Detail Finance: VAT Registered",
+                        VariableType = "bool",
+                        OriginalValue = manufacturerDetailTabControlFinanceTabPageFinanceVATNumberOriginalValue,
+                        NewValue = manufacturerDetailFinanceVATRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Active Status",
                         VariableType = "bool",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageActiveStatus
+                        NewValue = manufacturerDetailOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 1",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine1
+                        NewValue = manufacturerDetailOverviewAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 3",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine3OriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine3
+                        NewValue = manufacturerDetailOverviewAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 4",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine4OriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine4
+                        NewValue = manufacturerDetailOverviewAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 5",
                         VariableType = "Guid",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine5
+                        NewValue = manufacturerDetailOverviewAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Email Address",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageEmailAddressOriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageEmailAddress
+                        NewValue = manufacturerDetailOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Manufacturer Name",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageManufacturerNameOriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageManufacturerName
+                        NewValue = manufacturerDetailOverviewManufacturerName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Telephone Number",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageTelephoneNumber
+                        NewValue = manufacturerDetailOverviewTelephoneNumber
                     }
                 };
 
-                if (!string.IsNullOrEmpty(manufacturerDetailTabControlOverviewTabPageAddressLine2))
+                if (!string.IsNullOrEmpty(manufacturerDetailOverviewAddressLine2))
                 {
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 2",
                         VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue,
-                        NewValue = manufacturerDetailTabControlOverviewTabPageAddressLine2
+                        NewValue = manufacturerDetailOverviewAddressLine2
                     });
                 }
 
@@ -344,32 +355,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         new Parameter
                         {
                             ParameterName = "activeStatus",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageActiveStatus
+                            ParameterValue = manufacturerDetailOverviewActiveStatus
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine1",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine1
+                            ParameterValue = manufacturerDetailOverviewAddressLine1
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine3",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine3
+                            ParameterValue = manufacturerDetailOverviewAddressLine3
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine4",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine4
+                            ParameterValue = manufacturerDetailOverviewAddressLine4
                         },
                         new Parameter
                         {
                             ParameterName = "addressLine5",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine5
+                            ParameterValue = manufacturerDetailOverviewAddressLine5
                         },
                         new Parameter
                         {
                             ParameterName = "emailAddress",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageEmailAddress
+                            ParameterValue = manufacturerDetailOverviewEmailAddress
                         },
                         new Parameter
                         {
@@ -379,12 +390,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         new Parameter
                         {
                             ParameterName = "manufacturerName",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageManufacturerName
+                            ParameterValue = manufacturerDetailOverviewManufacturerName
                         },
                         new Parameter
                         {
                             ParameterName = "telephoneNumber",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageTelephoneNumber
+                            ParameterValue = manufacturerDetailOverviewTelephoneNumber
                         },
                         new Parameter
                         {
@@ -393,12 +404,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         }
                     };
 
-                    if (!string.IsNullOrEmpty(manufacturerDetailTabControlOverviewTabPageAddressLine2))
+                    if (!string.IsNullOrEmpty(manufacturerDetailOverviewAddressLine2))
                     {
                         parameters.Add(new Parameter
                         {
                             ParameterName = "addressLine2",
-                            ParameterValue = manufacturerDetailTabControlOverviewTabPageAddressLine2
+                            ParameterValue = manufacturerDetailOverviewAddressLine2
+                        });
+                    }
+
+                    if (!string.IsNullOrEmpty(manufacturerDetailFinanceVATNumber))
+                    {
+                        parameters.Add(new Parameter
+                        {
+                            ParameterName = "vatNumber",
+                            ParameterValue = manufacturerDetailFinanceVATNumber
                         });
                     }
 

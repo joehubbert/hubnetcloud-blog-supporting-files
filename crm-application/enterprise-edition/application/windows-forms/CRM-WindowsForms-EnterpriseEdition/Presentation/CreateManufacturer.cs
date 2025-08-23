@@ -57,6 +57,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createManufacturerSubmitButton_Click(object sender, EventArgs e)
         {
             string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            bool manufacturerFinanceVATRegistered = createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
 
             bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Checked;
             string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
@@ -83,6 +84,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = manufacturerFinanceVATNumber,
                     MaxLength = 50,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "Manufacturer Finance: VAT Registered",
+                    Value = manufacturerFinanceVATRegistered,
+                    ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -207,6 +215,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = manufacturerOverviewTelephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "vatRegistered",
+                        ParameterValue = manufacturerFinanceVATRegistered
                     }
                 };
 

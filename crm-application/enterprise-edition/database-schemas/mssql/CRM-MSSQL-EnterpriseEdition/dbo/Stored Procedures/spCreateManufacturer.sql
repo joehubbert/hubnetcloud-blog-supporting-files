@@ -8,7 +8,8 @@
     @emailAddress NVARCHAR(50),
     @supplierName NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
-    @vatNumber NVARCHAR(50) = NULL
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT
 AS
 
 BEGIN
@@ -26,6 +27,7 @@ BEGIN
                 [AddressLine5] UNIQUEIDENTIFIER NOT NULL,
                 [TelephoneNumber] NVARCHAR(50) NOT NULL,
                 [EmailAddress] NVARCHAR(50) NOT NULL,
+                [VATRegistered] BIT NOT NULL,
                 [VATNumber] NVARCHAR(50) NULL,
                 [ActiveStatus] BIT NOT NULL
             )
@@ -40,6 +42,7 @@ BEGIN
                 [AddressLine5],
                 [TelephoneNumber],
                 [EmailAddress],
+                [VATRegistered],
                 [VATNumber],
                 [ActiveStatus]
             )
@@ -53,6 +56,7 @@ BEGIN
                 @addressLine5,
                 @telephoneNumber,
                 @emailAddress,
+                @vatRegistered,
                 @vatNumber,
                 @activeStatus
             )
@@ -69,6 +73,7 @@ BEGIN
             AND M.[ManufacturerName] = MT.[ManufacturerName]
             AND M.[EmailAddress] = MT.[EmailAddress]
             AND M.[TelephoneNumber] = MT.[TelephoneNumber]
+            AND M.[VATRegistered] = MT.[VATRegistered]
             AND M.[VATNumber] = MT.[VATNumber]
             WHERE M.[AddressLine1] = MT.[AddressLine1]
             AND M.[AddressLine2] = MT.[AddressLine2]
@@ -78,6 +83,7 @@ BEGIN
             AND M.[ManufacturerName] = MT.[ManufacturerName]
             AND M.[EmailAddress] = MT.[EmailAddress]
             AND M.[TelephoneNumber] = MT.[TelephoneNumber]
+            AND M.[VATRegistered] = MT.[VATRegistered]
             AND M.[VATNumber] = MT.[VATNumber]
             )
             THROW 50000, 'Manufacturer already exists, please update the existing record.', 1;
@@ -90,6 +96,7 @@ BEGIN
             AND target.[AddressLine4] = source.[AddressLine4]
             AND target.[AddressLine5] = source.[AddressLine5]
             AND target.[ManufacturerName] = source.[ManufacturerName]
+            AND target.[VATRegistered] = source.[VATRegistered]
             AND target.[VATNumber] = source.[VATNumber]
             WHEN NOT MATCHED THEN
             INSERT
@@ -102,6 +109,7 @@ BEGIN
                 [AddressLine5],
                 [TelephoneNumber],
                 [EmailAddress],
+                [VATRegistered],
                 [VATNumber],
                 [ActiveStatus]
             )
@@ -115,6 +123,7 @@ BEGIN
                 source.[AddressLine5],
                 source.[TelephoneNumber],
                 source.[EmailAddress],
+                source.[VATRegistered],
                 source.[VATNumber],
                 source.[ActiveStatus]
             );

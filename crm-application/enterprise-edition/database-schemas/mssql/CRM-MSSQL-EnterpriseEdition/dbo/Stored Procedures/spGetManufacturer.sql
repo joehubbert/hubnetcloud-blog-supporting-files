@@ -17,6 +17,7 @@ BEGIN
 			[Address Line 5],
 			[Telephone Number],
 			[Email Address],
+			[VAT Registered],
 			[VAT Number],
 			[Active Status],
 			[Created Timestamp UTC],

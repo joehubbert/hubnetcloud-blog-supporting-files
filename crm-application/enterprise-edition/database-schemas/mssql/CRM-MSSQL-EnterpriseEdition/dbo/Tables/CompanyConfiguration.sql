@@ -11,6 +11,7 @@
     [TelephoneNumber] NVARCHAR(13) NOT NULL,
     [EmailAddress] NVARCHAR(50) NOT NULL,
     [EmailTopLevelDomain] NVARCHAR(50) NOT NULL,
+    [VATRegistered] BIT NOT NULL,
     [VATNumber] NVARCHAR(50) NULL,
     [WebsiteURL] NVARCHAR(50) NULL,
     [BankAccountBalance] MONEY NOT NULL,

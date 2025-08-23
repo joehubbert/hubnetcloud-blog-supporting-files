@@ -314,14 +314,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         financialInformationBankAccountVippsIdOriginalValue = null;
                     }
                     financialInformationVATNumberOriginalValue = companyConfigurationDataRow["VAT Number"].ToString();
-                    if (financialInformationVATNumberOriginalValue != null)
-                    {
-                        financialInformationVATRegisteredOriginalValue = true;
-                    }
-                    else
-                    {
-                        financialInformationVATRegisteredOriginalValue = false;
-                    }
+                    financialInformationVATRegisteredOriginalValue = (bool)companyConfigurationDataRow["VAT Registered"];
                     generalInformationActiveStatusOriginalValue = (bool)companyConfigurationDataRow["Active Status"];
                     generalInformationAddressLine1OriginalValue = companyConfigurationDataRow["Address Line 1"].ToString();
                     generalInformationAddressLine2OriginalValue = companyConfigurationDataRow["Address Line 2"].ToString();
@@ -451,6 +444,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailTopLevelDomain = companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text.TrimEnd();
             string telephoneNumber = companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
             string vatNumber = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.Text.TrimEnd();
+            bool vatRegistered = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked;
             string websiteURL = companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextBox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";
@@ -609,6 +603,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Value = telephoneNumber,
                     MaxLength = 13,
                     ValueType = typeof(string)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
+                    Name = "VAT Registered",
+                    Value = vatRegistered,
+                    ValueType = typeof(bool)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -821,6 +822,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new ChangeDetail
                     {
+                        VariableName = "VAT Registered",
+                        VariableType = "bool",
+                        OriginalValue = financialInformationVATRegisteredOriginalValue,
+                        NewValue = vatRegistered
+                    },
+                    new ChangeDetail
+                    {
                         VariableName = "Website URL",
                         VariableType = "string",
                         OriginalValue = generalInformationWebsiteURLOriginalValue,
@@ -985,6 +993,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         {
                             ParameterName = "telephoneNumber",
                             ParameterValue = telephoneNumber
+                        },
+                        new Parameter
+                        {
+                            ParameterName = "vatRegistered",
+                            ParameterValue = vatRegistered
                         },
                         new Parameter
                         {

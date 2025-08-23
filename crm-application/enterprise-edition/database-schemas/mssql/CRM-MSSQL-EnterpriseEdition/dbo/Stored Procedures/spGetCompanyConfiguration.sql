@@ -19,6 +19,7 @@ BEGIN
 			[Telephone Number],
 			[Email Address],
 			[Email Top Level Domain],
+			[VAT Registered],
 			[VAT Number],
 			[Website URL],
 			[Bank Account Balance],

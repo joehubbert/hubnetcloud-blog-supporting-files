@@ -23,7 +23,8 @@
     @emailAddress NVARCHAR(50),
     @emailTopLevelDomain NVARCHAR(50)NULL,
     @telephoneNumber NVARCHAR(50),
-    @vatNumber NVARCHAR(50) = NULL,    
+    @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT,
     @websiteURL NVARCHAR(50) = NULL
 AS
 
@@ -44,6 +45,7 @@ BEGIN
                 [TelephoneNumber] NVARCHAR(50) NOT NULL,
                 [EmailAddress] NVARCHAR(50) NOT NULL,
                 [EmailTopLevelDomain] NVARCHAR(50) NOT NULL,
+                [VATRegistered] BIT NOT NULL,
                 [VATNumber] NVARCHAR(50) NULL,
                 [WebsiteURL] NVARCHAR(50) NULL,
                 [BankAccountBalance] MONEY NOT NULL,
@@ -74,6 +76,7 @@ BEGIN
                 [TelephoneNumber],
                 [EmailAddress],
                 [EmailTopLevelDomain],
+                [VATRegistered],
                 [VATNumber],
                 [WebsiteURL],
                 [BankAccountBalance],
@@ -103,6 +106,7 @@ BEGIN
                 @telephoneNumber,
                 @emailAddress,
                 @emailTopLevelDomain,
+                @vatRegistered,
                 @vatNumber,
                 @websiteURL,
                 @bankAccountOpeningBalance,
@@ -143,6 +147,7 @@ BEGIN
             AND target.[EmailAddress] = source.[EmailAddress]
             AND target.[EmailTopLevelDomain] = source.[EmailTopLevelDomain]
             AND target.[TelephoneNumber] = source.[TelephoneNumber]
+            AND target.[VATRegistered] = source.[VATRegistered]
             AND target.[VATNumber] = source.[VATNumber]
             AND target.[WebsiteURL] = source.[WebsiteURL]
             AND target.[BankAccountBalance] = source.[BankAccountBalance]
@@ -171,6 +176,7 @@ BEGIN
                 [TelephoneNumber],
                 [EmailAddress],
                 [EmailTopLevelDomain],
+                [VATRegistered],
                 [VATNumber],
                 [WebsiteURL],
                 [BankAccountBalance],
@@ -200,6 +206,7 @@ BEGIN
                 source.[TelephoneNumber],
                 source.[EmailAddress],
                 source.[EmailTopLevelDomain],
+                source.[VATRegistered],
                 source.[VATNumber],
                 source.[WebsiteURL],
                 source.[BankAccountBalance],

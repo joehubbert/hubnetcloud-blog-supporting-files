@@ -338,6 +338,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailTopLevelDomain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text.TrimEnd();
             string telephoneNumber = createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
             string vatNumber = createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text.TrimEnd();
+            bool vatRegistered = createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked;
             string websiteURL = createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextBox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";
@@ -547,6 +548,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 new ValidateDataInputService.DataProperty
                 {
                     AllowNullValue = false,
+                    Name = "VAT Registered",
+                    Value = vatRegistered,
+                    ValueType = typeof(bool)
+                },
+                new ValidateDataInputService.DataProperty
+                {
+                    AllowNullValue = false,
                     Name = "Website URL",
                     Value = websiteURL,
                     MaxLength = 50,
@@ -665,6 +673,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = telephoneNumber
+                    },
+                    new Parameter
+                    {
+                        ParameterName = "vatRegistered",
+                        ParameterValue = vatRegistered
                     },
                     new Parameter
                     {

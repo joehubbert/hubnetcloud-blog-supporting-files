@@ -24,6 +24,7 @@
     @emailTopLevelDomain NVARCHAR(50)NULL,
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL,
+    @vatRegistered BIT,
     @websiteURL NVARCHAR(50) = NULL
 AS
 
@@ -58,6 +59,7 @@ BEGIN
                 [CompanyName] = @companyName,                
                 [TelephoneNumber] = @telephoneNumber,
                 [VATNumber] = @vatNumber,
+                [VATRegistered] = @vatRegistered,
                 [WebsiteURL] = @websiteURL
             WHERE [CompanyConfigurationId] = @companyConfigurationId
 

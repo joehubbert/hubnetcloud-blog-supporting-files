@@ -23,6 +23,7 @@ BEGIN
 			[Product Image],
 			[Product Country Of Origin Id],
 			[Product Country Of Origin],
+			[Wholesale Carton Flag],
 			[Wholesale Carton Barcode],
 			[Wholesale Unit Quantity Per Carton],
 			[Wholesale Carton Stock Quantity Held],
@@ -30,6 +31,16 @@ BEGIN
 			[Wholesale Carton Height Centimeter],
 			[Wholesale Carton Width Centimeter],
 			[Wholesale Carton Depth Centimeter],
+			[Wholesale Pallet Flag],
+			[Wholesale Carton Quantity Per Pallet],
+			[Wholesale Pallet Height Centimeter],
+			[Wholesale Pallet Width Centimeter],
+			[Wholesale Pallet Depth Centimeter],
+			[Wholesale Pallet Weight Kilogram],
+			[Wholesale Pallet Total Height Centimeter],
+			[Wholesale Pallet Total Width Centimeter],
+			[Wholesale Pallet Total Depth Centimeter],
+			[Wholesale Pallet Total Weight Kilogram],
 			[Wholesale Reorder Flag],
 			[Unit Barcode],
 			[Unit Selling Price],
@@ -40,7 +51,11 @@ BEGIN
 			[Unit Height Centimeter],
 			[Unit Width Centimeter],
 			[Unit Depth Centimeter],
-			[Active Status]
+			[Active Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By]
 			FROM [dbo].[vwProduct]
 			WHERE [Product Id] = @productId
 

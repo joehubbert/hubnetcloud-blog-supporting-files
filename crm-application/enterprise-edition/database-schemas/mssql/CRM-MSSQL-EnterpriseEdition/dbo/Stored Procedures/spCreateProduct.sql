@@ -1,218 +1,282 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateProduct]
-	@activeStatus BIT,
-    @manufactuerId UNIQUEIDENTIFIER,
-    @manufacturerPartNumber NVARCHAR(50) = NULL,
-    @productCountryOfOriginId UNIQUEIDENTIFIER,
-    @productDescription NVARCHAR(255) = NULL,
-    @productFamilyId UNIQUEIDENTIFIER = NULL,
     @productSubCategoryId UNIQUEIDENTIFIER,
-    @productId UNIQUEIDENTIFIER OUTPUT,
-    @productImage VARBINARY(MAX) = NULL,
     @productName NVARCHAR(50),
-    @unitBarcode NVARCHAR(50) = NUll,
-    @unitMinimumOrderQuantity INT,
-    @unitMinimumStockQuantity INT = NULL,
-    @unitPrice MONEY,
-    @unitStockQuantityHeld INT,
-    @unitDepthCentimeter DECIMAL(5, 2),
-    @unitHeightCentimeter DECIMAL(5, 2),
-    @unitWeightKilogram DECIMAL(5, 2),
-    @unitWidthCentimeter DECIMAL(5, 2),
+    @productDescription NVARCHAR(255) = NULL,
+    @manufacturerId UNIQUEIDENTIFIER,
+    @manufacturerPartNumber NVARCHAR(50) = NULL,
+    @productImage VARBINARY(MAX) = NULL,
+    @productCountryOfOriginId UNIQUEIDENTIFIER = NULL,
+    @productFamilyId UNIQUEIDENTIFIER = NULL,
+    @wholesaleCartonFlag BIT,
     @wholesaleCartonBarcode NVARCHAR(50) = NULL,
-    @wholesaleCartonDepthCentimeter DECIMAL(5, 2),
-    @wholesaleCartonHeightCentimeter DECIMAL(5, 2),
-    @wholesaleCartonStockQuantityHeld INT,
-    @wholesaleCartonWidthCentimeter DECIMAL(5, 2),
-    @wholesaleReorderFlag BIT,
-    @wholesaleUnitQuantityPerCarton INT
+    @wholesaleUnitQuantityPerCarton INT = NULL,
+    @wholesaleCartonStockQuantityHeld BIGINT = NULL,
+    @wholesaleCartonHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesaleCartonWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesaleCartonDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletFlag BIT,
+    @wholesaleCartonQuantityPerPallet TINYINT = NULL,
+    @wholesalePalletHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletWeightKilogram DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalWeightKilogram DECIMAL(5, 2) = NULL,
+    @wholesaleReorderFlag BIT = NULL,
+    @unitBarcode NVARCHAR(50) = NULL,
+    @unitPrice MONEY,
+    @unitMinimumOrderQuantity INT,
+    @unitMinimumStockQuantity INT,
+    @unitStockQuantityHeld INT,
+    @unitWeightKilogram DECIMAL(5, 2),
+    @unitHeightCentimeter DECIMAL(5, 2),
+    @unitWidthCentimeter DECIMAL(5, 2),
+    @unitDepthCentimeter DECIMAL(5, 2),
+    @activeStatus BIT,
+    @productId UNIQUEIDENTIFIER OUTPUT
 AS
 
 BEGIN
-	BEGIN TRY
-		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
-		BEGIN TRANSACTION;
+    BEGIN TRY
+        SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+        BEGIN TRANSACTION;
 
-            CREATE TABLE #ProductTemp
-            (
-                [ProductSubCategoryId] UNIQUEIDENTIFIER NOT NULL,
-                [ProductName] NVARCHAR(50) NOT NULL,
-                [ProductDescription] NVARCHAR(255) NULL,
-                [ManufacturerId] UNIQUEIDENTIFIER NOT NULL,
-                [ManufacturerPartNumber] NVARCHAR(50) NULL,
-                [ProductImage] VARBINARY(MAX) NULL,
-                [ProductCountryOfOriginId] UNIQUEIDENTIFIER NOT NULL,
-                [ProductFamilyId] UNIQUEIDENTIFIER NULL,
-                [WholesaleCartonBarcode] NVARCHAR(50) NULL,
-                [WholesaleUnitQuantityPerCarton] INT NOT NULL,
-                [WholesaleCartonStockQuantityHeld] INT NOT NULL,
-                [WholesaleCartonWeightKilogram] DECIMAL(5, 2) NOT NULL,
-                [WholesaleCartonHeightCentimeter] DECIMAL(5, 2) NOT NULL,
-                [WholesaleCartonWidthCentimeter] DECIMAL(5, 2) NOT NULL,
-                [WholesaleCartonDepthCentimeter] DECIMAL(5, 2) NOT NULL,
-                [WholesaleReorderFlag] BIT NOT NULL,
-                [UnitBarcode] NVARCHAR(50) NULL,
-                [UnitPrice] MONEY NOT NULL,
-                [UnitMinimumOrderQuantity] INT NOT NULL,
-                [UnitMinimumStockQuantity] INT NULL,
-                [UnitStockQuantityHeld] INT NOT NULL,
-                [UnitWeightKilogram] DECIMAL(5, 2) NOT NULL,
-                [UnitHeightCentimeter] DECIMAL(5, 2) NOT NULL,
-                [UnitWidthCentimeter] DECIMAL(5, 2) NOT NULL,
-                [UnitDepthCentimeter] DECIMAL(5, 2) NOT NULL,
-                [ActiveStatus] BIT NOT NULL
-            )
+        DECLARE @wholesaleCartonWeightKilogram DECIMAL(5, 2)
+        SET @wholesaleCartonWeightKilogram = 
+            CASE 
+                WHEN @unitWeightKilogram IS NOT NULL AND @wholesaleUnitQuantityPerCarton IS NOT NULL
+                THEN (@unitWeightKilogram * @wholesaleUnitQuantityPerCarton) + 0.02
+                ELSE NULL
+            END
 
-            DECLARE @wholesaleCartonWeightKilogram DECIMAL(5, 2)
-            SET @wholesaleCartonWeightKilogram = SUM((@unitWeightKilogram * @wholesaleUnitQuantityPerCarton) + 0.02) --0.02 is the packaging allowance
+        CREATE TABLE #ProductTemp
+        (
+            [ProductSubCategoryId] UNIQUEIDENTIFIER NOT NULL,
+            [ProductName] NVARCHAR(50) NOT NULL,
+            [ProductDescription] NVARCHAR(255) NULL,
+            [ManufacturerId] UNIQUEIDENTIFIER NOT NULL,
+            [ManufacturerPartNumber] NVARCHAR(50) NULL,
+            [ProductImage] VARBINARY(MAX) NULL,
+            [ProductCountryOfOriginId] UNIQUEIDENTIFIER NULL,
+            [ProductFamilyId] UNIQUEIDENTIFIER NULL,
+            [WholesaleCartonFlag] BIT NOT NULL,
+            [WholesaleCartonBarcode] NVARCHAR(50) NULL,
+            [WholesaleUnitQuantityPerCarton] INT NULL,
+            [WholesaleCartonStockQuantityHeld] BIGINT NULL,
+            [WholesaleCartonWeightKilogram] DECIMAL(5, 2) NULL,
+            [WholesaleCartonHeightCentimeter] DECIMAL(5, 2) NULL,
+            [WholesaleCartonWidthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesaleCartonDepthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletFlag] BIT NOT NULL,
+            [WholesaleCartonQuantityPerPallet] TINYINT NULL,
+            [WholesalePalletHeightCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletWidthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletDepthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletWeightKilogram] DECIMAL(5, 2) NULL,
+            [WholesalePalletTotalHeightCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletTotalWidthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletTotalDepthCentimeter] DECIMAL(5, 2) NULL,
+            [WholesalePalletTotalWeightKilogram] DECIMAL(5, 2) NULL,
+            [WholesaleReorderFlag] BIT NULL,
+            [UnitBarcode] NVARCHAR(50) NULL,
+            [UnitPrice] MONEY NOT NULL,
+            [UnitMinimumOrderQuantity] INT NOT NULL,
+            [UnitMinimumStockQuantity] INT NOT NULL,
+            [UnitStockQuantityHeld] INT NOT NULL,
+            [UnitWeightKilogram] DECIMAL(5, 2) NOT NULL,
+            [UnitHeightCentimeter] DECIMAL(5, 2) NOT NULL,
+            [UnitWidthCentimeter] DECIMAL(5, 2) NOT NULL,
+            [UnitDepthCentimeter] DECIMAL(5, 2) NOT NULL,
+            [ActiveStatus] BIT NOT NULL
+        )
 
-            INSERT INTO #ProductTemp
-            (
-                [ProductSubCategoryId],
-                [ProductName],
-                [ProductDescription],
-                [ManufacturerId],
-                [ManufacturerPartNumber],
-                [ProductImage],
-                [ProductCountryOfOriginId],
-                [ProductFamilyId],
-                [WholesaleCartonBarcode],
-                [WholesaleUnitQuantityPerCarton],
-                [WholesaleCartonStockQuantityHeld],
-                [WholesaleCartonWeightKilogram],
-                [WholesaleCartonHeightCentimeter],
-                [WholesaleCartonWidthCentimeter],
-                [WholesaleCartonDepthCentimeter],
-                [WholesaleReorderFlag],
-                [UnitBarcode],
-                [UnitPrice],
-                [UnitMinimumOrderQuantity],
-                [UnitMinimumStockQuantity],
-                [UnitStockQuantityHeld],
-                [UnitWeightKilogram],
-                [UnitHeightCentimeter],
-                [UnitWidthCentimeter],
-                [UnitDepthCentimeter],
-                [ActiveStatus]
-            )
-            VALUES
-            (
-                @productSubCategoryId,
-                @productName,
-                @productDescription,
-                @manufactuerId,
-                @manufacturerPartNumber,
-                @productImage,
-                @productCountryOfOriginId,
-                @productFamilyId,
-                @wholesaleCartonBarcode,
-                @wholesaleUnitQuantityPerCarton,
-                @wholesaleCartonStockQuantityHeld,
-                @wholesaleCartonWeightKilogram,
-                @wholesaleCartonHeightCentimeter,
-                @wholesaleCartonWidthCentimeter,
-                @wholesaleCartonDepthCentimeter,
-                @wholesaleReorderFlag,
-                @unitBarcode,
-                @unitPrice,
-                @unitMinimumOrderQuantity,
-                @unitMinimumStockQuantity,
-                @unitStockQuantityHeld,
-                @unitWeightKilogram,
-                @unitHeightCentimeter,
-                @unitWidthCentimeter,
-                @unitDepthCentimeter,
-                @activeStatus
-            )
+        INSERT INTO #ProductTemp
+        (
+            [ProductSubCategoryId],
+            [ProductName],
+            [ProductDescription],
+            [ManufacturerId],
+            [ManufacturerPartNumber],
+            [ProductImage],
+            [ProductCountryOfOriginId],
+            [ProductFamilyId],
+            [WholesaleCartonFlag],
+            [WholesaleCartonBarcode],
+            [WholesaleUnitQuantityPerCarton],
+            [WholesaleCartonStockQuantityHeld],
+            [WholesaleCartonWeightKilogram],
+            [WholesaleCartonHeightCentimeter],
+            [WholesaleCartonWidthCentimeter],
+            [WholesaleCartonDepthCentimeter],
+            [WholesalePalletFlag],
+            [WholesaleCartonQuantityPerPallet],
+            [WholesalePalletHeightCentimeter],
+            [WholesalePalletWidthCentimeter],
+            [WholesalePalletDepthCentimeter],
+            [WholesalePalletWeightKilogram],
+            [WholesalePalletTotalHeightCentimeter],
+            [WholesalePalletTotalWidthCentimeter],
+            [WholesalePalletTotalDepthCentimeter],
+            [WholesalePalletTotalWeightKilogram],
+            [WholesaleReorderFlag],
+            [UnitBarcode],
+            [UnitPrice],
+            [UnitMinimumOrderQuantity],
+            [UnitMinimumStockQuantity],
+            [UnitStockQuantityHeld],
+            [UnitWeightKilogram],
+            [UnitHeightCentimeter],
+            [UnitWidthCentimeter],
+            [UnitDepthCentimeter],
+            [ActiveStatus]
+        )
+        VALUES
+        (
+            @productSubCategoryId,
+            @productName,
+            @productDescription,
+            @manufacturerId,
+            @manufacturerPartNumber,
+            @productImage,
+            @productCountryOfOriginId,
+            @productFamilyId,
+            @wholesaleCartonFlag,
+            @wholesaleCartonBarcode,
+            @wholesaleUnitQuantityPerCarton,
+            @wholesaleCartonStockQuantityHeld,
+            @wholesaleCartonWeightKilogram,
+            @wholesaleCartonHeightCentimeter,
+            @wholesaleCartonWidthCentimeter,
+            @wholesaleCartonDepthCentimeter,
+            @wholesalePalletFlag,
+            @wholesaleCartonQuantityPerPallet,
+            @wholesalePalletHeightCentimeter,
+            @wholesalePalletWidthCentimeter,
+            @wholesalePalletDepthCentimeter,
+            @wholesalePalletWeightKilogram,
+            @wholesalePalletTotalHeightCentimeter,
+            @wholesalePalletTotalWidthCentimeter,
+            @wholesalePalletTotalDepthCentimeter,
+            @wholesalePalletTotalWeightKilogram,
+            @wholesaleReorderFlag,
+            @unitBarcode,
+            @unitPrice,
+            @unitMinimumOrderQuantity,
+            @unitMinimumStockQuantity,
+            @unitStockQuantityHeld,
+            @unitWeightKilogram,
+            @unitHeightCentimeter,
+            @unitWidthCentimeter,
+            @unitDepthCentimeter,
+            @activeStatus
+        )
 
-            IF EXISTS
-            (
-            SELECT *
+        IF EXISTS (
+            SELECT 1
             FROM [dbo].[Product] P
             INNER JOIN #ProductTemp PT ON P.[ManufacturerId] = PT.[ManufacturerId]
             AND P.[ProductName] = PT.[ProductName]
-            WHERE P.[ManufacturerId] = PT.[ManufacturerId]
-            AND P.[ProductName] = PT.[ProductName]
-            )
+        )
+        BEGIN
+            DROP TABLE #ProductTemp;
             THROW 50000, 'Product already exists, please update the existing record.', 1;
-            ELSE
-            CREATE TABLE #ProductTempOutput
-            (
-                [ProductId] UNIQUEIDENTIFIER NOT NULL
-            )
-            MERGE INTO [dbo].[Product] AS target
-            USING #ProductTemp AS source
-            ON target.[ProductName] = source.[ProductName]
-            WHEN NOT MATCHED THEN
-            INSERT
-            (
-                [ProductSubCategoryId],
-                [ProductName],
-                [ProductDescription],
-                [ManufacturerId],
-                [ManufacturerPartNumber],
-                [ProductImage],
-                [ProductCountryOfOriginId],
-                [ProductFamilyId],
-                [WholesaleCartonBarcode],
-                [WholesaleUnitQuantityPerCarton],
-                [WholesaleCartonStockQuantityHeld],
-                [WholesaleCartonWeightKilogram],
-                [WholesaleCartonHeightCentimeter],
-                [WholesaleCartonWidthCentimeter],
-                [WholesaleCartonDepthCentimeter],
-                [WholesaleReorderFlag],
-                [UnitBarcode],
-                [UnitPrice],
-                [UnitMinimumOrderQuantity],
-                [UnitMinimumStockQuantity],
-                [UnitStockQuantityHeld],
-                [UnitWeightKilogram],
-                [UnitHeightCentimeter],
-                [UnitWidthCentimeter],
-                [UnitDepthCentimeter],
-                [ActiveStatus]
-            )
-            VALUES
-            (
-                source.[ProductSubCategoryId],
-                source.[ProductName],
-                source.[ProductDescription],
-                source.[ManufacturerId],
-                source.[ManufacturerPartNumber],
-                source.[ProductImage],
-                source.[ProductCountryOfOriginId],
-                source.[ProductFamilyId],
-                source.[WholesaleCartonBarcode],
-                source.[WholesaleUnitQuantityPerCarton],
-                source.[WholesaleCartonStockQuantityHeld],
-                source.[WholesaleCartonWeightKilogram],
-                source.[WholesaleCartonHeightCentimeter],
-                source.[WholesaleCartonWidthCentimeter],
-                source.[WholesaleCartonDepthCentimeter],
-                source.[WholesaleReorderFlag],
-                source.[UnitBarcode],
-                source.[UnitPrice],
-                source.[UnitMinimumOrderQuantity],
-                source.[UnitMinimumStockQuantity],
-                source.[UnitStockQuantityHeld],
-                source.[UnitWeightKilogram],
-                source.[UnitHeightCentimeter],
-                source.[UnitWidthCentimeter],
-                source.[UnitDepthCentimeter],
-                source.[ActiveStatus]
-            )
-            OUTPUT inserted.ProductId INTO #ProductTempOutput;
-            SELECT @productId = [ProductId] FROM #ProductTempOutput;
+        END
 
-            DROP TABLE #ProductTemp
-            DROP TABLE #ProductTempOutput;
+        DECLARE @InsertedProducts TABLE ([ProductId] UNIQUEIDENTIFIER);
 
-		COMMIT TRANSACTION;
-	END TRY
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRANSACTION;
+        INSERT INTO [dbo].[Product]
+        (
+            [ProductSubCategoryId],
+            [ProductName],
+            [ProductDescription],
+            [ManufacturerId],
+            [ManufacturerPartNumber],
+            [ProductImage],
+            [ProductCountryOfOriginId],
+            [ProductFamilyId],
+            [WholesaleCartonFlag],
+            [WholesaleCartonBarcode],
+            [WholesaleUnitQuantityPerCarton],
+            [WholesaleCartonStockQuantityHeld],
+            [WholesaleCartonWeightKilogram],
+            [WholesaleCartonHeightCentimeter],
+            [WholesaleCartonWidthCentimeter],
+            [WholesaleCartonDepthCentimeter],
+            [WholesalePalletFlag],
+            [WholesaleCartonQuantityPerPallet],
+            [WholesalePalletHeightCentimeter],
+            [WholesalePalletWidthCentimeter],
+            [WholesalePalletDepthCentimeter],
+            [WholesalePalletWeightKilogram],
+            [WholesalePalletTotalHeightCentimeter],
+            [WholesalePalletTotalWidthCentimeter],
+            [WholesalePalletTotalDepthCentimeter],
+            [WholesalePalletTotalWeightKilogram],
+            [WholesaleReorderFlag],
+            [UnitBarcode],
+            [UnitPrice],
+            [UnitMinimumOrderQuantity],
+            [UnitMinimumStockQuantity],
+            [UnitStockQuantityHeld],
+            [UnitWeightKilogram],
+            [UnitHeightCentimeter],
+            [UnitWidthCentimeter],
+            [UnitDepthCentimeter],
+            [ActiveStatus]
+        )
+        OUTPUT inserted.[ProductId] INTO @InsertedProducts
+        SELECT
+            [ProductSubCategoryId],
+            [ProductName],
+            [ProductDescription],
+            [ManufacturerId],
+            [ManufacturerPartNumber],
+            [ProductImage],
+            [ProductCountryOfOriginId],
+            [ProductFamilyId],
+            [WholesaleCartonFlag],
+            [WholesaleCartonBarcode],
+            [WholesaleUnitQuantityPerCarton],
+            [WholesaleCartonStockQuantityHeld],
+            [WholesaleCartonWeightKilogram],
+            [WholesaleCartonHeightCentimeter],
+            [WholesaleCartonWidthCentimeter],
+            [WholesaleCartonDepthCentimeter],
+            [WholesalePalletFlag],
+            [WholesaleCartonQuantityPerPallet],
+            [WholesalePalletHeightCentimeter],
+            [WholesalePalletWidthCentimeter],
+            [WholesalePalletDepthCentimeter],
+            [WholesalePalletWeightKilogram],
+            [WholesalePalletTotalHeightCentimeter],
+            [WholesalePalletTotalWidthCentimeter],
+            [WholesalePalletTotalDepthCentimeter],
+            [WholesalePalletTotalWeightKilogram],
+            [WholesaleReorderFlag],
+            [UnitBarcode],
+            [UnitPrice],
+            [UnitMinimumOrderQuantity],
+            [UnitMinimumStockQuantity],
+            [UnitStockQuantityHeld],
+            [UnitWeightKilogram],
+            [UnitHeightCentimeter],
+            [UnitWidthCentimeter],
+            [UnitDepthCentimeter],
+            [ActiveStatus]
+        FROM #ProductTemp;
 
-		THROW;
-	END CATCH
+        SELECT TOP 1 @productId = [ProductId] FROM @InsertedProducts;
+
+        DROP TABLE #ProductTemp;
+
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
+
+        THROW;
+    END CATCH
 END

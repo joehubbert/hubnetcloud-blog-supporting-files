@@ -1,76 +1,103 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProduct]
-	@activeStatus BIT,
-    @manufactuerId UNIQUEIDENTIFIER,
-    @manufacturerPartNumber NVARCHAR(50) = NULL,
-    @productCountryOfOriginId UNIQUEIDENTIFIER,
-    @productDescription NVARCHAR(255) = NULL,
-    @productFamilyId UNIQUEIDENTIFIER = NULL,
-    @productSubCategoryId UNIQUEIDENTIFIER,
     @productId UNIQUEIDENTIFIER,
-    @productImage VARBINARY(MAX) = NULL,
+    @productSubCategoryId UNIQUEIDENTIFIER,
     @productName NVARCHAR(50),
-    @unitBarcode NVARCHAR(50) = NUll,
-    @unitMinimumOrderQuantity INT,
-    @unitMinimumStockQuantity INT = NULL,
-    @unitPrice MONEY,
-    @unitStockQuantityHeld INT,
-    @unitDepthCentimeter DECIMAL(5, 2),
-    @unitHeightCentimeter DECIMAL(5, 2),
-    @unitWeightKilogram DECIMAL(5, 2),
-    @unitWidthCentimeter DECIMAL(5, 2),
+    @productDescription NVARCHAR(255) = NULL,
+    @manufacturerId UNIQUEIDENTIFIER,
+    @manufacturerPartNumber NVARCHAR(50) = NULL,
+    @productImage VARBINARY(MAX) = NULL,
+    @productCountryOfOriginId UNIQUEIDENTIFIER = NULL,
+    @productFamilyId UNIQUEIDENTIFIER = NULL,
+    @wholesaleCartonFlag BIT,
     @wholesaleCartonBarcode NVARCHAR(50) = NULL,
-    @wholesaleCartonDepthCentimeter DECIMAL(5, 2),
-    @wholesaleCartonHeightCentimeter DECIMAL(5, 2),
-    @wholesaleCartonStockQuantityHeld INT,
-    @wholesaleCartonWidthCentimeter DECIMAL(5, 2),
-    @wholesaleReorderFlag BIT,
-    @wholesaleUnitQuantityPerCarton INT
+    @wholesaleUnitQuantityPerCarton INT = NULL,
+    @wholesaleCartonStockQuantityHeld BIGINT = NULL,
+    @wholesaleCartonHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesaleCartonWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesaleCartonDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletFlag BIT,
+    @wholesaleCartonQuantityPerPallet TINYINT = NULL,
+    @wholesalePalletHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletWeightKilogram DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalHeightCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalWidthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalDepthCentimeter DECIMAL(5, 2) = NULL,
+    @wholesalePalletTotalWeightKilogram DECIMAL(5, 2) = NULL,
+    @wholesaleReorderFlag BIT = NULL,
+    @unitBarcode NVARCHAR(50) = NULL,
+    @unitPrice MONEY,
+    @unitMinimumOrderQuantity INT,
+    @unitMinimumStockQuantity INT,
+    @unitStockQuantityHeld INT,
+    @unitWeightKilogram DECIMAL(5, 2),
+    @unitHeightCentimeter DECIMAL(5, 2),
+    @unitWidthCentimeter DECIMAL(5, 2),
+    @unitDepthCentimeter DECIMAL(5, 2),
+    @activeStatus BIT
 AS
 
 BEGIN
-	BEGIN TRY
-		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
-		BEGIN TRANSACTION;
+    BEGIN TRY
+        SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+        BEGIN TRANSACTION;
 
-            DECLARE @wholesaleCartonWeightKilogram DECIMAL(5, 2)
-            SET @wholesaleCartonWeightKilogram = SUM((@unitWeightKilogram * @wholesaleUnitQuantityPerCarton) + 0.02) --0.02 is the packaging allowance
+        DECLARE @wholesaleCartonWeightKilogram DECIMAL(5, 2)
+        SET @wholesaleCartonWeightKilogram = 
+            CASE 
+                WHEN @unitWeightKilogram IS NOT NULL AND @wholesaleUnitQuantityPerCarton IS NOT NULL
+                THEN (@unitWeightKilogram * @wholesaleUnitQuantityPerCarton) + 0.02
+                ELSE NULL
+            END
 
-            UPDATE [dbo].[Product]
-            SET
-                [ActiveStatus] = @activeStatus,
-                [ManufacturerId] = @manufactuerId,
-                [ManufacturerPartNumber] = @manufacturerPartNumber,
-                [ProductCountryOfOriginId] = @productCountryOfOriginId,
-                [ProductDescription] = @productDescription,
-                [ProductFamilyId] = @productFamilyId,
-                [ProductSubCategoryId] = @productSubCategoryId,
-                [ProductName] = @productName,
-                [ProductImage] = @productImage,
-                [UnitBarcode] = @unitBarcode,
-                [UnitMinimumOrderQuantity] = @unitMinimumOrderQuantity,
-                [UnitMinimumStockQuantity] = @unitMinimumStockQuantity,
-                [UnitPrice] = @unitPrice,
-                [UnitStockQuantityHeld] = @unitStockQuantityHeld,
-                [UnitDepthCentimeter] = @unitDepthCentimeter,
-                [UnitHeightCentimeter] = @unitHeightCentimeter,
-                [UnitWeightKilogram] = @unitWeightKilogram,
-                [UnitWidthCentimeter] = @unitWidthCentimeter,
-                [WholesaleCartonBarcode] = @wholesaleCartonBarcode,
-                [WholesaleCartonStockQuantityHeld] = @wholesaleCartonStockQuantityHeld,
-                [WholesaleCartonDepthCentimeter] = @wholesaleCartonDepthCentimeter,
-                [WholesaleCartonHeightCentimeter] = @wholesaleCartonHeightCentimeter,
-                [WholesaleCartonWeightKilogram] = @wholesaleCartonWeightKilogram,
-                [WholesaleCartonWidthCentimeter] = @wholesaleCartonWidthCentimeter,
-                [WholesaleReorderFlag] = @wholesaleReorderFlag,
-                [WholesaleUnitQuantityPerCarton] = @wholesaleUnitQuantityPerCarton
-            WHERE [ProductId] = @productId
+        UPDATE [dbo].[Product]
+        SET
+            [ProductSubCategoryId] = @productSubCategoryId,
+            [ProductName] = @productName,
+            [ProductDescription] = @productDescription,
+            [ManufacturerId] = @manufacturerId,
+            [ManufacturerPartNumber] = @manufacturerPartNumber,
+            [ProductImage] = @productImage,
+            [ProductCountryOfOriginId] = @productCountryOfOriginId,
+            [ProductFamilyId] = @productFamilyId,
+            [WholesaleCartonFlag] = @wholesaleCartonFlag,
+            [WholesaleCartonBarcode] = @wholesaleCartonBarcode,
+            [WholesaleUnitQuantityPerCarton] = @wholesaleUnitQuantityPerCarton,
+            [WholesaleCartonStockQuantityHeld] = @wholesaleCartonStockQuantityHeld,
+            [WholesaleCartonWeightKilogram] = @wholesaleCartonWeightKilogram,
+            [WholesaleCartonHeightCentimeter] = @wholesaleCartonHeightCentimeter,
+            [WholesaleCartonWidthCentimeter] = @wholesaleCartonWidthCentimeter,
+            [WholesaleCartonDepthCentimeter] = @wholesaleCartonDepthCentimeter,
+            [WholesalePalletFlag] = @wholesalePalletFlag,
+            [WholesaleCartonQuantityPerPallet] = @wholesaleCartonQuantityPerPallet,
+            [WholesalePalletHeightCentimeter] = @wholesalePalletHeightCentimeter,
+            [WholesalePalletWidthCentimeter] = @wholesalePalletWidthCentimeter,
+            [WholesalePalletDepthCentimeter] = @wholesalePalletDepthCentimeter,
+            [WholesalePalletWeightKilogram] = @wholesalePalletWeightKilogram,
+            [WholesalePalletTotalHeightCentimeter] = @wholesalePalletTotalHeightCentimeter,
+            [WholesalePalletTotalWidthCentimeter] = @wholesalePalletTotalWidthCentimeter,
+            [WholesalePalletTotalDepthCentimeter] = @wholesalePalletTotalDepthCentimeter,
+            [WholesalePalletTotalWeightKilogram] = @wholesalePalletTotalWeightKilogram,
+            [WholesaleReorderFlag] = @wholesaleReorderFlag,
+            [UnitBarcode] = @unitBarcode,
+            [UnitPrice] = @unitPrice,
+            [UnitMinimumOrderQuantity] = @unitMinimumOrderQuantity,
+            [UnitMinimumStockQuantity] = @unitMinimumStockQuantity,
+            [UnitStockQuantityHeld] = @unitStockQuantityHeld,
+            [UnitWeightKilogram] = @unitWeightKilogram,
+            [UnitHeightCentimeter] = @unitHeightCentimeter,
+            [UnitWidthCentimeter] = @unitWidthCentimeter,
+            [UnitDepthCentimeter] = @unitDepthCentimeter,
+            [ActiveStatus] = @activeStatus
+        WHERE [ProductId] = @productId
 
-		COMMIT TRANSACTION;
-	END TRY
-	BEGIN CATCH
-		IF @@TRANCOUNT > 0
-			ROLLBACK TRANSACTION;
+        COMMIT TRANSACTION;
+    END TRY
+    BEGIN CATCH
+        IF @@TRANCOUNT > 0
+            ROLLBACK TRANSACTION;
 
-		THROW;
-	END CATCH
+        THROW;
+    END CATCH
 END

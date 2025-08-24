@@ -81,7 +81,7 @@
             manufacturerDetailUpdateManufacturerButton.TabIndex = 23;
             manufacturerDetailUpdateManufacturerButton.Text = "Update Manufacturer";
             manufacturerDetailUpdateManufacturerButton.UseVisualStyleBackColor = true;
-            manufacturerDetailUpdateManufacturerButton.Click += ManufacturerDetailUpdateManufacturerButton_Click;
+            manufacturerDetailUpdateManufacturerButton.Click += manufacturerDetailUpdateManufacturerButton_Click;
             // 
             // manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox
             // 

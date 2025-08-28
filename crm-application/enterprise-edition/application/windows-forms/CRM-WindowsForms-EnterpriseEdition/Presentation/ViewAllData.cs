@@ -454,6 +454,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Tax Profiles";
                     storedProcedureName = "spGetAllTaxProfile";
                     break;
+                case "WholesaleDeliveryType":
+                    dataSortingColumnName = "Wholesale Delivery Type";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Wholesale Delivery Type Id";
+                    dataSubjectFriendlyName = "Wholesale Delivery Type";
+                    functionFriendlyName = "Wholesale Delivery Types";
+                    storedProcedureName = "spGetAllWholesaleDeliveryType";
+                    break;
                 default:
                     this.Text = _functionTitle;
                     ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle);
@@ -753,6 +761,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid taxProfileId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 TaxProfileDetail taxProfileDetail = new TaxProfileDetail(taxProfileId);
                                 taxProfileDetail.Show();
+                                break;
+                            case "WholesaleDeliveryType":
+                                Guid wholesaleDeliveryTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                MasterDataSimpleDetail masterDataSimpleDetailWholesaleDeliveryType = new MasterDataSimpleDetail(wholesaleDeliveryTypeId, _functionTitle, "SupplierManagement");
+                                masterDataSimpleDetailWholesaleDeliveryType.Show();
                                 break;
                             default:
                                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle);

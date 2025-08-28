@@ -160,6 +160,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     dataSubject = "Top Parent Customer";
                     idColumnName = "Customer Id";
                     break;
+                case "spGetAllWholesaleDeliveryType":
+                    dataSubject = "Wholesale Delivery Type";
+                    idColumnName = "Wholesale Delivery Type Id";
+                    break;
                 default:
                     throw new ArgumentException("Invalid stored procedure name.");
             }
@@ -204,6 +208,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                             "spGetAllSupplierNoteType" => row.Field<string>("Supplier Note Type"),
                             "spGetAllTaxProfile" => $"{row.Field<string>("Tax Profile")} | {row.Field<decimal>("Tax Rate")}",
                             "spGetAllTopParentCustomer" => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
+                            "spGetAllWholesaleDeliveryType" => row.Field<string>("Wholesale Delivery Type"),
                             _ => string.Empty
                         }
                     })

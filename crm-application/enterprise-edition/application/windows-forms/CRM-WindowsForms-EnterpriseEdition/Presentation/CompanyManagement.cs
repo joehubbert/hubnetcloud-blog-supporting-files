@@ -445,6 +445,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             viewAllData.Show();
         }
 
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPageCreateWholesaleDeliveryTypeButton_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("WholesaleDeliveryType", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPageViewAllWholesaleDeliveryTypeButton_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("WholesaleDeliveryType", "SupplierManagement", null);
+            viewAllData.Show();
+        }
+
         private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(companyManagementStatusStripCompanyConfigurationPlaceholder);

@@ -235,6 +235,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderStatus";
                     dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderStatus";
                     break;
+                case "WholesaleDeliveryType":
+                    dataSubjectFriendlyName = "Wholesale Delivery Type";
+                    dataSubjectGetStoredProcedureName = "spGetWholesaleDeliveryType";
+                    dataSubjectIdFriendlyName = "Wholesale Delivery Type Id";
+                    dataSubjectIdName = "WholesaleDeliveryTypeId";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateWholesaleDeliveryType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "wholesaleDeliveryType";
+                    break;
                 default:
                     this.Text = functionTitle;
                     ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);

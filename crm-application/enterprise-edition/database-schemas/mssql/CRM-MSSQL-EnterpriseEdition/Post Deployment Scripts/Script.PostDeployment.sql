@@ -28,3 +28,4 @@ Post-Deployment Script
 :r ".\Data Population\SupplierOrderLineItemStatus.sql"
 :r ".\Data Population\SupplierOrderPaymentStatus.sql"
 :r ".\Data Population\SupplierOrderStatus.sql"
+:r ".\Data Population\WholesaleDeliveryType.sql"

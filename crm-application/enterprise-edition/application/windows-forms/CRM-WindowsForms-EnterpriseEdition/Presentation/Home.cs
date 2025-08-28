@@ -545,6 +545,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             viewAllData.Show();
         }
 
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType_Click(object sender, EventArgs e)
+        {
+            CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("WholesaleDeliveryType", "SupplierManagement");
+            createMasterDataSimple.Show();
+        }
+
+        private void homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("WholesaleDeliveryType", "SupplierManagement", null);
+            viewAllData.Show();
+        }
+
         private void homeMenuStripModuleCustomerManagement_Click(object sender, EventArgs e)
         {
             ModuleHomeSimple moduleHomeSimple = new ModuleHomeSimple("CustomerManagement");

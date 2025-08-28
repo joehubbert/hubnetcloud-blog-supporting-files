@@ -36,7 +36,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetParameters(_functionTitle);
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }

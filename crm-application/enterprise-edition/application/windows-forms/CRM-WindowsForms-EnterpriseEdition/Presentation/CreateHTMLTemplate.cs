@@ -27,7 +27,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createHTMLTemplateHTMLTemplateTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }

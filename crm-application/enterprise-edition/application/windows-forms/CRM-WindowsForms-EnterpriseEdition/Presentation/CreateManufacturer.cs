@@ -15,7 +15,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
-            LoadInitialDataAsync();
             LoadCountryDataAsync();
         }
 
@@ -25,14 +24,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async Task LoadInitialDataAsync()
-        {
-            await LoadDatabaseConnectionSettingsAsync();
         }
 
         private async Task LoadCountryDataAsync()

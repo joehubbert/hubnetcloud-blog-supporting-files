@@ -28,7 +28,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }

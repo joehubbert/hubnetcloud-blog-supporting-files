@@ -17,7 +17,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
-            LoadInitialDataAsync();
+            LoadCountryDataAsync();
+            LoadCustomerTypeAsync();
+            LoadCustomerTierDataAsync();
+            LoadSalesRegionDataAsync();
+            LoadSalesRegionAndSubRegionDataAsync();
+            LoadAccountManagerDataAsync();
+            LoadCurrencyDataAsync();
         }
 
         private void InitializeEventHandlers()
@@ -57,7 +63,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCustomerTabControlOverviewTabPageWillBeParentTypePanelTopParentRadioButton.CheckedChanged += CreateCustomerOverviewRadioButtonValidation_CheckedChanged;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
@@ -69,33 +75,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
-        private async Task LoadInitialDataAsync()
-        {
-            await LoadDatabaseConnectionSettingsAsync();
-
-            var loadCountryTask = LoadCountryDataAsync();
-            var loadCustomerTypeTask = LoadCustomerTypeAsync();
-            var loadCustomerTierTask = LoadCustomerTierDataAsync();
-            var loadSalesRegionTask = LoadSalesRegionDataAsync();
-            var loadSalesSubRegionTask = LoadSalesRegionAndSubRegionDataAsync();
-            var loadAccountManagerTask = LoadAccountManagerDataAsync();
-            var loadCurrencyTask = LoadCurrencyDataAsync();
-
-            await Task.WhenAll(loadCountryTask, loadCustomerTypeTask, loadCustomerTierTask, loadSalesRegionTask, loadAccountManagerTask, loadCurrencyTask);
-
-            if (createCustomerTabControlOverviewTabPageSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
-            {
-                await LoadSalesSubRegionAsync(selectedSalesRegionId);
-            }
-        }
-
-        private async Task LoadCustomerTypeAsync()
+        private async void LoadCustomerTypeAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTypeComboBox, "spGetAllCustomerType", _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task LoadCountryDataAsync()
+        private async void LoadCountryDataAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
             await _dataAccessComboBoxHelper.LoadDataAsync();
@@ -104,7 +90,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task LoadCustomerTierDataAsync()
+        private async void LoadCustomerTierDataAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTierComboBox, "spGetAllCustomerTier", _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
@@ -139,7 +125,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async Task LoadAccountManagerDataAsync()
+        private async void LoadAccountManagerDataAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageAccountManagerComboBox, "spGetAllAccountManager", _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();

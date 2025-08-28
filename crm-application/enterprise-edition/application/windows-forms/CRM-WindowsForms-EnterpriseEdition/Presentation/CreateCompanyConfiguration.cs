@@ -14,7 +14,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             InitializeComponent();
             InitializeEventHandlers();
-            LoadInitialDataAsync();
+            LoadDatabaseConnectionSettingsAsync();
+            LoadCountryAsync();
+            LoadCurrencyDataAsync();
         }
 
         private void InitializeEventHandlers()
@@ -39,19 +41,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task LoadInitialDataAsync()
-        {
-            await LoadDatabaseConnectionSettingsAsync();
-            await LoadCountryAsync();
-            await LoadCurrencyDataAsync();
-        }
-
-        private async Task LoadCountryAsync()
+        private async void LoadCountryAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry");
             await _dataAccessComboBoxHelper.LoadDataAsync();
@@ -60,7 +55,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task LoadCurrencyDataAsync()
+        private async void LoadCurrencyDataAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, "spGetAllCurrency");
             await _dataAccessComboBoxHelper.LoadDataAsync();

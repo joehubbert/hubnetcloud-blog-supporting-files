@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllProductForProductCategory]
-	@productCategoryId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetAllProductForProductCountryofOrigin]
+	@productCountryOfOriginId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -62,7 +62,7 @@ BEGIN
 			[Unit Volume Cubic Centimeter],
 			[Active Status]
 			FROM [dbo].[vwProduct]
-			WHERE [Product Category Id] = @productCategoryId
+			WHERE [Product Country of Origin Id] = @productCountryOfOriginId
 
 		COMMIT TRANSACTION;
 	END TRY

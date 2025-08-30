@@ -10,6 +10,7 @@ INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Credit
 INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Invoice', 1)
 INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Account Credit', 1)
 INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Bank Transfer', 1)
+INSERT INTO #PaymentMethodTemp ([PaymentMethod], [ActiveStatus]) VALUES ('Vipps', 1)
 
 MERGE INTO [dbo].[PaymentMethod] AS target
 USING #PaymentMethodTemp AS source

@@ -544,13 +544,6 @@
     <Build Include="dbo\Stored Procedures\spGetCountry.sql" />
     <Build Include="dbo\Stored Procedures\spUpdateCountry.sql" />
     <Build Include="dbo\Functions\fnGetUnitedKingdomCountryId.sql" />
-    <Build Include="dbo\Tables\CountryTranslation.sql" />
-    <Build Include="dbo\Views\vwCountryTranslation.sql" />
-    <Build Include="dbo\Stored Procedures\spCreateCountryTranslation.sql" />
-    <Build Include="dbo\Stored Procedures\spGetAllCountryTranslation.sql" />
-    <Build Include="dbo\Stored Procedures\spGetAllCountryTranslationForCountry.sql" />
-    <Build Include="dbo\Stored Procedures\spGetCountryTranslation.sql" />
-    <Build Include="dbo\Stored Procedures\spUpdateCountryTranslation.sql" />
     <Build Include="dbo\Tables\CustomerLeadNote.sql" />
     <Build Include="dbo\Tables\CustomerLeadNoteType.sql" />
     <Build Include="dbo\Views\vwCustomerLeadNote.sql" />
@@ -617,6 +610,21 @@
     <Build Include="dbo\Stored Procedures\spGetAllPromotionTargetType.sql" />
     <Build Include="dbo\Stored Procedures\spGetPromotionTargetType.sql" />
     <Build Include="dbo\Stored Procedures\spUpdatePromotionTargetType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductForProductCountryofOrigin.sql" />
+    <Build Include="dbo\Tables\WholesaleDeliveryType.sql" />
+    <Build Include="dbo\Views\vwWholesaleDeliveryType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllWholesaleDeliveryType.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateWholesaleDeliveryType.sql" />
+    <Build Include="dbo\Stored Procedures\spGetWholesaleDeliveryType.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateWholesaleDeliveryType.sql" />
+    <Build Include="dbo\Tables\ProductImage.sql" />
+    <Build Include="dbo\Views\vwProductImage.sql" />
+    <Build Include="dbo\Stored Procedures\spCreateProductImage.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductImage.sql" />
+    <Build Include="dbo\Stored Procedures\spGetAllProductImageForProduct.sql" />
+    <Build Include="dbo\Stored Procedures\spGetProductImage.sql" />
+    <Build Include="dbo\Stored Procedures\spUpdateProductImage.sql" />
+    <Build Include="dbo\Stored Procedures\spDeleteProductImage.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -650,11 +658,11 @@
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignType.sql" />
     <None Include="Post Deployment Scripts\Data Population\MarketingCampaignStatus.sql" />
     <None Include="Post Deployment Scripts\Data Population\Country.sql" />
-    <None Include="Post Deployment Scripts\Data Population\CountryTranslation.sql" />
     <None Include="Post Deployment Scripts\Data Population\CustomerLeadNoteType.sql" />
     <None Include="Post Deployment Scripts\Configuration\SchemaPublishTimestamp.sql" />
     <None Include="Post Deployment Scripts\Data Population\OrderType.sql" />
     <None Include="Post Deployment Scripts\Data Population\HTMLTemplateType.sql" />
+    <None Include="Post Deployment Scripts\Data Population\WholesaleDeliveryType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

@@ -6,7 +6,7 @@
         {
             public ApplicationConfigurationServiceCompanyConfiguration companyConfiguration { get; set; } = new();
             public ApplicationConfigurationServiceDatabaseConfiguration databaseConfiguration { get; set; } = new();
-            public ApplicationConfigurationServiceRegionLanguageConfiguration regionLanguageConfiguration { get; set; } = new();
+            public ApplicationConfigurationServicePersonalPreferenceConfiguration personalPreferenceConfiguration { get; set; } = new();
             public ApplicationConfigurationServiceSystemConfiguration systemConfiguration { get; set; } = new();
         }
 
@@ -61,9 +61,11 @@
             public string authenticationType { get; set; } = string.Empty;
         }
 
-        public class ApplicationConfigurationServiceRegionLanguageConfiguration
+        public class ApplicationConfigurationServicePersonalPreferenceConfiguration
         {
+            public string delimeter {  get; set; } = string.Empty;
             public string languageCode { get; set; } = string.Empty;
+            public string unitType {  get; set; } = string.Empty;
         }
 
         public class ApplicationConfigurationServiceSystemConfiguration

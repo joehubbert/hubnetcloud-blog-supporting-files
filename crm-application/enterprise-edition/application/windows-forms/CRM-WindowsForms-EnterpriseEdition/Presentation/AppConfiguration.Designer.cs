@@ -93,9 +93,15 @@
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTestConnectionButton = new Button();
-            appConfigurationTabControlRegionLanguageTabPage = new TabPage();
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel = new Label();
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox = new ComboBox();
+            appConfigurationTabControlPersonalPreferencesTabPage = new TabPage();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel = new Label();
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel = new Label();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel = new Panel();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton = new RadioButton();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton = new RadioButton();
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox = new ComboBox();
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel = new Label();
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox = new ComboBox();
             appConfigurationTabControlSystemTabPage = new TabPage();
             appConfigurationTabControlSystemTabPageTabControl = new TabControl();
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPage = new TabPage();
@@ -115,7 +121,8 @@
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanel.SuspendLayout();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.SuspendLayout();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel.SuspendLayout();
-            appConfigurationTabControlRegionLanguageTabPage.SuspendLayout();
+            appConfigurationTabControlPersonalPreferencesTabPage.SuspendLayout();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.SuspendLayout();
             appConfigurationTabControlSystemTabPage.SuspendLayout();
             appConfigurationTabControlSystemTabPageTabControl.SuspendLayout();
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPage.SuspendLayout();
@@ -137,7 +144,7 @@
             // 
             appConfigurationTabControl.Appearance = TabAppearance.FlatButtons;
             appConfigurationTabControl.Controls.Add(appConfigurationTabControlDatabaseTabPage);
-            appConfigurationTabControl.Controls.Add(appConfigurationTabControlRegionLanguageTabPage);
+            appConfigurationTabControl.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPage);
             appConfigurationTabControl.Controls.Add(appConfigurationTabControlSystemTabPage);
             appConfigurationTabControl.Location = new Point(24, 56);
             appConfigurationTabControl.Name = "appConfigurationTabControl";
@@ -432,10 +439,10 @@
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Location = new Point(4, 32);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Location = new Point(4, 27);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage";
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Padding = new Padding(3);
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Size = new Size(743, 358);
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Size = new Size(743, 363);
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.TabIndex = 1;
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage.Text = "MySQL";
             // 
@@ -636,9 +643,9 @@
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox);
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Location = new Point(4, 32);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Location = new Point(4, 27);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage";
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Size = new Size(743, 358);
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Size = new Size(743, 363);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.TabIndex = 2;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.Text = "PostgreSQL";
             // 
@@ -833,36 +840,99 @@
             appConfigurationTabControlDatabaseTabPageTestConnectionButton.UseVisualStyleBackColor = true;
             appConfigurationTabControlDatabaseTabPageTestConnectionButton.Click += appConfigurationTabControlDatabaseTabPageTestConnectionButton_Click;
             // 
-            // appConfigurationTabControlRegionLanguageTabPage
+            // appConfigurationTabControlPersonalPreferencesTabPage
             // 
-            appConfigurationTabControlRegionLanguageTabPage.BackColor = Color.Plum;
-            appConfigurationTabControlRegionLanguageTabPage.Controls.Add(appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel);
-            appConfigurationTabControlRegionLanguageTabPage.Controls.Add(appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox);
-            appConfigurationTabControlRegionLanguageTabPage.Location = new Point(4, 32);
-            appConfigurationTabControlRegionLanguageTabPage.Name = "appConfigurationTabControlRegionLanguageTabPage";
-            appConfigurationTabControlRegionLanguageTabPage.Size = new Size(747, 493);
-            appConfigurationTabControlRegionLanguageTabPage.TabIndex = 2;
-            appConfigurationTabControlRegionLanguageTabPage.Text = "Region & Language";
+            appConfigurationTabControlPersonalPreferencesTabPage.BackColor = Color.Plum;
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel);
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel);
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel);
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox);
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel);
+            appConfigurationTabControlPersonalPreferencesTabPage.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox);
+            appConfigurationTabControlPersonalPreferencesTabPage.Location = new Point(4, 32);
+            appConfigurationTabControlPersonalPreferencesTabPage.Name = "appConfigurationTabControlPersonalPreferencesTabPage";
+            appConfigurationTabControlPersonalPreferencesTabPage.Size = new Size(747, 493);
+            appConfigurationTabControlPersonalPreferencesTabPage.TabIndex = 2;
+            appConfigurationTabControlPersonalPreferencesTabPage.Text = "Personal Preferences";
             // 
-            // appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel
+            // appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel
             // 
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.AutoSize = true;
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.Location = new Point(15, 13);
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.Name = "appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel";
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.Size = new Size(154, 20);
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.TabIndex = 1;
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.Text = "Region and Language";
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.AutoSize = true;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.Location = new Point(95, 104);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.Name = "appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.Size = new Size(71, 20);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.TabIndex = 41;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel.Text = "Unit Type";
             // 
-            // appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox
+            // appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel
             // 
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.FormattingEnabled = true;
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.Location = new Point(15, 46);
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.Name = "appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox";
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.Size = new Size(352, 28);
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.Sorted = true;
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.TabIndex = 33;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.AutoSize = true;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.Location = new Point(91, 16);
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.Name = "appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel";
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.Size = new Size(75, 20);
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.TabIndex = 40;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel.Text = "Delimeter";
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.Controls.Add(appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.Location = new Point(172, 104);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.Name = "appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.Size = new Size(265, 43);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.TabIndex = 37;
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.AutoSize = true;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Location = new Point(3, 3);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Name = "appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Size = new Size(82, 24);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.TabIndex = 36;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Text = "Imperial";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.AutoSize = true;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked = true;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Location = new Point(133, 3);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Name = "appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Size = new Size(69, 24);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.TabIndex = 37;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.TabStop = true;
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Text = "Metric";
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.FormattingEnabled = true;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.Location = new Point(172, 13);
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.Name = "appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox";
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.Size = new Size(162, 28);
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.Sorted = true;
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.TabIndex = 35;
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.AutoSize = true;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.Location = new Point(12, 61);
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.Name = "appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel";
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.Size = new Size(154, 20);
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.TabIndex = 1;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.Text = "Region and Language";
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox
+            // 
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.FormattingEnabled = true;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.Location = new Point(172, 58);
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.Name = "appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox";
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.Size = new Size(265, 28);
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.Sorted = true;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.TabIndex = 34;
             // 
             // appConfigurationTabControlSystemTabPage
             // 
@@ -907,7 +977,7 @@
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.Margin = new Padding(2, 3, 2, 3);
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.Name = "appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.Size = new Size(150, 67);
-            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.TabIndex = 37;
+            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.TabIndex = 41;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.Text = "Clear Log File";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.UseVisualStyleBackColor = true;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton.Click += appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton_Click;
@@ -920,7 +990,7 @@
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.Margin = new Padding(2, 3, 2, 3);
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.Name = "appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.Size = new Size(150, 67);
-            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.TabIndex = 36;
+            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.TabIndex = 40;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.Text = "View Log File";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.UseVisualStyleBackColor = true;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton.Click += appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton_Click;
@@ -949,7 +1019,7 @@
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Location = new Point(3, 33);
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Name = "appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Size = new Size(48, 24);
-            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.TabIndex = 35;
+            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.TabIndex = 39;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Text = "Yes";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.UseVisualStyleBackColor = true;
             // 
@@ -960,7 +1030,7 @@
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Location = new Point(3, 3);
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Name = "appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Size = new Size(47, 24);
-            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.TabIndex = 34;
+            appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.TabIndex = 38;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.TabStop = true;
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Text = "No";
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.UseVisualStyleBackColor = true;
@@ -1010,8 +1080,10 @@
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage.PerformLayout();
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel.ResumeLayout(false);
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanel.PerformLayout();
-            appConfigurationTabControlRegionLanguageTabPage.ResumeLayout(false);
-            appConfigurationTabControlRegionLanguageTabPage.PerformLayout();
+            appConfigurationTabControlPersonalPreferencesTabPage.ResumeLayout(false);
+            appConfigurationTabControlPersonalPreferencesTabPage.PerformLayout();
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.ResumeLayout(false);
+            appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel.PerformLayout();
             appConfigurationTabControlSystemTabPage.ResumeLayout(false);
             appConfigurationTabControlSystemTabPageTabControl.ResumeLayout(false);
             appConfigurationTabControlSystemTabPageTabControlLoggingTabPage.ResumeLayout(false);
@@ -1027,7 +1099,7 @@
         private Label appConfigurationTitleLabel;
         private TabControl appConfigurationTabControl;
         private TabPage appConfigurationTabControlDatabaseTabPage;
-        private TabPage appConfigurationTabControlRegionLanguageTabPage;
+        private TabPage appConfigurationTabControlPersonalPreferencesTabPage;
         private TabPage appConfigurationTabControlSystemTabPage;
         private Button appConfigurationTabControlDatabaseTabPageTestConnectionButton;
         private Button appConfigurationSaveSettingsButton;
@@ -1040,8 +1112,8 @@
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox;
         private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox;
         private TabPage appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage;
-        private ComboBox appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox;
-        private Label appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBoxLabel;
+        private ComboBox appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox;
+        private Label appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel;
         private TabControl appConfigurationTabControlSystemTabPageTabControl;
         private TabPage appConfigurationTabControlSystemTabPageTabControlLoggingTabPage;
         private Label appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelLabel;
@@ -1103,5 +1175,11 @@
         private ComboBox appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox;
         private Button appConfigurationTabControlSystemTabPageTabControlLoggingTabPageClearLogButton;
         private Button appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton;
+        private ComboBox appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox;
+        private Label appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelLabel;
+        private Label appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxLabel;
+        private RadioButton appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton;
+        private RadioButton appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton;
+        private Panel appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanel;
     }
 }

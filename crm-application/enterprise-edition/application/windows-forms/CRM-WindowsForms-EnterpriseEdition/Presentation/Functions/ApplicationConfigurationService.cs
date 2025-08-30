@@ -94,17 +94,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
-        public static string RegionLanguageCode
+        public static string Delimeter
         {
             get
             {
                 EnsureLoaded();
-                return _configuration!.regionLanguageConfiguration.languageCode;
+                return _configuration!.personalPreferenceConfiguration.delimeter;
             }
             set
             {
                 EnsureLoaded();
-                _configuration!.regionLanguageConfiguration.languageCode = value;
+                _configuration!.personalPreferenceConfiguration.delimeter = value;
             }
         }
 
@@ -122,6 +122,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             }
         }
 
+        public static string RegionLanguageCode
+        {
+            get
+            {
+                EnsureLoaded();
+                return _configuration!.personalPreferenceConfiguration.languageCode;
+            }
+            set
+            {
+                EnsureLoaded();
+                _configuration!.personalPreferenceConfiguration.languageCode = value;
+            }
+        }
+
+        public static string unitType
+        {
+            get
+            {
+                EnsureLoaded();
+                return _configuration!.personalPreferenceConfiguration.unitType;
+            }
+            set
+            {
+                EnsureLoaded();
+                _configuration!.personalPreferenceConfiguration.unitType = value;
+            }
+        }
+
         public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration> GetCompanyConfigurationAsync()
         {
             if (_configuration == null)
@@ -136,11 +164,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             return _configuration!.databaseConfiguration.activeDatabaseEngine;
         }
 
-        public static async Task<string> GetRegionLanguageCodeAsync()
+        public static async Task<string> GetDelimeterAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
-            return _configuration!.regionLanguageConfiguration.languageCode;
+            return _configuration!.personalPreferenceConfiguration.delimeter;
         }
 
         public static async Task<bool> GetLoggingEnabledAsync()
@@ -148,6 +176,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             if (_configuration == null)
                 await LoadAsync();
             return _configuration!.systemConfiguration.loggingEnabled;
+        }
+
+        public static async Task<string> GetRegionLanguageCodeAsync()
+        {
+            if (_configuration == null)
+                await LoadAsync();
+            return _configuration!.personalPreferenceConfiguration.languageCode;
+        }
+
+        public static async Task<string> GetUnitTypeAsync()
+        {
+            if (_configuration == null)
+                await LoadAsync();
+            return _configuration!.personalPreferenceConfiguration.unitType;
         }
 
         public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration> GetMSSQLConfigurationAsync()
@@ -180,6 +222,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         public static async Task SetCompanyConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration companyConfiguration)
         {
             CompanyConfiguration = companyConfiguration;
+            await SaveAsync();
+        }
+
+        public static async Task SetDelimeterAsync(string delimeter)
+        {
+            Delimeter = delimeter;
             await SaveAsync();
         }
 
@@ -252,6 +300,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         public static async Task SetRegionLanguageCodeAsync(string languageCode)
         {
             RegionLanguageCode = languageCode;
+            await SaveAsync();
+        }
+
+        public static async Task SetUnitTypeAsync(string unitType)
+        {
+            ApplicationConfigurationService.unitType = unitType;
             await SaveAsync();
         }
 

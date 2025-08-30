@@ -1,5 +1,4 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
-using CRM_WindowsForms_EnterpriseEdition.Model;
+﻿using CRM_WindowsForms_EnterpriseEdition.Model;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
@@ -21,6 +20,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             { 4, "Microsoft SQL Server" },
             { 5, "MySQL" },
             { 6, "PostgreSQL" }
+        };
+        private readonly Dictionary<int, string> delimeterOptions = new Dictionary<int, string>
+        {
+            { 0, "." },
+            { 1, "," }
         };
         private readonly Dictionary<int, string> mysqlSSLMode = new Dictionary<int, string>
         {
@@ -61,8 +65,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             { 16, ("中文", "zh") },
             { 17, ("日本語", "ja-jp") }
         };
+
         private string? userProfileActiveDatabaseEngine;
+        private string? userProfileActiveDelimeter;
         private string? userProfileActiveRegionLanguageCode;
+        private string? userProfileActiveUnitType;
 
         public AppConfiguration()
         {
@@ -103,13 +110,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 try
                 {
                     userProfileActiveDatabaseEngine = await ApplicationConfigurationService.GetActiveDatabaseEngineAsync();
+                    userProfileActiveDelimeter = await ApplicationConfigurationService.GetDelimeterAsync();
                     userProfileActiveRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
 
                     // Populate combo boxes
                     appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxPopulateData();
                     appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBoxPopulateData();
                     appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBoxPopulateData();
-                    appConfigurationTabControlRegionLanguageTabPageRegionLanguageComboBoxPopulateData();
+                    appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxPopulateData();
+                    appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxPopulateData();
 
                     // Always load and populate all configurations
                     var mssqlConfig = await ApplicationConfigurationService.GetMSSQLConfigurationAsync();
@@ -207,6 +216,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Checked = loggingEnabled;
                     appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Checked = !loggingEnabled;
 
+                    // Unit Type radio buttons
+                    userProfileActiveUnitType = await ApplicationConfigurationService.GetUnitTypeAsync();
+                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked = userProfileActiveUnitType == "imperial";
+                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked = userProfileActiveUnitType == "metric";
+
                     UpdateDatabaseTabAuthenticationUI();
                 }
                 catch (Exception ex)
@@ -251,7 +265,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 default:
                     throw new InvalidOperationException("Unsupported database engine selected.");
             }
-            await ApplicationConfigurationService.SetRegionLanguageCodeAsync(appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.SelectedItem?.ToString()?.Split('(')[1].TrimEnd(')') ?? "en-GB");
+            await ApplicationConfigurationService.SetDelimeterAsync(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedItem?.ToString() ?? ".");
+            await ApplicationConfigurationService.SetRegionLanguageCodeAsync(appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.SelectedItem?.ToString()?.Split('(')[1].TrimEnd(')') ?? "en-GB");
+            if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetUnitTypeAsync("imperial");
+            }
+            else if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetUnitTypeAsync("metric");
+            }
             if (appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Checked)
             {
                 await ApplicationConfigurationService.SetLoggingEnabledAsync(true);
@@ -489,13 +512,30 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedIndex = selectedIndex;
         }
 
-        private void appConfigurationTabControlRegionLanguageTabPageRegionLanguageComboBoxPopulateData()
+        private void appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxPopulateData()
+        {
+            var ordered = delimeterOptions.OrderBy(kvp => kvp.Key).ToList();
+            var comboBoxItems = ordered.Select(kvp => kvp.Value).ToList();
+            appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.DataSource = comboBoxItems;
+            var delimiterValue = userProfileActiveDelimeter?.Trim();
+
+            if (!string.IsNullOrWhiteSpace(delimiterValue) && comboBoxItems.Contains(delimiterValue))
+            {
+                appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedItem = delimiterValue;
+            }
+            else
+            {
+                appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedIndex = 0;
+            }
+        }
+
+        private void appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxPopulateData()
         {
             var ordered = regionLanguageOptions.OrderBy(kvp => kvp.Key).ToList();
             var comboBoxItems = ordered
                 .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.LanguageCode})")
                 .ToList();
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.DataSource = comboBoxItems;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.DataSource = comboBoxItems;
             int selectedIndex = 3; // Default to English (en-gb), which has key 3 in the dictionary
             if (!string.IsNullOrWhiteSpace(userProfileActiveRegionLanguageCode))
             {
@@ -508,7 +548,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     selectedIndex = idx;
             }
 
-            appConfigurationTabControlRegionLanguageTabPageRegionLanguageChoiceComboBox.SelectedIndex = selectedIndex;
+            appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.SelectedIndex = selectedIndex;
         }
 
         private void appConfigurationTabControlDatabaseTabPageTestConnectionButton_Click(object sender, EventArgs e)

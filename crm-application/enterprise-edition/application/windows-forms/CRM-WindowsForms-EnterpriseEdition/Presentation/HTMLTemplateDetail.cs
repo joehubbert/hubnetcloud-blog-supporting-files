@@ -56,7 +56,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "htmlTemplateId",
                     ParameterValue = _htmlTemplateId
@@ -205,22 +205,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "companyConfigurationId",
                             ParameterValue = companyConfigurationId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "htmlTemplateId",
                             ParameterValue = _htmlTemplateId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "htmlTemplateTitle",
                             ParameterValue = htmlTemplateTitle
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "htmlTemplateTypeId",
                             ParameterValue = htmlTemplateTypeId

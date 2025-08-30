@@ -75,7 +75,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "supplierId",
                     ParameterValue = _supplierId
@@ -468,64 +468,64 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = supplierDetailOverviewActiveStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine1",
                             ParameterValue = supplierDetailOverviewAddressLine1
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine3",
                             ParameterValue = supplierDetailOverviewAddressLine3
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine4",
                             ParameterValue = supplierDetailOverviewAddressLine4
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine5",
                             ParameterValue = supplierDetailOverviewAddressLine5
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "emailAddress",
                             ParameterValue = supplierDetailOverviewEmailAddress
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "paymentCurrencyId",
                             ParameterValue = supplierDetailFinancePaymentCurrencyId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "paymentDays",
                             ParameterValue = supplierDetailFinancePaymentDays
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "supplierId",
                             ParameterValue = _supplierId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "supplierName",
                             ParameterValue = supplierDetailOverviewSupplierName
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "telephoneNumber",
                             ParameterValue = supplierDetailOverviewTelephoneNumber
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "vatRegistered",
                             ParameterValue = supplierDetailFinanceVATRegistered
@@ -534,7 +534,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (!string.IsNullOrEmpty(supplierDetailOverviewAddressLine2))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "addressLine2",
                             ParameterValue = supplierDetailOverviewAddressLine2
@@ -543,7 +543,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (!string.IsNullOrEmpty(supplierDetailFinanceVATNumber))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "vatNumber",
                             ParameterValue = supplierDetailFinanceVATNumber

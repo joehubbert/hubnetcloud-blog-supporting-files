@@ -43,7 +43,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "countryId",
                     ParameterValue = _countryId
@@ -165,22 +165,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "countryEnglishName",
                             ParameterValue = countryEnglishName
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "countryId",
                             ParameterValue = _countryId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "iso31661A2CountryCode",
                             ParameterValue = iso31661A2CountryCode

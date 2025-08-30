@@ -105,32 +105,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 var parameters = new[]
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyConfigurationId",
                         ParameterValue = _companyConfigurationId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "emailAddress",
                         ParameterValue = emailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "firstName",
                         ParameterValue = firstName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "lastName",
                         ParameterValue = lastName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = telephoneNumber

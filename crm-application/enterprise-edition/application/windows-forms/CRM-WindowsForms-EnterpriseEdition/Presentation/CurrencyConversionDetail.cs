@@ -91,7 +91,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "currencyConversionId",
                     ParameterValue = _currencyConversionId
@@ -370,44 +370,44 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "baseCurrencyConversionRate",
                             ParameterValue = baseCurrencyConversionRate
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "baseCurrencyId",
                             ParameterValue = baseCurrencyId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "companyConfigurationId",
                             ParameterValue = companyConfigurationId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "currencyConversionId",
                             ParameterValue = _currencyConversionId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "effectiveDate",
                             ParameterValue = effectiveDate
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "targetCurrencyConversionRate",
                             ParameterValue = targetCurrencyConversionRate
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "targetCurrencyId",
                             ParameterValue = targetCurrencyId
@@ -416,7 +416,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (expiryDate != null)
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "expiryDate",
                             ParameterValue = expiryDate

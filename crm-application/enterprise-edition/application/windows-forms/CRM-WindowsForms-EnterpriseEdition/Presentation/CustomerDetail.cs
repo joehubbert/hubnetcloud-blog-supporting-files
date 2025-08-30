@@ -377,7 +377,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "customerId",
                     ParameterValue = _customerId
@@ -1092,169 +1092,169 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             else
             {
-                var parameters = new List<Parameter>
+                var parameters = new List<StoredProcedureParameter>
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "accountManagerId",
                         ParameterValue = customerOverviewAccountManagerId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = customerOverviewActiveStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingFirstName",
                         ParameterValue = customerBillingInformationFirstName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingLastName",
                         ParameterValue = customerBillingInformationLastName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingAddressLine1",
                         ParameterValue = customerBillingInformationAddressLine1
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingAddressLine3",
                         ParameterValue = customerBillingInformationAddressLine3
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingAddressLine4",
                         ParameterValue = customerBillingInformationAddressLine4
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingAddressLine5",
                         ParameterValue = customerBillingInformationAddressLine5
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingTelephoneNumber",
                         ParameterValue = customerBillingInformationTelephoneNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "billingEmailAddress",
                         ParameterValue = customerBillingInformationEmailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyConfigurationId",
                         ParameterValue = customerOverviewCompanyConfigurationId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "creditEnabled",
                         ParameterValue = customerFinanceCreditEnabled
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "customerSince",
                         ParameterValue = customerOverviewCustomerSince
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "customerTierId",
                         ParameterValue = customerOverviewCustomerTierId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "customerTypeId",
                         ParameterValue = customerOverviewCustomerTypeId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "emailAddress",
                         ParameterValue = customerOverviewEmailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "firstName",
                         ParameterValue = customerOverviewFirstName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "globalParentCustomer",
                         ParameterValue = customerOverviewWillBeGlobalParent
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "lastName",
                         ParameterValue = customerOverviewLastName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "paymentCurrencyId",
                         ParameterValue = customerFinancePaymentCurrencyId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "paymentDays",
                         ParameterValue = customerFinancePaymentDays
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "salesSubRegionId",
                         ParameterValue = customerOverviewSalesSubRegionId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingFirstName",
                         ParameterValue = customerShippingInformationFirstName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingLastName",
                         ParameterValue = customerShippingInformationLastName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingAddressLine1",
                         ParameterValue = customerShippingInformationAddressLine1
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingAddressLine3",
                         ParameterValue = customerShippingInformationAddressLine3
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingAddressLine4",
                         ParameterValue = customerShippingInformationAddressLine4
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingAddressLine5",
                         ParameterValue = customerShippingInformationAddressLine5
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingTelephoneNumber",
                         ParameterValue = customerShippingInformationTelephoneNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "shippingEmailAddress",
                         ParameterValue = customerShippingInformationEmailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = customerOverviewTelephoneNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "topParentCustomer",
                         ParameterValue = customerOverviewWillBeTopParent
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "vatRegistered",
                         ParameterValue = customerFinanceVATRegistered
@@ -1263,7 +1263,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(customerOverviewCompanyName))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "companyName",
                         ParameterValue = customerOverviewCompanyName
@@ -1272,7 +1272,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(customerBillingInformationAddressLine2))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "billingAddressLine2",
                         ParameterValue = customerBillingInformationAddressLine2
@@ -1281,7 +1281,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(customerBillingInformationCompanyName))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "billingCompanyName",
                         ParameterValue = customerBillingInformationCompanyName
@@ -1290,7 +1290,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (customerOverviewExistingGlobalParentCustomerId != null && customerOverviewExistingGlobalParentCustomerId != Guid.Empty)
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "globalParentCustomerId",
                         ParameterValue = customerOverviewExistingGlobalParentCustomerId
@@ -1299,7 +1299,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(customerShippingInformationAddressLine2))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "shippingAddressLine2",
                         ParameterValue = customerShippingInformationAddressLine2
@@ -1308,7 +1308,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(customerShippingInformationCompanyName))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "shippingCompanyName",
                         ParameterValue = customerShippingInformationCompanyName
@@ -1317,7 +1317,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (customerOverviewExistingTopParentCustomerId != null && customerOverviewExistingTopParentCustomerId != Guid.Empty)
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "topParentCustomerId",
                         ParameterValue = customerOverviewExistingTopParentCustomerId
@@ -1326,7 +1326,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (string.IsNullOrEmpty(customerFinanceVATNumber))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "vatNumber",
                         ParameterValue = customerFinanceVATNumber

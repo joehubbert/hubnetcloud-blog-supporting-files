@@ -173,7 +173,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
             }
 
-            if(companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+            if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
             {
                 LoadActiveCompanyConfigurationAsync();
             }
@@ -239,14 +239,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             else
             {
-                var parameters = new List<Parameter>
+                var parameters = new List<StoredProcedureParameter>
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}",
                         ParameterValue = dataSubjectValue
@@ -255,7 +255,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "companyConfigurationId",
                         ParameterValue = _companyConfigurationId

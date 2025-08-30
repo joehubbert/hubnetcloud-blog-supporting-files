@@ -208,64 +208,64 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             else
             {
-                var parameters = new List<Parameter>
+                var parameters = new List<StoredProcedureParameter>
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = supplierOverviewActiveStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine1",
                         ParameterValue = supplierOverviewAddressLine1
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine3",
                         ParameterValue = supplierOverviewAddressLine3
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine4",
                         ParameterValue = supplierOverviewAddressLine4
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine5",
                         ParameterValue = supplierOverviewAddressLine5
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyConfigurationId",
                         ParameterValue = _companyConfigurationId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "emailAddress",
                         ParameterValue = supplierOverviewEmailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "paymentCurrencyId",
                         ParameterValue = supplierFinancePaymentCurrencyId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "paymentDays",
                         ParameterValue = supplierFinancePaymentDays
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "supplierName",
                         ParameterValue = supplierOverviewSupplierName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = supplierOverviewTelephoneNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "vatRegistered",
                         ParameterValue = supplierFinanceVATRegistered
@@ -274,7 +274,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(supplierOverviewAddressLine2))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "addressLine2",
                         ParameterValue = supplierOverviewAddressLine2
@@ -283,7 +283,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(supplierFinanceVATNumber))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "vatNumber",
                         ParameterValue = supplierFinanceVATNumber

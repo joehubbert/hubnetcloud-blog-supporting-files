@@ -43,7 +43,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "taxProfileId",
                     ParameterValue = _taxProfileId
@@ -170,22 +170,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "taxProfile",
                             ParameterValue = taxProfile
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "taxProfileId",
                             ParameterValue = _taxProfileId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "taxRate",
                             ParameterValue = taxRate

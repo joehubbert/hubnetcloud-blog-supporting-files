@@ -60,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "manufacturerId",
                     ParameterValue = _manufacturerId
@@ -350,54 +350,54 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = manufacturerDetailOverviewActiveStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine1",
                             ParameterValue = manufacturerDetailOverviewAddressLine1
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine3",
                             ParameterValue = manufacturerDetailOverviewAddressLine3
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine4",
                             ParameterValue = manufacturerDetailOverviewAddressLine4
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "addressLine5",
                             ParameterValue = manufacturerDetailOverviewAddressLine5
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "emailAddress",
                             ParameterValue = manufacturerDetailOverviewEmailAddress
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "manufacturerId",
                             ParameterValue = _manufacturerId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "manufacturerName",
                             ParameterValue = manufacturerDetailOverviewManufacturerName
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "telephoneNumber",
                             ParameterValue = manufacturerDetailOverviewTelephoneNumber
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "vatNumber",
                             ParameterValue = manufacturerDetailFinanceVATNumber
@@ -406,7 +406,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (!string.IsNullOrEmpty(manufacturerDetailOverviewAddressLine2))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "addressLine2",
                             ParameterValue = manufacturerDetailOverviewAddressLine2
@@ -415,7 +415,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (!string.IsNullOrEmpty(manufacturerDetailFinanceVATNumber))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "vatNumber",
                             ParameterValue = manufacturerDetailFinanceVATNumber

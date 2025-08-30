@@ -206,39 +206,39 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            var parameters = new List<Parameter>
+            var parameters = new List<StoredProcedureParameter>
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "baseCurrencyConversionRate",
                         ParameterValue = baseCurrencyConversionRate
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "baseCurrencyId",
                         ParameterValue = baseCurrencyId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyConfigurationId",
                         ParameterValue = _companyConfigurationId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "effectiveDate",
                         ParameterValue = effectiveDate
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "targetCurrencyConversionRate",
                         ParameterValue = targetCurrencyConversionRate
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "targetCurrencyId",
                         ParameterValue = targetCurrencyId
@@ -247,7 +247,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (expiryDate != null)
             {
-                parameters.Add(new Parameter
+                parameters.Add(new StoredProcedureParameter
                 {
                     ParameterName = "expiryDate",
                     ParameterValue = expiryDate

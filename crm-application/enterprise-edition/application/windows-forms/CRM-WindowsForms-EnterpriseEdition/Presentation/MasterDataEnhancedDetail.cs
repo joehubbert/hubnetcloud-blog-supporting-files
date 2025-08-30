@@ -124,7 +124,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
                     ParameterValue = _dataSubjectId
@@ -149,7 +149,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataEnhancedDetailLastUpdatedByTextBox.Text = masterDataEnhancedDetailDataRow["Modified By"].ToString();
                     masterDataEnhancedDetailLastUpdatedTimestampTextBox.Text = masterDataEnhancedDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataEnhancedDetailActiveStatusCheckbox.Checked = (bool)masterDataEnhancedDetailDataRow["Active Status"];
-                    if(_functionTitle == "CustomerLeadType" || _functionTitle == "CustomerType")
+                    if (_functionTitle == "CustomerLeadType" || _functionTitle == "CustomerType")
                     {
                         Guid companyConfigurationId = (Guid)masterDataEnhancedDetailDataRow["Company Configuration Id"];
                         await LoadCompanyConfigurationAsync(companyConfigurationId);
@@ -272,24 +272,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}",
                             ParameterValue = dataSubjectValue
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Description",
                             ParameterValue = dataSubjectDescriptionValue
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
                             ParameterValue = _dataSubjectId
@@ -298,7 +298,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "companyConfigurationId",
                             ParameterValue = companyConfigurationId
@@ -332,7 +332,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly;
             masterDataEnhancedDetailActiveStatusCheckbox.Enabled = !masterDataEnhancedDetailActiveStatusCheckbox.Enabled;
             masterDataEnhancedDetailUpdateDataSubjectButton.Enabled = !masterDataEnhancedDetailUpdateDataSubjectButton.Enabled;
-            if(companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+            if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
             {
                 masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled = !masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled;
             }

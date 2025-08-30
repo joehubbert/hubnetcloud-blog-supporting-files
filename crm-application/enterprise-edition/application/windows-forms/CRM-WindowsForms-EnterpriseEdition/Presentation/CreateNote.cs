@@ -185,22 +185,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 var parameters = new[]
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = $"{createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix}Id",
                         ParameterValue = _dataSubjectId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}",
                         ParameterValue = note
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}Title",
                         ParameterValue = noteTitle
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}TypeId",
                         ParameterValue = noteTypeId

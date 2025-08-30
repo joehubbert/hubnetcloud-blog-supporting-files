@@ -51,7 +51,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "customerTierId",
                     ParameterValue = _customerTierId
@@ -191,27 +191,27 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "companyConfigurationId",
                             ParameterValue = companyConfigurationId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerTier",
                             ParameterValue = customerTierDescription
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerTierCode",
                             ParameterValue = customerTierCode
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerTierId",
                             ParameterValue = _customerTierId

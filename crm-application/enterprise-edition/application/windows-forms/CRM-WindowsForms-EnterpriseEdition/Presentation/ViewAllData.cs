@@ -480,7 +480,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"@{dataSubjectParentIdentityId}",
                             ParameterValue = dataSubjectParentIdentityId

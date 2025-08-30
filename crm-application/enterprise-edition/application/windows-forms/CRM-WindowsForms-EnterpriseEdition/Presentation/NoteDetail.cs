@@ -37,7 +37,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeComponent();
             InitializeEventHandlers();
             _dataSubjectId = dataSubjectId;
-            if(string.IsNullOrEmpty(dataSubjectName))
+            if (string.IsNullOrEmpty(dataSubjectName))
             {
                 _dataSubjectName = null;
             }
@@ -158,7 +158,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
                     ParameterValue = _noteId
@@ -283,17 +283,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     var parameters = new[]
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}Id",
                             ParameterValue = _noteId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}Title",
                             ParameterValue = noteTitle
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}TypeId",
                             ParameterValue = noteTypeId

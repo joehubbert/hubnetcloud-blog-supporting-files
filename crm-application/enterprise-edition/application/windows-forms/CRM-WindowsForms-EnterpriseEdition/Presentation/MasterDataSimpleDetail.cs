@@ -275,7 +275,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
                     ParameterValue = _dataSubjectId
@@ -299,7 +299,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataSimpleDetailLastUpdatedByTextBox.Text = masterDataSimpleDetailDataRow["Modified By"].ToString();
                     masterDataSimpleDetailLastUpdatedTimestampTextBox.Text = masterDataSimpleDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataSimpleDetailActiveStatusCheckbox.Checked = (bool)masterDataSimpleDetailDataRow["Active Status"];
-                    if(companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+                    if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                     {
                         Guid companyConfigurationId = (Guid)masterDataSimpleDetailDataRow["Company Configuration Id"];
                         await LoadCompanyConfigurationAsync(companyConfigurationId);
@@ -405,19 +405,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
                             ParameterValue = _dataSubjectId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}",
                             ParameterValue = dataSubjectValue
@@ -426,7 +426,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "companyConfigurationId",
                             ParameterValue = companyConfigurationId

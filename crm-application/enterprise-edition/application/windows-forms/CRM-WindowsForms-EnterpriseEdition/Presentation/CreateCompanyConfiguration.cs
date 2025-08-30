@@ -567,114 +567,114 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             else
             {
-                var parameters = new List<Parameter>
+                var parameters = new List<StoredProcedureParameter>
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "activeStatus",
                         ParameterValue = activeStatus
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine1",
                         ParameterValue = addressLine1
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine3",
                         ParameterValue = addressLine3
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine4",
                         ParameterValue = addressLine4
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "addressLine5",
                         ParameterValue = addressLine5
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountAddressLine1",
                         ParameterValue = bankAccountAddressLine1
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountAddressLine3",
                         ParameterValue = bankAccountAddressLine3
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountAddressLine4",
                         ParameterValue = bankAccountAddressLine4
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountAddressLine5",
                         ParameterValue = bankAccountAddressLine5
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountCurrencyId",
                         ParameterValue = bankAccountCurrencyId
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountIBAN",
                         ParameterValue = bankAccountIBAN
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountName",
                         ParameterValue = bankAccountName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountNumber",
                         ParameterValue = bankAccountNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountOpeningBalance",
                         ParameterValue = bankAccountOpeningBalance
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountSWIFTCode",
                         ParameterValue = bankAccountSWIFTCode
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyLogo",
                         ParameterValue = companyLogo
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "companyName",
                         ParameterValue = companyName
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "emailAddress",
                         ParameterValue = emailAddress
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "emailTopLevelDomain",
                         ParameterValue = emailTopLevelDomain
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "telephoneNumber",
                         ParameterValue = telephoneNumber
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "vatRegistered",
                         ParameterValue = vatRegistered
                     },
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "websiteURL",
                         ParameterValue = websiteURL
@@ -683,7 +683,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(addressLine2))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "addressLine2",
                         ParameterValue = addressLine2
@@ -692,7 +692,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(bankAccountAddressLine2))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountAddressLine2",
                         ParameterValue = bankAccountAddressLine2
@@ -701,7 +701,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(bankAccountSortCode))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountSortCode",
                         ParameterValue = bankAccountSortCode
@@ -710,7 +710,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(bankAccountVippsId))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "bankAccountVippsId",
                         ParameterValue = bankAccountVippsId
@@ -719,7 +719,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (!string.IsNullOrEmpty(vatNumber))
                 {
-                    parameters.Add(new Parameter
+                    parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "vatNumber",
                         ParameterValue = vatNumber

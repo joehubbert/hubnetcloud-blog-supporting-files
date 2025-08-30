@@ -62,7 +62,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             var parameters = new[]
                 {
-                    new Parameter
+                    new StoredProcedureParameter
                     {
                         ParameterName = "customerId",
                         ParameterValue = customerId
@@ -147,7 +147,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
 {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "customerLeadId",
                     ParameterValue = _customerLeadId
@@ -434,29 +434,29 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = activeStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerLead",
                             ParameterValue = customerLead
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerLeadId",
                             ParameterValue = _customerLeadId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerLeadTitle",
                             ParameterValue = customerLeadTitle
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "customerLeadTypeId",
                             ParameterValue = customerLeadTypeId
@@ -465,7 +465,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (customerContactId != null)
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "customerContactId",
                             ParameterValue = customerContactId
@@ -474,7 +474,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (customerLeadTargetDate != null)
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "customerLeadTargetDate",
                             ParameterValue = customerLeadTargetDate
@@ -483,7 +483,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (marketingChannelId != null)
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "marketingChannelId",
                             ParameterValue = marketingChannelId

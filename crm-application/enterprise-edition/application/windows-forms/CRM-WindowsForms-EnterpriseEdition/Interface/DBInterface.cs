@@ -6,34 +6,47 @@ using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Interface
 {
-    internal class Parameter
+    internal class StoredProcedureParameter
     {
+        public ParameterDirection ParameterDirection { get; set; } = ParameterDirection.Input;
         public string ParameterName { get; set; } = string.Empty;
         public object? ParameterValue { get; set; }
     }
 
     internal class DBInterface
     {
-        private static object[] BuildDbParameters(DatabaseConnectionSettings dbSettings, Parameter[] parameters)
+        private static object[] BuildDbParameters(DatabaseConnectionSettings dbSettings, StoredProcedureParameter[] parameters)
         {
             switch (dbSettings.ActiveDatabaseEngine)
             {
                 case "Azure SQL Database":
                 case "Azure SQL Managed Instance":
                 case "Microsoft SQL Server":
-                    return parameters.Select(p => new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                    return parameters.Select(p => {
+                        var sqlParam = new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value);
+                        sqlParam.Direction = p.ParameterDirection;
+                        return sqlParam;
+                    }).ToArray();
                 case "Azure Database for MySQL":
                 case "MySQL":
-                    return parameters.Select(p => new MySqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                    return parameters.Select(p => {
+                        var mySqlParam = new MySqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value);
+                        mySqlParam.Direction = p.ParameterDirection;
+                        return mySqlParam;
+                    }).ToArray();
                 case "Azure Database for PostgreSQL":
                 case "PostgreSQL":
-                    return parameters.Select(p => new NpgsqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value)).ToArray();
+                    return parameters.Select(p => {
+                        var npgsqlParam = new NpgsqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value);
+                        npgsqlParam.Direction = p.ParameterDirection;
+                        return npgsqlParam;
+                    }).ToArray();
                 default:
                     throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
             }
         }
 
-        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject, string operationType)
+        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(string storedProcedureName, StoredProcedureParameter[] parameters, string dataSubject, string operationType)
         {
             try
             {
@@ -90,7 +103,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
             }
         }
 
-        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(string storedProcedureName, Parameter[] parameters, string dataSubject)
+        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(string storedProcedureName, StoredProcedureParameter[] parameters, string dataSubject)
         {
             try
             {

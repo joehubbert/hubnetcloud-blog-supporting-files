@@ -110,14 +110,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     functionFriendlyName = "Countries";
                     storedProcedureName = "spGetAllCountry";
                     break;
-                case "CountryTranslation":
-                    dataSortingColumnName = "Country English Name";
-                    dataSortingColumnOrder = "ASC";
-                    dataSubjectIdentityColumn = "Country Translation Id";
-                    dataSubjectFriendlyName = "Country Translation";
-                    functionFriendlyName = "Country Translations";
-                    storedProcedureName = "spGetAllCountryTranslation";
-                    break;
                 case "Currency":
                     dataSortingColumnName = "Currency Code";
                     dataSortingColumnOrder = "ASC";
@@ -566,11 +558,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid countryId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 CountryDetail countryDetail = new CountryDetail(countryId);
                                 countryDetail.Show();
-                                break;
-                            case "CountryTranslation":
-                                Guid countryTranslationId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
-                                CountryTranslationDetail countryTranslationDetail = new CountryTranslationDetail(countryTranslationId);
-                                countryTranslationDetail.Show();
                                 break;
                             case "Currency":
                                 Guid currencyId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;

@@ -6,7 +6,6 @@ Post-Deployment Script
 :r ".\Configuration\SchemaPublishTimestamp.sql"
 :r ".\Configuration\SoftwareEdition.sql"
 :r ".\Data Population\Country.sql"
-:r ".\Data Population\CountryTranslation.sql"
 :r ".\Data Population\Currency.sql"
 :r ".\Data Population\CustomerLeadNoteType.sql"
 :r ".\Data Population\CustomerLeadStatus.sql"

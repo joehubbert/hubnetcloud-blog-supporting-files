@@ -253,18 +253,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             viewAllData.Show();
         }
 
-        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageCreateCountryTranslationButton_Click(object sender, EventArgs e)
-        {
-            CreateCountryTranslation createCountryTranslation = new CreateCountryTranslation();
-            createCountryTranslation.Show();
-        }
-
-        private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTranslationTabPageViewAllCountryTranslationButton_Click(object sender, EventArgs e)
-        {
-            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement", null);
-            viewAllData.Show();
-        }
-
         private void companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPageCreateHTMLTemplateTypeButton_Click(object sender, EventArgs e)
         {
             CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("HTMLTemplateType", "CompanyManagement");

@@ -353,18 +353,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             viewAllData.Show();
         }
 
-        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation_Click(object sender, EventArgs e)
-        {
-            CreateCountryTranslation createCountryTranslation = new CreateCountryTranslation();
-            createCountryTranslation.Show();
-        }
-
-        private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation_Click(object sender, EventArgs e)
-        {
-            ViewAllData viewAllData = new ViewAllData("CountryTranslation", "CompanyManagement", null);
-            viewAllData.Show();
-        }
-
         private void homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType_Click(object sender, EventArgs e)
         {
             CreateMasterDataSimple createMasterDataSimple = new CreateMasterDataSimple("HTMLTemplateType", "CompanyManagement");

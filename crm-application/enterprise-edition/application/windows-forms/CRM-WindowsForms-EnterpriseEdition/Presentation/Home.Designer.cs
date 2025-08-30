@@ -104,9 +104,6 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryCreateCountry = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeCreateHTMLTemplateType = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateTypeViewAllHTMLTemplateType = new ToolStripMenuItem();
@@ -156,6 +153,9 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusCreateSupplierOrderStatus = new ToolStripMenuItem();
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType = new ToolStripMenuItem();
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagement = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagementCreateCustomer = new ToolStripMenuItem();
             homeMenuStripModuleCustomerManagementViewAllCustomer = new ToolStripMenuItem();
@@ -187,9 +187,6 @@
             homeStatusStrip = new StatusStrip();
             homeStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType = new ToolStripMenuItem();
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             homeStatusStrip.SuspendLayout();
             SuspendLayout();
@@ -877,7 +874,7 @@
             // 
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.BackColor = Color.Transparent;
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType });
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous";
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Size = new Size(203, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneous.Text = "&Miscellaneous";
@@ -908,33 +905,6 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry.Size = new Size(180, 22);
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry.Text = "&View All Countries";
             homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation, homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation });
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Size = new Size(198, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation.Text = "&Country Translation";
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.Size = new Size(243, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.Text = "&Create Country Translation";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Size = new Size(243, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Text = "&View All Country Translations";
-            homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation.Click += homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation_Click;
             // 
             // homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousHTMLTemplateType
             // 
@@ -1377,6 +1347,33 @@
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus.Text = "&View All Supplier Order Statuses";
             homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierSupplierOrderStatusViewAllSupplierOrderStatus_Click;
             // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType, homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType });
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Size = new Size(258, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Text = "&Wholesale Delivery Type";
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Size = new Size(272, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Text = "&Create Wholesale Delivery Type";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType_Click;
+            // 
+            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType
+            // 
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.BackColor = Color.Transparent;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Size = new Size(272, 22);
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Text = "&View All Wholesale Delivery Types";
+            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType_Click;
+            // 
             // homeMenuStripModuleCustomerManagement
             // 
             homeMenuStripModuleCustomerManagement.BackColor = Color.Transparent;
@@ -1666,33 +1663,6 @@
             changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
             changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.DropDownItems.AddRange(new ToolStripItem[] { homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType, homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType });
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Size = new Size(258, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryType.Text = "&Wholesale Delivery Type";
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Size = new Size(272, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Text = "&Create Wholesale Delivery Type";
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeCreateWholesaleDeliveryType_Click;
-            // 
-            // homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType
-            // 
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.BackColor = Color.Transparent;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Name = "homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType";
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Size = new Size(272, 22);
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Text = "&View All Wholesale Delivery Types";
-            homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType.Click += homeMenuStripModuleCompanyManagementMasterDataManagementSupplierWholesaleDeliveryTypeViewAllWholesaleDeliveryType_Click;
-            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1857,9 +1827,6 @@
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountry;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryCreateCountry;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryViewAllCountry;
-        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslation;
-        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationCreateCountryTranslation;
-        private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementMiscellaneousCountryTranslationViewAllCountryTranslation;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatus;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatusCreateOrderPaymentStatus;
         private ToolStripMenuItem homeMenuStripModuleCompanyManagementMasterDataManagementOrderOrderPaymentStatusViewAllOrderPaymentStatus;

@@ -1181,9 +1181,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.BackColor = Color.LemonChiffon;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPageCreateHTMLTemplateTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPageViewAllHTMLTemplateTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Size = new Size(1173, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.TabIndex = 2;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage.Text = "HTML Template Type";
             // 
@@ -1839,9 +1839,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.BackColor = Color.MediumAquamarine;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPageCreateWholesaleDeliveryTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPageViewAllWholesaleDeliveryTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Size = new Size(1173, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.TabIndex = 4;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage.Text = "Wholesale Delivery Type";
             // 

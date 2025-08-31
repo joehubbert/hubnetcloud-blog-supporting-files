@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel = new Label();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel = new Label();
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel = new Label();
@@ -86,16 +86,16 @@
             customerLeadDetailStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
-            // customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox
+            // customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(170, 479);
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox";
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(178, 24);
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 5;
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Customer Lead*";
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = false;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(170, 479);
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Name = "customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox";
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(178, 24);
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 5;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Customer Lead*";
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel
             // 
@@ -230,7 +230,7 @@
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanel);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerContactPanel);
-            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox);
+            customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadIdTextBox);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox);
             customerLeadDetailTabControlOverviewTabPage.Controls.Add(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox);
@@ -642,7 +642,7 @@
 
         #endregion
 
-        private CheckBox customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox;
+        private CheckBox customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBoxLabel;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBoxLabel;
         private Label customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBoxLabel;

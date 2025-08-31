@@ -43,7 +43,7 @@
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox = new TextBox();
             accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel = new Label();
             accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox = new TextBox();
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox = new CheckBox();
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox = new CheckBox();
             accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel = new Label();
             accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel = new Label();
             accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel = new Label();
@@ -103,7 +103,7 @@
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageCreatedByTextBox);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBoxLabel);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox);
-            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox);
+            accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel);
             accountManagerDetailTabControlAccountManagerInformationTabPage.Controls.Add(accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel);
@@ -254,18 +254,18 @@
             accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.Size = new Size(340, 27);
             accountManagerDetailTabControlAccountManagerInformationTabPageAccountManagerIdTextBox.TabIndex = 1;
             // 
-            // accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox
+            // accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox
             // 
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.AutoSize = true;
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled = false;
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Location = new Point(184, 253);
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Margin = new Padding(4);
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox";
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Size = new Size(196, 24);
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.TabIndex = 6;
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Text = "Active Account Manager*";
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.AutoSize = true;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled = false;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Location = new Point(184, 253);
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox";
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Size = new Size(196, 24);
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.TabIndex = 6;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Text = "Active Account Manager*";
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel
             // 
@@ -477,7 +477,7 @@
         private TabPage accountManagerDetailTabControlAccountManagerInformationTabPage;
         private TabPage accountManagerDetailTabControlAssociatedCustomersTabPage;
         private DataGridView accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView;
-        private CheckBox accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox;
+        private CheckBox accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox;
         private Label accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBoxLabel;
         private Label accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBoxLabel;
         private Label accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBoxLabel;

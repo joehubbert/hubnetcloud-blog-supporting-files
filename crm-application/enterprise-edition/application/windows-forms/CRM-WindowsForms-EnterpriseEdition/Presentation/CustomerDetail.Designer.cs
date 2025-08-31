@@ -84,7 +84,7 @@
             customerDetailTabControlOverviewTabPageTopParentCustomerComboBox = new ComboBox();
             customerDetailTabControlOverviewTabPageCustomerTypeComboBox = new ComboBox();
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker = new DateTimePicker();
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             customerDetailTabControlBillingInformationTabPage = new TabPage();
             customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox = new ComboBox();
             customerDetailTabControlBillingInformationTabPageEmailAddressTextBoxLabel = new Label();
@@ -138,7 +138,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitUsedTextBoxA = new TextBox();
             customerDetailTabControlFinanceTabPageVATNumberTextBoxLabel = new Label();
             customerDetailTabControlFinanceTabPageVATNumberTextBox = new TextBox();
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox = new CheckBox();
             customerDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel = new Label();
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel = new Label();
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxLabel = new Label();
@@ -147,7 +147,7 @@
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel = new Label();
             customerDetailTabControlFinanceTabPageTextBoxB = new TextBox();
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA = new TextBox();
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox = new CheckBox();
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox = new CheckBox();
             customerDetailTabControlCustomerContactTabPage = new TabPage();
             customerDetailTabControlCustomerContactTabPageQuickFilterTextBoxLabel = new Label();
             customerDetailTabControlCustomerContactTabPageQuickFilterTextBox = new TextBox();
@@ -260,7 +260,7 @@
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageTopParentCustomerComboBox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCustomerTypeComboBox);
             customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageCustomerSinceDatePicker);
-            customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageActiveStatusCheckbox);
+            customerDetailTabControlOverviewTabPage.Controls.Add(customerDetailTabControlOverviewTabPageActiveStatusCheckBox);
             customerDetailTabControlOverviewTabPage.Location = new Point(4, 32);
             customerDetailTabControlOverviewTabPage.Name = "customerDetailTabControlOverviewTabPage";
             customerDetailTabControlOverviewTabPage.Padding = new Padding(3);
@@ -787,18 +787,18 @@
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Size = new Size(310, 27);
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.TabIndex = 7;
             // 
-            // customerDetailTabControlOverviewTabPageActiveStatusCheckbox
+            // customerDetailTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(199, 469);
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "customerDetailTabControlOverviewTabPageActiveStatusCheckbox";
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(142, 24);
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 10;
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Customer*";
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = false;
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(199, 469);
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Name = "customerDetailTabControlOverviewTabPageActiveStatusCheckBox";
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(142, 24);
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 10;
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Customer*";
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // customerDetailTabControlBillingInformationTabPage
             // 
@@ -1254,7 +1254,7 @@
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitUsedTextBoxA);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageVATNumberTextBoxLabel);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageVATNumberTextBox);
-            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageVATRegisteredCheckbox);
+            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageVATRegisteredCheckBox);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxLabel);
@@ -1263,7 +1263,7 @@
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageTextBoxB);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxA);
-            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditEnabledCheckbox);
+            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditEnabledCheckBox);
             customerDetailTabControlFinanceTabPage.Location = new Point(4, 27);
             customerDetailTabControlFinanceTabPage.Name = "customerDetailTabControlFinanceTabPage";
             customerDetailTabControlFinanceTabPage.Size = new Size(1247, 721);
@@ -1362,18 +1362,18 @@
             customerDetailTabControlFinanceTabPageVATNumberTextBox.Size = new Size(208, 27);
             customerDetailTabControlFinanceTabPageVATNumberTextBox.TabIndex = 59;
             // 
-            // customerDetailTabControlFinanceTabPageVATRegisteredCheckbox
+            // customerDetailTabControlFinanceTabPageVATRegisteredCheckBox
             // 
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.AutoSize = true;
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = false;
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Location = new Point(30, 272);
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Name = "customerDetailTabControlFinanceTabPageVATRegisteredCheckbox";
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 58;
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.AutoSize = true;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = false;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Location = new Point(30, 272);
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Margin = new Padding(4);
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Name = "customerDetailTabControlFinanceTabPageVATRegisteredCheckBox";
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Size = new Size(128, 24);
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.TabIndex = 58;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Text = "VAT Registered";
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.UseVisualStyleBackColor = true;
             // 
             // customerDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel
             // 
@@ -1451,18 +1451,18 @@
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Size = new Size(103, 27);
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.TabIndex = 50;
             // 
-            // customerDetailTabControlFinanceTabPageCreditEnabledCheckbox
+            // customerDetailTabControlFinanceTabPageCreditEnabledCheckBox
             // 
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.AutoSize = true;
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Enabled = false;
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Location = new Point(30, 25);
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Margin = new Padding(4);
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Name = "customerDetailTabControlFinanceTabPageCreditEnabledCheckbox";
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Size = new Size(126, 24);
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.TabIndex = 49;
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Text = "Credit Enabled";
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.UseVisualStyleBackColor = true;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.AutoSize = true;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Enabled = false;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Location = new Point(30, 25);
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Margin = new Padding(4);
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Name = "customerDetailTabControlFinanceTabPageCreditEnabledCheckBox";
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Size = new Size(126, 24);
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.TabIndex = 49;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Text = "Credit Enabled";
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.UseVisualStyleBackColor = true;
             // 
             // customerDetailTabControlCustomerContactTabPage
             // 
@@ -1751,8 +1751,8 @@
         private Button customerDetailUpdateCustomerButton;
         private TabPage customerDetailTabControlShippingInformationTabPage;
         private TabPage customerDetailTabControlFinanceTabPage;
-        private CheckBox customerDetailTabControlOverviewTabPageActiveStatusCheckbox;
-        private CheckBox customerDetailTabControlFinanceTabPageCreditEnabledCheckbox;
+        private CheckBox customerDetailTabControlOverviewTabPageActiveStatusCheckBox;
+        private CheckBox customerDetailTabControlFinanceTabPageCreditEnabledCheckBox;
         private Label customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel;
         private TextBox customerDetailTabControlFinanceTabPageTextBoxB;
         private TextBox customerDetailTabControlFinanceTabPageCreditLimitTextBoxA;
@@ -1830,7 +1830,7 @@
         private Panel customerDetailTabControlOverviewTabPageExistingParentCompanyPanel;
         private Panel customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanel;
         private Panel customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanel;
-        private CheckBox customerDetailTabControlFinanceTabPageVATRegisteredCheckbox;
+        private CheckBox customerDetailTabControlFinanceTabPageVATRegisteredCheckBox;
         private Label customerDetailTabControlFinanceTabPageVATNumberTextBoxLabel;
         private TextBox customerDetailTabControlFinanceTabPageVATNumberTextBox;
         private Label customerDetailTabControlOverviewTabPageSalesSubRegionComboBoxLabel;

@@ -31,7 +31,7 @@
             currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel = new Label();
             currencyConversionDetailTargetCurrencyValueTextBoxB = new TextBox();
             currencyConversionDetailEffectiveDatePickerLabel = new Label();
-            currencyConversionDetailActiveStatusCheckbox = new CheckBox();
+            currencyConversionDetailActiveStatusCheckBox = new CheckBox();
             currencyConversionDetailTargetCurrencyValueTextBoxLabel = new Label();
             currencyConversionDetailBaseCurrencyValueTextBoxLabel = new Label();
             currencyConversionDetailBaseCurrencyComboBoxLabel = new Label();
@@ -95,19 +95,19 @@
             currencyConversionDetailEffectiveDatePickerLabel.Text = "Effective Date*";
             currencyConversionDetailEffectiveDatePickerLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // currencyConversionDetailActiveStatusCheckbox
+            // currencyConversionDetailActiveStatusCheckBox
             // 
-            currencyConversionDetailActiveStatusCheckbox.AutoSize = true;
-            currencyConversionDetailActiveStatusCheckbox.Checked = true;
-            currencyConversionDetailActiveStatusCheckbox.CheckState = CheckState.Checked;
-            currencyConversionDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currencyConversionDetailActiveStatusCheckbox.Location = new Point(255, 415);
-            currencyConversionDetailActiveStatusCheckbox.Margin = new Padding(4);
-            currencyConversionDetailActiveStatusCheckbox.Name = "currencyConversionDetailActiveStatusCheckbox";
-            currencyConversionDetailActiveStatusCheckbox.Size = new Size(213, 24);
-            currencyConversionDetailActiveStatusCheckbox.TabIndex = 7;
-            currencyConversionDetailActiveStatusCheckbox.Text = "Active Currency Conversion*";
-            currencyConversionDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            currencyConversionDetailActiveStatusCheckBox.AutoSize = true;
+            currencyConversionDetailActiveStatusCheckBox.Checked = true;
+            currencyConversionDetailActiveStatusCheckBox.CheckState = CheckState.Checked;
+            currencyConversionDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currencyConversionDetailActiveStatusCheckBox.Location = new Point(255, 415);
+            currencyConversionDetailActiveStatusCheckBox.Margin = new Padding(4);
+            currencyConversionDetailActiveStatusCheckBox.Name = "currencyConversionDetailActiveStatusCheckBox";
+            currencyConversionDetailActiveStatusCheckBox.Size = new Size(213, 24);
+            currencyConversionDetailActiveStatusCheckBox.TabIndex = 7;
+            currencyConversionDetailActiveStatusCheckBox.Text = "Active Currency Conversion*";
+            currencyConversionDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // currencyConversionDetailTargetCurrencyValueTextBoxLabel
             // 
@@ -424,7 +424,7 @@
             Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel);
             Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxB);
             Controls.Add(currencyConversionDetailEffectiveDatePickerLabel);
-            Controls.Add(currencyConversionDetailActiveStatusCheckbox);
+            Controls.Add(currencyConversionDetailActiveStatusCheckBox);
             Controls.Add(currencyConversionDetailTargetCurrencyValueTextBoxLabel);
             Controls.Add(currencyConversionDetailBaseCurrencyValueTextBoxLabel);
             Controls.Add(currencyConversionDetailBaseCurrencyComboBoxLabel);
@@ -457,7 +457,7 @@
         private Label currencyConversionDetailTargetCurrencyValueTextBoxSeparatorLabel;
         private TextBox currencyConversionDetailTargetCurrencyValueTextBoxB;
         private Label currencyConversionDetailEffectiveDatePickerLabel;
-        private CheckBox currencyConversionDetailActiveStatusCheckbox;
+        private CheckBox currencyConversionDetailActiveStatusCheckBox;
         private Label currencyConversionDetailTargetCurrencyValueTextBoxLabel;
         private Label currencyConversionDetailBaseCurrencyValueTextBoxLabel;
         private Label currencyConversionDetailBaseCurrencyComboBoxLabel;

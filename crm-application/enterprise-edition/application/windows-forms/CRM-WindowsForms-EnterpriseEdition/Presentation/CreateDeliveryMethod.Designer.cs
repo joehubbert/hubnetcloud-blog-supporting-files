@@ -31,7 +31,7 @@
             createDeliveryMethodTitleLabel = new Label();
             createDeliveryMethodDeliveryMethodLabel = new Label();
             createDeliveryMethodDeliveryMethodTextBox = new TextBox();
-            createDeliveryMethodActiveStatusCheckbox = new CheckBox();
+            createDeliveryMethodActiveStatusCheckBox = new CheckBox();
             createDeliveryMethodSubmitButton = new Button();
             createDeliveryMethodDeliveryCostLabel = new Label();
             createDeliveryMethodDeliveryCostTextBoxA = new TextBox();
@@ -74,19 +74,19 @@
             createDeliveryMethodDeliveryMethodTextBox.Size = new Size(284, 27);
             createDeliveryMethodDeliveryMethodTextBox.TabIndex = 0;
             // 
-            // createDeliveryMethodActiveStatusCheckbox
+            // createDeliveryMethodActiveStatusCheckBox
             // 
-            createDeliveryMethodActiveStatusCheckbox.AutoSize = true;
-            createDeliveryMethodActiveStatusCheckbox.Checked = true;
-            createDeliveryMethodActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createDeliveryMethodActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createDeliveryMethodActiveStatusCheckbox.Location = new Point(202, 252);
-            createDeliveryMethodActiveStatusCheckbox.Margin = new Padding(5);
-            createDeliveryMethodActiveStatusCheckbox.Name = "createDeliveryMethodActiveStatusCheckbox";
-            createDeliveryMethodActiveStatusCheckbox.Size = new Size(189, 24);
-            createDeliveryMethodActiveStatusCheckbox.TabIndex = 5;
-            createDeliveryMethodActiveStatusCheckbox.Text = "Active Delivery Method*";
-            createDeliveryMethodActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createDeliveryMethodActiveStatusCheckBox.AutoSize = true;
+            createDeliveryMethodActiveStatusCheckBox.Checked = true;
+            createDeliveryMethodActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createDeliveryMethodActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createDeliveryMethodActiveStatusCheckBox.Location = new Point(202, 252);
+            createDeliveryMethodActiveStatusCheckBox.Margin = new Padding(5);
+            createDeliveryMethodActiveStatusCheckBox.Name = "createDeliveryMethodActiveStatusCheckBox";
+            createDeliveryMethodActiveStatusCheckBox.Size = new Size(189, 24);
+            createDeliveryMethodActiveStatusCheckBox.TabIndex = 5;
+            createDeliveryMethodActiveStatusCheckBox.Text = "Active Delivery Method*";
+            createDeliveryMethodActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createDeliveryMethodSubmitButton
             // 
@@ -194,7 +194,7 @@
             Controls.Add(createDeliveryMethodDeliveryCostTextBoxA);
             Controls.Add(createDeliveryMethodDeliveryCostLabel);
             Controls.Add(createDeliveryMethodSubmitButton);
-            Controls.Add(createDeliveryMethodActiveStatusCheckbox);
+            Controls.Add(createDeliveryMethodActiveStatusCheckBox);
             Controls.Add(createDeliveryMethodDeliveryMethodTextBox);
             Controls.Add(createDeliveryMethodDeliveryMethodLabel);
             Controls.Add(createDeliveryMethodTitleLabel);
@@ -214,7 +214,7 @@
         private Label createDeliveryMethodTitleLabel;
         private Label createDeliveryMethodDeliveryMethodLabel;
         private TextBox createDeliveryMethodDeliveryMethodTextBox;
-        private CheckBox createDeliveryMethodActiveStatusCheckbox;
+        private CheckBox createDeliveryMethodActiveStatusCheckBox;
         private Button createDeliveryMethodSubmitButton;
         private Label createDeliveryMethodDeliveryCostLabel;
         private TextBox createDeliveryMethodDeliveryCostTextBoxA;

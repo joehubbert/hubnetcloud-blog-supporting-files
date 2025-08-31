@@ -20,7 +20,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged;
             createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
@@ -37,7 +37,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 createManufacturerTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
@@ -51,9 +51,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createManufacturerSubmitButton_Click(object sender, EventArgs e)
         {
             string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool manufacturerFinanceVATRegistered = createManufacturerTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool manufacturerFinanceVATRegistered = createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
-            bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
             string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
             string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();

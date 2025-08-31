@@ -44,7 +44,7 @@
             taxProfileDetailTaxProfileIdTextBox = new TextBox();
             taxProfileDetailTaxProfileTextBox = new TextBox();
             taxProfileDetailToggleEditModeButton = new Button();
-            taxProfileDetailActiveStatusCheckbox = new CheckBox();
+            taxProfileDetailActiveStatusCheckBox = new CheckBox();
             taxProfileDetailUpdateTaxProfileButton = new Button();
             taxProfileDetailTaxRateTextBoxB = new TextBox();
             taxProfileDetailTaxRateTextBoxSeparatorLabel = new Label();
@@ -206,18 +206,18 @@
             taxProfileDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             taxProfileDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // taxProfileDetailActiveStatusCheckbox
+            // taxProfileDetailActiveStatusCheckBox
             // 
-            taxProfileDetailActiveStatusCheckbox.AutoSize = true;
-            taxProfileDetailActiveStatusCheckbox.Enabled = false;
-            taxProfileDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            taxProfileDetailActiveStatusCheckbox.Location = new Point(212, 292);
-            taxProfileDetailActiveStatusCheckbox.Margin = new Padding(4);
-            taxProfileDetailActiveStatusCheckbox.Name = "taxProfileDetailActiveStatusCheckbox";
-            taxProfileDetailActiveStatusCheckbox.Size = new Size(147, 24);
-            taxProfileDetailActiveStatusCheckbox.TabIndex = 4;
-            taxProfileDetailActiveStatusCheckbox.Text = "Active Tax Profile*";
-            taxProfileDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            taxProfileDetailActiveStatusCheckBox.AutoSize = true;
+            taxProfileDetailActiveStatusCheckBox.Enabled = false;
+            taxProfileDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            taxProfileDetailActiveStatusCheckBox.Location = new Point(212, 292);
+            taxProfileDetailActiveStatusCheckBox.Margin = new Padding(4);
+            taxProfileDetailActiveStatusCheckBox.Name = "taxProfileDetailActiveStatusCheckBox";
+            taxProfileDetailActiveStatusCheckBox.Size = new Size(147, 24);
+            taxProfileDetailActiveStatusCheckBox.TabIndex = 4;
+            taxProfileDetailActiveStatusCheckBox.Text = "Active Tax Profile*";
+            taxProfileDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // taxProfileDetailUpdateTaxProfileButton
             // 
@@ -260,7 +260,7 @@
             Controls.Add(taxProfileDetailTaxRateTextBoxSeparatorLabel);
             Controls.Add(taxProfileDetailTaxRateTextBoxB);
             Controls.Add(taxProfileDetailUpdateTaxProfileButton);
-            Controls.Add(taxProfileDetailActiveStatusCheckbox);
+            Controls.Add(taxProfileDetailActiveStatusCheckBox);
             Controls.Add(taxProfileDetailToggleEditModeButton);
             Controls.Add(taxProfileDetailTaxProfileTextBox);
             Controls.Add(taxProfileDetailTaxProfileIdTextBox);
@@ -306,7 +306,7 @@
         private TextBox taxProfileDetailTaxProfileIdTextBox;
         private TextBox taxProfileDetailTaxProfileTextBox;
         private Button taxProfileDetailToggleEditModeButton;
-        private CheckBox taxProfileDetailActiveStatusCheckbox;
+        private CheckBox taxProfileDetailActiveStatusCheckBox;
         private Button taxProfileDetailUpdateTaxProfileButton;
         private TextBox taxProfileDetailTaxRateTextBoxB;
         private Label taxProfileDetailTaxRateTextBoxSeparatorLabel;

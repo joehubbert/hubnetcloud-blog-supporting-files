@@ -30,7 +30,7 @@
         {
             masterDataAdvancedDetailTitleLabel = new Label();
             masterDataAdvancedDetailUpdateDataSubjectButton = new Button();
-            masterDataAdvancedDetailActiveStatusCheckbox = new CheckBox();
+            masterDataAdvancedDetailActiveStatusCheckBox = new CheckBox();
             masterDataAdvancedDetailToggleEditModeButton = new Button();
             masterDataAdvancedDetailDataSubjectIdTextBox = new TextBox();
             masterDataAdvancedDetailDataSubjectTextBox = new TextBox();
@@ -75,18 +75,18 @@
             masterDataAdvancedDetailUpdateDataSubjectButton.UseVisualStyleBackColor = true;
             masterDataAdvancedDetailUpdateDataSubjectButton.Click += masterDataAdvancedDetailUpdateDataSubjectButton_Click;
             // 
-            // masterDataAdvancedDetailActiveStatusCheckbox
+            // masterDataAdvancedDetailActiveStatusCheckBox
             // 
-            masterDataAdvancedDetailActiveStatusCheckbox.AutoSize = true;
-            masterDataAdvancedDetailActiveStatusCheckbox.Enabled = false;
-            masterDataAdvancedDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            masterDataAdvancedDetailActiveStatusCheckbox.Location = new Point(239, 330);
-            masterDataAdvancedDetailActiveStatusCheckbox.Margin = new Padding(4);
-            masterDataAdvancedDetailActiveStatusCheckbox.Name = "masterDataAdvancedDetailActiveStatusCheckbox";
-            masterDataAdvancedDetailActiveStatusCheckbox.Size = new Size(277, 24);
-            masterDataAdvancedDetailActiveStatusCheckbox.TabIndex = 4;
-            masterDataAdvancedDetailActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
-            masterDataAdvancedDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            masterDataAdvancedDetailActiveStatusCheckBox.AutoSize = true;
+            masterDataAdvancedDetailActiveStatusCheckBox.Enabled = false;
+            masterDataAdvancedDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            masterDataAdvancedDetailActiveStatusCheckBox.Location = new Point(239, 330);
+            masterDataAdvancedDetailActiveStatusCheckBox.Margin = new Padding(4);
+            masterDataAdvancedDetailActiveStatusCheckBox.Name = "masterDataAdvancedDetailActiveStatusCheckBox";
+            masterDataAdvancedDetailActiveStatusCheckBox.Size = new Size(277, 24);
+            masterDataAdvancedDetailActiveStatusCheckBox.TabIndex = 4;
+            masterDataAdvancedDetailActiveStatusCheckBox.Text = "Active {MasterData Type Placeholder}";
+            masterDataAdvancedDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // masterDataAdvancedDetailToggleEditModeButton
             // 
@@ -268,7 +268,7 @@
             Controls.Add(masterDataAdvancedDetailDataParentSubjectComboBox);
             Controls.Add(masterDataAdvancedDetailDataParentSubjectComboBoxLabel);
             Controls.Add(masterDataAdvancedDetailUpdateDataSubjectButton);
-            Controls.Add(masterDataAdvancedDetailActiveStatusCheckbox);
+            Controls.Add(masterDataAdvancedDetailActiveStatusCheckBox);
             Controls.Add(masterDataAdvancedDetailToggleEditModeButton);
             Controls.Add(masterDataAdvancedDetailDataSubjectIdTextBox);
             Controls.Add(masterDataAdvancedDetailDataSubjectTextBox);
@@ -298,7 +298,7 @@
 
         private Label masterDataAdvancedDetailTitleLabel;
         private Button masterDataAdvancedDetailUpdateDataSubjectButton;
-        private CheckBox masterDataAdvancedDetailActiveStatusCheckbox;
+        private CheckBox masterDataAdvancedDetailActiveStatusCheckBox;
         private Button masterDataAdvancedDetailToggleEditModeButton;
         private TextBox masterDataAdvancedDetailDataSubjectIdTextBox;
         private TextBox masterDataAdvancedDetailDataSubjectTextBox;

@@ -38,7 +38,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.MouseHover += ToolTip_MouseHover;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel.MouseHover += ToolTip_MouseHover;
-            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
+            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -63,13 +63,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked)
+            if (createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked)
             {
-                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Enabled = true;
             }
             else
             {
-                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.Enabled = false;
+                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Enabled = false;
                 createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
@@ -285,7 +285,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCompanyConfigurationSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createCompanyConfigurationTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked;
+            bool activeStatus = createCompanyConfigurationTabControlGeneralInformationTabPageActiveStatusCheckBox.Checked;
             string addressLine1 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextBox.Text.TrimEnd();
             string addressLine2 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2TextBox.Text.TrimEnd();
             string addressLine3 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox.Text.TrimEnd();
@@ -333,7 +333,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailTopLevelDomain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text.TrimEnd();
             string telephoneNumber = createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
             string vatNumber = createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text.TrimEnd();
-            bool vatRegistered = createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckbox.Checked;
+            bool vatRegistered = createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked;
             string websiteURL = createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextBox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";

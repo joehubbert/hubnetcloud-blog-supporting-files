@@ -31,7 +31,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createAccountManagerActiveStatusCheckbox.Checked;
+            bool activeStatus = createAccountManagerActiveStatusCheckBox.Checked;
             string emailAddress = createAccountManagerEmailAddressTextBox.Text.TrimEnd();
             string firstName = createAccountManagerFirstNameTextBox.Text.TrimEnd();
             string lastName = createAccountManagerLastNameTextBox.Text.TrimEnd();

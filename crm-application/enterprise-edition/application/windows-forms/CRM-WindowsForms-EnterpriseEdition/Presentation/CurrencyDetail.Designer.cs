@@ -43,7 +43,7 @@
             currencyDetailCurrencyNameTextBox = new TextBox();
             currencyDetailCurrencyIdTextBox = new TextBox();
             currencyDetailToggleEditModeButton = new Button();
-            currencyDetailActiveStatusCheckbox = new CheckBox();
+            currencyDetailActiveStatusCheckBox = new CheckBox();
             currencyDetailUpdateCurrencyButton = new Button();
             currencyDetailCurrencyCodeMaskedTextBox = new MaskedTextBox();
             SuspendLayout();
@@ -195,18 +195,18 @@
             currencyDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             currencyDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // currencyDetailActiveStatusCheckbox
+            // currencyDetailActiveStatusCheckBox
             // 
-            currencyDetailActiveStatusCheckbox.AutoSize = true;
-            currencyDetailActiveStatusCheckbox.Enabled = false;
-            currencyDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            currencyDetailActiveStatusCheckbox.Location = new Point(201, 305);
-            currencyDetailActiveStatusCheckbox.Margin = new Padding(4);
-            currencyDetailActiveStatusCheckbox.Name = "currencyDetailActiveStatusCheckbox";
-            currencyDetailActiveStatusCheckbox.Size = new Size(130, 24);
-            currencyDetailActiveStatusCheckbox.TabIndex = 3;
-            currencyDetailActiveStatusCheckbox.Text = "Active Currency";
-            currencyDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            currencyDetailActiveStatusCheckBox.AutoSize = true;
+            currencyDetailActiveStatusCheckBox.Enabled = false;
+            currencyDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            currencyDetailActiveStatusCheckBox.Location = new Point(201, 305);
+            currencyDetailActiveStatusCheckBox.Margin = new Padding(4);
+            currencyDetailActiveStatusCheckBox.Name = "currencyDetailActiveStatusCheckBox";
+            currencyDetailActiveStatusCheckBox.Size = new Size(130, 24);
+            currencyDetailActiveStatusCheckBox.TabIndex = 3;
+            currencyDetailActiveStatusCheckBox.Text = "Active Currency";
+            currencyDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // currencyDetailUpdateCurrencyButton
             // 
@@ -240,7 +240,7 @@
             ClientSize = new Size(1265, 427);
             Controls.Add(currencyDetailCurrencyCodeMaskedTextBox);
             Controls.Add(currencyDetailUpdateCurrencyButton);
-            Controls.Add(currencyDetailActiveStatusCheckbox);
+            Controls.Add(currencyDetailActiveStatusCheckBox);
             Controls.Add(currencyDetailToggleEditModeButton);
             Controls.Add(currencyDetailCurrencyIdTextBox);
             Controls.Add(currencyDetailCurrencyNameTextBox);
@@ -284,7 +284,7 @@
         private TextBox currencyDetailCurrencyNameTextBox;
         private TextBox currencyDetailCurrencyIdTextBox;
         private Button currencyDetailToggleEditModeButton;
-        private CheckBox currencyDetailActiveStatusCheckbox;
+        private CheckBox currencyDetailActiveStatusCheckBox;
         private Button currencyDetailUpdateCurrencyButton;
         private MaskedTextBox currencyDetailCurrencyCodeMaskedTextBox;
     }

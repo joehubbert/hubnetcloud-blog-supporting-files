@@ -38,7 +38,7 @@
             createAccountManagerLastNameLabel = new Label();
             createAccountManagerEmailAddressLabel = new Label();
             createAccountManagerTelephoneNumberLabel = new Label();
-            createAccountManagerActiveStatusCheckbox = new CheckBox();
+            createAccountManagerActiveStatusCheckBox = new CheckBox();
             createAccountManagerStatusStrip = new StatusStrip();
             createAccountManagerStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
@@ -157,19 +157,19 @@
             createAccountManagerTelephoneNumberLabel.Text = "Telephone Number*";
             createAccountManagerTelephoneNumberLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createAccountManagerActiveStatusCheckbox
+            // createAccountManagerActiveStatusCheckBox
             // 
-            createAccountManagerActiveStatusCheckbox.AutoSize = true;
-            createAccountManagerActiveStatusCheckbox.Checked = true;
-            createAccountManagerActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createAccountManagerActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createAccountManagerActiveStatusCheckbox.Location = new Point(183, 245);
-            createAccountManagerActiveStatusCheckbox.Margin = new Padding(4);
-            createAccountManagerActiveStatusCheckbox.Name = "createAccountManagerActiveStatusCheckbox";
-            createAccountManagerActiveStatusCheckbox.Size = new Size(190, 24);
-            createAccountManagerActiveStatusCheckbox.TabIndex = 10;
-            createAccountManagerActiveStatusCheckbox.Text = "Active Account Manager";
-            createAccountManagerActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createAccountManagerActiveStatusCheckBox.AutoSize = true;
+            createAccountManagerActiveStatusCheckBox.Checked = true;
+            createAccountManagerActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createAccountManagerActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createAccountManagerActiveStatusCheckBox.Location = new Point(183, 245);
+            createAccountManagerActiveStatusCheckBox.Margin = new Padding(4);
+            createAccountManagerActiveStatusCheckBox.Name = "createAccountManagerActiveStatusCheckBox";
+            createAccountManagerActiveStatusCheckBox.Size = new Size(190, 24);
+            createAccountManagerActiveStatusCheckBox.TabIndex = 10;
+            createAccountManagerActiveStatusCheckBox.Text = "Active Account Manager";
+            createAccountManagerActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createAccountManagerStatusStrip
             // 
@@ -204,7 +204,7 @@
             BackColor = Color.LemonChiffon;
             ClientSize = new Size(551, 399);
             Controls.Add(createAccountManagerStatusStrip);
-            Controls.Add(createAccountManagerActiveStatusCheckbox);
+            Controls.Add(createAccountManagerActiveStatusCheckBox);
             Controls.Add(createAccountManagerTelephoneNumberLabel);
             Controls.Add(createAccountManagerEmailAddressLabel);
             Controls.Add(createAccountManagerLastNameLabel);
@@ -240,7 +240,7 @@
         private Label createAccountManagerLastNameLabel;
         private Label createAccountManagerEmailAddressLabel;
         private Label createAccountManagerTelephoneNumberLabel;
-        private CheckBox createAccountManagerActiveStatusCheckbox;
+        private CheckBox createAccountManagerActiveStatusCheckBox;
         private StatusStrip createAccountManagerStatusStrip;
         private ToolStripSplitButton createAccountManagerStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;

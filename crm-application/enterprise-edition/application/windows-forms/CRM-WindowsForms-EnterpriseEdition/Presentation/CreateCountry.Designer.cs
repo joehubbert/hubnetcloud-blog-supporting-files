@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             createCountrySubmitButton = new Button();
-            createCountryActiveStatusCheckbox = new CheckBox();
+            createCountryActiveStatusCheckBox = new CheckBox();
             createCountryTitleLabel = new Label();
             createCountryCountryEnglishNameTextBox = new TextBox();
             createCountryISO31661A2CountryCodeMaskedTextBoxLabel = new Label();
@@ -49,19 +49,19 @@
             createCountrySubmitButton.Text = "Submit";
             createCountrySubmitButton.UseVisualStyleBackColor = true;
             // 
-            // createCountryActiveStatusCheckbox
+            // createCountryActiveStatusCheckBox
             // 
-            createCountryActiveStatusCheckbox.AutoSize = true;
-            createCountryActiveStatusCheckbox.Checked = true;
-            createCountryActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCountryActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCountryActiveStatusCheckbox.Location = new Point(232, 166);
-            createCountryActiveStatusCheckbox.Margin = new Padding(5);
-            createCountryActiveStatusCheckbox.Name = "createCountryActiveStatusCheckbox";
-            createCountryActiveStatusCheckbox.Size = new Size(130, 24);
-            createCountryActiveStatusCheckbox.TabIndex = 2;
-            createCountryActiveStatusCheckbox.Text = "Active Country*";
-            createCountryActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createCountryActiveStatusCheckBox.AutoSize = true;
+            createCountryActiveStatusCheckBox.Checked = true;
+            createCountryActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCountryActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCountryActiveStatusCheckBox.Location = new Point(232, 166);
+            createCountryActiveStatusCheckBox.Margin = new Padding(5);
+            createCountryActiveStatusCheckBox.Name = "createCountryActiveStatusCheckBox";
+            createCountryActiveStatusCheckBox.Size = new Size(130, 24);
+            createCountryActiveStatusCheckBox.TabIndex = 2;
+            createCountryActiveStatusCheckBox.Text = "Active Country*";
+            createCountryActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCountryTitleLabel
             // 
@@ -122,7 +122,7 @@
             Controls.Add(createCountryISO31661A2CountryCodeMaskedTextBoxLabel);
             Controls.Add(createCountryCountryEnglishNameTextBox);
             Controls.Add(createCountrySubmitButton);
-            Controls.Add(createCountryActiveStatusCheckbox);
+            Controls.Add(createCountryActiveStatusCheckBox);
             Controls.Add(createCountryTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -138,7 +138,7 @@
         #endregion
 
         private Button createCountrySubmitButton;
-        private CheckBox createCountryActiveStatusCheckbox;
+        private CheckBox createCountryActiveStatusCheckBox;
         private Label createCountryTitleLabel;
         private TextBox createCountryCountryEnglishNameTextBox;
         private Label createCountryISO31661A2CountryCodeMaskedTextBoxLabel;

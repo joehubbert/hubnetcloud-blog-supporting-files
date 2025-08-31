@@ -25,7 +25,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void InitializeEventHandlers()
         {
             createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -54,7 +54,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
@@ -70,9 +70,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool supplierFinanceVATRegistered = createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool supplierFinanceVATRegistered = createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
-            bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
             string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
             string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();

@@ -38,9 +38,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCustomerTabControlBillingInformationTabPageFirstNameTextBox.TextChanged += AutoPopulateShippingInformation;
             createCustomerTabControlBillingInformationTabPageLastNameTextBox.TextChanged += AutoPopulateShippingInformation;
             createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.TextChanged += AutoPopulateShippingInformation;
-            createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged;
+            createCustomerTabControlFinanceTabPageCreditEnabledCheckBox.CheckedChanged += CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged;
             createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged;
+            createCustomerTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged;
             createCustomerTabControlOverviewTabPageAccountManagerComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCustomerTabControlOverviewTabPageCompanyNameTextBox.TextChanged += AutoPopulateBillingInformation;
             createCustomerTabControlOverviewTabPageCustomerTierComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
@@ -281,7 +281,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateCustomerFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked)
+            if (createCustomerTabControlFinanceTabPageCreditEnabledCheckBox.Checked)
             {
                 createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = true;
                 createCustomerTabControlFinanceTabPageCreditLimitTextBoxB.Enabled = true;
@@ -295,7 +295,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CreateCustomerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (createCustomerTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 createCustomerTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
@@ -324,7 +324,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string customerBillingInformationFirstName = createCustomerTabControlBillingInformationTabPageFirstNameTextBox.Text.TrimEnd();
             string customerBillingInformationLastName = createCustomerTabControlBillingInformationTabPageLastNameTextBox.Text.TrimEnd();
             string customerBillingInformationTelephoneNumber = createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
-            bool customerFinanceCreditEnabled = createCustomerTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
+            bool customerFinanceCreditEnabled = createCustomerTabControlFinanceTabPageCreditEnabledCheckBox.Checked;
             if (!customerFinanceCreditEnabled)
             {
                 createCustomerTabControlFinanceTabPageCreditLimitTextBoxA.Text = "0";
@@ -334,10 +334,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid customerFinancePaymentCurrencyId = Guid.Parse(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte customerFinancePaymentDays = byte.Parse(createCustomerTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? customerFinanceVATNumber = createCustomerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool customerFinanceVATRegistered = createCustomerTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool customerFinanceVATRegistered = createCustomerTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
             Guid customerOverviewAccountManagerId = Guid.Parse(createCustomerTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
-            bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckbox.Checked;
+            bool customerOverviewActiveStatus = createCustomerOverviewActiveStatusCheckBox.Checked;
             string? customerOverviewCompanyName = createCustomerTabControlOverviewTabPageCompanyNameTextBox.Text.TrimEnd();
             DateTime customerOverviewCustomerSince = createCustomerTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
             Guid customerOverviewCustomerTierId = Guid.Parse(createCustomerTabControlOverviewTabPageCustomerTierComboBox.SelectedValue.ToString());

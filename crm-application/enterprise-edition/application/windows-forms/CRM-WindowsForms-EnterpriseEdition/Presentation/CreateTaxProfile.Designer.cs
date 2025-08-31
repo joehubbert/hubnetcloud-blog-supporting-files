@@ -31,7 +31,7 @@
             createTaxProfileTitleLabel = new Label();
             createTaxProfileTaxProfileLabel = new Label();
             createTaxProfileTaxProfileTextBox = new TextBox();
-            createTaxProfileActiveStatusCheckbox = new CheckBox();
+            createTaxProfileActiveStatusCheckBox = new CheckBox();
             createTaxProfileSubmitButton = new Button();
             createTaxProfileTaxRateLabel = new Label();
             createTaxProfileTaxRateTextBoxA = new TextBox();
@@ -70,19 +70,19 @@
             createTaxProfileTaxProfileTextBox.Size = new Size(284, 27);
             createTaxProfileTaxProfileTextBox.TabIndex = 0;
             // 
-            // createTaxProfileActiveStatusCheckbox
+            // createTaxProfileActiveStatusCheckBox
             // 
-            createTaxProfileActiveStatusCheckbox.AutoSize = true;
-            createTaxProfileActiveStatusCheckbox.Checked = true;
-            createTaxProfileActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createTaxProfileActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createTaxProfileActiveStatusCheckbox.Location = new Point(169, 166);
-            createTaxProfileActiveStatusCheckbox.Margin = new Padding(5);
-            createTaxProfileActiveStatusCheckbox.Name = "createTaxProfileActiveStatusCheckbox";
-            createTaxProfileActiveStatusCheckbox.Size = new Size(141, 24);
-            createTaxProfileActiveStatusCheckbox.TabIndex = 3;
-            createTaxProfileActiveStatusCheckbox.Text = "Active Tax Profile";
-            createTaxProfileActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createTaxProfileActiveStatusCheckBox.AutoSize = true;
+            createTaxProfileActiveStatusCheckBox.Checked = true;
+            createTaxProfileActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createTaxProfileActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createTaxProfileActiveStatusCheckBox.Location = new Point(169, 166);
+            createTaxProfileActiveStatusCheckBox.Margin = new Padding(5);
+            createTaxProfileActiveStatusCheckBox.Name = "createTaxProfileActiveStatusCheckBox";
+            createTaxProfileActiveStatusCheckBox.Size = new Size(141, 24);
+            createTaxProfileActiveStatusCheckBox.TabIndex = 3;
+            createTaxProfileActiveStatusCheckBox.Text = "Active Tax Profile";
+            createTaxProfileActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createTaxProfileSubmitButton
             // 
@@ -146,7 +146,7 @@
             Controls.Add(createTaxProfileTaxRateTextBoxA);
             Controls.Add(createTaxProfileTaxRateLabel);
             Controls.Add(createTaxProfileSubmitButton);
-            Controls.Add(createTaxProfileActiveStatusCheckbox);
+            Controls.Add(createTaxProfileActiveStatusCheckBox);
             Controls.Add(createTaxProfileTaxProfileTextBox);
             Controls.Add(createTaxProfileTaxProfileLabel);
             Controls.Add(createTaxProfileTitleLabel);
@@ -166,7 +166,7 @@
         private Label createTaxProfileTitleLabel;
         private Label createTaxProfileTaxProfileLabel;
         private TextBox createTaxProfileTaxProfileTextBox;
-        private CheckBox createTaxProfileActiveStatusCheckbox;
+        private CheckBox createTaxProfileActiveStatusCheckBox;
         private Button createTaxProfileSubmitButton;
         private Label createTaxProfileTaxRateLabel;
         private TextBox createTaxProfileTaxRateTextBoxA;

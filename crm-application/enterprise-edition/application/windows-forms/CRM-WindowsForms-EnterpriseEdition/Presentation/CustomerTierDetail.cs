@@ -72,7 +72,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerTierDetailCreatedTimestampTextBox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
                     customerTierDetailLastUpdatedByTextBox.Text = customerTierDataRow["Modified By"].ToString();
                     customerTierDetailLastUpdatedTimestampTextBox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
-                    customerTierDetailActiveStatusCheckbox.Checked = (bool)customerTierDataRow["Active Status"];
+                    customerTierDetailActiveStatusCheckBox.Checked = (bool)customerTierDataRow["Active Status"];
                     Guid companyConfigurationId = (Guid)customerTierDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
 
@@ -96,7 +96,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = customerTierDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = customerTierDetailActiveStatusCheckBox.Checked;
             Guid companyConfigurationId = Guid.Parse(customerTierDetailCompanyConfigurationComboBox.SelectedValue.ToString());
             string customerTierCode = customerTierDetailCustomerTierCodeTextBox.Text.TrimEnd();
             string customerTierDescription = customerTierDetailCustomerTierDescriptionTextBox.Text.TrimEnd();
@@ -243,7 +243,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerTierDetailCompanyConfigurationComboBox.Enabled = !customerTierDetailCompanyConfigurationComboBox.Enabled;
             customerTierDetailCustomerTierCodeTextBox.ReadOnly = !customerTierDetailCustomerTierCodeTextBox.ReadOnly;
             customerTierDetailCustomerTierDescriptionTextBox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextBox.ReadOnly;
-            customerTierDetailActiveStatusCheckbox.Enabled = !customerTierDetailActiveStatusCheckbox.Enabled;
+            customerTierDetailActiveStatusCheckBox.Enabled = !customerTierDetailActiveStatusCheckBox.Enabled;
             customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;
         }
     }

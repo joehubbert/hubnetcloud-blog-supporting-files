@@ -32,7 +32,7 @@
             createCustomerTierTitleLabel = new Label();
             createCustomerTierCustomerTierCodeLabel = new Label();
             createCustomerTierCustomerTierCodeTextBox = new TextBox();
-            createCustomerTierActiveStatusCheckbox = new CheckBox();
+            createCustomerTierActiveStatusCheckBox = new CheckBox();
             createCustomerTierSubmitButton = new Button();
             createCustomerTierCustomerTierDescriptionLabel = new Label();
             createCustomerTierCustomerTierDescriptionTextBox = new TextBox();
@@ -73,19 +73,19 @@
             createCustomerTierCustomerTierCodeTextBox.Size = new Size(34, 27);
             createCustomerTierCustomerTierCodeTextBox.TabIndex = 0;
             // 
-            // createCustomerTierActiveStatusCheckbox
+            // createCustomerTierActiveStatusCheckBox
             // 
-            createCustomerTierActiveStatusCheckbox.AutoSize = true;
-            createCustomerTierActiveStatusCheckbox.Checked = true;
-            createCustomerTierActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCustomerTierActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCustomerTierActiveStatusCheckbox.Location = new Point(182, 176);
-            createCustomerTierActiveStatusCheckbox.Margin = new Padding(5);
-            createCustomerTierActiveStatusCheckbox.Name = "createCustomerTierActiveStatusCheckbox";
-            createCustomerTierActiveStatusCheckbox.Size = new Size(171, 24);
-            createCustomerTierActiveStatusCheckbox.TabIndex = 2;
-            createCustomerTierActiveStatusCheckbox.Text = "Active Customer Tier*";
-            createCustomerTierActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createCustomerTierActiveStatusCheckBox.AutoSize = true;
+            createCustomerTierActiveStatusCheckBox.Checked = true;
+            createCustomerTierActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCustomerTierActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCustomerTierActiveStatusCheckBox.Location = new Point(182, 176);
+            createCustomerTierActiveStatusCheckBox.Margin = new Padding(5);
+            createCustomerTierActiveStatusCheckBox.Name = "createCustomerTierActiveStatusCheckBox";
+            createCustomerTierActiveStatusCheckBox.Size = new Size(171, 24);
+            createCustomerTierActiveStatusCheckBox.TabIndex = 2;
+            createCustomerTierActiveStatusCheckBox.Text = "Active Customer Tier*";
+            createCustomerTierActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCustomerTierSubmitButton
             // 
@@ -158,7 +158,7 @@
             Controls.Add(createCustomerTierCustomerTierDescriptionTextBox);
             Controls.Add(createCustomerTierCustomerTierDescriptionLabel);
             Controls.Add(createCustomerTierSubmitButton);
-            Controls.Add(createCustomerTierActiveStatusCheckbox);
+            Controls.Add(createCustomerTierActiveStatusCheckBox);
             Controls.Add(createCustomerTierCustomerTierCodeTextBox);
             Controls.Add(createCustomerTierCustomerTierCodeLabel);
             Controls.Add(createCustomerTierTitleLabel);
@@ -180,7 +180,7 @@
         private Label createCustomerTierTitleLabel;
         private Label createCustomerTierCustomerTierCodeLabel;
         private TextBox createCustomerTierCustomerTierCodeTextBox;
-        private CheckBox createCustomerTierActiveStatusCheckbox;
+        private CheckBox createCustomerTierActiveStatusCheckBox;
         private Button createCustomerTierSubmitButton;
         private Label createCustomerTierCustomerTierDescriptionLabel;
         private TextBox createCustomerTierCustomerTierDescriptionTextBox;

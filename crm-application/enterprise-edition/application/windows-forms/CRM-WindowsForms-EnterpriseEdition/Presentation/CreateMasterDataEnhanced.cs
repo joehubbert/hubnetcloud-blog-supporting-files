@@ -93,13 +93,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createMasterDataEnhancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataEnhancedMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description*";
-            createMasterDataEnhancedActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}*";
+            createMasterDataEnhancedActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}*";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }
 
         private async void createMasterDataEnhancedSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createMasterDataEnhancedActiveStatusCheckbox.Checked;
+            bool activeStatus = createMasterDataEnhancedActiveStatusCheckBox.Checked;
             string dataSubjectDescriptionValue = createMasterDataEnhancedMasterDataDescriptionTextBox.Text.TrimEnd();
             string dataSubjectValue = createMasterDataEnhancedMasterDataTypeTextBox.Text.TrimEnd();
 

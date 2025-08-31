@@ -51,7 +51,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             companyConfigurationDetailTabControl.SelectedIndexChanged += CompanyConfigurationDetailTabControl_SelectedIndexChanged;
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox_SelectedIndexChanged;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.CheckedChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.CheckedChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged;
             companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
         }
@@ -86,13 +86,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked)
+            if (companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Checked)
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = true;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Enabled = true;
             }
             else
             {
-                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = false;
+                companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Enabled = false;
                 companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.Text = string.Empty;
             }
         }
@@ -260,7 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeMaskedTextBoxC.Text = bankAccountSortCodeC;
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextBox.Text = companyConfigurationDataRow["Bank Account SWIFT Code"].ToString();
                     companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.Text = companyConfigurationDataRow["VAT Number"].ToString();
-                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = (bool)companyConfigurationDataRow["VAT Registered"];
+                    companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Checked = (bool)companyConfigurationDataRow["VAT Registered"];
                     if (companyConfigurationDataRow["Bank Account Vipps Id"].ToString() != null)
                     {
                         companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextBox.Text = companyConfigurationDataRow["Bank Account Vipps Id"].ToString();
@@ -269,7 +269,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     {
                         companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVippsIdTextBox.Text = null;
                     }
-                    companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked = (bool)companyConfigurationDataRow["Active Status"];
+                    companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Checked = (bool)companyConfigurationDataRow["Active Status"];
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine1TextBox.Text = companyConfigurationDataRow["Address Line 1"].ToString();
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2TextBox.Text = companyConfigurationDataRow["Address Line 2"].ToString();
                     companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3TextBox.Text = companyConfigurationDataRow["Address Line 3"].ToString();
@@ -390,7 +390,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void companyConfigurationDetailUpdateCompanyConfigurationButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Checked;
+            bool activeStatus = companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Checked;
             string addressLine1 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine1TextBox.Text.TrimEnd();
             string addressLine2 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2TextBox.Text.TrimEnd();
             string addressLine3 = companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3TextBox.Text.TrimEnd();
@@ -437,7 +437,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string emailTopLevelDomain = companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text.TrimEnd();
             string telephoneNumber = companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
             string vatNumber = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.Text.TrimEnd();
-            bool vatRegistered = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked;
+            bool vatRegistered = companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Checked;
             string websiteURL = companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextBox.Text.TrimEnd();
 
             string dataSubject = "Company Configuration";
@@ -1100,12 +1100,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextBox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSWIFTCodeTextBox.ReadOnly;
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.ReadOnly = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox.ReadOnly;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Enabled = !companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Enabled;
 
             // Update VippsId textbox state based on edit mode and country
             UpdateVippsIdTextBoxState();
 
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Enabled = !companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Enabled;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Enabled = !companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Enabled;
             companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine1TextBox.ReadOnly = !companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine1TextBox.ReadOnly;
             companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2TextBox.ReadOnly = !companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine2TextBox.ReadOnly;
             companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3TextBox.ReadOnly = !companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine3TextBox.ReadOnly;

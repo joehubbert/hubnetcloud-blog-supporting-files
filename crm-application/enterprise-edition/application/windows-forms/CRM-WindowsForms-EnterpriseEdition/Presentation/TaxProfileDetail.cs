@@ -70,7 +70,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     taxProfileDetailCreatedTimestampTextBox.Text = taxProfileDataRow["Created Timestamp UTC"].ToString();
                     taxProfileDetailLastUpdatedByTextBox.Text = taxProfileDataRow["Modified By"].ToString();
                     taxProfileDetailLastUpdatedTimestampTextBox.Text = taxProfileDataRow["Modified Timestamp UTC"].ToString();
-                    taxProfileDetailActiveStatusCheckbox.Checked = (bool)taxProfileDataRow["Active Status"];
+                    taxProfileDetailActiveStatusCheckBox.Checked = (bool)taxProfileDataRow["Active Status"];
 
                     taxProfileDetailTaxProfileOriginalValue = taxProfileDataRow["Tax Profile"].ToString();
                     taxProfileDetailTaxRateOriginalValue = (decimal)taxProfileDataRow["Tax Rate"];
@@ -91,7 +91,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = taxProfileDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = taxProfileDetailActiveStatusCheckBox.Checked;
             string taxProfile = taxProfileDetailTaxProfileTextBox.Text.TrimEnd();
             decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextBoxA.Text.TrimEnd()) + (decimal.Parse(taxProfileDetailTaxRateTextBoxB.Text.TrimEnd()) / 100);
 
@@ -217,7 +217,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             taxProfileDetailTaxProfileTextBox.ReadOnly = !taxProfileDetailTaxProfileTextBox.ReadOnly;
             taxProfileDetailTaxRateTextBoxA.ReadOnly = !taxProfileDetailTaxRateTextBoxA.ReadOnly;
             taxProfileDetailTaxRateTextBoxB.ReadOnly = !taxProfileDetailTaxRateTextBoxB.ReadOnly;
-            taxProfileDetailActiveStatusCheckbox.Enabled = !taxProfileDetailActiveStatusCheckbox.Enabled;
+            taxProfileDetailActiveStatusCheckBox.Enabled = !taxProfileDetailActiveStatusCheckBox.Enabled;
             taxProfileDetailUpdateTaxProfileButton.Enabled = !taxProfileDetailUpdateTaxProfileButton.Enabled;
         }
     }

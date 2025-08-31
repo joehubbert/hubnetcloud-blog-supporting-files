@@ -36,7 +36,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             supplierDetailTabControl.SelectedIndexChanged += SupplierDetailTabControl_SelectedIndexChanged;
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox_CheckedChanged;
             supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
@@ -93,8 +93,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     await LoadCurrencyDataAsync(paymentCurrencyId);
                     supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = supplierDataRow["Payment Days"].ToString();
                     supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text = supplierDataRow["VAT Number"].ToString();
-                    supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)supplierDataRow["VAT Registered"];
-                    supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)supplierDataRow["Active Status"];
+                    supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = (bool)supplierDataRow["VAT Registered"];
+                    supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked = (bool)supplierDataRow["Active Status"];
                     supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text = supplierDataRow["Address Line 1"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text = supplierDataRow["Address Line 2"].ToString();
                     supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text = supplierDataRow["Address Line 3"].ToString();
@@ -181,9 +181,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             );
         }
 
-        private void supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
+        private void supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (!supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (!supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 var result = MessageBox.Show(
                     "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
@@ -197,7 +197,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
+                    supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
                 }
             }
         }
@@ -233,9 +233,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             Guid supplierDetailFinancePaymentCurrencyId = (Guid)supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue;
             byte supplierDetailFinancePaymentDays = byte.Parse(supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? supplierDetailFinanceVATNumber = supplierDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool supplierDetailFinanceVATRegistered = supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool supplierDetailFinanceVATRegistered = supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
-            bool supplierDetailOverviewActiveStatus = supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool supplierDetailOverviewActiveStatus = supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             string supplierDetailOverviewAddressLine1 = supplierDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
             string? supplierDetailOverviewAddressLine2 = supplierDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
             string supplierDetailOverviewAddressLine3 = supplierDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
@@ -578,10 +578,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled = !supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled;
             supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly = !supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly;
             supplierDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !supplierDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = !supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled;
             supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
             supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
             supplierDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly;
             supplierDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly;
             supplierDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly = !supplierDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly;

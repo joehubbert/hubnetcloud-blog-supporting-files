@@ -83,7 +83,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBox.Text = accountManagerDataRow["Created Timestamp UTC"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBox.Text = accountManagerDataRow["Modified By"].ToString();
                     accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBox.Text = accountManagerDataRow["Modified Timestamp UTC"].ToString();
-                    accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked = (bool)accountManagerDataRow["Active Status"];
+                    accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Checked = (bool)accountManagerDataRow["Active Status"];
 
                     accountManagerInformationFirstNameOriginalValue = accountManagerDataRow["First Name"].ToString();
                     accountManagerInformationLastNameOriginalValue = accountManagerDataRow["Last Name"].ToString();
@@ -150,7 +150,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            bool activeStatus = accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Checked;
+            bool activeStatus = accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Checked;
             Guid companyConfigurationId = Guid.Parse(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
             string firstName = accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.Text.TrimEnd();
             string lastName = accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.Text.TrimEnd();
@@ -341,7 +341,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly;
             accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly;
             accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckbox.Enabled;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled;
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled;
             accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
         }

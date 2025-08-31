@@ -75,7 +75,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCurrencyConversionSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createCurrencyConversionActiveStatusCheckbox.Checked;
+            bool activeStatus = createCurrencyConversionActiveStatusCheckBox.Checked;
 
             if (string.IsNullOrWhiteSpace(createCurrencyConversionBaseCurrencyValueTextBox.Text) ||
                 string.IsNullOrWhiteSpace(createCurrencyConversionTargetCurrencyValueTextBoxA.Text) ||

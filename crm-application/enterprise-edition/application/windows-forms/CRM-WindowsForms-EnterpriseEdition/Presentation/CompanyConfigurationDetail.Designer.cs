@@ -43,7 +43,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextBoxLabel = new Label();
             companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextBoxLabel = new Label();
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBoxLabel = new Label();
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox = new CheckBox();
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox = new CheckBox();
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextBoxLabel = new Label();
             companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextBoxLabel = new Label();
             companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextBoxLabel = new Label();
@@ -104,7 +104,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox = new ComboBox();
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextBoxLabel = new Label();
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBoxLabel = new Label();
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox = new CheckBox();
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox = new CheckBox();
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox = new TextBox();
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsPayableTabPage = new TabPage();
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlAccountsReceivableTabPage = new TabPage();
@@ -165,7 +165,7 @@
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextBoxLabel);
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextBoxLabel);
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBoxLabel);
-            companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox);
+            companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox);
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextBoxLabel);
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextBoxLabel);
             companyConfigurationDetailTabControlGeneralInformationTabPage.Controls.Add(companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextBoxLabel);
@@ -302,18 +302,18 @@
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBoxLabel.Text = "Telephone Number*";
             companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox
+            // companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox
             // 
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.AutoSize = true;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Enabled = false;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Location = new Point(231, 335);
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Margin = new Padding(5);
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox";
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Size = new Size(237, 24);
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.TabIndex = 6;
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.Text = "Active Company Configuration*";
-            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.AutoSize = true;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Enabled = false;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Location = new Point(231, 335);
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Margin = new Padding(5);
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox";
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Size = new Size(237, 24);
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.TabIndex = 6;
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.Text = "Active Company Configuration*";
+            companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextBoxLabel
             // 
@@ -575,7 +575,7 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.BackColor = Color.LemonChiffon;
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountInformationGroupBox);
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBoxLabel);
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox);
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox);
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Location = new Point(4, 32);
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPage";
@@ -938,20 +938,20 @@
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBoxLabel.Text = "VAT Number";
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox
+            // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox
             // 
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.AutoSize = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Checked = true;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.CheckState = CheckState.Checked;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Enabled = false;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Location = new Point(19, 353);
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox";
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.TabIndex = 34;
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.AutoSize = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Checked = true;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.CheckState = CheckState.Checked;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Enabled = false;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Location = new Point(19, 353);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Margin = new Padding(4);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Name = "companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Size = new Size(128, 24);
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.TabIndex = 34;
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.Text = "VAT Registered";
+            companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.UseVisualStyleBackColor = true;
             // 
             // companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox
             // 
@@ -1100,7 +1100,7 @@
         private TabPage companyConfigurationDetailTabControlGeneralInformationTabPage;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageWebsiteURLTextBoxLabel;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageTelephoneNumberTextBoxLabel;
-        private CheckBox companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckbox;
+        private CheckBox companyConfigurationDetailTabControlGeneralInformationTabPageActiveStatusCheckBox;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageEmailAddressTextBoxLabel;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageEmailTopLevelDomainTextBoxLabel;
         private Label companyConfigurationDetailTabControlGeneralInformationTabPageCompanyNameTextBoxLabel;
@@ -1157,7 +1157,7 @@
         private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine4TextBoxLabel;
         private Label companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBoxLabel;
         private TextBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATNumberTextBox;
-        private CheckBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckbox;
+        private CheckBox companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBox;
         private TextBox companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextBox;

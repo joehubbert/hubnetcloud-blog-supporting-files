@@ -70,9 +70,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlCustomerContactTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerContactTabPageDataGridView_CellContentClick;
             customerDetailTabControlCustomerLeadTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick;
             customerDetailTabControlCustomerNoteTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick;
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.CheckedChanged += CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.CheckedChanged += CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged;
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CustomerDetailFinanceVATRegisteredCheckBox_CheckedChanged;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerDetailTabControlOverviewTabPageCustomerTierComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
@@ -318,7 +318,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CustomerDetailFinanceCreditEnabledCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked)
+            if (customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Checked)
             {
                 customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Enabled = true;
                 customerDetailTabControlFinanceTabPageTextBoxB.Enabled = true;
@@ -332,21 +332,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CustomerDetailFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 customerDetailTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
             }
             else
             {
                 customerDetailTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
-                customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
-            }
-        }
-
-        private void CustomerDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (!customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
-            {
                 var result = MessageBox.Show(
                     "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
                     "Warning",
@@ -359,7 +351,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
+                    customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
+                    customerDetailTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
                 }
             }
         }
@@ -404,7 +397,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerDetailTabControlBillingInformationTabPageFirstNameTextBox.Text = customerDataRow["Billing First Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageLastNameTextBox.Text = customerDataRow["Billing Last Name"].ToString();
                     customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.Text = customerDataRow["Billing Telephone Number"].ToString();
-                    customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
+                    customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Checked = (bool)customerDataRow["Credit Enabled"];
                     string creditLimitPartA;
                     string creditLimitPartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit"], out creditLimitPartA, out creditLimitPartB);
@@ -420,15 +413,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)customerDataRow["Credit Limit Used Percentage"], out creditLimitUsedPercentagePartA, out creditLimitUsedPercentagePartB);
                     customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextBoxA.Text = creditLimitUsedPercentagePartA;
                     customerDetailTabControlFinanceTabPageCreditLimitUsedPercentageTextBoxB.Text = creditLimitUsedPercentagePartB;
-                    customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked = (bool)customerDataRow["Credit Enabled"];
+                    customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Checked = (bool)customerDataRow["Credit Enabled"];
                     Guid paymentCurrencyId = (Guid)customerDataRow["Payment Currency Id"];
                     await LoadCurrencyDataAsync(paymentCurrencyId);
                     customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text = customerDataRow["Payment Days"].ToString();
                     customerDetailTabControlFinanceTabPageVATNumberTextBox.Text = customerDataRow["VAT Number"].ToString();
-                    customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)customerDataRow["VAT Registered"];
+                    customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = (bool)customerDataRow["VAT Registered"];
                     Guid accountManagerId = (Guid)customerDataRow["Account Manager Id"];
                     await LoadAccountManagerDataAsync(accountManagerId, companyConfigurationId);
-                    customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerDataRow["Active Status"];
+                    customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked = (bool)customerDataRow["Active Status"];
                     customerDetailTabControlOverviewTabPageCompanyNameTextBox.Text = customerDataRow["Company Name"].ToString();
                     customerDetailTabControlOverviewTabPageCreatedByTextBox.Text = customerDataRow["Created By"].ToString();
                     customerDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = customerDataRow["Created Timestamp UTC"].ToString();
@@ -701,15 +694,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             string customerBillingInformationLastName = customerDetailTabControlBillingInformationTabPageLastNameTextBox.Text.TrimEnd();
             string customerBillingInformationTelephoneNumber = customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
-            bool customerFinanceCreditEnabled = customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Checked;
+            bool customerFinanceCreditEnabled = customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Checked;
             decimal customerFinanceCreditLimit = decimal.Parse($"{customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.Text.TrimEnd()}.{customerDetailTabControlFinanceTabPageTextBoxB.Text.TrimEnd()}");
             Guid customerFinancePaymentCurrencyId = Guid.Parse(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
             byte customerFinancePaymentDays = byte.Parse(customerDetailTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
             string? customerFinanceVATNumber = customerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool customerFinanceVATRegistered = customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool customerFinanceVATRegistered = customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
             Guid customerOverviewAccountManagerId = Guid.Parse(customerDetailTabControlOverviewTabPageAccountManagerComboBox.SelectedValue.ToString());
-            bool customerOverviewActiveStatus = customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool customerOverviewActiveStatus = customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             Guid customerOverviewCompanyConfigurationId = Guid.Parse(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.SelectedValue.ToString());
             string? customerOverviewCompanyName = customerDetailTabControlOverviewTabPageCompanyNameTextBox.Text.TrimEnd();
             DateTime customerOverviewCustomerSince = customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Value.Date;
@@ -1360,15 +1353,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlBillingInformationTabPageFirstNameTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageFirstNameTextBox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageLastNameTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageLastNameTextBox.ReadOnly;
             customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.ReadOnly = !customerDetailTabControlBillingInformationTabPageTelephoneNumberTextBox.ReadOnly;
-            customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Enabled = !customerDetailTabControlFinanceTabPageCreditEnabledCheckbox.Enabled;
+            customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Enabled = !customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.Enabled;
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.ReadOnly = !customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.ReadOnly;
             customerDetailTabControlFinanceTabPageTextBoxB.ReadOnly = !customerDetailTabControlFinanceTabPageTextBoxB.ReadOnly;
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled = !customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox.Enabled;
             customerDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly = !customerDetailTabControlFinanceTabPagePaymentDaysTextBox.ReadOnly;
-            customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !customerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
+            customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = !customerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled;
             customerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !customerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled = !customerDetailTabControlOverviewTabPageAccountManagerComboBox.Enabled;
-            customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !customerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !customerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
             customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled = !customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox.Enabled;
             customerDetailTabControlOverviewTabPageCompanyNameTextBox.ReadOnly = !customerDetailTabControlOverviewTabPageCompanyNameTextBox.ReadOnly;
             customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled = !customerDetailTabControlOverviewTabPageCustomerSinceDatePicker.Enabled;

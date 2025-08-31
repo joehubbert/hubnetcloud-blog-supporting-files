@@ -98,7 +98,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (contactDataTable != null)
                 {
                     DataRow contactDataRow = contactDataTable.Rows[0];
-                    contactDetailActiveStatusCheckbox.Checked = (bool)contactDataRow["Active Status"];
+                    contactDetailActiveStatusCheckBox.Checked = (bool)contactDataRow["Active Status"];
                     contactDetailContactIdTextBox.Text = contactDataRow[contactDetailContactIdFriendlyName].ToString();
                     contactDetailEmailAddressTextBox.Text = contactDataRow["Email Address"].ToString();
                     contactDetailFirstNameTextBox.Text = contactDataRow["First Name"].ToString();
@@ -144,7 +144,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void contactDetailUpdateContactButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = contactDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = contactDetailActiveStatusCheckBox.Checked;
             string emailAddress = contactDetailEmailAddressTextBox.Text.TrimEnd();
             string firstName = contactDetailFirstNameTextBox.Text.TrimEnd();
             string lastName = contactDetailLastNameTextBox.Text.TrimEnd();
@@ -335,7 +335,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void contactDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
-            contactDetailActiveStatusCheckbox.Enabled = !contactDetailActiveStatusCheckbox.Enabled;
+            contactDetailActiveStatusCheckBox.Enabled = !contactDetailActiveStatusCheckBox.Enabled;
             contactDetailEmailAddressTextBox.ReadOnly = !contactDetailEmailAddressTextBox.ReadOnly;
             contactDetailFirstNameTextBox.ReadOnly = !contactDetailFirstNameTextBox.ReadOnly;
             contactDetailLastNameTextBox.ReadOnly = !contactDetailLastNameTextBox.ReadOnly;

@@ -9,6 +9,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class AppConfiguration : Form
     {
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
         private static readonly string configFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CRM-WindowsForms.EnterpriseEdition");
         private static readonly string configFilePath = Path.Combine(configFolderPath, "applicationConfiguration.json");
         private readonly Dictionary<int, string> databaseEngineOptions = new Dictionary<int, string>
@@ -47,23 +48,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private int? postgreSQLSSLModeCode;
         private readonly Dictionary<int, (string DisplayName, string LanguageCode)> regionLanguageOptions = new Dictionary<int, (string, string)>
         {
-            { 0, ("Čeština", "cs-cz") },
-            { 1, ("Dansk", "da-dk") },
-            { 2, ("Deutsch", "de-de") },
-            { 3, ("English", "en-gb") },
-            { 5, ("Español", "es-es") },
-            { 6, ("Français", "fr-fr") },
-            { 7, ("Italiano", "it-it") },
-            { 8, ("Nederlands", "nl-nl") },
-            { 9, ("Norsk bokmål", "nb-no") },
-            { 10, ("Norsk nynorsk", "nn-no") },
-            { 11, ("Polski", "pl-pl") },
-            { 12, ("Português", "pt-pt") },
-            { 13, ("Suomi", "fi") },
-            { 14, ("Svenska", "sv-se") },
-            { 15, ("한국어", "ko") },
-            { 16, ("中文", "zh") },
-            { 17, ("日本語", "ja-jp") }
+            { 0, ("Čeština", "cs-CZ") },
+            { 1, ("Dansk", "da-DK") },
+            { 2, ("Deutsch", "de-DE") },
+            { 3, ("English", "en-GB") },
+            { 5, ("Español", "es-ES") },
+            { 6, ("Français", "fr-FR") },
+            { 7, ("Italiano", "it-IT") },
+            { 8, ("Nederlands", "nl-NL") },
+            { 9, ("Norsk bokmål", "nb-NO") },
+            { 10, ("Polski", "pl-PL") },
+            { 11, ("Português", "pt-PT") },
+            { 12, ("Suomi", "fi") },
+            { 13, ("Svenska", "sv-SE") },
+            { 14, ("한국어", "ko") },
+            { 15, ("中文", "zh") },
+            { 16, ("日本語", "ja-JP") }
         };
 
         private string? userProfileActiveDatabaseEngine;
@@ -89,11 +89,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.CheckedChanged += AuthenticationTypeRadioButton_CheckedChanged;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
-            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
-            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += TextBoxNumericCharacterDataValidationHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
         }
 
         private void AppConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object? sender, EventArgs e)
@@ -145,8 +145,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                             throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
                     }
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text = mssqlConfig.certficateHostName;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Checked = mssqlConfig.encryptionEnabled;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Checked = mssqlConfig.trustServerCertificate;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Checked = mssqlConfig.encryptionEnabled;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Checked = mssqlConfig.trustServerCertificate;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text = mssqlConfig.connectionTimeout.ToString();
 
                     var mysqlConfig = await ApplicationConfigurationService.GetMySQLConfigurationAsync();
@@ -335,12 +335,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (selectedEngine == "Azure SQL Database" || selectedEngine == "Azure SQL Managed Instance")
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Checked = true;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Enabled = false;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Checked = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Enabled = false;
                 }
                 else
                 {
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Enabled = true;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Enabled = true;
                 }
 
                 if (selectedEngine == "Azure SQL Database")
@@ -444,12 +444,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged(object sender, EventArgs e)
+        private void appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged(object? sender, EventArgs e)
         {
             UpdateDatabaseTabAuthenticationUI();
         }
 
-        private void AuthenticationTypeRadioButton_CheckedChanged(object sender, EventArgs e)
+        private void AuthenticationTypeRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             UpdateDatabaseTabAuthenticationUI();
         }
@@ -536,7 +536,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.LanguageCode})")
                 .ToList();
             appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.DataSource = comboBoxItems;
-            int selectedIndex = 3; // Default to English (en-gb), which has key 3 in the dictionary
+            int selectedIndex = 3; // Default to English (en-GB), which has key 3 in the dictionary
             if (!string.IsNullOrWhiteSpace(userProfileActiveRegionLanguageCode))
             {
                 var idx = ordered.FindIndex(kvp =>
@@ -609,8 +609,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 username = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text,
                 password = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Text,
                 certficateHostName = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text,
-                encryptionEnabled = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Checked,
-                trustServerCertificate = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Checked,
+                encryptionEnabled = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Checked,
+                trustServerCertificate = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Checked,
                 connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
                 authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "SQL" :
                                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked ? "Kerberos" :

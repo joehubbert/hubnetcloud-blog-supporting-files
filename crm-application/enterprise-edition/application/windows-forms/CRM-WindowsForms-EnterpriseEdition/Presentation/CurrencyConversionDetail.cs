@@ -131,7 +131,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     currencyConversionDetailCreatedTimestampTextBox.Text = currencyConversionDataRow["Created Timestamp UTC"].ToString();
                     currencyConversionDetailLastUpdatedByTextBox.Text = currencyConversionDataRow["Modified By"].ToString();
                     currencyConversionDetailLastUpdatedTimestampTextBox.Text = currencyConversionDataRow["Modified Timestamp UTC"].ToString();
-                    currencyConversionDetailActiveStatusCheckbox.Checked = (bool)currencyConversionDataRow["Active Status"];
+                    currencyConversionDetailActiveStatusCheckBox.Checked = (bool)currencyConversionDataRow["Active Status"];
                     Guid companyConfigurationId = (Guid)currencyConversionDataRow["Company Configuration Id"];
                     await LoadCompanyConfigurationAsync(companyConfigurationId);
 
@@ -171,7 +171,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void currencyConversionDetailUpdateCurrencyConversionButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = currencyConversionDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = currencyConversionDetailActiveStatusCheckBox.Checked;
 
             if (string.IsNullOrWhiteSpace(currencyConversionDetailBaseCurrencyValueTextBox.Text) ||
                 string.IsNullOrWhiteSpace(currencyConversionDetailTargetCurrencyValueTextBoxA.Text) ||
@@ -445,7 +445,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void currencyConversionDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            currencyConversionDetailActiveStatusCheckbox.Enabled = !currencyConversionDetailActiveStatusCheckbox.Enabled;
+            currencyConversionDetailActiveStatusCheckBox.Enabled = !currencyConversionDetailActiveStatusCheckBox.Enabled;
             currencyConversionDetailBaseCurrencyComboBox.Enabled = !currencyConversionDetailBaseCurrencyComboBox.Enabled;
             currencyConversionDetailEffectiveDatePicker.Enabled = !currencyConversionDetailEffectiveDatePicker.Enabled;
             currencyConversionDetailTargetCurrencyComboBox.Enabled = !currencyConversionDetailTargetCurrencyComboBox.Enabled;

@@ -33,7 +33,7 @@
             createMasterDataEnhancedMasterDataTypeTextBox = new TextBox();
             createMasterDataEnhancedMasterDataTypeTextBoxLabel = new Label();
             createMasterDataEnhancedSubmitButton = new Button();
-            createMasterDataEnhancedActiveStatusCheckbox = new CheckBox();
+            createMasterDataEnhancedActiveStatusCheckBox = new CheckBox();
             createMasterDataEnhancedMasterDataDescriptionTextBox = new TextBox();
             createMasterDataEnhancedMasterDataDescriptionTextBoxLabel = new Label();
             createMasterDataEnhancedStatusStrip = new StatusStrip();
@@ -86,18 +86,18 @@
             createMasterDataEnhancedSubmitButton.UseVisualStyleBackColor = true;
             createMasterDataEnhancedSubmitButton.Click += createMasterDataEnhancedSubmitButton_Click;
             // 
-            // createMasterDataEnhancedActiveStatusCheckbox
+            // createMasterDataEnhancedActiveStatusCheckBox
             // 
-            createMasterDataEnhancedActiveStatusCheckbox.Checked = true;
-            createMasterDataEnhancedActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createMasterDataEnhancedActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createMasterDataEnhancedActiveStatusCheckbox.Location = new Point(160, 161);
-            createMasterDataEnhancedActiveStatusCheckbox.Margin = new Padding(5);
-            createMasterDataEnhancedActiveStatusCheckbox.Name = "createMasterDataEnhancedActiveStatusCheckbox";
-            createMasterDataEnhancedActiveStatusCheckbox.Size = new Size(285, 24);
-            createMasterDataEnhancedActiveStatusCheckbox.TabIndex = 2;
-            createMasterDataEnhancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
-            createMasterDataEnhancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createMasterDataEnhancedActiveStatusCheckBox.Checked = true;
+            createMasterDataEnhancedActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createMasterDataEnhancedActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createMasterDataEnhancedActiveStatusCheckBox.Location = new Point(160, 161);
+            createMasterDataEnhancedActiveStatusCheckBox.Margin = new Padding(5);
+            createMasterDataEnhancedActiveStatusCheckBox.Name = "createMasterDataEnhancedActiveStatusCheckBox";
+            createMasterDataEnhancedActiveStatusCheckBox.Size = new Size(285, 24);
+            createMasterDataEnhancedActiveStatusCheckBox.TabIndex = 2;
+            createMasterDataEnhancedActiveStatusCheckBox.Text = "Active {MasterData Type Placeholder}";
+            createMasterDataEnhancedActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createMasterDataEnhancedMasterDataDescriptionTextBox
             // 
@@ -158,7 +158,7 @@
             Controls.Add(createMasterDataEnhancedMasterDataTypeTextBox);
             Controls.Add(createMasterDataEnhancedMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataEnhancedSubmitButton);
-            Controls.Add(createMasterDataEnhancedActiveStatusCheckbox);
+            Controls.Add(createMasterDataEnhancedActiveStatusCheckBox);
             Controls.Add(createMasterDataEnhancedTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -179,7 +179,7 @@
         private TextBox createMasterDataEnhancedMasterDataTypeTextBox;
         private Label createMasterDataEnhancedMasterDataTypeTextBoxLabel;
         private Button createMasterDataEnhancedSubmitButton;
-        private CheckBox createMasterDataEnhancedActiveStatusCheckbox;
+        private CheckBox createMasterDataEnhancedActiveStatusCheckBox;
         private TextBox createMasterDataEnhancedMasterDataDescriptionTextBox;
         private Label createMasterDataEnhancedMasterDataDescriptionTextBoxLabel;
         private StatusStrip createMasterDataEnhancedStatusStrip;

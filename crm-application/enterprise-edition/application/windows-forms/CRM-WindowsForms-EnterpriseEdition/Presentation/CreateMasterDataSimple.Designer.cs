@@ -33,7 +33,7 @@
             createMasterDataSimpleMasterDataTypeTextBox = new TextBox();
             createMasterDataSimpleMasterDataTypeTextBoxLabel = new Label();
             createMasterDataSimpleSubmitButton = new Button();
-            createMasterDataSimpleActiveStatusCheckbox = new CheckBox();
+            createMasterDataSimpleActiveStatusCheckBox = new CheckBox();
             createMasterDataSimpleStatusStrip = new StatusStrip();
             createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
@@ -84,18 +84,18 @@
             createMasterDataSimpleSubmitButton.UseVisualStyleBackColor = true;
             createMasterDataSimpleSubmitButton.Click += createMasterDataSimpleSubmitButton_Click;
             // 
-            // createMasterDataSimpleActiveStatusCheckbox
+            // createMasterDataSimpleActiveStatusCheckBox
             // 
-            createMasterDataSimpleActiveStatusCheckbox.Checked = true;
-            createMasterDataSimpleActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createMasterDataSimpleActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createMasterDataSimpleActiveStatusCheckbox.Location = new Point(136, 117);
-            createMasterDataSimpleActiveStatusCheckbox.Margin = new Padding(5);
-            createMasterDataSimpleActiveStatusCheckbox.Name = "createMasterDataSimpleActiveStatusCheckbox";
-            createMasterDataSimpleActiveStatusCheckbox.Size = new Size(281, 24);
-            createMasterDataSimpleActiveStatusCheckbox.TabIndex = 1;
-            createMasterDataSimpleActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
-            createMasterDataSimpleActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createMasterDataSimpleActiveStatusCheckBox.Checked = true;
+            createMasterDataSimpleActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createMasterDataSimpleActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createMasterDataSimpleActiveStatusCheckBox.Location = new Point(136, 117);
+            createMasterDataSimpleActiveStatusCheckBox.Margin = new Padding(5);
+            createMasterDataSimpleActiveStatusCheckBox.Name = "createMasterDataSimpleActiveStatusCheckBox";
+            createMasterDataSimpleActiveStatusCheckBox.Size = new Size(281, 24);
+            createMasterDataSimpleActiveStatusCheckBox.TabIndex = 1;
+            createMasterDataSimpleActiveStatusCheckBox.Text = "Active {MasterData Type Placeholder}";
+            createMasterDataSimpleActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createMasterDataSimpleStatusStrip
             // 
@@ -136,7 +136,7 @@
             Controls.Add(createMasterDataSimpleMasterDataTypeTextBox);
             Controls.Add(createMasterDataSimpleMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataSimpleSubmitButton);
-            Controls.Add(createMasterDataSimpleActiveStatusCheckbox);
+            Controls.Add(createMasterDataSimpleActiveStatusCheckBox);
             Controls.Add(createMasterDataSimpleTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -157,7 +157,7 @@
         private TextBox createMasterDataSimpleMasterDataTypeTextBox;
         private Label createMasterDataSimpleMasterDataTypeTextBoxLabel;
         private Button createMasterDataSimpleSubmitButton;
-        private CheckBox createMasterDataSimpleActiveStatusCheckbox;
+        private CheckBox createMasterDataSimpleActiveStatusCheckBox;
         private StatusStrip createMasterDataSimpleStatusStrip;
         private ToolStripSplitButton createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;

@@ -43,7 +43,7 @@
             countryDetailCountryEnglishNameTextBox = new TextBox();
             countryDetailCountryIdTextBox = new TextBox();
             countryDetailToggleEditModeButton = new Button();
-            countryDetailActiveStatusCheckbox = new CheckBox();
+            countryDetailActiveStatusCheckBox = new CheckBox();
             countryDetailUpdateCountryButton = new Button();
             countryDetailISO31661A2CountryCodeMaskedTextBox = new MaskedTextBox();
             SuspendLayout();
@@ -195,18 +195,18 @@
             countryDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             countryDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // countryDetailActiveStatusCheckbox
+            // countryDetailActiveStatusCheckBox
             // 
-            countryDetailActiveStatusCheckbox.AutoSize = true;
-            countryDetailActiveStatusCheckbox.Enabled = false;
-            countryDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            countryDetailActiveStatusCheckbox.Location = new Point(261, 285);
-            countryDetailActiveStatusCheckbox.Margin = new Padding(4);
-            countryDetailActiveStatusCheckbox.Name = "countryDetailActiveStatusCheckbox";
-            countryDetailActiveStatusCheckbox.Size = new Size(130, 24);
-            countryDetailActiveStatusCheckbox.TabIndex = 3;
-            countryDetailActiveStatusCheckbox.Text = "Active Country*";
-            countryDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            countryDetailActiveStatusCheckBox.AutoSize = true;
+            countryDetailActiveStatusCheckBox.Enabled = false;
+            countryDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            countryDetailActiveStatusCheckBox.Location = new Point(261, 285);
+            countryDetailActiveStatusCheckBox.Margin = new Padding(4);
+            countryDetailActiveStatusCheckBox.Name = "countryDetailActiveStatusCheckBox";
+            countryDetailActiveStatusCheckBox.Size = new Size(130, 24);
+            countryDetailActiveStatusCheckBox.TabIndex = 3;
+            countryDetailActiveStatusCheckBox.Text = "Active Country*";
+            countryDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // countryDetailUpdateCountryButton
             // 
@@ -240,7 +240,7 @@
             ClientSize = new Size(1265, 427);
             Controls.Add(countryDetailISO31661A2CountryCodeMaskedTextBox);
             Controls.Add(countryDetailUpdateCountryButton);
-            Controls.Add(countryDetailActiveStatusCheckbox);
+            Controls.Add(countryDetailActiveStatusCheckBox);
             Controls.Add(countryDetailToggleEditModeButton);
             Controls.Add(countryDetailCountryIdTextBox);
             Controls.Add(countryDetailCountryEnglishNameTextBox);
@@ -284,7 +284,7 @@
         private TextBox countryDetailCountryEnglishNameTextBox;
         private TextBox countryDetailCountryIdTextBox;
         private Button countryDetailToggleEditModeButton;
-        private CheckBox countryDetailActiveStatusCheckbox;
+        private CheckBox countryDetailActiveStatusCheckBox;
         private Button countryDetailUpdateCountryButton;
         private MaskedTextBox countryDetailISO31661A2CountryCodeMaskedTextBox;
     }

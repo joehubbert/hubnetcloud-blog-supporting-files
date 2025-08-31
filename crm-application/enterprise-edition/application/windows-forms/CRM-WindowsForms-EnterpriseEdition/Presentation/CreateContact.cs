@@ -55,12 +55,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             this.Text = $"{applicationTitlePrefix}{createContactModuleContactTypeFriendlyName}";
             createContactTitleLabel.Text = createContactModuleContactTypeFriendlyName;
-            createContactActiveStatusCheckbox.Text = $"Active {createContactModuleContactEntityFriendlyName} Contact*";
+            createContactActiveStatusCheckBox.Text = $"Active {createContactModuleContactEntityFriendlyName} Contact*";
         }
 
         private async void createContactSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createContactActiveStatusCheckbox.Checked;
+            bool activeStatus = createContactActiveStatusCheckBox.Checked;
             string emailAddress = createContactEmailAddressTextBox.Text.TrimEnd();
             string firstName = createContactFirstNameTextBox.Text.TrimEnd();
             string lastName = createContactLastNameTextBox.Text.TrimEnd();

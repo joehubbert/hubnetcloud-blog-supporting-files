@@ -64,7 +64,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     countryDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
                     countryDetailLastUpdatedByTextBox.Text = countryDataRow["Modified By"].ToString();
                     countryDetailLastUpdatedTimestampTextBox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
-                    countryDetailActiveStatusCheckbox.Checked = (bool)countryDataRow["Active Status"];
+                    countryDetailActiveStatusCheckBox.Checked = (bool)countryDataRow["Active Status"];
 
                     countryDetailActiveStatusOriginalValue = (bool)countryDataRow["Active Status"];
                     countryDetailCountryEnglishNameOriginalValue = countryDataRow["Country English Name"].ToString();
@@ -85,7 +85,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void countryDetailUpdateCountryButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = countryDetailActiveStatusCheckbox.Checked;   
+            bool activeStatus = countryDetailActiveStatusCheckBox.Checked;   
             string countryEnglishName = countryDetailCountryEnglishNameTextBox.Text.TrimEnd();
             string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeMaskedTextBox.Text.TrimEnd().ToUpper();
 
@@ -211,7 +211,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly;
             countryDetailCountryEnglishNameTextBox.ReadOnly = !countryDetailCountryEnglishNameTextBox.ReadOnly;
-            countryDetailActiveStatusCheckbox.Enabled = !countryDetailActiveStatusCheckbox.Enabled;
+            countryDetailActiveStatusCheckBox.Enabled = !countryDetailActiveStatusCheckBox.Enabled;
             countryDetailUpdateCountryButton.Enabled = !countryDetailUpdateCountryButton.Enabled;
         }
     }

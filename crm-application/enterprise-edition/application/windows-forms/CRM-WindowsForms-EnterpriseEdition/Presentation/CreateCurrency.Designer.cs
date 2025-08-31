@@ -30,7 +30,7 @@
         {
             createCurrencyTitleLabel = new Label();
             createCurrencyCurrencyCodeMaskedTextBoxLabel = new Label();
-            createCurrencyActiveStatusCheckbox = new CheckBox();
+            createCurrencyActiveStatusCheckBox = new CheckBox();
             createCurrencySubmitButton = new Button();
             createCurrencyCurrencyNameLabel = new Label();
             createCurrencyCurrencyNameTextBox = new TextBox();
@@ -59,19 +59,19 @@
             createCurrencyCurrencyCodeMaskedTextBoxLabel.Text = "Currency Code*";
             createCurrencyCurrencyCodeMaskedTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyActiveStatusCheckbox
+            // createCurrencyActiveStatusCheckBox
             // 
-            createCurrencyActiveStatusCheckbox.AutoSize = true;
-            createCurrencyActiveStatusCheckbox.Checked = true;
-            createCurrencyActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCurrencyActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCurrencyActiveStatusCheckbox.Location = new Point(202, 180);
-            createCurrencyActiveStatusCheckbox.Margin = new Padding(5);
-            createCurrencyActiveStatusCheckbox.Name = "createCurrencyActiveStatusCheckbox";
-            createCurrencyActiveStatusCheckbox.Size = new Size(136, 24);
-            createCurrencyActiveStatusCheckbox.TabIndex = 3;
-            createCurrencyActiveStatusCheckbox.Text = "Active Currency*";
-            createCurrencyActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createCurrencyActiveStatusCheckBox.AutoSize = true;
+            createCurrencyActiveStatusCheckBox.Checked = true;
+            createCurrencyActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCurrencyActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCurrencyActiveStatusCheckBox.Location = new Point(202, 180);
+            createCurrencyActiveStatusCheckBox.Margin = new Padding(5);
+            createCurrencyActiveStatusCheckBox.Name = "createCurrencyActiveStatusCheckBox";
+            createCurrencyActiveStatusCheckBox.Size = new Size(136, 24);
+            createCurrencyActiveStatusCheckBox.TabIndex = 3;
+            createCurrencyActiveStatusCheckBox.Text = "Active Currency*";
+            createCurrencyActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCurrencySubmitButton
             // 
@@ -125,7 +125,7 @@
             Controls.Add(createCurrencyCurrencyNameTextBox);
             Controls.Add(createCurrencyCurrencyNameLabel);
             Controls.Add(createCurrencySubmitButton);
-            Controls.Add(createCurrencyActiveStatusCheckbox);
+            Controls.Add(createCurrencyActiveStatusCheckBox);
             Controls.Add(createCurrencyCurrencyCodeMaskedTextBoxLabel);
             Controls.Add(createCurrencyTitleLabel);
             Font = new Font("Segoe UI", 11F);
@@ -143,7 +143,7 @@
 
         private Label createCurrencyTitleLabel;
         private Label createCurrencyCurrencyCodeMaskedTextBoxLabel;
-        private CheckBox createCurrencyActiveStatusCheckbox;
+        private CheckBox createCurrencyActiveStatusCheckBox;
         private Button createCurrencySubmitButton;
         private Label createCurrencyCurrencyNameLabel;
         private TextBox createCurrencyCurrencyNameTextBox;

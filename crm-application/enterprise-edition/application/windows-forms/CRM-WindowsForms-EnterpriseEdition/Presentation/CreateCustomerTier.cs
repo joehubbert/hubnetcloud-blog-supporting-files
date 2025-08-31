@@ -31,7 +31,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createCustomerTierActiveStatusCheckbox.Checked;
+            bool activeStatus = createCustomerTierActiveStatusCheckBox.Checked;
             string customerTierCode = createCustomerTierCustomerTierCodeTextBox.Text.TrimEnd();
             string customerTierDescription = createCustomerTierCustomerTierDescriptionTextBox.Text.TrimEnd();
 

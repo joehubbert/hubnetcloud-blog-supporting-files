@@ -33,7 +33,7 @@
             createMasterDataAdvancedMasterDataTypeTextBox = new TextBox();
             createMasterDataAdvancedMasterDataTypeTextBoxLabel = new Label();
             createMasterDataAdvancedSubmitButton = new Button();
-            createMasterDataAdvancedActiveStatusCheckbox = new CheckBox();
+            createMasterDataAdvancedActiveStatusCheckBox = new CheckBox();
             createMasterDataAdvancedDataParentSubjectComboBoxLabel = new Label();
             createMasterDataAdvancedDataParentSubjectComboBox = new ComboBox();
             createMasterDataAdvancedStatusStrip = new StatusStrip();
@@ -86,18 +86,18 @@
             createMasterDataAdvancedSubmitButton.UseVisualStyleBackColor = true;
             createMasterDataAdvancedSubmitButton.Click += createMasterDataAdvancedSubmitButton_Click;
             // 
-            // createMasterDataAdvancedActiveStatusCheckbox
+            // createMasterDataAdvancedActiveStatusCheckBox
             // 
-            createMasterDataAdvancedActiveStatusCheckbox.Checked = true;
-            createMasterDataAdvancedActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createMasterDataAdvancedActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createMasterDataAdvancedActiveStatusCheckbox.Location = new Point(128, 162);
-            createMasterDataAdvancedActiveStatusCheckbox.Margin = new Padding(5);
-            createMasterDataAdvancedActiveStatusCheckbox.Name = "createMasterDataAdvancedActiveStatusCheckbox";
-            createMasterDataAdvancedActiveStatusCheckbox.Size = new Size(286, 24);
-            createMasterDataAdvancedActiveStatusCheckbox.TabIndex = 2;
-            createMasterDataAdvancedActiveStatusCheckbox.Text = "Active {MasterData Type Placeholder}";
-            createMasterDataAdvancedActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createMasterDataAdvancedActiveStatusCheckBox.Checked = true;
+            createMasterDataAdvancedActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createMasterDataAdvancedActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createMasterDataAdvancedActiveStatusCheckBox.Location = new Point(128, 162);
+            createMasterDataAdvancedActiveStatusCheckBox.Margin = new Padding(5);
+            createMasterDataAdvancedActiveStatusCheckBox.Name = "createMasterDataAdvancedActiveStatusCheckBox";
+            createMasterDataAdvancedActiveStatusCheckBox.Size = new Size(286, 24);
+            createMasterDataAdvancedActiveStatusCheckBox.TabIndex = 2;
+            createMasterDataAdvancedActiveStatusCheckBox.Text = "Active {MasterData Type Placeholder}";
+            createMasterDataAdvancedActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createMasterDataAdvancedDataParentSubjectComboBoxLabel
             // 
@@ -158,7 +158,7 @@
             Controls.Add(createMasterDataAdvancedMasterDataTypeTextBox);
             Controls.Add(createMasterDataAdvancedMasterDataTypeTextBoxLabel);
             Controls.Add(createMasterDataAdvancedSubmitButton);
-            Controls.Add(createMasterDataAdvancedActiveStatusCheckbox);
+            Controls.Add(createMasterDataAdvancedActiveStatusCheckBox);
             Controls.Add(createMasterDataAdvancedTitleLabel);
             Font = new Font("Segoe UI", 11F);
             FormBorderStyle = FormBorderStyle.Fixed3D;
@@ -179,7 +179,7 @@
         private TextBox createMasterDataAdvancedMasterDataTypeTextBox;
         private Label createMasterDataAdvancedMasterDataTypeTextBoxLabel;
         private Button createMasterDataAdvancedSubmitButton;
-        private CheckBox createMasterDataAdvancedActiveStatusCheckbox;
+        private CheckBox createMasterDataAdvancedActiveStatusCheckBox;
         private Label createMasterDataAdvancedDataParentSubjectComboBoxLabel;
         private ComboBox createMasterDataAdvancedDataParentSubjectComboBox;
         private StatusStrip createMasterDataAdvancedStatusStrip;

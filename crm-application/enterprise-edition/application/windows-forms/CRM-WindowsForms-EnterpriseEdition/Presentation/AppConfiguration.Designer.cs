@@ -43,7 +43,7 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox = new CheckBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox = new CheckBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanel = new Panel();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton = new RadioButton();
@@ -53,7 +53,7 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox = new TextBox();
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox = new TextBox();
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox = new CheckBox();
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox = new CheckBox();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage = new TabPage();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBoxLabel = new Label();
             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox = new ComboBox();
@@ -207,14 +207,14 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Controls.Add(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Location = new Point(4, 32);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage";
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage.Padding = new Padding(3);
@@ -303,17 +303,17 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Size = new Size(440, 27);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.TabIndex = 7;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Location = new Point(198, 316);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Size = new Size(176, 24);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.TabIndex = 11;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.Text = "Trust Server Certificate";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox.UseVisualStyleBackColor = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Location = new Point(198, 316);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Size = new Size(176, 24);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.TabIndex = 11;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Text = "Trust Server Certificate";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.UseVisualStyleBackColor = true;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelLabel
             // 
@@ -408,17 +408,17 @@
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Size = new Size(440, 27);
             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.TabIndex = 5;
             // 
-            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox
+            // appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox
             // 
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.AutoSize = true;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Location = new Point(25, 316);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Margin = new Padding(2, 3, 2, 3);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Size = new Size(156, 24);
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.TabIndex = 10;
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.Text = "Encrypt Connection";
-            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox.UseVisualStyleBackColor = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.AutoSize = true;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Location = new Point(25, 316);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Margin = new Padding(2, 3, 2, 3);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Name = "appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Size = new Size(156, 24);
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.TabIndex = 10;
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Text = "Encrypt Connection";
+            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.UseVisualStyleBackColor = true;
             // 
             // appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage
             // 
@@ -1110,7 +1110,7 @@
         private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBoxLabel;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox;
-        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckbox;
+        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox;
         private TabPage appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage;
         private ComboBox appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox;
         private Label appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBoxLabel;
@@ -1125,7 +1125,7 @@
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton;
-        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckbox;
+        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox;
         private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBoxLabel;
         private Label appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBoxLabel;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox;
@@ -1148,7 +1148,7 @@
         private Label appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBoxLabel;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox;
-        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUseSSLCheckbox;
+        private CheckBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUseSSLCheckBox;
         private TextBox appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton;
         private RadioButton appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton;

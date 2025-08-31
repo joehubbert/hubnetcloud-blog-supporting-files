@@ -44,7 +44,7 @@
             deliveryMethodDetailDeliveryMethodIdTextBox = new TextBox();
             deliveryMethodDetailDeliveryMethodTextBox = new TextBox();
             deliveryMethodDetailToggleEditModeButton = new Button();
-            deliveryMethodDetailActiveStatusCheckbox = new CheckBox();
+            deliveryMethodDetailActiveStatusCheckBox = new CheckBox();
             deliveryMethodDetailUpdateDeliveryMethodButton = new Button();
             deliveryMethodDetailDeliveryCostTextBoxB = new TextBox();
             deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel = new Label();
@@ -212,18 +212,18 @@
             deliveryMethodDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             deliveryMethodDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // deliveryMethodDetailActiveStatusCheckbox
+            // deliveryMethodDetailActiveStatusCheckBox
             // 
-            deliveryMethodDetailActiveStatusCheckbox.AutoSize = true;
-            deliveryMethodDetailActiveStatusCheckbox.Enabled = false;
-            deliveryMethodDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            deliveryMethodDetailActiveStatusCheckbox.Location = new Point(243, 373);
-            deliveryMethodDetailActiveStatusCheckbox.Margin = new Padding(4);
-            deliveryMethodDetailActiveStatusCheckbox.Name = "deliveryMethodDetailActiveStatusCheckbox";
-            deliveryMethodDetailActiveStatusCheckbox.Size = new Size(189, 24);
-            deliveryMethodDetailActiveStatusCheckbox.TabIndex = 6;
-            deliveryMethodDetailActiveStatusCheckbox.Text = "Active Delivery Method*";
-            deliveryMethodDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            deliveryMethodDetailActiveStatusCheckBox.AutoSize = true;
+            deliveryMethodDetailActiveStatusCheckBox.Enabled = false;
+            deliveryMethodDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            deliveryMethodDetailActiveStatusCheckBox.Location = new Point(243, 373);
+            deliveryMethodDetailActiveStatusCheckBox.Margin = new Padding(4);
+            deliveryMethodDetailActiveStatusCheckBox.Name = "deliveryMethodDetailActiveStatusCheckBox";
+            deliveryMethodDetailActiveStatusCheckBox.Size = new Size(189, 24);
+            deliveryMethodDetailActiveStatusCheckBox.TabIndex = 6;
+            deliveryMethodDetailActiveStatusCheckBox.Text = "Active Delivery Method*";
+            deliveryMethodDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // deliveryMethodDetailUpdateDeliveryMethodButton
             // 
@@ -315,7 +315,7 @@
             Controls.Add(deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel);
             Controls.Add(deliveryMethodDetailDeliveryCostTextBoxB);
             Controls.Add(deliveryMethodDetailUpdateDeliveryMethodButton);
-            Controls.Add(deliveryMethodDetailActiveStatusCheckbox);
+            Controls.Add(deliveryMethodDetailActiveStatusCheckBox);
             Controls.Add(deliveryMethodDetailToggleEditModeButton);
             Controls.Add(deliveryMethodDetailDeliveryMethodTextBox);
             Controls.Add(deliveryMethodDetailDeliveryMethodIdTextBox);
@@ -361,7 +361,7 @@
         private TextBox deliveryMethodDetailDeliveryMethodIdTextBox;
         private TextBox deliveryMethodDetailDeliveryMethodTextBox;
         private Button deliveryMethodDetailToggleEditModeButton;
-        private CheckBox deliveryMethodDetailActiveStatusCheckbox;
+        private CheckBox deliveryMethodDetailActiveStatusCheckBox;
         private Button deliveryMethodDetailUpdateDeliveryMethodButton;
         private TextBox deliveryMethodDetailDeliveryCostTextBoxB;
         private Label deliveryMethodDetailDeliveryCostTextBoxSeparatorLabel;

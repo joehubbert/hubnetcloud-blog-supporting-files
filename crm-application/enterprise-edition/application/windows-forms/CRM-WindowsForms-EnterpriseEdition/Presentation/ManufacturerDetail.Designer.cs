@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             manufacturerDetailUpdateManufacturerButton = new Button();
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             manufacturerDetailToggleEditModeButton = new Button();
             manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox = new TextBox();
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox = new TextBox();
@@ -63,7 +63,7 @@
             manufacturerDetailTabControlFinanceTabPage = new TabPage();
             manufacturerDetailTabControlFinanceTabPageVATNumberTextBoxLabel = new Label();
             manufacturerDetailTabControlFinanceTabPageVATNumberTextBox = new TextBox();
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox = new CheckBox();
             manufacturerDetailTabControl.SuspendLayout();
             manufacturerDetailTabControlOverviewTabPage.SuspendLayout();
             manufacturerDetailTabControlFinanceTabPage.SuspendLayout();
@@ -83,18 +83,18 @@
             manufacturerDetailUpdateManufacturerButton.UseVisualStyleBackColor = true;
             manufacturerDetailUpdateManufacturerButton.Click += manufacturerDetailUpdateManufacturerButton_Click;
             // 
-            // manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox
+            // manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(171, 395);
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox";
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(161, 24);
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 5;
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Manufacturer";
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = false;
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(171, 395);
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Name = "manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox";
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(161, 24);
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 5;
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Manufacturer";
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // manufacturerDetailToggleEditModeButton
             // 
@@ -232,7 +232,7 @@
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine2TextBoxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine3TextBoxLabel);
-            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox);
+            manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine4TextBoxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             manufacturerDetailTabControlOverviewTabPage.Controls.Add(manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox);
@@ -420,7 +420,7 @@
             manufacturerDetailTabControlFinanceTabPage.BackColor = Color.SkyBlue;
             manufacturerDetailTabControlFinanceTabPage.Controls.Add(manufacturerDetailTabControlFinanceTabPageVATNumberTextBoxLabel);
             manufacturerDetailTabControlFinanceTabPage.Controls.Add(manufacturerDetailTabControlFinanceTabPageVATNumberTextBox);
-            manufacturerDetailTabControlFinanceTabPage.Controls.Add(manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox);
+            manufacturerDetailTabControlFinanceTabPage.Controls.Add(manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox);
             manufacturerDetailTabControlFinanceTabPage.Location = new Point(4, 27);
             manufacturerDetailTabControlFinanceTabPage.Name = "manufacturerDetailTabControlFinanceTabPage";
             manufacturerDetailTabControlFinanceTabPage.Size = new Size(1256, 490);
@@ -446,18 +446,18 @@
             manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Size = new Size(208, 27);
             manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.TabIndex = 18;
             // 
-            // manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox
+            // manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox
             // 
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.AutoSize = true;
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = false;
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Location = new Point(38, 18);
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Name = "manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox";
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 17;
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.AutoSize = true;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = false;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Location = new Point(38, 18);
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Margin = new Padding(4);
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Name = "manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox";
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Size = new Size(128, 24);
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.TabIndex = 17;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Text = "VAT Registered";
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.UseVisualStyleBackColor = true;
             // 
             // ManufacturerDetail
             // 
@@ -487,7 +487,7 @@
 
         #endregion
         private Button manufacturerDetailUpdateManufacturerButton;
-        private CheckBox manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox;
+        private CheckBox manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox;
         private Button manufacturerDetailToggleEditModeButton;
         private TextBox manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox;
         private TextBox manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox;
@@ -520,7 +520,7 @@
         private TabPage manufacturerDetailTabControlFinanceTabPage;
         private Label manufacturerDetailTabControlFinanceTabPageVATNumberTextBoxLabel;
         private TextBox manufacturerDetailTabControlFinanceTabPageVATNumberTextBox;
-        private CheckBox manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox;
+        private CheckBox manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox;
         private ComboBox manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox;
     }
 }

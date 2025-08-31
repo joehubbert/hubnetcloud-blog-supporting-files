@@ -32,7 +32,7 @@
             createContactEmailAddressTextBox = new TextBox();
             createContactEmailAddressTextBoxLabel = new Label();
             createContactSubmitButton = new Button();
-            createContactActiveStatusCheckbox = new CheckBox();
+            createContactActiveStatusCheckBox = new CheckBox();
             createContactFirstNameTextBoxLabel = new Label();
             createContactFirstNameTextBox = new TextBox();
             createContactLastNameTextBoxLabel = new Label();
@@ -88,19 +88,19 @@
             createContactSubmitButton.UseVisualStyleBackColor = true;
             createContactSubmitButton.Click += createContactSubmitButton_Click;
             // 
-            // createContactActiveStatusCheckbox
+            // createContactActiveStatusCheckBox
             // 
-            createContactActiveStatusCheckbox.AutoSize = true;
-            createContactActiveStatusCheckbox.Checked = true;
-            createContactActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createContactActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createContactActiveStatusCheckbox.Location = new Point(190, 295);
-            createContactActiveStatusCheckbox.Margin = new Padding(5);
-            createContactActiveStatusCheckbox.Name = "createContactActiveStatusCheckbox";
-            createContactActiveStatusCheckbox.Size = new Size(175, 24);
-            createContactActiveStatusCheckbox.TabIndex = 5;
-            createContactActiveStatusCheckbox.Text = "Active {Contact Type}*";
-            createContactActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createContactActiveStatusCheckBox.AutoSize = true;
+            createContactActiveStatusCheckBox.Checked = true;
+            createContactActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createContactActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createContactActiveStatusCheckBox.Location = new Point(190, 295);
+            createContactActiveStatusCheckBox.Margin = new Padding(5);
+            createContactActiveStatusCheckBox.Name = "createContactActiveStatusCheckBox";
+            createContactActiveStatusCheckBox.Size = new Size(175, 24);
+            createContactActiveStatusCheckBox.TabIndex = 5;
+            createContactActiveStatusCheckBox.Text = "Active {Contact Type}*";
+            createContactActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createContactFirstNameTextBoxLabel
             // 
@@ -204,7 +204,7 @@
             Controls.Add(createContactLastNameTextBox);
             Controls.Add(createContactFirstNameTextBoxLabel);
             Controls.Add(createContactFirstNameTextBox);
-            Controls.Add(createContactActiveStatusCheckbox);
+            Controls.Add(createContactActiveStatusCheckBox);
             Controls.Add(createContactSubmitButton);
             Controls.Add(createContactEmailAddressTextBoxLabel);
             Controls.Add(createContactEmailAddressTextBox);
@@ -228,7 +228,7 @@
         private TextBox createContactEmailAddressTextBox;
         private Label createContactEmailAddressTextBoxLabel;
         private Button createContactSubmitButton;
-        private CheckBox createContactActiveStatusCheckbox;
+        private CheckBox createContactActiveStatusCheckBox;
         private Label createContactFirstNameTextBoxLabel;
         private TextBox createContactFirstNameTextBox;
         private Label createContactLastNameTextBoxLabel;

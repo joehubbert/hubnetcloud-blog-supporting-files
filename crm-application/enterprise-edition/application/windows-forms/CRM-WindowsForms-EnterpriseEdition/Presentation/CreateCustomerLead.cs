@@ -115,7 +115,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCustomerLeadSubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createCustomerLeadActiveStatusCheckbox.Checked;
+            bool activeStatus = createCustomerLeadActiveStatusCheckBox.Checked;
             Guid? customerContactId = null;
             if (createCustomerLeadCustomerContactPanelYesRadioButton.Checked)
             {

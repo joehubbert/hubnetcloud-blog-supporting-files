@@ -199,7 +199,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = customerLeadDataRow["Created Timestamp UTC"].ToString();
                     customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = customerLeadDataRow["Modified By"].ToString();
                     customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = customerLeadDataRow["Modified Timestamp UTC"].ToString();
-                    customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)customerLeadDataRow["Active Status"];
+                    customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked = (bool)customerLeadDataRow["Active Status"];
 
                     customerLeadDetailTabControlOverviewTabPageActiveStatusOriginalValue = (bool)customerLeadDataRow["Active Status"];
                     if (customerLeadDataRow["Customer Contact Id"] != DBNull.Value)
@@ -282,7 +282,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void customerLeadDetailUpdateCustomerLeadButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool activeStatus = customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             Guid? customerContactId = null;
             if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Checked)
             {
@@ -524,7 +524,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void customerLeadDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !customerLeadDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled;

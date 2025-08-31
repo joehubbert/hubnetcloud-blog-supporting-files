@@ -21,7 +21,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createCountrySubmitButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = createCountryActiveStatusCheckbox.Checked;
+            bool activeStatus = createCountryActiveStatusCheckBox.Checked;
             string countryEnglishName = createCountryCountryEnglishNameTextBox.Text.TrimEnd();
             string iso31661A2CountryCode = createCountryISO31661A2CountryCodeMaskedTextBox.Text.TrimEnd().ToUpper();
 

@@ -49,7 +49,7 @@
             contactDetailLastNameTextBox = new TextBox();
             contactDetailFirstNameTextBoxLabel = new Label();
             contactDetailFirstNameTextBox = new TextBox();
-            contactDetailActiveStatusCheckbox = new CheckBox();
+            contactDetailActiveStatusCheckBox = new CheckBox();
             contactDetailEmailAddressTextBoxLabel = new Label();
             contactDetailEmailAddressTextBox = new TextBox();
             contactDetailStatusStrip = new StatusStrip();
@@ -266,19 +266,19 @@
             contactDetailFirstNameTextBox.Size = new Size(469, 27);
             contactDetailFirstNameTextBox.TabIndex = 1;
             // 
-            // contactDetailActiveStatusCheckbox
+            // contactDetailActiveStatusCheckBox
             // 
-            contactDetailActiveStatusCheckbox.AutoSize = true;
-            contactDetailActiveStatusCheckbox.Checked = true;
-            contactDetailActiveStatusCheckbox.CheckState = CheckState.Checked;
-            contactDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            contactDetailActiveStatusCheckbox.Location = new Point(271, 396);
-            contactDetailActiveStatusCheckbox.Margin = new Padding(5);
-            contactDetailActiveStatusCheckbox.Name = "contactDetailActiveStatusCheckbox";
-            contactDetailActiveStatusCheckbox.Size = new Size(169, 24);
-            contactDetailActiveStatusCheckbox.TabIndex = 25;
-            contactDetailActiveStatusCheckbox.Text = "Active {Contact Type}";
-            contactDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            contactDetailActiveStatusCheckBox.AutoSize = true;
+            contactDetailActiveStatusCheckBox.Checked = true;
+            contactDetailActiveStatusCheckBox.CheckState = CheckState.Checked;
+            contactDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            contactDetailActiveStatusCheckBox.Location = new Point(271, 396);
+            contactDetailActiveStatusCheckBox.Margin = new Padding(5);
+            contactDetailActiveStatusCheckBox.Name = "contactDetailActiveStatusCheckBox";
+            contactDetailActiveStatusCheckBox.Size = new Size(169, 24);
+            contactDetailActiveStatusCheckBox.TabIndex = 25;
+            contactDetailActiveStatusCheckBox.Text = "Active {Contact Type}";
+            contactDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // contactDetailEmailAddressTextBoxLabel
             // 
@@ -329,7 +329,7 @@
             Controls.Add(contactDetailLastNameTextBox);
             Controls.Add(contactDetailFirstNameTextBoxLabel);
             Controls.Add(contactDetailFirstNameTextBox);
-            Controls.Add(contactDetailActiveStatusCheckbox);
+            Controls.Add(contactDetailActiveStatusCheckBox);
             Controls.Add(contactDetailEmailAddressTextBoxLabel);
             Controls.Add(contactDetailEmailAddressTextBox);
             Controls.Add(contactDetailUpdateContactButton);
@@ -381,7 +381,7 @@
         private TextBox contactDetailLastNameTextBox;
         private Label contactDetailFirstNameTextBoxLabel;
         private TextBox contactDetailFirstNameTextBox;
-        private CheckBox contactDetailActiveStatusCheckbox;
+        private CheckBox contactDetailActiveStatusCheckBox;
         private Label contactDetailEmailAddressTextBoxLabel;
         private TextBox contactDetailEmailAddressTextBox;
         private StatusStrip contactDetailStatusStrip;

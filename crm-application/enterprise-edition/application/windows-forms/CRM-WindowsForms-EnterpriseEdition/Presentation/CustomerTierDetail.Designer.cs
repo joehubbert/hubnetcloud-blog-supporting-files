@@ -44,7 +44,7 @@
             customerTierDetailCustomerTierIdTextBox = new TextBox();
             customerTierDetailCustomerTierCodeTextBox = new TextBox();
             customerTierDetailToggleEditModeButton = new Button();
-            customerTierDetailActiveStatusCheckbox = new CheckBox();
+            customerTierDetailActiveStatusCheckBox = new CheckBox();
             customerTierDetailUpdateCustomerTierButton = new Button();
             customerTierDetailCompanyConfigurationComboBoxLabel = new Label();
             customerTierDetailCompanyConfigurationComboBox = new ComboBox();
@@ -206,18 +206,18 @@
             customerTierDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerTierDetailToggleEditModeButton.UseVisualStyleBackColor = true;
             // 
-            // customerTierDetailActiveStatusCheckbox
+            // customerTierDetailActiveStatusCheckBox
             // 
-            customerTierDetailActiveStatusCheckbox.AutoSize = true;
-            customerTierDetailActiveStatusCheckbox.Enabled = false;
-            customerTierDetailActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            customerTierDetailActiveStatusCheckbox.Location = new Point(235, 308);
-            customerTierDetailActiveStatusCheckbox.Margin = new Padding(4);
-            customerTierDetailActiveStatusCheckbox.Name = "customerTierDetailActiveStatusCheckbox";
-            customerTierDetailActiveStatusCheckbox.Size = new Size(171, 24);
-            customerTierDetailActiveStatusCheckbox.TabIndex = 4;
-            customerTierDetailActiveStatusCheckbox.Text = "Active Customer Tier*";
-            customerTierDetailActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            customerTierDetailActiveStatusCheckBox.AutoSize = true;
+            customerTierDetailActiveStatusCheckBox.Enabled = false;
+            customerTierDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            customerTierDetailActiveStatusCheckBox.Location = new Point(235, 308);
+            customerTierDetailActiveStatusCheckBox.Margin = new Padding(4);
+            customerTierDetailActiveStatusCheckBox.Name = "customerTierDetailActiveStatusCheckBox";
+            customerTierDetailActiveStatusCheckBox.Size = new Size(171, 24);
+            customerTierDetailActiveStatusCheckBox.TabIndex = 4;
+            customerTierDetailActiveStatusCheckBox.Text = "Active Customer Tier*";
+            customerTierDetailActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // customerTierDetailUpdateCustomerTierButton
             // 
@@ -262,7 +262,7 @@
             Controls.Add(customerTierDetailCompanyConfigurationComboBoxLabel);
             Controls.Add(customerTierDetailCompanyConfigurationComboBox);
             Controls.Add(customerTierDetailUpdateCustomerTierButton);
-            Controls.Add(customerTierDetailActiveStatusCheckbox);
+            Controls.Add(customerTierDetailActiveStatusCheckBox);
             Controls.Add(customerTierDetailToggleEditModeButton);
             Controls.Add(customerTierDetailCustomerTierCodeTextBox);
             Controls.Add(customerTierDetailCustomerTierIdTextBox);
@@ -308,7 +308,7 @@
         private TextBox customerTierDetailCustomerTierIdTextBox;
         private TextBox customerTierDetailCustomerTierCodeTextBox;
         private Button customerTierDetailToggleEditModeButton;
-        private CheckBox customerTierDetailActiveStatusCheckbox;
+        private CheckBox customerTierDetailActiveStatusCheckBox;
         private Button customerTierDetailUpdateCustomerTierButton;
         private Label customerTierDetailCompanyConfigurationComboBoxLabel;
         private ComboBox customerTierDetailCompanyConfigurationComboBox;

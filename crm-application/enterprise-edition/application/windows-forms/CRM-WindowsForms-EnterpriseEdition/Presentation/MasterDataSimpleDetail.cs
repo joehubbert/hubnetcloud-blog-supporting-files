@@ -260,7 +260,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             masterDataSimpleDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
             masterDataSimpleDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
             masterDataSimpleDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
-            masterDataSimpleDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
+            masterDataSimpleDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
             masterDataSimpleDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
@@ -298,7 +298,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataSimpleDetailCreatedTimestampTextBox.Text = masterDataSimpleDetailDataRow["Created Timestamp UTC"].ToString();
                     masterDataSimpleDetailLastUpdatedByTextBox.Text = masterDataSimpleDetailDataRow["Modified By"].ToString();
                     masterDataSimpleDetailLastUpdatedTimestampTextBox.Text = masterDataSimpleDetailDataRow["Modified Timestamp UTC"].ToString();
-                    masterDataSimpleDetailActiveStatusCheckbox.Checked = (bool)masterDataSimpleDetailDataRow["Active Status"];
+                    masterDataSimpleDetailActiveStatusCheckBox.Checked = (bool)masterDataSimpleDetailDataRow["Active Status"];
                     if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                     {
                         Guid companyConfigurationId = (Guid)masterDataSimpleDetailDataRow["Company Configuration Id"];
@@ -328,7 +328,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void masterDataSimpleDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = masterDataSimpleDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = masterDataSimpleDetailActiveStatusCheckBox.Checked;
             Guid? companyConfigurationId = (Guid?)masterDataSimpleDetailCompanyConfigurationComboBox.SelectedValue;
             string dataSubjectValue = masterDataSimpleDetailDataSubjectTextBox.Text.TrimEnd();
 
@@ -457,7 +457,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void masterDataSimpleDetailToggleEditModeButton_Click(object? sender, EventArgs e)
         {
             masterDataSimpleDetailDataSubjectTextBox.ReadOnly = !masterDataSimpleDetailDataSubjectTextBox.ReadOnly;
-            masterDataSimpleDetailActiveStatusCheckbox.Enabled = !masterDataSimpleDetailActiveStatusCheckbox.Enabled;
+            masterDataSimpleDetailActiveStatusCheckBox.Enabled = !masterDataSimpleDetailActiveStatusCheckBox.Enabled;
             masterDataSimpleDetailUpdateDataSubjectButton.Enabled = !masterDataSimpleDetailUpdateDataSubjectButton.Enabled;
             if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
             {

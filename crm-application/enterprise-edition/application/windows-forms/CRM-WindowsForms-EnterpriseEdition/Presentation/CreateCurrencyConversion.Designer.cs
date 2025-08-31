@@ -44,7 +44,7 @@
             createCurrencyConversionBaseCurrencyComboBoxLabel = new Label();
             createCurrencyConversionBaseCurrencyValueTextBoxLabel = new Label();
             createCurrencyConversionTargetCurrencyValueTextBoxLabel = new Label();
-            createCurrencyConversionActiveStatusCheckbox = new CheckBox();
+            createCurrencyConversionActiveStatusCheckBox = new CheckBox();
             createCurrencyConversionSubmitButton = new Button();
             createCurrencyConversionEffectiveDatePickerLabel = new Label();
             createCurrencyConversionTargetCurrencyValueTextBoxB = new TextBox();
@@ -209,19 +209,19 @@
             createCurrencyConversionTargetCurrencyValueTextBoxLabel.Text = "Target Currency Value*";
             createCurrencyConversionTargetCurrencyValueTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // createCurrencyConversionActiveStatusCheckbox
+            // createCurrencyConversionActiveStatusCheckBox
             // 
-            createCurrencyConversionActiveStatusCheckbox.AutoSize = true;
-            createCurrencyConversionActiveStatusCheckbox.Checked = true;
-            createCurrencyConversionActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCurrencyConversionActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCurrencyConversionActiveStatusCheckbox.Location = new Point(402, 337);
-            createCurrencyConversionActiveStatusCheckbox.Margin = new Padding(4);
-            createCurrencyConversionActiveStatusCheckbox.Name = "createCurrencyConversionActiveStatusCheckbox";
-            createCurrencyConversionActiveStatusCheckbox.Size = new Size(213, 24);
-            createCurrencyConversionActiveStatusCheckbox.TabIndex = 6;
-            createCurrencyConversionActiveStatusCheckbox.Text = "Active Currency Conversion*";
-            createCurrencyConversionActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createCurrencyConversionActiveStatusCheckBox.AutoSize = true;
+            createCurrencyConversionActiveStatusCheckBox.Checked = true;
+            createCurrencyConversionActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCurrencyConversionActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCurrencyConversionActiveStatusCheckBox.Location = new Point(402, 337);
+            createCurrencyConversionActiveStatusCheckBox.Margin = new Padding(4);
+            createCurrencyConversionActiveStatusCheckBox.Name = "createCurrencyConversionActiveStatusCheckBox";
+            createCurrencyConversionActiveStatusCheckBox.Size = new Size(213, 24);
+            createCurrencyConversionActiveStatusCheckBox.TabIndex = 6;
+            createCurrencyConversionActiveStatusCheckBox.Text = "Active Currency Conversion*";
+            createCurrencyConversionActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCurrencyConversionSubmitButton
             // 
@@ -302,7 +302,7 @@
             Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxSeparatorLabel);
             Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxB);
             Controls.Add(createCurrencyConversionEffectiveDatePickerLabel);
-            Controls.Add(createCurrencyConversionActiveStatusCheckbox);
+            Controls.Add(createCurrencyConversionActiveStatusCheckBox);
             Controls.Add(createCurrencyConversionSubmitButton);
             Controls.Add(createCurrencyConversionTargetCurrencyValueTextBoxLabel);
             Controls.Add(createCurrencyConversionBaseCurrencyValueTextBoxLabel);
@@ -351,7 +351,7 @@
         private Label createCurrencyConversionBaseCurrencyComboBoxLabel;
         private Label createCurrencyConversionBaseCurrencyValueTextBoxLabel;
         private Label createCurrencyConversionTargetCurrencyValueTextBoxLabel;
-        private CheckBox createCurrencyConversionActiveStatusCheckbox;
+        private CheckBox createCurrencyConversionActiveStatusCheckBox;
         private Button createCurrencyConversionSubmitButton;
         private Label createCurrencyConversionEffectiveDatePickerLabel;
         private TextBox createCurrencyConversionTargetCurrencyValueTextBoxB;

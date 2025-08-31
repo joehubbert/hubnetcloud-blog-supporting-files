@@ -107,7 +107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             masterDataAdvancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
             masterDataAdvancedDetailDataParentSubjectComboBoxLabel.Text = dataParentSubjectFriendlyName;
             masterDataAdvancedDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
-            masterDataAdvancedDetailActiveStatusCheckbox.Text = $"Active {dataSubjectFriendlyName}";
+            masterDataAdvancedDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
             masterDataAdvancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
@@ -156,7 +156,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataAdvancedDetailCreatedTimestampTextBox.Text = masterDataAdvancedDetailDataRow["Created Timestamp UTC"].ToString();
                     masterDataAdvancedDetailLastUpdatedByTextBox.Text = masterDataAdvancedDetailDataRow["Modified By"].ToString();
                     masterDataAdvancedDetailLastUpdatedTimestampTextBox.Text = masterDataAdvancedDetailDataRow["Modified Timestamp UTC"].ToString();
-                    masterDataAdvancedDetailActiveStatusCheckbox.Checked = (bool)masterDataAdvancedDetailDataRow["Active Status"];
+                    masterDataAdvancedDetailActiveStatusCheckBox.Checked = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
                     dataParentSubjectOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
                     dataSubjectCompanyConfigurationIdOriginalValue = (Guid)masterDataAdvancedDetailDataRow["Company Configuration Id"];
@@ -178,7 +178,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void masterDataAdvancedDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = masterDataAdvancedDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = masterDataAdvancedDetailActiveStatusCheckBox.Checked;
             Guid companyConfigurationId = (Guid)masterDataAdvancedDetailCompanyConfigurationComboBox.SelectedValue;
             Guid dataParentSubjectIdValue = (Guid)masterDataAdvancedDetailDataParentSubjectComboBox.SelectedValue;
             string dataSubjectValue = masterDataAdvancedDetailDataSubjectTextBox.Text.TrimEnd();
@@ -320,7 +320,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             masterDataAdvancedDetailDataParentSubjectComboBox.Enabled = !masterDataAdvancedDetailDataParentSubjectComboBox.Enabled;
             masterDataAdvancedDetailDataSubjectTextBox.ReadOnly = !masterDataAdvancedDetailDataSubjectTextBox.ReadOnly;
             masterDataAdvancedDetailCompanyConfigurationComboBox.Enabled = !masterDataAdvancedDetailCompanyConfigurationComboBox.Enabled;
-            masterDataAdvancedDetailActiveStatusCheckbox.Enabled = !masterDataAdvancedDetailActiveStatusCheckbox.Enabled;
+            masterDataAdvancedDetailActiveStatusCheckBox.Enabled = !masterDataAdvancedDetailActiveStatusCheckBox.Enabled;
             masterDataAdvancedDetailUpdateDataSubjectButton.Enabled = !masterDataAdvancedDetailUpdateDataSubjectButton.Enabled;
         }
     }

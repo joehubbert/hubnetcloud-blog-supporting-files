@@ -47,11 +47,11 @@
             createSupplierTabControlOverviewTabPageTelephoneNumberTextBox = new TextBox();
             createSupplierTabControlOverviewTabPageSupplierNameTextBoxLabel = new Label();
             createSupplierTabControlOverviewTabPageSupplierNameTextBox = new TextBox();
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             createSupplierTabControlFinanceTabPage = new TabPage();
             createSupplierTabControlFinanceTabPageVATNumberTextBoxLabel = new Label();
             createSupplierTabControlFinanceTabPageVATNumberTextBox = new TextBox();
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox = new CheckBox();
             createSupplierTabControlFinanceTabPagePaymentDaysTextBoxLabel = new Label();
             createSupplierTabControlFinanceTabPagePaymentCurrencyComboBoxLabel = new Label();
             createSupplierTabControlFinanceTabPagePaymentDaysTextBox = new TextBox();
@@ -108,7 +108,7 @@
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageTelephoneNumberTextBox);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageSupplierNameTextBoxLabel);
             createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageSupplierNameTextBox);
-            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageActiveStatusCheckbox);
+            createSupplierTabControlOverviewTabPage.Controls.Add(createSupplierTabControlOverviewTabPageActiveStatusCheckBox);
             createSupplierTabControlOverviewTabPage.Location = new Point(4, 32);
             createSupplierTabControlOverviewTabPage.Name = "createSupplierTabControlOverviewTabPage";
             createSupplierTabControlOverviewTabPage.Padding = new Padding(3);
@@ -252,26 +252,26 @@
             createSupplierTabControlOverviewTabPageSupplierNameTextBox.Size = new Size(234, 27);
             createSupplierTabControlOverviewTabPageSupplierNameTextBox.TabIndex = 1;
             // 
-            // createSupplierTabControlOverviewTabPageActiveStatusCheckbox
+            // createSupplierTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Checked = true;
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(168, 307);
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Name = "createSupplierTabControlOverviewTabPageActiveStatusCheckbox";
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(134, 24);
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 4;
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Supplier*";
-            createSupplierTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Checked = true;
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(168, 307);
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Name = "createSupplierTabControlOverviewTabPageActiveStatusCheckBox";
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(134, 24);
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 4;
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Supplier*";
+            createSupplierTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createSupplierTabControlFinanceTabPage
             // 
             createSupplierTabControlFinanceTabPage.BackColor = Color.MediumAquamarine;
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPageVATNumberTextBoxLabel);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPageVATNumberTextBox);
-            createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPageVATRegisteredCheckbox);
+            createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPageVATRegisteredCheckBox);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentDaysTextBoxLabel);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBoxLabel);
             createSupplierTabControlFinanceTabPage.Controls.Add(createSupplierTabControlFinanceTabPagePaymentDaysTextBox);
@@ -300,19 +300,19 @@
             createSupplierTabControlFinanceTabPageVATNumberTextBox.Size = new Size(208, 27);
             createSupplierTabControlFinanceTabPageVATNumberTextBox.TabIndex = 13;
             // 
-            // createSupplierTabControlFinanceTabPageVATRegisteredCheckbox
+            // createSupplierTabControlFinanceTabPageVATRegisteredCheckBox
             // 
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.AutoSize = true;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.CheckState = CheckState.Checked;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Location = new Point(38, 109);
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Name = "createSupplierTabControlFinanceTabPageVATRegisteredCheckbox";
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 12;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.AutoSize = true;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.CheckState = CheckState.Checked;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Location = new Point(38, 109);
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Margin = new Padding(4);
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Name = "createSupplierTabControlFinanceTabPageVATRegisteredCheckBox";
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Size = new Size(128, 24);
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.TabIndex = 12;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Text = "VAT Registered";
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.UseVisualStyleBackColor = true;
             // 
             // createSupplierTabControlFinanceTabPagePaymentDaysTextBoxLabel
             // 
@@ -436,14 +436,14 @@
         private TabPage createSupplierTabControlOverviewTabPage;
         private Button createSupplierSubmitButton;
         private TabPage createSupplierTabControlFinanceTabPage;
-        private CheckBox createSupplierTabControlOverviewTabPageActiveStatusCheckbox;
+        private CheckBox createSupplierTabControlOverviewTabPageActiveStatusCheckBox;
         private Label createSupplierTabControlFinanceTabPagePaymentDaysTextBoxLabel;
         private Label createSupplierTabControlFinanceTabPagePaymentCurrencyComboBoxLabel;
         private TextBox createSupplierTabControlFinanceTabPagePaymentDaysTextBox;
         private ComboBox createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox;
         private TextBox createSupplierTabControlOverviewTabPageSupplierNameTextBox;
         private Label createSupplierTabControlOverviewTabPageSupplierNameTextBoxLabel;
-        private CheckBox createSupplierTabControlFinanceTabPageVATRegisteredCheckbox;
+        private CheckBox createSupplierTabControlFinanceTabPageVATRegisteredCheckBox;
         private Label createSupplierTabControlFinanceTabPageVATNumberTextBoxLabel;
         private TextBox createSupplierTabControlFinanceTabPageVATNumberTextBox;
         private Label createSupplierTabControlOverviewTabPageEmailAddressTextBoxLabel;

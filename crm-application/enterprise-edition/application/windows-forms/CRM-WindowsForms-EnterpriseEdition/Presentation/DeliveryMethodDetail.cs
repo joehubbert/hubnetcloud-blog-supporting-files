@@ -84,7 +84,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     deliveryMethodDetailCreatedTimestampTextBox.Text = deliveryMethodDataRow["Created Timestamp UTC"].ToString();
                     deliveryMethodDetailLastUpdatedByTextBox.Text = deliveryMethodDataRow["Modified By"].ToString();
                     deliveryMethodDetailLastUpdatedTimestampTextBox.Text = deliveryMethodDataRow["Modified Timestamp UTC"].ToString();
-                    deliveryMethodDetailActiveStatusCheckbox.Checked = (bool)deliveryMethodDataRow["Active Status"];
+                    deliveryMethodDetailActiveStatusCheckBox.Checked = (bool)deliveryMethodDataRow["Active Status"];
 
                     deliveryMethodDetailDeliveryMethodOriginalValue = deliveryMethodDataRow["Delivery Method"].ToString();
                     deliveryMethodDetailDeliveryCostOriginalValue = (decimal)deliveryMethodDataRow["Delivery Cost"];
@@ -107,7 +107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
-            bool activeStatus = deliveryMethodDetailActiveStatusCheckbox.Checked;
+            bool activeStatus = deliveryMethodDetailActiveStatusCheckBox.Checked;
             decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxA.Text.TrimEnd()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxB.Text.TrimEnd()) / 100);
             string deliveryMethod = deliveryMethodDetailDeliveryMethodTextBox.Text.TrimEnd();
             int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextBox.Text.TrimEnd());
@@ -278,7 +278,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly;
             deliveryMethodDetailDeliveryTimeTextBox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextBox.ReadOnly;
             deliveryMethodDetailTaxProfileComboBox.Enabled = !deliveryMethodDetailTaxProfileComboBox.Enabled;
-            deliveryMethodDetailActiveStatusCheckbox.Enabled = !deliveryMethodDetailActiveStatusCheckbox.Enabled;
+            deliveryMethodDetailActiveStatusCheckBox.Enabled = !deliveryMethodDetailActiveStatusCheckBox.Enabled;
             deliveryMethodDetailUpdateDeliveryMethodButton.Enabled = !deliveryMethodDetailUpdateDeliveryMethodButton.Enabled;
         }
     }

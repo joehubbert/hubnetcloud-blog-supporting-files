@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             supplierDetailUpdateSupplierButton = new Button();
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox = new CheckBox();
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             supplierDetailToggleEditModeButton = new Button();
             supplierDetailTabControlOverviewTabPageSupplierIdTextBox = new TextBox();
             supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox = new TextBox();
@@ -63,7 +63,7 @@
             supplierDetailTabControlFinanceTabPage = new TabPage();
             supplierDetailTabControlFinanceTabPageVATNumberTextBoxLabel = new Label();
             supplierDetailTabControlFinanceTabPageVATNumberTextBox = new TextBox();
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox = new CheckBox();
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox = new CheckBox();
             supplierDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel = new Label();
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel = new Label();
             supplierDetailTabControlFinanceTabPagePaymentDaysTextBox = new TextBox();
@@ -103,18 +103,18 @@
             supplierDetailUpdateSupplierButton.UseVisualStyleBackColor = true;
             supplierDetailUpdateSupplierButton.Click += supplierDetailUpdateSupplierButton_Click;
             // 
-            // supplierDetailTabControlOverviewTabPageActiveStatusCheckbox
+            // supplierDetailTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.AutoSize = true;
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = false;
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Location = new Point(171, 395);
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Margin = new Padding(4);
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Name = "supplierDetailTabControlOverviewTabPageActiveStatusCheckbox";
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Size = new Size(128, 24);
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.TabIndex = 5;
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.Text = "Active Supplier";
-            supplierDetailTabControlOverviewTabPageActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = false;
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(171, 395);
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Name = "supplierDetailTabControlOverviewTabPageActiveStatusCheckBox";
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(128, 24);
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 5;
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Supplier";
+            supplierDetailTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // supplierDetailToggleEditModeButton
             // 
@@ -254,7 +254,7 @@
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine2TextBoxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine3TextBoxLabel);
-            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageActiveStatusCheckbox);
+            supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageActiveStatusCheckBox);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine4TextBoxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageAddressLine5ComboBoxLabel);
             supplierDetailTabControlOverviewTabPage.Controls.Add(supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox);
@@ -442,7 +442,7 @@
             supplierDetailTabControlFinanceTabPage.BackColor = Color.MediumAquamarine;
             supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPageVATNumberTextBoxLabel);
             supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPageVATNumberTextBox);
-            supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox);
+            supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox);
             supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel);
             supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel);
             supplierDetailTabControlFinanceTabPage.Controls.Add(supplierDetailTabControlFinanceTabPagePaymentDaysTextBox);
@@ -472,18 +472,18 @@
             supplierDetailTabControlFinanceTabPageVATNumberTextBox.Size = new Size(208, 27);
             supplierDetailTabControlFinanceTabPageVATNumberTextBox.TabIndex = 18;
             // 
-            // supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox
+            // supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox
             // 
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.AutoSize = true;
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = false;
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Location = new Point(38, 109);
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Margin = new Padding(4);
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Name = "supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox";
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Size = new Size(128, 24);
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.TabIndex = 17;
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.Text = "VAT Registered";
-            supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox.UseVisualStyleBackColor = true;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.AutoSize = true;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = false;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Location = new Point(38, 109);
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Margin = new Padding(4);
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Name = "supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox";
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Size = new Size(128, 24);
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.TabIndex = 17;
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Text = "VAT Registered";
+            supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.UseVisualStyleBackColor = true;
             // 
             // supplierDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel
             // 
@@ -694,7 +694,7 @@
 
         #endregion
         private Button supplierDetailUpdateSupplierButton;
-        private CheckBox supplierDetailTabControlOverviewTabPageActiveStatusCheckbox;
+        private CheckBox supplierDetailTabControlOverviewTabPageActiveStatusCheckBox;
         private Button supplierDetailToggleEditModeButton;
         private TextBox supplierDetailTabControlOverviewTabPageSupplierIdTextBox;
         private TextBox supplierDetailTabControlOverviewTabPageCreatedTimestampTextBox;
@@ -727,7 +727,7 @@
         private TabPage supplierDetailTabControlFinanceTabPage;
         private Label supplierDetailTabControlFinanceTabPageVATNumberTextBoxLabel;
         private TextBox supplierDetailTabControlFinanceTabPageVATNumberTextBox;
-        private CheckBox supplierDetailTabControlFinanceTabPageVATRegisteredCheckbox;
+        private CheckBox supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox;
         private Label supplierDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel;
         private Label supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel;
         private TextBox supplierDetailTabControlFinanceTabPagePaymentDaysTextBox;

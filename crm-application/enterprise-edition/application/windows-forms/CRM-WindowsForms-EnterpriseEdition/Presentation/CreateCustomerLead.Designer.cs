@@ -54,7 +54,7 @@
             createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton = new RadioButton();
             createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton = new RadioButton();
             createCustomerLeadCustomerLeadTargetDatePanelLabel = new Label();
-            createCustomerLeadActiveStatusCheckbox = new CheckBox();
+            createCustomerLeadActiveStatusCheckBox = new CheckBox();
             createCustomerLeadStatusStrip = new StatusStrip();
             createCustomerLeadCustomerPlaceholder = new ToolStripStatusLabel();
             createCustomerLeadCustomerContactPanel.SuspendLayout();
@@ -329,17 +329,17 @@
             createCustomerLeadCustomerLeadTargetDatePanelLabel.TabIndex = 52;
             createCustomerLeadCustomerLeadTargetDatePanelLabel.Text = "Specific Target Date?";
             // 
-            // createCustomerLeadActiveStatusCheckbox
+            // createCustomerLeadActiveStatusCheckBox
             // 
-            createCustomerLeadActiveStatusCheckbox.AutoSize = true;
-            createCustomerLeadActiveStatusCheckbox.Checked = true;
-            createCustomerLeadActiveStatusCheckbox.CheckState = CheckState.Checked;
-            createCustomerLeadActiveStatusCheckbox.Location = new Point(228, 447);
-            createCustomerLeadActiveStatusCheckbox.Name = "createCustomerLeadActiveStatusCheckbox";
-            createCustomerLeadActiveStatusCheckbox.Size = new Size(178, 24);
-            createCustomerLeadActiveStatusCheckbox.TabIndex = 12;
-            createCustomerLeadActiveStatusCheckbox.Text = "Active Customer Lead*";
-            createCustomerLeadActiveStatusCheckbox.UseVisualStyleBackColor = true;
+            createCustomerLeadActiveStatusCheckBox.AutoSize = true;
+            createCustomerLeadActiveStatusCheckBox.Checked = true;
+            createCustomerLeadActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCustomerLeadActiveStatusCheckBox.Location = new Point(228, 447);
+            createCustomerLeadActiveStatusCheckBox.Name = "createCustomerLeadActiveStatusCheckBox";
+            createCustomerLeadActiveStatusCheckBox.Size = new Size(178, 24);
+            createCustomerLeadActiveStatusCheckBox.TabIndex = 12;
+            createCustomerLeadActiveStatusCheckBox.Text = "Active Customer Lead*";
+            createCustomerLeadActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCustomerLeadStatusStrip
             // 
@@ -364,7 +364,7 @@
             BackColor = Color.LightGreen;
             ClientSize = new Size(1339, 635);
             Controls.Add(createCustomerLeadStatusStrip);
-            Controls.Add(createCustomerLeadActiveStatusCheckbox);
+            Controls.Add(createCustomerLeadActiveStatusCheckBox);
             Controls.Add(createCustomerLeadCustomerLeadTargetDatePanelLabel);
             Controls.Add(createCustomerLeadCustomerContactPanelLabel);
             Controls.Add(createCustomerLeadMarketingChannelPanelLabel);
@@ -426,7 +426,7 @@
         private RadioButton createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton;
         private Label createCustomerLeadCustomerLeadTargetDatePanelLabel;
         private RadioButton createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton;
-        private CheckBox createCustomerLeadActiveStatusCheckbox;
+        private CheckBox createCustomerLeadActiveStatusCheckBox;
         private StatusStrip createCustomerLeadStatusStrip;
         private ToolStripStatusLabel createCustomerLeadCustomerPlaceholder;
     }

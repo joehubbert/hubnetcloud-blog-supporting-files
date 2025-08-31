@@ -31,7 +31,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.CheckedChanged += ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += ManufacturerDetailFinanceVATRegisteredCheckBox_CheckedChanged;
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             manufacturerDetailToggleEditModeButton.Click += ManufacturerDetailToggleEditModeButton_Click;
         }
@@ -76,9 +76,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     Guid paymentCurrencyId = (Guid)manufacturerDataRow["Payment Currency Id"];
                     manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text = manufacturerDataRow["VAT Number"].ToString();
-                    manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = (bool)manufacturerDataRow["VAT Registered"];
+                    manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = (bool)manufacturerDataRow["VAT Registered"];
 
-                    manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)manufacturerDataRow["Active Status"];
+                    manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked = (bool)manufacturerDataRow["Active Status"];
                     manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text = manufacturerDataRow["Address Line 1"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text = manufacturerDataRow["Address Line 2"].ToString();
                     manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text = manufacturerDataRow["Address Line 3"].ToString();
@@ -119,9 +119,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void ManufacturerDetailFinanceVATRegisteredCheckbox_CheckedChanged(object? sender, EventArgs e)
+        private void ManufacturerDetailFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            if (!manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked)
+            if (!manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
                 var result = MessageBox.Show(
                     "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
@@ -135,7 +135,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked = true;
+                    manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
                 }
             }
         }
@@ -143,9 +143,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void manufacturerDetailUpdateManufacturerButton_Click(object sender, EventArgs e)
         {
             string? manufacturerDetailFinanceVATNumber = manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
-            bool manufacturerDetailFinanceVATRegistered = manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Checked;
+            bool manufacturerDetailFinanceVATRegistered = manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
-            bool manufacturerDetailOverviewActiveStatus = manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool manufacturerDetailOverviewActiveStatus = manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             string manufacturerDetailOverviewAddressLine1 = manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
             string? manufacturerDetailOverviewAddressLine2 = manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
             string manufacturerDetailOverviewAddressLine3 = manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
@@ -448,10 +448,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             manufacturerDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedByTextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBox.ReadOnly;
             manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly = !manufacturerDetailTabControlFinanceTabPageVATNumberTextBox.ReadOnly;
-            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled = !manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckbox.Enabled;
+            manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled = !manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.Enabled;
             manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBox.ReadOnly;
-            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !manufacturerDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !manufacturerDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
             manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine1TextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine2TextBox.ReadOnly;
             manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly = !manufacturerDetailTabControlOverviewTabPageAddressLine3TextBox.ReadOnly;

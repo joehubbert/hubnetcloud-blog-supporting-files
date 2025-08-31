@@ -15,7 +15,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         private Guid? _dataSubjectId2;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string _storedProcedureName;
-        private Parameter[]? _storedProcedureParameter;
+        private StoredProcedureParameter[]? _storedProcedureParameter;
 
         public DataAccessComboBoxHelper(
             ComboBox comboBox,
@@ -27,7 +27,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             bool? dataSubjectFilter2 = false,
             string? dataSubjectFilterColumn2 = null,
             Guid? dataSubjectId2 = null,
-            Parameter[]? storedProcedureParameter = null)
+            StoredProcedureParameter[]? storedProcedureParameter = null)
         {
             _comboBox = comboBox;
             if (companyConfigurationId.HasValue && companyConfigurationId.Value != Guid.Empty)
@@ -172,7 +172,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             {
                 DataTable? dataTable = null;
                     
-                if(_storedProcedureParameter != null)
+                if (_storedProcedureParameter != null)
                 {
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, _storedProcedureParameter, dataSubject);
                 }

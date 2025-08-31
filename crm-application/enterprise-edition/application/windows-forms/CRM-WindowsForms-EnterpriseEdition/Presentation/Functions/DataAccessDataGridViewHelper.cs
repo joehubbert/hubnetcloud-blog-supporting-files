@@ -44,7 +44,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = idParameterName,
                     ParameterValue = idValue

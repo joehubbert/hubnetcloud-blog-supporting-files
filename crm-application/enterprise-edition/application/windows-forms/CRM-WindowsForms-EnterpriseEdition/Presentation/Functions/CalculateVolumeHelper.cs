@@ -1,0 +1,17 @@
+﻿namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
+{
+    internal class CalculateVolumeHelper
+    {
+        // Rectangular container (height × width × depth)
+        public static decimal GetVolume(decimal height, decimal width, decimal depth)
+        {
+            return height * width * depth;
+        }
+
+        // Cylindrical container (π × radius² × height)
+        public static decimal GetCylindricalVolume(decimal radius, decimal height)
+        {
+            return (decimal)Math.PI * radius * radius * height;
+        }
+    }
+}

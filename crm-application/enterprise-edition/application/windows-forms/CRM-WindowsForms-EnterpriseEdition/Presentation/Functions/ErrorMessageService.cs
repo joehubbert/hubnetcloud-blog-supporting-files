@@ -70,11 +70,17 @@
                 case "Error.Database.Connection.SettingsNotLoaded":
                     DatabaseConnectionSettingsNotLoadedError();
                     break;
+                case "Error.Measurement.Type.NotImplemented":
+                    MeasurementTypeNotImplementedError(dataSubject ?? "unknown");
+                    break;
                 case "Error.Module.Function.NotImplemented":
                     ModuleFunctionNotImplementedError(dataSubject ?? "unknown");
                     break;
                 case "Error.Module.NotImplemented":
                     ModuleNotImplementedError(dataSubject ?? "unknown");
+                    break;
+                case "Error.UnitConversion.Generic":
+                    UnitConversionError();
                     break;
                 case "Information.ApplicationConfiguration.Settings.Saved":
                     ApplicationConfigurationgSettingsSavedInformation();
@@ -97,6 +103,9 @@
                 case "Information.UpdateCancelled":
                     UpdateCancelled();
                     break;
+                case "Warning.ApplicationConfiguration.Settings.Missing":
+                    ApplicationConfigurationgSettingsMissingWarning(dataSubject ?? "unknown", errorType);
+                    break;
                 case "Warning.CompanyConfiguration.NoData":
                     CompanyConfigurationNoDataFoundWarning(errorType);
                     break;
@@ -117,6 +126,17 @@
                     break;
                 default:
                     throw new ArgumentException("Invalid error type specified.");
+            }
+        }
+
+        private void ApplicationConfigurationgSettingsMissingWarning(string dataSubject, string errorType)
+        {
+            string messageText = $"Settings for {dataSubject} missing in Application Configuration.";
+            string messageTitle = $"{errorType} - Missing Settings in Application Configuration";
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
             }
         }
 
@@ -144,7 +164,7 @@
 
         private void CompanyConfigurationNoDataFoundWarning(string errorType)
         {
-            string messageText = "No Company Configurationds Found - Please create at least one in order to continue.";
+            string messageText = "No Company Configurations Found - Please create at least one in order to continue.";
             string messageTitle = $"No Company Configurations Found {errorType}";
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
@@ -395,6 +415,17 @@
             }
         }
 
+        private void MeasurementTypeNotImplementedError(string dataSubject)
+        {
+            string messageText = $"Unrecognised measurement type - {dataSubject} passed.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
         private void ModuleFunctionNotImplementedError(string dataSubject)
         {
             string messageText = $"{dataSubject} not onboarded.";
@@ -422,6 +453,17 @@
             string messageText = $"No data found for {dataSubject}.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void UnitConversionError()
+        {
+            string messageText = "Invalid unit type combination or unsupported conversion.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);

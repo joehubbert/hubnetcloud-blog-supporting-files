@@ -5,6 +5,8 @@ SELECT
 PS.[ProductSupplierId] AS [Product Supplier Id],
 P.[ProductId] AS [Product Id],
 P.[ProductName] AS [Product Name],
+PS.[WholesalePricePerCarton] AS [Wholesale Price Per Carton],
+PS.[WholesalePricePerPallet] AS [Wholesale Price Per Pallet],
 PS.[WholesalePricePerUnit] AS [Wholesale Price Per Unit],
 S.[SupplierId] AS [Supplier Id],
 S.[SupplierName] AS [Supplier Name],

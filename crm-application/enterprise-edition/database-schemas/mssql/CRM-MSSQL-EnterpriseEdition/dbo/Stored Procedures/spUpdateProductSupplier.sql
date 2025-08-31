@@ -4,6 +4,8 @@
 	@productSupplierId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
 	@supplierProductCode NVARCHAR(50) = NULL,
+	@wholesalePricePerCarton MONEY = NULL,
+	@wholesalePricePerPallet MONEY = NULL,
 	@wholesalePricePerUnit MONEY
 AS
 
@@ -18,6 +20,8 @@ BEGIN
 					[ProductId] = @productId,
 					[SupplierId] = @supplierId,
 					[SupplierProductCode] = @supplierProductCode,
+					[WholesalePricePerCarton] = @wholesalePricePerCarton,
+					[WholesalePricePerPallet] = @wholesalePricePerPallet,
 					[WholesalePricePerUnit] = @wholesalePricePerUnit
 				WHERE [ProductSupplierId] = @productSupplierId
 

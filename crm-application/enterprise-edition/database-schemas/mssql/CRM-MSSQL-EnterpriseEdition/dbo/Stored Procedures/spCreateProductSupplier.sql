@@ -3,6 +3,8 @@
 	@productId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
 	@supplierProductCode NVARCHAR(50) = NULL,
+	@wholesalePricePerCarton MONEY = NULL,
+	@wholesalePricePerPallet MONEY = NULL,
 	@wholesalePricePerUnit MONEY
 AS
 
@@ -15,6 +17,8 @@ BEGIN
 			(
 				[ProductId] UNIQUEIDENTIFIER NOT NULL,
 				[SupplierId] UNIQUEIDENTIFIER NOT NULL,
+				[WholesalePricePerCarton] MONEY NULL,
+				[WholesalePricePerPallet] MONEY NULL,
 				[WholesalePricePerUnit] MONEY NOT NULL,
 				[SupplierProductCode] NVARCHAR(50) NULL,
 				[ActiveStatus] BIT NOT NULL
@@ -24,6 +28,8 @@ BEGIN
 			(
 				[ProductId],
 				[SupplierId],
+				[WholesalePricePerCarton],
+				[WholesalePricePerPallet],
 				[WholesalePricePerUnit],
 				[SupplierProductCode],
 				[ActiveStatus]
@@ -32,6 +38,8 @@ BEGIN
 			(
 				@productId,
 				@supplierId,
+				@wholesalePricePerCarton,
+				@wholesalePricePerPallet,
 				@wholesalePricePerUnit,
 				@supplierProductCode,
 				@activeStatus
@@ -46,6 +54,8 @@ BEGIN
 			(
 				[ProductId],
 				[SupplierId],
+				[WholesalePricePerCarton],
+				[WholesalePricePerPallet],
 				[WholesalePricePerUnit],
 				[SupplierProductCode],
 				[ActiveStatus]
@@ -54,6 +64,8 @@ BEGIN
 			(
 				source.[ProductId],
 				source.[SupplierId],
+				source.[WholesalePricePerCarton],
+				source.[WholesalePricePerPallet],
 				source.[WholesalePricePerUnit],
 				source.[SupplierProductCode],
 				source.[ActiveStatus]

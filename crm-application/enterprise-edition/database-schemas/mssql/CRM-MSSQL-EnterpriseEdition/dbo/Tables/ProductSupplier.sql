@@ -4,6 +4,8 @@
 	[ProductId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierProductCode] NVARCHAR(50) NULL,
+	[WholesalePricePerCarton] MONEY NULL,
+	[WholesalePricePerPallet] MONEY NULL,
 	[WholesalePricePerUnit] MONEY NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),

@@ -302,11 +302,11 @@
             // currencyConversionDetailLastUpdatedTimestampTextBoxLabel
             // 
             currencyConversionDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(628, 337);
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(598, 337);
             currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Name = "currencyConversionDetailLastUpdatedTimestampTextBoxLabel";
-            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             currencyConversionDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 90;
-            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            currencyConversionDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             // 
             // currencyConversionDetailLastUpdatedByTextBoxLabel
             // 
@@ -320,11 +320,11 @@
             // currencyConversionDetailCreatedTimestampTextBoxLabel
             // 
             currencyConversionDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            currencyConversionDetailCreatedTimestampTextBoxLabel.Location = new Point(664, 257);
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Location = new Point(634, 257);
             currencyConversionDetailCreatedTimestampTextBoxLabel.Name = "currencyConversionDetailCreatedTimestampTextBoxLabel";
-            currencyConversionDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             currencyConversionDetailCreatedTimestampTextBoxLabel.TabIndex = 88;
-            currencyConversionDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            currencyConversionDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             // 
             // currencyConversionDetailCreatedByTextBoxLabel
             // 

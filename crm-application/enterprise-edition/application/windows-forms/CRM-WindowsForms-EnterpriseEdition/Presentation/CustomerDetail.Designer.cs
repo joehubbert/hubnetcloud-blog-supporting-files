@@ -346,11 +346,11 @@
             // customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel
             // 
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(656, 676);
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(624, 676);
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Name = "customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel";
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 62;
-            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             customerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel
@@ -366,11 +366,11 @@
             // customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel
             // 
             customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(690, 585);
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(660, 585);
             customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Name = "customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel";
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TabIndex = 60;
-            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             customerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerDetailTabControlOverviewTabPageCreatedByTextBoxLabel
@@ -1472,9 +1472,9 @@
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageRefreshDataButton);
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageCreateNewCustomerContactButton);
             customerDetailTabControlCustomerContactTabPage.Controls.Add(customerDetailTabControlCustomerContactTabPageDataGridView);
-            customerDetailTabControlCustomerContactTabPage.Location = new Point(4, 32);
+            customerDetailTabControlCustomerContactTabPage.Location = new Point(4, 27);
             customerDetailTabControlCustomerContactTabPage.Name = "customerDetailTabControlCustomerContactTabPage";
-            customerDetailTabControlCustomerContactTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlCustomerContactTabPage.Size = new Size(1247, 721);
             customerDetailTabControlCustomerContactTabPage.TabIndex = 5;
             customerDetailTabControlCustomerContactTabPage.Text = "Customer Contacts";
             // 
@@ -1540,9 +1540,9 @@
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageRefreshDataButton);
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton);
             customerDetailTabControlCustomerLeadTabPage.Controls.Add(customerDetailTabControlCustomerLeadTabPageDataGridView);
-            customerDetailTabControlCustomerLeadTabPage.Location = new Point(4, 32);
+            customerDetailTabControlCustomerLeadTabPage.Location = new Point(4, 27);
             customerDetailTabControlCustomerLeadTabPage.Name = "customerDetailTabControlCustomerLeadTabPage";
-            customerDetailTabControlCustomerLeadTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlCustomerLeadTabPage.Size = new Size(1247, 721);
             customerDetailTabControlCustomerLeadTabPage.TabIndex = 6;
             customerDetailTabControlCustomerLeadTabPage.Text = "Customer Leads";
             // 
@@ -1608,9 +1608,9 @@
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageRefreshDataButton);
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton);
             customerDetailTabControlCustomerNoteTabPage.Controls.Add(customerDetailTabControlCustomerNoteTabPageDataGridView);
-            customerDetailTabControlCustomerNoteTabPage.Location = new Point(4, 32);
+            customerDetailTabControlCustomerNoteTabPage.Location = new Point(4, 27);
             customerDetailTabControlCustomerNoteTabPage.Name = "customerDetailTabControlCustomerNoteTabPage";
-            customerDetailTabControlCustomerNoteTabPage.Size = new Size(1247, 716);
+            customerDetailTabControlCustomerNoteTabPage.Size = new Size(1247, 721);
             customerDetailTabControlCustomerNoteTabPage.TabIndex = 4;
             customerDetailTabControlCustomerNoteTabPage.Text = "Customer Notes";
             // 

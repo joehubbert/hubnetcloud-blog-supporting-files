@@ -53,12 +53,12 @@
             accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox = new TextBox();
             accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox = new TextBox();
             accountManagerDetailTabControlAssociatedCustomersTabPage = new TabPage();
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel = new Label();
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox = new TextBox();
             accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton = new Button();
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView = new DataGridView();
             accountManagerDetailToggleEditModeButton = new Button();
             accountManagerDetailUpdateAccountManagerButton = new Button();
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel = new Label();
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox = new TextBox();
             accountManagerDetailTabControl.SuspendLayout();
             accountManagerDetailTabControlAccountManagerInformationTabPage.SuspendLayout();
             accountManagerDetailTabControlAssociatedCustomersTabPage.SuspendLayout();
@@ -143,24 +143,24 @@
             // 
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(711, 180);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(683, 180);
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 32;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel
             // 
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Font = new Font("Segoe UI", 11F);
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Location = new Point(747, 106);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Location = new Point(717, 106);
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Margin = new Padding(4, 0, 4, 0);
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Name = "accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel";
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.TabIndex = 31;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             accountManagerDetailTabControlAccountManagerInformationTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // accountManagerDetailTabControlAccountManagerInformationTabPageLastUpdatedByTextBoxLabel
@@ -366,12 +366,28 @@
             accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Controls.Add(accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
-            accountManagerDetailTabControlAssociatedCustomersTabPage.Location = new Point(4, 32);
+            accountManagerDetailTabControlAssociatedCustomersTabPage.Location = new Point(4, 27);
             accountManagerDetailTabControlAssociatedCustomersTabPage.Name = "accountManagerDetailTabControlAssociatedCustomersTabPage";
             accountManagerDetailTabControlAssociatedCustomersTabPage.Padding = new Padding(3);
-            accountManagerDetailTabControlAssociatedCustomersTabPage.Size = new Size(1249, 491);
+            accountManagerDetailTabControlAssociatedCustomersTabPage.Size = new Size(1249, 496);
             accountManagerDetailTabControlAssociatedCustomersTabPage.TabIndex = 1;
             accountManagerDetailTabControlAssociatedCustomersTabPage.Text = "Associated Customers";
+            // 
+            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel
+            // 
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.AutoSize = true;
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Location = new Point(45, 16);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel";
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Size = new Size(83, 20);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.TabIndex = 71;
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Text = "Quick Filter";
+            // 
+            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox
+            // 
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Location = new Point(134, 13);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox";
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Size = new Size(843, 27);
+            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.TabIndex = 70;
             // 
             // accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton
             // 
@@ -426,22 +442,6 @@
             accountManagerDetailUpdateAccountManagerButton.Text = "Update Account Manager";
             accountManagerDetailUpdateAccountManagerButton.UseVisualStyleBackColor = true;
             accountManagerDetailUpdateAccountManagerButton.Click += accountManagerDetailUpdateAccountManagerButton_Click;
-            // 
-            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel
-            // 
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.AutoSize = true;
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Location = new Point(45, 16);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel";
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Size = new Size(83, 20);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.TabIndex = 71;
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBoxLabel.Text = "Quick Filter";
-            // 
-            // accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox
-            // 
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Location = new Point(134, 13);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Name = "accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox";
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.Size = new Size(843, 27);
-            accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox.TabIndex = 70;
             // 
             // AccountManagerDetail
             // 

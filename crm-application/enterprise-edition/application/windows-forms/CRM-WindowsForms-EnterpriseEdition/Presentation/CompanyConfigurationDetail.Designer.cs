@@ -249,11 +249,11 @@
             // companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel
             // 
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(603, 374);
+            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(573, 374);
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel";
-            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 40;
-            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageLastUpdatedByTextBoxLabel
             // 
@@ -267,11 +267,11 @@
             // companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel
             // 
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
-            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Location = new Point(636, 294);
+            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Location = new Point(606, 294);
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Name = "companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel";
-            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.TabIndex = 38;
-            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            companyConfigurationDetailTabControlGeneralInformationTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             // 
             // companyConfigurationDetailTabControlGeneralInformationTabPageCreatedByTextBoxLabel
             // 
@@ -551,10 +551,10 @@
             // 
             companyConfigurationDetailTabControlFinancialInformationTabPage.BackColor = Color.LemonChiffon;
             companyConfigurationDetailTabControlFinancialInformationTabPage.Controls.Add(companyConfigurationDetailTabControlFinancialInformationTabPageTabControl);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 32);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Location = new Point(4, 27);
             companyConfigurationDetailTabControlFinancialInformationTabPage.Name = "companyConfigurationDetailTabControlFinancialInformationTabPage";
             companyConfigurationDetailTabControlFinancialInformationTabPage.Padding = new Padding(3);
-            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 455);
+            companyConfigurationDetailTabControlFinancialInformationTabPage.Size = new Size(1144, 460);
             companyConfigurationDetailTabControlFinancialInformationTabPage.TabIndex = 1;
             companyConfigurationDetailTabControlFinancialInformationTabPage.Text = "Financial Information";
             // 

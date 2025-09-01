@@ -15,7 +15,7 @@
 GO
 
 CREATE NONCLUSTERED INDEX [IX_ProductImage_ProductId]
-ON [dbo].[ProductImage] ([ProductId], [ProductImage], [ProductImageAltText], [ProductImageCaption], [ProductImageDisplayOrder])
+ON [dbo].[ProductImage] ([ProductId], [ProductImageAltText], [ProductImageCaption], [ProductImageDisplayOrder])
 GO
 
 CREATE TRIGGER [TRG_UpdateProductImage]

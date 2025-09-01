@@ -4,18 +4,14 @@
     {
         private readonly TranslationService _translationService;
         private string activeRegionLanguageCode;
-        private string errorText;
+        private string errorText = "Only numeric characters allowed.";
 
         private async Task UpdateActiveRegionLanguageCodeAndErrorText()
         {
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
             if (activeRegionLanguageCode != "en-GB")
             {
-                errorText = _translationService.Translate("Only numeric characters allowed.", activeRegionLanguageCode);
-            }
-            else
-            {
-                errorText = "Only numeric characters allowed.";
+                errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
             }
         }
 
@@ -24,11 +20,7 @@
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
             if (activeRegionLanguageCode != "en-GB")
             {
-                errorText = _translationService.Translate("Only numeric characters allowed.", activeRegionLanguageCode);
-            }
-            else
-            {
-                errorText = "Only numeric characters allowed.";
+                errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
             }
 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))

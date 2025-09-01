@@ -99,13 +99,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = "customerTier",
-                        ParameterValue = customerTierDescription
+                        ParameterName = "customerTierCode",
+                        ParameterValue = customerTierCode
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = "customerTierCode",
-                        ParameterValue = customerTierCode
+                        ParameterName = "customerTierDescription",
+                        ParameterValue = customerTierDescription
                     }
                 };
                 string storedProcedureName = "spCreateCustomerTier";

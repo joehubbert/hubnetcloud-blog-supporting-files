@@ -24,7 +24,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             var applicationConfigurationCompanyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
             if (applicationConfigurationCompanyConfiguration.companyConfigurationId != null)
             {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", applicationConfigurationCompanyConfiguration.companyConfigurationId);
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", applicationConfigurationCompanyConfiguration.companyConfigurationId);
             }
             else
             {
@@ -40,7 +40,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 if (activeCompanyConfigurationCompanyConfigurationComboBox.SelectedValue is Guid companyConfigurationId)
                 {
                     var selectedItem = activeCompanyConfigurationCompanyConfigurationComboBox.SelectedItem;
-                    string companyName = (string)selectedItem.GetType().GetProperty("CompanyName")?.GetValue(selectedItem)!;
+                    string companyName = string.Empty;
+
+                    var columnsProperty = selectedItem?.GetType().GetProperty("Columns");
+                    var columns = columnsProperty?.GetValue(selectedItem) as Dictionary<string, object>;
+                    if (columns != null && columns.TryGetValue("Company Name", out var value))
+                    {
+                        companyName = value?.ToString() ?? string.Empty;
+                    }
 
                     var companyConfiguration = new ApplicationConfigurationModel.ApplicationConfigurationServiceCompanyConfiguration
                     {

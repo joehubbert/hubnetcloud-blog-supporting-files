@@ -60,9 +60,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 return;
             }
 
-            string sortColumn = sortColumnName ?? "Created Timestamp";
+            string sortColumn = sortColumnName ?? "Created Timestamp UTC";
 
-            if (dataTable.Columns.Contains("Company Configuration Id"))
+            if (dataTable.Columns.Contains("Company Configuration Id") &&
+                !string.Equals(storedProcedureName, "spGetAllCompanyConfiguration", StringComparison.OrdinalIgnoreCase))
             {
                 if (dataTable.Columns["Company Configuration Id"].DataType == typeof(Guid))
                 {

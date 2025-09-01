@@ -255,7 +255,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Customer Lead Note Id",
                 "View Customer Lead Note",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 

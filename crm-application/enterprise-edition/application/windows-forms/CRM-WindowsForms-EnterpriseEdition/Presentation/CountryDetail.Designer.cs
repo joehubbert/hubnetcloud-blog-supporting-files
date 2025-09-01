@@ -102,11 +102,11 @@
             // countryDetailCreatedTimestampTextBoxLabel
             // 
             countryDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            countryDetailCreatedTimestampTextBoxLabel.Location = new Point(715, 181);
+            countryDetailCreatedTimestampTextBoxLabel.Location = new Point(685, 181);
             countryDetailCreatedTimestampTextBoxLabel.Name = "countryDetailCreatedTimestampTextBoxLabel";
-            countryDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            countryDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             countryDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
-            countryDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            countryDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             countryDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryDetailLastUpdatedByTextBoxLabel
@@ -122,11 +122,11 @@
             // countryDetailLastUpdatedTimestampTextBoxLabel
             // 
             countryDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            countryDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(679, 261);
+            countryDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(649, 261);
             countryDetailLastUpdatedTimestampTextBoxLabel.Name = "countryDetailLastUpdatedTimestampTextBoxLabel";
-            countryDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            countryDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             countryDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
-            countryDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            countryDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             countryDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // countryDetailLastUpdatedByTextBox

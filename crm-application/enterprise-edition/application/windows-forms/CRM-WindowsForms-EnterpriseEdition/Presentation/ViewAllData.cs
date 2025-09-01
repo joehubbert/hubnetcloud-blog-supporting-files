@@ -9,10 +9,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private Guid _companyConfigurationId;
 		private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
-		private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string dataSortingColumnName;
         private string dataSortingColumnOrder;
         private readonly Guid? _dataSubjectFilterId;
@@ -50,7 +50,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 		{
 			_companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
 			await _companyConfigHelper.LoadAsync();
-		}
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        }
 
 		private void SetModuleTheme()
         {
@@ -501,7 +502,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 else
                 {
                     // Filter by _companyConfigurationId if column exists
-                    if (dataTable.Columns.Contains("Company Configuration Id"))
+                    if (dataTable.Columns.Contains("Company Configuration Id") &&
+                         _functionTitle != "CompanyConfiguration")
                     {
                         if (dataTable.Columns["Company Configuration Id"].DataType == typeof(Guid))
                         {

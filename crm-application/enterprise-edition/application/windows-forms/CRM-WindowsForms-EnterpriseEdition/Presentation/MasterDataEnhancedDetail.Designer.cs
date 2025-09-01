@@ -157,11 +157,11 @@
             // masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel
             // 
             masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(768, 265);
+            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(738, 265);
             masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Name = "masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel";
-            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 34;
-            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             masterDataEnhancedDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailLastUpdatedByTextBoxLabel
@@ -177,11 +177,11 @@
             // masterDataEnhancedDetailCreatedTimestampTextBoxLabel
             // 
             masterDataEnhancedDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Location = new Point(804, 176);
+            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Location = new Point(774, 176);
             masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Name = "masterDataEnhancedDetailCreatedTimestampTextBoxLabel";
-            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             masterDataEnhancedDetailCreatedTimestampTextBoxLabel.TabIndex = 32;
-            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            masterDataEnhancedDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             masterDataEnhancedDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // masterDataEnhancedDetailCreatedByTextBoxLabel

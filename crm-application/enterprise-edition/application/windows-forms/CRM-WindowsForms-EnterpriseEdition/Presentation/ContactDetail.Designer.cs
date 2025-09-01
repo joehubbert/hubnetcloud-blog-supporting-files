@@ -91,11 +91,11 @@
             // contactDetailCreatedTimestampTextBoxLabel
             // 
             contactDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            contactDetailCreatedTimestampTextBoxLabel.Location = new Point(887, 181);
+            contactDetailCreatedTimestampTextBoxLabel.Location = new Point(857, 181);
             contactDetailCreatedTimestampTextBoxLabel.Name = "contactDetailCreatedTimestampTextBoxLabel";
-            contactDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            contactDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             contactDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
-            contactDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            contactDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             contactDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailLastUpdatedByTextBoxLabel
@@ -111,11 +111,11 @@
             // contactDetailLastUpdatedTimestampTextBoxLabel
             // 
             contactDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            contactDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(851, 261);
+            contactDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(821, 261);
             contactDetailLastUpdatedTimestampTextBoxLabel.Name = "contactDetailLastUpdatedTimestampTextBoxLabel";
-            contactDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            contactDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             contactDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
-            contactDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            contactDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             contactDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // contactDetailLastUpdatedByTextBox

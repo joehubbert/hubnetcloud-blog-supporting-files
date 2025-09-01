@@ -285,11 +285,11 @@
             // customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel
             // 
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(658, 513);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(628, 513);
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel";
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 97;
-            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             customerLeadDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerLeadDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel
@@ -305,11 +305,11 @@
             // customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel
             // 
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(694, 433);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(664, 433);
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Name = "customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel";
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TabIndex = 95;
-            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             customerLeadDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // customerLeadDetailTabControlOverviewTabPageCreatedByTextBoxLabel
@@ -514,10 +514,10 @@
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Controls.Add(customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Location = new Point(4, 32);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Location = new Point(4, 27);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Name = "customerLeadDetailTabControlCustomerLeadNoteTabPage";
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Padding = new Padding(3);
-            customerLeadDetailTabControlCustomerLeadNoteTabPage.Size = new Size(1289, 577);
+            customerLeadDetailTabControlCustomerLeadNoteTabPage.Size = new Size(1289, 582);
             customerLeadDetailTabControlCustomerLeadNoteTabPage.TabIndex = 1;
             customerLeadDetailTabControlCustomerLeadNoteTabPage.Text = "Customer Lead Notes";
             // 

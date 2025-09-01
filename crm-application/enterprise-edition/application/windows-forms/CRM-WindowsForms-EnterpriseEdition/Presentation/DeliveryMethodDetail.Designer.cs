@@ -98,7 +98,7 @@
             // deliveryMethodDetailCreatedByTextBoxLabel
             // 
             deliveryMethodDetailCreatedByTextBoxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedByTextBoxLabel.Location = new Point(763, 141);
+            deliveryMethodDetailCreatedByTextBoxLabel.Location = new Point(773, 141);
             deliveryMethodDetailCreatedByTextBoxLabel.Name = "deliveryMethodDetailCreatedByTextBoxLabel";
             deliveryMethodDetailCreatedByTextBoxLabel.Size = new Size(81, 20);
             deliveryMethodDetailCreatedByTextBoxLabel.TabIndex = 11;
@@ -108,17 +108,17 @@
             // deliveryMethodDetailCreatedTimestampTextBoxLabel
             // 
             deliveryMethodDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            deliveryMethodDetailCreatedTimestampTextBoxLabel.Location = new Point(705, 181);
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Location = new Point(685, 181);
             deliveryMethodDetailCreatedTimestampTextBoxLabel.Name = "deliveryMethodDetailCreatedTimestampTextBoxLabel";
-            deliveryMethodDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             deliveryMethodDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
-            deliveryMethodDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            deliveryMethodDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             deliveryMethodDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailLastUpdatedByTextBoxLabel
             // 
             deliveryMethodDetailLastUpdatedByTextBoxLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedByTextBoxLabel.Location = new Point(727, 221);
+            deliveryMethodDetailLastUpdatedByTextBoxLabel.Location = new Point(737, 221);
             deliveryMethodDetailLastUpdatedByTextBoxLabel.Name = "deliveryMethodDetailLastUpdatedByTextBoxLabel";
             deliveryMethodDetailLastUpdatedByTextBoxLabel.Size = new Size(117, 20);
             deliveryMethodDetailLastUpdatedByTextBoxLabel.TabIndex = 13;
@@ -128,11 +128,11 @@
             // deliveryMethodDetailLastUpdatedTimestampTextBoxLabel
             // 
             deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(669, 265);
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(649, 261);
             deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Name = "deliveryMethodDetailLastUpdatedTimestampTextBoxLabel";
-            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
-            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             deliveryMethodDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // deliveryMethodDetailLastUpdatedByTextBox

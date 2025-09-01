@@ -60,6 +60,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             LoadDatabaseConnectionSettingsAsync();
         }
 
+        private class ComboBoxItem
+        {
+            public Guid Id { get; set; }
+            public string DisplayText { get; set; } = string.Empty;
+            public Dictionary<string, object> Columns { get; set; } = new();
+        }
+
         private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
@@ -87,6 +94,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     break;
                 case "spGetAllCountry":
                     dataSubject = "Country";
+                    idColumnName = "Country Id";
                     break;
                 case "spGetAllCurrency":
                     dataSubject = "Currency";
@@ -171,7 +179,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             try
             {
                 DataTable? dataTable = null;
-                    
+
                 if (_storedProcedureParameter != null)
                 {
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, _storedProcedureParameter, dataSubject);
@@ -180,12 +188,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 {
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, dataSubject);
                 }
-              
+
+                // Defensive: Ensure idColumnName exists in the table
+                if (!string.IsNullOrWhiteSpace(idColumnName) && !dataTable.Columns.Contains(idColumnName))
+                {
+                    throw new Exception($"Column '{idColumnName}' does not exist in the result set.");
+                }
+
                 var dataListQuery = dataTable.AsEnumerable()
-                    .Select(row => new
+                    .Select(row =>
                     {
-                        Id = row.Field<Guid>(idColumnName),
-                        DisplayText = _storedProcedureName switch
+                        var item = new ComboBoxItem();
+                        foreach (DataColumn col in dataTable.Columns)
+                        {
+                            item.Columns[col.ColumnName] = row[col];
+                        }
+                        item.Id = (!string.IsNullOrWhiteSpace(idColumnName) && dataTable.Columns.Contains(idColumnName))
+                            ? row.Field<Guid>(idColumnName)
+                            : Guid.Empty;
+                        item.DisplayText = _storedProcedureName switch
                         {
                             "spGetAllAccountManager" => $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}",
                             "spGetAllCompanyConfiguration" => $"{row.Field<string>("Company Name")} ({row.Field<Guid>("Company Configuration Id")})",
@@ -210,13 +231,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                             "spGetAllTopParentCustomer" => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
                             "spGetAllWholesaleDeliveryType" => row.Field<string>("Wholesale Delivery Type"),
                             _ => string.Empty
-                        }
+                        };
+                        return item;
                     })
-                    .OrderBy(item => item.DisplayText);
+                    .OrderBy(item => item.DisplayText)
+                    .ToList();
 
-                List<object> dataList;
-
-                // Build dynamic filters
+                // Filtering logic
                 var filteredQuery = dataListQuery;
 
                 // Filter by Company Configuration Id only
@@ -228,7 +249,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
                         return row != null && row.Table.Columns.Contains("Company Configuration Id") &&
                                row.Field<Guid>("Company Configuration Id") == _companyConfigurationId;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by Data Subject 1 only
@@ -240,7 +261,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
                         return row != null && row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
                                row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by Data Subject 2 only
@@ -252,7 +273,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
                         return row != null && row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
                                row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by both Data Subject 1 and Data Subject 2
@@ -268,7 +289,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                                row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1 &&
                                row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
                                row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by both Company Configuration Id and Data Subject 1
@@ -283,7 +304,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                                row.Field<Guid>("Company Configuration Id") == _companyConfigurationId &&
                                row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
                                row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by both Company Configuration Id and Data Subject 2
@@ -298,7 +319,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                                row.Field<Guid>("Company Configuration Id") == _companyConfigurationId &&
                                row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
                                row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
                 // Filter by Company Configuration Id, Data Subject 1 and Data Subject 2
@@ -316,17 +337,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                                row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1 &&
                                row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
                                row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText);
+                    }).OrderBy(item => item.DisplayText).ToList();
                 }
 
-                dataList = filteredQuery.ToList<object>();
+                var finalList = filteredQuery;
 
-                _comboBox.DataSource = dataList;
+                _comboBox.DataSource = finalList;
                 _comboBox.DisplayMember = "DisplayText";
                 _comboBox.ValueMember = "Id";
-                if (_dataSubjectFilter1 == true)
+                if (finalList.Count > 0)
                 {
-                    _comboBox.SelectedValue = _dataSubjectId1;
+                    _comboBox.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)

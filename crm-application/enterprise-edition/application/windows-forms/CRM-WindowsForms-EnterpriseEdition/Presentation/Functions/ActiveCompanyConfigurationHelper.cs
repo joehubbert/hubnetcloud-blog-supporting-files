@@ -34,15 +34,11 @@
                 _companyConfigurationId = companyConfiguration.companyConfigurationId;
                 _companyName = companyConfiguration.companyName;
 
-                string prefix;
+                string prefix = "Company Configuration";
 
                 if (activeRegionLanguageCode != "en-GB")
                 {
-                    prefix = _translationService.Translate("Company Configuration", activeRegionLanguageCode);
-                }
-                else
-                {
-                    prefix = "Company Configuration";
+                    prefix = _translationService.Translate(prefix, activeRegionLanguageCode);
                 }
 
                 string displayText = $"{prefix}: {_companyName} ({_companyConfigurationId})";

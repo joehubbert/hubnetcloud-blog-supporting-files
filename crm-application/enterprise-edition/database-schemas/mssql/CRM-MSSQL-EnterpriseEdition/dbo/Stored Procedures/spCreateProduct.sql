@@ -262,7 +262,6 @@ BEGIN
             [ProductDescription],
             [ManufacturerId],
             [ManufacturerPartNumber],
-            [ProductImage],
             [ProductCountryOfOriginId],
             [ProductFamilyId],
             [WholesaleFlag],

@@ -61,7 +61,7 @@ BEGIN
 			)
 			VALUES
 			(
-				sourc.[CompanyConfigurationId],
+				source.[CompanyConfigurationId],
 				source.[CustomerTierCode],
 				source.[CustomerTierDescription],
 				source.[ActiveStatus]

@@ -157,11 +157,11 @@
             // manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel
             // 
             manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(637, 399);
+            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(607, 399);
             manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Name = "manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel";
-            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 54;
-            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             manufacturerDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel
@@ -177,11 +177,11 @@
             // manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel
             // 
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
-            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(675, 308);
+            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(643, 308);
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Name = "manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel";
-            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TabIndex = 52;
-            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             manufacturerDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // manufacturerDetailTabControlOverviewTabPageCreatedByTextBoxLabel

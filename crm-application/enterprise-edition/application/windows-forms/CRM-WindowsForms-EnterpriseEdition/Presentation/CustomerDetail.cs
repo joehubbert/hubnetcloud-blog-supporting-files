@@ -606,7 +606,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Customer Contact Id",
                 "View Customer Contact",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 
@@ -622,7 +622,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Customer Lead Id",
                 "View Customer Lead",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 
@@ -638,7 +638,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Customer Note Id",
                 "View Customer Note",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 

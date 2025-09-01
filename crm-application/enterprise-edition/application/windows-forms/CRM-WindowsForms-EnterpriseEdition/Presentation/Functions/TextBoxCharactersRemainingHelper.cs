@@ -29,13 +29,11 @@
         private async void GetActiveRegionLanguageCode()
         {
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
+            string characterUsage = "characters used";
+
             if (activeRegionLanguageCode != "en-GB")
             {
-                characterUsage = _translationService.Translate("characters used", activeRegionLanguageCode);
-            }
-            else
-            {
-                characterUsage = "characters used";
+                characterUsage = _translationService.Translate(characterUsage, activeRegionLanguageCode);
             }
         }
 

@@ -73,13 +73,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
-        }
-
-        private async void LoadCustomerTypeAsync()
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTypeComboBox, "spGetAllCustomerType", _companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
+        }   
 
         private async void LoadCountryDataAsync()
         {
@@ -93,6 +87,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void LoadCustomerTierDataAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTierComboBox, "spGetAllCustomerTier", _companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async void LoadCustomerTypeAsync()
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTypeComboBox, "spGetAllCustomerType", _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

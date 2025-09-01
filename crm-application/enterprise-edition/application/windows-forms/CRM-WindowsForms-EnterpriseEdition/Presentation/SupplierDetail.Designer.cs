@@ -177,11 +177,11 @@
             // supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel
             // 
             supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(637, 399);
+            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Location = new Point(607, 399);
             supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Name = "supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel";
-            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TabIndex = 54;
-            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             supplierDetailTabControlOverviewTabPageLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailTabControlOverviewTabPageLastUpdatedByTextBoxLabel
@@ -197,11 +197,11 @@
             // supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel
             // 
             supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.AutoSize = true;
-            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(673, 308);
+            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Location = new Point(643, 308);
             supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Name = "supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel";
-            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TabIndex = 52;
-            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             supplierDetailTabControlOverviewTabPageCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // supplierDetailTabControlOverviewTabPageCreatedByTextBoxLabel
@@ -532,9 +532,9 @@
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageRefreshDataButton);
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton);
             supplierDetailTabControlSupplierContactTabPage.Controls.Add(supplierDetailTabControlSupplierContactTabPageDataGridView);
-            supplierDetailTabControlSupplierContactTabPage.Location = new Point(4, 32);
+            supplierDetailTabControlSupplierContactTabPage.Location = new Point(4, 27);
             supplierDetailTabControlSupplierContactTabPage.Name = "supplierDetailTabControlSupplierContactTabPage";
-            supplierDetailTabControlSupplierContactTabPage.Size = new Size(1256, 485);
+            supplierDetailTabControlSupplierContactTabPage.Size = new Size(1256, 490);
             supplierDetailTabControlSupplierContactTabPage.TabIndex = 5;
             supplierDetailTabControlSupplierContactTabPage.Text = "Supplier Contacts";
             // 
@@ -600,9 +600,9 @@
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageRefreshDataButton);
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton);
             supplierDetailTabControlSupplierNoteTabPage.Controls.Add(supplierDetailTabControlSupplierNoteTabPageDataGridView);
-            supplierDetailTabControlSupplierNoteTabPage.Location = new Point(4, 32);
+            supplierDetailTabControlSupplierNoteTabPage.Location = new Point(4, 27);
             supplierDetailTabControlSupplierNoteTabPage.Name = "supplierDetailTabControlSupplierNoteTabPage";
-            supplierDetailTabControlSupplierNoteTabPage.Size = new Size(1256, 485);
+            supplierDetailTabControlSupplierNoteTabPage.Size = new Size(1256, 490);
             supplierDetailTabControlSupplierNoteTabPage.TabIndex = 4;
             supplierDetailTabControlSupplierNoteTabPage.Text = "Supplier Notes";
             // 

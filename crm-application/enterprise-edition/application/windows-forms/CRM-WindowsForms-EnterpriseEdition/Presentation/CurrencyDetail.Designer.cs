@@ -102,11 +102,11 @@
             // currencyDetailCreatedTimestampTextBoxLabel
             // 
             currencyDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            currencyDetailCreatedTimestampTextBoxLabel.Location = new Point(715, 181);
+            currencyDetailCreatedTimestampTextBoxLabel.Location = new Point(685, 181);
             currencyDetailCreatedTimestampTextBoxLabel.Name = "currencyDetailCreatedTimestampTextBoxLabel";
-            currencyDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            currencyDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             currencyDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
-            currencyDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            currencyDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             currencyDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailLastUpdatedByTextBoxLabel
@@ -122,11 +122,11 @@
             // currencyDetailLastUpdatedTimestampTextBoxLabel
             // 
             currencyDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            currencyDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(679, 261);
+            currencyDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(649, 261);
             currencyDetailLastUpdatedTimestampTextBoxLabel.Name = "currencyDetailLastUpdatedTimestampTextBoxLabel";
-            currencyDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            currencyDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             currencyDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
-            currencyDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            currencyDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             currencyDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // currencyDetailLastUpdatedByTextBox

@@ -161,7 +161,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Supplier Contact Id",
                 "View Supplier Contact",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 
@@ -177,7 +177,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Supplier Note Id",
                 "View Supplier Note",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 

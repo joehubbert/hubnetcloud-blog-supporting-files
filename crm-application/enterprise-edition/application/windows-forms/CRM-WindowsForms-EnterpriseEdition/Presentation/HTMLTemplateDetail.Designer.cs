@@ -105,11 +105,11 @@
             // htmlTemplateDetailCreatedTimestampTextBoxLabel
             // 
             htmlTemplateDetailCreatedTimestampTextBoxLabel.AutoSize = true;
-            htmlTemplateDetailCreatedTimestampTextBoxLabel.Location = new Point(891, 181);
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Location = new Point(861, 181);
             htmlTemplateDetailCreatedTimestampTextBoxLabel.Name = "htmlTemplateDetailCreatedTimestampTextBoxLabel";
-            htmlTemplateDetailCreatedTimestampTextBoxLabel.Size = new Size(139, 20);
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Size = new Size(169, 20);
             htmlTemplateDetailCreatedTimestampTextBoxLabel.TabIndex = 12;
-            htmlTemplateDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp";
+            htmlTemplateDetailCreatedTimestampTextBoxLabel.Text = "Created Timestamp UTC";
             htmlTemplateDetailCreatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // htmlTemplateDetailLastUpdatedByTextBoxLabel
@@ -125,11 +125,11 @@
             // htmlTemplateDetailLastUpdatedTimestampTextBoxLabel
             // 
             htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.AutoSize = true;
-            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(855, 261);
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Location = new Point(825, 261);
             htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Name = "htmlTemplateDetailLastUpdatedTimestampTextBoxLabel";
-            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(175, 20);
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Size = new Size(205, 20);
             htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.TabIndex = 14;
-            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp";
+            htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.Text = "Last Updated Timestamp UTC";
             htmlTemplateDetailLastUpdatedTimestampTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
             // htmlTemplateDetailLastUpdatedByTextBox

@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateProductSupplier]
 	@activeStatus BIT,
+	@deliveryLeadTimeDays TINYINT,
 	@productId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
 	@supplierProductCode NVARCHAR(50) = NULL,
@@ -21,6 +22,7 @@ BEGIN
 				[WholesalePricePerPallet] MONEY NULL,
 				[WholesalePricePerUnit] MONEY NOT NULL,
 				[SupplierProductCode] NVARCHAR(50) NULL,
+				[DeliveryLeadTimeDays] TINYINT NOT NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
@@ -32,6 +34,7 @@ BEGIN
 				[WholesalePricePerPallet],
 				[WholesalePricePerUnit],
 				[SupplierProductCode],
+				[DeliveryLeadTimeDays],
 				[ActiveStatus]
 			)
 			VALUES
@@ -42,6 +45,7 @@ BEGIN
 				@wholesalePricePerPallet,
 				@wholesalePricePerUnit,
 				@supplierProductCode,
+				@deliveryLeadTimeDays,
 				@activeStatus
 			)
 
@@ -58,6 +62,7 @@ BEGIN
 				[WholesalePricePerPallet],
 				[WholesalePricePerUnit],
 				[SupplierProductCode],
+				[DeliveryLeadTimeDays],
 				[ActiveStatus]
 			)
 			VALUES
@@ -68,6 +73,7 @@ BEGIN
 				source.[WholesalePricePerPallet],
 				source.[WholesalePricePerUnit],
 				source.[SupplierProductCode],
+				source.[DeliveryLeadTimeDays],
 				source.[ActiveStatus]
 			);
 

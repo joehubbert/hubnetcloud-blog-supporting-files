@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateProductSupplier]
 	@activeStatus BIT,
+	@deliveryLeadTimeDays TINYINT,
 	@productId UNIQUEIDENTIFIER,
 	@productSupplierId UNIQUEIDENTIFIER,
 	@supplierId UNIQUEIDENTIFIER,
@@ -17,6 +18,7 @@ BEGIN
 			UPDATE [dbo].[ProductSupplier]
 				SET 
 					[ActiveStatus] = @activeStatus,
+					[DeliveryLeadTimeDays] = @deliveryLeadTimeDays,
 					[ProductId] = @productId,
 					[SupplierId] = @supplierId,
 					[SupplierProductCode] = @supplierProductCode,

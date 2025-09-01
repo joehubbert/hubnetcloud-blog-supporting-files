@@ -17,6 +17,7 @@ BEGIN
 			[Supplier Id],
 			[Supplier Name],
 			[Supplier Product Code],
+			[Delivery Lead Time Days],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],

@@ -16,7 +16,8 @@ BEGIN
 			[Wholesale Price Per Unit],
 			[Supplier Id],
 			[Supplier Name],
-			[Supplier Product Code]
+			[Supplier Product Code],
+			[Delivery Lead Time Days]
 			FROM [dbo].[vwProductSupplier]
 			WHERE [Supplier Id] = @supplierId
 

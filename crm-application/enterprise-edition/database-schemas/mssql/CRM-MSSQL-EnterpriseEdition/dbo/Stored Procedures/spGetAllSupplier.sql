@@ -19,7 +19,8 @@ BEGIN
 			[Telephone Number],
 			[Email Address],
 			[Payment Days],
-			[Payment Currency],
+			[Payment Currency Id],
+			[Payment Currency Code],
 			[VAT Registered],
 			[VAT Number]
 			FROM [dbo].[vwSupplier]

@@ -372,11 +372,10 @@
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Appearance = TabAppearance.FlatButtons;
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Dock = DockStyle.Fill;
-            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Location = new Point(3, 3);
+            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Location = new Point(-1, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Size = new Size(1175, 666);
+            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControl.TabIndex = 4;
             // 
@@ -388,7 +387,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Size = new Size(1167, 630);
+            companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlAccountManagementTabPageTabControlAccountManagerTabPage.Text = "Account Manager";
             // 
@@ -438,11 +437,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerNoteTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTierTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Dock = DockStyle.Fill;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Location = new Point(3, 3);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Size = new Size(1175, 666);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControl.TabIndex = 10;
             // 
@@ -453,7 +451,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPageCreateCustomerLeadNoteType);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Size = new Size(1167, 630);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Size = new Size(1187, 643);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.TabIndex = 5;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadNoteTypeTabPage.Text = "Customer Lead Note Type";
             // 
@@ -488,9 +486,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.BackColor = Color.LightGreen;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageViewAllCustomerLeadStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPageCreateCustomerLeadStatusButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Size = new Size(1167, 635);
+            companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.TabIndex = 3;
             companyManagementTabControlMasterDataManagementTabPageTabControlCustomerTabPageTabControlCustomerLeadStatusTabPage.Text = "Customer Lead Status";
             // 
@@ -686,11 +684,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyConversionTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlPaymentMethodTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlTaxProfileTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControl.TabIndex = 16;
             // 
@@ -702,7 +699,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlFinanceTabPageTabControlCurrencyTabPage.Text = "Currency";
             // 
@@ -857,11 +854,10 @@
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Appearance = TabAppearance.FlatButtons;
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlLogisticsTabPageTabControl.TabIndex = 18;
             // 
@@ -873,7 +869,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlDeliveryMethodTabPage.Text = "Delivery Method";
             // 
@@ -921,11 +917,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingChannelTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlPromotionTargetTypeTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlPromotionTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControl.TabIndex = 5;
             // 
@@ -936,7 +931,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPageViewAllMarketingCampaignStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.TabIndex = 4;
             companyManagementTabControlMasterDataManagementTabPageTabControlMarketingTabPageTabControlMarketingCampaignStatusTabPage.Text = "Marketing Campaign Status";
             // 
@@ -1130,11 +1125,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Appearance = TabAppearance.FlatButtons;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlHTMLTemplateTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControl.TabIndex = 5;
             // 
@@ -1146,7 +1140,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlMiscellaneousTabPageTabControlCountryTabPage.Text = "Country";
             // 
@@ -1230,11 +1224,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderPaymentStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControl.TabIndex = 20;
             // 
@@ -1245,7 +1238,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPageCreateOrderLineItemStatusButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.TabIndex = 1;
             companyManagementTabControlMasterDataManagementTabPageTabControlOrderTabPageTabControlOrderLineItemStatusTabPage.Text = "Order Line Item Status";
             // 
@@ -1404,11 +1397,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.TabIndex = 24;
             // 
@@ -1420,7 +1412,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.Text = "Product Category";
             // 
@@ -1576,11 +1568,10 @@
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Appearance = TabAppearance.FlatButtons;
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Controls.Add(companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage);
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Controls.Add(companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesSubRegionTabPage);
-            companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.TabIndex = 28;
             // 
@@ -1592,7 +1583,7 @@
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Location = new Point(4, 32);
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Name = "companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage";
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Padding = new Padding(3);
-            companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Size = new Size(1173, 636);
+            companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Size = new Size(1175, 636);
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.TabIndex = 0;
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.Text = "Sales Region";
             // 
@@ -1677,11 +1668,10 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderPaymentStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierOrderStatusTabPage);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlWholesaleDeliveryTypeTabPage);
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Dock = DockStyle.Fill;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Location = new Point(0, 0);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl";
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.SelectedIndex = 0;
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Size = new Size(1181, 672);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.Size = new Size(1183, 672);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.SizeMode = TabSizeMode.FillToRight;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControl.TabIndex = 30;
             // 
@@ -1693,7 +1683,7 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Location = new Point(4, 32);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage";
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Padding = new Padding(3);
-            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Size = new Size(1173, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Size = new Size(1175, 636);
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.TabIndex = 0;
             companyManagementTabControlMasterDataManagementTabPageTabControlSupplierTabPageTabControlSupplierNoteTypeTabPage.Text = "Supplier Note Type";
             // 

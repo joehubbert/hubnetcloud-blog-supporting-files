@@ -15,10 +15,10 @@
 )
 GO
 
-CREATE INDEX [IX_PromotionSupplierProductSubCategory_SupplierId] ON [dbo].[PromotionSupplierProductSubCategory] ([SupplierId])
+CREATE INDEX [NCIX_PromotionSupplierProductSubCategory_SupplierId] ON [dbo].[PromotionSupplierProductSubCategory] ([SupplierId])
 GO
 
-CREATE INDEX [IX_PromotionSupplierProductSubCategory_SupplierId_ProductSubCategoryId] ON [dbo].[PromotionSupplierProductSubCategory] ([SupplierId], [ProductSubCategoryId])
+CREATE INDEX [NCIX_PromotionSupplierProductSubCategory_SupplierId_ProductSubCategoryId] ON [dbo].[PromotionSupplierProductSubCategory] ([SupplierId], [ProductSubCategoryId])
 GO
 
 CREATE TRIGGER [TRG_UpdatePromotionSupplierProductSubCategory]

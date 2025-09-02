@@ -24,10 +24,10 @@
 )
 GO
 
-CREATE INDEX [IX_Promotion_PromotionTargetTypeId] ON [dbo].[Promotion] ([PromotionTargetTypeId])
+CREATE INDEX [NCIX_Promotion_PromotionTargetTypeId] ON [dbo].[Promotion] ([PromotionTargetTypeId])
 GO
 
-CREATE INDEX [IX_Promotion_PromotionTypeId] ON [dbo].[Promotion] ([PromotionTypeId])
+CREATE INDEX [NCIX_Promotion_PromotionTypeId] ON [dbo].[Promotion] ([PromotionTypeId])
 GO
 
 CREATE TRIGGER [TRG_UpdatePromotion]

@@ -19,13 +19,13 @@
 )
 GO
 
-CREATE INDEX [IX_CustomerLead_CustomerId] ON [dbo].[CustomerLead] ([CustomerId])
+CREATE INDEX [NCIX_CustomerLead_CustomerId] ON [dbo].[CustomerLead] ([CustomerId])
 GO
 
-CREATE INDEX [IX_CustomerLead_CustomerLeadTypeId] ON [dbo].[CustomerLead] ([CustomerLeadTypeId])
+CREATE INDEX [NCIX_CustomerLead_CustomerLeadTypeId] ON [dbo].[CustomerLead] ([CustomerLeadTypeId])
 GO
 
-CREATE INDEX [IX_CustomerLead_CustomerLeadMarketingChannelId] ON [dbo].[CustomerLead] ([CustomerLeadMarketingChannelId])
+CREATE INDEX [NCIX_CustomerLead_CustomerLeadMarketingChannelId] ON [dbo].[CustomerLead] ([CustomerLeadMarketingChannelId])
 GO
 
 CREATE TRIGGER [TRG_UpdateCustomerLead]

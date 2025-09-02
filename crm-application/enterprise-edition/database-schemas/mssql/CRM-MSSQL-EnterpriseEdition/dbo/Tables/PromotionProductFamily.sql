@@ -13,7 +13,7 @@
 )
 GO
 
-CREATE INDEX [IX_PromotionProductFamily_ProductId_ProductFamilyId] ON [dbo].[PromotionProductFamily] ([ProductFamilyId])
+CREATE INDEX [NCIX_PromotionProductFamily_ProductId_ProductFamilyId] ON [dbo].[PromotionProductFamily] ([ProductFamilyId])
 GO
 
 CREATE TRIGGER [TRG_UpdatePromotionProductFamily]

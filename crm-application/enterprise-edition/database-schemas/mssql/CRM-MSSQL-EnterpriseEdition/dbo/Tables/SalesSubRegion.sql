@@ -12,7 +12,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_SalesSubRegion_SalesRegionId]
+CREATE NONCLUSTERED INDEX [NCIX_SalesSubRegion_SalesRegionId]
 ON [dbo].[SalesSubRegion] ([SalesRegionId])
 GO
 

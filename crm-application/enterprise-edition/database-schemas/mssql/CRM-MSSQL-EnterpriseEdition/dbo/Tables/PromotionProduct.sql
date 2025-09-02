@@ -13,7 +13,7 @@
 )
 GO
 
-CREATE INDEX [IX_PromotionProduct_ProductId] ON [dbo].[PromotionProduct] ([ProductId])
+CREATE INDEX [NCIX_PromotionProduct_ProductId] ON [dbo].[PromotionProduct] ([ProductId])
 GO
 
 CREATE TRIGGER [TRG_UpdatePromotionProduct]

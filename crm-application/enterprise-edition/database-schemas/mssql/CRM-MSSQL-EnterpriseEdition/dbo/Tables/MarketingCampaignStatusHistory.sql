@@ -12,7 +12,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_MarketingCampaignStatusHistory_MarketingCampaignId]
+CREATE NONCLUSTERED INDEX [NCIX_MarketingCampaignStatusHistory_MarketingCampaignId]
 ON [dbo].[MarketingCampaignStatusHistory] ([MarketingCampaignId])
 GO
 

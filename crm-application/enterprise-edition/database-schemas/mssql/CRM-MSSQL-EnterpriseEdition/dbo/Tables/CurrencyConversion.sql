@@ -25,7 +25,7 @@
 	CONSTRAINT [UC_CurrencyConversion_Unique] UNIQUE (
 		[BaseCurrencyId], [TargetCurrencyId], [EffectiveDate], [ExpiryDate]
 	),
-	INDEX [IX_CurrencyConversion_BaseCurrencyId_TargetCurrencyId] NONCLUSTERED
+	INDEX [NCIX_CurrencyConversion_BaseCurrencyId_TargetCurrencyId] NONCLUSTERED
 	(
 		[BaseCurrencyId], [TargetCurrencyId]
 	)

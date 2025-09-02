@@ -19,10 +19,10 @@
 )
 GO
 
-CREATE INDEX [IX_ProductSupplier_SupplierId] ON [dbo].[ProductSupplier] ([SupplierId])
+CREATE INDEX [NCIX_ProductSupplier_SupplierId] ON [dbo].[ProductSupplier] ([SupplierId])
 GO
 
-CREATE INDEX [IX_ProductSupplier_ProductId] ON [dbo].[ProductSupplier] ([ProductId])
+CREATE INDEX [NCIX_ProductSupplier_ProductId] ON [dbo].[ProductSupplier] ([ProductId])
 GO
 
 CREATE TRIGGER [TRG_UpdateProductSupplier]

@@ -14,7 +14,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_OrderQuote_OrderId]
+CREATE NONCLUSTERED INDEX [NCIX_OrderQuote_OrderId]
 ON [dbo].[OrderQuote] ([OrderId])
 GO
 

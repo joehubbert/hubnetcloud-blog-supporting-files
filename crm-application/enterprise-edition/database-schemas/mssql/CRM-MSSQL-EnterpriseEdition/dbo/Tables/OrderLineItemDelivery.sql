@@ -15,7 +15,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_OrderLineItemDelivery_DeliveryDate]
+CREATE NONCLUSTERED INDEX [NCIX_OrderLineItemDelivery_DeliveryDate]
 ON [dbo].[OrderLineItemDelivery] ([DeliveryDate])
 GO
 

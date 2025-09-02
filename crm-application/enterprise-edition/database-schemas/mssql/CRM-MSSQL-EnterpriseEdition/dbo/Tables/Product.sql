@@ -61,7 +61,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Product_ProductSubCategoryId]
+CREATE NONCLUSTERED INDEX [NCIX_Product_ProductSubCategoryId]
 ON [dbo].[Product] ([ProductSubCategoryId])
 GO
 

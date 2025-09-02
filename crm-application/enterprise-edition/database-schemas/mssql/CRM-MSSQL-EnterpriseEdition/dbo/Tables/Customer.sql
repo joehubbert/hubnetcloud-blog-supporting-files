@@ -61,23 +61,23 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Customer_CompanyConfiguration_AccountManager]
+CREATE NONCLUSTERED INDEX [NCIX_Customer_CompanyConfiguration_AccountManager]
 ON [dbo].[Customer] ([CompanyConfigurationId], [AccountManagerId])
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Customer_AccountManager_CustomerTier]
+CREATE NONCLUSTERED INDEX [NCIX_Customer_AccountManager_CustomerTier]
 ON [dbo].[Customer] ([AccountManagerId], [CustomerTierId])
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Customer_CreditEnabled]
+CREATE NONCLUSTERED INDEX [NCIX_Customer_CreditEnabled]
 ON [dbo].[Customer] ([CreditEnabled])
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Customer_GlobalParentCustomer]
+CREATE NONCLUSTERED INDEX [NCIX_Customer_GlobalParentCustomer]
 ON [dbo].[Customer] ([GlobalParentCustomer])
 GO
 
-CREATE NONCLUSTERED INDEX [IX_Customer_TopParentCustomer]
+CREATE NONCLUSTERED INDEX [NCIX_Customer_TopParentCustomer]
 ON [dbo].[Customer] ([TopParentCustomer])
 GO
 

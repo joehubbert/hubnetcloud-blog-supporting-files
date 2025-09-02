@@ -13,7 +13,7 @@
 )
 GO
 
-CREATE INDEX [IX_PromotionManufacturer_ManufacturerId] ON [dbo].[PromotionManufacturer] ([ManufacturerId])
+CREATE INDEX [NCIX_PromotionManufacturer_ManufacturerId] ON [dbo].[PromotionManufacturer] ([ManufacturerId])
 GO
 
 CREATE TRIGGER [TRG_UpdatePromotionManufacturer]

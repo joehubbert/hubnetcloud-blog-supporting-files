@@ -23,7 +23,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_OrderLineItem_OrderId_ProductId]
+CREATE NONCLUSTERED INDEX [NCIX_OrderLineItem_OrderId_ProductId]
 ON [dbo].[OrderLineItem] ([OrderId], [ProductId])
 GO
 

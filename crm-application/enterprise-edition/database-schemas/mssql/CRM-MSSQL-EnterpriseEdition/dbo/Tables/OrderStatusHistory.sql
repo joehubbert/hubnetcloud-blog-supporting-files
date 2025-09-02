@@ -12,7 +12,7 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_OrderStatusHistory_OrderId]
+CREATE NONCLUSTERED INDEX [NCIX_OrderStatusHistory_OrderId]
 ON [dbo].[OrderStatusHistory] ([OrderId])
 GO
 

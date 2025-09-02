@@ -195,6 +195,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     throw new Exception($"Column '{idColumnName}' does not exist in the result set.");
                 }
 
+                if (dataTable == null || dataTable.Rows.Count == 0)
+                {
+                    if (_companyConfigurationId != null)
+                    {
+                        new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specfic", dataSubject);
+                        return;
+                    }
+                    else
+                    {
+                        new ErrorMessageService("Information.NoDataFound", dataSubject);
+                        return;
+                    }
+                }
+
                 var dataListQuery = dataTable.AsEnumerable()
                     .Select(row =>
                     {

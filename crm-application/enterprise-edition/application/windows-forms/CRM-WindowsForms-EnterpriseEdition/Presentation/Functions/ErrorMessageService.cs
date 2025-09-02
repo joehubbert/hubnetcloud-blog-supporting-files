@@ -8,6 +8,7 @@
         private string globalLoggingServiceMessageTitle;
         private string globalModuleMessageTitle;
         private string globalValidationMessageTitle;
+        private string globalWarningMessageTitle;
         private bool loggingEnabled;
 
         public ErrorMessageService(string errorType, string? dataSubject = null, string? exceptionMessage = null)
@@ -23,6 +24,7 @@
             globalLoggingServiceMessageTitle = $"Logging Service - {errorType}";
             globalModuleMessageTitle = $"Module - {errorType}";
             globalValidationMessageTitle = $"Validation - {errorType}";
+            globalWarningMessageTitle = $"Warning - {errorType}";
 
             loggingEnabled = await ApplicationConfigurationService.GetLoggingEnabledAsync();
 
@@ -98,7 +100,7 @@
                     LoggingServiceClearLogCancellationConfirmationInformation();
                     break;
                 case "Information.NoDataFound":
-                    NoDataFoundError(dataSubject ?? "unknown");
+                    NoDataFoundInformation(dataSubject ?? "unknown");
                     break;
                 case "Information.UpdateCancelled":
                     UpdateCancelled();
@@ -123,6 +125,9 @@
                     break;
                 case "Warning.DataValidation.Selection":
                     DataValidationSelectionWarning(dataSubject ?? "unknown");
+                    break;
+                case "Warning.NoDataFound.CompanyConfiguration.Specfic":
+                    NoDataFoundWarning(dataSubject ?? "unknown");
                     break;
                 default:
                     throw new ArgumentException("Invalid error type specified.");
@@ -448,11 +453,22 @@
             }
         }
 
-        private void NoDataFoundError(string dataSubject)
+        private void NoDataFoundInformation(string dataSubject)
         {
             string messageText = $"No data found for {dataSubject}.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void NoDataFoundWarning(string dataSubject)
+        {
+            string messageText = $"No data found for {dataSubject} for the current company configuration.";
+            string messageTitle = globalWarningMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);

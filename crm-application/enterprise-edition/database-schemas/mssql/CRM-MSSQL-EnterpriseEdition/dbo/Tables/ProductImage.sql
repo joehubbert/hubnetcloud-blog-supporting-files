@@ -6,6 +6,7 @@
 	[ProductImageAltText] NVARCHAR(150) NULL,
 	[ProductImageCaption] NVARCHAR(255) NULL,
 	[ProductImageDisplayOrder] TINYINT NOT NULL,
+	[ProductImageIsThumbnail] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
@@ -14,7 +15,12 @@
 )
 GO
 
-CREATE NONCLUSTERED INDEX [IX_ProductImage_ProductId]
+CREATE UNIQUE INDEX [UIX_ProductImage_ThumbnailPerProduct]
+ON [dbo].[ProductImage] ([ProductId])
+WHERE [ProductImageIsThumbnail] = 1;
+GO
+
+CREATE NONCLUSTERED INDEX [NCIX_ProductImage_ProductId]
 ON [dbo].[ProductImage] ([ProductId], [ProductImageAltText], [ProductImageCaption], [ProductImageDisplayOrder])
 GO
 

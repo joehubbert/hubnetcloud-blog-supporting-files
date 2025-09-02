@@ -4,7 +4,8 @@
 	@productImageAltText NVARCHAR(150) = NULL,
 	@productImageCaption NVARCHAR(255) = NULL,
 	@productImageDisplayOrder TINYINT,
-	@productImageId UNIQUEIDENTIFIER
+	@productImageId UNIQUEIDENTIFIER,
+	@productImageIsThumbnail BIT
 AS
 
 BEGIN
@@ -18,7 +19,8 @@ BEGIN
 			[ProductImage] = @productImage,
 			[ProductImageAltText] = @productImageAltText,
 			[ProductImageCaption] = @productImageCaption,
-			[ProductImageDisplayOrder] = @productImageDisplayOrder
+			[ProductImageDisplayOrder] = @productImageDisplayOrder,
+			[ProductImageIsThumbnail] = @productImageIsThumbnail
 		WHERE
 			[ProductImageId] = @productImageId;
 

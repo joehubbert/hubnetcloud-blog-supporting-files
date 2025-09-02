@@ -13,7 +13,8 @@ BEGIN
 			[Product Image],
 			[Product Image Alt Text],
 			[Product Image Caption],
-			[Product Image Display Order]
+			[Product Image Display Order],
+			[Product Image Is Thumbnail]
 			FROM [dbo].[vwProductImage]
 
 		COMMIT TRANSACTION;

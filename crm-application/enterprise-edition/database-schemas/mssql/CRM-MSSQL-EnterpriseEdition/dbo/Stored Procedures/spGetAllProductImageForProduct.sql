@@ -15,6 +15,7 @@ BEGIN
 			[Product Image Alt Text],
 			[Product Image Caption],
 			[Product Image Display Order],
+			[Product Image Is Thumbnail],
 			[Created Timestamp UTC],
 			[Created By],
 			[Created Timestamp UTC],

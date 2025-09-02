@@ -3,7 +3,8 @@
 	@productImage VARBINARY(MAX),
 	@productImageAltText NVARCHAR(150) = NULL,
 	@productImageCaption NVARCHAR(255) = NULL,
-	@productImageDisplayOrder TINYINT
+	@productImageDisplayOrder TINYINT,
+	@productImageIsThumbnail BIT
 AS
 
 BEGIN
@@ -17,7 +18,8 @@ BEGIN
 				[ProductImage],
 				[ProductImageAltText],
 				[ProductImageCaption],
-				[ProductImageDisplayOrder]
+				[ProductImageDisplayOrder],
+				[ProductImageIsThumbnail]
 			)
 			VALUES
 			(
@@ -25,7 +27,8 @@ BEGIN
 				@productImage,
 				@productImageAltText,
 				@productImageCaption,
-				@productImageDisplayOrder
+				@productImageDisplayOrder,
+				@productImageIsThumbnail
 			);
 
 		COMMIT TRANSACTION;

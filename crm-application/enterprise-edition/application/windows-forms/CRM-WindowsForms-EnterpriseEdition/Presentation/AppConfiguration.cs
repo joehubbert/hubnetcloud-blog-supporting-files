@@ -77,7 +77,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             //_translationService = new TranslationService();
             InitializeEventHandlers();
-            ExistingConfigurationFileCheckAsync(); // Only this, no UI population calls here
+            ExistingConfigurationFileCheckAsync();
         }
 
         private void InitializeEventHandlers()

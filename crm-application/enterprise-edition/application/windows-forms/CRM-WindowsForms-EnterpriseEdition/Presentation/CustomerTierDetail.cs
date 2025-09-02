@@ -23,83 +23,99 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadDatabaseConnectionSettingsAsync();
         }
 
-        private void InitializeEventHandlers()
+		protected override async void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			await LoadDatabaseConnectionSettingsAsync();
+			CustomerTierDetailCustomerTierInformation_Load(this, EventArgs.Empty);
+		}
+
+		private void InitializeEventHandlers()
         {
             customerTierDetailToggleEditModeButton.Click += customerTierDetailToggleEditModeButton_Click;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+		private async void CustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)
+		{
+			if (_databaseConnectionSettings == null)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
+				return;
+			}
+
+			string storedProcedureName = "spGetCustomerTier";
+
+			var parameters = new[]
+			{
+				new StoredProcedureParameter
+				{
+					ParameterName = "customerTierId",
+					ParameterValue = _customerTierId
+				}
+			};
+
+			try
+			{
+				DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+
+				if (customerTierDataTable != null)
+				{
+					DataRow customerTierDataRow = customerTierDataTable.Rows[0];
+					customerTierDetailCustomerTierIdTextBox.Text = customerTierDataRow["Customer Tier Id"].ToString();
+					customerTierDetailCustomerTierCodeTextBox.Text = customerTierDataRow["Customer Tier Code"].ToString();
+					customerTierDetailCustomerTierDescriptionTextBox.Text = customerTierDataRow["Customer Tier Description"].ToString();
+					customerTierDetailCreatedByTextBox.Text = customerTierDataRow["Created By"].ToString();
+					customerTierDetailCreatedTimestampTextBox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
+					customerTierDetailLastUpdatedByTextBox.Text = customerTierDataRow["Modified By"].ToString();
+					customerTierDetailLastUpdatedTimestampTextBox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
+					customerTierDetailActiveStatusCheckBox.Checked = (bool)customerTierDataRow["Active Status"];
+					Guid companyConfigurationId = (Guid)customerTierDataRow["Company Configuration Id"];
+					await LoadCompanyConfigurationAsync(companyConfigurationId);
+
+					customerTierDetailCompanyConfigurationIdOriginalValue = (Guid)customerTierDataRow["Company Configuration Id"];
+					customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();
+					customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier Description"].ToString();
+					customerTierDetailActiveStatusOriginalValue = (bool)customerTierDataRow["Active Status"];
+
+					this.Text += $" ({customerTierDetailCustomerTierDescriptionOriginalValue})";
+				}
+				else
+				{
+					ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+			}
+		}
+
+		private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
+		{
+			_dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+			await _dataAccessComboBoxHelper.LoadDataAsync();
+		}
+
+		private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
+		private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+		{
+			customerTierDetailCompanyConfigurationComboBox.Enabled = !customerTierDetailCompanyConfigurationComboBox.Enabled;
+			customerTierDetailCustomerTierCodeTextBox.ReadOnly = !customerTierDetailCustomerTierCodeTextBox.ReadOnly;
+			customerTierDetailCustomerTierDescriptionTextBox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextBox.ReadOnly;
+			customerTierDetailActiveStatusCheckBox.Enabled = !customerTierDetailActiveStatusCheckBox.Enabled;
+			customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;
+		}
 
-        private async void CustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            string storedProcedureName = "spGetCustomerTier";
-
-            var parameters = new[]
-            {
-                new StoredProcedureParameter
-                {
-                    ParameterName = "customerTierId",
-                    ParameterValue = _customerTierId
-                }
-            };
-
-            try
-            {
-                DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-                if (customerTierDataTable != null)
-                {
-                    DataRow customerTierDataRow = customerTierDataTable.Rows[0];
-                    customerTierDetailCustomerTierIdTextBox.Text = customerTierDataRow["Customer Tier Id"].ToString();
-                    customerTierDetailCustomerTierCodeTextBox.Text = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionTextBox.Text = customerTierDataRow["Customer Tier Description"].ToString();
-                    customerTierDetailCreatedByTextBox.Text = customerTierDataRow["Created By"].ToString();
-                    customerTierDetailCreatedTimestampTextBox.Text = customerTierDataRow["Created Timestamp UTC"].ToString();
-                    customerTierDetailLastUpdatedByTextBox.Text = customerTierDataRow["Modified By"].ToString();
-                    customerTierDetailLastUpdatedTimestampTextBox.Text = customerTierDataRow["Modified Timestamp UTC"].ToString();
-                    customerTierDetailActiveStatusCheckBox.Checked = (bool)customerTierDataRow["Active Status"];
-                    Guid companyConfigurationId = (Guid)customerTierDataRow["Company Configuration Id"];
-                    await LoadCompanyConfigurationAsync(companyConfigurationId);
-
-                    customerTierDetailCompanyConfigurationIdOriginalValue = (Guid)customerTierDataRow["Company Configuration Id"];
-                    customerTierDetailCustomerTierCodeOriginalValue = customerTierDataRow["Customer Tier Code"].ToString();
-                    customerTierDetailCustomerTierDescriptionOriginalValue = customerTierDataRow["Customer Tier Description"].ToString();
-                    customerTierDetailActiveStatusOriginalValue = (bool)customerTierDataRow["Active Status"];
-
-                    this.Text += $" ({customerTierDetailCustomerTierDescriptionOriginalValue})";
-                }
-                else
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
-        private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
+		private async void customerTierDetailUpdateCustomerTierButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = customerTierDetailActiveStatusCheckBox.Checked;
-            Guid companyConfigurationId = Guid.Parse(customerTierDetailCompanyConfigurationComboBox.SelectedValue.ToString());
-            string customerTierCode = customerTierDetailCustomerTierCodeTextBox.Text.TrimEnd();
-            string customerTierDescription = customerTierDetailCustomerTierDescriptionTextBox.Text.TrimEnd();
+            Guid companyConfigurationId = (Guid)customerTierDetailCompanyConfigurationComboBox.SelectedValue;
+            string customerTierCode = TextBoxCleanerHelper.GetTrimmedText(customerTierDetailCustomerTierCodeTextBox);
+            string customerTierDescription = TextBoxCleanerHelper.GetTrimmedText(customerTierDetailCustomerTierDescriptionTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -229,22 +245,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            CustomerTierDetailCustomerTierInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void customerTierDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            customerTierDetailCompanyConfigurationComboBox.Enabled = !customerTierDetailCompanyConfigurationComboBox.Enabled;
-            customerTierDetailCustomerTierCodeTextBox.ReadOnly = !customerTierDetailCustomerTierCodeTextBox.ReadOnly;
-            customerTierDetailCustomerTierDescriptionTextBox.ReadOnly = !customerTierDetailCustomerTierDescriptionTextBox.ReadOnly;
-            customerTierDetailActiveStatusCheckBox.Enabled = !customerTierDetailActiveStatusCheckBox.Enabled;
-            customerTierDetailUpdateCustomerTierButton.Enabled = !customerTierDetailUpdateCustomerTierButton.Enabled;
         }
     }
 }

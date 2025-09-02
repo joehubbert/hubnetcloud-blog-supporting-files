@@ -6,7 +6,7 @@
     @addressLine4 NVARCHAR(50),
     @addressLine5 UNIQUEIDENTIFIER,
     @emailAddress NVARCHAR(50),
-    @supplierName NVARCHAR(50),
+    @manufacturerName NVARCHAR(50),
     @telephoneNumber NVARCHAR(50),
     @vatNumber NVARCHAR(50) = NULL,
     @vatRegistered BIT
@@ -48,7 +48,7 @@ BEGIN
             )
             VALUES
             (
-                @supplierName,
+                @manufacturerName,
                 @addressLine1,
                 @addressLine2,
                 @addressLine3,
@@ -64,8 +64,8 @@ BEGIN
             IF EXISTS
             (
             SELECT *
-            FROM [dbo].[Manufacturer] S
-            INNER JOIN #ManufacturerTemp ST ON M.[AddressLine1] = MT.[AddressLine1]
+            FROM [dbo].[Manufacturer] M
+            INNER JOIN #ManufacturerTemp MT ON M.[AddressLine1] = MT.[AddressLine1]
             AND M.[AddressLine2] = MT.[AddressLine2]
             AND M.[AddressLine3] = MT.[AddressLine3]
             AND M.[AddressLine4] = MT.[AddressLine4]

@@ -4,7 +4,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class ModuleHomeSimple : Form
     {
-        private Guid _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
@@ -72,6 +71,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{moduleFriendlyName}";
             moduleHomeCreateButton.Text = $"Create {dataSubjectSingularName}";
             moduleHomeViewAllButton.Text = $"{viewAllPrefix}{dataSubjectPluralName}";
+
+            if (_moduleGroup == "ProductManagement")
+            {
+                moduleHomeCreateButton2.Text = "Create Manufacturer";
+                moduleHomeViewAllButton2.Text = $"{viewAllPrefix}Manufacturers";
+            }
+            else
+            {
+                moduleHomeCreateButton2.Visible = false;
+                moduleHomeViewAllButton2.Visible = false;
+                this.Size = new Size(633, 304);
+            }
+        }
+
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(moduleHomeStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
 
         private void moduleHomeCreateButton_Click(object sender, EventArgs e)
@@ -138,10 +155,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        private void moduleHomeCreateButton2_Click(object sender, EventArgs e)
         {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(moduleHomeStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            switch (_moduleGroup)
+            {
+                case "ProductManagement":
+                    CreateManufacturer createManufacturer = new CreateManufacturer();
+                    createManufacturer.Show();
+                    break;
+                default:
+                    this.Text = _moduleGroup;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleGroup);
+                    break;
+            }
+        }
+
+        private void moduleHomeViewAllButton2_Click(object sender, EventArgs e)
+        {
+            switch (_moduleGroup)
+            {
+                case "ProductManagement":
+                    ViewAllData viewAllData = new ViewAllData("Manufacturer", "ProductManagement", null);
+                    viewAllData.Show();
+                    break;
+                default:
+                    this.Text = _moduleGroup;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.NotImplemented", _moduleGroup);
+                    break;
+            }
         }
     }
 }

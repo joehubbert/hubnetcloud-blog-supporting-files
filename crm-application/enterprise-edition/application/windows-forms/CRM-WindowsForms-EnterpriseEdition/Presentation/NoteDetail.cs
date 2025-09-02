@@ -14,21 +14,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private readonly Guid _noteId;
         private readonly string applicationTitlePrefix = "CRM - ";
         private string noteDetailModuleNoteTypeFriendlyName;
-        private string noteDetailModuleNoteTypeName;
         private string noteDetailNoteGetStoredProcedureName;
         private string noteDetailNoteIdFriendlyName;
-        private string noteDetailNoteIdName;
-        private string? noteDetailNoteOriginalValue;
+        private string noteDetailNoteOriginalValue;
         private string noteDetailNoteStoredProcedureParameterPrefix;
-        private string? noteDetailNoteTitleFriendlyName;
-        private string noteDetailNoteTitleName;
-        private string? noteDetailNoteTitleOriginalValue;
+        private string noteDetailNoteTitleFriendlyName;
+        private string noteDetailNoteTitleOriginalValue;
         private string noteDetailNoteTypeFriendlyName;
         private string noteDetailNoteTypeGetStoredProcedureName;
         private string noteDetailNoteTypeIdFriendlyName;
-        private string noteDetailNoteTypeIdName;
-        private string noteDetailNoteTypeName;
-        private Guid? noteDetailNoteTypeIdOriginalValue;       
+        private Guid noteDetailNoteTypeIdOriginalValue;       
         private string noteDetailNoteUpdateStoredProcedureName;
         private readonly string titleLabelSuffix = " Detail";
 
@@ -50,6 +45,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetModuleTheme(_functionTitle);
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            NoteDetailNoteInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
             noteDetailToggleEditModeButton.Click += noteDetailToggleEditModeButton_Click;
@@ -58,88 +60,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private void SetModuleTheme(string functionTitle)
-        {
-            switch (functionTitle)
-            {
-                case "Customer":
-                    this.BackColor = Color.LightGreen;
-                    noteDetailModuleNoteTypeFriendlyName = "Customer Note";
-                    noteDetailModuleNoteTypeName = "CustomerNote";
-                    noteDetailNoteGetStoredProcedureName = "spGetCustomerNote";
-                    noteDetailNoteIdFriendlyName = "Customer Note Id";
-                    noteDetailNoteIdName = "CustomerNoteId";
-                    noteDetailNoteStoredProcedureParameterPrefix = "customerNote";
-                    noteDetailNoteTitleFriendlyName = "Customer Note Title";
-                    noteDetailNoteTitleName = "CustomerNoteTitle";
-                    noteDetailNoteTypeFriendlyName = "Customer Note Type";
-                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllCustomerNoteType";
-                    noteDetailNoteTypeIdFriendlyName = "Customer Note Type Id";
-                    noteDetailNoteTypeIdName = "CustomerNoteTypeId";
-                    noteDetailNoteTypeName = "CustomerNoteType";
-                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
-                    break;
-                case "CustomerLead":
-                    this.BackColor = Color.LightGreen;
-                    noteDetailModuleNoteTypeFriendlyName = "Customer Lead Note";
-                    noteDetailModuleNoteTypeName = "CustomerLeadNote";
-                    noteDetailNoteGetStoredProcedureName = "spGetCustomerLeadNote";
-                    noteDetailNoteIdFriendlyName = "Customer Lead Note Id";
-                    noteDetailNoteIdName = "CustomerLeadNoteId";
-                    noteDetailNoteStoredProcedureParameterPrefix = "customerLeadNote";
-                    noteDetailNoteTitleFriendlyName = "Customer Lead Note Title";
-                    noteDetailNoteTitleName = "CustomerLeadNoteTitle";
-                    noteDetailNoteTypeFriendlyName = "Customer Lead Note Type";
-                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllCustomerLeadNoteType";
-                    noteDetailNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
-                    noteDetailNoteTypeIdName = "CustomerLeadNoteTypeId";
-                    noteDetailNoteTypeName = "CustomerLeadNoteType";
-                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
-                    break;
-                case "Product":
-                    this.BackColor = Color.SkyBlue;
-                    noteDetailModuleNoteTypeFriendlyName = "Product Note";
-                    noteDetailModuleNoteTypeName = "ProductNote";
-                    noteDetailNoteGetStoredProcedureName = "spGetProductNote";
-                    noteDetailNoteIdFriendlyName = "Product Note Id";
-                    noteDetailNoteIdName = "ProductNoteId";
-                    noteDetailNoteStoredProcedureParameterPrefix = "productNote";
-                    noteDetailNoteTitleFriendlyName = "Product Note Title";
-                    noteDetailNoteTitleName = "ProductNoteTitle";
-                    noteDetailNoteTypeFriendlyName = "Product Note Type";
-                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllProductNoteType";
-                    noteDetailNoteTypeIdFriendlyName = "Product Note Type Id";
-                    noteDetailNoteTypeIdName = "ProductNoteTypeId";
-                    noteDetailNoteTypeName = "ProductNoteType";
-                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
-                    break;
-                case "Supplier":
-                    this.BackColor = Color.MediumAquamarine;
-                    noteDetailModuleNoteTypeFriendlyName = "Supplier Note";
-                    noteDetailModuleNoteTypeName = "SupplierNote";
-                    noteDetailNoteGetStoredProcedureName = "spGetSupplierNote";
-                    noteDetailNoteIdFriendlyName = "Supplier Note Id";
-                    noteDetailNoteIdName = "SupplierNoteId";
-                    noteDetailNoteStoredProcedureParameterPrefix = "supplierNote";
-                    noteDetailNoteTitleFriendlyName = "Supplier Note Title";
-                    noteDetailNoteTitleName = "SupplierNoteTitle";
-                    noteDetailNoteTypeFriendlyName = "Supplier Note Type";
-                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllSupplierNoteType";
-                    noteDetailNoteTypeIdFriendlyName = "Supplier Note Type Id";
-                    noteDetailNoteTypeIdName = "SupplierNoteTypeId";
-                    noteDetailNoteTypeName = "SupplierNoteType";
-                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
-                    break;
-            }
-
-            this.Text = $"{applicationTitlePrefix}{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
-            noteDetailTitleLabel.Text = $"{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
-            noteDetailNoteIdTextBoxLabel.Text = noteDetailNoteIdFriendlyName;
-            noteDetailNoteTitleTextBoxLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
-            noteDetailNoteTypeComboBoxLabel.Text = $"{noteDetailNoteTypeFriendlyName}*";
-            noteDetailUpdateNoteButton.Text = $"Update {noteDetailModuleNoteTypeFriendlyName}";
         }
 
         private async Task LoadNoteTypeAsync(Guid noteTypeId)
@@ -162,7 +82,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
                     ParameterValue = _noteId
-                } 
+                }
             };
 
             try
@@ -201,10 +121,81 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void SetModuleTheme(string functionTitle)
+        {
+            switch (functionTitle)
+            {
+                case "Customer":
+                    this.BackColor = Color.LightGreen;
+                    noteDetailModuleNoteTypeFriendlyName = "Customer Note";
+                    noteDetailNoteGetStoredProcedureName = "spGetCustomerNote";
+                    noteDetailNoteIdFriendlyName = "Customer Note Id";
+                    noteDetailNoteStoredProcedureParameterPrefix = "customerNote";
+                    noteDetailNoteTitleFriendlyName = "Customer Note Title";
+                    noteDetailNoteTypeFriendlyName = "Customer Note Type";
+                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllCustomerNoteType";
+                    noteDetailNoteTypeIdFriendlyName = "Customer Note Type Id";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
+                    break;
+                case "CustomerLead":
+                    this.BackColor = Color.LightGreen;
+                    noteDetailModuleNoteTypeFriendlyName = "Customer Lead Note";
+                    noteDetailNoteGetStoredProcedureName = "spGetCustomerLeadNote";
+                    noteDetailNoteIdFriendlyName = "Customer Lead Note Id";
+                    noteDetailNoteStoredProcedureParameterPrefix = "customerLeadNote";
+                    noteDetailNoteTitleFriendlyName = "Customer Lead Note Title";
+                    noteDetailNoteTypeFriendlyName = "Customer Lead Note Type";
+                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllCustomerLeadNoteType";
+                    noteDetailNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
+                    break;
+                case "Product":
+                    this.BackColor = Color.SkyBlue;
+                    noteDetailModuleNoteTypeFriendlyName = "Product Note";
+                    noteDetailNoteGetStoredProcedureName = "spGetProductNote";
+                    noteDetailNoteIdFriendlyName = "Product Note Id";
+                    noteDetailNoteStoredProcedureParameterPrefix = "productNote";
+                    noteDetailNoteTitleFriendlyName = "Product Note Title";
+                    noteDetailNoteTypeFriendlyName = "Product Note Type";
+                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllProductNoteType";
+                    noteDetailNoteTypeIdFriendlyName = "Product Note Type Id";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
+                    break;
+                case "Supplier":
+                    this.BackColor = Color.MediumAquamarine;
+                    noteDetailModuleNoteTypeFriendlyName = "Supplier Note";
+                    noteDetailNoteGetStoredProcedureName = "spGetSupplierNote";
+                    noteDetailNoteIdFriendlyName = "Supplier Note Id";
+                    noteDetailNoteStoredProcedureParameterPrefix = "supplierNote";
+                    noteDetailNoteTitleFriendlyName = "Supplier Note Title";
+                    noteDetailNoteTypeFriendlyName = "Supplier Note Type";
+                    noteDetailNoteTypeGetStoredProcedureName = "spGetAllSupplierNoteType";
+                    noteDetailNoteTypeIdFriendlyName = "Supplier Note Type Id";
+                    noteDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
+                    break;
+            }
+
+            this.Text = $"{applicationTitlePrefix}{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
+            noteDetailTitleLabel.Text = $"{noteDetailModuleNoteTypeFriendlyName}{titleLabelSuffix}";
+            noteDetailNoteIdTextBoxLabel.Text = noteDetailNoteIdFriendlyName;
+            noteDetailNoteTitleTextBoxLabel.Text = $"{noteDetailNoteTitleFriendlyName}*";
+            noteDetailNoteTypeComboBoxLabel.Text = $"{noteDetailNoteTypeFriendlyName}*";
+            noteDetailUpdateNoteButton.Text = $"Update {noteDetailModuleNoteTypeFriendlyName}";
+            noteDetailStatusStrip.BackColor = SystemColors.Control;
+        }
+
+        private void noteDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            noteDetailNoteTextBox.ReadOnly = !noteDetailNoteTextBox.ReadOnly;
+            noteDetailNoteTitleTextBox.ReadOnly = !noteDetailNoteTitleTextBox.ReadOnly;
+            noteDetailNoteTypeComboBox.Enabled = !noteDetailNoteTypeComboBox.Enabled;
+            noteDetailUpdateNoteButton.Enabled = !noteDetailUpdateNoteButton.Enabled;
+        }
+
         private async void noteDetailUpdateNoteButton_Click(object sender, EventArgs e)
         {
-            string note = noteDetailNoteTextBox.Text.TrimEnd();
-            string noteTitle = noteDetailNoteTitleTextBox.Text.TrimEnd();
+            string note = TextBoxCleanerHelper.GetTrimmedText(noteDetailNoteTextBox);
+            string noteTitle = TextBoxCleanerHelper.GetTrimmedText(noteDetailNoteTitleTextBox);
             Guid noteTypeId = (Guid)noteDetailNoteTypeComboBox.SelectedValue;
 
             if (_databaseConnectionSettings == null)
@@ -316,21 +307,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            NoteDetailNoteInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void noteDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            noteDetailNoteTextBox.ReadOnly = !noteDetailNoteTextBox.ReadOnly;
-            noteDetailNoteTitleTextBox.ReadOnly = !noteDetailNoteTitleTextBox.ReadOnly;
-            noteDetailNoteTypeComboBox.Enabled = !noteDetailNoteTypeComboBox.Enabled;
-            noteDetailUpdateNoteButton.Enabled = !noteDetailUpdateNoteButton.Enabled;
         }
     }
 }

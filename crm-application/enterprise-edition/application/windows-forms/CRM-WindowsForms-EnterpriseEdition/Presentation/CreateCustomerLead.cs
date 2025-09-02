@@ -24,25 +24,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
-            createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged;
+            createCustomerLeadCustomerContactPanelNoRadioButton.CheckedChanged += createCustomerLeadCustomerContactPanelRadioButton_CheckedChanged;
+            createCustomerLeadCustomerContactPanelYesRadioButton.CheckedChanged += createCustomerLeadCustomerContactPanelRadioButton_CheckedChanged;
             createCustomerLeadCustomerContactPanelCustomerContactComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCustomerLeadCustomerLeadTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
-            createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged;
+            createCustomerLeadMarketingChannelPanelNoRadioButton.CheckedChanged += createCustomerLeadMarketingChannelPanelRadioButton_CheckedChanged;
+            createCustomerLeadMarketingChannelPanelYesRadioButton.CheckedChanged += createCustomerLeadMarketingChannelPanelRadioButton_CheckedChanged;
             createCustomerLeadMarketingChannelPanelMarketingChannelComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
-            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged;
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private void PopulateStatusStrip()
-        {
-            createCustomerLeadCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
+            createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += createCustomerLeadTargetDatePanelRadioButton_CheckedChanged;
+            createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += createCustomerLeadTargetDatePanelRadioButton_CheckedChanged;
         }
 
         private async void LoadCustomerContactAsync(Guid customerId)
@@ -66,13 +56,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
         private async void LoadMarketingChannelAsync()
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel");
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CreateCustomerLeadCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
+        private void PopulateStatusStrip()
+        {
+            createCustomerLeadCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
+        }
+
+        private void createCustomerLeadCustomerContactPanelRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerLeadCustomerContactPanelYesRadioButton.Checked)
             {
@@ -86,7 +86,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerLeadMarketingChannelChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
+        private void createCustomerLeadMarketingChannelPanelRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
             if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)
             {
@@ -100,19 +100,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void CreateCustomerLeadTargetDateChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Checked)
-            {
-                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = true;
-            }
-            else if (createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Checked)
-            {
-                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
-                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Value = DateTime.Now;
-            }
-        }
-
         private async void createCustomerLeadSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCustomerLeadActiveStatusCheckBox.Checked;
@@ -121,8 +108,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerContactId = (Guid)createCustomerLeadCustomerContactPanelCustomerContactComboBox.SelectedValue;
             }
-            string customerLead = createCustomerLeadCustomerLeadTextBox.Text.TrimEnd();
-            string customerLeadTitle = createCustomerLeadCustomerLeadTitleTextBox.Text.TrimEnd();
+            string customerLead = TextBoxCleanerHelper.GetTrimmedText(createCustomerLeadCustomerLeadTextBox);
+            string customerLeadTitle = TextBoxCleanerHelper.GetTrimmedText(createCustomerLeadCustomerLeadTitleTextBox);
             Guid customerLeadType = (Guid)createCustomerLeadCustomerLeadTypeComboBox.SelectedValue;
             Guid? marketingChannelId = null;
             if (createCustomerLeadMarketingChannelPanelYesRadioButton.Checked)
@@ -264,6 +251,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
+            }
+        }
+
+        private void createCustomerLeadTargetDatePanelRadioButton_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (createCustomerLeadCustomerLeadTargetDatePanelYesRadioButton.Checked)
+            {
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = true;
+            }
+            else if (createCustomerLeadCustomerLeadTargetDatePanelNoRadioButton.Checked)
+            {
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
+                createCustomerLeadCustomerLeadTargetDatePanelTargetDatePicker.Value = DateTime.Now;
             }
         }
     }

@@ -9,20 +9,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string dataSubject = "Tax Profile";
         private readonly Guid _taxProfileId;
-        private bool? taxProfileDetailActiveStatusOriginalValue;
-        private string? taxProfileDetailTaxProfileOriginalValue;
-        private decimal? taxProfileDetailTaxRateOriginalValue;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
+        private bool taxProfileDetailActiveStatusOriginalValue;
+        private string taxProfileDetailTaxProfileOriginalValue;
+        private decimal taxProfileDetailTaxRateOriginalValue;
 
         public TaxProfileDetail(Guid taxProfileId)
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             _taxProfileId = taxProfileId;
             LoadDatabaseConnectionSettingsAsync();
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            TaxProfileDetailTaxProfileInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
+            taxProfileDetailTaxRateTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            taxProfileDetailTaxRateTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             taxProfileDetailToggleEditModeButton.Click += taxProfileDetailToggleEditModeButton_Click;
         }
 
@@ -89,11 +100,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            taxProfileDetailTaxProfileTextBox.ReadOnly = !taxProfileDetailTaxProfileTextBox.ReadOnly;
+            taxProfileDetailTaxRateTextBoxA.ReadOnly = !taxProfileDetailTaxRateTextBoxA.ReadOnly;
+            taxProfileDetailTaxRateTextBoxB.ReadOnly = !taxProfileDetailTaxRateTextBoxB.ReadOnly;
+            taxProfileDetailActiveStatusCheckBox.Enabled = !taxProfileDetailActiveStatusCheckBox.Enabled;
+            taxProfileDetailUpdateTaxProfileButton.Enabled = !taxProfileDetailUpdateTaxProfileButton.Enabled;
+        }
+
         private async void taxProfileDetailUpdateTaxProfileButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = taxProfileDetailActiveStatusCheckBox.Checked;
-            string taxProfile = taxProfileDetailTaxProfileTextBox.Text.TrimEnd();
-            decimal taxRate = decimal.Parse(taxProfileDetailTaxRateTextBoxA.Text.TrimEnd()) + (decimal.Parse(taxProfileDetailTaxRateTextBoxB.Text.TrimEnd()) / 100);
+            string taxProfile = TextBoxCleanerHelper.GetTrimmedText(taxProfileDetailTaxProfileTextBox);
+            decimal taxRate = decimal.Parse(TextBoxCleanerHelper.GetTrimmedText(taxProfileDetailTaxRateTextBoxA)) + (decimal.Parse(TextBoxCleanerHelper.GetTrimmedText(taxProfileDetailTaxRateTextBoxB)) / 100);
 
             if (_databaseConnectionSettings == null)
             {
@@ -203,22 +223,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            TaxProfileDetailTaxProfileInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void taxProfileDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            taxProfileDetailTaxProfileTextBox.ReadOnly = !taxProfileDetailTaxProfileTextBox.ReadOnly;
-            taxProfileDetailTaxRateTextBoxA.ReadOnly = !taxProfileDetailTaxRateTextBoxA.ReadOnly;
-            taxProfileDetailTaxRateTextBoxB.ReadOnly = !taxProfileDetailTaxRateTextBoxB.ReadOnly;
-            taxProfileDetailActiveStatusCheckBox.Enabled = !taxProfileDetailActiveStatusCheckBox.Enabled;
-            taxProfileDetailUpdateTaxProfileButton.Enabled = !taxProfileDetailUpdateTaxProfileButton.Enabled;
-        }
+        }   
     }
 }

@@ -9,10 +9,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private byte[]? _companyLogoImageBytes = null;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
 
         public CreateCompanyConfiguration()
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadCountryAsync();
@@ -28,22 +30,62 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedIndexChanged += AutoPopulateBankAccountAddressInformation;
             createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.TextChanged += AutoPopulateEmailAddressInformation;
-            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.KeyPress += EmailTopLevelDomainTextBox_KeyPress;
-            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.MouseDown += EmailTopLevelDomainTextBox_MouseDown;
+            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.KeyPress += createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_KeyPress;
+            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.MouseDown += createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_MouseDown;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.SelectionStart = 1;
             createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text = "@";
-            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.TextChanged += EmailTopLevelDomainTextBox_TextChanged;
+            createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.TextChanged += createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_TextChanged;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedIndexChanged += createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox_SelectedIndexChanged;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel.MouseHover += ToolTip_MouseHover;
+            createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel.MouseHover += ToolTip_MouseHover;
-            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.CheckedChanged += CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged;
+            createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.CheckedChanged += createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox_CheckedChanged;
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
+        private void AutoPopulateBankAccountAddressInformation(object? sender, EventArgs e)
         {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine1TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextBox.Text;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine2TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2TextBox.Text;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine3TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox.Text;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine4TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextBox.Text;
+            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedItem = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedItem;
+        }
+
+        private void AutoPopulateEmailAddressInformation(object? sender, EventArgs e)
+        {
+            // Get the current username part (before the first '@')
+            string currentEmail = createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox.Text;
+            string username = currentEmail;
+            int atIndex = currentEmail.IndexOf('@');
+            if (atIndex >= 0)
+            {
+                username = currentEmail.Substring(0, atIndex);
+            }
+
+            // Get the current domain part (from the domain textbox)
+            string domain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text;
+
+            // Only update if username or domain is not empty
+            if (!string.IsNullOrWhiteSpace(username) || !string.IsNullOrWhiteSpace(domain))
+            {
+                createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox.Text = username + domain;
+            }
+        }
+
+        private bool IsMouseOverControl(Control control)
+        {
+            if (control == null || !control.Visible)
+                return false;
+
+            Point mousePosition = control.PointToClient(Control.MousePosition);
+            return control.ClientRectangle.Contains(mousePosition);
         }
 
         private async void LoadCountryAsync()
@@ -61,20 +103,61 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CreateCompanyConfigurationFinancialInformationVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
-            if (createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked)
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private void ToolTip_MouseHover(object? sender, EventArgs e)
+        {
+            // Show tooltip for Sort Code fields if mouse is over any of the relevant controls
+            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel))
             {
-                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Enabled = true;
+                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeToolTip.Show(
+                    "Sort Code can only be assigned to Banks Accounts based in GB.",
+                    createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel, 5000);
             }
-            else
+
+            // Show tooltip for Vipps Id fields if mouse is over any of the relevant controls
+            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel))
             {
-                createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Enabled = false;
-                createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text = string.Empty;
+                createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdToolTip.Show(
+                    "Vipps Id is only assignable to Bank Accounts registered in DK, FI, NO, SE.",
+                    createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel, 5000);
             }
         }
 
-        private void CreateCompanyConfigurationFinancialInformationBankAccountAddressLine5ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        private void createCompanyConfigurationTabControlCompanyLogoTabPageChooseCompanyLogoImageButton_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string filePath = openFileDialog.FileName;
+
+                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
+                    {
+                        createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = Image.FromFile(filePath);
+                        _companyLogoImageBytes = File.ReadAllBytes(filePath);
+                    }
+                    else
+                    {
+                        ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.DataType", "Image");
+                        createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = null;
+                        _companyLogoImageBytes = null;
+                    }
+                }
+            }
+        }
+
+        private void createCompanyConfigurationTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton_Click(object sender, EventArgs e)
+        {
+            createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = null;
+            _companyLogoImageBytes = null;
+        }
+
+        private void createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox_SelectedIndexChanged(object? sender, EventArgs e)
         {
             var selectedItem = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedItem;
             string? isoCountryCode = null;
@@ -144,16 +227,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void AutoPopulateBankAccountAddressInformation(object? sender, EventArgs e)
+        private void createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine1TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextBox.Text;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine2TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2TextBox.Text;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine3TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox.Text;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine4TextBox.Text = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextBox.Text;
-            createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedItem = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox.SelectedItem;
+            if (createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked)
+            {
+                createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Enabled = true;
+            }
+            else
+            {
+                createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Enabled = false;
+                var result = MessageBox.Show(
+                    "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
+                    "Warning",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text = string.Empty;
+                }
+                else
+                {
+                    createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked = true;
+                    createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Enabled = true;
+                }
+            }
         }
 
-        private void EmailTopLevelDomainTextBox_KeyPress(object? sender, KeyPressEventArgs e)
+        private void createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_KeyPress(object? sender, KeyPressEventArgs e)
         {
             var textbox = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox;
             // Prevent backspace/delete at position 1 or before
@@ -176,7 +277,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void EmailTopLevelDomainTextBox_TextChanged(object? sender, EventArgs e)
+        private void createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_MouseDown(object? sender, MouseEventArgs e)
+        {
+            var textbox = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox;
+            // Prevent caret from moving before '@'
+            if (textbox.SelectionStart < 1)
+            {
+                textbox.SelectionStart = 1;
+            }
+        }
+
+        private void createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox_TextChanged(object? sender, EventArgs e)
         {
             var textbox = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox;
             // Always ensure text starts with '@'
@@ -193,131 +304,41 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private void EmailTopLevelDomainTextBox_MouseDown(object? sender, MouseEventArgs e)
-        {
-            var textbox = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox;
-            // Prevent caret from moving before '@'
-            if (textbox.SelectionStart < 1)
-            {
-                textbox.SelectionStart = 1;
-            }
-        }
-
-        private void AutoPopulateEmailAddressInformation(object? sender, EventArgs e)
-        {
-            // Get the current username part (before the first '@')
-            string currentEmail = createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox.Text;
-            string username = currentEmail;
-            int atIndex = currentEmail.IndexOf('@');
-            if (atIndex >= 0)
-            {
-                username = currentEmail.Substring(0, atIndex);
-            }
-
-            // Get the current domain part (from the domain textbox)
-            string domain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text;
-
-            // Only update if username or domain is not empty
-            if (!string.IsNullOrWhiteSpace(username) || !string.IsNullOrWhiteSpace(domain))
-            {
-                createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox.Text = username + domain;
-            }
-        }
-
-        private void ToolTip_MouseHover(object? sender, EventArgs e)
-        {
-            // Show tooltip for Sort Code fields if mouse is over any of the relevant controls
-            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel))
-            {
-                createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeToolTip.Show(
-                    "Sort Code can only be assigned to Banks Accounts based in GB.",
-                    createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxLabel, 5000);
-            }
-
-            // Show tooltip for Vipps Id fields if mouse is over any of the relevant controls
-            if (IsMouseOverControl(createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel))
-            {
-                createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdToolTip.Show(
-                    "Vipps Id is only assignable to Bank Accounts registered in DK, FI, NO, SE.",
-                    createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBoxLabel, 5000);
-            }
-        }
-
-        // Helper method to check if mouse is over a control
-        private bool IsMouseOverControl(Control control)
-        {
-            if (control == null || !control.Visible)
-                return false;
-
-            Point mousePosition = control.PointToClient(Control.MousePosition);
-            return control.ClientRectangle.Contains(mousePosition);
-        }
-
-        private void createCompanyConfigurationTabControlCompanyLogoTabPageChooseCompanyLogoImageButton_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Filter = "Image Files (*.png;*.jpg;*.jpeg)|*.png;*.jpg;*.jpeg";
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    string filePath = openFileDialog.FileName;
-
-                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
-                    {
-                        createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = Image.FromFile(filePath);
-                        _companyLogoImageBytes = File.ReadAllBytes(filePath);
-                    }
-                    else
-                    {
-                        ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.DataType", "Image");
-                        createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = null;
-                        _companyLogoImageBytes = null;
-                    }
-                }
-            }
-        }
-
-        private void createCompanyConfigurationTabControlCompanyLogoTabPageRemoveCompanyLogoImageButton_Click(object sender, EventArgs e)
-        {
-            createCompanyConfigurationTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = null;
-            _companyLogoImageBytes = null;
-        }
-
         private async void createCompanyConfigurationSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCompanyConfigurationTabControlGeneralInformationTabPageActiveStatusCheckBox.Checked;
-            string addressLine1 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextBox.Text.TrimEnd();
-            string addressLine2 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2TextBox.Text.TrimEnd();
-            string addressLine3 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox.Text.TrimEnd();
-            string addressLine4 = createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextBox.Text.TrimEnd();
+            string addressLine1 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine1TextBox);
+            string addressLine2 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine2TextBox);
+            string addressLine3 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine3TextBox);
+            string addressLine4 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine4TextBox);
             Guid addressLine5 = (Guid)createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedValue;
-            string bankAccountAddressLine1 = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine1TextBox.Text.TrimEnd();
+            string bankAccountAddressLine1 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine1TextBox);
             string bankAccountAddressLine2 = null;
             if (createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine2TextBox != null)
             {
-                bankAccountAddressLine2 = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine2TextBox.Text.TrimEnd();
+                bankAccountAddressLine2 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine2TextBox);
             }
-            string bankAccountAddressLine3 = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine3TextBox.Text.TrimEnd();
-            string bankAccountAddressLine4 = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine4TextBox.Text.TrimEnd();
+            string bankAccountAddressLine3 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine3TextBox);
+            string bankAccountAddressLine4 = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine4TextBox);
             Guid bankAccountAddressLine5 = (Guid)createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox.SelectedValue;
             Guid bankAccountCurrencyId = (Guid)createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox.SelectedValue;
-            string bankAccountIBAN = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBox.Text.TrimEnd();
-            string bankAccountName = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNameTextBox.Text.TrimEnd();
-            string bankAccountNumber = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBox.Text.TrimEnd();
-            decimal bankAccountOpeningBalance = decimal.Parse($"{createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxA.Text.TrimEnd()}.{createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxB.Text.TrimEnd()}");
+            string bankAccountIBAN = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountIBANTextBox);
+            string bankAccountName = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNameTextBox);
+            string bankAccountNumber = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountNumberTextBox);
+            decimal bankAccountOpeningBalance = decimal.Parse($"{TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxA)}.{TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageOpeningBalanceTextBoxB)}");
             string bankAccountSortCode = null;
-            string bankAccountSortCodePartA = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartB = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB?.Text.TrimEnd() ?? "";
-            string bankAccountSortCodePartC = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC?.Text.TrimEnd() ?? "";
+            string bankAccountSortCodePartA = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxA);
+            string bankAccountSortCodePartB = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxB);
+            string bankAccountSortCodePartC = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSortCodeMaskedTextBoxC);
             if (!string.IsNullOrEmpty(bankAccountSortCodePartA) && !string.IsNullOrEmpty(bankAccountSortCodePartB) && !string.IsNullOrEmpty(bankAccountSortCodePartC))
             {
                 bankAccountSortCode = $"{bankAccountSortCodePartA}-{bankAccountSortCodePartB}-{bankAccountSortCodePartC}";
             }
-            string bankAccountSWIFTCode = createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBox.Text.TrimEnd();
+            string bankAccountSWIFTCode = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountSWIFTCodeTextBox);
             string bankAccountVippsId = null;
             if (createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox != null)
             {
-                bankAccountVippsId = createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox.Text.TrimEnd();
+                bankAccountVippsId = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageVippsIdTextBox);
             }
             byte[] companyLogo = null;
             if (_companyLogoImageBytes != null)
@@ -328,13 +349,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 companyLogo = Array.Empty<byte>();
             }
-            string companyName = createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextBox.Text.TrimEnd();
-            string emailAddress = createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox.Text.TrimEnd();
-            string emailTopLevelDomain = createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox.Text.TrimEnd();
-            string telephoneNumber = createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
-            string vatNumber = createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox.Text.TrimEnd();
+            string companyName = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageCompanyNameTextBox);
+            string emailAddress = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageEmailAddressTextBox);
+            string emailTopLevelDomain = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageEmailTopLevelDomainTextBox);
+            string telephoneNumber = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageTelephoneNumberTextBox);
+            string vatNumber = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlFinancialInformationTabPageVATNumberTextBox);
             bool vatRegistered = createCompanyConfigurationTabControlFinancialInformationTabPageVATRegisteredCheckBox.Checked;
-            string websiteURL = createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextBox.Text.TrimEnd();
+            string websiteURL = TextBoxCleanerHelper.GetTrimmedText(createCompanyConfigurationTabControlGeneralInformationTabPageWebsiteURLTextBox);
 
             string dataSubject = "Company Configuration";
 

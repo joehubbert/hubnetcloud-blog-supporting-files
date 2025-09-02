@@ -22,8 +22,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createCurrencySubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCurrencyActiveStatusCheckBox.Checked;
-            string currencyCode = createCurrencyCurrencyCodeMaskedTextBox.Text.TrimEnd();
-            string currencyName = createCurrencyCurrencyNameTextBox.Text.TrimEnd();
+            string currencyCode = TextBoxCleanerHelper.GetTrimmedText(createCurrencyCurrencyCodeMaskedTextBox);
+            string currencyName = TextBoxCleanerHelper.GetTrimmedText(createCurrencyCurrencyNameTextBox);
 
             if (_databaseConnectionSettings == null)
             {

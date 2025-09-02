@@ -56,16 +56,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{createContactModuleContactTypeFriendlyName}";
             createContactTitleLabel.Text = createContactModuleContactTypeFriendlyName;
             createContactActiveStatusCheckBox.Text = $"Active {createContactModuleContactEntityFriendlyName} Contact*";
-        }
+			createContactStatusStrip.BackColor = SystemColors.Control;
+		}
 
         private async void createContactSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createContactActiveStatusCheckBox.Checked;
-            string emailAddress = createContactEmailAddressTextBox.Text.TrimEnd();
-            string firstName = createContactFirstNameTextBox.Text.TrimEnd();
-            string lastName = createContactLastNameTextBox.Text.TrimEnd();
-            string role = createContactRoleTextBox.Text.TrimEnd();
-            string telephoneNumber = createContactTelephoneNumberTextBox.Text.TrimEnd();
+            string emailAddress = TextBoxCleanerHelper.GetTrimmedText(createContactEmailAddressTextBox);
+            string firstName = TextBoxCleanerHelper.GetTrimmedText(createContactFirstNameTextBox);
+            string lastName = TextBoxCleanerHelper.GetTrimmedText(createContactLastNameTextBox);
+            string role = TextBoxCleanerHelper.GetTrimmedText(createContactRoleTextBox);
+            string telephoneNumber = TextBoxCleanerHelper.GetTrimmedText(createContactTelephoneNumberTextBox);
 
             if (_databaseConnectionSettings == null)
             {

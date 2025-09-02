@@ -6,12 +6,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     public partial class CreateTaxProfile : Form
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
         private readonly string dataSubject = "Tax Profile";
 
         public CreateTaxProfile()
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
+            InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private void InitializeEventHandlers()
+        {
+            createTaxProfileTaxRateTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createTaxProfileTaxRateTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -22,8 +31,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createTaxProfileSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createTaxProfileActiveStatusCheckBox.Checked;
-            string taxProfile = createTaxProfileTaxProfileTextBox.Text.TrimEnd();
-            decimal taxRate = decimal.Parse(createTaxProfileTaxRateTextBoxA.Text.TrimEnd()) + (decimal.Parse(createTaxProfileTaxRateTextBoxB.Text.TrimEnd()) / 100);
+            string taxProfile = TextBoxCleanerHelper.GetTrimmedText(createTaxProfileTaxProfileTextBox);
+            decimal taxRate = decimal.Parse($"{TextBoxCleanerHelper.GetTrimmedText(createTaxProfileTaxRateTextBoxA)}.{TextBoxCleanerHelper.GetTrimmedText(createTaxProfileTaxRateTextBoxB)}");
 
             if (_databaseConnectionSettings == null)
             {

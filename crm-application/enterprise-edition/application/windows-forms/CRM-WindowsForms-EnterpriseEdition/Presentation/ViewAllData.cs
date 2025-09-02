@@ -35,10 +35,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 			SetParameters();
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            await PopulateDataGridView_Load();
+        }
+
         private void IntializeEventHandlers()
         {
             viewAllDataDataGridView.CellContentClick += viewAllDataDataGridView_CellContentClick;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(viewAllDataQuickFilterTextBox, viewAllDataDataGridView);
+        }
+
+        private async void LoadActiveCompanyConfigurationAsync()
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.LoadAsync();
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -46,14 +60,78 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-		private async void LoadActiveCompanyConfigurationAsync()
-		{
-			_companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
-			await _companyConfigHelper.LoadAsync();
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        private async Task PopulateDataGridView_Load()
+        {
+            if (_databaseConnectionSettings == null)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
+                return;
+            }
+
+            try
+            {
+                DataTable? dataTable;
+
+                if (_dataSubjectFilterId != null)
+                {
+                    var parameters = new[]
+                    {
+                        new StoredProcedureParameter
+                        {
+                            ParameterName = $"@{dataSubjectParentIdentityId}",
+                            ParameterValue = dataSubjectParentIdentityId
+                        }
+                    };
+
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName);
+                }
+                else
+                {
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName);
+                }
+
+                if (dataTable.Rows.Count == 0)
+                {
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", functionFriendlyName);
+                }
+                else
+                {
+                    // Filter by _companyConfigurationId if column exists
+                    if (dataTable.Columns.Contains("Company Configuration Id") &&
+                         _functionTitle != "CompanyConfiguration")
+                    {
+                        if (dataTable.Columns["Company Configuration Id"].DataType == typeof(Guid))
+                        {
+                            string filter = $"[Company Configuration Id] = '{_companyConfigurationId}'";
+                            dataTable.DefaultView.RowFilter = filter;
+                        }
+                    }
+
+                    dataTable.DefaultView.Sort = $"{dataSortingColumnName} {dataSortingColumnOrder}";
+                    viewAllDataDataGridView.AutoGenerateColumns = true;
+                    viewAllDataDataGridView.DataSource = dataTable;
+                    viewAllDataDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+                    if (viewAllDataDataGridView.Columns.Contains("Details"))
+                    {
+                        viewAllDataDataGridView.Columns.Remove("Details");
+                    }
+                    DataGridViewLinkColumn dataDetailLink = new DataGridViewLinkColumn
+                    {
+                        HeaderText = "Details",
+                        Text = $"View {dataSubjectFriendlyName} Details",
+                        UseColumnTextForLinkValue = true,
+                        Name = "Details"
+                    };
+                    viewAllDataDataGridView.Columns.Add(dataDetailLink);
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", functionFriendlyName, ex.Message);
+            }
         }
 
-		private void SetModuleTheme()
+        private void SetModuleTheme()
         {
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
 
@@ -222,6 +300,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     dataSubjectFriendlyName = "HTML Template Type";
                     functionFriendlyName = "HTML Template Types";
                     storedProcedureName = "spGetAllHTMLTemplateType";
+                    break;
+                case "Manufacturer":
+                    dataSortingColumnName = "Manufacturer Name";
+                    dataSortingColumnOrder = "ASC";
+                    dataSubjectIdentityColumn = "Manufacturer Id";
+                    dataSubjectFriendlyName = "Manufacturer";
+                    functionFriendlyName = "Manufacturers";
+                    storedProcedureName = "spGetAllManufacturer";
                     break;
                 case "MarketingCampaign":
                     dataSortingColumnName = "Marketing Campaign Id";
@@ -465,75 +551,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             viewAllDataTitleLabel.Text = $"{viewAllPrefix}{functionFriendlyName}";
         }
 
-        private async Task PopulateDataGrid_Load()
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
-
-            try
-            {
-                DataTable? dataTable;
-
-                if (_dataSubjectFilterId != null)
-                {
-                    var parameters = new[]
-                    {
-                        new StoredProcedureParameter
-                        {
-                            ParameterName = $"@{dataSubjectParentIdentityId}",
-                            ParameterValue = dataSubjectParentIdentityId
-                        }
-                    };
-
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName);
-                }
-                else
-                {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(storedProcedureName, dataSubjectFriendlyName);
-                }
-
-                if (dataTable.Rows.Count == 0)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", functionFriendlyName);
-                }
-                else
-                {
-                    // Filter by _companyConfigurationId if column exists
-                    if (dataTable.Columns.Contains("Company Configuration Id") &&
-                         _functionTitle != "CompanyConfiguration")
-                    {
-                        if (dataTable.Columns["Company Configuration Id"].DataType == typeof(Guid))
-                        {
-                            string filter = $"[Company Configuration Id] = '{_companyConfigurationId}'";
-                            dataTable.DefaultView.RowFilter = filter;
-                        }
-                    }
-
-                    dataTable.DefaultView.Sort = $"{dataSortingColumnName} {dataSortingColumnOrder}";
-                    viewAllDataDataGridView.AutoGenerateColumns = true;
-                    viewAllDataDataGridView.DataSource = dataTable;
-                    viewAllDataDataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-                    if (viewAllDataDataGridView.Columns.Contains("Details"))
-                    {
-                        viewAllDataDataGridView.Columns.Remove("Details");
-                    }
-                    DataGridViewLinkColumn dataDetailLink = new DataGridViewLinkColumn
-                    {
-                        HeaderText = "Details",
-                        Text = $"View {dataSubjectFriendlyName} Details",
-                        UseColumnTextForLinkValue = true,
-                        Name = "Details"
-                    };
-                    viewAllDataDataGridView.Columns.Add(dataDetailLink);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", functionFriendlyName, ex.Message);
-            }
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
         }
 
         private void viewAllDataDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
@@ -620,6 +641,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                                 Guid htmlTemplateTypeId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
                                 MasterDataSimpleDetail masterDataSimpleDetailHTMLTemplateType = new MasterDataSimpleDetail(htmlTemplateTypeId, _functionTitle, "CompanyManagement");
                                 masterDataSimpleDetailHTMLTemplateType.Show();
+                                break;
+                            case "Manufacturer":
+                                Guid manufacturerId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
+                                ManufacturerDetail manufacturerDetail = new ManufacturerDetail(manufacturerId);
+                                manufacturerDetail.Show();
                                 break;
                             case "MarketingCampaign":
                                 Guid marketingCampaignId = (Guid)viewAllDataDataGridView.Rows[e.RowIndex].Cells[dataSubjectIdentityColumn].Value;
@@ -822,20 +848,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void viewAllDataRefreshDataButton_Click(object sender, EventArgs e)
         {
-            await PopulateDataGrid_Load();
+            await PopulateDataGridView_Load();
         }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            await PopulateDataGrid_Load();
-        }
-
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-			_companyConfigHelper = new ActiveCompanyConfigurationHelper(viewAllDataStatusStripCompanyConfigurationPlaceholder);
-			await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
-		}
     }
 }

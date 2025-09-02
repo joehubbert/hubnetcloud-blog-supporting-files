@@ -21,27 +21,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _htmlTemplateId = htmlTemplateId;        
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            HTMLTemplateDetailHTMLTemplateInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
             htmlTemplateDetailHTMLTemplateTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             htmlTemplateDetailToggleEditModeButton.Click += htmlTemplateDetailToggleEditModeButton_Click;
-        }
-
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private async Task LoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType", null, true, "HTML Template Type Id", htmlTemplateTypeId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void HTMLTemplateDetailHTMLTemplateInformation_Load(object sender, EventArgs e)
@@ -106,12 +96,38 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType", null, true, "HTML Template Type Id", htmlTemplateTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void htmlTemplateDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            htmlTemplateDetailCompanyConfigurationComboBox.Enabled = !htmlTemplateDetailCompanyConfigurationComboBox.Enabled;
+            htmlTemplateDetailHTMLTemplateTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTextBox.ReadOnly;
+            htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly;
+            htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled = !htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled;
+            htmlTemplateDetailUpdateHTMLTemplateButton.Enabled = !htmlTemplateDetailUpdateHTMLTemplateButton.Enabled;
+        }
+
         private async void htmlTemplateDetailUpdateHTMLTemplateButton_Click(object sender, EventArgs e)
         {
-            Guid companyConfigurationId = Guid.Parse(htmlTemplateDetailCompanyConfigurationComboBox.SelectedValue.ToString());
-            string htmlTemplate = htmlTemplateDetailHTMLTemplateTextBox.Text.TrimEnd();
-            string htmlTemplateTitle = htmlTemplateDetailHTMLTemplateTitleTextBox.Text.TrimEnd();
-            Guid htmlTemplateTypeId = Guid.Parse(htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue.ToString());
+            Guid companyConfigurationId = (Guid)htmlTemplateDetailCompanyConfigurationComboBox.SelectedValue;
+            string htmlTemplate = TextBoxCleanerHelper.GetTrimmedText(htmlTemplateDetailHTMLTemplateTextBox);
+            string htmlTemplateTitle = TextBoxCleanerHelper.GetTrimmedText(htmlTemplateDetailHTMLTemplateTitleTextBox);
+            Guid htmlTemplateTypeId = (Guid)htmlTemplateDetailHTMLTemplateTypeComboBox.SelectedValue;
 
             string dataSubject = "HTML Template";
 
@@ -244,22 +260,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            HTMLTemplateDetailHTMLTemplateInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void htmlTemplateDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            htmlTemplateDetailCompanyConfigurationComboBox.Enabled = !htmlTemplateDetailCompanyConfigurationComboBox.Enabled;
-            htmlTemplateDetailHTMLTemplateTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTextBox.ReadOnly;
-            htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly = !htmlTemplateDetailHTMLTemplateTitleTextBox.ReadOnly;
-            htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled = !htmlTemplateDetailHTMLTemplateTypeComboBox.Enabled;
-            htmlTemplateDetailUpdateHTMLTemplateButton.Enabled = !htmlTemplateDetailUpdateHTMLTemplateButton.Enabled;
         }
     }
 }

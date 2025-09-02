@@ -8,37 +8,37 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        
         private readonly Guid _deliveryMethodId;
-        private bool ?deliveryMethodDetailActiveStatusOriginalValue;
-        private decimal ?deliveryMethodDetailDeliveryCostOriginalValue;
-        private string ?deliveryMethodDetailDeliveryMethodOriginalValue;
-        private int ?deliveryMethodDetailDeliveryTimeOriginalValue;
-        private Guid ?deliveryMethodDetailTaxProfileIdOriginalValue;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
+        private bool deliveryMethodDetailActiveStatusOriginalValue;
+        private decimal deliveryMethodDetailDeliveryCostOriginalValue;
+        private string deliveryMethodDetailDeliveryMethodOriginalValue;
+        private int deliveryMethodDetailDeliveryTimeOriginalValue;
+        private Guid deliveryMethodDetailTaxProfileIdOriginalValue;
 
         public DeliveryMethodDetail(Guid deliveryMethodId)
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             _deliveryMethodId = deliveryMethodId;
             LoadDatabaseConnectionSettingsAsync();
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            DeliveryMethodDetailDeliveryMethodInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
-        {           
+        {
+            deliveryMethodDetailDeliveryCostTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            deliveryMethodDetailDeliveryCostTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            deliveryMethodDetailDeliveryTimeTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             deliveryMethodDetailTaxProfileComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
-        }
-
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async Task LoadTaxProfileAsync(Guid taxProfileId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox, "spGetAllTaxProfile", null, true, "Tax Profile Id", taxProfileId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void DeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)
@@ -105,13 +105,35 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private async Task LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadTaxProfileAsync(Guid taxProfileId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox, "spGetAllTaxProfile", null, true, "Tax Profile Id", taxProfileId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            deliveryMethodDetailDeliveryMethodTextBox.ReadOnly = !deliveryMethodDetailDeliveryMethodTextBox.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly;
+            deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly;
+            deliveryMethodDetailDeliveryTimeTextBox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextBox.ReadOnly;
+            deliveryMethodDetailTaxProfileComboBox.Enabled = !deliveryMethodDetailTaxProfileComboBox.Enabled;
+            deliveryMethodDetailActiveStatusCheckBox.Enabled = !deliveryMethodDetailActiveStatusCheckBox.Enabled;
+            deliveryMethodDetailUpdateDeliveryMethodButton.Enabled = !deliveryMethodDetailUpdateDeliveryMethodButton.Enabled;
+        }
+
         private async void deliveryMethodDetailUpdateDeliveryMethodButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = deliveryMethodDetailActiveStatusCheckBox.Checked;
-            decimal deliveryCost = decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxA.Text.TrimEnd()) + (decimal.Parse(deliveryMethodDetailDeliveryCostTextBoxB.Text.TrimEnd()) / 100);
-            string deliveryMethod = deliveryMethodDetailDeliveryMethodTextBox.Text.TrimEnd();
-            int deliveryTime = int.Parse(deliveryMethodDetailDeliveryTimeTextBox.Text.TrimEnd());
-            Guid taxProfileId = Guid.Parse(deliveryMethodDetailTaxProfileComboBox.SelectedValue.ToString());
+            decimal deliveryCost = decimal.Parse($"{TextBoxCleanerHelper.GetTrimmedText(deliveryMethodDetailDeliveryCostTextBoxA)}.{TextBoxCleanerHelper.GetTrimmedText(deliveryMethodDetailDeliveryCostTextBoxB)}");
+            string deliveryMethod = TextBoxCleanerHelper.GetTrimmedText(deliveryMethodDetailDeliveryMethodTextBox);
+            int deliveryTime = int.Parse(TextBoxCleanerHelper.GetTrimmedText(deliveryMethodDetailDeliveryTimeTextBox));
+            Guid taxProfileId = (Guid)deliveryMethodDetailTaxProfileComboBox.SelectedValue;
 
             string dataSubject = "Delivery Method";
 
@@ -262,24 +284,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            DeliveryMethodDetailDeliveryMethodInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void deliveryMethodDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            deliveryMethodDetailDeliveryMethodTextBox.ReadOnly = !deliveryMethodDetailDeliveryMethodTextBox.ReadOnly;
-            deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxA.ReadOnly;
-            deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly = !deliveryMethodDetailDeliveryCostTextBoxB.ReadOnly;
-            deliveryMethodDetailDeliveryTimeTextBox.ReadOnly = !deliveryMethodDetailDeliveryTimeTextBox.ReadOnly;
-            deliveryMethodDetailTaxProfileComboBox.Enabled = !deliveryMethodDetailTaxProfileComboBox.Enabled;
-            deliveryMethodDetailActiveStatusCheckBox.Enabled = !deliveryMethodDetailActiveStatusCheckBox.Enabled;
-            deliveryMethodDetailUpdateDeliveryMethodButton.Enabled = !deliveryMethodDetailUpdateDeliveryMethodButton.Enabled;
         }
     }
 }

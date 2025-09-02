@@ -8,10 +8,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
 
         public CreateDeliveryMethod()
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadTaxProfileAsync();
@@ -19,6 +21,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
+            createDeliveryMethodDeliveryCostTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createDeliveryMethodDeliveryCostTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createDeliveryMethodDeliveryTimeTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             createDeliveryMethodTaxProfileComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
@@ -36,10 +41,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void createDeliveryMethodSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createDeliveryMethodActiveStatusCheckBox.Checked;
-            decimal deliveryCost = decimal.Parse(createDeliveryMethodDeliveryCostTextBoxA.Text.TrimEnd()) + (decimal.Parse(createDeliveryMethodDeliveryCostTextBoxB.Text.TrimEnd()) / 100);
-            string deliveryMethod = createDeliveryMethodDeliveryMethodTextBox.Text.TrimEnd();
-            int deliveryTime = int.Parse(createDeliveryMethodDeliveryTimeTextBox.Text.TrimEnd());
-            Guid taxProfileId = Guid.Parse(createDeliveryMethodTaxProfileComboBox.SelectedValue.ToString());
+            decimal deliveryCost = decimal.Parse($"{TextBoxCleanerHelper.GetTrimmedText(createDeliveryMethodDeliveryCostTextBoxA)}.{TextBoxCleanerHelper.GetTrimmedText(createDeliveryMethodDeliveryCostTextBoxB)}");
+            string deliveryMethod = TextBoxCleanerHelper.GetTrimmedText(createDeliveryMethodDeliveryMethodTextBox);
+            int deliveryTime = int.Parse(TextBoxCleanerHelper.GetTrimmedText(createDeliveryMethodDeliveryTimeTextBox));
+            Guid taxProfileId = (Guid)createDeliveryMethodTaxProfileComboBox.SelectedValue;
 
             string dataSubject = "Delivery Method";
 

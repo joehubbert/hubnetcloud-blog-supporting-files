@@ -73,8 +73,9 @@
             createCustomerTabControlOverviewTabPageTopParentCustomerComboBox = new ComboBox();
             createCustomerTabControlOverviewTabPageCustomerTypeComboBox = new ComboBox();
             createCustomerTabControlOverviewTabPageCustomerSinceDatePicker = new DateTimePicker();
-            createCustomerOverviewActiveStatusCheckBox = new CheckBox();
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox = new CheckBox();
             createCustomerTabControlBillingInformationTabPage = new TabPage();
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox = new ComboBox();
             createCustomerTabControlBillingInformationTabPageEmailAddressTextBoxLabel = new Label();
             createCustomerTabControlBillingInformationTabPageTelephoneNumberTextBoxLabel = new Label();
             createCustomerTabControlBillingInformationTabPageAddressLine2TextBoxLabel = new Label();
@@ -95,6 +96,7 @@
             createCustomerTabControlBillingInformationTabPageLastNameTextBox = new TextBox();
             createCustomerTabControlBillingInformationTabPageFirstNameTextBox = new TextBox();
             createCustomerTabControlShippingInformationTabPage = new TabPage();
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox = new ComboBox();
             createCustomerTabControlShippingInformationTabPageEmailAddressTextBoxLabel = new Label();
             createCustomerTabControlShippingInformationTabPageTelephoneNumberTextBoxLabel = new Label();
             createCustomerTabControlShippingInformationTabPageAddressLine2TextBoxLabel = new Label();
@@ -131,8 +133,6 @@
             createCustomerStatusStrip = new StatusStrip();
             createCustomerStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox = new ComboBox();
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox = new ComboBox();
             createCustomerTabControl.SuspendLayout();
             createCustomerTabControlOverviewTabPage.SuspendLayout();
             createCustomerTabControlOverviewTabPageExistingParentCompanyTypePanel.SuspendLayout();
@@ -205,7 +205,7 @@
             createCustomerTabControlOverviewTabPage.Controls.Add(createCustomerTabControlOverviewTabPageTopParentCustomerComboBox);
             createCustomerTabControlOverviewTabPage.Controls.Add(createCustomerTabControlOverviewTabPageCustomerTypeComboBox);
             createCustomerTabControlOverviewTabPage.Controls.Add(createCustomerTabControlOverviewTabPageCustomerSinceDatePicker);
-            createCustomerTabControlOverviewTabPage.Controls.Add(createCustomerOverviewActiveStatusCheckBox);
+            createCustomerTabControlOverviewTabPage.Controls.Add(createCustomerTabControlOverviewTabPageActiveStatusCheckBox);
             createCustomerTabControlOverviewTabPage.Location = new Point(4, 32);
             createCustomerTabControlOverviewTabPage.Name = "createCustomerTabControlOverviewTabPage";
             createCustomerTabControlOverviewTabPage.Padding = new Padding(3);
@@ -606,19 +606,19 @@
             createCustomerTabControlOverviewTabPageCustomerSinceDatePicker.Size = new Size(234, 27);
             createCustomerTabControlOverviewTabPageCustomerSinceDatePicker.TabIndex = 6;
             // 
-            // createCustomerOverviewActiveStatusCheckBox
+            // createCustomerTabControlOverviewTabPageActiveStatusCheckBox
             // 
-            createCustomerOverviewActiveStatusCheckBox.AutoSize = true;
-            createCustomerOverviewActiveStatusCheckBox.Checked = true;
-            createCustomerOverviewActiveStatusCheckBox.CheckState = CheckState.Checked;
-            createCustomerOverviewActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            createCustomerOverviewActiveStatusCheckBox.Location = new Point(168, 490);
-            createCustomerOverviewActiveStatusCheckBox.Margin = new Padding(4);
-            createCustomerOverviewActiveStatusCheckBox.Name = "createCustomerOverviewActiveStatusCheckBox";
-            createCustomerOverviewActiveStatusCheckBox.Size = new Size(142, 24);
-            createCustomerOverviewActiveStatusCheckBox.TabIndex = 9;
-            createCustomerOverviewActiveStatusCheckBox.Text = "Active Customer*";
-            createCustomerOverviewActiveStatusCheckBox.UseVisualStyleBackColor = true;
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.AutoSize = true;
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Checked = true;
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Location = new Point(168, 490);
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Margin = new Padding(4);
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Name = "createCustomerTabControlOverviewTabPageActiveStatusCheckBox";
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Size = new Size(142, 24);
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.TabIndex = 9;
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.Text = "Active Customer*";
+            createCustomerTabControlOverviewTabPageActiveStatusCheckBox.UseVisualStyleBackColor = true;
             // 
             // createCustomerTabControlBillingInformationTabPage
             // 
@@ -643,12 +643,21 @@
             createCustomerTabControlBillingInformationTabPage.Controls.Add(createCustomerTabControlBillingInformationTabPageCompanyNameTextBox);
             createCustomerTabControlBillingInformationTabPage.Controls.Add(createCustomerTabControlBillingInformationTabPageLastNameTextBox);
             createCustomerTabControlBillingInformationTabPage.Controls.Add(createCustomerTabControlBillingInformationTabPageFirstNameTextBox);
-            createCustomerTabControlBillingInformationTabPage.Location = new Point(4, 32);
+            createCustomerTabControlBillingInformationTabPage.Location = new Point(4, 27);
             createCustomerTabControlBillingInformationTabPage.Name = "createCustomerTabControlBillingInformationTabPage";
             createCustomerTabControlBillingInformationTabPage.Padding = new Padding(3);
-            createCustomerTabControlBillingInformationTabPage.Size = new Size(1067, 570);
+            createCustomerTabControlBillingInformationTabPage.Size = new Size(1067, 575);
             createCustomerTabControlBillingInformationTabPage.TabIndex = 1;
             createCustomerTabControlBillingInformationTabPage.Text = "Billing Information";
+            // 
+            // createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox
+            // 
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Location = new Point(167, 411);
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Name = "createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox";
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
+            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.TabIndex = 30;
             // 
             // createCustomerTabControlBillingInformationTabPageEmailAddressTextBoxLabel
             // 
@@ -845,11 +854,20 @@
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageCompanyNameTextBox);
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageLastNameTextBox);
             createCustomerTabControlShippingInformationTabPage.Controls.Add(createCustomerTabControlShippingInformationTabPageFirstNameTextBox);
-            createCustomerTabControlShippingInformationTabPage.Location = new Point(4, 32);
+            createCustomerTabControlShippingInformationTabPage.Location = new Point(4, 27);
             createCustomerTabControlShippingInformationTabPage.Name = "createCustomerTabControlShippingInformationTabPage";
-            createCustomerTabControlShippingInformationTabPage.Size = new Size(1067, 570);
+            createCustomerTabControlShippingInformationTabPage.Size = new Size(1067, 575);
             createCustomerTabControlShippingInformationTabPage.TabIndex = 2;
             createCustomerTabControlShippingInformationTabPage.Text = "Shipping Information";
+            // 
+            // createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox
+            // 
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Location = new Point(166, 411);
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Name = "createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox";
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
+            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.TabIndex = 40;
             // 
             // createCustomerTabControlShippingInformationTabPageEmailAddressTextBoxLabel
             // 
@@ -1203,24 +1221,6 @@
             changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
             changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
-            // createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox
-            // 
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Location = new Point(166, 411);
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Name = "createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox";
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
-            createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox.TabIndex = 40;
-            // 
-            // createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox
-            // 
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.FormattingEnabled = true;
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Location = new Point(167, 411);
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Name = "createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox";
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.Size = new Size(337, 28);
-            createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox.TabIndex = 30;
-            // 
             // CreateCustomer
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -1270,7 +1270,7 @@
         private Button createCustomerSubmitButton;
         private TabPage createCustomerTabControlShippingInformationTabPage;
         private TabPage createCustomerTabControlFinanceTabPage;
-        private CheckBox createCustomerOverviewActiveStatusCheckBox;
+        private CheckBox createCustomerTabControlOverviewTabPageActiveStatusCheckBox;
         private CheckBox createCustomerTabControlFinanceTabPageCreditEnabledCheckBox;
         private Label createCustomerTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel;
         private TextBox createCustomerTabControlFinanceTabPageCreditLimitTextBoxB;

@@ -12,19 +12,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private DatabaseConnectionSettings? _databaseConnectionSettings;
 		private readonly string _functionTitle;
         private readonly string applicationTitlePrefix = "CRM - Create ";
-        private string createNoteModuleNoteEntityFriendlyName;
         private string createNoteModuleNoteCreateStoredProcedureName;
         private string createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix;
         private string createNoteModuleNoteCreateStoredProcedureParameterPrefix;
         private string createNoteModuleNoteTypeFriendlyName;
-        private string createNoteModuleNoteTypeName;
         private string? createNoteNoteTitleFriendlyName;
-        private string createNoteNoteTitleName;
         private string createNoteNoteTypeFriendlyName;
         private string createNoteNoteTypeGetStoredProcedureName;
         private string createNoteNoteTypeIdFriendlyName;
-        private string createNoteNoteTypeIdName;
-        private string createNoteNoteTypeName;
 
         public CreateNote(Guid dataSubjectId, string functionTitle, string? dataSubjectName = null)
         {
@@ -48,76 +43,62 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
+        private async void LoadNoteTypeAsync()
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createNoteNoteTypeComboBox, createNoteNoteTypeGetStoredProcedureName);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
         private void SetModuleTheme()
         {
             switch (_functionTitle)
             {
                 case "CustomerNote":
                     this.BackColor = Color.LightGreen;
-                    createNoteModuleNoteEntityFriendlyName = "Customer";
                     createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customer";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerNote";
                     createNoteModuleNoteTypeFriendlyName = "Customer Note";
-                    createNoteModuleNoteTypeName = "CustomerNote";
                     createNoteNoteTitleFriendlyName = "Customer Note Title";
-                    createNoteNoteTitleName = "CustomerNoteTitle";
                     createNoteNoteTypeFriendlyName = "Customer Note Type";
                     createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerNoteType";
                     createNoteNoteTypeIdFriendlyName = "Customer Note Type Id";
-                    createNoteNoteTypeIdName = "CustomerNoteTypeId";
-                    createNoteNoteTypeName = "CustomerNoteType";
                     createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
 					break;
                 case "CustomerLeadNote":
                     this.BackColor = Color.LightGreen;
-                    createNoteModuleNoteEntityFriendlyName = "Customer Lead";
                     createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerLeadNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customerLead";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerLeadNote";
                     createNoteModuleNoteTypeFriendlyName = "Customer Lead Note";
-                    createNoteModuleNoteTypeName = "CustomerLeadNote";
                     createNoteNoteTitleFriendlyName = "Customer Lead Note Title";
-                    createNoteNoteTitleName = "CustomerLeadNoteTitle";
                     createNoteNoteTypeFriendlyName = "Customer Lead Note Type";
                     createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerLeadNoteType";
                     createNoteNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
-                    createNoteNoteTypeIdName = "CustomerLeadNoteTypeId";
-                    createNoteNoteTypeName = "CustomerLeadNoteType";
 					createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
 					break;
                 case "ProductNote":
                     this.BackColor = Color.SkyBlue;
-                    createNoteModuleNoteEntityFriendlyName = "Product";
                     createNoteModuleNoteCreateStoredProcedureName = "spCreateProductNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "product";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "productNote";
                     createNoteModuleNoteTypeFriendlyName = "Product Note";
-                    createNoteModuleNoteTypeName = "ProductNote";
                     createNoteNoteTitleFriendlyName = "Product Note Title";
-                    createNoteNoteTitleName = "ProductNoteTitle";
                     createNoteNoteTypeFriendlyName = "Product Note Type";
                     createNoteNoteTypeGetStoredProcedureName = "spGetAllProductNoteType";
                     createNoteNoteTypeIdFriendlyName = "Product Note Type Id";
-                    createNoteNoteTypeIdName = "ProductNoteTypeId";
-                    createNoteNoteTypeName = "ProductNoteType";
 					createNoteStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
 					break;
                 case "SupplierNote":
                     this.BackColor = Color.MediumAquamarine;
-                    createNoteModuleNoteEntityFriendlyName = "Supplier";
                     createNoteModuleNoteCreateStoredProcedureName = "spCreateSupplierNote";
                     createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "supplier";
                     createNoteModuleNoteCreateStoredProcedureParameterPrefix = "supplierNote";
                     createNoteModuleNoteTypeFriendlyName = "Supplier Note";
-                    createNoteModuleNoteTypeName = "SupplierNote";
                     createNoteNoteTitleFriendlyName = "Supplier Note Title";
-                    createNoteNoteTitleName = "SupplierNoteTitle";
                     createNoteNoteTypeFriendlyName = "Supplier Note Type";
                     createNoteNoteTypeGetStoredProcedureName = "spGetAllSupplierNoteType";
                     createNoteNoteTypeIdFriendlyName = "Supplier Note Type Id";
-                    createNoteNoteTypeIdName = "SupplierNoteTypeId";
-                    createNoteNoteTypeName = "SupplierNoteType";
 					createNoteStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
 					break;
             }
@@ -126,19 +107,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             createNoteTitleLabel.Text = createNoteModuleNoteTypeFriendlyName;
             createNoteNoteTitleTextBoxLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
             createNoteNoteTypeComboBoxLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
-        }
-
-        private async void LoadNoteTypeAsync()
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createNoteNoteTypeComboBox, createNoteNoteTypeGetStoredProcedureName);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
+            createNoteStatusStrip.BackColor = SystemColors.Control;
         }
 
         private async void createNoteSubmitButton_Click(object sender, EventArgs e)
         {
-            string note = createNoteNoteTextBox.Text.TrimEnd();
-            string noteTitle = createNoteNoteTitleTextBox.Text.TrimEnd();
-            Guid noteTypeId = Guid.Parse(createNoteNoteTypeComboBox.SelectedValue.ToString());
+            string note = TextBoxCleanerHelper.GetTrimmedText(createNoteNoteTextBox);
+            string noteTitle = TextBoxCleanerHelper.GetTrimmedText(createNoteNoteTitleTextBox);
+            Guid noteTypeId = (Guid)createNoteNoteTypeComboBox.SelectedValue;
 
             if (_databaseConnectionSettings == null)
             {

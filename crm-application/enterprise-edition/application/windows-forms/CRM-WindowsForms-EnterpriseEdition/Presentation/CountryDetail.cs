@@ -8,9 +8,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly Guid _countryId;
-        private bool? countryDetailActiveStatusOriginalValue;
-        private string? countryDetailCountryEnglishNameOriginalValue;
-        private string? countryDetailISO31661A2CountryCodeOriginalValue;
+        private bool countryDetailActiveStatusOriginalValue;
+        private string countryDetailCountryEnglishNameOriginalValue;
+        private string countryDetailISO31661A2CountryCodeOriginalValue;
         private readonly string dataSubject = "Country";
 
         public CountryDetail(Guid countryId)
@@ -21,73 +21,88 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadDatabaseConnectionSettingsAsync();
         }
 
-        private void InitializeEventHandlers()
+		protected override async void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			await LoadDatabaseConnectionSettingsAsync();
+			CountryDetailCountryInformation_Load(this, EventArgs.Empty);
+		}
+
+		private void InitializeEventHandlers()
         {
             countryDetailToggleEditModeButton.Click += countryDetailToggleEditModeButton_Click;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+		private async void CountryDetailCountryInformation_Load(object sender, EventArgs e)
+		{
+			if (_databaseConnectionSettings == null)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
+				return;
+			}
+
+			string storedProcedureName = "spGetCountry";
+
+			var parameters = new[]
+			{
+				new StoredProcedureParameter
+				{
+					ParameterName = "countryId",
+					ParameterValue = _countryId
+				}
+			};
+
+			try
+			{
+				DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+
+				if (countryDataTable != null)
+				{
+					DataRow countryDataRow = countryDataTable.Rows[0];
+					countryDetailCountryIdTextBox.Text = countryDataRow["Country Id"].ToString();
+					countryDetailISO31661A2CountryCodeMaskedTextBox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
+					countryDetailCountryEnglishNameTextBox.Text = countryDataRow["Country English Name"].ToString();
+					countryDetailCreatedByTextBox.Text = countryDataRow["Created By"].ToString();
+					countryDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
+					countryDetailLastUpdatedByTextBox.Text = countryDataRow["Modified By"].ToString();
+					countryDetailLastUpdatedTimestampTextBox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
+					countryDetailActiveStatusCheckBox.Checked = (bool)countryDataRow["Active Status"];
+
+					countryDetailActiveStatusOriginalValue = (bool)countryDataRow["Active Status"];
+					countryDetailCountryEnglishNameOriginalValue = countryDataRow["Country English Name"].ToString();
+					countryDetailISO31661A2CountryCodeOriginalValue = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
+
+					this.Text += $" ({countryDetailCountryEnglishNameOriginalValue} - {countryDetailISO31661A2CountryCodeOriginalValue})";
+				}
+				else
+				{
+					ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+			}
+		}
+
+		private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
-        private async void CountryDetailCountryInformation_Load(object sender, EventArgs e)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
+		private void countryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+		{
+			countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly;
+			countryDetailCountryEnglishNameTextBox.ReadOnly = !countryDetailCountryEnglishNameTextBox.ReadOnly;
+			countryDetailActiveStatusCheckBox.Enabled = !countryDetailActiveStatusCheckBox.Enabled;
+			countryDetailUpdateCountryButton.Enabled = !countryDetailUpdateCountryButton.Enabled;
+		}
 
-            string storedProcedureName = "spGetCountry";
-
-            var parameters = new[]
-            {
-                new StoredProcedureParameter
-                {
-                    ParameterName = "countryId",
-                    ParameterValue = _countryId
-                }
-            };
-
-            try
-            {
-                DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
-
-                if (countryDataTable != null)
-                {
-                    DataRow countryDataRow = countryDataTable.Rows[0];
-                    countryDetailCountryIdTextBox.Text = countryDataRow["Country Id"].ToString();
-                    countryDetailISO31661A2CountryCodeMaskedTextBox.Text = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
-                    countryDetailCountryEnglishNameTextBox.Text = countryDataRow["Country English Name"].ToString();
-                    countryDetailCreatedByTextBox.Text = countryDataRow["Created By"].ToString();
-                    countryDetailCreatedTimestampTextBox.Text = countryDataRow["Created Timestamp UTC"].ToString();
-                    countryDetailLastUpdatedByTextBox.Text = countryDataRow["Modified By"].ToString();
-                    countryDetailLastUpdatedTimestampTextBox.Text = countryDataRow["Modified Timestamp UTC"].ToString();
-                    countryDetailActiveStatusCheckBox.Checked = (bool)countryDataRow["Active Status"];
-
-                    countryDetailActiveStatusOriginalValue = (bool)countryDataRow["Active Status"];
-                    countryDetailCountryEnglishNameOriginalValue = countryDataRow["Country English Name"].ToString();
-                    countryDetailISO31661A2CountryCodeOriginalValue = countryDataRow["ISO 3166-1 Alpha 2 Country Code"].ToString();
-
-                    this.Text += $" ({countryDetailCountryEnglishNameOriginalValue} - {countryDetailISO31661A2CountryCodeOriginalValue})";
-                }
-                else
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", dataSubject);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
-            }
-        }
-
-        private async void countryDetailUpdateCountryButton_Click(object sender, EventArgs e)
+		private async void countryDetailUpdateCountryButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = countryDetailActiveStatusCheckBox.Checked;   
-            string countryEnglishName = countryDetailCountryEnglishNameTextBox.Text.TrimEnd();
-            string iso31661A2CountryCode = countryDetailISO31661A2CountryCodeMaskedTextBox.Text.TrimEnd().ToUpper();
+            string countryEnglishName = TextBoxCleanerHelper.GetTrimmedText(countryDetailCountryEnglishNameTextBox);
+            string iso31661A2CountryCode = TextBoxCleanerHelper.GetTrimmedText(countryDetailISO31661A2CountryCodeMaskedTextBox).ToUpper();
 
             if (_databaseConnectionSettings == null)
             {
@@ -198,21 +213,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            CountryDetailCountryInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void countryDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly = !countryDetailISO31661A2CountryCodeMaskedTextBox.ReadOnly;
-            countryDetailCountryEnglishNameTextBox.ReadOnly = !countryDetailCountryEnglishNameTextBox.ReadOnly;
-            countryDetailActiveStatusCheckBox.Enabled = !countryDetailActiveStatusCheckBox.Enabled;
-            countryDetailUpdateCountryButton.Enabled = !countryDetailUpdateCountryButton.Enabled;
         }
     }
 }

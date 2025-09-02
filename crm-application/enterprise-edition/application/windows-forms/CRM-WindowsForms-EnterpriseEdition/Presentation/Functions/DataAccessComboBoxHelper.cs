@@ -132,6 +132,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     dataSubject = "HTML Template Type";
                     idColumnName = "HTML Template Type Id";
                     break;
+                case "spGetAllManufacturer":
+                    dataSubject = "Manufacturer";
+                    idColumnName = "Manufacturer Id";
+                    break;
                 case "spGetAllMarketingChannel":
                     dataSubject = "Marketing Channel";
                     idColumnName = "Marketing Channel Id";
@@ -140,9 +144,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     dataSubject = "Product Category";
                     idColumnName = "Product Category Id";
                     break;
+                case "spGetAllProductFamily":
+                    dataSubject = "Product Family";
+                    idColumnName = "Product Family Id";
+                    break;
                 case "spGetAllProductNoteType":
                     dataSubject = "Product Note Type";
                     idColumnName = "Product Note Type Id";
+                    break;
+                case "spGetAllProductSubCategory":
+                    dataSubject = "Product Sub Category";
+                    idColumnName = "Product Sub Category Id";
                     break;
                 case "spGetAllPromotionTargetType":
                     dataSubject = "Promotion Target Type";
@@ -199,7 +211,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                 {
                     if (_companyConfigurationId != null)
                     {
-                        new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specfic", dataSubject);
+                        new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specific", dataSubject);
                         return;
                     }
                     else
@@ -234,9 +246,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                             "spGetAllCustomerType" => $"{row.Field<string>("Customer Type")} - {row.Field<string>("Customer Type Description")}",
                             "spGetAllGlobalParentCustomer" => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
                             "spGetAllHTMLTemplateType" => row.Field<string>("HTML Template Type"),
+                            "spGetAllManufacturer" => row.Field<string>("Manufacturer Name"),
                             "spGetAllMarketingChannel" => row.Field<string>("Marketing Channel"),
                             "spGetAllProductCategory" => row.Field<string>("Product Category"),
+                            "spGetAllProductFamily" => row.Field<string>("Product Family"),
                             "spGetAllProductNoteType" => row.Field<string>("Product Note Type"),
+                            "spGetAllProductSubCategory" => row.Field<string>("Product Sub Category"),
                             "spGetAllPromotionTargetType" => $"{row.Field<string>("Promotion Target Type")} - {row.Field<string>("Promotion Target Type Description")}",
                             "spGetAllSalesRegion" => row.Field<string>("Sales Region"),
                             "spGetAllSalesSubRegion" => row.Field<string>("Sales Sub Region"),

@@ -1,6 +1,5 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
-using Org.BouncyCastle.Tls.Crypto;
 using System.Data;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
@@ -23,23 +22,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CreateMasterDataEnhanced(string functionTitle, string moduleGroup)
         {
             InitializeComponent();
-            _functionTitle = functionTitle;
+			_functionTitle = functionTitle;
             LoadDatabaseConnectionSettingsAsync();
             _moduleGroup = moduleGroup;
             SetModuleTheme();
             SetParameters(_functionTitle);
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
+		private async Task LoadActiveCompanyConfigurationAsync()
+		{
+			_companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
+			await _companyConfigHelper.LoadAsync();
+			_companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+		}
+
+		private async void LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async void LoadActiveCompanyConfigurationAsync()
-        {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.LoadAsync();
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
         private void SetModuleTheme()
@@ -47,7 +46,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private void SetParameters(string functionTitle)
+        private async void SetParameters(string functionTitle)
         {
             companyConfigurationEnabledDataSubjects = new List<string>
             {
@@ -78,18 +77,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     break;
             }
 
-            if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-            {
-                this.Size = new Size(614, 330);
-                createMasterDataEnhancedStatusStrip.Visible = false;
-                createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Visible = false;
-            }
-            else
-            {
-                LoadActiveCompanyConfigurationAsync();
-            }
+			if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+			{
+				await LoadActiveCompanyConfigurationAsync();
+			}
+			else
+			{
+				this.Size = new Size(614, 330);
+				createMasterDataEnhancedStatusStrip.Visible = false;
+				createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Visible = false;
+			}
 
-            dataSubjectName = functionTitle;
+			dataSubjectName = functionTitle;
             createMasterDataEnhancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataEnhancedMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description*";
@@ -97,11 +96,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }
 
-        private async void createMasterDataEnhancedSubmitButton_Click(object sender, EventArgs e)
+		private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+		{
+			_companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
+			await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+			_companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+		}
+
+		private async void createMasterDataEnhancedSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createMasterDataEnhancedActiveStatusCheckBox.Checked;
-            string dataSubjectDescriptionValue = createMasterDataEnhancedMasterDataDescriptionTextBox.Text.TrimEnd();
-            string dataSubjectValue = createMasterDataEnhancedMasterDataTypeTextBox.Text.TrimEnd();
+            string dataSubjectDescriptionValue = TextBoxCleanerHelper.GetTrimmedText(createMasterDataEnhancedMasterDataDescriptionTextBox);
+            string dataSubjectValue = TextBoxCleanerHelper.GetTrimmedText(createMasterDataEnhancedMasterDataTypeTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -172,7 +178,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     }
                 };
 
-                if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+                if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
                 {
                     parameters.Add(new StoredProcedureParameter
                     {
@@ -186,13 +192,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                 this.Close();
             }
-        }
-
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

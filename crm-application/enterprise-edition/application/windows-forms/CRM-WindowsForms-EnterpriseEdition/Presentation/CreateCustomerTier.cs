@@ -17,11 +17,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadActiveCompanyConfigurationAsync();
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
         private async void LoadActiveCompanyConfigurationAsync()
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCustomerTierStatusStripCompanyConfigurationPlaceholder);
@@ -29,11 +24,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
         private async void createCustomerTierSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCustomerTierActiveStatusCheckBox.Checked;
-            string customerTierCode = createCustomerTierCustomerTierCodeTextBox.Text.TrimEnd();
-            string customerTierDescription = createCustomerTierCustomerTierDescriptionTextBox.Text.TrimEnd();
+            string customerTierCode = TextBoxCleanerHelper.GetTrimmedText(createCustomerTierCustomerTierCodeTextBox);
+            string customerTierDescription = TextBoxCleanerHelper.GetTrimmedText(createCustomerTierCustomerTierDescriptionTextBox);
 
             if (_databaseConnectionSettings == null)
             {

@@ -35,6 +35,8 @@
             moduleHomeStatusStrip = new StatusStrip();
             moduleHomeStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            moduleHomeViewAllButton2 = new Button();
+            moduleHomeCreateButton2 = new Button();
             moduleHomeStatusStrip.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // moduleHomeStatusStrip
             // 
             moduleHomeStatusStrip.Items.AddRange(new ToolStripItem[] { moduleHomeStatusStripCompanyConfigurationPlaceholder });
-            moduleHomeStatusStrip.Location = new Point(0, 239);
+            moduleHomeStatusStrip.Location = new Point(0, 356);
             moduleHomeStatusStrip.Name = "moduleHomeStatusStrip";
             moduleHomeStatusStrip.Size = new Size(613, 22);
             moduleHomeStatusStrip.TabIndex = 15;
@@ -102,11 +104,39 @@
             changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
             changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
             // 
+            // moduleHomeViewAllButton2
+            // 
+            moduleHomeViewAllButton2.FlatStyle = FlatStyle.Flat;
+            moduleHomeViewAllButton2.Font = new Font("Segoe UI", 11F);
+            moduleHomeViewAllButton2.Location = new Point(326, 232);
+            moduleHomeViewAllButton2.Margin = new Padding(5);
+            moduleHomeViewAllButton2.Name = "moduleHomeViewAllButton2";
+            moduleHomeViewAllButton2.Size = new Size(242, 96);
+            moduleHomeViewAllButton2.TabIndex = 17;
+            moduleHomeViewAllButton2.Text = "View All";
+            moduleHomeViewAllButton2.UseVisualStyleBackColor = true;
+            moduleHomeViewAllButton2.Click += moduleHomeViewAllButton2_Click;
+            // 
+            // moduleHomeCreateButton2
+            // 
+            moduleHomeCreateButton2.FlatStyle = FlatStyle.Flat;
+            moduleHomeCreateButton2.Font = new Font("Segoe UI", 11F);
+            moduleHomeCreateButton2.Location = new Point(46, 232);
+            moduleHomeCreateButton2.Margin = new Padding(5);
+            moduleHomeCreateButton2.Name = "moduleHomeCreateButton2";
+            moduleHomeCreateButton2.Size = new Size(242, 96);
+            moduleHomeCreateButton2.TabIndex = 16;
+            moduleHomeCreateButton2.Text = "Create";
+            moduleHomeCreateButton2.UseVisualStyleBackColor = true;
+            moduleHomeCreateButton2.Click += moduleHomeCreateButton2_Click;
+            // 
             // ModuleHomeSimple
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(613, 261);
+            ClientSize = new Size(613, 378);
+            Controls.Add(moduleHomeViewAllButton2);
+            Controls.Add(moduleHomeCreateButton2);
             Controls.Add(moduleHomeStatusStrip);
             Controls.Add(moduleHomeViewAllButton);
             Controls.Add(moduleHomeCreateButton);
@@ -132,5 +162,7 @@
         private StatusStrip moduleHomeStatusStrip;
         private ToolStripSplitButton moduleHomeStatusStripCompanyConfigurationPlaceholder;
         private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
+        private Button moduleHomeViewAllButton2;
+        private Button moduleHomeCreateButton2;
     }
 }

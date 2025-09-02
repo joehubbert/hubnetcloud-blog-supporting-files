@@ -145,7 +145,7 @@
             customerDetailTabControlFinanceTabPagePaymentDaysTextBox = new TextBox();
             customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox = new ComboBox();
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel = new Label();
-            customerDetailTabControlFinanceTabPageTextBoxB = new TextBox();
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB = new TextBox();
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA = new TextBox();
             customerDetailTabControlFinanceTabPageCreditEnabledCheckBox = new CheckBox();
             customerDetailTabControlCustomerContactTabPage = new TabPage();
@@ -1261,12 +1261,12 @@
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPagePaymentDaysTextBox);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel);
-            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageTextBoxB);
+            customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxB);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditLimitTextBoxA);
             customerDetailTabControlFinanceTabPage.Controls.Add(customerDetailTabControlFinanceTabPageCreditEnabledCheckBox);
-            customerDetailTabControlFinanceTabPage.Location = new Point(4, 27);
+            customerDetailTabControlFinanceTabPage.Location = new Point(4, 32);
             customerDetailTabControlFinanceTabPage.Name = "customerDetailTabControlFinanceTabPage";
-            customerDetailTabControlFinanceTabPage.Size = new Size(1247, 721);
+            customerDetailTabControlFinanceTabPage.Size = new Size(1247, 716);
             customerDetailTabControlFinanceTabPage.TabIndex = 3;
             customerDetailTabControlFinanceTabPage.Text = "Finance";
             // 
@@ -1433,14 +1433,14 @@
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel.TabIndex = 15;
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel.Text = ".";
             // 
-            // customerDetailTabControlFinanceTabPageTextBoxB
+            // customerDetailTabControlFinanceTabPageCreditLimitTextBoxB
             // 
-            customerDetailTabControlFinanceTabPageTextBoxB.Location = new Point(293, 64);
-            customerDetailTabControlFinanceTabPageTextBoxB.MaxLength = 5;
-            customerDetailTabControlFinanceTabPageTextBoxB.Name = "customerDetailTabControlFinanceTabPageTextBoxB";
-            customerDetailTabControlFinanceTabPageTextBoxB.ReadOnly = true;
-            customerDetailTabControlFinanceTabPageTextBoxB.Size = new Size(38, 27);
-            customerDetailTabControlFinanceTabPageTextBoxB.TabIndex = 51;
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.Location = new Point(293, 64);
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.MaxLength = 5;
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.Name = "customerDetailTabControlFinanceTabPageCreditLimitTextBoxB";
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.ReadOnly = true;
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.Size = new Size(38, 27);
+            customerDetailTabControlFinanceTabPageCreditLimitTextBoxB.TabIndex = 51;
             // 
             // customerDetailTabControlFinanceTabPageCreditLimitTextBoxA
             // 
@@ -1754,7 +1754,7 @@
         private CheckBox customerDetailTabControlOverviewTabPageActiveStatusCheckBox;
         private CheckBox customerDetailTabControlFinanceTabPageCreditEnabledCheckBox;
         private Label customerDetailTabControlFinanceTabPageCreditLimitTextBoxSeparatorLabel;
-        private TextBox customerDetailTabControlFinanceTabPageTextBoxB;
+        private TextBox customerDetailTabControlFinanceTabPageCreditLimitTextBoxB;
         private TextBox customerDetailTabControlFinanceTabPageCreditLimitTextBoxA;
         private Label customerDetailTabControlFinanceTabPagePaymentDaysTextBoxLabel;
         private Label customerDetailTabControlFinanceTabPagePaymentCurrencyComboBoxLabel;

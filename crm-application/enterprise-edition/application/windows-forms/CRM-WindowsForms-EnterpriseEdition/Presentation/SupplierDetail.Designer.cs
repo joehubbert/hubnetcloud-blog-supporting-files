@@ -565,7 +565,7 @@
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.TabIndex = 22;
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Text = "Refresh Data";
             supplierDetailTabControlSupplierContactTabPageRefreshDataButton.UseVisualStyleBackColor = true;
-            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Click += supplierDetailSupplierContactRefreshDataButton_Click;
+            supplierDetailTabControlSupplierContactTabPageRefreshDataButton.Click += supplierDetailTabControlSupplierContactTabPageRefreshDataButton_Click;
             // 
             // supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton
             // 
@@ -578,7 +578,7 @@
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.TabIndex = 21;
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Text = "Create New Supplier Contact";
             supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.UseVisualStyleBackColor = true;
-            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Click += supplierDetailSupplierContactCreateNewSupplierContactButton_Click;
+            supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton.Click += supplierDetailTabControlSupplierContactTabPageCreateNewSupplierContactButton_Click;
             // 
             // supplierDetailTabControlSupplierContactTabPageDataGridView
             // 
@@ -633,7 +633,7 @@
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.TabIndex = 26;
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Text = "Refresh Data";
             supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.UseVisualStyleBackColor = true;
-            supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Click += supplierDetailSupplierNotesRefreshDataButton_Click;
+            supplierDetailTabControlSupplierNoteTabPageRefreshDataButton.Click += supplierDetailTabControlSupplierNoteTabPageRefreshDataButton_Click;
             // 
             // supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton
             // 
@@ -646,7 +646,7 @@
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.TabIndex = 25;
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Text = "Create New Supplier Note";
             supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.UseVisualStyleBackColor = true;
-            supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Click += supplierDetailSupplierNotesCreateNewSupplierNoteButton_Click;
+            supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton.Click += supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton_Click;
             // 
             // supplierDetailTabControlSupplierNoteTabPageDataGridView
             // 

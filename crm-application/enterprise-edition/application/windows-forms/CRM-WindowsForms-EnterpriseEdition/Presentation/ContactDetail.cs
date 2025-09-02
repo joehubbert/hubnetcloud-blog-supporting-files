@@ -12,17 +12,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private readonly Guid _dataSubjectId;
         private readonly string _dataSubjectName;
         private readonly string applicationTitlePrefix = "CRM - ";
-        private bool? contactDetailActiveStatusOriginalValue;
+        private bool contactDetailActiveStatusOriginalValue;
         private string contactDetailContactGetStoredProcedureName;
         private string contactDetailContactIdFriendlyName;
         private string contactDetailContactStoredProcedureParameterPrefix;
         private string contactDetailContactUpdateStoredProcedureName;
-        private string? contactDetailEmailAddressOriginalValue;
-        private string? contactDetailFirstNameOriginalValue;
-        private string? contactDetailLastNameOriginalValue;
+        private string contactDetailEmailAddressOriginalValue;
+        private string contactDetailFirstNameOriginalValue;
+        private string contactDetailLastNameOriginalValue;
         private string contactDetailModuleContactTypeFriendlyName;
-        private string? contactDetailRoleOriginalValue;
-        private string? contactDetailTelephoneNumberOriginalValue;
+        private string contactDetailRoleOriginalValue;
+        private string contactDetailTelephoneNumberOriginalValue;
         private readonly string titleLabelSuffix = " Detail";
 
         public ContactDetail(string functionTitle, Guid contactId, string dataSubjectName, Guid dataSubjectId)
@@ -34,17 +34,96 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetModuleTheme(_functionTitle);
         }
 
-        private void InitializeEventHandlers()
+		protected override async void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			await LoadDatabaseConnectionSettingsAsync();
+			ContactDetailContactInformation_Load(this, EventArgs.Empty);
+		}
+
+		private void InitializeEventHandlers()
         {
             contactDetailToggleEditModeButton.Click += contactDetailToggleEditModeButton_Click;
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
+		private async void ContactDetailContactInformation_Load(object sender, EventArgs e)
+		{
+			if (_databaseConnectionSettings == null)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
+				return;
+			}
 
-        private void SetModuleTheme(string functionTitle)
+			var parameters = new[]
+			{
+				new StoredProcedureParameter
+				{
+					ParameterName = $"{contactDetailContactStoredProcedureParameterPrefix}Id",
+					ParameterValue = _contactId
+				}
+			};
+
+			try
+			{
+				DataTable? contactDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+					contactDetailContactGetStoredProcedureName,
+					parameters.ToArray(),
+					contactDetailModuleContactTypeFriendlyName
+					);
+
+				if (contactDataTable != null)
+				{
+					DataRow contactDataRow = contactDataTable.Rows[0];
+					contactDetailActiveStatusCheckBox.Checked = (bool)contactDataRow["Active Status"];
+					contactDetailContactIdTextBox.Text = contactDataRow[contactDetailContactIdFriendlyName].ToString();
+					contactDetailEmailAddressTextBox.Text = contactDataRow["Email Address"].ToString();
+					contactDetailFirstNameTextBox.Text = contactDataRow["First Name"].ToString();
+					contactDetailLastNameTextBox.Text = contactDataRow["Last Name"].ToString();
+					contactDetailRoleTextBox.Text = contactDataRow["Role"].ToString();
+					contactDetailTelephoneNumberTextBox.Text = contactDataRow["Telephone Number"].ToString();
+					contactDetailCreatedByTextBox.Text = contactDataRow["Created By"].ToString();
+					contactDetailCreatedTimestampTextBox.Text = contactDataRow["Created Timestamp UTC"].ToString();
+					contactDetailLastUpdatedByTextBox.Text = contactDataRow["Modified By"].ToString();
+					contactDetailLastUpdatedTimestampTextBox.Text = contactDataRow["Modified Timestamp UTC"].ToString();
+					switch (_functionTitle)
+					{
+						case "Customer":
+							contactDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
+							break;
+						case "Supplier":
+							contactDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
+							break;
+						default:
+							this.Text = _functionTitle;
+							break;
+					}
+
+					contactDetailActiveStatusOriginalValue = (bool)contactDataRow["Active Status"];
+					contactDetailEmailAddressOriginalValue = contactDataRow["Email Address"].ToString();
+					contactDetailFirstNameOriginalValue = contactDataRow["First Name"].ToString();
+					contactDetailLastNameOriginalValue = contactDataRow["Last Name"].ToString();
+					contactDetailRoleOriginalValue = contactDataRow["Role"].ToString();
+					contactDetailTelephoneNumberOriginalValue = contactDataRow["Telephone Number"].ToString();
+
+					this.Text += $" ({contactDetailLastNameOriginalValue}, {contactDetailFirstNameOriginalValue})";
+				}
+				else
+				{
+					ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", contactDetailModuleContactTypeFriendlyName);
+				}
+			}
+			catch (Exception ex)
+			{
+				ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", contactDetailModuleContactTypeFriendlyName, ex.Message);
+			}
+		}
+
+		private async Task LoadDatabaseConnectionSettingsAsync()
+		{
+			_databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+		}
+
+		private void SetModuleTheme(string functionTitle)
         {
             switch (functionTitle)
             {
@@ -68,88 +147,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             contactDetailTitleLabel.Text = $"{contactDetailModuleContactTypeFriendlyName}{titleLabelSuffix}";
             contactDetailContactIdTextBoxLabel.Text = contactDetailContactIdFriendlyName;
             contactDetailUpdateContactButton.Text = $"Update {contactDetailModuleContactTypeFriendlyName}";
-        }
+			contactDetailStatusStrip.BackColor = SystemColors.Control;
+		}
 
-        private async void ContactDetailContactInformation_Load(object sender, EventArgs e)
-        {
-            if (_databaseConnectionSettings == null)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
-                return;
-            }
+		private void contactDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+		{
+			contactDetailActiveStatusCheckBox.Enabled = !contactDetailActiveStatusCheckBox.Enabled;
+			contactDetailEmailAddressTextBox.ReadOnly = !contactDetailEmailAddressTextBox.ReadOnly;
+			contactDetailFirstNameTextBox.ReadOnly = !contactDetailFirstNameTextBox.ReadOnly;
+			contactDetailLastNameTextBox.ReadOnly = !contactDetailLastNameTextBox.ReadOnly;
+			contactDetailRoleTextBox.ReadOnly = !contactDetailRoleTextBox.ReadOnly;
+			contactDetailTelephoneNumberTextBox.ReadOnly = !contactDetailTelephoneNumberTextBox.ReadOnly;
+			contactDetailUpdateContactButton.Enabled = !contactDetailUpdateContactButton.Enabled;
+		}
 
-            var parameters = new[]
-            {
-                new StoredProcedureParameter
-                {
-                    ParameterName = $"{contactDetailContactStoredProcedureParameterPrefix}Id",
-                    ParameterValue = _contactId
-                }
-            };
-
-            try
-            {
-                DataTable? contactDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
-                    contactDetailContactGetStoredProcedureName,
-                    parameters.ToArray(),
-                    contactDetailModuleContactTypeFriendlyName
-                    );
-
-                if (contactDataTable != null)
-                {
-                    DataRow contactDataRow = contactDataTable.Rows[0];
-                    contactDetailActiveStatusCheckBox.Checked = (bool)contactDataRow["Active Status"];
-                    contactDetailContactIdTextBox.Text = contactDataRow[contactDetailContactIdFriendlyName].ToString();
-                    contactDetailEmailAddressTextBox.Text = contactDataRow["Email Address"].ToString();
-                    contactDetailFirstNameTextBox.Text = contactDataRow["First Name"].ToString();
-                    contactDetailLastNameTextBox.Text = contactDataRow["Last Name"].ToString();
-                    contactDetailRoleTextBox.Text = contactDataRow["Role"].ToString();
-                    contactDetailTelephoneNumberTextBox.Text = contactDataRow["Telephone Number"].ToString();
-                    contactDetailCreatedByTextBox.Text = contactDataRow["Created By"].ToString();
-                    contactDetailCreatedTimestampTextBox.Text = contactDataRow["Created Timestamp UTC"].ToString();
-                    contactDetailLastUpdatedByTextBox.Text = contactDataRow["Modified By"].ToString();
-                    contactDetailLastUpdatedTimestampTextBox.Text = contactDataRow["Modified Timestamp UTC"].ToString();
-                    switch (_functionTitle)
-                    {
-                        case "Customer":
-                            contactDetailStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
-                            break;
-                        case "Supplier":
-                            contactDetailStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
-                            break;
-                        default:
-                            this.Text = _functionTitle;
-                            break;
-                    }
-
-                    contactDetailActiveStatusOriginalValue = (bool)contactDataRow["Active Status"];
-                    contactDetailEmailAddressOriginalValue = contactDataRow["Email Address"].ToString();
-                    contactDetailFirstNameOriginalValue = contactDataRow["First Name"].ToString();
-                    contactDetailLastNameOriginalValue = contactDataRow["Last Name"].ToString();
-                    contactDetailRoleOriginalValue = contactDataRow["Role"].ToString();
-                    contactDetailTelephoneNumberOriginalValue = contactDataRow["Telephone Number"].ToString();
-
-                    this.Text += $" ({contactDetailLastNameOriginalValue}, {contactDetailFirstNameOriginalValue})";
-                }
-                else
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.NoDataFound", contactDetailModuleContactTypeFriendlyName);
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", contactDetailModuleContactTypeFriendlyName, ex.Message);
-            }
-        }
-
-        private async void contactDetailUpdateContactButton_Click(object sender, EventArgs e)
+		private async void contactDetailUpdateContactButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = contactDetailActiveStatusCheckBox.Checked;
-            string emailAddress = contactDetailEmailAddressTextBox.Text.TrimEnd();
-            string firstName = contactDetailFirstNameTextBox.Text.TrimEnd();
-            string lastName = contactDetailLastNameTextBox.Text.TrimEnd();
-            string role = contactDetailRoleTextBox.Text.TrimEnd();
-            string telephoneNumber = contactDetailTelephoneNumberTextBox.Text.TrimEnd();
+            string emailAddress = TextBoxCleanerHelper.GetTrimmedText(contactDetailEmailAddressTextBox);
+            string firstName = TextBoxCleanerHelper.GetTrimmedText(contactDetailFirstNameTextBox);
+            string lastName = TextBoxCleanerHelper.GetTrimmedText(contactDetailLastNameTextBox);
+            string role = TextBoxCleanerHelper.GetTrimmedText(contactDetailRoleTextBox);
+            string telephoneNumber = TextBoxCleanerHelper.GetTrimmedText(contactDetailTelephoneNumberTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -324,24 +343,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            ContactDetailContactInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void contactDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            contactDetailActiveStatusCheckBox.Enabled = !contactDetailActiveStatusCheckBox.Enabled;
-            contactDetailEmailAddressTextBox.ReadOnly = !contactDetailEmailAddressTextBox.ReadOnly;
-            contactDetailFirstNameTextBox.ReadOnly = !contactDetailFirstNameTextBox.ReadOnly;
-            contactDetailLastNameTextBox.ReadOnly = !contactDetailLastNameTextBox.ReadOnly;
-            contactDetailRoleTextBox.ReadOnly = !contactDetailRoleTextBox.ReadOnly;
-            contactDetailTelephoneNumberTextBox.ReadOnly = !contactDetailTelephoneNumberTextBox.ReadOnly;
-            contactDetailUpdateContactButton.Enabled = !contactDetailUpdateContactButton.Enabled;
         }
     }
 }

@@ -10,11 +10,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
         private readonly string dataSubject = "Supplier";
 
         public CreateSupplier()
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
@@ -25,12 +27,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private void InitializeEventHandlers()
         {
             createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            createSupplierTabControlFinanceTabPagePaymentDaysTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += createSupplierFinanceVATRegisteredCheckBox_CheckedChanged;
         }
 
         private async void LoadActiveCompanyConfigurationAsync()
@@ -52,7 +50,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CreateSupplierFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private void createSupplierFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
@@ -61,26 +64,40 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
-                createSupplierTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
+                var result = MessageBox.Show(
+                    "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
+                    "Warning",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    createSupplierTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
+                }
+                else
+                {
+                    createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
+                    createSupplierTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
+                }
             }
         }
 
         private async void createSupplierSubmitButton_Click(object sender, EventArgs e)
         {
-            Guid supplierFinancePaymentCurrencyId = Guid.Parse(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue.ToString());
-            byte supplierFinancePaymentDays = byte.Parse(createSupplierTabControlFinanceTabPagePaymentDaysTextBox.Text.TrimEnd());
-            string? supplierFinanceVATNumber = createSupplierTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            Guid supplierFinancePaymentCurrencyId = (Guid)createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox.SelectedValue;
+            byte supplierFinancePaymentDays = byte.Parse(TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlFinanceTabPagePaymentDaysTextBox));
+            string? supplierFinanceVATNumber = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlFinanceTabPageVATNumberTextBox);
             bool supplierFinanceVATRegistered = createSupplierTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
             bool supplierOverviewActiveStatus = createSupplierTabControlOverviewTabPageActiveStatusCheckBox.Checked;
-            string supplierOverviewAddressLine1 = createSupplierTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
-            string? supplierOverviewAddressLine2 = createSupplierTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
-            string supplierOverviewAddressLine3 = createSupplierTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
-            string supplierOverviewAddressLine4 = createSupplierTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
-            Guid supplierOverviewAddressLine5 = Guid.Parse(createSupplierTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string supplierOverviewSupplierName = createSupplierTabControlOverviewTabPageSupplierNameTextBox.Text.TrimEnd();
-            string supplierOverviewEmailAddress = createSupplierTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
-            string supplierOverviewTelephoneNumber = createSupplierTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
+            string supplierOverviewAddressLine1 = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageAddressLine1TextBox);
+            string? supplierOverviewAddressLine2 = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageAddressLine2TextBox);
+            string supplierOverviewAddressLine3 = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageAddressLine3TextBox);
+            string supplierOverviewAddressLine4 = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageAddressLine4TextBox);
+            Guid supplierOverviewAddressLine5 = (Guid)createSupplierTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue;
+            string supplierOverviewSupplierName = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageSupplierNameTextBox);
+            string supplierOverviewEmailAddress = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageEmailAddressTextBox);
+            string supplierOverviewTelephoneNumber = TextBoxCleanerHelper.GetTrimmedText(createSupplierTabControlOverviewTabPageTelephoneNumberTextBox);
 
             if (_databaseConnectionSettings == null)
             {

@@ -17,11 +17,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadActiveCompanyConfigurationAsync();
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
         private async void LoadActiveCompanyConfigurationAsync()
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createAccountManagerStatusStripCompanyConfigurationPlaceholder);
@@ -29,13 +24,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
         private async void createAccountManagerSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createAccountManagerActiveStatusCheckBox.Checked;
-            string emailAddress = createAccountManagerEmailAddressTextBox.Text.TrimEnd();
-            string firstName = createAccountManagerFirstNameTextBox.Text.TrimEnd();
-            string lastName = createAccountManagerLastNameTextBox.Text.TrimEnd();
-            string telephoneNumber = createAccountManagerTelephoneNumberTextBox.Text.TrimEnd();
+            string emailAddress = TextBoxCleanerHelper.GetTrimmedText(createAccountManagerEmailAddressTextBox);
+            string firstName = TextBoxCleanerHelper.GetTrimmedText(createAccountManagerFirstNameTextBox);
+            string lastName = TextBoxCleanerHelper.GetTrimmedText(createAccountManagerLastNameTextBox);
+            string telephoneNumber = TextBoxCleanerHelper.GetTrimmedText(createAccountManagerTelephoneNumberTextBox);
 
             if (_databaseConnectionSettings == null)
             {

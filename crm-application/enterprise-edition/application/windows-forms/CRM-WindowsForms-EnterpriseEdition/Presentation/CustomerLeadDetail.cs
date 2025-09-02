@@ -31,107 +31,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             PopulateStatusStrip();
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            CustomerLeadDetailCustomerLeadInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
-            customerLeadDetailTabControl.SelectedIndexChanged += CustomerLeadDetailTabControl_SelectedIndexChanged;
+            customerLeadDetailTabControl.SelectedIndexChanged += customerLeadDetailTabControl_SelectedIndexChanged;
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView.CellContentClick += customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageCustomerContactPanelRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageCustomerContactPanelRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.CheckedChanged += CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageTargetDatePanelRadioButton_CheckedChanged;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageTargetDatePanelRadioButton_CheckedChanged;
             customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
-        }
-
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private void PopulateStatusStrip()
-        {
-            customerLeadDetailStatusStripCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
-        }
-
-        private async Task LoadCustomerContactAsync(Guid customerId, Guid? customerContactId = null)
-        {
-            var parameters = new[]
-                {
-                    new StoredProcedureParameter
-                    {
-                        ParameterName = "customerId",
-                        ParameterValue = customerId
-                    }
-                };
-
-            if (customerContactId != null)
-            {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, true, "Customer Contact Id", customerContactId, false, null, null, parameters);
-            }
-            else
-            {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
-            }
-
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private async Task LoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox, "spGetAllCustomerLeadType", null, true, "Customer Lead Type Id", customerLeadTypeId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private async Task LoadMarketingChannelAsync(Guid marketingChannelId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel", null, true, "Marketing Channel Id", marketingChannelId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private async void CustomerLeadDetailCustomerContactChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Checked)
-            {
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = true;
-                await LoadCustomerContactAsync(_customerLeadId, customerLeadDetailTabControlOverviewTabPageCustomerContactIdOriginalValue);
-            }
-            else if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Checked)
-            {
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = false;
-                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DataSource = null;
-            }
-        }
-
-        private async void CustomerLeadDetailMarketingChannelChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked)
-            {
-                await LoadMarketingChannelAsync(customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue ?? Guid.Empty);
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = true;
-            }
-            else if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Checked)
-            {
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = false;
-                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DataSource = null;
-            }
-        }
-
-        private void CustomerLeadDetailTargetDateChoiceRadioButton_CheckedChanged(object? sender, EventArgs e)
-        {
-            if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Checked)
-            {
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = true;
-            }
-            else if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Checked)
-            {
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
-                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Value = DateTime.Now;
-            }
         }
 
         private async void CustomerLeadDetailCustomerLeadInformation_Load(object sender, EventArgs e)
@@ -259,6 +180,100 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             );
         }
 
+        private async Task LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task LoadCustomerContactAsync(Guid customerId, Guid? customerContactId = null)
+        {
+            var parameters = new[]
+                {
+                    new StoredProcedureParameter
+                    {
+                        ParameterName = "customerId",
+                        ParameterValue = customerId
+                    }
+                };
+
+            if (customerContactId != null)
+            {
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, true, "Customer Contact Id", customerContactId, false, null, null, parameters);
+            }
+            else
+            {
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
+            }
+
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox, "spGetAllCustomerLeadType", null, true, "Customer Lead Type Id", customerLeadTypeId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async Task LoadMarketingChannelAsync(Guid marketingChannelId)
+        {
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel", null, true, "Marketing Channel Id", marketingChannelId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private void PopulateStatusStrip()
+        {
+            customerLeadDetailStatusStripCustomerPlaceholder.Text = $"Customer: {_customerName} ({_customerId})";
+        }
+
+        private async void customerLeadDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            if (customerLeadDetailTabControl.SelectedTab == customerLeadDetailTabControl.TabPages["customerLeadDetailTabControlCustomerLeadNoteTabPage"])
+            {
+                await CustomerLeadDetailExistingCustomerLeadNote_Load(sender, e);
+            }
+        }
+
+        private async void customerLeadDetailTabControlOverviewTabPageCustomerContactPanelRadioButton_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Checked)
+            {
+                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = true;
+                await LoadCustomerContactAsync(_customerLeadId, customerLeadDetailTabControlOverviewTabPageCustomerContactIdOriginalValue);
+            }
+            else if (customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Checked)
+            {
+                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = false;
+                customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.DataSource = null;
+            }
+        }
+
+        private async void customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelRadioButton_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked)
+            {
+                await LoadMarketingChannelAsync(customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue ?? Guid.Empty);
+                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = true;
+            }
+            else if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Checked)
+            {
+                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = false;
+                customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DataSource = null;
+            }
+        }
+
+        private void customerLeadDetailTabControlOverviewTabPageTargetDatePanelRadioButton_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Checked)
+            {
+                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = true;
+            }
+            else if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Checked)
+            {
+                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = false;
+                customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Value = DateTime.Now;
+            }
+        }
+
         private void customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
         {
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
@@ -272,12 +287,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             });
         }
 
-        private async void CustomerLeadDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        private void customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton_Click(object sender, EventArgs e)
         {
-            if (customerLeadDetailTabControl.SelectedTab == customerLeadDetailTabControl.TabPages["customerLeadDetailTabControlCustomerLeadNoteTabPage"])
-            {
-                await CustomerLeadDetailExistingCustomerLeadNote_Load(sender, e);
-            }
+            CreateNote createNote = new CreateNote(_customerLeadId, "CustomerLead", customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
+            createNote.Show();
+        }
+
+        private async void customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await CustomerLeadDetailExistingCustomerLeadNote_Load(sender, e);
+        }
+
+        private void customerLeadDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly;
+            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled;
+            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled;
         }
 
         private async void customerLeadDetailUpdateCustomerLeadButton_Click(object sender, EventArgs e)
@@ -288,13 +323,13 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 customerContactId = (Guid)customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.SelectedValue;
             }
-            string customerLead = customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.Text;
+            string customerLead = TextBoxCleanerHelper.GetTrimmedText(customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox);
             DateTime? customerLeadTargetDate = null;
             if (customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Checked)
             {
                 customerLeadTargetDate = customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Value;
             }
-            string customerLeadTitle = customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.Text;
+            string customerLeadTitle = TextBoxCleanerHelper.GetTrimmedText(customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox);
             Guid customerLeadTypeId = (Guid)customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.SelectedValue;
             Guid? marketingChannelId = null;
             if (customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Checked)
@@ -502,41 +537,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        private void customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton_Click(object sender, EventArgs e)
-        {
-            CreateNote createNote = new CreateNote(_customerLeadId, "CustomerLead", customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
-            createNote.Show();
-        }
-
-        private async void customerLeadDetailTabControlCustomerLeadNoteTabPageRefreshDataButton_Click(object sender, EventArgs e)
-        {
-            await CustomerLeadDetailExistingCustomerLeadNote_Load(sender, e);
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            CustomerLeadDetailCustomerLeadInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void customerLeadDetailToggleEditModeButton_Click(object sender, EventArgs e)
-        {
-            customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !customerLeadDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelYesRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelNoRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelTargetDatePicker.Enabled;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleTextBox.ReadOnly;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTextBox.ReadOnly;
-            customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox.Enabled;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelYesRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelNoRadioButton.Enabled;
-            customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled = !customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.Enabled;
         }
     }
 }

@@ -29,16 +29,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetParameters(_functionTitle);
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
         private async void LoadActiveCompanyConfigurationAsync()
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        }
+
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private void SetModuleTheme()
@@ -192,10 +192,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}";
         }
 
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        }
+
         private async void createMasterDataSimpleSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createMasterDataSimpleActiveStatusCheckBox.Checked;
-            string dataSubjectValue = createMasterDataSimpleMasterDataTypeTextBox.Text.TrimEnd();
+            string dataSubjectValue = TextBoxCleanerHelper.GetTrimmedText(createMasterDataSimpleMasterDataTypeTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -267,13 +274,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                 this.Close();
             }
-        }
-
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

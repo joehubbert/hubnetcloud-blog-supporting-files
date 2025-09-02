@@ -12,15 +12,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
-        private bool? dataSubjectActiveStatusOriginalValue;
+        private bool dataSubjectActiveStatusOriginalValue;
         private List<string> companyConfigurationEnabledDataSubjects;
         private Guid? dataSubjectCompanyConfigurationIdOriginalValue;
         private string dataSubjectFriendlyName;
         private string dataSubjectGetStoredProcedureName;
         private string dataSubjectIdFriendlyName;
-        private string dataSubjectIdName;
         private string dataSubjectName;
-        private string? dataSubjectOriginalValue;
+        private string dataSubjectOriginalValue;
         private string dataSubjectUpdateStoredProcedureName;
         private string dataSubjectUpdateStoredProcedureParameterPrefix;
         private readonly string titleLabelSuffix= " Detail";
@@ -35,14 +34,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetModuleTheme();
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            SetParameters(_functionTitle);
+            MasterDataSimpleDetailMasterDataInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
             masterDataSimpleDetailToggleEditModeButton.Click += masterDataSimpleDetailToggleEditModeButton_Click;
-        }
-
-        private async Task LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
@@ -51,218 +53,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void SetModuleTheme()
+        private async Task LoadDatabaseConnectionSettingsAsync()
         {
-            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
-        }
-
-        private void SetParameters(string functionTitle)
-        {
-            companyConfigurationEnabledDataSubjects = new List<string>
-            {
-                "ProductCategory",
-                "ProductFamily",
-                "SalesRegion",
-            };
-
-            switch (functionTitle)
-            {
-                case "CustomerLeadNoteType":
-                    dataSubjectFriendlyName = "Customer Lead Note Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadNoteType";
-                    dataSubjectIdFriendlyName = "Customer Lead Note Type Id";
-                    dataSubjectIdName = "CustomerLeadNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadNoteType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadNoteType";
-                    break;
-                case "CustomerLeadStatus":
-                    dataSubjectFriendlyName = "Customer Lead Status";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadStatus";
-                    dataSubjectIdFriendlyName = "Customer Lead Status Id";
-                    dataSubjectIdName = "CustomerLeadStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadStatus";
-                    break;
-                case "CustomerNoteType":
-                    dataSubjectFriendlyName = "Customer Note Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerNoteType";
-                    dataSubjectIdFriendlyName = "Customer Note Type Id";
-                    dataSubjectIdName = "CustomerNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerNoteType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerNoteType";
-                    break;
-                case "HTMLTemplateType":
-                    dataSubjectFriendlyName = "HTML Template Type";
-                    dataSubjectGetStoredProcedureName = "spGetHTMLTemplateType";
-                    dataSubjectIdFriendlyName = "HTML Template Type Id";
-                    dataSubjectIdName = "HTMLTemplateTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateHTMLTemplateType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "htmlTemplateType";
-                    break;
-                case "MarketingCampaignStatus":
-                    dataSubjectFriendlyName = "Marketing Campaign Status";
-                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignStatus";
-                    dataSubjectIdFriendlyName = "Marketing Campaign Status Id";
-                    dataSubjectIdName = "MarketingCampaignStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignStatus";
-                    break;
-                case "MarketingCampaignType":
-                    dataSubjectFriendlyName = "Marketing Campaign Type";
-                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignType";
-                    dataSubjectIdFriendlyName = "Marketing Campaign Type Id";
-                    dataSubjectIdName = "MarketingCampaignTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignType";
-                    break;
-                case "MarketingChannel":
-                    dataSubjectFriendlyName = "Marketing Channel";
-                    dataSubjectGetStoredProcedureName = "spGetMarketingChannel";
-                    dataSubjectIdFriendlyName = "Marketing Channel Id";
-                    dataSubjectIdName = "MarketingChannelId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingChannel";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingChannel";
-                    break;
-                case "OrderLineItemStatus":
-                    dataSubjectFriendlyName = "Order Line Item Status";
-                    dataSubjectGetStoredProcedureName = "spGetOrderLineItemStatus";
-                    dataSubjectIdFriendlyName = "Order Line Item Status Id";
-                    dataSubjectIdName = "OrderLineItemStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderLineItemStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderLineItemStatus";
-                    break;
-                case "OrderPaymentStatus":
-                    dataSubjectFriendlyName = "Order Payment Status";
-                    dataSubjectGetStoredProcedureName = "spGetOrderPaymentStatus";
-                    dataSubjectIdFriendlyName = "Order Payment Status Id";
-                    dataSubjectIdName = "OrderPaymentStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderPaymentStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderPaymentStatus";
-                    break;
-                case "OrderStatus":
-                    dataSubjectFriendlyName = "Order Status";
-                    dataSubjectGetStoredProcedureName = "spGetOrderStatus";
-                    dataSubjectIdFriendlyName = "Order Status Id";
-                    dataSubjectIdName = "OrderStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderStatus";
-                    break;
-                case "OrderType":
-                    dataSubjectFriendlyName = "Order Type";
-                    dataSubjectGetStoredProcedureName = "spGetOrderType";
-                    dataSubjectIdFriendlyName = "Order Type Id";
-                    dataSubjectIdName = "OrderTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderType";
-                    break;
-                case "PaymentMethod":
-                    dataSubjectFriendlyName = "Payment Method";
-                    dataSubjectGetStoredProcedureName = "spGetPaymentMethod";
-                    dataSubjectIdFriendlyName = "Payment Method Id";
-                    dataSubjectIdName = "PaymentMethodId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdatePaymentMethod";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "paymentMethod";
-                    break;
-                case "ProductCategory":
-                    dataSubjectFriendlyName = "Product Category";
-                    dataSubjectGetStoredProcedureName = "spGetProductCategory";
-                    dataSubjectIdFriendlyName = "Product Category Id";
-                    dataSubjectIdName = "ProductCategoryId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateProductCategory";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "productCategory";
-                    break;
-                case "ProductFamily":
-                    dataSubjectFriendlyName = "Product Family";
-                    dataSubjectGetStoredProcedureName = "spGetProductFamily";
-                    dataSubjectIdFriendlyName = "Product Family Id";
-                    dataSubjectIdName = "ProductFamilyId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateProductFamily";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "productFamily";
-                    break;
-                case "ProductNoteType":
-                    dataSubjectFriendlyName = "Product Note Type";
-                    dataSubjectGetStoredProcedureName = "spGetProductNoteType";
-                    dataSubjectIdFriendlyName = "Product Note Type Id";
-                    dataSubjectIdName = "ProductNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateProductNoteType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "productNoteType";
-                    break;
-                case "PromotionType":
-                    dataSubjectFriendlyName = "Promotion Type";
-                    dataSubjectGetStoredProcedureName = "spGetPromotionType";
-                    dataSubjectIdFriendlyName = "Promotion Type Id";
-                    dataSubjectIdName = "PromotionTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "promotionType";
-                    break;
-                case "SalesRegion":
-                    dataSubjectFriendlyName = "Sales Region";
-                    dataSubjectGetStoredProcedureName = "spGetSalesRegion";
-                    dataSubjectIdFriendlyName = "Sales Region Id";
-                    dataSubjectIdName = "SalesRegionId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSalesRegion";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "salesRegion";
-                    break;
-                case "SupplierNoteType":
-                    dataSubjectFriendlyName = "Supplier Note Type";
-                    dataSubjectGetStoredProcedureName = "spGetSupplierNoteType";
-                    dataSubjectIdFriendlyName = "Supplier Note Type Id";
-                    dataSubjectIdName = "SupplierNoteTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierNoteType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierNoteType";
-                    break;
-                case "SupplierOrderLineItemStatus":
-                    dataSubjectFriendlyName = "Supplier Order Line Item Status";
-                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderLineItemStatus";
-                    dataSubjectIdFriendlyName = "Supplier Order Line Item Status Id";
-                    dataSubjectIdName = "SupplierOrderLineItemStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderLineItemStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderLineItemStatus";
-                    break;
-                case "SupplierOrderPaymentStatus":
-                    dataSubjectFriendlyName = "Supplier Order Payment Status";
-                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderPaymentStatus";
-                    dataSubjectIdFriendlyName = "Supplier Order Payment Status Id";
-                    dataSubjectIdName = "SupplierOrderPaymentStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderPaymentStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderPaymentStatus";
-                    break;
-                case "SupplierOrderStatus":
-                    dataSubjectFriendlyName = "Supplier Order Status";
-                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderStatus";
-                    dataSubjectIdFriendlyName = "Supplier Order Status Id";
-                    dataSubjectIdName = "SupplierOrderStatusId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderStatus";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderStatus";
-                    break;
-                case "WholesaleDeliveryType":
-                    dataSubjectFriendlyName = "Wholesale Delivery Type";
-                    dataSubjectGetStoredProcedureName = "spGetWholesaleDeliveryType";
-                    dataSubjectIdFriendlyName = "Wholesale Delivery Type Id";
-                    dataSubjectIdName = "WholesaleDeliveryTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateWholesaleDeliveryType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "wholesaleDeliveryType";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
-            }
-
-            if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-            {
-                masterDataSimpleDetailCompanyConfigurationComboBox.Visible = false;
-                masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Visible = false;
-            }
-
-            dataSubjectName = functionTitle;
-
-            masterDataSimpleDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
-            masterDataSimpleDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
-            masterDataSimpleDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
-            masterDataSimpleDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
-            masterDataSimpleDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
-            this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private async void MasterDataSimpleDetailMasterDataInformation_Load(object sender, EventArgs e)
@@ -326,11 +119,214 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void SetModuleTheme()
+        {
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
+        }
+
+        private void SetParameters(string functionTitle)
+        {
+            companyConfigurationEnabledDataSubjects = new List<string>
+            {
+                "ProductCategory",
+                "ProductFamily",
+                "SalesRegion",
+            };
+
+            switch (functionTitle)
+            {
+                case "CustomerLeadNoteType":
+                    dataSubjectFriendlyName = "Customer Lead Note Type";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadNoteType";
+                    dataSubjectIdFriendlyName = "Customer Lead Note Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadNoteType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadNoteType";
+                    break;
+                case "CustomerLeadStatus":
+                    dataSubjectFriendlyName = "Customer Lead Status";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadStatus";
+                    dataSubjectIdFriendlyName = "Customer Lead Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadStatus";
+                    break;
+                case "CustomerNoteType":
+                    dataSubjectFriendlyName = "Customer Note Type";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerNoteType";
+                    dataSubjectIdFriendlyName = "Customer Note Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerNoteType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerNoteType";
+                    break;
+                case "HTMLTemplateType":
+                    dataSubjectFriendlyName = "HTML Template Type";
+                    dataSubjectGetStoredProcedureName = "spGetHTMLTemplateType";
+                    dataSubjectIdFriendlyName = "HTML Template Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateHTMLTemplateType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "htmlTemplateType";
+                    break;
+                case "MarketingCampaignStatus":
+                    dataSubjectFriendlyName = "Marketing Campaign Status";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignStatus";
+                    dataSubjectIdFriendlyName = "Marketing Campaign Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignStatus";
+                    break;
+                case "MarketingCampaignType":
+                    dataSubjectFriendlyName = "Marketing Campaign Type";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingCampaignType";
+                    dataSubjectIdFriendlyName = "Marketing Campaign Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingCampaignType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingCampaignType";
+                    break;
+                case "MarketingChannel":
+                    dataSubjectFriendlyName = "Marketing Channel";
+                    dataSubjectGetStoredProcedureName = "spGetMarketingChannel";
+                    dataSubjectIdFriendlyName = "Marketing Channel Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateMarketingChannel";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "marketingChannel";
+                    break;
+                case "OrderLineItemStatus":
+                    dataSubjectFriendlyName = "Order Line Item Status";
+                    dataSubjectGetStoredProcedureName = "spGetOrderLineItemStatus";
+                    dataSubjectIdFriendlyName = "Order Line Item Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderLineItemStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderLineItemStatus";
+                    break;
+                case "OrderPaymentStatus":
+                    dataSubjectFriendlyName = "Order Payment Status";
+                    dataSubjectGetStoredProcedureName = "spGetOrderPaymentStatus";
+                    dataSubjectIdFriendlyName = "Order Payment Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderPaymentStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderPaymentStatus";
+                    break;
+                case "OrderStatus":
+                    dataSubjectFriendlyName = "Order Status";
+                    dataSubjectGetStoredProcedureName = "spGetOrderStatus";
+                    dataSubjectIdFriendlyName = "Order Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderStatus";
+                    break;
+                case "OrderType":
+                    dataSubjectFriendlyName = "Order Type";
+                    dataSubjectGetStoredProcedureName = "spGetOrderType";
+                    dataSubjectIdFriendlyName = "Order Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateOrderType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "orderType";
+                    break;
+                case "PaymentMethod":
+                    dataSubjectFriendlyName = "Payment Method";
+                    dataSubjectGetStoredProcedureName = "spGetPaymentMethod";
+                    dataSubjectIdFriendlyName = "Payment Method Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdatePaymentMethod";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "paymentMethod";
+                    break;
+                case "ProductCategory":
+                    dataSubjectFriendlyName = "Product Category";
+                    dataSubjectGetStoredProcedureName = "spGetProductCategory";
+                    dataSubjectIdFriendlyName = "Product Category Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductCategory";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "productCategory";
+                    break;
+                case "ProductFamily":
+                    dataSubjectFriendlyName = "Product Family";
+                    dataSubjectGetStoredProcedureName = "spGetProductFamily";
+                    dataSubjectIdFriendlyName = "Product Family Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductFamily";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "productFamily";
+                    break;
+                case "ProductNoteType":
+                    dataSubjectFriendlyName = "Product Note Type";
+                    dataSubjectGetStoredProcedureName = "spGetProductNoteType";
+                    dataSubjectIdFriendlyName = "Product Note Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateProductNoteType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "productNoteType";
+                    break;
+                case "PromotionType":
+                    dataSubjectFriendlyName = "Promotion Type";
+                    dataSubjectGetStoredProcedureName = "spGetPromotionType";
+                    dataSubjectIdFriendlyName = "Promotion Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "promotionType";
+                    break;
+                case "SalesRegion":
+                    dataSubjectFriendlyName = "Sales Region";
+                    dataSubjectGetStoredProcedureName = "spGetSalesRegion";
+                    dataSubjectIdFriendlyName = "Sales Region Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSalesRegion";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "salesRegion";
+                    break;
+                case "SupplierNoteType":
+                    dataSubjectFriendlyName = "Supplier Note Type";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierNoteType";
+                    dataSubjectIdFriendlyName = "Supplier Note Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierNoteType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierNoteType";
+                    break;
+                case "SupplierOrderLineItemStatus":
+                    dataSubjectFriendlyName = "Supplier Order Line Item Status";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderLineItemStatus";
+                    dataSubjectIdFriendlyName = "Supplier Order Line Item Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderLineItemStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderLineItemStatus";
+                    break;
+                case "SupplierOrderPaymentStatus":
+                    dataSubjectFriendlyName = "Supplier Order Payment Status";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderPaymentStatus";
+                    dataSubjectIdFriendlyName = "Supplier Order Payment Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderPaymentStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderPaymentStatus";
+                    break;
+                case "SupplierOrderStatus":
+                    dataSubjectFriendlyName = "Supplier Order Status";
+                    dataSubjectGetStoredProcedureName = "spGetSupplierOrderStatus";
+                    dataSubjectIdFriendlyName = "Supplier Order Status Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateSupplierOrderStatus";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "supplierOrderStatus";
+                    break;
+                case "WholesaleDeliveryType":
+                    dataSubjectFriendlyName = "Wholesale Delivery Type";
+                    dataSubjectGetStoredProcedureName = "spGetWholesaleDeliveryType";
+                    dataSubjectIdFriendlyName = "Wholesale Delivery Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateWholesaleDeliveryType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "wholesaleDeliveryType";
+                    break;
+                default:
+                    this.Text = functionTitle;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
+                    break;
+            }
+
+            if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+            {
+                masterDataSimpleDetailCompanyConfigurationComboBox.Visible = false;
+                masterDataSimpleDetailCompanyConfigurationComboBoxLabel.Visible = false;
+            }
+
+            dataSubjectName = functionTitle;
+
+            masterDataSimpleDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
+            masterDataSimpleDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
+            masterDataSimpleDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
+            masterDataSimpleDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
+            masterDataSimpleDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
+            this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
+        }
+
+        private void masterDataSimpleDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            masterDataSimpleDetailDataSubjectTextBox.ReadOnly = !masterDataSimpleDetailDataSubjectTextBox.ReadOnly;
+            masterDataSimpleDetailActiveStatusCheckBox.Enabled = !masterDataSimpleDetailActiveStatusCheckBox.Enabled;
+            masterDataSimpleDetailUpdateDataSubjectButton.Enabled = !masterDataSimpleDetailUpdateDataSubjectButton.Enabled;
+            if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
+            {
+                masterDataSimpleDetailCompanyConfigurationComboBox.Enabled = !masterDataSimpleDetailCompanyConfigurationComboBox.Enabled;
+            }
+        }
+
         private async void masterDataSimpleDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = masterDataSimpleDetailActiveStatusCheckBox.Checked;
             Guid? companyConfigurationId = (Guid?)masterDataSimpleDetailCompanyConfigurationComboBox.SelectedValue;
-            string dataSubjectValue = masterDataSimpleDetailDataSubjectTextBox.Text.TrimEnd();
+            string dataSubjectValue = TextBoxCleanerHelper.GetTrimmedText(masterDataSimpleDetailDataSubjectTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -443,25 +439,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
-            }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            SetParameters(_functionTitle);
-            MasterDataSimpleDetailMasterDataInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void masterDataSimpleDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            masterDataSimpleDetailDataSubjectTextBox.ReadOnly = !masterDataSimpleDetailDataSubjectTextBox.ReadOnly;
-            masterDataSimpleDetailActiveStatusCheckBox.Enabled = !masterDataSimpleDetailActiveStatusCheckBox.Enabled;
-            masterDataSimpleDetailUpdateDataSubjectButton.Enabled = !masterDataSimpleDetailUpdateDataSubjectButton.Enabled;
-            if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-            {
-                masterDataSimpleDetailCompanyConfigurationComboBox.Enabled = !masterDataSimpleDetailCompanyConfigurationComboBox.Enabled;
             }
         }
     }

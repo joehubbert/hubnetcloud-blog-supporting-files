@@ -20,13 +20,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged;
+            createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += createManufacturerFinanceVATRegisteredCheckBox_CheckedChanged;
             createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private async Task LoadCountryDataAsync()
@@ -35,7 +30,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CreateManufacturerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private void createManufacturerFinanceVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
             {
@@ -44,24 +44,38 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             else
             {
                 createManufacturerTabControlFinanceTabPageVATNumberTextBox.Enabled = false;
-                createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
+                var result = MessageBox.Show(
+                    "A VAT Number cannot be assigned if VAT Registered is false. Clicking OK will clear the VAT Number field. Clicking Cancel will reverse the changes.",
+                    "Warning",
+                    MessageBoxButtons.OKCancel,
+                    MessageBoxIcon.Warning);
+
+                if (result == DialogResult.OK)
+                {
+                    createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text = string.Empty;
+                }
+                else
+                {
+                    createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
+                    createManufacturerTabControlFinanceTabPageVATNumberTextBox.Enabled = true;
+                }
             }
         }
 
         private async void createManufacturerSubmitButton_Click(object sender, EventArgs e)
         {
-            string? manufacturerFinanceVATNumber = createManufacturerTabControlFinanceTabPageVATNumberTextBox.Text.TrimEnd();
+            string? manufacturerFinanceVATNumber = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlFinanceTabPageVATNumberTextBox);
             bool manufacturerFinanceVATRegistered = createManufacturerTabControlFinanceTabPageVATRegisteredCheckBox.Checked;
 
             bool manufacturerOverviewActiveStatus = createManufacturerTabControlOverviewTabPageActiveStatusCheckBox.Checked;
-            string manufacturerOverviewAddressLine1 = createManufacturerTabControlOverviewTabPageAddressLine1TextBox.Text.TrimEnd();
-            string? manufacturerOverviewAddressLine2 = createManufacturerTabControlOverviewTabPageAddressLine2TextBox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine3 = createManufacturerTabControlOverviewTabPageAddressLine3TextBox.Text.TrimEnd();
-            string manufacturerOverviewAddressLine4 = createManufacturerTabControlOverviewTabPageAddressLine4TextBox.Text.TrimEnd();
-            Guid manufacturerOverviewAddressLine5 = Guid.Parse(createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue.ToString());
-            string manufacturerOverviewManufacturerName = createManufacturerTabControlOverviewTabPageManufacturerNameTextBox.Text.TrimEnd();
-            string manufacturerOverviewEmailAddress = createManufacturerTabControlOverviewTabPageEmailAddressTextBox.Text.TrimEnd();
-            string manufacturerOverviewTelephoneNumber = createManufacturerTabControlOverviewTabPageTelephoneNumberTextBox.Text.TrimEnd();
+            string manufacturerOverviewAddressLine1 = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageAddressLine1TextBox);
+            string? manufacturerOverviewAddressLine2 = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageAddressLine2TextBox);
+            string manufacturerOverviewAddressLine3 = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageAddressLine3TextBox);
+            string manufacturerOverviewAddressLine4 = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageAddressLine4TextBox);
+            Guid manufacturerOverviewAddressLine5 = (Guid)createManufacturerTabControlOverviewTabPageAddressLine5ComboBox.SelectedValue;
+            string manufacturerOverviewManufacturerName = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageManufacturerNameTextBox);
+            string manufacturerOverviewEmailAddress = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageEmailAddressTextBox);
+            string manufacturerOverviewTelephoneNumber = TextBoxCleanerHelper.GetTrimmedText(createManufacturerTabControlOverviewTabPageTelephoneNumberTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -231,7 +245,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     parameters.Add(new StoredProcedureParameter
                     {
                         ParameterName = "vatNumber",
-                        ParameterValue = manufacturerOverviewAddressLine2
+                        ParameterValue = manufacturerFinanceVATNumber
                     });
                 }
 

@@ -6,22 +6,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class MasterDataEnhancedDetail : Form
     {
-        private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private readonly Guid _dataSubjectId;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private readonly string _functionTitle;
         private readonly string _moduleGroup;
         private readonly string applicationTitlePrefix = "CRM - ";
-        private List<string> companyConfigurationEnabledDataSubjects;
-        private bool? dataSubjectActiveStatusOriginalValue;
-        private Guid? dataSubjectCompanyConfigurationIdOriginalValue;
-        private string? dataSubjectDescriptionOriginalValue;
+        private bool dataSubjectActiveStatusOriginalValue;
+        private string dataSubjectDescriptionOriginalValue;
         private string dataSubjectFriendlyName;
         private string dataSubjectGetStoredProcedureName;
         private string dataSubjectIdFriendlyName;
-        private string dataSubjectIdName;
         private string dataSubjectName;
-        private string? dataSubjectOriginalValue;
+        private string dataSubjectOriginalValue;
         private string dataSubjectUpdateStoredProcedureName;
         private string dataSubjectUpdateStoredProcedureParameterPrefix;
         private readonly string titleLabelSuffix = " Detail";
@@ -36,6 +32,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetModuleTheme();  
         }
 
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            SetParameters(_functionTitle);
+            MasterDataEnhancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
+        }
+
         private void InitializeEventHandlers()
         {
             masterDataEnhancedDetailToggleEditModeButton.Click += masterDataEnhancedDetailToggleEditModeButton_Click;
@@ -44,74 +48,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataEnhancedDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
-        }
-
-        private void SetModuleTheme()
-        {
-            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
-        }
-
-        private void SetParameters(string functionTitle)
-        {
-            companyConfigurationEnabledDataSubjects = new List<string>
-            {
-                "CustomerLeadType",
-                "CustomerType"
-            };
-
-            switch (functionTitle)
-            {
-                case "CustomerLeadType":
-                    dataSubjectFriendlyName = "Customer Lead Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadType";
-                    dataSubjectIdFriendlyName = "Customer Lead Type Id";
-                    dataSubjectIdName = "CustomerLeadTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadType";
-                    break;
-                case "CustomerType":
-                    dataSubjectFriendlyName = "Customer Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerType";
-                    dataSubjectIdFriendlyName = "Customer Type Id";
-                    dataSubjectIdName = "CustomerTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerType";
-                    break;
-                case "PromotionTargetType":
-                    dataSubjectFriendlyName = "Promotion Target Type";
-                    dataSubjectGetStoredProcedureName = "spGetPromotionTargetType";
-                    dataSubjectIdFriendlyName = "Promotion Target Type Id";
-                    dataSubjectIdName = "PromotionTargetTypeId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionTargetType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "promotionTargetType";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
-            }
-
-            if (!companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-            {
-                masterDataEnhancedDetailCompanyConfigurationComboBox.Visible = false;
-                masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Visible = false;
-            }
-
-            dataSubjectName = functionTitle;
-
-            masterDataEnhancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
-            masterDataEnhancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
-            masterDataEnhancedDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
-            masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description";
-            masterDataEnhancedDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
-            masterDataEnhancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
-            this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
         }
 
         private async void MasterDataEnhancedDetailMasterDataInformation_Load(object sender, EventArgs e)
@@ -149,20 +85,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     masterDataEnhancedDetailLastUpdatedByTextBox.Text = masterDataEnhancedDetailDataRow["Modified By"].ToString();
                     masterDataEnhancedDetailLastUpdatedTimestampTextBox.Text = masterDataEnhancedDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataEnhancedDetailActiveStatusCheckBox.Checked = (bool)masterDataEnhancedDetailDataRow["Active Status"];
-                    if (_functionTitle == "CustomerLeadType" || _functionTitle == "CustomerType")
-                    {
-                        Guid companyConfigurationId = (Guid)masterDataEnhancedDetailDataRow["Company Configuration Id"];
-                        await LoadCompanyConfigurationAsync(companyConfigurationId);
-                    }
 
                     dataSubjectOriginalValue = masterDataEnhancedDetailDataRow[dataSubjectFriendlyName].ToString();
                     dataSubjectDescriptionOriginalValue = masterDataEnhancedDetailDataRow[$"{dataSubjectFriendlyName} Description"].ToString();
                     dataSubjectActiveStatusOriginalValue = (bool)masterDataEnhancedDetailDataRow["Active Status"];
-
-                    if (_functionTitle == "CustomerLeadType" || _functionTitle == "CustomerType")
-                    {
-                        dataSubjectCompanyConfigurationIdOriginalValue = (Guid)masterDataEnhancedDetailDataRow["Company Configuration Id"];
-                    }
 
                     this.Text += $" ({dataSubjectOriginalValue})";
                 }
@@ -177,12 +103,66 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
+        private void SetModuleTheme()
+        {
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
+        }
+
+        private void SetParameters(string functionTitle)
+        {
+            switch (functionTitle)
+            {
+                case "CustomerLeadType":
+                    dataSubjectFriendlyName = "Customer Lead Type";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadType";
+                    dataSubjectIdFriendlyName = "Customer Lead Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadType";
+                    break;
+                case "CustomerType":
+                    dataSubjectFriendlyName = "Customer Type";
+                    dataSubjectGetStoredProcedureName = "spGetCustomerType";
+                    dataSubjectIdFriendlyName = "Customer Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerType";
+                    break;
+                case "PromotionTargetType":
+                    dataSubjectFriendlyName = "Promotion Target Type";
+                    dataSubjectGetStoredProcedureName = "spGetPromotionTargetType";
+                    dataSubjectIdFriendlyName = "Promotion Target Type Id";
+                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionTargetType";
+                    dataSubjectUpdateStoredProcedureParameterPrefix = "promotionTargetType";
+                    break;
+                default:
+                    this.Text = functionTitle;
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
+                    break;
+            }
+
+            dataSubjectName = functionTitle;
+
+            masterDataEnhancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
+            masterDataEnhancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
+            masterDataEnhancedDetailDataSubjectTextBoxLabel.Text = dataSubjectFriendlyName;
+            masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description";
+            masterDataEnhancedDetailActiveStatusCheckBox.Text = $"Active {dataSubjectFriendlyName}";
+            masterDataEnhancedDetailUpdateDataSubjectButton.Text = $"Update {dataSubjectFriendlyName}";
+            this.Text = $"{applicationTitlePrefix}{dataSubjectFriendlyName}{titleLabelSuffix}";
+        }
+
+        private void masterDataEnhancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            masterDataEnhancedDetailDataSubjectTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectTextBox.ReadOnly;
+            masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly;
+            masterDataEnhancedDetailActiveStatusCheckBox.Enabled = !masterDataEnhancedDetailActiveStatusCheckBox.Enabled;
+            masterDataEnhancedDetailUpdateDataSubjectButton.Enabled = !masterDataEnhancedDetailUpdateDataSubjectButton.Enabled;
+        }
+
         private async void masterDataEnhancedDetailUpdateDataSubjectButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = masterDataEnhancedDetailActiveStatusCheckBox.Checked;
-            Guid? companyConfigurationId = (Guid?)masterDataEnhancedDetailCompanyConfigurationComboBox.SelectedValue;
-            string dataSubjectDescriptionValue = masterDataEnhancedDetailDataSubjectDescriptionTextBox.Text.TrimEnd();
-            string dataSubjectValue = masterDataEnhancedDetailDataSubjectTextBox.Text.TrimEnd();
+            string dataSubjectDescriptionValue = TextBoxCleanerHelper.GetTrimmedText(masterDataEnhancedDetailDataSubjectDescriptionTextBox);
+            string dataSubjectValue = TextBoxCleanerHelper.GetTrimmedText(masterDataEnhancedDetailDataSubjectTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -198,13 +178,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
-                },
-                new ValidateDataInputService.DataProperty
-                {
-                    AllowNullValue = companyConfigurationEnabledDataSubjects.Contains(_functionTitle) ? false : true,
-                    Name = "Company Configuration Id",
-                    Value = companyConfigurationId,
-                    ValueType = typeof(Guid?)
                 },
                 new ValidateDataInputService.DataProperty
                 {
@@ -242,13 +215,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         VariableType = "bool",
                         OriginalValue = dataSubjectActiveStatusOriginalValue,
                         NewValue = activeStatus
-                    },
-                    new ChangeDetail
-                    {
-                        VariableName = "Company Configuration Id",
-                        VariableType = "Guid?",
-                        OriginalValue = dataSubjectCompanyConfigurationIdOriginalValue,
-                        NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
@@ -296,15 +262,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                         }
                     };
 
-                    if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-                    {
-                        parameters.Add(new StoredProcedureParameter
-                        {
-                            ParameterName = "companyConfigurationId",
-                            ParameterValue = companyConfigurationId
-                        });
-                    }
-
                     string operationType = "update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
@@ -315,26 +272,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     ErrorMessageService errorMessageService = new ErrorMessageService("Information.UpdateCancelled");
                     this.Close();
                 }
-            }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            SetParameters(_functionTitle);
-            MasterDataEnhancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void masterDataEnhancedDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            masterDataEnhancedDetailDataSubjectTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectTextBox.ReadOnly;
-            masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly = !masterDataEnhancedDetailDataSubjectDescriptionTextBox.ReadOnly;
-            masterDataEnhancedDetailActiveStatusCheckBox.Enabled = !masterDataEnhancedDetailActiveStatusCheckBox.Enabled;
-            masterDataEnhancedDetailUpdateDataSubjectButton.Enabled = !masterDataEnhancedDetailUpdateDataSubjectButton.Enabled;
-            if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
-            {
-                masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled = !masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled;
             }
         }
     }

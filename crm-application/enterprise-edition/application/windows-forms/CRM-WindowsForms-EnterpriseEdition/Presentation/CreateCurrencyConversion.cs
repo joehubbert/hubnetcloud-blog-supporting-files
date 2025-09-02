@@ -10,10 +10,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
 
         public CreateCurrencyConversion()
         {
             InitializeComponent();
+            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
@@ -24,13 +26,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             createCurrencyConversionBaseCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             createCurrencyConversionTargetCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
-            createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged;
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            createCurrencyConversionTargetCurrencyValueTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCurrencyConversionTargetCurrencyValueTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
+            createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.CheckedChanged += createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanelRadioButtonChoice_CheckedChanged;
+            createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.CheckedChanged += createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanelRadioButtonChoice_CheckedChanged;
         }
 
         private async void LoadActiveCompanyConfigurationAsync()
@@ -49,16 +48,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void CreateCurrencyConversionAddExpiryDateRadioButtonChoice_CheckedChanged(object? sender, EventArgs e)
+        private async void LoadDatabaseConnectionSettingsAsync()
         {
-            if (createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
-            {
-                createCurrencyConversionExpiryDatePicker.Enabled = true;
-            }
-            else if (createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.Checked)
-            {
-                createCurrencyConversionExpiryDatePicker.Enabled = false;
-            }
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private bool ValidateBaseAndTargetCurrencyDifferent()
@@ -73,6 +65,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             return true;
         }
 
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+        }
+
+        private void createCurrencyConversionAddExpiryDateRadioButtonChoiceContainerPanelRadioButtonChoice_CheckedChanged(object? sender, EventArgs e)
+        {
+            if (createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
+            {
+                createCurrencyConversionExpiryDatePicker.Enabled = true;
+            }
+            else if (createCurrencyConversionAddExpiryDateRadioButtonChoiceNoRadioButton.Checked)
+            {
+                createCurrencyConversionExpiryDatePicker.Enabled = false;
+            }
+        }
+
         private async void createCurrencyConversionSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createCurrencyConversionActiveStatusCheckBox.Checked;
@@ -85,17 +96,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            if (createCurrencyConversionBaseCurrencyComboBox.SelectedValue is not Guid baseCurrencyId)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.Selection", "Base Currency");
-                return;
-            }
-
-            if (createCurrencyConversionTargetCurrencyComboBox.SelectedValue is not Guid targetCurrencyId)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.Selection", "Target Currency");
-                return;
-            }
+            Guid baseCurrencyId = (Guid)createCurrencyConversionBaseCurrencyComboBox.SelectedValue;
 
             DateTime effectiveDate = createCurrencyConversionEffectiveDatePicker.Value.Date;
             DateTime? expiryDate = null;
@@ -109,20 +110,21 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
             }
 
-            if (!decimal.TryParse(createCurrencyConversionBaseCurrencyValueTextBox.Text, out decimal baseCurrencyConversionRate))
+            if (!decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionBaseCurrencyValueTextBox), out decimal baseCurrencyConversionRate))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Base Currency Conversion Rate");
                 return;
             }
 
-            if (!decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextBoxA.Text.TrimEnd(), out decimal targetA) ||
-                !decimal.TryParse(createCurrencyConversionTargetCurrencyValueTextBoxB.Text.TrimEnd(), out decimal targetB))
+            if (!decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionTargetCurrencyValueTextBoxA), out decimal targetA) ||
+                !decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionTargetCurrencyValueTextBoxB), out decimal targetB))
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Target Currency Conversion Rate");
                 return;
             }
 
             decimal targetCurrencyConversionRate = targetA + (targetB / 100);
+            Guid targetCurrencyId = (Guid)createCurrencyConversionTargetCurrencyComboBox.SelectedValue;
 
             string dataSubject = "Currency Conversion";
 
@@ -259,13 +261,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
             this.Close();
-        }
-
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

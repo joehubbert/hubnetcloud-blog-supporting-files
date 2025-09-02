@@ -126,7 +126,7 @@
                 case "Warning.DataValidation.Selection":
                     DataValidationSelectionWarning(dataSubject ?? "unknown");
                     break;
-                case "Warning.NoDataFound.CompanyConfiguration.Specfic":
+                case "Warning.NoDataFound.CompanyConfiguration.Specific":
                     NoDataFoundWarning(dataSubject ?? "unknown");
                     break;
                 default:

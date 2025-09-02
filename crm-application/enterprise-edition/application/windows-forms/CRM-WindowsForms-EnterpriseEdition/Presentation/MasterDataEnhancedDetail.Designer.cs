@@ -46,8 +46,6 @@
             masterDataEnhancedDetailDataSubjectIdTextBoxLabel = new Label();
             masterDataEnhancedDetailDataSubjectDescriptionTextBox = new TextBox();
             masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel = new Label();
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel = new Label();
-            masterDataEnhancedDetailCompanyConfigurationComboBox = new ComboBox();
             SuspendLayout();
             // 
             // masterDataEnhancedDetailTitleLabel
@@ -236,34 +234,12 @@
             masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel.Text = "{MasterData Description Placeholder}";
             masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel.TextAlign = ContentAlignment.TopRight;
             // 
-            // masterDataEnhancedDetailCompanyConfigurationComboBoxLabel
-            // 
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.AutoSize = true;
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Location = new Point(118, 264);
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Name = "masterDataEnhancedDetailCompanyConfigurationComboBoxLabel";
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Size = new Size(173, 20);
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.TabIndex = 72;
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.Text = "Company Configuration*";
-            masterDataEnhancedDetailCompanyConfigurationComboBoxLabel.TextAlign = ContentAlignment.TopRight;
-            // 
-            // masterDataEnhancedDetailCompanyConfigurationComboBox
-            // 
-            masterDataEnhancedDetailCompanyConfigurationComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
-            masterDataEnhancedDetailCompanyConfigurationComboBox.Enabled = false;
-            masterDataEnhancedDetailCompanyConfigurationComboBox.FormattingEnabled = true;
-            masterDataEnhancedDetailCompanyConfigurationComboBox.Location = new Point(297, 261);
-            masterDataEnhancedDetailCompanyConfigurationComboBox.Name = "masterDataEnhancedDetailCompanyConfigurationComboBox";
-            masterDataEnhancedDetailCompanyConfigurationComboBox.Size = new Size(370, 28);
-            masterDataEnhancedDetailCompanyConfigurationComboBox.TabIndex = 3;
-            // 
             // MasterDataEnhancedDetail
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(1331, 438);
-            Controls.Add(masterDataEnhancedDetailCompanyConfigurationComboBoxLabel);
-            Controls.Add(masterDataEnhancedDetailCompanyConfigurationComboBox);
             Controls.Add(masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel);
             Controls.Add(masterDataEnhancedDetailDataSubjectDescriptionTextBox);
             Controls.Add(masterDataEnhancedDetailUpdateDataSubjectButton);
@@ -313,7 +289,5 @@
         private Label masterDataEnhancedDetailDataSubjectIdTextBoxLabel;
         private TextBox masterDataEnhancedDetailDataSubjectDescriptionTextBox;
         private Label masterDataEnhancedDetailDataSubjectDescriptionTextBoxLabel;
-        private Label masterDataEnhancedDetailCompanyConfigurationComboBoxLabel;
-        private ComboBox masterDataEnhancedDetailCompanyConfigurationComboBox;
     }
 }

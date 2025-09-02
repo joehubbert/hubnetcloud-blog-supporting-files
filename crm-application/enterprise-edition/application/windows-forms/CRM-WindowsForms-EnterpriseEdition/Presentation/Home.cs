@@ -593,13 +593,25 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             moduleHomeSimple.Show();
         }
 
-        private void homeMenuStripModuleProductManagementCreateProduct_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleProductManagementManufacturerCreateManufacturer_Click(object sender, EventArgs e)
+        {
+            CreateManufacturer createManufacturer = new CreateManufacturer();
+            createManufacturer.Show();
+        }
+
+        private void homeMenuStripModuleProductManagementManufacturerViewAllManufacturer_Click(object sender, EventArgs e)
+        {
+            ViewAllData viewAllData = new ViewAllData("Manufacturer", "ProductManagement", null);
+            viewAllData.Show();
+        }
+
+        private void homeMenuStripModuleProductManagementProductCreateProduct_Click(object sender, EventArgs e)
         {
             CreateProduct createProduct = new CreateProduct();
             createProduct.Show();
         }
 
-        private void homeMenuStripModuleProductManagementViewAllProduct_Click(object sender, EventArgs e)
+        private void homeMenuStripModuleProductManagementProductViewAllProduct_Click(object sender, EventArgs e)
         {
             ViewAllData viewAllData = new ViewAllData("ViewAllProduct", "ProductManagement", null);
             viewAllData.Show();

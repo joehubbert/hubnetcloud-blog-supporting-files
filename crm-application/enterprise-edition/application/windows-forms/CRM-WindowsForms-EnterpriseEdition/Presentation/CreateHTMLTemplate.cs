@@ -45,9 +45,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void createHTMLTemplateSubmitButton_Click(object sender, EventArgs e)
         {
-            string htmlTemplate = createHTMLTemplateHTMLTemplateTextBox.Text.TrimEnd();
-            string htmlTemplateTitle = createHTMLTemplateHTMLTemplateTitleTextBox.Text.TrimEnd();
-            Guid htmlTemplateTypeId = Guid.Parse(createHTMLTemplateHTMLTemplateTypeComboBox.SelectedValue.ToString());
+            string htmlTemplate = TextBoxCleanerHelper.GetTrimmedText(createHTMLTemplateHTMLTemplateTextBox);
+            string htmlTemplateTitle = TextBoxCleanerHelper.GetTrimmedText(createHTMLTemplateHTMLTemplateTitleTextBox);
+            Guid htmlTemplateTypeId = (Guid)createHTMLTemplateHTMLTemplateTypeComboBox.SelectedValue;
 
             if (_databaseConnectionSettings == null)
             {

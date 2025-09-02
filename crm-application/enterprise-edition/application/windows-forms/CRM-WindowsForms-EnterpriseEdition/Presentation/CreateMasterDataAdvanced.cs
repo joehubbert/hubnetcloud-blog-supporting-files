@@ -15,8 +15,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private readonly string applicationTitlePrefix = "CRM - Create ";
         private string dataParentSubjectFriendlyName;
         private string dataParentSubjectIdFriendlyName;
-        private string dataParentSubjectIdName;
-        private string dataParentSubjectName;
         private string dataParentSubjectGetStoredProcedureName;
         private string dataSubjectFriendlyName;
         private string dataSubjectName;
@@ -36,9 +34,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             SetParameters(_functionTitle);
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
+        private void InitializeEventHandlers()
         {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
         }
 
         private async void LoadActiveCompanyConfigurationAsync()
@@ -48,9 +46,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
-        private void InitializeEventHandlers()
+        private async void LoadDataParentSubjectAsync()
         {
-            createMasterDataAdvancedDataParentSubjectComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createMasterDataAdvancedDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, _companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
+        }
+
+        private async void LoadDatabaseConnectionSettingsAsync()
+        {
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         private void SetModuleTheme()
@@ -65,8 +69,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "ProductSubCategory":
                     dataParentSubjectFriendlyName = "Product Category";
                     dataParentSubjectIdFriendlyName = "Product Category Id";
-                    dataParentSubjectIdName = "ProductCategoryId";
-                    dataParentSubjectName = "ProductCategory";
                     dataParentSubjectGetStoredProcedureName = "spGetAllProductCategory";
                     dataSubjectFriendlyName = "Product Sub Category";
                     dataSubjectCreateStoredProcedureName = "spCreateProductSubCategory";
@@ -76,8 +78,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 case "SalesSubRegion":
                     dataParentSubjectFriendlyName = "Sales Region";
                     dataParentSubjectIdFriendlyName = "Sales Region Id";
-                    dataParentSubjectIdName = "SalesRegionId";
-                    dataParentSubjectName = "SalesRegion";
                     dataParentSubjectGetStoredProcedureName = "spGetAllSalesRegion";
                     dataSubjectFriendlyName = "Sales Sub Region";
                     dataSubjectCreateStoredProcedureName = "spCreateSalesSubRegion";
@@ -101,17 +101,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadDataParentSubjectAsync();
         }
 
-        private async void LoadDataParentSubjectAsync()
+        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createMasterDataAdvancedDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, _companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
+            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder);
+            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
+            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
 
         private async void createMasterDataAdvancedSubmitButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = createMasterDataAdvancedActiveStatusCheckBox.Checked;
-            Guid dataParentSubjectValue = Guid.Parse(createMasterDataAdvancedDataParentSubjectComboBox.SelectedValue.ToString());
-            string dataSubjectValue = createMasterDataAdvancedMasterDataTypeTextBox.Text.TrimEnd();
+            Guid dataParentSubjectValue = (Guid)createMasterDataAdvancedDataParentSubjectComboBox.SelectedValue;
+            string dataSubjectValue = TextBoxCleanerHelper.GetTrimmedText(createMasterDataAdvancedMasterDataTypeTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -171,11 +172,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = "companyConfigurationId",
-                        ParameterValue = _companyConfigurationId
-                    },
-                    new StoredProcedureParameter
-                    {
                         ParameterName = $"{dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix}Id",
                         ParameterValue = dataParentSubjectValue
                     },
@@ -191,13 +187,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectCreateStoredProcedureName, parameters, dataSubjectName, operationType);
                 this.Close();
             }
-        }
-
-        private async void changeActiveCompanyConfigurationToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            _companyConfigHelper = new ActiveCompanyConfigurationHelper(createMasterDataAdvancedStatusStripCompanyConfigurationPlaceholder);
-            await _companyConfigHelper.ShowChangeDialogAndReloadAsync(this);
-            _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
         }
     }
 }

@@ -35,9 +35,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            productDetailTabControl.SelectedIndexChanged += new EventHandler(ProductDetailTabControl_SelectedIndexChanged);
+            productDetailTabControl.SelectedIndexChanged += ProductDetailTabControl_SelectedIndexChanged;
             productDetailTabControlProductNoteTabPageDataGridView.CellContentClick += productDetailTabControlProductNoteTabPageDataGridView_CellContentClick;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(productDetailTabControlProductNoteTabPageQuickFilterTextbox, productDetailTabControlProductNoteTabPageDataGridView);
+            productDetailToggleEditModeButton.Click += productDetailToggleEditModeButton_Click;
+            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(productDetailTabControlProductNoteTabPageQuickFilterTextBox, productDetailTabControlProductNoteTabPageDataGridView);
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()
@@ -129,7 +130,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             var parameters = new[]
             {
-                new Parameter
+                new StoredProcedureParameter
                 {
                     ParameterName = "productId",
                     ParameterValue = _productId
@@ -143,32 +144,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     DataRow productDataRow = productDataTable.Rows[0];
 
-                    productDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked = (bool)productDataRow["Active Status"];
-                    productDetailTabControlOverviewTabPageCreatedByTextbox.Text = productDataRow["Created By"].ToString();
-                    productDetailTabControlOverviewTabPageCreatedTimestampTextbox.Text = productDataRow["Created Timestamp UTC"].ToString();
-                    productDetailTabControlOverviewTabPageLastUpdatedByTextbox.Text = productDataRow["Modified By"].ToString();
-                    productDetailTabControlOverviewTabPageLastUpdatedTimestampTextbox.Text = productDataRow["Modified Timestamp UTC"].ToString();
+                    productDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked = (bool)productDataRow["Active Status"];
+                    productDetailTabControlOverviewTabPageCreatedByTextBox.Text = productDataRow["Created By"].ToString();
+                    productDetailTabControlOverviewTabPageCreatedTimestampTextBox.Text = productDataRow["Created Timestamp UTC"].ToString();
+                    productDetailTabControlOverviewTabPageLastUpdatedByTextBox.Text = productDataRow["Modified By"].ToString();
+                    productDetailTabControlOverviewTabPageLastUpdatedTimestampTextBox.Text = productDataRow["Modified Timestamp UTC"].ToString();
                     Guid productCategoryId = (Guid)productDataRow["Product Category Id"];
                     await ProductDetailOverviewLoadProductCategoryDataAsync(productCategoryId);
-                    productDetailTabControlOverviewTabPageProductIdTextbox.Text = productDataRow["Product Id"].ToString();
-                    productDetailTabControlOverviewTabPageProductNameTextbox.Text = productDataRow["Product Name"].ToString();
+                    productDetailTabControlOverviewTabPageProductIdTextBox.Text = productDataRow["Product Id"].ToString();
+                    productDetailTabControlOverviewTabPageProductNameTextBox.Text = productDataRow["Product Name"].ToString();
                     Guid productSupplierId = (Guid)productDataRow["Supplier Id"];
                     await ProductDetailOverviewLoadSupplierDataAsync(productSupplierId);
-                    productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextbox.Text = productDataRow["Unit Minimum Order Quantity"].ToString();
-                    productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.Text = productDataRow["Unit Minimum Stock Quantity"].ToString();
+                    productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextBox.Text = productDataRow["Unit Minimum Order Quantity"].ToString();
+                    productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextBox.Text = productDataRow["Unit Minimum Stock Quantity"].ToString();
                     string unitPricePartA;
                     string unitPricePartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)productDataRow["Unit Selling Price"], out unitPricePartA, out unitPricePartB);
-                    productDetailTabControlOverviewTabPageUnitPriceTextboxA.Text = unitPricePartA;
-                    productDetailTabControlOverviewTabPageUnitPriceTextboxB.Text = unitPricePartB;
-                    productDetailTabControlOverviewTabPageUnitStockQuantityHeldTextbox.Text = productDataRow["Unit Stock Quantity Held"].ToString();
-                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text = productDataRow["Wholesale Carton Stock Quantity Held"].ToString();
+                    productDetailTabControlOverviewTabPageUnitPriceTextBoxA.Text = unitPricePartA;
+                    productDetailTabControlOverviewTabPageUnitPriceTextBoxB.Text = unitPricePartB;
+                    productDetailTabControlOverviewTabPageUnitStockQuantityHeldTextBox.Text = productDataRow["Unit Stock Quantity Held"].ToString();
+                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextBox.Text = productDataRow["Wholesale Carton Stock Quantity Held"].ToString();
                     string wholesalePricePerUnitPartA;
                     string wholesalePricePerUnitPartB;
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)productDataRow["Wholesale Price Per Unit"], out wholesalePricePerUnitPartA, out wholesalePricePerUnitPartB);
-                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Text = wholesalePricePerUnitPartA;
-                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Text = wholesalePricePerUnitPartB;
-                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text = productDataRow["Wholesale Unit Quantity Per Carton"].ToString();
+                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxA.Text = wholesalePricePerUnitPartA;
+                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxB.Text = wholesalePricePerUnitPartB;
+                    productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextBox.Text = productDataRow["Wholesale Unit Quantity Per Carton"].ToString();
                     if ((bool)productDataRow["Wholesale Reorder Flag"])
                     {
                         productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Checked = true;
@@ -233,7 +234,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 "Product Note Id",
                 "View Product Note",
                 "DESC",
-                "Created Timestamp"
+                "Created Timestamp UTC"
             );
         }
 
@@ -252,7 +253,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void CalulateUnitStockQuantityHeld(object? sender, EventArgs e)
         {
-            productDetailTabControlOverviewTabPageUnitStockQuantityHeldTextbox.Text = (int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text.TrimEnd()) * int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd())).ToString();
+            productDetailTabControlOverviewTabPageUnitStockQuantityHeldTextBox.Text = (int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextBox.Text.TrimEnd()) * int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextBox.Text.TrimEnd())).ToString();
         }
 
         private void productDetailProductImageChooseProductImageButton_Click(object sender, EventArgs e)
@@ -287,24 +288,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async void productDetailUpdateProductButton_Click(object sender, EventArgs e)
         {
-            bool productDetailTabControlOverviewTabPageActiveStatus = productDetailTabControlOverviewTabPageActiveStatusCheckbox.Checked;
+            bool productDetailTabControlOverviewTabPageActiveStatus = productDetailTabControlOverviewTabPageActiveStatusCheckBox.Checked;
             Guid productDetailTabControlOverviewTabPageProductCategoryId = (Guid)productDetailTabControlOverviewTabPageProductCategoryComboBox.SelectedValue;
-            string productDetailTabControlOverviewTabPageProductName = productDetailTabControlOverviewTabPageProductNameTextbox.Text.TrimEnd();
+            string productDetailTabControlOverviewTabPageProductName = productDetailTabControlOverviewTabPageProductNameTextBox.Text.TrimEnd();
             Guid productDetailTabControlOverviewTabPageSupplierId = (Guid)productDetailTabControlOverviewTabPageSupplierComboBox.SelectedValue;
-            int productDetailTabControlOverviewTabPageUnitMinimumOrderQuantity = int.Parse(productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextbox.Text.TrimEnd());
+            int productDetailTabControlOverviewTabPageUnitMinimumOrderQuantity = int.Parse(productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextBox.Text.TrimEnd());
             int productDetailTabControlOverviewTabPageUnitMinimumStockQuantity;
-            if (productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.Text.TrimEnd() == string.Empty)
+            if (productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextBox.Text.TrimEnd() == string.Empty)
             {
                 productDetailTabControlOverviewTabPageUnitMinimumStockQuantity = 0;
             }
             else
             {
-                productDetailTabControlOverviewTabPageUnitMinimumStockQuantity = int.Parse(productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.Text.TrimEnd());
+                productDetailTabControlOverviewTabPageUnitMinimumStockQuantity = int.Parse(productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextBox.Text.TrimEnd());
             }
-            decimal productDetailTabControlOverviewTabPageUnitPrice = decimal.Parse($"{productDetailTabControlOverviewTabPageUnitPriceTextboxA.Text.TrimEnd()}.{productDetailTabControlOverviewTabPageUnitPriceTextboxB.Text.TrimEnd()}");
-            int productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld = int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.Text.TrimEnd());
-            decimal productDetailTabControlOverviewTabPageWholesalePricePerUnit = decimal.Parse($"{productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.Text.TrimEnd()}.{productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.Text.TrimEnd()}");
-            int productDetailTabControlOverviewTabPageWholesaleUnitQuantityPerCarton = int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.Text.TrimEnd());
+            decimal productDetailTabControlOverviewTabPageUnitPrice = decimal.Parse($"{productDetailTabControlOverviewTabPageUnitPriceTextBoxA.Text.TrimEnd()}.{productDetailTabControlOverviewTabPageUnitPriceTextBoxB.Text.TrimEnd()}");
+            int productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld = int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextBox.Text.TrimEnd());
+            decimal productDetailTabControlOverviewTabPageWholesalePricePerUnit = decimal.Parse($"{productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxA.Text.TrimEnd()}.{productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxB.Text.TrimEnd()}");
+            int productDetailTabControlOverviewTabPageWholesaleUnitQuantityPerCarton = int.Parse(productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextBox.Text.TrimEnd());
             bool productDetailTabControlOverviewTabPageWholesaleReorderFlag;
             if (productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Checked)
             {
@@ -536,69 +537,69 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                 if (confirmed)
                 {
-                    var parameters = new List<Parameter>
+                    var parameters = new List<StoredProcedureParameter>
                     {
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "activeStatus",
                             ParameterValue = productDetailTabControlOverviewTabPageActiveStatus
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "productCategoryId",
                             ParameterValue = productDetailTabControlOverviewTabPageProductCategoryId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "productId",
                             ParameterValue = _productId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "productName",
                             ParameterValue = productDetailTabControlOverviewTabPageProductName
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "supplierId",
                             ParameterValue = productDetailTabControlOverviewTabPageSupplierId
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "unitMinimumOrderQuantity",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitMinimumOrderQuantity
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "unitMinimumStockQuantity",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitMinimumStockQuantity
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "unitPrice",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitPrice
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "unitStockQuantityHeld",
                             ParameterValue = productDetailTabControlOverviewTabPageUnitStockQuantityHeld
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "wholesaleCartonStockQuantityHeld",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleCartonStockQuantityHeld
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "wholesalePricePerUnit",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesalePricePerUnit
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "wholesaleReorderFlag",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleReorderFlag
                         },
-                        new Parameter
+                        new StoredProcedureParameter
                         {
                             ParameterName = "wholesaleUnitQuantityPerCarton",
                             ParameterValue = productDetailTabControlOverviewTabPageWholesaleUnitQuantityPerCarton
@@ -607,7 +608,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
                     if (productImage != null && productImage.Length > 0)
                     {
-                        parameters.Add(new Parameter
+                        parameters.Add(new StoredProcedureParameter
                         {
                             ParameterName = "productImage",
                             ParameterValue = productImage
@@ -637,20 +638,20 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void productDetailToggleEditModeButton_Click(object sender, EventArgs e)
         {
-            productDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled = !productDetailTabControlOverviewTabPageActiveStatusCheckbox.Enabled;
+            productDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled = !productDetailTabControlOverviewTabPageActiveStatusCheckBox.Enabled;
             productDetailTabControlOverviewTabPageProductCategoryComboBox.Enabled = !productDetailTabControlOverviewTabPageProductCategoryComboBox.Enabled;
-            productDetailTabControlOverviewTabPageProductNameTextbox.ReadOnly = !productDetailTabControlOverviewTabPageProductNameTextbox.ReadOnly;
+            productDetailTabControlOverviewTabPageProductNameTextBox.ReadOnly = !productDetailTabControlOverviewTabPageProductNameTextBox.ReadOnly;
             productDetailTabControlOverviewTabPageSupplierComboBox.Enabled = !productDetailTabControlOverviewTabPageSupplierComboBox.Enabled;
-            productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextbox.ReadOnly = !productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextbox.ReadOnly;
-            productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.ReadOnly = !productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextbox.ReadOnly;
-            productDetailTabControlOverviewTabPageUnitPriceTextboxA.ReadOnly = !productDetailTabControlOverviewTabPageUnitPriceTextboxA.ReadOnly;
-            productDetailTabControlOverviewTabPageUnitPriceTextboxB.ReadOnly = !productDetailTabControlOverviewTabPageUnitPriceTextboxB.ReadOnly;
-            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextbox.ReadOnly;
-            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxA.ReadOnly;
-            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextboxB.ReadOnly;
+            productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextBox.ReadOnly = !productDetailTabControlOverviewTabPageUnitMinimumOrderQuantityTextBox.ReadOnly;
+            productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextBox.ReadOnly = !productDetailTabControlOverviewTabPageUnitMinimumStockQuantityTextBox.ReadOnly;
+            productDetailTabControlOverviewTabPageUnitPriceTextBoxA.ReadOnly = !productDetailTabControlOverviewTabPageUnitPriceTextBoxA.ReadOnly;
+            productDetailTabControlOverviewTabPageUnitPriceTextBoxB.ReadOnly = !productDetailTabControlOverviewTabPageUnitPriceTextBoxB.ReadOnly;
+            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextBox.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleCartonQuantityTextBox.ReadOnly;
+            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxA.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxA.ReadOnly;
+            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxB.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesalePricePerUnitTextBoxB.ReadOnly;
             productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Enabled = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelYesRadioButton.Enabled;
             productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Enabled = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleReorderFlagPanelNoRadioButton.Enabled;
-            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextbox.ReadOnly;
+            productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextBox.ReadOnly = !productDetailTabControlOverviewTabPageWholesaleGroupBoxWholesaleUnitQuantityPerCartonTextBox.ReadOnly;
             productDetailTabControlProductImageTabPageChooseProductImageButton.Enabled = !productDetailTabControlProductImageTabPageChooseProductImageButton.Enabled;
             productDetailUpdateProductButton.Enabled = !productDetailUpdateProductButton.Enabled;
         }

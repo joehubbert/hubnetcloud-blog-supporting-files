@@ -8,9 +8,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     {
         private readonly Guid _currencyId;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private bool? currencyDetailActiveStatusOriginalValue;
-        private string? currencyDetailCurrencyCodeOriginalValue;
-        private string? currencyDetailCurrencyNameOriginalValue;
+        private bool currencyDetailActiveStatusOriginalValue;
+        private string currencyDetailCurrencyCodeOriginalValue;
+        private string currencyDetailCurrencyNameOriginalValue;
         private readonly string dataSubject = "Currency";
 
         public CurrencyDetail(Guid currencyId)
@@ -21,7 +21,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             LoadDatabaseConnectionSettingsAsync();
         }
 
-        private void InitializeEventHandlers()
+		protected override async void OnLoad(EventArgs e)
+		{
+			base.OnLoad(e);
+			await LoadDatabaseConnectionSettingsAsync();
+			CurrencyDetailCurrencyInformation_Load(this, EventArgs.Empty);
+		}
+
+		private void InitializeEventHandlers()
         {
             currencyDetailToggleEditModeButton.Click += currencyDetailToggleEditModeButton_Click;
         }
@@ -84,11 +91,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
+		private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+		{
+			currencyDetailCurrencyCodeMaskedTextBox.ReadOnly = !currencyDetailCurrencyCodeMaskedTextBox.ReadOnly;
+			currencyDetailCurrencyNameTextBox.ReadOnly = !currencyDetailCurrencyNameTextBox.ReadOnly;
+			currencyDetailActiveStatusCheckBox.Enabled = !currencyDetailActiveStatusCheckBox.Enabled;
+			currencyDetailUpdateCurrencyButton.Enabled = !currencyDetailUpdateCurrencyButton.Enabled;
+		}
+
+		private async void currencyDetailUpdateCurrencyButton_Click(object sender, EventArgs e)
         {
             bool activeStatus = currencyDetailActiveStatusCheckBox.Checked;
-            string currencyCode = currencyDetailCurrencyCodeMaskedTextBox.Text.TrimEnd();
-            string currencyName = currencyDetailCurrencyNameTextBox.Text.TrimEnd();
+            string currencyCode = TextBoxCleanerHelper.GetTrimmedText(currencyDetailCurrencyCodeMaskedTextBox);
+            string currencyName = TextBoxCleanerHelper.GetTrimmedText(currencyDetailCurrencyNameTextBox);
 
             if (_databaseConnectionSettings == null)
             {
@@ -199,21 +214,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     this.Close();
                 }
             }
-        }
-
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            CurrencyDetailCurrencyInformation_Load(this, EventArgs.Empty);
-        }
-
-        private void currencyDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            currencyDetailCurrencyCodeMaskedTextBox.ReadOnly = !currencyDetailCurrencyCodeMaskedTextBox.ReadOnly;
-            currencyDetailCurrencyNameTextBox.ReadOnly = !currencyDetailCurrencyNameTextBox.ReadOnly;
-            currencyDetailActiveStatusCheckBox.Enabled = !currencyDetailActiveStatusCheckBox.Enabled;
-            currencyDetailUpdateCurrencyButton.Enabled = !currencyDetailUpdateCurrencyButton.Enabled;
         }
     }
 }

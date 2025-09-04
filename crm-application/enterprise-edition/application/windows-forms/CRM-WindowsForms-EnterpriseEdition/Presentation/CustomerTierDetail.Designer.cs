@@ -205,6 +205,7 @@
             customerTierDetailToggleEditModeButton.TabIndex = 9;
             customerTierDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             customerTierDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            customerTierDetailToggleEditModeButton.Click += customerTierDetailToggleEditModeButton_Click;
             // 
             // customerTierDetailActiveStatusCheckBox
             // 

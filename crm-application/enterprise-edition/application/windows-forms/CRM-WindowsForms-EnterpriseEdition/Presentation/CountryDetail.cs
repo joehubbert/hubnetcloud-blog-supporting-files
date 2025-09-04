@@ -30,7 +30,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
 		private void InitializeEventHandlers()
         {
-            countryDetailToggleEditModeButton.Click += countryDetailToggleEditModeButton_Click;
+            
         }
 
 		private async void CountryDetailCountryInformation_Load(object sender, EventArgs e)

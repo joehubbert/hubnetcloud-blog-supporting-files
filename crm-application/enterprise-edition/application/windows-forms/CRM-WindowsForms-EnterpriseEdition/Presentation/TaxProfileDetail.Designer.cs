@@ -205,6 +205,7 @@
             taxProfileDetailToggleEditModeButton.TabIndex = 9;
             taxProfileDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             taxProfileDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            taxProfileDetailToggleEditModeButton.Click += taxProfileDetailToggleEditModeButton_Click;
             // 
             // taxProfileDetailActiveStatusCheckBox
             // 

@@ -97,6 +97,7 @@
             masterDataEnhancedDetailToggleEditModeButton.TabIndex = 9;
             masterDataEnhancedDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             masterDataEnhancedDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            masterDataEnhancedDetailToggleEditModeButton.Click += masterDataEnhancedDetailToggleEditModeButton_Click;
             // 
             // masterDataEnhancedDetailDataSubjectIdTextBox
             // 

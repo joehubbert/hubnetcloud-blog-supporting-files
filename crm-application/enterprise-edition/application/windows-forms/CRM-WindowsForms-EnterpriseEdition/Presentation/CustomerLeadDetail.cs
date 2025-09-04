@@ -51,7 +51,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelNoRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageTargetDatePanelRadioButton_CheckedChanged;
             customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDatePanelYesRadioButton.CheckedChanged += customerLeadDetailTabControlOverviewTabPageTargetDatePanelRadioButton_CheckedChanged;
-            customerLeadDetailToggleEditModeButton.Click += customerLeadDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerLeadDetailTabControlCustomerLeadNoteTabPageQuickFilterTextBox, customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView);
         }
 

@@ -34,7 +34,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             taxProfileDetailTaxRateTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             taxProfileDetailTaxRateTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
-            taxProfileDetailToggleEditModeButton.Click += taxProfileDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadDatabaseConnectionSettingsAsync()

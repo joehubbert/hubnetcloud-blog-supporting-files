@@ -38,7 +38,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             deliveryMethodDetailDeliveryCostTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             deliveryMethodDetailDeliveryTimeTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             deliveryMethodDetailTaxProfileComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
         }
 
         private async void DeliveryMethodDetailDeliveryMethodInformation_Load(object sender, EventArgs e)

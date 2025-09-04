@@ -194,10 +194,11 @@
             currencyDetailToggleEditModeButton.TabIndex = 8;
             currencyDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             currencyDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            // 
-            // currencyDetailActiveStatusCheckBox
-            // 
-            currencyDetailActiveStatusCheckBox.AutoSize = true;
+            currencyDetailToggleEditModeButton.Click += currencyDetailToggleEditModeButton_Click;
+			// 
+			// currencyDetailActiveStatusCheckBox
+			// 
+			currencyDetailActiveStatusCheckBox.AutoSize = true;
             currencyDetailActiveStatusCheckBox.Enabled = false;
             currencyDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             currencyDetailActiveStatusCheckBox.Location = new Point(201, 305);

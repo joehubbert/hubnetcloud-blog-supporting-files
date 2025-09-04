@@ -40,7 +40,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         {
             manufacturerDetailTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += manufacturerDetailFinanceVATRegisteredCheckBox_CheckedChanged;
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            manufacturerDetailToggleEditModeButton.Click += manufacturerDetailToggleEditModeButton_Click;
         }
 
         private async Task LoadCountryDataAsync(Guid countryId)

@@ -194,10 +194,11 @@
             countryDetailToggleEditModeButton.TabIndex = 8;
             countryDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             countryDetailToggleEditModeButton.UseVisualStyleBackColor = true;
-            // 
-            // countryDetailActiveStatusCheckBox
-            // 
-            countryDetailActiveStatusCheckBox.AutoSize = true;
+            countryDetailToggleEditModeButton.Click += countryDetailToggleEditModeButton_Click;
+			// 
+			// countryDetailActiveStatusCheckBox
+			// 
+			countryDetailActiveStatusCheckBox.AutoSize = true;
             countryDetailActiveStatusCheckBox.Enabled = false;
             countryDetailActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
             countryDetailActiveStatusCheckBox.Location = new Point(261, 285);

@@ -211,6 +211,7 @@
             deliveryMethodDetailToggleEditModeButton.TabIndex = 11;
             deliveryMethodDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             deliveryMethodDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            deliveryMethodDetailToggleEditModeButton.Click += deliveryMethodDetailToggleEditModeButton_Click;
             // 
             // deliveryMethodDetailActiveStatusCheckBox
             // 

@@ -32,7 +32,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
 		private void InitializeEventHandlers()
         {
-            customerTierDetailToggleEditModeButton.Click += customerTierDetailToggleEditModeButton_Click;
+            
         }
 
 		private async void CustomerTierDetailCustomerTierInformation_Load(object sender, EventArgs e)

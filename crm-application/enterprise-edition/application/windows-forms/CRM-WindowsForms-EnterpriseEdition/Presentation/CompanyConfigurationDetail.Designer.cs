@@ -1044,6 +1044,7 @@
             companyConfigurationDetailToggleEditModeButton.TabIndex = 38;
             companyConfigurationDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             companyConfigurationDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
             // 
             // companyConfigurationDetailUpdateCompanyConfigurationButton
             // 

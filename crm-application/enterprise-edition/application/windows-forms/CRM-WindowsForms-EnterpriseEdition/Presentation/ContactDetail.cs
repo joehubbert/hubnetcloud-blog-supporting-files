@@ -43,7 +43,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
 		private void InitializeEventHandlers()
         {
-            contactDetailToggleEditModeButton.Click += contactDetailToggleEditModeButton_Click;
+            
         }
 
 		private async void ContactDetailContactInformation_Load(object sender, EventArgs e)

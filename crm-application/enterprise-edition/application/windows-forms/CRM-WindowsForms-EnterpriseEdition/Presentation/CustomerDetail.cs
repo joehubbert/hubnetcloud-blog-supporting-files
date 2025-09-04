@@ -103,7 +103,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.CheckedChanged += customerDetailTabControlOverviewTabPageRadioButtonValidation_CheckedChanged;
             customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             
-            customerDetailToggleEditModeButton.Click += customerDetailToggleEditModeButton_Click;
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextBox, customerDetailTabControlCustomerContactTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextBox, customerDetailTabControlCustomerLeadTabPageDataGridView);
             _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextBox, customerDetailTabControlCustomerNoteTabPageDataGridView);

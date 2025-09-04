@@ -107,6 +107,7 @@
             manufacturerDetailToggleEditModeButton.TabIndex = 22;
             manufacturerDetailToggleEditModeButton.Text = "Toggle Edit Mode";
             manufacturerDetailToggleEditModeButton.UseVisualStyleBackColor = true;
+            manufacturerDetailToggleEditModeButton.Click += manufacturerDetailToggleEditModeButton_Click;
             // 
             // manufacturerDetailTabControlOverviewTabPageManufacturerIdTextBox
             // 

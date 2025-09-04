@@ -66,7 +66,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountSortCodeMaskedTextBoxC.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox.CheckedChanged += companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageVATRegisteredCheckBox_CheckedChanged;
             companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            companyConfigurationDetailToggleEditModeButton.Click += companyConfigurationDetailToggleEditModeButton_Click;
         }
 
         private async void CompanyConfigurationDetailCompanyConfigurationInformation_Load(object sender, EventArgs e)

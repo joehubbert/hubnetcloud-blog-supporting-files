@@ -46,7 +46,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             currencyConversionDetailTargetCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             currencyConversionDetailTargetCurrencyValueTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             currencyConversionDetailTargetCurrencyValueTextBoxB.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
-            currencyConversionDetailToggleEditModeButton.Click += currencyConversionDetailToggleEditModeButton_Click;
         }
 
         private async void CurrencyConversionDetailCurrencyConversionInformation_Load(object sender, EventArgs e)

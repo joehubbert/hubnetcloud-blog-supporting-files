@@ -7,9 +7,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     public partial class SupplierDetail : Form
     {
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
-        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private List<DataGridViewQuickSearchHelper> _dataGridViewQuickSearchHelpers;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private bool _supplierContactsLoaded = false;
         private readonly Guid _supplierId;
+        private bool _supplierNotesLoaded = false;
         private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
         private string supplierDetailTabControlFinanceTabPagePaymentDaysOriginalValue;
         private Guid supplierDetailTabControlFinanceTabPagePaymentCurrencyIdOriginalValue;
@@ -28,6 +30,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public SupplierDetail(Guid supplierId)
         {
             InitializeComponent();
+            _dataGridViewQuickSearchHelpers = new List<DataGridViewQuickSearchHelper>();
             _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
@@ -43,15 +46,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            supplierDetailTabControl.SelectedIndexChanged += supplierDetailTabControl_SelectedIndexChanged;
             supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             supplierDetailTabControlFinanceTabPagePaymentDaysTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
             supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.CheckedChanged += supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox_CheckedChanged;
             supplierDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            supplierDetailTabControlSupplierContactTabPage.Enter += supplierDetailTabControlSupplierContactTabPage_Enter;
             supplierDetailTabControlSupplierContactTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierContactTabPageDataGridView_CellContentClick;
+            supplierDetailTabControlSupplierNoteTabPage.Enter += supplierDetailTabControlSupplierNotesTabPage_Enter;
             supplierDetailTabControlSupplierNoteTabPageDataGridView.CellContentClick += supplierDetailTabControlSupplierNoteTabPageDataGridView_CellContentClick;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextBox, supplierDetailTabControlSupplierContactTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextBox, supplierDetailTabControlSupplierNoteTabPageDataGridView);
+
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierContactTabPageQuickFilterTextBox, supplierDetailTabControlSupplierContactTabPageDataGridView));
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(supplierDetailTabControlSupplierNoteTabPageQuickFilterTextBox, supplierDetailTabControlSupplierNoteTabPageDataGridView));
         }
 
         private async Task LoadCountryDataAsync(Guid countryId)
@@ -178,18 +183,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void supplierDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
-        {
-            if (supplierDetailTabControl.SelectedTab == supplierDetailTabControl.TabPages["supplierDetailTabControlSupplierContactTabPage"])
-            {
-                await SupplierDetailExistingSupplierContact_Load(sender, e);
-            }
-            if (supplierDetailTabControl.SelectedTab == supplierDetailTabControl.TabPages["supplierDetailTabControlSupplierNotesPage"])
-            {
-                await SupplierDetailExistingSupplierNote_Load(sender, e);
-            }
-        }
-
         private void supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox_CheckedChanged(object? sender, EventArgs e)
         {
             if (!supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked)
@@ -208,6 +201,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 {
                     supplierDetailTabControlFinanceTabPageVATRegisteredCheckBox.Checked = true;
                 }
+            }
+        }
+
+        private async void supplierDetailTabControlSupplierContactTabPage_Enter(object? sender, EventArgs e)
+        {
+            if (!_supplierContactsLoaded)
+            {
+                await SupplierDetailExistingSupplierContact_Load(this, EventArgs.Empty);
+                _supplierContactsLoaded = true;
             }
         }
 
@@ -233,6 +235,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void supplierDetailTabControlSupplierContactTabPageRefreshDataButton_Click(object sender, EventArgs e)
         {
             await SupplierDetailExistingSupplierContact_Load(sender, e);
+        }
+
+        private async void supplierDetailTabControlSupplierNotesTabPage_Enter(object? sender, EventArgs e)
+        {
+            if (!_supplierNotesLoaded)
+            {
+                await SupplierDetailExistingSupplierNote_Load(this, EventArgs.Empty);
+                _supplierNotesLoaded = true;
+            }
         }
 
         private void supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton_Click(object sender, EventArgs e)

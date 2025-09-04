@@ -6,9 +6,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CustomerDetail : Form
     {
+        private bool _customerContactsLoaded = false;
         private readonly Guid _customerId;
+        private bool _customerLeadsLoaded = false;
+        private bool _customerNotesLoaded = false;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
-        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private List<DataGridViewQuickSearchHelper> _dataGridViewQuickSearchHelpers;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
         private string customerDetailTabControlBillingInformationTabPageAddressLine1OriginalValue;
@@ -57,6 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public CustomerDetail(Guid customerId)
         {
             InitializeComponent();
+            _dataGridViewQuickSearchHelpers = new List<DataGridViewQuickSearchHelper>();
             _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
@@ -72,10 +76,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeEventHandlers()
         {
-            customerDetailTabControl.SelectedIndexChanged += customerDetailTabControl_SelectedIndexChanged;
             customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
+            customerDetailTabControlCustomerContactTabPage.Enter += customerDetailTabControlCustomerContactTabPage_Enter;
             customerDetailTabControlCustomerContactTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerContactTabPageDataGridView_CellContentClick;
+            customerDetailTabControlCustomerLeadTabPage.Enter += customerDetailTabControlCustomerLeadTabPage_Enter;
             customerDetailTabControlCustomerLeadTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerLeadTabPageDataGridView_CellContentClick;
+            customerDetailTabControlCustomerNoteTabPage.Enter += customerDetailTabControlCustomerNoteTabPage_Enter;
             customerDetailTabControlCustomerNoteTabPageDataGridView.CellContentClick += customerDetailTabControlCustomerNoteTabPageDataGridView_CellContentClick;
             customerDetailTabControlFinanceTabPageCreditEnabledCheckBox.CheckedChanged += customerDetailTabControlFinanceTabPageCreditEnabledCheckBox_CheckedChanged;
             customerDetailTabControlFinanceTabPageCreditLimitTextBoxA.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
@@ -101,11 +107,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelGlobalParentRadioButton.CheckedChanged += customerDetailTabControlOverviewTabPageRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyPanelYesRadioButton.CheckedChanged += customerDetailTabControlOverviewTabPageRadioButtonValidation_CheckedChanged;
             customerDetailTabControlOverviewTabPageWillBeParentRadioButtonPanelTopParentRadioButton.CheckedChanged += customerDetailTabControlOverviewTabPageRadioButtonValidation_CheckedChanged;
-            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
-            
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextBox, customerDetailTabControlCustomerContactTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextBox, customerDetailTabControlCustomerLeadTabPageDataGridView);
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextBox, customerDetailTabControlCustomerNoteTabPageDataGridView);
+            customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;           
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerContactTabPageQuickFilterTextBox, customerDetailTabControlCustomerContactTabPageDataGridView));
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerLeadTabPageQuickFilterTextBox, customerDetailTabControlCustomerLeadTabPageDataGridView));
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(customerDetailTabControlCustomerNoteTabPageQuickFilterTextBox, customerDetailTabControlCustomerNoteTabPageDataGridView));
         }
 
         private async void CustomerDetailCustomerInformation_Load(object sender, EventArgs e)
@@ -434,19 +439,12 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async void customerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        private async void customerDetailTabControlCustomerContactTabPage_Enter(object? sender, EventArgs e)
         {
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerContactTabPage"])
+            if (!_customerContactsLoaded)
             {
-                await CustomerDetailExistingCustomerContact_Load(sender, e);
-            }
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerLeadTabPage"])
-            {
-                await CustomerDetailExistingCustomerLead_Load(sender, e);
-            }
-            if (customerDetailTabControl.SelectedTab == customerDetailTabControl.TabPages["customerDetailTabControlCustomerNoteTabPage"])
-            {
-                await CustomerDetailExistingCustomerNote_Load(sender, e);
+                await CustomerDetailExistingCustomerContact_Load(this, EventArgs.Empty);
+                _customerContactsLoaded = true;
             }
         }
 
@@ -474,6 +472,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             await CustomerDetailExistingCustomerContact_Load(sender, e);
         }
 
+        private async void customerDetailTabControlCustomerLeadTabPage_Enter(object? sender, EventArgs e)
+        {
+            if (!_customerLeadsLoaded)
+            {
+                await CustomerDetailExistingCustomerLead_Load(this, EventArgs.Empty);
+                _customerLeadsLoaded = true;
+            }
+        }
+
         private void customerDetailTabControlCustomerLeadTabPageCreateNewCustomerLeadButton_Click(object sender, EventArgs e)
         {
             CreateCustomerLead createCustomerLead = new CreateCustomerLead(_customerId, customerDisplayName);
@@ -496,6 +503,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private async void customerDetailTabControlCustomerLeadTabPageRefreshDataButton_Click(object sender, EventArgs e)
         {
             await CustomerDetailExistingCustomerLead_Load(sender, e);
+        }
+
+        private async void customerDetailTabControlCustomerNoteTabPage_Enter(object? sender, EventArgs e)
+        {
+            if (!_customerNotesLoaded)
+            {
+                await CustomerDetailExistingCustomerNote_Load(this, EventArgs.Empty);
+                _customerNotesLoaded = true;
+            }
         }
 
         private void customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton_Click(object sender, EventArgs e)

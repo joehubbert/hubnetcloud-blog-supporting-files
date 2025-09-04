@@ -7,8 +7,9 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
     public partial class AccountManagerDetail : Form
     {
         private readonly Guid _accountManagerId;
+        private bool _associatedCustomersLoaded = false;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
-        private DataGridViewQuickSearchHelper? _dataGridViewQuickSearchHelper;
+        private List<DataGridViewQuickSearchHelper> _dataGridViewQuickSearchHelpers;
         private DatabaseConnectionSettings? _databaseConnectionSettings; 
         private bool? accountManagerInformationActiveStatusOriginalValue;
         private Guid? accountManagerInformationCompanyConfigurationIdOriginalValue;
@@ -21,28 +22,40 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         public AccountManagerDetail(Guid accountManagerId)
         {
             InitializeComponent();
+            _dataGridViewQuickSearchHelpers = new List<DataGridViewQuickSearchHelper>();
             InitializeEventHandlers();
             _accountManagerId = accountManagerId;
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        protected override async void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            await LoadDatabaseConnectionSettingsAsync();
+            AccountManagerDetailAccountManagerInformation_Load(this, EventArgs.Empty);
         }
 
         private void InitializeEventHandlers()
         {
             accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.DropDown += ResizeComboBoxDropDownHelper.ComboBoxDropDownResizeHandler;
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView.CellContentClick += accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick;
-            accountManagerDetailTabControl.SelectedIndexChanged += AccountManagerDetailTabControl_SelectedIndexChanged;
-            _dataGridViewQuickSearchHelper = new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView);
+            _dataGridViewQuickSearchHelpers.Add(new DataGridViewQuickSearchHelper(accountManagerDetailTabControlAssociatedCustomersTabPageQuickFilterTextBox, accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView));
         }
 
-        private async Task LoadDatabaseConnectionSettingsAsync()
+        private async Task AccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
         {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
-        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
-        {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
-            await _dataAccessComboBoxHelper.LoadDataAsync();
+            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
+                _databaseConnectionSettings,
+                _accountManagerId,
+                "accountManagerId",
+                "spGetAssociatedCustomerToAccountManager",
+                "Associated Customers to Account Manager",
+                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
+                "Customer Id",
+                "View Customer",
+                "ASC",
+                "Company Tier"
+            );
         }
 
         private async void AccountManagerDetailAccountManagerInformation_Load(object sender, EventArgs e)
@@ -104,28 +117,24 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void AccountManagerDetailTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            if (accountManagerDetailTabControl.SelectedTab == accountManagerDetailTabControl.TabPages["associatedCustomers"])
-            {
-                await AccountManagerDetailAssociatedCustomer_Load();
-            }
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private async Task AccountManagerDetailAssociatedCustomer_Load()
+        private async Task LoadDatabaseConnectionSettingsAsync()
         {
-            await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
-                _accountManagerId,
-                "accountManagerId",
-                "spGetAssociatedCustomerToAccountManager",
-                "Associated Customers to Account Manager",
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
-                "Customer Id",
-                "View Customer",
-                "ASC",
-                "Company Tier"
-            );
+            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async void accountManagerDetailTabControlAssociatedCustomersTabPage_Enter(object? sender, EventArgs e)
+        {
+            if (!_associatedCustomersLoaded)
+            {
+                await AccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
+                _associatedCustomersLoaded = true;
+            }
         }
 
         private void accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView_CellContentClick(object? sender, DataGridViewCellEventArgs e)
@@ -139,6 +148,22 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 var customerDetail = new CustomerDetail(id);
                 customerDetail.Show();
             });
+        }
+
+        private async void accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton_Click(object sender, EventArgs e)
+        {
+            await AccountManagerDetailAssociatedCustomer_Load(this, EventArgs.Empty);
+        }
+
+        private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
+        {
+            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly;
+            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled;
+            accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled;
+            accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
         }
 
         private async void accountManagerDetailUpdateAccountManagerButton_Click(object sender, EventArgs e)
@@ -322,27 +347,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
         }
 
-        private async void accountManagerDetailTabControlAssociatedCustomersTabPageRefreshDataButton_Click(object sender, EventArgs e)
-        {
-            await AccountManagerDetailAssociatedCustomer_Load();
-        }
 
-        protected override async void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            await LoadDatabaseConnectionSettingsAsync();
-            AccountManagerDetailAccountManagerInformation_Load(this, EventArgs.Empty);
-        }
 
-        private void accountManagerDetailToggleEditModeButton_Click(object? sender, EventArgs e)
-        {
-            accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageFirstNameTextBox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageLastNameTextBox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly = !accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.ReadOnly;
-            accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageActiveStatusCheckBox.Enabled;
-            accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled = !accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox.Enabled;
-            accountManagerDetailUpdateAccountManagerButton.Enabled = !accountManagerDetailUpdateAccountManagerButton.Enabled;
-        }
+
+
+
     }
 }

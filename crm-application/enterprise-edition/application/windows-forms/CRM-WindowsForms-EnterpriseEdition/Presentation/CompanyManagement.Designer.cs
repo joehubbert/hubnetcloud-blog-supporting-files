@@ -130,12 +130,12 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageViewAllProductFamilyButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageCreateProductFamilyButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage = new TabPage();
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton = new Button();
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageCreateProductNoteTypeButton = new Button();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage = new TabPage();
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton = new Button();
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton = new Button();
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPage = new TabPage();
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl = new TabControl();
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage = new TabPage();
@@ -211,8 +211,8 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.SuspendLayout();
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.SuspendLayout();
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPage.SuspendLayout();
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.SuspendLayout();
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.SuspendLayout();
@@ -1447,9 +1447,9 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.BackColor = Color.SkyBlue;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageViewAllProductFamilyButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageCreateProductFamilyButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Size = new Size(1175, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Size = new Size(1175, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.TabIndex = 3;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.Text = "Product Family";
             // 
@@ -1479,51 +1479,14 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageCreateProductFamilyButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageCreateProductFamilyButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPageCreateProductFamilyButton_Click;
             // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.BackColor = Color.SkyBlue;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Location = new Point(4, 32);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Size = new Size(1175, 636);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.TabIndex = 1;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Text = "Product Sub Category";
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Location = new Point(193, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Size = new Size(170, 52);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.TabIndex = 23;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Text = "View All Product Sub Categories";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton_Click;
-            // 
-            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton
-            // 
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.FlatStyle = FlatStyle.Flat;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Font = new Font("Segoe UI", 11F);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Location = new Point(15, 15);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Margin = new Padding(4);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Size = new Size(170, 52);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.TabIndex = 22;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Text = "Create Product Sub Category";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.UseVisualStyleBackColor = true;
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton_Click;
-            // 
             // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage
             // 
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.BackColor = Color.SkyBlue;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageCreateProductNoteTypeButton);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Location = new Point(4, 32);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Location = new Point(4, 27);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage";
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Size = new Size(1175, 636);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Size = new Size(1175, 641);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.TabIndex = 2;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.Text = "Product Note Type";
             // 
@@ -1552,6 +1515,43 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton.Text = "View All Product Note Types";
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton.UseVisualStyleBackColor = true;
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPageViewAllProductNoteTypeButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.BackColor = Color.SkyBlue;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Controls.Add(companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Location = new Point(4, 27);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage";
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Size = new Size(1175, 641);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.TabIndex = 1;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.Text = "Product Sub Category";
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Location = new Point(193, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.TabIndex = 23;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Text = "View All Product Sub Categories";
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageViewAllProductSubCategoryButton_Click;
+            // 
+            // companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton
+            // 
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.FlatStyle = FlatStyle.Flat;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Font = new Font("Segoe UI", 11F);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Location = new Point(15, 15);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Margin = new Padding(4);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Name = "companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton";
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Size = new Size(170, 52);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.TabIndex = 22;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Text = "Create Product Sub Category";
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.UseVisualStyleBackColor = true;
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton.Click += companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPageCreateProductSubCategoryButton_Click;
             // 
             // companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPage
             // 
@@ -1951,8 +1951,8 @@
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControl.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductCategoryTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductFamilyTabPage.ResumeLayout(false);
-            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductNoteTypeTabPage.ResumeLayout(false);
+            companyManagementTabControlMasterDataManagementTabPageTabControlProductTabPageTabControlProductSubCategoryTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPage.ResumeLayout(false);
             companyManagementTabControlMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControl.ResumeLayout(false);
             companyManagementTabControMasterDataManagementTabPagelTabControlSalesGeographyTabPageTabControlSalesRegionTabPage.ResumeLayout(false);

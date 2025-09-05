@@ -61,13 +61,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadCountryDataAsync(Guid countryId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox,
+                "spGetAllCountry",
+                null,
+                true, 
+                "Country Id",
+                countryId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox,
+                "spGetAllCurrency",
+                null,
+                true,
+                "Currency Id",
+                currencyId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

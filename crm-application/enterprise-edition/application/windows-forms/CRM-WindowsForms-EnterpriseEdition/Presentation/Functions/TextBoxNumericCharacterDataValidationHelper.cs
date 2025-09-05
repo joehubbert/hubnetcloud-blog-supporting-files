@@ -2,12 +2,14 @@
 {
     internal class TextBoxNumericCharacterDataValidationHelper
     {
-        private readonly TranslationService _translationService;
+        private TranslationService _translationService;
         private string activeRegionLanguageCode;
-        private string errorText = "Only numeric characters allowed.";
+        private string errorText = "Only numeric characters allowed";
 
         private async Task UpdateActiveRegionLanguageCodeAndErrorText()
         {
+            _translationService = new TranslationService();
+
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
             if (activeRegionLanguageCode != "en-GB")
             {
@@ -17,6 +19,8 @@
 
         public async Task NumericKeyPressHandlerAsync(object? sender, KeyPressEventArgs e)
         {
+            _translationService = new TranslationService();
+
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
             if (activeRegionLanguageCode != "en-GB")
             {

@@ -9,7 +9,7 @@ INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUE
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('EUR', 'Euro', 1)
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('GBP', 'Pound Sterling', 1)
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('DKK', 'Danish Kroner', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('SKK', 'Swedish Kroner', 1)
+INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('SEK', 'Swedish Kroner', 1)
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('NOK', 'Norwegian Kroner', 1)
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('CAD', 'Canadian Dollar', 1)
 INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('AUD', 'Australian Dollar', 1)

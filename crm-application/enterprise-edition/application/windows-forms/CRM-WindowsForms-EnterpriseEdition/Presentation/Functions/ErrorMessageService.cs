@@ -36,9 +36,6 @@
                 case "Error.CurrencyConversion.BaseCurrencyTargetCurrencyDifference":
                     CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError();
                     break;
-                case "Error.CurrencyConversion.EffectiveDateValidation":
-                    CurrencyConversionEffectiveDateValidationError();
-                    break;
                 case "Error.CurrencyConversion.MissingValues":
                     CurrencyConversionMissingValuesError();
                     break;
@@ -122,6 +119,9 @@
                     break;
                 case "Warning.DataValidation.Dynamic":
                     DataValidationDynamicWarning(dataSubject ?? "unknown");
+                    break;
+                case "Warning.DataValidation.EffectiveDateValidation":
+                    DataValidationEffectiveDateValidationWarning();
                     break;
                 case "Warning.DataValidation.Selection":
                     DataValidationSelectionWarning(dataSubject ?? "unknown");
@@ -214,17 +214,6 @@
         private void CurrencyConversionBaseCurrencyTargetCurrencyDifferenceError()
         {
             string messageText = "Base Currency and Target Currency must be different.";
-            string messageTitle = globalValidationMessageTitle;
-            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            if (loggingEnabled)
-            {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
-            }
-        }
-
-        private void CurrencyConversionEffectiveDateValidationError()
-        {
-            string messageText = "Expiry Date must be after Effective Date.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
@@ -326,6 +315,17 @@
             string messageText = $"{dataSubject}.";
             string messageTitle = globalValidationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void DataValidationEffectiveDateValidationWarning()
+        {
+            string messageText = "Expiry Date must be after Effective Date.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);

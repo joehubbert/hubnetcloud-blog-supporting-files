@@ -78,7 +78,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                     currencyConversionDetailCurrencyConversionIdTextBox.Text = currencyConversionDataRow["Currency Conversion Id"].ToString();
                     Guid baseCurrencyId = (Guid)currencyConversionDataRow["Base Currency Id"];
                     await LoadCurrencyDataAsync("base", baseCurrencyId);
-                    currencyConversionDetailBaseCurrencyValueTextBox.Text = currencyConversionDataRow["Base Currency Conversion Rate]"].ToString();
+                    currencyConversionDetailBaseCurrencyValueTextBox.Text = currencyConversionDataRow["Base Currency Conversion Rate"].ToString();
                     currencyConversionDetailEffectiveDatePicker.Value = (DateTime)currencyConversionDataRow["Effective Date"];
                     if (currencyConversionDataRow["Expiry Date"] != DBNull.Value)
                     {
@@ -129,7 +129,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailCompanyConfigurationComboBox,
+                "spGetAllCompanyConfiguration",
+                null,
+                true,
+                "Company Configuration Id",
+                companyConfigurationId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -138,11 +148,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             switch (currencyDirection)
             {
                 case "base":
-                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailBaseCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailBaseCurrencyComboBox,
+                        "spGetAllCurrency",
+                        null,
+                        true,
+                        "Currency Id",
+                        currencyId,
+                        false,
+                        null,
+                        null,
+                        null,
+                        true);
                     await _dataAccessComboBoxHelper.LoadDataAsync();
                     break;
                 case "target":
-                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailTargetCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailTargetCurrencyComboBox,
+                        "spGetAllCurrency",
+                        null,
+                        true,
+                        "Currency Id",
+                        currencyId,
+                        false,
+                        null,
+                        null,
+                        null,
+                        true);
                     await _dataAccessComboBoxHelper.LoadDataAsync();
                     break;
                 default:
@@ -208,11 +238,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             if (currencyConversionDetailAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
             {
                 expiryDate = currencyConversionDetailExpiryDatePicker.Value.Date;
+                DateComparisonHelper.ValidateEffectiveAndExpiryDates(currencyConversionDetailEffectiveDatePicker, currencyConversionDetailExpiryDatePicker);
                 if (expiryDate <= effectiveDate)
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.CurrencyConversion.EffectiveDateValidation");
+                    // Prevent further processing if invalid
                     return;
                 }
+            }
+            if (currencyConversionDetailAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
+            {
+                expiryDate = currencyConversionDetailExpiryDatePicker.Value.Date;
             }
 
             if (!decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(currencyConversionDetailBaseCurrencyValueTextBox), out decimal baseCurrencyConversionRate))
@@ -228,7 +263,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            decimal targetCurrencyConversionRate = targetA + (targetB / 100);
+            string targetBText = TextBoxCleanerHelper.GetTrimmedText(currencyConversionDetailTargetCurrencyValueTextBoxB);
+            decimal targetCurrencyConversionRate;
+            if (!string.IsNullOrEmpty(targetBText))
+            {
+                int digits = targetBText.Length;
+                decimal divisor = (decimal)Math.Pow(10, digits);
+                targetCurrencyConversionRate = targetA + (targetB / divisor);
+            }
+            else
+            {
+                targetCurrencyConversionRate = targetA;
+            }
             Guid targetCurrencyId = (Guid)currencyConversionDetailTargetCurrencyComboBox.SelectedValue;
 
             string dataSubject = "Currency Conversion";

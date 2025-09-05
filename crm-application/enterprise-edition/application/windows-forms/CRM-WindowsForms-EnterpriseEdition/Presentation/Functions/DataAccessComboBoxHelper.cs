@@ -16,6 +16,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private string _storedProcedureName;
         private StoredProcedureParameter[]? _storedProcedureParameter;
+        private bool _treatFiltersAsPreselection;
 
         public DataAccessComboBoxHelper(
             ComboBox comboBox,
@@ -27,7 +28,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             bool? dataSubjectFilter2 = false,
             string? dataSubjectFilterColumn2 = null,
             Guid? dataSubjectId2 = null,
-            StoredProcedureParameter[]? storedProcedureParameter = null)
+            StoredProcedureParameter[]? storedProcedureParameter = null,
+            bool treatFiltersAsPreselection = false)
         {
             _comboBox = comboBox;
             if (companyConfigurationId.HasValue && companyConfigurationId.Value != Guid.Empty)
@@ -57,6 +59,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             {
                 _storedProcedureParameter = storedProcedureParameter;
             }
+            _treatFiltersAsPreselection = treatFiltersAsPreselection;
             LoadDatabaseConnectionSettingsAsync();
         }
 
@@ -190,7 +193,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
             try
             {
-                DataTable? dataTable = null;
+                DataTable? dataTable;
 
                 if (_storedProcedureParameter != null)
                 {
@@ -201,27 +204,26 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, dataSubject);
                 }
 
-                // Defensive: Ensure idColumnName exists in the table
+                if (dataTable == null || dataTable.Rows.Count == 0)
+                {
+                    if (_companyConfigurationId != null)
+                    {
+                        _ = new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specific", dataSubject);
+                        return;
+                    }
+                    else
+                    {
+                        _ = new ErrorMessageService("Information.NoDataFound", dataSubject);
+                        return;
+                    }
+                }
+
                 if (!string.IsNullOrWhiteSpace(idColumnName) && !dataTable.Columns.Contains(idColumnName))
                 {
                     throw new Exception($"Column '{idColumnName}' does not exist in the result set.");
                 }
 
-                if (dataTable == null || dataTable.Rows.Count == 0)
-                {
-                    if (_companyConfigurationId != null)
-                    {
-                        new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specific", dataSubject);
-                        return;
-                    }
-                    else
-                    {
-                        new ErrorMessageService("Information.NoDataFound", dataSubject);
-                        return;
-                    }
-                }
-
-                var dataListQuery = dataTable.AsEnumerable()
+                var allItems = dataTable.AsEnumerable()
                     .Select(row =>
                     {
                         var item = new ComboBoxItem();
@@ -229,9 +231,11 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         {
                             item.Columns[col.ColumnName] = row[col];
                         }
+
                         item.Id = (!string.IsNullOrWhiteSpace(idColumnName) && dataTable.Columns.Contains(idColumnName))
                             ? row.Field<Guid>(idColumnName)
                             : Guid.Empty;
+
                         item.DisplayText = _storedProcedureName switch
                         {
                             "spGetAllAccountManager" => $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}",
@@ -263,126 +267,127 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                         };
                         return item;
                     })
-                    .OrderBy(item => item.DisplayText)
+                    .OrderBy(i => i.DisplayText)
                     .ToList();
 
-                // Filtering logic
-                var filteredQuery = dataListQuery;
-
-                // Filter by Company Configuration Id only
-                if (_companyConfigurationId != null && (_dataSubjectFilter1 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn1) || _dataSubjectId1 == null) &&
-                    (_dataSubjectFilter2 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn2) || _dataSubjectId2 == null))
+                // Always restrict dataset first if a Company Configuration Id is provided
+                if (_companyConfigurationId.HasValue)
                 {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null && row.Table.Columns.Contains("Company Configuration Id") &&
-                               row.Field<Guid>("Company Configuration Id") == _companyConfigurationId;
-                    }).OrderBy(item => item.DisplayText).ToList();
+                    allItems = allItems
+                        .Where(ci => TryGetGuid(ci, "Company Configuration Id", out var g) && g == _companyConfigurationId.Value)
+                        .OrderBy(i => i.DisplayText)
+                        .ToList();
                 }
 
-                // Filter by Data Subject 1 only
-                if (_dataSubjectFilter1 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn1) && _dataSubjectId1 != null &&
-                    (_companyConfigurationId == null) && (_dataSubjectFilter2 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn2) || _dataSubjectId2 == null))
+                List<ComboBoxItem> finalList;
+                Guid? preselectId = null;
+
+                if (_treatFiltersAsPreselection)
                 {
-                    filteredQuery = filteredQuery.Where(item =>
+                    // Determine preselect from filters (priority: DataSubject1 then DataSubject2 then CompanyConfiguration)
+                    if (_dataSubjectFilter1 == true &&
+                        !string.IsNullOrWhiteSpace(_dataSubjectFilterColumn1) &&
+                        _dataSubjectId1.HasValue)
                     {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null && row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1;
-                    }).OrderBy(item => item.DisplayText).ToList();
+                        preselectId = FindMatchingItemId(allItems, _dataSubjectFilterColumn1, _dataSubjectId1.Value);
+                    }
+                    else if (_dataSubjectFilter2 == true &&
+                             !string.IsNullOrWhiteSpace(_dataSubjectFilterColumn2) &&
+                             _dataSubjectId2.HasValue)
+                    {
+                        preselectId = FindMatchingItemId(allItems, _dataSubjectFilterColumn2, _dataSubjectId2.Value);
+                    }
+                    else if (_companyConfigurationId.HasValue)
+                    {
+                        preselectId = FindMatchingItemId(allItems, "Company Configuration Id", _companyConfigurationId.Value);
+                    }
+
+                    finalList = allItems;
+                }
+                else
+                {
+                    // Apply remaining restrictive filters (Company Configuration already applied)
+                    IEnumerable<ComboBoxItem> filtered = allItems;
+
+                    if (_dataSubjectFilter1 == true &&
+                        !string.IsNullOrWhiteSpace(_dataSubjectFilterColumn1) &&
+                        _dataSubjectId1.HasValue)
+                    {
+                        filtered = filtered.Where(ci =>
+                            TryGetGuid(ci, _dataSubjectFilterColumn1, out var g) && g == _dataSubjectId1.Value);
+                    }
+
+                    if (_dataSubjectFilter2 == true &&
+                        !string.IsNullOrWhiteSpace(_dataSubjectFilterColumn2) &&
+                        _dataSubjectId2.HasValue)
+                    {
+                        filtered = filtered.Where(ci =>
+                            TryGetGuid(ci, _dataSubjectFilterColumn2, out var g) && g == _dataSubjectId2.Value);
+                    }
+
+                    finalList = filtered.OrderBy(i => i.DisplayText).ToList();
                 }
 
-                // Filter by Data Subject 2 only
-                if (_dataSubjectFilter2 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn2) && _dataSubjectId2 != null &&
-                    (_companyConfigurationId == null) && (_dataSubjectFilter1 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn1) || _dataSubjectId1 == null))
+                if (finalList.Count == 0)
                 {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null && row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText).ToList();
+                    _ = new ErrorMessageService("Information.NoDataFound", dataSubject);
                 }
-
-                // Filter by both Data Subject 1 and Data Subject 2
-                if (_dataSubjectFilter1 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn1) && _dataSubjectId1 != null &&
-                    _dataSubjectFilter2 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn2) && _dataSubjectId2 != null &&
-                    _companyConfigurationId == null)
-                {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1 &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText).ToList();
-                }
-
-                // Filter by both Company Configuration Id and Data Subject 1
-                if (_companyConfigurationId != null && _dataSubjectFilter1 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn1) && _dataSubjectId1 != null &&
-                    (_dataSubjectFilter2 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn2) || _dataSubjectId2 == null))
-                {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null &&
-                               row.Table.Columns.Contains("Company Configuration Id") &&
-                               row.Field<Guid>("Company Configuration Id") == _companyConfigurationId &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1;
-                    }).OrderBy(item => item.DisplayText).ToList();
-                }
-
-                // Filter by both Company Configuration Id and Data Subject 2
-                if (_companyConfigurationId != null && _dataSubjectFilter2 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn2) && _dataSubjectId2 != null &&
-                    (_dataSubjectFilter1 != true || string.IsNullOrEmpty(_dataSubjectFilterColumn1) || _dataSubjectId1 == null))
-                {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null &&
-                               row.Table.Columns.Contains("Company Configuration Id") &&
-                               row.Field<Guid>("Company Configuration Id") == _companyConfigurationId &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText).ToList();
-                }
-
-                // Filter by Company Configuration Id, Data Subject 1 and Data Subject 2
-                if (_companyConfigurationId != null &&
-                    _dataSubjectFilter1 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn1) && _dataSubjectId1 != null &&
-                    _dataSubjectFilter2 == true && !string.IsNullOrEmpty(_dataSubjectFilterColumn2) && _dataSubjectId2 != null)
-                {
-                    filteredQuery = filteredQuery.Where(item =>
-                    {
-                        var row = dataTable.AsEnumerable().FirstOrDefault(r => r.Field<Guid>(idColumnName) == item.Id);
-                        return row != null &&
-                               row.Table.Columns.Contains("Company Configuration Id") &&
-                               row.Field<Guid>("Company Configuration Id") == _companyConfigurationId &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn1) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn1) == _dataSubjectId1 &&
-                               row.Table.Columns.Contains(_dataSubjectFilterColumn2) &&
-                               row.Field<Guid>(_dataSubjectFilterColumn2) == _dataSubjectId2;
-                    }).OrderBy(item => item.DisplayText).ToList();
-                }
-
-                var finalList = filteredQuery;
 
                 _comboBox.DataSource = finalList;
                 _comboBox.DisplayMember = "DisplayText";
                 _comboBox.ValueMember = "Id";
-                if (finalList.Count > 0)
+
+                if (_treatFiltersAsPreselection && preselectId.HasValue)
+                {
+                    _comboBox.SelectedValue = preselectId.Value;
+                    if (_comboBox.SelectedValue == null || !_comboBox.SelectedValue.Equals(preselectId.Value))
+                    {
+                        int idx = finalList.FindIndex(i => i.Id == preselectId.Value);
+                        if (idx >= 0) _comboBox.SelectedIndex = idx;
+                    }
+                }
+                else if (finalList.Count > 0)
                 {
                     _comboBox.SelectedIndex = 0;
                 }
             }
             catch (Exception ex)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+                _ = new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
             }
+        }
+
+        private Guid? FindMatchingItemId(List<ComboBoxItem> items, string columnName, Guid match)
+        {
+            foreach (var item in items)
+            {
+                if (TryGetGuid(item, columnName, out var g) && g == match)
+                {
+                    return item.Id; // Use the item's Id as the selection
+                }
+            }
+            return null;
+        }
+
+        private static bool TryGetGuid(ComboBoxItem item, string columnName, out Guid value)
+        {
+            value = Guid.Empty;
+            if (!item.Columns.TryGetValue(columnName, out var raw) || raw == null || raw == DBNull.Value)
+                return false;
+
+            if (raw is Guid g)
+            {
+                value = g;
+                return true;
+            }
+
+            if (raw is string s && Guid.TryParse(s, out g))
+            {
+                value = g;
+                return true;
+            }
+
+            return false;
         }
     }
 }

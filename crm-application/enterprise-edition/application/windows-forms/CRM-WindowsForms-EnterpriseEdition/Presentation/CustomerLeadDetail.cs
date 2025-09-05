@@ -197,11 +197,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (customerContactId != null)
             {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, true, "Customer Contact Id", customerContactId, false, null, null, parameters);
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox,
+                    "spGetAllCustomerContactForCustomer",
+                    null,
+                    true,
+                    "Customer Contact Id",
+                    customerContactId,
+                    false,
+                    null,
+                    null,
+                    parameters,
+                    true);
             }
             else
             {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox,
+                    "spGetAllCustomerContactForCustomer",
+                    null,
+                    false,
+                    null,
+                    null,
+                    false,
+                    null,
+                    null,
+                    parameters,
+                    false);
             }
 
             await _dataAccessComboBoxHelper.LoadDataAsync();
@@ -209,13 +229,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox, "spGetAllCustomerLeadType", null, true, "Customer Lead Type Id", customerLeadTypeId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox,
+                "spGetAllCustomerLeadType",
+                null,
+                true,
+                "Customer Lead Type Id",
+                customerLeadTypeId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadMarketingChannelAsync(Guid marketingChannelId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel", null, true, "Marketing Channel Id", marketingChannelId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox,
+                "spGetAllMarketingChannel",
+                null,
+                true,
+                "Marketing Channel Id",
+                marketingChannelId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

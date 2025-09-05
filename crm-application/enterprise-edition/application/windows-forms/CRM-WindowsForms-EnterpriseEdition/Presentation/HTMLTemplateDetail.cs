@@ -108,7 +108,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType", null, true, "HTML Template Type Id", htmlTemplateTypeId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox,
+                "spGetAllHTMLTemplateType",
+                null,
+                true,
+                "HTML Template Type Id",
+                htmlTemplateTypeId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

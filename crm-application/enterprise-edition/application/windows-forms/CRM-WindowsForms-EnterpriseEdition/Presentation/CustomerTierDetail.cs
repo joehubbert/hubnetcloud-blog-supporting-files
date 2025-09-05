@@ -92,8 +92,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
 		private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
 		{
-			_dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
-			await _dataAccessComboBoxHelper.LoadDataAsync();
+			_dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox,
+                "spGetAllCompanyConfiguration",
+                null,
+                true,
+                "Company Configuration Id",
+                companyConfigurationId,
+                false,
+                null,
+                null,
+                null,
+                true);
+            await _dataAccessComboBoxHelper.LoadDataAsync();
 		}
 
 		private async Task LoadDatabaseConnectionSettingsAsync()

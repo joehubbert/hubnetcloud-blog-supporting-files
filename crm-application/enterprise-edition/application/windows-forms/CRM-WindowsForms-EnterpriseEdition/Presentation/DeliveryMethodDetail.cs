@@ -111,7 +111,16 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadTaxProfileAsync(Guid taxProfileId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox, "spGetAllTaxProfile", null, true, "Tax Profile Id", taxProfileId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox,
+                "spGetAllTaxProfile",
+                null,
+                true,
+                "Tax Profile Id",taxProfileId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

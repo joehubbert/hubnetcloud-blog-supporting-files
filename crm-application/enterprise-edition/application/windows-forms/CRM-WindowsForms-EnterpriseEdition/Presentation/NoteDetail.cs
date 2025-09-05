@@ -1,6 +1,7 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
+using System.Diagnostics;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
@@ -64,7 +65,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadNoteTypeAsync(Guid noteTypeId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(noteDetailNoteTypeComboBox, noteDetailNoteTypeGetStoredProcedureName, null, true, "Note Type Id", noteTypeId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(noteDetailNoteTypeComboBox, 
+                noteDetailNoteTypeGetStoredProcedureName,
+                null,
+                true,
+                noteDetailNoteTypeIdFriendlyName,
+                noteTypeId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -80,7 +91,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             {
                 new StoredProcedureParameter
                 {
-                    ParameterName = $"@{noteDetailNoteStoredProcedureParameterPrefix}Id",
+                    ParameterName = $"{noteDetailNoteStoredProcedureParameterPrefix}Id",
                     ParameterValue = _noteId
                 }
             };

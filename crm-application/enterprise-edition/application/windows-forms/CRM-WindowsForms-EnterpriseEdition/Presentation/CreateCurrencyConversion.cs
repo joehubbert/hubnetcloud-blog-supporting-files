@@ -1,11 +1,13 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
 using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
 using System.Data;
+using System.Diagnostics;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
     public partial class CreateCurrencyConversion : Form
     {
+        private Guid _companyConfigurationCurrencyId;
         private Guid _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
@@ -19,7 +21,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             InitializeEventHandlers();
             LoadDatabaseConnectionSettingsAsync();
             LoadActiveCompanyConfigurationAsync();
-            LoadCurrencyDataAsync();
         }
 
         private void InitializeEventHandlers()
@@ -37,11 +38,33 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createCurrencyConversionStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
+
+            var companyConfigurationDataTableHelper = new DataAccessLookupHelper(
+                "spGetAllCompanyConfiguration",
+                _companyConfigurationId);
+
+            var companyConfigurationDataTable = await companyConfigurationDataTableHelper.GetFilteredDataTableAsync();
+            if (companyConfigurationDataTable != null && companyConfigurationDataTable.Rows.Count > 0)
+            {
+                _companyConfigurationCurrencyId = companyConfigurationDataTable.Rows[0].Field<Guid>("Bank Account Currency Id");
+                Debug.WriteLine($"Loaded Company Configuration Currency Id: {_companyConfigurationCurrencyId}");
+            }
+
+            await LoadCurrencyDataAsync();
         }
 
-        private async void LoadCurrencyDataAsync()
+        private async Task LoadCurrencyDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionBaseCurrencyComboBox, "spGetAllCurrency");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionBaseCurrencyComboBox, "spGetAllCurrency", 
+                null,
+                true,
+                "Currency Id",
+                _companyConfigurationCurrencyId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
 
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionTargetCurrencyComboBox, "spGetAllCurrency");
@@ -97,15 +120,15 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             }
 
             Guid baseCurrencyId = (Guid)createCurrencyConversionBaseCurrencyComboBox.SelectedValue;
-
             DateTime effectiveDate = createCurrencyConversionEffectiveDatePicker.Value.Date;
             DateTime? expiryDate = null;
             if (createCurrencyConversionAddExpiryDateRadioButtonChoiceYesRadioButton.Checked)
             {
                 expiryDate = createCurrencyConversionExpiryDatePicker.Value.Date;
+                DateComparisonHelper.ValidateEffectiveAndExpiryDates(createCurrencyConversionEffectiveDatePicker, createCurrencyConversionExpiryDatePicker);
                 if (expiryDate <= effectiveDate)
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.CurrencyConversion.EffectiveDateValidation");
+                    // Prevent further processing if invalid
                     return;
                 }
             }
@@ -123,7 +146,18 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 return;
             }
 
-            decimal targetCurrencyConversionRate = targetA + (targetB / 100);
+            string targetBText = TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionTargetCurrencyValueTextBoxB);
+            decimal targetCurrencyConversionRate;
+            if (!string.IsNullOrEmpty(targetBText))
+            {
+                int digits = targetBText.Length;
+                decimal divisor = (decimal)Math.Pow(10, digits);
+                targetCurrencyConversionRate = targetA + (targetB / divisor);
+            }
+            else
+            {
+                targetCurrencyConversionRate = targetA;
+            }
             Guid targetCurrencyId = (Guid)createCurrencyConversionTargetCurrencyComboBox.SelectedValue;
 
             string dataSubject = "Currency Conversion";
@@ -256,7 +290,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 });
             }
 
-            string storedProcedureName = "spCreateCustomerTier";
+            string storedProcedureName = "spCreateCurrencyConversion";
             string operationType = "create";
 
             await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);

@@ -53,7 +53,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadDataParentSubjectAsync(Guid companyConfigurationId, Guid dataParentSubjectId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, companyConfigurationId, true, dataParentSubjectIdFriendlyName, dataParentSubjectId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailDataParentSubjectComboBox,
+                dataParentSubjectGetStoredProcedureName,
+                companyConfigurationId,
+                true,
+                dataParentSubjectIdFriendlyName,
+                dataParentSubjectId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

@@ -263,11 +263,31 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             switch (countryContext)
             {
                 case "FinancialInformation":
-                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox,
+                        "spGetAllCountry",
+                        null,
+                        true,
+                        "Country Id",
+                        countryId,
+                        false,
+                        null,
+                        null,
+                        null,
+                        true);
                     await _dataAccessComboBoxHelper.LoadDataAsync();
                     break;
                 case "GeneralInformation":
-                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox, "spGetAllCountry", null, true, "Country Id", countryId);
+                    _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox,
+                        "spGetAllCountry",
+                        null,
+                        true,
+                        "Country Id",
+                        countryId,
+                        false,
+                        null,
+                        null,
+                        null,
+                        true);
                     await _dataAccessComboBoxHelper.LoadDataAsync();
                     break;
                 default:
@@ -277,7 +297,17 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox, "spGetAllCurrency", null, true, "Currency Id", currencyId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox,
+                "spGetAllCurrency",
+                null,
+                true,
+                "Currency Id",
+                currencyId,
+                false,
+                null,
+                null,
+                null,
+                true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

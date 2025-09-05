@@ -266,6 +266,7 @@
             // manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox
             // 
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Enabled = false;
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.FormattingEnabled = true;
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Location = new Point(818, 210);
             manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox.Name = "manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox";

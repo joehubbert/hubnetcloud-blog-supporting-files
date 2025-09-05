@@ -5,7 +5,7 @@
         private ToolStripSplitButton _placeholderControl;
         private Guid _companyConfigurationId;
         private string _companyName;
-        private readonly TranslationService _translationService;
+        private TranslationService _translationService;
         private string activeRegionLanguageCode;
         public Guid CompanyConfigurationId => _companyConfigurationId;
 
@@ -21,6 +21,7 @@
 
         public async Task LoadAsync()
         {
+            _translationService = new TranslationService();
             GetActiveRegionLanguageCode();
 
             var companyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();

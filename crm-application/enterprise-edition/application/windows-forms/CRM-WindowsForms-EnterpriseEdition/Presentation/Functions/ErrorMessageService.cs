@@ -57,14 +57,14 @@
                 case "Error.Data.Retrieval":
                     DataRetrievalError(dataSubject ?? "unknown", errorType, exceptionMessage ?? "No exception message provided.");
                     break;
-                case "Error.DataValidation.InvalidValue":
+                case "Error.Data.Validation.InvalidValue":
                     DataValidationInvalidValueError(dataSubject ?? "unknown");
                     break;
-                case "Error.DataValidation.Selection":
+                case "Error.Data.Validation.Selection":
                     DataValidationSelectionError(dataSubject ?? "unknown");
                     break;
                 case "Error.Database.Connection.Failed":
-                    DatabaseConnectionFailedError(exceptionMessage ?? "No exception message provided.");
+                    DatabaseConnectionFailedError(dataSubject ?? "unknown", exceptionMessage ?? "No exception message provided.");
                     break;
                 case "Error.Database.Connection.SettingsNotLoaded":
                     DatabaseConnectionSettingsNotLoadedError();
@@ -365,9 +365,9 @@
             }
         }
 
-        private void DatabaseConnectionFailedError(string exceptionMessage)
+        private void DatabaseConnectionFailedError(string dataSubject, string exceptionMessage)
         {
-            string messageText = $"Database connection failed. {exceptionMessage}";
+            string messageText = $"Database connection failed - ({dataSubject}) {exceptionMessage}";
             string messageTitle = globalDatabaseConnectionMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)

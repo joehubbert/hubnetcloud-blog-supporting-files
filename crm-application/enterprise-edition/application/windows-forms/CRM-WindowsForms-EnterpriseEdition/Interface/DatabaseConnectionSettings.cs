@@ -10,11 +10,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
     {
         public string? ActiveDatabaseEngine { get; private set; }
 
-        // MSSQL
         public ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration? MSSQLConfig { get; private set; }
-        // MySQL
         public ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration? MySQLConfig { get; private set; }
-        // PostgreSQL
         public ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration? PostgreSQLConfig { get; private set; }
 
         public static async Task<DatabaseConnectionSettings> LoadAsync()

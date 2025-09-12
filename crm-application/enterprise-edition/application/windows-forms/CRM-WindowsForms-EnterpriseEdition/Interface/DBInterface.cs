@@ -175,5 +175,59 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
                 return new DataTable();
             }
         }
+
+        public static async Task<bool> TestConnectionAsync(string connectionString)
+        {
+            var dbSettings = await DatabaseConnectionSettings.LoadAsync();
+            string? engine = dbSettings.ActiveDatabaseEngine;
+
+            try
+            {
+                switch (engine)
+                {
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                    case "Microsoft SQL Server":
+                        var sqlBuilder = new SqlConnectionStringBuilder(connectionString)
+                        {
+                            ConnectTimeout = 1
+                        };
+                        using (var conn = new SqlConnection(sqlBuilder.ConnectionString))
+                        {
+                            await conn.OpenAsync();
+                            return conn.State == ConnectionState.Open;
+                        }
+                    case "Azure Database for MySQL":
+                    case "MySQL":
+                        var mysqlBuilder = new MySqlConnectionStringBuilder(connectionString)
+                        {
+                            ConnectionTimeout = 1
+                        };
+                        using (var conn = new MySqlConnection(mysqlBuilder.ConnectionString))
+                        {
+                            await conn.OpenAsync();
+                            return conn.State == ConnectionState.Open;
+                        }
+                    case "Azure Database for PostgreSQL":
+                    case "PostgreSQL":
+                        var npgsqlBuilder = new NpgsqlConnectionStringBuilder(connectionString)
+                        {
+                            Timeout = 1
+                        };
+                        using (var conn = new NpgsqlConnection(npgsqlBuilder.ConnectionString))
+                        {
+                            await conn.OpenAsync();
+                            return conn.State == ConnectionState.Open;
+                        }
+                    default:
+                        throw new NotSupportedException($"Database type '{engine}' is not supported.");
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"Connection test failed: {ex.Message}");
+                return false;
+            }
+        }
     }
 }

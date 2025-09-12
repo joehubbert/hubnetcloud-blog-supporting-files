@@ -77,11 +77,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
         public async Task LoadDataAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
             string dataSubject = string.Empty;
             string idColumnName = string.Empty;
 
@@ -189,6 +184,28 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     break;
                 default:
                     throw new ArgumentException("Invalid stored procedure name.");
+            }
+
+            if (_databaseConnectionSettings == null)
+            {
+                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            }
+
+            bool connectionAvailable = false;
+            try
+            {
+                connectionAvailable = await DBInterface.TestConnectionAsync(_databaseConnectionSettings.DatabaseConnectionString);
+            }
+            catch (Exception ex)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
+                return;
+            }
+
+            if (!connectionAvailable)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
+                return;
             }
 
             try

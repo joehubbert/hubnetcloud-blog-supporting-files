@@ -36,7 +36,23 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         {
             if (dbSettings == null)
             {
-                new ErrorMessageService("Error.Database.Connection.SettingsNotLoaded");
+                dbSettings = await DatabaseConnectionSettings.LoadAsync();
+            }
+
+            bool connectionAvailable = false;
+            try
+            {
+                connectionAvailable = await DBInterface.TestConnectionAsync(dbSettings.DatabaseConnectionString);
+            }
+            catch (Exception ex)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
+                return;
+            }
+
+            if (!connectionAvailable)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
                 return;
             }
 

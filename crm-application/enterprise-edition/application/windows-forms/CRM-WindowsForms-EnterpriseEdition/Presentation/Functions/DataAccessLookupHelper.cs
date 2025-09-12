@@ -16,6 +16,10 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
         private string _storedProcedureName;
         private StoredProcedureParameter[]? _storedProcedureParameter;
 
+        // Add properties to expose display and value member column names
+        public string DisplayMemberColumnName { get; private set; } = "Display Text";
+        public string ValueMemberColumnName { get; private set; } = "Id";
+
         public DataAccessLookupHelper(
             string storedProcedureName,
             Guid? companyConfigurationId = null,
@@ -54,7 +58,34 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             {
                 _storedProcedureParameter = storedProcedureParameter;
             }
+            
+            // Set display/value member based on stored procedure
+            SetColumnMappingsForStoredProcedure(storedProcedureName);
+            
             LoadDatabaseConnectionSettingsAsync();
+        }
+
+        private void SetColumnMappingsForStoredProcedure(string storedProcedureName)
+        {
+            switch (storedProcedureName)
+            {
+                case "spGetAllCompanyConfiguration":
+                    DisplayMemberColumnName = "Company Configuration Name";
+                    ValueMemberColumnName = "Company Configuration Id";
+                    break;
+                case "spGetAllCurrency":
+                    DisplayMemberColumnName = "Currency Name";
+                    ValueMemberColumnName = "Currency Id";
+                    break;
+                case "spGetAllWholesaleDeliveryType":
+                    DisplayMemberColumnName = "Wholesale Delivery Type";
+                    ValueMemberColumnName = "Wholesale Delivery Type Id";
+                    break;
+                default:
+                    DisplayMemberColumnName = "Display Text";
+                    ValueMemberColumnName = "Id";
+                    break;
+            }
         }
 
         private async void LoadDatabaseConnectionSettingsAsync()
@@ -64,11 +95,6 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
 
         public async Task<DataTable?> GetFilteredDataTableAsync()
         {
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
             string dataSubject = string.Empty;
             string idColumnName = string.Empty;
 
@@ -82,8 +108,32 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
                     dataSubject = "Currency";
                     idColumnName = "Currency Id";
                     break;
+                case "spGetAllWholesaleDeliveryType":
+                    dataSubject = "Wholesale Delivery Type";
+                    idColumnName = "Wholesale Delivery Type Id";
+                    break;
                 default:
                     throw new ArgumentException("Invalid stored procedure name.");
+            }
+
+            if (_databaseConnectionSettings == null)
+            {
+                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            }
+
+            bool connectionAvailable = false;
+            try
+            {
+                connectionAvailable = await DBInterface.TestConnectionAsync(_databaseConnectionSettings.DatabaseConnectionString);
+            }
+            catch (Exception ex)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
+            }
+
+            if (!connectionAvailable)
+            {
+                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
             }
 
             DataTable? dataTable = null;
@@ -99,6 +149,19 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation.Functions
             if (dataTable == null || dataTable.Rows.Count == 0)
             {
                 return null;
+            }
+
+            // If the table has a "Display Text" column but should use a different column name
+            // create that column if needed (specifically for "spGetAllWholesaleDeliveryType")
+            if (_storedProcedureName == "spGetAllWholesaleDeliveryType" && 
+                dataTable.Columns.Contains("Wholesale Delivery Type") && 
+                !dataTable.Columns.Contains("Display Text"))
+            {
+                dataTable.Columns.Add("Display Text", typeof(string));
+                foreach (DataRow row in dataTable.Rows)
+                {
+                    row["Display Text"] = row["Wholesale Delivery Type"].ToString();
+                }
             }
 
             // Filtering logic (same as in LoadDataAsync)

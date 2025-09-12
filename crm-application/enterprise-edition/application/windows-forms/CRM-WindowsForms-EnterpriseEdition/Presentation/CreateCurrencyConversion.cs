@@ -135,14 +135,14 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
             if (!decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionBaseCurrencyValueTextBox), out decimal baseCurrencyConversionRate))
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Base Currency Conversion Rate");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Validation.InvalidValue", "Base Currency Conversion Rate");
                 return;
             }
 
             if (!decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionTargetCurrencyValueTextBoxA), out decimal targetA) ||
                 !decimal.TryParse(TextBoxCleanerHelper.GetTrimmedText(createCurrencyConversionTargetCurrencyValueTextBoxB), out decimal targetB))
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Target Currency Conversion Rate");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Validation.InvalidValue", "Target Currency Conversion Rate");
                 return;
             }
 

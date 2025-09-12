@@ -60,7 +60,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
                 }
                 else
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.DataValidation.InvalidValue", "Company Configuration");
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Data.Validation.InvalidValue", "Company Configuration");
                 }
             }
             catch (Exception ex)

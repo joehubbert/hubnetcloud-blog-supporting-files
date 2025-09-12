@@ -6,7 +6,6 @@
     @productDescription NVARCHAR(255) = NULL,
     @productFamilyId UNIQUEIDENTIFIER = NULL,
     @productId UNIQUEIDENTIFIER,
-    @productImage VARBINARY(MAX) = NULL,
     @productName NVARCHAR(50),
     @productSubCategoryId UNIQUEIDENTIFIER,
     @unitBarcode NVARCHAR(50) = NULL,
@@ -25,6 +24,7 @@
     @wholesaleCartonHeightCentimeter DECIMAL(5, 2) = NULL,
     @wholesaleCartonPackagingWeightKilogram DECIMAL(5, 2) = NULL,
     @wholesaleCartonQuantityPerPallet TINYINT = NULL,
+    @wholesaleCartonStackingHeightPerPallet TINYINT = NULL,
     @wholesaleCartonStockQuantityHeld BIGINT = NULL,
     @wholesaleCartonTotalWeightKilogram DECIMAL(5, 2) = NULL,
     @wholesaleCartonVolumeCubicCentimeter DECIMAL(5, 2) = NULL,
@@ -35,17 +35,16 @@
     @wholesalePalletDepthCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletFlag BIT,
     @wholesalePalletHeightCentimeter DECIMAL(5, 2) = NULL,
-    @wholesalePalletTotalDepthCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletTotalHeightCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletTotalVolumeCubicCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletTotalWeightKilogram DECIMAL(5, 2) = NULL,
-    @wholesalePalletTotalWidthCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletVolumeCubicCentimeter DECIMAL(5, 2) = NULL,
     @wholesalePalletWeightKilogram DECIMAL(5, 2) = NULL,
     @wholesalePalletWidthCentimeter DECIMAL(5, 2) = NULL,
     @wholesaleReorderFlag BIT,
     @wholesaleUnitQuantityPerCarton INT = NULL,
-    @wholesaleUnitQuantityPerPallet INT = NULL
+    @wholesaleUnitQuantityPerPallet INT = NULL,
+    @wholesaleUnitStackingHeightPerPallet TINYINT = NULL
 AS
 
 BEGIN
@@ -78,6 +77,7 @@ BEGIN
             [WholesaleCartonFlag] = @wholesaleCartonFlag,
             [WholesaleCartonHeightCentimeter] = @wholesaleCartonHeightCentimeter,
             [WholesaleCartonQuantityPerPallet] = @wholesaleCartonQuantityPerPallet,
+            [WholesaleCartonStackingHeightPerPallet] = @wholesaleCartonStackingHeightPerPallet,
             [WholesaleCartonStockQuantityHeld] = @wholesaleCartonStockQuantityHeld,
             [WholesaleCartonTotalWeightKilogram] = @wholesaleCartonTotalWeightKilogram,
             [WholesaleCartonVolumeCubicCentimeter] = @wholesaleCartonVolumeCubicCentimeter,
@@ -89,17 +89,16 @@ BEGIN
             [WholesalePalletDepthCentimeter] = @wholesalePalletDepthCentimeter,
             [WholesalePalletFlag] = @wholesalePalletFlag,
             [WholesalePalletHeightCentimeter] = @wholesalePalletHeightCentimeter,
-            [WholesalePalletTotalDepthCentimeter] = @wholesalePalletTotalDepthCentimeter,
             [WholesalePalletTotalHeightCentimeter] = @wholesalePalletTotalHeightCentimeter,
             [WholesalePalletTotalVolumeCubicCentimeter] = @wholesalePalletTotalVolumeCubicCentimeter,
             [WholesalePalletTotalWeightKilogram] = @wholesalePalletTotalWeightKilogram,
-            [WholesalePalletTotalWidthCentimeter] = @wholesalePalletTotalWidthCentimeter,
             [WholesalePalletVolumeCubicCentimeter] = @wholesalePalletVolumeCubicCentimeter,
             [WholesalePalletWeightKilogram] = @wholesalePalletWeightKilogram,
             [WholesalePalletWidthCentimeter] = @wholesalePalletWidthCentimeter,
             [WholesaleReorderFlag] = @wholesaleReorderFlag,
             [WholesaleUnitQuantityPerCarton] = @wholesaleUnitQuantityPerCarton,
-            [WholesaleUnitQuantityPerPallet] = @wholesaleUnitQuantityPerPallet
+            [WholesaleUnitQuantityPerPallet] = @wholesaleUnitQuantityPerPallet,
+            [WholesaleUnitStackingHeightPerPallet] = @wholesaleUnitStackingHeightPerPallet
         WHERE [ProductId] = @productId
 
         COMMIT TRANSACTION;

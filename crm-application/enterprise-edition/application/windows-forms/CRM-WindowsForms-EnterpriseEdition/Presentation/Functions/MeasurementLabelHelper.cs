@@ -11,9 +11,9 @@
             {
                 case "Area":
                     if (unitType == "metric")
-                        label.Text += " (m²)";
+                        label.Text += " (cm²)";
                     else
-                        label.Text += " (ft²)";
+                        label.Text += " (in²)";
                     break;
                 case "Volume":
                     if (unitType == "metric")

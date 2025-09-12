@@ -8,7 +8,7 @@
             string measurementType,
             string outputUnitType)
         {
-            const decimal areaConversionFactor = 10.7639m;
+            const decimal areaConversionFactor = 0.15500031m;
             const decimal distanceConversionFactor = 2.54m;
             const decimal liquidConversionFactor = 3.78541m;
             const decimal volumeConversionFactor = 35.3147m;
@@ -27,11 +27,11 @@
             switch (measurementType)
             {
                 case "Area":
-                    // m² <-> ft²
+                    // cm² <-> in²
                     if (inputUnitType == "metric" && outputUnitType == "imperial")
-                        return measurement * areaConversionFactor; // m² to ft²
+                        return measurement * areaConversionFactor; // cm² to in²
                     if (inputUnitType == "imperial" && outputUnitType == "metric")
-                        return measurement / areaConversionFactor; // ft² to m²
+                        return measurement / areaConversionFactor; // in² to cm²
                     break;
 
                 case "Distance":

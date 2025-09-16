@@ -5,7 +5,6 @@
         private readonly Label _label;
         private readonly int _maximumLength;
         private readonly TextBox _textBox;
-
         private readonly Color _originalForeColor;
         private readonly Font _originalFont;
         private Font? _boldAlertFont;

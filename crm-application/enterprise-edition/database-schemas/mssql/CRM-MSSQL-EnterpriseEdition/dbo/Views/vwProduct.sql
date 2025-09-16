@@ -46,7 +46,6 @@ P.[WholesalePalletTotalWeightKilogram] AS [Wholesale Pallet Total Weight Kilogra
 P.[WholesaleReorderFlag] AS [Wholesale Reorder Flag],
 P.[UnitBarcode] AS [Unit Barcode],
 P.[UnitPrice] AS [Unit Selling Price],
-P.[UnitMinimumOrderQuantity] AS [Unit Minimum Order Quantity],
 P.[UnitMinimumStockQuantity] AS [Unit Minimum Stock Quantity],
 P.[UnitStockQuantityHeld] AS [Unit Stock Quantity Held],
 P.[UnitWeightKilogram] AS [Unit Weight Kilogram],

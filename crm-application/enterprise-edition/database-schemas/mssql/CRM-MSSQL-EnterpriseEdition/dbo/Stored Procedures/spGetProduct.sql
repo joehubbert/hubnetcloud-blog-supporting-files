@@ -52,7 +52,6 @@ BEGIN
 			[Wholesale Reorder Flag],
 			[Unit Barcode],
 			[Unit Selling Price],
-			[Unit Minimum Order Quantity],
 			[Unit Minimum Stock Quantity],
 			[Unit Stock Quantity Held],
 			[Unit Weight Kilogram],

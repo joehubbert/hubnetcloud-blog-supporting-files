@@ -37,7 +37,6 @@
     [WholesaleReorderFlag] BIT NOT NULL,
     [UnitBarcode] NVARCHAR(50) NULL,
     [UnitPrice] MONEY NOT NULL,
-    [UnitMinimumOrderQuantity] INT NOT NULL,
     [UnitMinimumStockQuantity] INT NOT NULL,
     [UnitStockQuantityHeld] INT NOT NULL,
     [UnitWeightKilogram] DECIMAL(5, 2) NOT NULL,

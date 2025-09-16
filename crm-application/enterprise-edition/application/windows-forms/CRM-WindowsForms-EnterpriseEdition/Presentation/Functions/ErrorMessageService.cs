@@ -30,6 +30,9 @@
 
             switch (errorType)
             {
+                case "Error.Calculation.Dynamic":
+                    CalculationDynamicError(dataSubject ?? "unknown", exceptionMessage ?? "No exception message provided.", errorType);
+                    break;
                 case "Error.CSVExport.ExportFailure":
                     CSVExportExportFailureError(dataSubject ?? "unknown", exceptionMessage ?? "No exception message provided.");
                     break;
@@ -150,6 +153,17 @@
             string messageText = "Application Configuration settings saved.";
             string messageTitle = globalInformationMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void CalculationDynamicError(string dataSubject, string exceptionMessage, string errorType)
+        {
+            string messageText = $"Calculation failed for {dataSubject}: {exceptionMessage}.";
+            string messageTitle = errorType;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);

@@ -17,9 +17,9 @@
                     break;
                 case "Volume":
                     if (unitType == "metric")
-                        label.Text += " (m³)";
+                        label.Text += " (cm³)";
                     else
-                        label.Text += " (ft³)";
+                        label.Text += " (in³)";
                     break;
                 case "Distance":
                     if (unitType == "metric")

@@ -8,11 +8,12 @@
             string measurementType,
             string outputUnitType)
         {
-            const decimal areaConversionFactor = 0.15500031m;
-            const decimal distanceConversionFactor = 2.54m;
-            const decimal liquidConversionFactor = 3.78541m;
-            const decimal volumeConversionFactor = 35.3147m;
-            const decimal weightConversionFactor = 2.20462m;
+            //Conversion factors
+            const decimal areaConversionFactor = 0.15500031m;           // 1 cm² = 0.15500031 in²
+            const decimal distanceConversionFactor = 2.54m;             // 1 in = 2.54 cm
+            const decimal liquidConversionFactor = 3.78541m;            // 1 US gal = 3.78541 L
+            const decimal volumeConversionFactor = 0.0610237m;          // 1 cm³ = 0.0610237 in³
+            const decimal weightConversionFactor = 2.20462m;            // 1 kg = 2.20462 lbs
 
             if (string.IsNullOrWhiteSpace(inputUnitType))
                 throw new ArgumentNullException(nameof(inputUnitType));
@@ -41,13 +42,15 @@
                     if (inputUnitType == "imperial" && outputUnitType == "metric")
                         return measurement * distanceConversionFactor; // in to cm
                     break;
+
                 case "Liquid":
-                    // l <-> gal (US liquid gallon)
+                    // L <-> US gal
                     if (inputUnitType == "metric" && outputUnitType == "imperial")
-                        return measurement / liquidConversionFactor; // l to gal
+                        return measurement / liquidConversionFactor; // L to gal
                     if (inputUnitType == "imperial" && outputUnitType == "metric")
-                        return measurement * liquidConversionFactor; // gal to l
+                        return measurement * liquidConversionFactor; // gal to L
                     break;
+
                 case "Temperature":
                     // °C <-> °F
                     if (inputUnitType == "metric" && outputUnitType == "imperial")
@@ -55,20 +58,23 @@
                     if (inputUnitType == "imperial" && outputUnitType == "metric")
                         return (measurement - 32m) * 5m / 9m; // °F to °C
                     break;
-                case "Weight":
-                    // kg <-> lb
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
-                        return measurement * weightConversionFactor; // kg to lb
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
-                        return measurement / weightConversionFactor; // lb to kg
-                    break;
+
                 case "Volume":
-                    // m³ <-> ft³
+                    // cm³ <-> in³
                     if (inputUnitType == "metric" && outputUnitType == "imperial")
-                        return measurement * volumeConversionFactor; // m³ to ft³
+                        return measurement * volumeConversionFactor; // cm³ to in³
                     if (inputUnitType == "imperial" && outputUnitType == "metric")
-                        return measurement / volumeConversionFactor; // ft³ to m³
+                        return measurement / volumeConversionFactor; // in³ to cm³
                     break;
+
+                case "Weight":
+                    // kg <-> lbs
+                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                        return measurement * weightConversionFactor; // kg to lbs
+                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                        return measurement / weightConversionFactor; // lbs to kg
+                    break;
+
                 default:
                     new ErrorMessageService("Error.Measurement.Type.NotImplemented", measurementType);
                     break;

@@ -1,10 +1,10 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Services;
+﻿using CRM.Services;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using System.Data;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Interface
+namespace CRM.Interface
 {
     internal class StoredProcedureParameter
     {

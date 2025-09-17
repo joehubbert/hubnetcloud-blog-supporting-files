@@ -1,9 +1,9 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Helpers;
+﻿using CRM.Helpers;
 using System.Drawing.Imaging;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Services
+namespace CRM.Services
 {
     internal class ValidateDataInputService
     {

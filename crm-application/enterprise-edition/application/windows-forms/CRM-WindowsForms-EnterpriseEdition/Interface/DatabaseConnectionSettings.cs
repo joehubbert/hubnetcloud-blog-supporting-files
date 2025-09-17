@@ -1,10 +1,10 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Model;
-using CRM_WindowsForms_EnterpriseEdition.Services;
+﻿using CRM.Model;
+using CRM.Services;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Interface
+namespace CRM.Interface
 {
     public class DatabaseConnectionSettings
     {

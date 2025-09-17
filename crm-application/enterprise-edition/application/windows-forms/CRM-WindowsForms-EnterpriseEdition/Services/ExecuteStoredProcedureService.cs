@@ -1,10 +1,10 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
+﻿using CRM.Interface;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using System.Data;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Services
+namespace CRM.Services
 {
     internal class ExecuteStoredProcedureService
     {

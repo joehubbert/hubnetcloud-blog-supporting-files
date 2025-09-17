@@ -1,7 +1,7 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Presentation;
-using CRM_WindowsForms_EnterpriseEdition.Services;
+﻿using CRM.Presentation.CompanyManagement.CompanyConfiguration;
+using CRM.Services;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Helpers
+namespace CRM.Helpers
 {
     internal class ActiveCompanyConfigurationHelper
     {

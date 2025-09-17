@@ -1,6 +1,6 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Services;
+﻿using CRM.Services;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Helpers
+namespace CRM.Helpers
 {
     internal class TextBoxNumericCharacterDataValidationHelper
     {

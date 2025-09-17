@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Helpers
+﻿namespace CRM.Helpers
 {
     public enum ChessColor { White, Black }
 

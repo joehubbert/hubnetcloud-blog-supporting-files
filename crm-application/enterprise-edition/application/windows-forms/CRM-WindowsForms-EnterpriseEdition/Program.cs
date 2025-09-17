@@ -1,6 +1,6 @@
-using CRM_WindowsForms_EnterpriseEdition.Presentation;
+using CRM.Presentation.General;
 
-namespace CRM_WindowsForms_EnterpriseEdition
+namespace CRM
 {
     static class Program
     {

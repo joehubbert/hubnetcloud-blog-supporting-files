@@ -1,6 +1,6 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Model;
+﻿using CRM.Model;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Services
+namespace CRM.Services
 {
     internal class TranslationService
     {

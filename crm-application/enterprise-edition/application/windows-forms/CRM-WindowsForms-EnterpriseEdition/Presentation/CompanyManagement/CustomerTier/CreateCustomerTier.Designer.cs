@@ -1,0 +1,191 @@
+﻿namespace CRM.Presentation.CompanyManagement.CustomerTier
+{
+    partial class CreateCustomerTier
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateCustomerTier));
+            createCustomerTierTitleLabel = new Label();
+            createCustomerTierCustomerTierCodeLabel = new Label();
+            createCustomerTierCustomerTierCodeTextBox = new TextBox();
+            createCustomerTierActiveStatusCheckBox = new CheckBox();
+            createCustomerTierSubmitButton = new Button();
+            createCustomerTierCustomerTierDescriptionLabel = new Label();
+            createCustomerTierCustomerTierDescriptionTextBox = new TextBox();
+            createCustomerTierStatusStrip = new StatusStrip();
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
+            changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
+            createCustomerTierStatusStrip.SuspendLayout();
+            SuspendLayout();
+            // 
+            // createCustomerTierTitleLabel
+            // 
+            createCustomerTierTitleLabel.AutoSize = true;
+            createCustomerTierTitleLabel.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createCustomerTierTitleLabel.Location = new Point(15, 12);
+            createCustomerTierTitleLabel.Margin = new Padding(5, 0, 5, 0);
+            createCustomerTierTitleLabel.Name = "createCustomerTierTitleLabel";
+            createCustomerTierTitleLabel.Size = new Size(255, 32);
+            createCustomerTierTitleLabel.TabIndex = 6;
+            createCustomerTierTitleLabel.Text = "Create Customer Tier";
+            // 
+            // createCustomerTierCustomerTierCodeLabel
+            // 
+            createCustomerTierCustomerTierCodeLabel.AutoSize = true;
+            createCustomerTierCustomerTierCodeLabel.Font = new Font("Segoe UI", 11F);
+            createCustomerTierCustomerTierCodeLabel.Location = new Point(90, 74);
+            createCustomerTierCustomerTierCodeLabel.Name = "createCustomerTierCustomerTierCodeLabel";
+            createCustomerTierCustomerTierCodeLabel.Size = new Size(146, 20);
+            createCustomerTierCustomerTierCodeLabel.TabIndex = 7;
+            createCustomerTierCustomerTierCodeLabel.Text = "Customer Tier Code*";
+            createCustomerTierCustomerTierCodeLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // createCustomerTierCustomerTierCodeTextBox
+            // 
+            createCustomerTierCustomerTierCodeTextBox.Location = new Point(236, 71);
+            createCustomerTierCustomerTierCodeTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCustomerTierCustomerTierCodeTextBox.MaxLength = 1;
+            createCustomerTierCustomerTierCodeTextBox.Name = "createCustomerTierCustomerTierCodeTextBox";
+            createCustomerTierCustomerTierCodeTextBox.Size = new Size(34, 27);
+            createCustomerTierCustomerTierCodeTextBox.TabIndex = 0;
+            // 
+            // createCustomerTierActiveStatusCheckBox
+            // 
+            createCustomerTierActiveStatusCheckBox.AutoSize = true;
+            createCustomerTierActiveStatusCheckBox.Checked = true;
+            createCustomerTierActiveStatusCheckBox.CheckState = CheckState.Checked;
+            createCustomerTierActiveStatusCheckBox.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            createCustomerTierActiveStatusCheckBox.Location = new Point(182, 176);
+            createCustomerTierActiveStatusCheckBox.Margin = new Padding(5);
+            createCustomerTierActiveStatusCheckBox.Name = "createCustomerTierActiveStatusCheckBox";
+            createCustomerTierActiveStatusCheckBox.Size = new Size(171, 24);
+            createCustomerTierActiveStatusCheckBox.TabIndex = 2;
+            createCustomerTierActiveStatusCheckBox.Text = "Active Customer Tier*";
+            createCustomerTierActiveStatusCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // createCustomerTierSubmitButton
+            // 
+            createCustomerTierSubmitButton.FlatStyle = FlatStyle.Flat;
+            createCustomerTierSubmitButton.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            createCustomerTierSubmitButton.Location = new Point(173, 223);
+            createCustomerTierSubmitButton.Margin = new Padding(4);
+            createCustomerTierSubmitButton.Name = "createCustomerTierSubmitButton";
+            createCustomerTierSubmitButton.Size = new Size(198, 66);
+            createCustomerTierSubmitButton.TabIndex = 3;
+            createCustomerTierSubmitButton.Text = "Submit";
+            createCustomerTierSubmitButton.UseVisualStyleBackColor = true;
+            createCustomerTierSubmitButton.Click += createCustomerTierSubmitButton_Click;
+            // 
+            // createCustomerTierCustomerTierDescriptionLabel
+            // 
+            createCustomerTierCustomerTierDescriptionLabel.AutoSize = true;
+            createCustomerTierCustomerTierDescriptionLabel.Font = new Font("Segoe UI", 11F);
+            createCustomerTierCustomerTierDescriptionLabel.Location = new Point(49, 114);
+            createCustomerTierCustomerTierDescriptionLabel.Name = "createCustomerTierCustomerTierDescriptionLabel";
+            createCustomerTierCustomerTierDescriptionLabel.Size = new Size(187, 20);
+            createCustomerTierCustomerTierDescriptionLabel.TabIndex = 13;
+            createCustomerTierCustomerTierDescriptionLabel.Text = "Customer Tier Description*";
+            createCustomerTierCustomerTierDescriptionLabel.TextAlign = ContentAlignment.TopRight;
+            // 
+            // createCustomerTierCustomerTierDescriptionTextBox
+            // 
+            createCustomerTierCustomerTierDescriptionTextBox.Location = new Point(236, 111);
+            createCustomerTierCustomerTierDescriptionTextBox.Margin = new Padding(3, 4, 3, 4);
+            createCustomerTierCustomerTierDescriptionTextBox.MaxLength = 50;
+            createCustomerTierCustomerTierDescriptionTextBox.Name = "createCustomerTierCustomerTierDescriptionTextBox";
+            createCustomerTierCustomerTierDescriptionTextBox.Size = new Size(284, 27);
+            createCustomerTierCustomerTierDescriptionTextBox.TabIndex = 1;
+            // 
+            // createCustomerTierStatusStrip
+            // 
+            createCustomerTierStatusStrip.BackColor = SystemColors.Control;
+            createCustomerTierStatusStrip.Items.AddRange(new ToolStripItem[] { createCustomerTierStatusStripCompanyConfigurationPlaceholder });
+            createCustomerTierStatusStrip.Location = new Point(0, 304);
+            createCustomerTierStatusStrip.Name = "createCustomerTierStatusStrip";
+            createCustomerTierStatusStrip.Size = new Size(543, 22);
+            createCustomerTierStatusStrip.TabIndex = 4;
+            createCustomerTierStatusStrip.Text = "Create Customer Tier Status Strip";
+            // 
+            // createCustomerTierStatusStripCompanyConfigurationPlaceholder
+            // 
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.DropDownItems.AddRange(new ToolStripItem[] { changeActiveCompanyConfigurationToolStripMenuItem });
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Image = (Image)resources.GetObject("createCustomerTierStatusStripCompanyConfigurationPlaceholder.Image");
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.ImageTransparentColor = Color.Magenta;
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Name = "createCustomerTierStatusStripCompanyConfigurationPlaceholder";
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Size = new Size(219, 20);
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.Text = "{CompanyConfigurationPlaceholder]";
+            createCustomerTierStatusStripCompanyConfigurationPlaceholder.ToolTipText = "You can change Active Company Configuration here";
+            // 
+            // changeActiveCompanyConfigurationToolStripMenuItem
+            // 
+            changeActiveCompanyConfigurationToolStripMenuItem.Name = "changeActiveCompanyConfigurationToolStripMenuItem";
+            changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
+            changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
+            changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
+            // 
+            // CreateCustomerTier
+            // 
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.LemonChiffon;
+            ClientSize = new Size(543, 326);
+            Controls.Add(createCustomerTierStatusStrip);
+            Controls.Add(createCustomerTierCustomerTierDescriptionTextBox);
+            Controls.Add(createCustomerTierCustomerTierDescriptionLabel);
+            Controls.Add(createCustomerTierSubmitButton);
+            Controls.Add(createCustomerTierActiveStatusCheckBox);
+            Controls.Add(createCustomerTierCustomerTierCodeTextBox);
+            Controls.Add(createCustomerTierCustomerTierCodeLabel);
+            Controls.Add(createCustomerTierTitleLabel);
+            Font = new Font("Segoe UI", 11F);
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
+            Name = "CreateCustomerTier";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CRM - Create Customer Tier";
+            createCustomerTierStatusStrip.ResumeLayout(false);
+            createCustomerTierStatusStrip.PerformLayout();
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        #endregion
+
+        private Label createCustomerTierTitleLabel;
+        private Label createCustomerTierCustomerTierCodeLabel;
+        private TextBox createCustomerTierCustomerTierCodeTextBox;
+        private CheckBox createCustomerTierActiveStatusCheckBox;
+        private Button createCustomerTierSubmitButton;
+        private Label createCustomerTierCustomerTierDescriptionLabel;
+        private TextBox createCustomerTierCustomerTierDescriptionTextBox;
+        private StatusStrip createCustomerTierStatusStrip;
+        private ToolStripSplitButton createCustomerTierStatusStripCompanyConfigurationPlaceholder;
+        private ToolStripMenuItem changeActiveCompanyConfigurationToolStripMenuItem;
+    }
+}

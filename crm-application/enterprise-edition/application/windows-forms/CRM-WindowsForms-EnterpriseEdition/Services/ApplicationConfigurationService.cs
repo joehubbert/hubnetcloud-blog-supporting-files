@@ -1,8 +1,8 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
-using CRM_WindowsForms_EnterpriseEdition.Model;
+﻿using CRM.Interface;
+using CRM.Model;
 using System.Text.Json;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Services
+namespace CRM.Services
 {
     internal class ApplicationConfigurationService
     {

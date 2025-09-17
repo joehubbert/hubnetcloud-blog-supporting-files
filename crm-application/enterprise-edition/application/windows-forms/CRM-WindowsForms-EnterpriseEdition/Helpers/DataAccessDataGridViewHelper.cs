@@ -1,8 +1,8 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Interface;
-using CRM_WindowsForms_EnterpriseEdition.Services;
+﻿using CRM.Interface;
+using CRM.Services;
 using System.Data;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Helpers
+namespace CRM.Helpers
 {
     internal class DataAccessDataGridViewHelper
     {

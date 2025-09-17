@@ -1,4 +1,4 @@
-﻿namespace CRM_WindowsForms_EnterpriseEdition.Model
+﻿namespace CRM.Model
 {
     public class ApplicationConfigurationModel
     {

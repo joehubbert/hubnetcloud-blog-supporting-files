@@ -1,6 +1,6 @@
 ﻿using System.Data;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Helpers
+namespace CRM.Helpers
 {
     internal class DataGridViewQuickSearchHelper
     {

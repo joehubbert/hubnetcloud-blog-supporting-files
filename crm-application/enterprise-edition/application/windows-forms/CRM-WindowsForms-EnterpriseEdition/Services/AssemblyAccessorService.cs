@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace CRM_WindowsForms_EnterpriseEdition.Services
+namespace CRM.Services
 {
     internal class AssemblyAccessorService
     {

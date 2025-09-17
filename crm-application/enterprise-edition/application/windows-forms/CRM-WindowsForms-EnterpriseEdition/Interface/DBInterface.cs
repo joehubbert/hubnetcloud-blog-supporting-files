@@ -1,4 +1,4 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Model;
+﻿using CRM_WindowsForms_EnterpriseEdition.Services;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
@@ -50,7 +50,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
         {
             try
             {
-                var executor = await ExecuteStoredProcedure.CreateAsync();
+                var executor = await ExecuteStoredProcedureService.CreateAsync();
                 var dbSettings = executor.DatabaseConnectionSettings;
                 var dbParameters = BuildDbParameters(dbSettings, parameters);
 
@@ -107,7 +107,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
         {
             try
             {
-                var executor = await ExecuteStoredProcedure.CreateAsync();
+                var executor = await ExecuteStoredProcedureService.CreateAsync();
                 var dbSettings = executor.DatabaseConnectionSettings;
                 var dbParameters = BuildDbParameters(dbSettings, parameters);
                 
@@ -144,7 +144,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Interface
         {
             try
             {
-                var executor = await ExecuteStoredProcedure.CreateAsync();
+                var executor = await ExecuteStoredProcedureService.CreateAsync();
                 var dbSettings = executor.DatabaseConnectionSettings;
 
                 switch (dbSettings.ActiveDatabaseEngine)

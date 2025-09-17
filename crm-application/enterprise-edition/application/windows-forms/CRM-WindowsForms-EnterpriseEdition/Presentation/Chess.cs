@@ -1,4 +1,4 @@
-﻿using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+﻿using CRM_WindowsForms_EnterpriseEdition.Helpers;
 
 namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 {
@@ -7,7 +7,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private const int TileSize = 60;
         private const int BoardSize = 8;
         private Button[,] tiles = new Button[BoardSize, BoardSize];
-        private ChessBoard board;
+        private ChessBoardHelper board;
         private Point? selectedTile = null;
         private Label lblTurn;
         private Label lblScoreWhite;
@@ -19,8 +19,8 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         private Button btnReset;
         private int scoreWhite = 0;
         private int scoreBlack = 0;
-        private List<ChessPiece> capturedByWhite = new();
-        private List<ChessPiece> capturedByBlack = new();
+        private List<ChessPieceHelper> capturedByWhite = new();
+        private List<ChessPieceHelper> capturedByBlack = new();
 
         // Game mode and AI
         private enum GameMode { TwoPlayer, VsComputer }
@@ -88,7 +88,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void InitializeChessBoard()
         {
-            board = new ChessBoard();
+            board = new ChessBoardHelper();
             this.ClientSize = new Size(BoardSize * TileSize, BoardSize * TileSize + 130);
 
             for (int row = 0; row < BoardSize; row++)
@@ -198,7 +198,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
             this.Controls.Add(btnReset);
         }
 
-        private int GetPieceValue(ChessPiece piece)
+        private int GetPieceValue(ChessPieceHelper piece)
         {
             return piece switch
             {
@@ -436,7 +436,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
         }
 
         // Always return the filled (black) Unicode symbol for both colors
-        private string GetFilledPieceSymbol(ChessPiece piece)
+        private string GetFilledPieceSymbol(ChessPieceHelper piece)
         {
             // Unicode black pieces: rook, knight, bishop, queen, king, pawn
             // ♜ ♞ ♝ ♛ ♚ ♟
@@ -478,7 +478,7 @@ namespace CRM_WindowsForms_EnterpriseEdition.Presentation
 
         private void ResetGame()
         {
-            board = new ChessBoard();
+            board = new ChessBoardHelper();
             capturedByWhite.Clear();
             capturedByBlack.Clear();
             scoreWhite = 0; // Reset white score

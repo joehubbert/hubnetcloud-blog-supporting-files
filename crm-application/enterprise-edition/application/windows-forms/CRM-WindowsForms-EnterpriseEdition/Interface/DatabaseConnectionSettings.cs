@@ -1,5 +1,5 @@
 ﻿using CRM_WindowsForms_EnterpriseEdition.Model;
-using CRM_WindowsForms_EnterpriseEdition.Presentation.Functions;
+using CRM_WindowsForms_EnterpriseEdition.Services;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;

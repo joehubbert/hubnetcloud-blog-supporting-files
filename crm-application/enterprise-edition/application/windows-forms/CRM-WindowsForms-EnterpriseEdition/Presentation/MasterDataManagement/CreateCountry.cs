@@ -32,16 +32,16 @@ namespace CRM.Presentation.MasterDataManagement
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Country English Name",
@@ -49,7 +49,7 @@ namespace CRM.Presentation.MasterDataManagement
                     MaxLength = 100,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "ISO 3166-1 Alpha 2 Country Code",
@@ -61,7 +61,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

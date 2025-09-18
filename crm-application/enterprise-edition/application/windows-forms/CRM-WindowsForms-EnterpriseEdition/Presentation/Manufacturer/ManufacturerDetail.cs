@@ -200,9 +200,9 @@ namespace CRM.Presentation.Manufacturer
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Manufacturer Detail Finance: VAT Number",
@@ -210,21 +210,21 @@ namespace CRM.Presentation.Manufacturer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Finance: VAT Registered",
                     Value = manufacturerDetailFinanceVATRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Active Status",
                     Value = manufacturerDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 1",
@@ -232,14 +232,14 @@ namespace CRM.Presentation.Manufacturer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Manufacturer Detail Overview: Address Line 2",
                     Value = manufacturerDetailOverviewAddressLine2,
                     MaxLength = 50
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 3",
@@ -247,7 +247,7 @@ namespace CRM.Presentation.Manufacturer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 4",
@@ -255,21 +255,21 @@ namespace CRM.Presentation.Manufacturer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Address Line 5",
                     Value = manufacturerDetailOverviewAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Email Address",
                     Value = manufacturerDetailOverviewEmailAddress,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Manufacturer Name",
@@ -277,7 +277,7 @@ namespace CRM.Presentation.Manufacturer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Manufacturer Detail Overview: Telephone Number",
@@ -288,7 +288,7 @@ namespace CRM.Presentation.Manufacturer
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -383,7 +383,7 @@ namespace CRM.Presentation.Manufacturer
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

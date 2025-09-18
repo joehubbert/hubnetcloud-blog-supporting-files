@@ -171,16 +171,16 @@ namespace CRM.Presentation.MasterDataManagement
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = dataSubjectFriendlyName,
@@ -188,7 +188,7 @@ namespace CRM.Presentation.MasterDataManagement
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = $"{dataSubjectFriendlyName} Description",
@@ -200,7 +200,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -213,21 +213,18 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = dataSubjectActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = dataSubjectFriendlyName,
-                        VariableType = "string",
                         OriginalValue = dataSubjectOriginalValue,
                         NewValue = dataSubjectValue
                     },
                     new ChangeDetail
                     {
                         VariableName = $"{dataSubjectFriendlyName} Description",
-                        VariableType = "string",
                         OriginalValue = dataSubjectDescriptionOriginalValue,
                         NewValue = dataSubjectDescriptionValue
                     }
@@ -235,7 +232,7 @@ namespace CRM.Presentation.MasterDataManagement
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubjectName);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubjectName);
 
                 if (confirmed)
                 {

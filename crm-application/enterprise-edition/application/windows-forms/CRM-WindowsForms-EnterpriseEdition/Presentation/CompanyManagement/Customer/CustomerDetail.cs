@@ -946,9 +946,9 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 1",
@@ -956,7 +956,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Billing Information: Address Line 2",
@@ -964,7 +964,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 3",
@@ -972,7 +972,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 4",
@@ -980,14 +980,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 5",
                     Value = customerBillingInformationAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Billing Information: Company Name",
@@ -995,7 +995,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Email Address",
@@ -1003,7 +1003,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: First Name",
@@ -1011,7 +1011,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Last Name",
@@ -1019,7 +1019,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Telephone Number",
@@ -1027,35 +1027,35 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Credit Enabled",
                     Value = customerFinanceCreditEnabled,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Credit Limit",
                     Value = customerFinanceCreditLimit,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Payment Currency Id",
                     Value = customerFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Payment Days",
                     Value = customerFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Company Finance: VAT Number",
@@ -1063,35 +1063,35 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: VAT Registered",
                     Value = customerFinanceVATRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Account Manager Id",
                     Value = customerOverviewAccountManagerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Active Status",
                     Value = customerOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Company Configuration Id",
                     Value = customerOverviewCompanyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Company Name",
@@ -1099,28 +1099,28 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Since",
                     Value = customerOverviewCustomerSince,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Tier Id",
                     Value = customerOverviewCustomerTierId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Type Id",
                     Value = customerOverviewCustomerTypeId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Email Address",
@@ -1128,21 +1128,21 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Existing Global Parent Customer Id",
                     Value = customerOverviewExistingGlobalParentCustomerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Existing Top Parent Customer Id",
                     Value = customerOverviewExistingTopParentCustomerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: First Name",
@@ -1150,7 +1150,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Last Name",
@@ -1158,14 +1158,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Sales Sub Region Id",
                     Value = customerOverviewSalesSubRegionId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Telephone Number",
@@ -1173,21 +1173,21 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Will Be Global Parent",
                     Value = customerOverviewWillBeGlobalParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Will Be Top Parent",
                     Value = customerOverviewWillBeTopParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Telephone Number",
@@ -1195,7 +1195,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 1",
@@ -1203,7 +1203,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Shipping Information: Address Line 2",
@@ -1211,7 +1211,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 3",
@@ -1219,7 +1219,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 4",
@@ -1227,14 +1227,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 5",
                     Value = customerShippingInformationAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Shipping Information: Company Name",
@@ -1242,7 +1242,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Email Address",
@@ -1250,7 +1250,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: First Name",
@@ -1258,7 +1258,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Last Name",
@@ -1266,7 +1266,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Telephone Number",
@@ -1278,7 +1278,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -1291,238 +1291,204 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Address Line 1",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageAddressLine1OriginalValue,
                         NewValue = customerBillingInformationAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Address Line 3",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageAddressLine3OriginalValue,
                         NewValue = customerBillingInformationAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Address Line 4",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageAddressLine4OriginalValue,
                         NewValue = customerBillingInformationAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Address Line 5",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageAddressLine5OriginalValue,
                         NewValue = customerBillingInformationAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Email Address",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageEmailAddressOriginalValue,
                         NewValue = customerBillingInformationEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: First Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageFirstNameOriginalValue,
                         NewValue = customerBillingInformationFirstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Last Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageLastNameOriginalValue,
                         NewValue = customerBillingInformationLastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Telephone Number",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageTelephoneNumberOriginalValue,
                         NewValue = customerBillingInformationTelephoneNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Finance: Credit Enabled",
-                        VariableType = "bool",
                         OriginalValue = customerDetailTabControlFinanceCreditEnabledOriginalValue,
                         NewValue = customerFinanceCreditEnabled
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Finance: Credit Limit",
-                        VariableType = "decimal",
                         OriginalValue = customerDetailTabControlFinanceCreditLimitOriginalValue,
                         NewValue = customerFinanceCreditLimit
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Finance: Payment Currency Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlFinancePaymentCurrencyIdOriginalValue,
                         NewValue = customerFinancePaymentCurrencyId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Finance: Payment Days",
-                        VariableType = "int",
                         OriginalValue = customerDetailTabControlFinancePaymentDaysOriginalValue,
                         NewValue = customerFinancePaymentDays
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Finance: VAT Registered",
-                        VariableType = "bool",
                         OriginalValue = customerDetailTabControlFinanceVATRegisteredOriginalValue,
                         NewValue = customerFinanceVATRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Account Manager Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageAccountManagerIdOriginalValue,
                         NewValue = customerOverviewAccountManagerId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Active Status",
-                        VariableType = "bool",
                         OriginalValue = customerDetailTabControlOverviewTabPageActiveStatusOriginalValue,
                         NewValue = customerOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Company Configuration Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageCompanyConfigurationIdOriginalValue,
                         NewValue = customerOverviewCompanyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Customer Since",
-                        VariableType = "DateTime",
                         OriginalValue = customerDetailTabControlOverviewTabPageCustomerSinceOriginalValue,
                         NewValue = customerOverviewCustomerSince
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Customer Tier Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageCustomerTierIdOriginalValue,
                         NewValue = customerOverviewCustomerTierId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Customer Type Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageCustomerTypeIdOriginalValue,
                         NewValue = customerOverviewCustomerTypeId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Email Address",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlOverviewTabPageEmailAddressOriginalValue,
                         NewValue = customerOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: First Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlOverviewTabPageFirstNameOriginalValue,
                         NewValue = customerOverviewFirstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Last Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlOverviewTabPageLastNameOriginalValue,
                         NewValue = customerOverviewLastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Sales Sub Region Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageSalesSubRegionIdOriginalValue,
                         NewValue = customerOverviewSalesSubRegionId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Telephone Number",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue,
                         NewValue = customerOverviewTelephoneNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Will Be Global Parent",
-                        VariableType = "bool",
                         OriginalValue = customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyOriginalValue,
                         NewValue = customerOverviewWillBeGlobalParent
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Overview: Will Be Top Parent",
-                        VariableType = "bool",
                         OriginalValue = customerDetailTabControlOverviewTabPageWillBeParentInCustomerHierarchyOriginalValue,
                         NewValue = customerOverviewWillBeTopParent
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Address Line 1",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationAddressLine1OriginalValue,
                         NewValue = customerShippingInformationAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Address Line 3",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationAddressLine3OriginalValue,
                         NewValue = customerShippingInformationAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Address Line 4",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationAddressLine4OriginalValue,
                         NewValue = customerShippingInformationAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Address Line 5",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlShippingInformationAddressLine5OriginalValue,
                         NewValue = customerShippingInformationAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Email Address",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationEmailAddressOriginalValue,
                         NewValue = customerShippingInformationEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: First Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationFirstNameOriginalValue,
                         NewValue = customerShippingInformationFirstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Last Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationLastNameOriginalValue,
                         NewValue = customerShippingInformationLastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Telephone Number",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationTelephoneNumberOriginalValue,
                         NewValue = customerShippingInformationTelephoneNumber
                     }
@@ -1533,7 +1499,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Address Line 2",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageAddressLine2OriginalValue,
                         NewValue = customerBillingInformationAddressLine2
                     });
@@ -1543,7 +1508,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Billing Information: Company Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlBillingInformationTabPageCompanyNameOriginalValue,
                         NewValue = customerBillingInformationCompanyName
                     });
@@ -1553,7 +1517,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Finance: VAT Number",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlFinanceVATNumberOriginalValue,
                         NewValue = customerFinanceVATNumber
                     });
@@ -1563,7 +1526,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Overview: Company Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlOverviewTabPageCompanyNameOriginalValue,
                         NewValue = customerOverviewCompanyName
                     });
@@ -1573,7 +1535,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Overview: Existing Global Parent Customer Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageGlobalParentCustomerIdOriginalValue,
                         NewValue = customerOverviewExistingGlobalParentCustomerId
                     });
@@ -1583,7 +1544,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Overview: Existing Top Parent Customer Id",
-                        VariableType = "Guid",
                         OriginalValue = customerDetailTabControlOverviewTabPageTopParentCustomerIdOriginalValue,
                         NewValue = customerOverviewExistingTopParentCustomerId
                     });
@@ -1593,7 +1553,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Address Line 2",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationAddressLine2OriginalValue,
                         NewValue = customerShippingInformationAddressLine2
                     });
@@ -1603,7 +1562,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Customer Shipping Information: Company Name",
-                        VariableType = "string",
                         OriginalValue = customerDetailTabControlShippingInformationCompanyNameOriginalValue,
                         NewValue = customerShippingInformationCompanyName
                     });
@@ -1611,7 +1569,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

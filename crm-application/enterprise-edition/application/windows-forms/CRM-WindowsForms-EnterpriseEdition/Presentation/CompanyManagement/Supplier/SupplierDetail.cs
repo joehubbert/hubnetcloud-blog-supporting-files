@@ -341,23 +341,23 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Finance:Payment Currency Id",
                     Value = supplierDetailFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Finance: Payment Days",
                     Value = supplierDetailFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Supplier Detail Finance: VAT Number",
@@ -365,21 +365,21 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Finance: VAT Registered",
                     Value = supplierDetailFinanceVATRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Active Status",
                     Value = supplierDetailOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 1",
@@ -387,14 +387,14 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Supplier Detail Overview: Address Line 2",
                     Value = supplierDetailOverviewAddressLine2,
                     MaxLength = 50
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 3",
@@ -402,7 +402,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 4",
@@ -410,21 +410,21 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Address Line 5",
                     Value = supplierDetailOverviewAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Email Address",
                     Value = supplierDetailOverviewEmailAddress,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Supplier Name",
@@ -432,7 +432,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Detail Overview: Telephone Number",
@@ -443,7 +443,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -456,84 +456,72 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: Payment Currency Id",
-                        VariableType = "Guid",
                         OriginalValue = supplierDetailTabControlFinanceTabPagePaymentCurrencyIdOriginalValue,
                         NewValue = supplierDetailFinancePaymentCurrencyId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: Payment Days",
-                        VariableType = "int",
                         OriginalValue = supplierDetailTabControlFinanceTabPagePaymentDaysOriginalValue,
                         NewValue = supplierDetailFinancePaymentDays
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: VAT Number",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlFinanceTabPageVATNumberOriginalValue,
                         NewValue = supplierDetailFinanceVATNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Finance: VAT Registered",
-                        VariableType = "bool",
                         OriginalValue = supplierDetailTabControlFinanceTabPageVATRegisteredOriginalValue,
                         NewValue = supplierDetailFinanceVATRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Active Status",
-                        VariableType = "bool",
                         OriginalValue = supplierDetailTabControlOverviewTabPageActiveStatusOrginalValue,
                         NewValue = supplierDetailOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 1",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine1OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 3",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine3OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 4",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine4OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 5",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine5OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Email Address",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageEmailAddressOriginalValue,
                         NewValue = supplierDetailOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Supplier Name",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue,
                         NewValue = supplierDetailOverviewSupplierName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Telephone Number",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageTelephoneNumberOriginalValue,
                         NewValue = supplierDetailOverviewTelephoneNumber
                     }
@@ -544,7 +532,6 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Supplier Detail Overview: Address Line 2",
-                        VariableType = "string",
                         OriginalValue = supplierDetailTabControlOverviewTabPageAddressLine2OriginalValue,
                         NewValue = supplierDetailOverviewAddressLine2
                     });
@@ -552,7 +539,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

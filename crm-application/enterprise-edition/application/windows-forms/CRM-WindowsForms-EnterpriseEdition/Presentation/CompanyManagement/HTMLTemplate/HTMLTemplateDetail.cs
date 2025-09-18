@@ -147,16 +147,16 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template",
@@ -164,7 +164,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     MaxLength = 1070000000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template Title",
@@ -172,7 +172,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template Type Id",
@@ -183,7 +183,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -196,28 +196,24 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     new ChangeDetail
                     {
                         VariableName = "Company Configuration Id",
-                        VariableType = "Guid",
                         OriginalValue = htmlTemplateDetailCompanyConfigurationIdOriginalValue,
                         NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = "HTML Template",
-                        VariableType = "string",
                         OriginalValue = htmlTemplateDetailHTMLTemplateOriginalValue,
                         NewValue = htmlTemplate
                     },
                     new ChangeDetail
                     {
                         VariableName = "HTML Template Title",
-                        VariableType = "string",
                         OriginalValue = htmlTemplateDetailHTMLTemplateTitleOriginalValue,
                         NewValue = htmlTemplateTitle
                     },
                     new ChangeDetail
                     {
                         VariableName = "HTML Template Type Id",
-                        VariableType = "Guid",
                         OriginalValue = htmlTemplateDetailHTMLTemplateTypeIdOriginalValue,
                         NewValue = htmlTemplateTypeId
                     }
@@ -225,7 +221,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

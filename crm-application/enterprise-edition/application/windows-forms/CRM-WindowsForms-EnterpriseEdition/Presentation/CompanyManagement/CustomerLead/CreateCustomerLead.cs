@@ -131,23 +131,23 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Contact Id",
                     Value = customerContactId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead",
@@ -155,7 +155,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead Title",
@@ -163,21 +163,21 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead Type",
                     Value = customerLeadType,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Marketing Channel Id",
                     Value = marketingChannelId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Target Date",
@@ -188,7 +188,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

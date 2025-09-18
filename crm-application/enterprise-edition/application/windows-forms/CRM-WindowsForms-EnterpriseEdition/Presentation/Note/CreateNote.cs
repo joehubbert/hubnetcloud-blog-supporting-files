@@ -123,9 +123,9 @@ namespace CRM.Presentation.Note
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = createNoteModuleNoteTypeFriendlyName,
@@ -133,7 +133,7 @@ namespace CRM.Presentation.Note
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = createNoteNoteTitleFriendlyName,
@@ -141,7 +141,7 @@ namespace CRM.Presentation.Note
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = createNoteNoteTypeIdFriendlyName,
@@ -152,7 +152,7 @@ namespace CRM.Presentation.Note
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

@@ -183,9 +183,9 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
             string emailAddress = accountManagerDetailTabControlAccountManagerInformationTabPageEmailAddressTextBox.Text.TrimEnd();
             string telephoneNumber = accountManagerDetailTabControlAccountManagerInformationTabPageTelephoneNumberTextBox.Text.TrimEnd();
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
@@ -193,14 +193,14 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     MaxLength = 50,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "First Name",
@@ -208,7 +208,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Last Name",
@@ -216,7 +216,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Email Address",
@@ -224,7 +224,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Telephone Number",
@@ -236,7 +236,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -292,7 +292,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

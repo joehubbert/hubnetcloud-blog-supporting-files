@@ -106,30 +106,30 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = _companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Finance: Payment Currency Id",
                     Value = supplierFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Finance: Payment Days",
                     Value = supplierFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Supplier Finance: VAT Number",
@@ -137,21 +137,21 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Finance: VAT Registered",
                     Value = supplierFinanceVATRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Active Status",
                     Value = supplierOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Address Line 1",
@@ -159,7 +159,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Supplier Overview: Address Line 2",
@@ -167,7 +167,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Address Line 3",
@@ -175,7 +175,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Address Line 4",
@@ -183,14 +183,14 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Address Line 5",
                     Value = supplierOverviewAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Email Address",
@@ -198,7 +198,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Supplier Name",
@@ -206,7 +206,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Supplier Overview: Telephone Number",
@@ -218,7 +218,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

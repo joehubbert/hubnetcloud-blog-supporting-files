@@ -5,7 +5,7 @@ using System.Text.RegularExpressions;
 
 namespace CRM.Services
 {
-    internal class ValidateDataInputService
+    internal class DataValidationService
     {
 		internal class ValidationResult
         {

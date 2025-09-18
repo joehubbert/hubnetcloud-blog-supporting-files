@@ -367,7 +367,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                 {
                     string filePath = openFileDialog.FileName;
 
-                    if (ValidateDataInputService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
+                    if (DataValidationService.IsValidImageFile(filePath, 1000, 1000, out string errorMessage))
                     {
                         companyConfigurationDetailTabControlCompanyLogoTabPageCompanyLogoImagePictureBox.Image = Image.FromFile(filePath);
                         _companyLogoImageBytes = File.ReadAllBytes(filePath);
@@ -583,16 +583,16 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Address Line 1",
@@ -600,7 +600,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Address Line 2",
@@ -608,7 +608,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Address Line 3",
@@ -616,7 +616,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Address Line 4",
@@ -624,14 +624,14 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Address Line 5",
                     Value = addressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Address Line 1",
@@ -640,7 +640,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     ValueType = typeof(string)
                 },
 
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Bank Account Address Line 2",
@@ -648,7 +648,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Address Line 3",
@@ -656,7 +656,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Address Line 4",
@@ -664,21 +664,21 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Address Line 5",
                     Value = bankAccountAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Currency Id",
                     Value = bankAccountCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account IBAN",
@@ -686,7 +686,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 34,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Name",
@@ -694,7 +694,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account Number",
@@ -702,7 +702,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Bank Account Sort Code",
@@ -710,7 +710,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 8,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Bank Account SWIFT Code",
@@ -718,7 +718,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 11,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Bank Account Vipps Id",
@@ -726,14 +726,14 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Logo",
                     Value = companyLogo,
                     ValueType = typeof(byte[])
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Name",
@@ -741,7 +741,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Email Address",
@@ -749,7 +749,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Email Top Level Domain",
@@ -757,7 +757,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Telephone Number",
@@ -765,7 +765,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "VAT Number",
@@ -773,14 +773,14 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "VAT Registered",
                     Value = vatRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Website URL",
@@ -792,7 +792,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -806,140 +806,120 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = generalInformationActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Address Line 1",
-                        VariableType = "string",
                         OriginalValue = generalInformationAddressLine1OriginalValue,
                         NewValue = addressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Address Line 3",
-                        VariableType = "string",
                         OriginalValue = generalInformationAddressLine3OriginalValue,
                         NewValue = addressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Address Line 4",
-                        VariableType = "string",
                         OriginalValue = generalInformationAddressLine4OriginalValue,
                         NewValue = addressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Address Line 5",
-                        VariableType = "Guid",
                         OriginalValue = generalInformationAddressLine5OriginalValue,
                         NewValue = addressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Address Line 1",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountAddressLine1OriginalValue,
                         NewValue = bankAccountAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Address Line 3",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountAddressLine3OriginalValue,
                         NewValue = bankAccountAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Address Line 4",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountAddressLine4OriginalValue,
                         NewValue = bankAccountAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Address Line 5",
-                        VariableType = "Guid",
                         OriginalValue = financialInformationBankAccountAddressLine5OriginalValue,
                         NewValue = bankAccountAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account IBAN",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountIBANOriginalValue,
                         NewValue = bankAccountIBAN
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Name",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountNameOriginalValue,
                         NewValue = bankAccountName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account Number",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountNumberOriginalValue,
                         NewValue = bankAccountNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "Bank Account SWIFT Code",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountSWIFTCodeOriginalValue,
                         NewValue = bankAccountSWIFTCode
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Logo",
-                        VariableType = "byte[]",
                         OriginalValue = companyLogoImageBytesOriginalValue,
                         NewValue = companyLogo
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Name",
-                        VariableType = "string",
                         OriginalValue = generalInformationCompanyNameOriginalValue,
                         NewValue = companyName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Email Address",
-                        VariableType = "string",
                         OriginalValue = generalInformationEmailAddressOriginalValue,
                         NewValue = emailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Email Top Level Domain",
-                        VariableType = "string",
                         OriginalValue = generalInformationEmailTopLevelDomainOriginalValue,
                         NewValue = emailTopLevelDomain
                     },
                     new ChangeDetail
                     {
                         VariableName = "Telephone Number",
-                        VariableType = "string",
                         OriginalValue = generalInformationTelephoneNumberOriginalValue,
                         NewValue = telephoneNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "VAT Registered",
-                        VariableType = "bool",
                         OriginalValue = financialInformationVATRegisteredOriginalValue,
                         NewValue = vatRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Website URL",
-                        VariableType = "string",
                         OriginalValue = generalInformationWebsiteURLOriginalValue,
                         NewValue = websiteURL
                     }
@@ -950,7 +930,6 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Address Line 2",
-                        VariableType = "string",
                         OriginalValue = generalInformationAddressLine2OriginalValue,
                         NewValue = addressLine2
                     });
@@ -961,7 +940,6 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Bank Account Address Line 2",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountAddressLine2OriginalValue,
                         NewValue = bankAccountAddressLine2
                     });
@@ -972,7 +950,6 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Bank Account Sort Code",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountSortCodeOriginalValue,
                         NewValue = bankAccountSortCode
                     });
@@ -983,7 +960,6 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Bank Account Vipps Id",
-                        VariableType = "string",
                         OriginalValue = financialInformationBankAccountVippsIdOriginalValue,
                         NewValue = bankAccountVippsId
                     });
@@ -994,7 +970,6 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "VAT Number",
-                        VariableType = "string",
                         OriginalValue = financialInformationVATNumberOriginalValue,
                         NewValue = vatNumber
                     });
@@ -1002,7 +977,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

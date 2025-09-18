@@ -56,16 +56,16 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = _companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template",
@@ -73,7 +73,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     MaxLength = 1070000000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template Title",
@@ -81,7 +81,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "HTML Template Type Id",
@@ -92,7 +92,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

@@ -403,16 +403,16 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = _companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 1",
@@ -420,7 +420,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Billing Information: Address Line 2",
@@ -428,7 +428,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 3",
@@ -436,7 +436,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 4",
@@ -444,14 +444,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Address Line 5",
                     Value = customerBillingInformationAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Billing Information: Company Name",
@@ -459,7 +459,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Email Address",
@@ -467,7 +467,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: First Name",
@@ -475,7 +475,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Last Name",
@@ -483,7 +483,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Billing Information: Telephone Number",
@@ -491,35 +491,35 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Credit Enabled",
                     Value = customerFinanceCreditEnabled,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Credit Limit",
                     Value = customerFinanceCreditLimit,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Payment Currency Id",
                     Value = customerFinancePaymentCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: Payment Days",
                     Value = customerFinancePaymentDays,
                     ValueType = typeof(byte)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Company Finance: VAT Number",
@@ -527,28 +527,28 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Finance: VAT Registered",
                     Value = customerFinanceVATRegistered,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Account Manager Id",
                     Value = customerOverviewAccountManagerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Active Status",
                     Value = customerOverviewActiveStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Company Name",
@@ -556,28 +556,28 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Since",
                     Value = customerOverviewCustomerSince,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Tier Id",
                     Value = customerOverviewCustomerTierId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Customer Type Id",
                     Value = customerOverviewCustomerTypeId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Email Address",
@@ -585,21 +585,21 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Existing Global Parent Customer Id",
                     Value = customerOverviewExistingGlobalParentCustomerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Overview: Existing Top Parent Customer Id",
                     Value = customerOverviewExistingTopParentCustomerId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: First Name",
@@ -607,7 +607,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Custome Overview: Last Name",
@@ -615,14 +615,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Sales Sub Region Id",
                     Value = customerOverviewSalesSubRegionId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Telephone Number",
@@ -630,21 +630,21 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Will Be Global Parent",
                     Value = customerOverviewWillBeGlobalParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Will Be Top Parent",
                     Value = customerOverviewWillBeTopParent,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Overview: Telephone Number",
@@ -652,7 +652,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 13,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 1",
@@ -660,7 +660,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Shipping Information: Address Line 2",
@@ -668,7 +668,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 3",
@@ -676,7 +676,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 4",
@@ -684,14 +684,14 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Address Line 5",
                     Value = customerShippingInformationAddressLine5,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Shipping Information: Company Name",
@@ -699,7 +699,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Email Address",
@@ -707,7 +707,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: First Name",
@@ -715,7 +715,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Last Name",
@@ -723,7 +723,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Shipping Information: Telephone Number",
@@ -735,7 +735,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {

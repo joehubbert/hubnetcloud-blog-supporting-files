@@ -216,9 +216,9 @@ namespace CRM.Presentation.Note
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = noteDetailModuleNoteTypeFriendlyName,
@@ -226,7 +226,7 @@ namespace CRM.Presentation.Note
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = noteDetailNoteTitleFriendlyName,
@@ -234,7 +234,7 @@ namespace CRM.Presentation.Note
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = noteDetailNoteTypeIdFriendlyName,
@@ -245,7 +245,7 @@ namespace CRM.Presentation.Note
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -258,21 +258,18 @@ namespace CRM.Presentation.Note
                     new ChangeDetail
                     {
                         VariableName = noteDetailModuleNoteTypeFriendlyName,
-                        VariableType = "string",
                         OriginalValue = noteDetailNoteOriginalValue,
                         NewValue = note
                     },
                     new ChangeDetail
                     {
                         VariableName = noteDetailNoteTitleFriendlyName,
-                        VariableType = "string",
                         OriginalValue = noteDetailNoteTitleOriginalValue,
                         NewValue = noteTitle
                     },
                     new ChangeDetail
                     {
                         VariableName = noteDetailNoteTypeIdFriendlyName,
-                        VariableType = "Guid",
                         OriginalValue = noteDetailNoteTypeIdOriginalValue,
                         NewValue = noteTypeId
                     }
@@ -280,7 +277,7 @@ namespace CRM.Presentation.Note
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, noteDetailModuleNoteTypeFriendlyName);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, noteDetailModuleNoteTypeFriendlyName);
 
                 if (confirmed)
                 {

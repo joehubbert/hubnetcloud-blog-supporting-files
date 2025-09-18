@@ -5,12 +5,11 @@ namespace CRM.Services
     internal class ChangeDetail
     {
         public string VariableName { get; set; } = string.Empty;
-        public string VariableType { get; set; } = string.Empty;
         public object? OriginalValue { get; set; }
         public object? NewValue { get; set; }
     }
 
-    internal class UpdateConfirmationService
+    internal class ChangeValidationService
     {
         public static bool ConfirmChanges(List<ChangeDetail> changesList, string dataSubject)
         {

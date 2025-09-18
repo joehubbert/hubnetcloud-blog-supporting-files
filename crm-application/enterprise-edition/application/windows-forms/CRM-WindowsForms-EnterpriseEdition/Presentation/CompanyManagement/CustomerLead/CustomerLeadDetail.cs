@@ -386,23 +386,23 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Contact Id",
                     Value = customerContactId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead",
@@ -410,14 +410,14 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     MaxLength = 4000,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Customer Lead Target Date",
                     Value = customerLeadTargetDate,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead Title",
@@ -425,14 +425,14 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Customer Lead Type Id",
                     Value = customerLeadTypeId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Marketing Channel Id",
@@ -443,7 +443,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -456,49 +456,42 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Contact Id",
-                        VariableType = "Guid",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageCustomerContactIdOriginalValue ?? null,
                         NewValue = customerContactId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Lead",
-                        VariableType = "string",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageCustomerLeadOriginalValue,
                         NewValue = customerLead
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Lead Target Date",
-                        VariableType = "DateTime",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageCustomerLeadTargetDateOriginalValue ?? null,
                         NewValue = customerLeadTargetDate
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Lead Title",
-                        VariableType = "string",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue,
                         NewValue = customerLeadTitle
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Lead Type Id",
-                        VariableType = "Guid",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeIdOriginalValue,
                         NewValue = customerLeadTypeId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Marketing Channel Id",
-                        VariableType = "Guid",
                         OriginalValue = customerLeadDetailTabControlOverviewTabPageMarketingChannelIdOriginalValue ?? null,
                         NewValue = marketingChannelId
                     }
@@ -506,7 +499,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

@@ -152,23 +152,23 @@ namespace CRM.Presentation.MasterDataManagement
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Delivery Cost",
                     Value = deliveryCost,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Delivery Method",
@@ -176,14 +176,14 @@ namespace CRM.Presentation.MasterDataManagement
                     MaxLength = 50,
                     ValueType = typeof(string)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Delivery Time",
                     Value = deliveryTime,
                     ValueType = typeof(int)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Tax Profile Id",
@@ -194,7 +194,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -208,35 +208,30 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = deliveryMethodDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Delivery Method",
-                        VariableType = "string",
                         OriginalValue = deliveryMethodDetailDeliveryMethodOriginalValue,
                         NewValue = deliveryMethod
                     },
                     new ChangeDetail
                     {
                         VariableName = "Delivery Cost",
-                        VariableType = "decimal",
                         OriginalValue = deliveryMethodDetailDeliveryCostOriginalValue,
                         NewValue = deliveryCost
                     },
                     new ChangeDetail
                     {
                         VariableName = "Delivery Time",
-                        VariableType = "int",
                         OriginalValue = deliveryMethodDetailDeliveryTimeOriginalValue,
                         NewValue = deliveryTime
                     },
                     new ChangeDetail
                     {
                         VariableName = "Tax Profile Id",
-                        VariableType = "Guid",
                         OriginalValue = deliveryMethodDetailTaxProfileIdOriginalValue,
                         NewValue = taxProfileId
                     }
@@ -244,7 +239,7 @@ namespace CRM.Presentation.MasterDataManagement
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

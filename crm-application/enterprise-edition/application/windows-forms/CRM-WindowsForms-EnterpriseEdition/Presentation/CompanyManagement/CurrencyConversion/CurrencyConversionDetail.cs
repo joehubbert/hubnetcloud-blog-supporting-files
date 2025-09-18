@@ -291,58 +291,58 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
                 return;
             }
 
-            var dataToValidate = new List<ValidateDataInputService.DataProperty>
+            var dataToValidate = new List<DataValidationService.DataProperty>
             {
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Active Status",
                     Value = activeStatus,
                     ValueType = typeof(bool)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Base Currency Conversion Rate",
                     Value = baseCurrencyConversionRate,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Base Currency Id",
                     Value = baseCurrencyId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Company Configuration Id",
                     Value = companyConfigurationId,
                     ValueType = typeof(Guid)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Effective Date",
                     Value = effectiveDate,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = true,
                     Name = "Expiry Date",
                     Value = expiryDate,
                     ValueType = typeof(DateTime)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Target Currency Conversion Rate",
                     Value = targetCurrencyConversionRate,
                     ValueType = typeof(decimal)
                 },
-                new ValidateDataInputService.DataProperty
+                new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
                     Name = "Target Currency Id",
@@ -353,7 +353,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
 
             dataToValidate = dataToValidate.OrderBy(change => change.Name).ToList();
 
-            var validationResult = ValidateDataInputService.ValidateInput(dataToValidate);
+            var validationResult = DataValidationService.ValidateInput(dataToValidate);
 
             if (!validationResult.IsValid)
             {
@@ -366,56 +366,48 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = currencyConversionDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Base Currency Conversion Rate",
-                        VariableType = "decimal",
                         OriginalValue = currencyConversionDetailBaseCurrencyValueOriginalValue,
                         NewValue = baseCurrencyConversionRate
                     },
                     new ChangeDetail
                     {
                         VariableName = "Base Currency Id",
-                        VariableType = "Guid",
                         OriginalValue = currencyConversionDetailBaseCurrencyIdOriginalValue,
                         NewValue = baseCurrencyId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Configuration Id",
-                        VariableType = "Guid",
                         OriginalValue = currencyConversionDetailCompanyConfigurationIdOriginalValue,
                         NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Effective Date",
-                        VariableType = "DateTime",
                         OriginalValue = currencyConversionDetailEffectiveDateOriginalValue,
                         NewValue = effectiveDate
                     },
                     new ChangeDetail
                     {
                         VariableName = "Expiry Date",
-                        VariableType = "DateTime",
                         OriginalValue = currencyConversionDetailExpiryDateOriginalValue,
                         NewValue = expiryDate
                     },
                     new ChangeDetail
                     {
                         VariableName = "Target Currency Conversion Rate",
-                        VariableType = "decimal",
                         OriginalValue = currencyConversionDetailTargetCurrencyValueOriginalValue,
                         NewValue = targetCurrencyConversionRate
                     },
                     new ChangeDetail
                     {
                         VariableName = "Target Currency Id",
-                        VariableType = "Guid",
                         OriginalValue = currencyConversionDetailTargetCurrencyIdOriginalValue,
                         NewValue = targetCurrencyId
                     },
@@ -423,7 +415,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
 
                 changesList = changesList.OrderBy(change => change.VariableName).ToList();
 
-                bool confirmed = UpdateConfirmationService.ConfirmChanges(changesList, dataSubject);
+                bool confirmed = ChangeValidationService.ConfirmChanges(changesList, dataSubject);
 
                 if (confirmed)
                 {

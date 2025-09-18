@@ -376,21 +376,18 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = dataSubjectActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Configuration Id",
-                        VariableType = "Guid?",
                         OriginalValue = dataSubjectCompanyConfigurationIdOriginalValue,
                         NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = dataSubjectFriendlyName,
-                        VariableType = "string",
                         OriginalValue = dataSubjectOriginalValue,
                         NewValue = dataSubjectValue
                     }

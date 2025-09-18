@@ -301,70 +301,60 @@ namespace CRM.Presentation.Manufacturer
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Finance: VAT Number",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlFinanceTabPageFinanceVATNumberOriginalValue,
                         NewValue = manufacturerDetailFinanceVATNumber
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Finance: VAT Registered",
-                        VariableType = "bool",
                         OriginalValue = manufacturerDetailTabControlFinanceTabPageFinanceVATRegisteredOriginalValue,
                         NewValue = manufacturerDetailFinanceVATRegistered
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Active Status",
-                        VariableType = "bool",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageActiveStatusOrginalValue,
                         NewValue = manufacturerDetailOverviewActiveStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 1",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine1OriginalValue,
                         NewValue = manufacturerDetailOverviewAddressLine1
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 3",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine3OriginalValue,
                         NewValue = manufacturerDetailOverviewAddressLine3
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 4",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine4OriginalValue,
                         NewValue = manufacturerDetailOverviewAddressLine4
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 5",
-                        VariableType = "Guid",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine5OriginalValue,
                         NewValue = manufacturerDetailOverviewAddressLine5
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Email Address",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageEmailAddressOriginalValue,
                         NewValue = manufacturerDetailOverviewEmailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Manufacturer Name",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageManufacturerNameOriginalValue,
                         NewValue = manufacturerDetailOverviewManufacturerName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Telephone Number",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageTelephoneNumberOriginalValue,
                         NewValue = manufacturerDetailOverviewTelephoneNumber
                     }
@@ -375,7 +365,6 @@ namespace CRM.Presentation.Manufacturer
                     changesList.Add(new ChangeDetail
                     {
                         VariableName = "Manufacturer Detail Overview: Address Line 2",
-                        VariableType = "string",
                         OriginalValue = manufacturerDetailTabControlOverviewTabPageAddressLine2OriginalValue,
                         NewValue = manufacturerDetailOverviewAddressLine2
                     });

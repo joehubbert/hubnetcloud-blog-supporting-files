@@ -32,7 +32,7 @@ namespace CRM.Helpers
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-                new ErrorMessageService("Warning.DataValidation.Dynamic", errorText);
+                new ErrorMessageService("Warning.Data.Validation.Dynamic", errorText);
             }
         }
 
@@ -43,7 +43,7 @@ namespace CRM.Helpers
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-                new ErrorMessageService("Warning.DataValidation.Dynamic", errorText);
+                new ErrorMessageService("Warning.Data.Validation.Dynamic", errorText);
             }
         }
     }

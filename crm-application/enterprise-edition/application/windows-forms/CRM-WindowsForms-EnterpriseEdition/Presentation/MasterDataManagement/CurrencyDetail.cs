@@ -154,21 +154,18 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = currencyDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail 
                     { 
                         VariableName = "Currency Code",
-                        VariableType = "string",
                         OriginalValue = currencyDetailCurrencyCodeOriginalValue,
                         NewValue = currencyCode 
                     },
                     new ChangeDetail
                     { 
                         VariableName = "Currency Name",
-                        VariableType = "string",
                         OriginalValue = currencyDetailCurrencyNameOriginalValue,
                         NewValue = currencyName
                     }

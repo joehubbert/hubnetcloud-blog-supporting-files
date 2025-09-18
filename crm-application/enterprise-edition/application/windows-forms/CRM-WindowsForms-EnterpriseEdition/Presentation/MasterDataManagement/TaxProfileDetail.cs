@@ -162,21 +162,18 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "string",
                         OriginalValue = taxProfileDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Tax Profile",
-                        VariableType = "string",
                         OriginalValue = taxProfileDetailTaxProfileOriginalValue,
                         NewValue = taxProfile
                     },
                     new ChangeDetail
                     {
                         VariableName = "Tax Rate",
-                        VariableType = "string",
                         OriginalValue = taxProfileDetailTaxRateOriginalValue,
                         NewValue = taxRate
                     }

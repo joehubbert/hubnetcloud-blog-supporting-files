@@ -249,42 +249,36 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = accountManagerInformationActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Configuration Id",
-                        VariableType = "Guid",
                         OriginalValue = accountManagerInformationCompanyConfigurationIdOriginalValue,
                         NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = "First Name",
-                        VariableType = "string",
                         OriginalValue = accountManagerInformationFirstNameOriginalValue,
                         NewValue = firstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Last Name",
-                        VariableType = "string",
                         OriginalValue = accountManagerInformationLastNameOriginalValue,
                         NewValue = lastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Email Address",
-                        VariableType = "string",
                         OriginalValue = accountManagerInformationEmailAddressOriginalValue,
                         NewValue = emailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "Telephone Number",
-                        VariableType = "string",
                         OriginalValue = accountManagerInformationTelephoneNumberOriginalValue,
                         NewValue = telephoneNumber
                     }

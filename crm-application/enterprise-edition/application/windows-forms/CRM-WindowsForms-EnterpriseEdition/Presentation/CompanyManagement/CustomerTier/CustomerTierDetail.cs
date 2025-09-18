@@ -183,28 +183,24 @@ namespace CRM.Presentation.CompanyManagement.CustomerTier
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = customerTierDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Company Configuration Id",
-                        VariableType = "Guid",
                         OriginalValue = customerTierDetailCompanyConfigurationIdOriginalValue,
                         NewValue = companyConfigurationId
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Tier Code",
-                        VariableType = "string",
                         OriginalValue = customerTierDetailCustomerTierCodeOriginalValue,
                         NewValue = customerTierCode
                     },
                     new ChangeDetail
                     {
                         VariableName = "Customer Tier Description",
-                        VariableType = "string",
                         OriginalValue = customerTierDetailCustomerTierDescriptionOriginalValue,
                         NewValue = customerTierDescription
                     }

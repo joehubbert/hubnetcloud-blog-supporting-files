@@ -724,7 +724,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 }
                 else
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Warning.DataValidation.Selection", "Global Parent Customer");
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Selection", "Global Parent Customer");
                 }
                 customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = true;
                 customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = false;
@@ -740,7 +740,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 }
                 else
                 {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Warning.DataValidation.Selection", "Top Parent Customer");
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Selection", "Top Parent Customer");
                 }
                 customerDetailTabControlOverviewTabPageTopParentCustomerComboBox.Enabled = true;
                 customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox.Enabled = false;

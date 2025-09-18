@@ -10,7 +10,7 @@ namespace CRM.Helpers
             DateTime expiryDate = expiryDatePicker.Value.Date;
             if (expiryDate <= effectiveDate)
             {
-                var errorMessageService = new ErrorMessageService("Warning.DataValidation.EffectiveDateValidation");
+                var errorMessageService = new ErrorMessageService("Warning.Data.Validation.EffectiveDateValidation");
                 return;
             }
         }

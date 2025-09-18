@@ -184,7 +184,7 @@ namespace CRM.Services
 
             if (validationErrors.Length > 0)
             {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.DataValidation.Dynamic", validationErrors.ToString());
+                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Dynamic", validationErrors.ToString());
                 return new ValidationResult
                 {
                     IsValid = false,

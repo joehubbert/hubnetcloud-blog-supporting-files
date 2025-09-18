@@ -85,7 +85,10 @@
                     UnitConversionError();
                     break;
                 case "Information.ApplicationConfiguration.Settings.Saved":
-                    ApplicationConfigurationgSettingsSavedInformation();
+                    ApplicationConfigurationSettingsSavedInformation();
+                    break;
+                case "Information.ChangeValidationService.NoChanges":
+
                     break;
                 case "Information.CompanyConfiguration.ActiveCompanyConfiguration.Saved":
                     CompanyConfigurationActiveCompanyConfigurationSavedInformation(dataSubject ?? "unknown");
@@ -103,7 +106,7 @@
                     NoDataFoundInformation(dataSubject ?? "unknown");
                     break;
                 case "Information.UpdateCancelled":
-                    UpdateCancelled();
+                    UpdateCancelledInformation();
                     break;
                 case "Warning.ApplicationConfiguration.Settings.Missing":
                     ApplicationConfigurationgSettingsMissingWarning(dataSubject ?? "unknown", errorType);
@@ -148,7 +151,7 @@
             }
         }
 
-        private void ApplicationConfigurationgSettingsSavedInformation()
+        private void ApplicationConfigurationSettingsSavedInformation()
         {
             string messageText = "Application Configuration settings saved.";
             string messageTitle = globalInformationMessageTitle;
@@ -164,6 +167,17 @@
             string messageText = $"Calculation failed for {dataSubject}: {exceptionMessage}.";
             string messageTitle = errorType;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void ChangeValidationServiceNoChanges()
+        {
+            string messageText = "No changes detected. No updates to be made.";
+            string messageTitle = globalInformationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
@@ -500,7 +514,7 @@
             }
         }
 
-        private void UpdateCancelled()
+        private void UpdateCancelledInformation()
         {
             string messageText = "Updates were cancelled, no changes have been made to the database.";
             string messageTitle = globalInformationMessageTitle;

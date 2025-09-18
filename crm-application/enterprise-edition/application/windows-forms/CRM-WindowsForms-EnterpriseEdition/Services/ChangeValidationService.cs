@@ -27,7 +27,7 @@ namespace CRM.Services
 
             if (!hasChanges)
             {
-                MessageBox.Show("No changes detected. No updates to be made.", "No Updates", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ErrorMessageService errorMessageService = new ErrorMessageService("Information.ChangeValidationService.NoChanges");
                 return false;
             }
 

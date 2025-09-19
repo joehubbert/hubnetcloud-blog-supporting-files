@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteMarketingChannel]
+	@marketingChannelId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[MarketingChannel]
+		WHERE [MarketingChannelId] = @marketingChannelId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

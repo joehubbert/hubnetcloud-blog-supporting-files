@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteCustomerLeadNoteType]
+	@customerLeadNoteTypeId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[CustomerLeadNoteType]
+		WHERE [CustomerLeadNoteTypeId] = @customerLeadNoteTypeId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

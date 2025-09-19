@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteSupplierOrderPayment]
+	@supplierOrderPaymentId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[SupplierOrderPayment]
+		WHERE [SupplierOrderPaymentId] = @supplierOrderPaymentId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

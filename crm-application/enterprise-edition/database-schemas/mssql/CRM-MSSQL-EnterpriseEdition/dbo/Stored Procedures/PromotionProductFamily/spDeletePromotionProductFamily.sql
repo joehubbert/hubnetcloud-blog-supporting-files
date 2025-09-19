@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeletePromotionProductFamily]
+	@promotionProductFamilyId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[PromotionProductFamily]
+		WHERE [PromotionProductFamilyId] = @promotionProductFamilyId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

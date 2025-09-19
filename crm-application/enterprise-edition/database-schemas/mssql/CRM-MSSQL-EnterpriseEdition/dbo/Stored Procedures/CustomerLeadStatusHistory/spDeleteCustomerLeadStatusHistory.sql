@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteCustomerLeadStatusHistory]
+	@customerLeadStatusHistoryId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[CustomerLeadStatusHistory]
+		WHERE [CustomerLeadStatusHistoryId] = @customerLeadStatusHistoryId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

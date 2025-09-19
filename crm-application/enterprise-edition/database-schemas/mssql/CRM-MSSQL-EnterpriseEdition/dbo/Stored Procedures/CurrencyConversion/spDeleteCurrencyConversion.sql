@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteCurrencyConversion]
+	@currencyConversionId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[CurrencyConversion]
+		WHERE [CurrencyConversionId] = @currencyConversionId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

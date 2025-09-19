@@ -1,0 +1,21 @@
+﻿CREATE PROCEDURE [dbo].[spDeleteMarketingCampaignStatus]
+	@marketingCampaignStatusId UNIQUEIDENTIFIER
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[MarketingCampaignStatus]
+		WHERE [MarketingCampaignStatusId] = @marketingCampaignStatusId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

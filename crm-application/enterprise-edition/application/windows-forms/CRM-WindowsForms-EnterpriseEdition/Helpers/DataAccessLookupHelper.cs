@@ -12,7 +12,7 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DataOperationsService _dataOperationsService;
+        private DataOperationsService _dataOperationsService = new();
         private string _storedProcedureName;
         private object[]? _storedProcedureParameter;
 

@@ -1,5 +1,4 @@
-﻿using CRM.Interface;
-using CRM.Services;
+﻿using CRM.Services;
 using System.Data;
 
 namespace CRM.Helpers
@@ -14,9 +13,9 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private DataSubmissionService _dataSubmissionService = new();
         private string _storedProcedureName;
-        private StoredProcedureParameter[]? _storedProcedureParameter;
+        private object[]? _storedProcedureParameter;
         private bool _treatFiltersAsPreselection;
 
         public DataAccessComboBoxHelper(
@@ -29,7 +28,7 @@ namespace CRM.Helpers
             bool? dataSubjectFilter2 = false,
             string? dataSubjectFilterColumn2 = null,
             Guid? dataSubjectId2 = null,
-            StoredProcedureParameter[]? storedProcedureParameter = null,
+            object[]? storedProcedureParameter = null,
             bool treatFiltersAsPreselection = false)
         {
             _comboBox = comboBox;
@@ -61,7 +60,6 @@ namespace CRM.Helpers
                 _storedProcedureParameter = storedProcedureParameter;
             }
             _treatFiltersAsPreselection = treatFiltersAsPreselection;
-            LoadDatabaseConnectionSettingsAsync();
         }
 
         private class ComboBoxItem
@@ -69,11 +67,6 @@ namespace CRM.Helpers
             public Guid Id { get; set; }
             public string DisplayText { get; set; } = string.Empty;
             public Dictionary<string, object> Columns { get; set; } = new();
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
         }
 
         public async Task LoadDataAsync()
@@ -187,53 +180,30 @@ namespace CRM.Helpers
                     throw new ArgumentException("Invalid stored procedure name.");
             }
 
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            bool connectionAvailable = false;
-            try
-            {
-                connectionAvailable = await DBInterface.TestConnectionAsync(_databaseConnectionSettings.DatabaseConnectionString);
-            }
-            catch (Exception ex)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
-                return;
-            }
-
-            if (!connectionAvailable)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
-                return;
-            }
-
             try
             {
                 DataTable? dataTable;
 
                 if (_storedProcedureParameter != null)
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, _storedProcedureParameter, dataSubject);
+                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                        operationType: "Select",
+                        dataSubjectName: dataSubject,
+                        dataToBeProcessed: _storedProcedureParameter,
+                        storedProcedureName: _storedProcedureName
+                    );
+
+                    dataTable = _dataSubmissionService.SelectResults;
                 }
                 else
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, dataSubject);
-                }
+                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                        operationType: "SelectNoParameter",
+                        dataSubjectName: dataSubject,
+                        storedProcedureName: _storedProcedureName
+                    );
 
-                if (dataTable == null || dataTable.Rows.Count == 0)
-                {
-                    if (_companyConfigurationId != null)
-                    {
-                        _ = new ErrorMessageService("Warning.NoDataFound.CompanyConfiguration.Specific", dataSubject);
-                        return;
-                    }
-                    else
-                    {
-                        _ = new ErrorMessageService("Information.NoDataFound", dataSubject);
-                        return;
-                    }
+                    dataTable = _dataSubmissionService.SelectResults;
                 }
 
                 if (!string.IsNullOrWhiteSpace(idColumnName) && !dataTable.Columns.Contains(idColumnName))

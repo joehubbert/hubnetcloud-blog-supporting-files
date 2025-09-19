@@ -14,11 +14,11 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
+        private DataSubmissionService _dataSubmissionService;
         private DataTable? _dataTable;
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
         private List<DataRow>? _filteredRows;
         private string _storedProcedureName;
-        private StoredProcedureParameter[]? _storedProcedureParameter;
+        private object[]? _storedProcedureParameter;
 
         public DataAccessListViewHelper(
             ListView listView,
@@ -30,7 +30,7 @@ namespace CRM.Helpers
             bool? dataSubjectFilter2 = false,
             string? dataSubjectFilterColumn2 = null,
             Guid? dataSubjectId2 = null,
-            StoredProcedureParameter[]? storedProcedureParameter = null)
+            object[]? storedProcedureParameter = null)
         {
             _listView = listView;
             if (companyConfigurationId.HasValue && companyConfigurationId.Value != Guid.Empty)
@@ -59,13 +59,7 @@ namespace CRM.Helpers
             if (storedProcedureParameter != null && storedProcedureParameter.Length > 0)
             {
                 _storedProcedureParameter = storedProcedureParameter;
-            }
-            LoadDatabaseConnectionSettingsAsync();
-        }
-
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+            }            
         }
 
         public async Task LoadDataAsync()
@@ -87,39 +81,30 @@ namespace CRM.Helpers
                     throw new ArgumentException($"Invalid stored procedure name., {_storedProcedureName}");
             }
 
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            bool connectionAvailable = false;
-            try
-            {
-                connectionAvailable = await DBInterface.TestConnectionAsync(_databaseConnectionSettings.DatabaseConnectionString);
-            }
-            catch (Exception ex)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
-                return;
-            }
-
-            if (!connectionAvailable)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
-                return;
-            }
-
             try
             {
                 DataTable? dataTable = null;
 
                 if (_storedProcedureParameter != null)
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, _storedProcedureParameter, dataSubject);
+                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                        operationType: "Select",
+                        dataSubjectName: dataSubject,
+                        dataToBeProcessed: _storedProcedureParameter,
+                        storedProcedureName: _storedProcedureName
+                    );
+
+                    dataTable = _dataSubmissionService.SelectResults;
                 }
                 else
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, dataSubject);
+                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                        operationType: "SelectNoParameter",
+                        dataSubjectName: dataSubject,
+                        storedProcedureName: _storedProcedureName
+                    );
+
+                    dataTable = _dataSubmissionService.SelectResults;
                 }
 
                 _dataTable = dataTable;

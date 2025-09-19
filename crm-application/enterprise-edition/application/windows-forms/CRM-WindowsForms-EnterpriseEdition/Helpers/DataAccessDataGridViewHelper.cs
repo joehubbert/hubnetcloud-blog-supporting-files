@@ -1,5 +1,4 @@
-﻿using CRM.Interface;
-using CRM.Services;
+﻿using CRM.Services;
 using System.Data;
 
 namespace CRM.Helpers
@@ -24,7 +23,6 @@ namespace CRM.Helpers
 
         //Loads data into a DataGridView from a stored procedure and adds a "Details" link column.
         public static async Task LoadDataGridViewAsync(
-            DatabaseConnectionSettings? dbSettings,
             object idValue,
             string idParameterName,
             string storedProcedureName,
@@ -35,47 +33,27 @@ namespace CRM.Helpers
             string sortColumnOrder,
             string? sortColumnName)
         {
-            if (dbSettings == null)
-            {
-                dbSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
-
-            bool connectionAvailable = false;
-            try
-            {
-                connectionAvailable = await DBInterface.TestConnectionAsync(dbSettings.DatabaseConnectionString);
-            }
-            catch (Exception ex)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
-                return;
-            }
-
-            if (!connectionAvailable)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
-                return;
-            }
-
             await LoadActiveCompanyConfigurationAsync();
 
-            var parameters = new[]
+            var dataSubmissionService = new DataSubmissionService();
+
+            var parameters = new object[]
             {
-                new StoredProcedureParameter
+                new Dictionary<string, object>
                 {
-                    ParameterName = idParameterName,
-                    ParameterValue = idValue
+                    ["PropertyStoredProcedureParameterName"] = idParameterName,
+                    ["PropertyValue"] = idValue
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+            await dataSubmissionService.DataSubmissionServiceOrchestrator(
+                operationType: "Select",
+                dataSubjectName: dataSubject,
+                dataToBeProcessed: parameters,
+                storedProcedureName: storedProcedureName
+            );
 
-            if (dataTable == null || dataTable.Rows.Count == 0)
-            {
-                new ErrorMessageService("Information.NoDataFound", dataSubject);
-                grid.DataSource = null;
-                return;
-            }
+            DataTable? dataTable = dataSubmissionService.SelectResults;
 
             string sortColumn = sortColumnName ?? "Created Timestamp UTC";
 

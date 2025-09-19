@@ -1,5 +1,4 @@
-﻿using CRM.Interface;
-using CRM.Services;
+﻿using CRM.Services;
 using System.Data;
 
 namespace CRM.Helpers
@@ -13,9 +12,9 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private DataSubmissionService _dataSubmissionService;
         private string _storedProcedureName;
-        private StoredProcedureParameter[]? _storedProcedureParameter;
+        private object[]? _storedProcedureParameter;
 
         // Add properties to expose display and value member column names
         public string DisplayMemberColumnName { get; private set; } = "Display Text";
@@ -30,7 +29,7 @@ namespace CRM.Helpers
             bool? dataSubjectFilter2 = false,
             string? dataSubjectFilterColumn2 = null,
             Guid? dataSubjectId2 = null,
-            StoredProcedureParameter[]? storedProcedureParameter = null)
+            object[]? storedProcedureParameter = null)
         {
             if (companyConfigurationId.HasValue && companyConfigurationId.Value != Guid.Empty)
             {
@@ -62,8 +61,6 @@ namespace CRM.Helpers
             
             // Set display/value member based on stored procedure
             SetColumnMappingsForStoredProcedure(storedProcedureName);
-            
-            LoadDatabaseConnectionSettingsAsync();
         }
 
         private void SetColumnMappingsForStoredProcedure(string storedProcedureName)
@@ -89,11 +86,6 @@ namespace CRM.Helpers
             }
         }
 
-        private async void LoadDatabaseConnectionSettingsAsync()
-        {
-            _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-        }
-
         public async Task<DataTable?> GetFilteredDataTableAsync()
         {
             string dataSubject = string.Empty;
@@ -117,39 +109,28 @@ namespace CRM.Helpers
                     throw new ArgumentException("Invalid stored procedure name.");
             }
 
-            if (_databaseConnectionSettings == null)
-            {
-                _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
-            }
+            DataTable? dataTable;
 
-            bool connectionAvailable = false;
-            try
-            {
-                connectionAvailable = await DBInterface.TestConnectionAsync(_databaseConnectionSettings.DatabaseConnectionString);
-            }
-            catch (Exception ex)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, ex.Message);
-            }
-
-            if (!connectionAvailable)
-            {
-                new ErrorMessageService("Error.Database.Connection.Failed", dataSubject, "Could not connect to the database.");
-            }
-
-            DataTable? dataTable = null;
             if (_storedProcedureParameter != null)
             {
-                dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, _storedProcedureParameter, dataSubject);
+                await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    operationType: "Select",
+                    dataSubjectName: dataSubject,
+                    dataToBeProcessed: _storedProcedureParameter,
+                    storedProcedureName: _storedProcedureName
+                );
+
+                dataTable = _dataSubmissionService.SelectResults;
             }
             else
             {
-                dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, dataSubject);
-            }
+                await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    operationType: "SelectNoParameter",
+                    dataSubjectName: dataSubject,
+                    storedProcedureName: _storedProcedureName
+                );
 
-            if (dataTable == null || dataTable.Rows.Count == 0)
-            {
-                return null;
+                dataTable = _dataSubmissionService.SelectResults;
             }
 
             // If the table has a "Display Text" column but should use a different column name

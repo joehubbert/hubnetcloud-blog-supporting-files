@@ -73,13 +73,13 @@ namespace CRM.Interface
 
                 await executor.ExecuteAsync(storedProcedureName, dbParameters);
 
-                if (operationType != "select")
+                if (operationType != "Select")
                 {
                     string successMessage = operationType switch
                     {
-                        "update" => $"{dataSubject} details updated successfully.",
-                        "delete" => $"{dataSubject} deleted successfully.",
-                        "create" => $"New {dataSubject} created successfully.",
+                        "Update" => $"{dataSubject} details updated successfully.",
+                        "Delete" => $"{dataSubject} deleted successfully.",
+                        "Create" => $"New {dataSubject} created successfully.",
                         _ => $"{dataSubject} operation completed successfully."
                     };
 
@@ -91,15 +91,80 @@ namespace CRM.Interface
             {
                 string errorMessage = operationType switch
                 {
-                    "update" => $"Failed to update {dataSubject} details: {ex.Message}",
-                    "delete" => $"Failed to delete {dataSubject}: {ex.Message}",
-                    "create" => $"Failed to create new {dataSubject}: {ex.Message}",
-                    "select" => $"No data found for the specified {dataSubject}: {ex.Message}",
+                    "Update" => $"Failed to update {dataSubject} details: {ex.Message}",
+                    "Delete" => $"Failed to delete {dataSubject}: {ex.Message}",
+                    "Create" => $"Failed to create new {dataSubject}: {ex.Message}",
+                    "Select" => $"No data found for the specified {dataSubject}: {ex.Message}",
                     _ => $"Failed to complete {dataSubject} operation: {ex.Message}"
                 };
 
                 MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
+            }
+        }
+
+        public static async Task<Dictionary<string, object>?> ExecuteCreateUpdateDeleteStoredProcedureWithOutputParametersAsync(
+            string storedProcedureName,
+            StoredProcedureParameter[] parameters,
+            string dataSubject,
+            string operationType,
+            bool outputStoredProcedureParameterCapture = false,
+            string? outboundStoredProcedureParameterName = null
+            )
+        {
+            try
+            {
+                var executor = await ExecuteStoredProcedureService.CreateAsync();
+                var dbSettings = executor.DatabaseConnectionSettings;
+                var dbParameters = BuildDbParameters(dbSettings, parameters);
+                var outputParameterValues = new Dictionary<string, object>();
+
+                switch (dbSettings.ActiveDatabaseEngine)
+                {
+                    case "Azure SQL Database":
+                    case "Azure SQL Managed Instance":
+                    case "Microsoft SQL Server":
+                        await ExecuteSqlServerWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, dbSettings);
+                        break;
+                    case "Azure Database for MySQL":
+                    case "MySQL":
+                        await ExecuteMySqlWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, dbSettings);
+                        break;
+                    case "Azure Database for PostgreSQL":
+                    case "PostgreSQL":
+                        await ExecutePostgreSqlWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, dbSettings);
+                        break;
+                    default:
+                        throw new NotSupportedException($"Database type '{dbSettings.ActiveDatabaseEngine}' is not supported.");
+                }
+
+                if (operationType != "Select")
+                {
+                    string successMessage = operationType switch
+                    {
+                        "Update" => $"{dataSubject} details updated successfully.",
+                        "Delete" => $"{dataSubject} deleted successfully.",
+                        "Create" => $"New {dataSubject} created successfully.",
+                        _ => $"{dataSubject} operation completed successfully."
+                    };
+
+                    MessageBox.Show(successMessage, "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+                return outputParameterValues.Count > 0 ? outputParameterValues : new Dictionary<string, object>();
+            }
+            catch (Exception ex)
+            {
+                string errorMessage = operationType switch
+                {
+                    "Update" => $"Failed to update {dataSubject} details: {ex.Message}",
+                    "Delete" => $"Failed to delete {dataSubject}: {ex.Message}",
+                    "Create" => $"Failed to create new {dataSubject}: {ex.Message}",
+                    _ => $"Failed to complete {dataSubject} operation: {ex.Message}"
+                };
+
+                MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
             }
         }
 
@@ -173,6 +238,153 @@ namespace CRM.Interface
 
                 MessageBox.Show(errorMessage, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return new DataTable();
+            }
+        }
+
+        private static async Task ExecuteSqlServerWithOutputAsync(
+            string storedProcedureName,
+            object[] dbParameters,
+            string dataSubject,
+            string operationType,
+            Dictionary<string, object> outputParameterValues,
+            bool outputStoredProcedureParameterCapture,
+            string? outboundStoredProcedureParameterName,
+            DatabaseConnectionSettings dbSettings
+            )
+        {
+            using var connection = new SqlConnection(dbSettings.DatabaseConnectionString);
+            using var command = new SqlCommand(storedProcedureName, connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            // Add parameters to command
+            foreach (SqlParameter param in dbParameters)
+                command.Parameters.Add(param);
+
+            await connection.OpenAsync();
+            await command.ExecuteNonQueryAsync();
+
+            // Capture output parameters if enabled
+            if (outputStoredProcedureParameterCapture)
+            {
+                foreach (SqlParameter param in command.Parameters)
+                {
+                    if (param.Direction == ParameterDirection.Output || param.Direction == ParameterDirection.InputOutput)
+                    {
+                        // If specific parameter name is provided, only capture that one
+                        if (!string.IsNullOrWhiteSpace(outboundStoredProcedureParameterName))
+                        {
+                            if (param.ParameterName.TrimStart('@').Equals(outboundStoredProcedureParameterName, StringComparison.OrdinalIgnoreCase))
+                            {
+                                outputParameterValues[param.ParameterName.TrimStart('@')] = param.Value ?? DBNull.Value;
+                            }
+                        }
+                        else
+                        {
+                            // Capture all output parameters
+                            outputParameterValues[param.ParameterName.TrimStart('@')] = param.Value ?? DBNull.Value;
+                        }
+                    }
+                }
+            }
+        }
+
+        private static async Task ExecuteMySqlWithOutputAsync(
+            string storedProcedureName,
+            object[] dbParameters,
+            string dataSubject,
+            string operationType,
+            Dictionary<string, object> outputParameterValues,
+            bool outputStoredProcedureParameterCapture,
+            string? outboundStoredProcedureParameterName,
+            DatabaseConnectionSettings dbSettings
+            )
+        {
+            using var connection = new MySqlConnection(dbSettings.DatabaseConnectionString);
+            using var command = new MySqlCommand(storedProcedureName, connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            // Add parameters to command
+            foreach (MySqlParameter param in dbParameters)
+                command.Parameters.Add(param);
+
+            await connection.OpenAsync();
+            await command.ExecuteNonQueryAsync();
+
+            // Capture output parameters if enabled
+            if (outputStoredProcedureParameterCapture)
+            {
+                foreach (MySqlParameter param in command.Parameters)
+                {
+                    if (param.Direction == ParameterDirection.Output || param.Direction == ParameterDirection.InputOutput)
+                    {
+                        // If specific parameter name is provided, only capture that one
+                        if (!string.IsNullOrWhiteSpace(outboundStoredProcedureParameterName))
+                        {
+                            if (param.ParameterName.Equals(outboundStoredProcedureParameterName, StringComparison.OrdinalIgnoreCase))
+                            {
+                                outputParameterValues[param.ParameterName] = param.Value ?? DBNull.Value;
+                            }
+                        }
+                        else
+                        {
+                            // Capture all output parameters
+                            outputParameterValues[param.ParameterName] = param.Value ?? DBNull.Value;
+                        }
+                    }
+                }
+            }
+        }
+
+        private static async Task ExecutePostgreSqlWithOutputAsync(
+            string storedProcedureName,
+            object[] dbParameters,
+            string dataSubject,
+            string operationType,
+            Dictionary<string, object> outputParameterValues,
+            bool outputStoredProcedureParameterCapture,
+            string? outboundStoredProcedureParameterName,
+            DatabaseConnectionSettings dbSettings
+            )
+        {
+            using var connection = new NpgsqlConnection(dbSettings.DatabaseConnectionString);
+            using var command = new NpgsqlCommand(storedProcedureName, connection)
+            {
+                CommandType = CommandType.StoredProcedure
+            };
+
+            // Add parameters to command
+            foreach (NpgsqlParameter param in dbParameters)
+                command.Parameters.Add(param);
+
+            await connection.OpenAsync();
+            await command.ExecuteNonQueryAsync();
+
+            // Capture output parameters if enabled
+            if (outputStoredProcedureParameterCapture)
+            {
+                foreach (NpgsqlParameter param in command.Parameters)
+                {
+                    if (param.Direction == ParameterDirection.Output || param.Direction == ParameterDirection.InputOutput)
+                    {
+                        // If specific parameter name is provided, only capture that one
+                        if (!string.IsNullOrWhiteSpace(outboundStoredProcedureParameterName))
+                        {
+                            if (param.ParameterName.Equals(outboundStoredProcedureParameterName, StringComparison.OrdinalIgnoreCase))
+                            {
+                                outputParameterValues[param.ParameterName] = param.Value ?? DBNull.Value;
+                            }
+                        }
+                        else
+                        {
+                            // Capture all output parameters
+                            outputParameterValues[param.ParameterName] = param.Value ?? DBNull.Value;
+                        }
+                    }
+                }
             }
         }
 

@@ -35,7 +35,7 @@ namespace CRM.Helpers
         {
             await LoadActiveCompanyConfigurationAsync();
 
-            var dataSubmissionService = new DataSubmissionService();
+            var dataOperationsService = new DataOperationsService();
 
             var parameters = new object[]
             {
@@ -46,14 +46,14 @@ namespace CRM.Helpers
                 }
             };
 
-            await dataSubmissionService.DataSubmissionServiceOrchestrator(
+            await dataOperationsService.DataSubmissionServiceOrchestrator(
                 operationType: "Select",
                 dataSubjectName: dataSubject,
                 dataToBeProcessed: parameters,
                 storedProcedureName: storedProcedureName
             );
 
-            DataTable? dataTable = dataSubmissionService.SelectResults;
+            DataTable? dataTable = dataOperationsService.SelectResults;
 
             string sortColumn = sortColumnName ?? "Created Timestamp UTC";
 

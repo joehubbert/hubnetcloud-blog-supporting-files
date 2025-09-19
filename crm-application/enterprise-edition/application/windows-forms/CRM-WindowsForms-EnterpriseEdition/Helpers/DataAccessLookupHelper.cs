@@ -12,7 +12,7 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DataSubmissionService _dataSubmissionService;
+        private DataOperationsService _dataOperationsService;
         private string _storedProcedureName;
         private object[]? _storedProcedureParameter;
 
@@ -113,24 +113,24 @@ namespace CRM.Helpers
 
             if (_storedProcedureParameter != null)
             {
-                await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                await _dataOperationsService.DataSubmissionServiceOrchestrator(
                     operationType: "Select",
                     dataSubjectName: dataSubject,
                     dataToBeProcessed: _storedProcedureParameter,
                     storedProcedureName: _storedProcedureName
                 );
 
-                dataTable = _dataSubmissionService.SelectResults;
+                dataTable = _dataOperationsService.SelectResults;
             }
             else
             {
-                await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                await _dataOperationsService.DataSubmissionServiceOrchestrator(
                     operationType: "SelectNoParameter",
                     dataSubjectName: dataSubject,
                     storedProcedureName: _storedProcedureName
                 );
 
-                dataTable = _dataSubmissionService.SelectResults;
+                dataTable = _dataOperationsService.SelectResults;
             }
 
             // If the table has a "Display Text" column but should use a different column name

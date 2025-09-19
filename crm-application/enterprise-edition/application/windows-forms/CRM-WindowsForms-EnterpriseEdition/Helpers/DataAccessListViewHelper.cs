@@ -14,7 +14,7 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DataSubmissionService _dataSubmissionService;
+        private DataOperationsService _dataOperationsService;
         private DataTable? _dataTable;
         private List<DataRow>? _filteredRows;
         private string _storedProcedureName;
@@ -87,24 +87,24 @@ namespace CRM.Helpers
 
                 if (_storedProcedureParameter != null)
                 {
-                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "Select",
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
                         storedProcedureName: _storedProcedureName
                     );
 
-                    dataTable = _dataSubmissionService.SelectResults;
+                    dataTable = _dataOperationsService.SelectResults;
                 }
                 else
                 {
-                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "SelectNoParameter",
                         dataSubjectName: dataSubject,
                         storedProcedureName: _storedProcedureName
                     );
 
-                    dataTable = _dataSubmissionService.SelectResults;
+                    dataTable = _dataOperationsService.SelectResults;
                 }
 
                 _dataTable = dataTable;

@@ -13,7 +13,7 @@ namespace CRM.Helpers
         private bool? _dataSubjectFilter2;
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
-        private DataSubmissionService _dataSubmissionService = new();
+        private DataOperationsService _dataOperationsService = new();
         private string _storedProcedureName;
         private object[]? _storedProcedureParameter;
         private bool _treatFiltersAsPreselection;
@@ -186,24 +186,24 @@ namespace CRM.Helpers
 
                 if (_storedProcedureParameter != null)
                 {
-                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "Select",
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
                         storedProcedureName: _storedProcedureName
                     );
 
-                    dataTable = _dataSubmissionService.SelectResults;
+                    dataTable = _dataOperationsService.SelectResults;
                 }
                 else
                 {
-                    await _dataSubmissionService.DataSubmissionServiceOrchestrator(
+                    await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "SelectNoParameter",
                         dataSubjectName: dataSubject,
                         storedProcedureName: _storedProcedureName
                     );
 
-                    dataTable = _dataSubmissionService.SelectResults;
+                    dataTable = _dataOperationsService.SelectResults;
                 }
 
                 if (!string.IsNullOrWhiteSpace(idColumnName) && !dataTable.Columns.Contains(idColumnName))

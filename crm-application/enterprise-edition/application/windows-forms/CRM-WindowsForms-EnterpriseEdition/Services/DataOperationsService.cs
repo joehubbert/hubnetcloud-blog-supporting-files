@@ -5,7 +5,7 @@ using System.Data;
 
 namespace CRM.Services
 {
-    internal class DataSubmissionService
+    internal class DataOperationsService
     {
         private bool _changeValidationPassed;
         private Guid? _dataSubjectId;

@@ -72,6 +72,9 @@
                 case "Error.Database.Connection.SettingsNotLoaded":
                     DatabaseConnectionSettingsNotLoadedError();
                     break;
+                case "Error.Database.Operation.Failed":
+                    DatabaseOperationFailedError(dataSubject ?? "unknown", errorType, exceptionMessage ?? "No exception message provided.");
+                    break;
                 case "Error.Measurement.Type.NotImplemented":
                     MeasurementTypeNotImplementedError(dataSubject ?? "unknown");
                     break;
@@ -88,7 +91,7 @@
                     ApplicationConfigurationSettingsSavedInformation();
                     break;
                 case "Information.ChangeValidationService.NoChanges":
-
+                    ChangeValidationServiceNoChanges();
                     break;
                 case "Information.CompanyConfiguration.ActiveCompanyConfiguration.Saved":
                     CompanyConfigurationActiveCompanyConfigurationSavedInformation(dataSubject ?? "unknown");
@@ -123,13 +126,16 @@
                 case "Warning.Data.Validation.DataType":
                     DataValidationDataTypeWarning(dataSubject ?? "unknown");
                     break;
-                case "Warning.DataValidation.Dynamic":
+                case "Warning.Data.Validation.Dynamic":
                     DataValidationDynamicWarning(dataSubject ?? "unknown");
                     break;
-                case "Warning.DataValidation.EffectiveDateValidation":
+                case "Warning.Data.Validation.EffectiveDateValidation":
                     DataValidationEffectiveDateValidationWarning();
                     break;
-                case "Warning.DataValidation.Selection":
+                case "Warning.Data.Validation.NoData":
+                    DataValidationNoDataWarning();
+                    break;
+                case "Warning.Data.Validation.Selection":
                     DataValidationSelectionWarning(dataSubject ?? "unknown");
                     break;
                 case "Warning.NoDataFound.CompanyConfiguration.Specific":
@@ -371,6 +377,17 @@
             }
         }
 
+        private void DataValidationNoDataWarning()
+        {
+            string messageText = $"No data to be validated.";
+            string messageTitle = globalValidationMessageTitle;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
         private void DataValidationSelectionError(string dataSubject)
         {
             string messageText = $"Please select a valid {dataSubject}.";
@@ -420,6 +437,17 @@
             string messageText = "Database connection test was successful.";
             string messageTitle = globalDatabaseConnectionMessageTitle;
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (loggingEnabled)
+            {
+                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+            }
+        }
+
+        private void DatabaseOperationFailedError(string dataSubject, string errorType, string exceptionMessage)
+        {
+            string messageText = $"Database Operation Failed: {exceptionMessage}";
+            string messageTitle = errorType;
+            MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
                 new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);

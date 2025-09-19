@@ -309,7 +309,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                 }
 
                 string storedProcedureName = "spCreateSupplier";
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();

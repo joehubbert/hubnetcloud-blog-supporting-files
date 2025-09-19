@@ -102,7 +102,6 @@ namespace CRM.Presentation.CompanyManagement.Supplier
         private async Task SupplierDetailExistingSupplierContact_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _supplierId,
                 "supplierId",
                 "spGetAllSupplierContactForSupplier",
@@ -118,7 +117,6 @@ namespace CRM.Presentation.CompanyManagement.Supplier
         private async Task SupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _supplierId,
                 "supplierId",
                 "spGetAllNoteForSupplier",
@@ -626,7 +624,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     }
 
                     string storedProcedureName = "spUpdateSupplier";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();

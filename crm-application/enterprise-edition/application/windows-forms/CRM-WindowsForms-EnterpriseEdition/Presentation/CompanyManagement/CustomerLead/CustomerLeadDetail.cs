@@ -168,7 +168,6 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
         private async Task CustomerLeadDetailExistingCustomerLeadNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _customerLeadId,
                 "customerLeadId",
                 "spGetAllNoteForCustomerLead",
@@ -560,7 +559,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     }
 
                     string storedProcedureName = "spUpdateCustomerLead";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();

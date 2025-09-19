@@ -324,7 +324,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task CustomerDetailExistingCustomerContact_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _customerId,
                 "customerId",
                 "spGetAllCustomerContactForCustomer",
@@ -340,7 +339,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task CustomerDetailExistingCustomerLead_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _customerId,
                 "customerId",
                 "spGetAllCustomerLeadForCustomer",
@@ -356,7 +354,6 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task CustomerDetailExistingCustomerNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _customerId,
                 "customerId",
                 "spGetAllNoteForCustomer",
@@ -1815,7 +1812,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     }
 
                     string storedProcedureName = "spUpdateCustomer";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();

@@ -249,7 +249,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                         }
                     };
 
-                    string operationType = "update";
+                    string operationType = "Update";
                     string storedProcedureName = "spUpdateHTMLTemplate";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(

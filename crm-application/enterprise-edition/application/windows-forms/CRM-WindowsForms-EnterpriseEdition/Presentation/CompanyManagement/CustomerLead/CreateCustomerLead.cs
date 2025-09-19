@@ -38,14 +38,14 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
         private async void LoadCustomerContactAsync(Guid customerId)
         {
-            var parameters = new[]
+            var parameters = new object[]
+            {
+                new Dictionary<string, object>
                 {
-                    new StoredProcedureParameter
-                    {
-                        ParameterName = "customerId",
-                        ParameterValue = customerId
-                    }
-                };
+                    ["PropertyStoredProcedureParameterName"] = "customerId",
+                    ["PropertyValue"] = customerId
+                }
+            };
 
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
             await _dataAccessComboBoxHelper.LoadDataAsync();
@@ -248,7 +248,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                 }
 
                 string storedProcedureName = "spCreateCustomerLead";
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();

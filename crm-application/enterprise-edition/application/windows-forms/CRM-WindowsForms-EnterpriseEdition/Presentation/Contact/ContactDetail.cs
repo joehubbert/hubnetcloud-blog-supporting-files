@@ -242,42 +242,36 @@ namespace CRM.Presentation.Contact
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = contactDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Email Address",
-                        VariableType = "string",
                         OriginalValue = contactDetailEmailAddressOriginalValue,
                         NewValue = emailAddress
                     },
                     new ChangeDetail
                     {
                         VariableName = "First Name",
-                        VariableType = "string",
                         OriginalValue = contactDetailFirstNameOriginalValue,
                         NewValue = firstName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Last Name",
-                        VariableType = "string",
                         OriginalValue = contactDetailLastNameOriginalValue,
                         NewValue = lastName
                     },
                     new ChangeDetail
                     {
                         VariableName = "Role",
-                        VariableType = "string",
                         OriginalValue = contactDetailRoleOriginalValue,
                         NewValue = role
                     },
                     new ChangeDetail
                     {
                         VariableName = "Telephone Number",
-                        VariableType = "string",
                         OriginalValue = contactDetailTelephoneNumberOriginalValue,
                         NewValue = telephoneNumber
                     }
@@ -328,7 +322,7 @@ namespace CRM.Presentation.Contact
                         }
                     };
 
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
                         contactDetailContactUpdateStoredProcedureName,

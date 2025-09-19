@@ -110,7 +110,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerTier
                     }
                 };
                 string storedProcedureName = "spCreateCustomerTier";
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();

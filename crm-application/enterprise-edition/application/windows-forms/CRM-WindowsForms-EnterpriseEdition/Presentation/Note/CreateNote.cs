@@ -184,7 +184,7 @@ namespace CRM.Presentation.Note
                     }
                 };
 
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
                     createNoteModuleNoteCreateStoredProcedureName,

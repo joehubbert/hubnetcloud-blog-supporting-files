@@ -449,7 +449,7 @@ namespace CRM.Presentation.Manufacturer
                     }
 
                     string storedProcedureName = "spUpdateManufacturer";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();

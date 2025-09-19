@@ -201,7 +201,7 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
                     string storedProcedureName = "spUpdateCurrency";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();

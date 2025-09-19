@@ -282,7 +282,7 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
 
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, operationType);
                     this.Close();

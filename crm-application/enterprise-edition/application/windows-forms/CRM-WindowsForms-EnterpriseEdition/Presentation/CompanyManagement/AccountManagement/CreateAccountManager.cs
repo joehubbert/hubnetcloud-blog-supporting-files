@@ -138,7 +138,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     }
                 };
                 string storedProcedureName = "spCreateAccountManager";
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                 this.Close();

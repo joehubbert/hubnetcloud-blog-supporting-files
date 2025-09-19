@@ -47,7 +47,6 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
         private async Task AccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _databaseConnectionSettings,
                 _accountManagerId,
                 "accountManagerId",
                 "spGetAssociatedCustomerToAccountManager",
@@ -330,7 +329,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     };
 
                     string storedProcedureName = "spUpdateAccountManager";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();

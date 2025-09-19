@@ -125,7 +125,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 };
 
                 string dataSubject = "HTML Template";
-                string operationType = "create";
+                string operationType = "Create";
                 string storedProcedureName = "spCreateHTMLTemplate";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(

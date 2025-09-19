@@ -251,7 +251,7 @@ namespace CRM.Presentation.Manufacturer
                 }
 
                 string storedProcedureName = "spCreateManufacturer";
-                string operationType = "create";
+                string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();

@@ -292,7 +292,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
             }
 
             string storedProcedureName = "spCreateCurrencyConversion";
-            string operationType = "create";
+            string operationType = "Create";
 
             await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
             this.Close();

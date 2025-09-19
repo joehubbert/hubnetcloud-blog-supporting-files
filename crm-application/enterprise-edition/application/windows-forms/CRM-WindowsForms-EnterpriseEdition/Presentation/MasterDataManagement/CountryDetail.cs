@@ -153,21 +153,18 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = "Active Status",
-                        VariableType = "bool",
                         OriginalValue = countryDetailActiveStatusOriginalValue,
                         NewValue = activeStatus
                     },
                     new ChangeDetail
                     {
                         VariableName = "Country English Name",
-                        VariableType = "string",
                         OriginalValue = countryDetailCountryEnglishNameOriginalValue,
                         NewValue = countryEnglishName
                     },
                     new ChangeDetail
                     {
                         VariableName = "ISO 3166-1 Alpha 2 Country Code",
-                        VariableType = "string",
                         OriginalValue = countryDetailISO31661A2CountryCodeOriginalValue,
                         NewValue = iso31661A2CountryCode
                     }
@@ -203,7 +200,7 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
                     string storedProcedureName = "spUpdateCountry";
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();

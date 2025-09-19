@@ -300,7 +300,7 @@ namespace CRM.Presentation.Note
                         }
                     };
 
-                    string operationType = "update";
+                    string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
                         noteDetailNoteUpdateStoredProcedureName,

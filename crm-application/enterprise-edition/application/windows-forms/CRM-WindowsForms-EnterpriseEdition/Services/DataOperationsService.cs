@@ -359,8 +359,15 @@ namespace CRM.Services
                     var measurement = new MeasurementConversionModel
                     {
                         MeasurementType = (string)propertyDictionary.GetValueOrDefault("MeasurementType", string.Empty),
-                        Value = Convert.ToDecimal(propertyDictionary.GetValueOrDefault("Value", 0m))
+                        Value = Convert.ToDecimal(propertyDictionary.GetValueOrDefault("Value", 0m)),
+                        PropertyName = (string?)propertyDictionary.GetValueOrDefault("PropertyName", string.Empty)
                     };
+
+                    // Extract the SetValue action from the dictionary
+                    if (propertyDictionary.TryGetValue("SetValue", out var setValueObj) && setValueObj is Action<decimal> setValueAction)
+                    {
+                        measurement.SetValue = setValueAction;
+                    }
 
                     measurementsToBeConvertedList.Add(measurement);
                 }
@@ -369,7 +376,7 @@ namespace CRM.Services
             // Perform conversions
             foreach (var measurement in measurementsToBeConvertedList)
             {
-                // Default conversion: metric to imperial
+                // Default conversion: imperial to metric
                 string inputUnitType = "imperial";
                 string outputUnitType = "metric";
 
@@ -386,18 +393,20 @@ namespace CRM.Services
                     ["OriginalValue"] = measurement.Value,
                     ["ConvertedValue"] = convertedValue,
                     ["MeasurementType"] = measurement.MeasurementType,
+                    ["PropertyName"] = measurement.PropertyName ?? string.Empty,
                     ["InputUnitType"] = inputUnitType,
                     ["OutputUnitType"] = outputUnitType
                 };
 
                 convertedMeasurements.Add(convertedMeasurement);
 
-                // Use the SetValue action if provided
+                // Use the SetValue action if provided to write back to the model
                 if (measurement.SetValue != null)
                 {
                     measurement.SetValue(convertedValue);
                 }
             }
+
             return convertedMeasurements.ToArray();
         }
 

@@ -76,11 +76,11 @@
                     break;
 
                 default:
-                    new ErrorMessageService("Error.Measurement.Type.NotImplemented", measurementType);
+                    ErrorMessageService errorMessageServiceNotImplemented = new ErrorMessageService("Error.Measurement.Type.NotImplemented", measurementType);
                     break;
             }
 
-            new ErrorMessageService("Error.UnitConversion.Generic");
+            ErrorMessageService errorMessageServiceConversionError = new ErrorMessageService("Error.UnitConversion.Generic");
             throw new InvalidOperationException("Unit conversion failed.");
         }
     }

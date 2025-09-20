@@ -48,29 +48,29 @@ namespace CRM.Presentation.General
             { 5, "Prefer" }
         };
         private int? postgreSQLSSLModeCode;
-        private readonly Dictionary<int, (string DisplayName, RegionLanguageCode RegionLanguageCode)> regionLanguageOptions = new Dictionary<int, (string, RegionLanguageCode)>
+        private readonly Dictionary<int, (string DisplayName, LanguageRegionCode LanguageRegionCode)> regionLanguageOptions = new Dictionary<int, (string, LanguageRegionCode)>
         {
-            { 0, ("Čeština", RegionLanguageCode.czCZ) },
-            { 1, ("Dansk", RegionLanguageCode.daDK) },
-            { 2, ("Deutsch", RegionLanguageCode.deDE) },
-            { 3, ("English", RegionLanguageCode.enGB) },
-            { 5, ("Español", RegionLanguageCode.esES) },
-            { 6, ("Français", RegionLanguageCode.frFR) },
-            { 7, ("Italiano", RegionLanguageCode.itIT) },
-            { 8, ("Nederlands", RegionLanguageCode.nlNL) },
-            { 9, ("Norsk bokmål", RegionLanguageCode.nbNO) },
-            { 10, ("Polski", RegionLanguageCode.plPL) },
-            { 11, ("Português", RegionLanguageCode.ptPT) },
-            { 12, ("Suomi", RegionLanguageCode.fi) },
-            { 13, ("Svenska", RegionLanguageCode.svSE) },
-            { 14, ("한국어", RegionLanguageCode.ko) },
-            { 15, ("中文", RegionLanguageCode.zh) },
-            { 16, ("日本語", RegionLanguageCode.jaJP) }
+            { 0, ("Čeština", LanguageRegionCode.czCZ) },
+            { 1, ("Dansk", LanguageRegionCode.daDK) },
+            { 2, ("Deutsch", LanguageRegionCode.deDE) },
+            { 3, ("English", LanguageRegionCode.enGB) },
+            { 5, ("Español", LanguageRegionCode.esES) },
+            { 6, ("Français", LanguageRegionCode.frFR) },
+            { 7, ("Italiano", LanguageRegionCode.itIT) },
+            { 8, ("Nederlands", LanguageRegionCode.nlNL) },
+            { 9, ("Norsk bokmål", LanguageRegionCode.nbNO) },
+            { 10, ("Polski", LanguageRegionCode.plPL) },
+            { 11, ("Português", LanguageRegionCode.ptPT) },
+            { 12, ("Suomi", LanguageRegionCode.fi) },
+            { 13, ("Svenska", LanguageRegionCode.svSE) },
+            { 14, ("한국어", LanguageRegionCode.ko) },
+            { 15, ("中文", LanguageRegionCode.zh) },
+            { 16, ("日本語", LanguageRegionCode.jaJP) }
         };
 
         private string? userProfileActiveDatabaseEngine;
         private string? userProfileActiveDelimeter;
-        private RegionLanguageCode? userProfileActiveRegionLanguageCode;
+        private LanguageRegionCode? userProfileActiveLanguageRegionCode;
         private UnitType? userProfileActiveUnitType;
 
         public AppConfiguration()
@@ -113,7 +113,7 @@ namespace CRM.Presentation.General
                 {
                     userProfileActiveDatabaseEngine = await ApplicationConfigurationService.GetActiveDatabaseEngineAsync();
                     userProfileActiveDelimeter = await ApplicationConfigurationService.GetDelimeterAsync();
-                    userProfileActiveRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
+                    userProfileActiveLanguageRegionCode = await ApplicationConfigurationService.GetLanguageRegionCodeAsync();
 
                     // Populate combo boxes
                     appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxPopulateData();
@@ -232,26 +232,26 @@ namespace CRM.Presentation.General
             }
         }
 
-        private RegionLanguageCode GetSelectedRegionLanguageCode()
+        private LanguageRegionCode GetSelectedLanguageRegionCode()
         {
             var selectedItem = appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.SelectedItem?.ToString();
             if (string.IsNullOrEmpty(selectedItem))
-                return RegionLanguageCode.enGB;
+                return LanguageRegionCode.enGB;
 
-            // Extract the RegionLanguageCode from the formatted string "Language (Code)"
+            // Extract the LanguageRegionCode from the formatted string "Language (Code)"
             var startIndex = selectedItem.LastIndexOf('(') + 1;
             var endIndex = selectedItem.LastIndexOf(')');
 
             if (startIndex > 0 && endIndex > startIndex)
             {
                 var codeString = selectedItem.Substring(startIndex, endIndex - startIndex);
-                if (Enum.TryParse<RegionLanguageCode>(codeString, out var regionCode))
+                if (Enum.TryParse<LanguageRegionCode>(codeString, out var regionCode))
                 {
                     return regionCode;
                 }
             }
 
-            return RegionLanguageCode.enGB; // Default fallback
+            return LanguageRegionCode.enGB; // Default fallback
         }
         private void TestMSSQLConnection()
         {
@@ -558,7 +558,7 @@ namespace CRM.Presentation.General
                     throw new InvalidOperationException("Unsupported database engine selected.");
             }
             await ApplicationConfigurationService.SetDelimeterAsync(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedItem?.ToString() ?? ".");
-            await ApplicationConfigurationService.SetRegionLanguageCodeAsync(GetSelectedRegionLanguageCode());
+            await ApplicationConfigurationService.SetLanguageRegionCodeAsync(GetSelectedLanguageRegionCode());
             if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked)
             {
                 await ApplicationConfigurationService.SetUnitTypeAsync(UnitType.Imperial);
@@ -679,16 +679,16 @@ namespace CRM.Presentation.General
         {
             var ordered = regionLanguageOptions.OrderBy(kvp => kvp.Key).ToList();
             var comboBoxItems = ordered
-                .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.RegionLanguageCode})")
+                .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.LanguageRegionCode})")
                 .ToList();
             appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.DataSource = comboBoxItems;
 
             int selectedIndex = 3; // Default to English (en-GB), which has key 3 in the dictionary
 
-            if (userProfileActiveRegionLanguageCode.HasValue)
+            if (userProfileActiveLanguageRegionCode.HasValue)
             {
                 var idx = ordered.FindIndex(kvp =>
-                    kvp.Value.RegionLanguageCode == userProfileActiveRegionLanguageCode.Value);
+                    kvp.Value.LanguageRegionCode == userProfileActiveLanguageRegionCode.Value);
                 if (idx >= 0)
                     selectedIndex = idx;
             }

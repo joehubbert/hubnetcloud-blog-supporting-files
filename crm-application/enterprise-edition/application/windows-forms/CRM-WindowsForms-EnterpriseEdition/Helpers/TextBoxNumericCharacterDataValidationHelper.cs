@@ -6,17 +6,17 @@ namespace CRM.Helpers
     internal class TextBoxNumericCharacterDataValidationHelper
     {
         private TranslationService _translationService;
-        private RegionLanguageCode activeRegionLanguageCode;
+        private LanguageRegionCode activeLanguageRegionCode;
         private string errorText = "Only numeric characters allowed";
 
-        private async Task UpdateActiveRegionLanguageCodeAndErrorText()
+        private async Task UpdateActiveLanguageRegionCodeAndErrorText()
         {
             _translationService = new TranslationService();
 
-            activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
-            if (activeRegionLanguageCode != RegionLanguageCode.enGB)
+            activeLanguageRegionCode = await ApplicationConfigurationService.GetLanguageRegionCodeAsync();
+            if (activeLanguageRegionCode != LanguageRegionCode.enGB)
             {
-                errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
+                errorText = _translationService.Translate(errorText, activeLanguageRegionCode);
             }
         }
 
@@ -24,10 +24,10 @@ namespace CRM.Helpers
         {
             _translationService = new TranslationService();
 
-            activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
-            if (activeRegionLanguageCode != RegionLanguageCode.enGB)
+            activeLanguageRegionCode = await ApplicationConfigurationService.GetLanguageRegionCodeAsync();
+            if (activeLanguageRegionCode != LanguageRegionCode.enGB)
             {
-                errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
+                errorText = _translationService.Translate(errorText, activeLanguageRegionCode);
             }
 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -39,7 +39,7 @@ namespace CRM.Helpers
 
         public void NumericKeyPressHandler(object? sender, KeyPressEventArgs e)
         {
-            UpdateActiveRegionLanguageCodeAndErrorText();
+            UpdateActiveLanguageRegionCodeAndErrorText();
 
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {

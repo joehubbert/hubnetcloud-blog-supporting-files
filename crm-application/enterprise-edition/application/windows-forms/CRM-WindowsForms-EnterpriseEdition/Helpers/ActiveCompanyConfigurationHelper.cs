@@ -10,7 +10,7 @@ namespace CRM.Helpers
         private Guid _companyConfigurationId;
         private string _companyName;
         private TranslationService _translationService = new TranslationService();
-        private RegionLanguageCode activeRegionLanguageCode;
+        private LanguageRegionCode activeLanguageRegionCode;
         public Guid CompanyConfigurationId => _companyConfigurationId;
 
         public ActiveCompanyConfigurationHelper(ToolStripSplitButton placeholderControl)
@@ -18,14 +18,14 @@ namespace CRM.Helpers
             _placeholderControl = placeholderControl;
         }
 
-        private async void GetActiveRegionLanguageCode()
+        private async void GetActiveLanguageRegionCode()
         {
-            activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
+            activeLanguageRegionCode = await ApplicationConfigurationService.GetLanguageRegionCodeAsync();
         }
 
         public async Task LoadAsync()
         {
-            GetActiveRegionLanguageCode();
+            GetActiveLanguageRegionCode();
 
             var companyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
             if (companyConfiguration == null)
@@ -40,9 +40,9 @@ namespace CRM.Helpers
 
                 string prefix = "Company Configuration";
 
-                if (activeRegionLanguageCode != RegionLanguageCode.enGB)
+                if (activeLanguageRegionCode != LanguageRegionCode.enGB)
                 {
-                    prefix = _translationService.Translate(prefix, activeRegionLanguageCode);
+                    prefix = _translationService.Translate(prefix, activeLanguageRegionCode);
                 }
 
                 string displayText = $"{prefix}: {_companyName} ({_companyConfigurationId})";

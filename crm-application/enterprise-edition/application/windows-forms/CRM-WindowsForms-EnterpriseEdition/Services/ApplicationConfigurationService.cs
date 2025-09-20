@@ -108,6 +108,20 @@ namespace CRM.Services
             }
         }
 
+        public static LanguageRegionCode LanguageRegionCode
+        {
+            get
+            {
+                EnsureLoaded();
+                return _configuration!.personalPreferenceConfiguration.languageRegionCode;
+            }
+            set
+            {
+                EnsureLoaded();
+                _configuration!.personalPreferenceConfiguration.languageRegionCode = value;
+            }
+        }
+
         public static bool LoggingEnabled
         {
             get
@@ -119,20 +133,6 @@ namespace CRM.Services
             {
                 EnsureLoaded();
                 _configuration!.systemConfiguration.loggingEnabled = value;
-            }
-        }
-
-        public static RegionLanguageCode RegionLanguageCode
-        {
-            get
-            {
-                EnsureLoaded();
-                return _configuration!.personalPreferenceConfiguration.regionLanguageCode;
-            }
-            set
-            {
-                EnsureLoaded();
-                _configuration!.personalPreferenceConfiguration.regionLanguageCode = value;
             }
         }
 
@@ -171,18 +171,18 @@ namespace CRM.Services
             return _configuration!.personalPreferenceConfiguration.delimeter;
         }
 
+        public static async Task<LanguageRegionCode> GetLanguageRegionCodeAsync()
+        {
+            if (_configuration == null)
+                await LoadAsync();
+            return _configuration!.personalPreferenceConfiguration.languageRegionCode;
+        }
+
         public static async Task<bool> GetLoggingEnabledAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
             return _configuration!.systemConfiguration.loggingEnabled;
-        }
-
-        public static async Task<RegionLanguageCode> GetRegionLanguageCodeAsync()
-        {
-            if (_configuration == null)
-                await LoadAsync();
-            return _configuration!.personalPreferenceConfiguration.regionLanguageCode;
         }
 
         public static async Task<UnitType> GetUnitTypeAsync()
@@ -228,6 +228,12 @@ namespace CRM.Services
         public static async Task SetDelimeterAsync(string delimeter)
         {
             Delimeter = delimeter;
+            await SaveAsync();
+        }
+
+        public static async Task SetLanguageRegionCodeAsync(LanguageRegionCode languageRegionCode)
+        {
+            LanguageRegionCode = languageRegionCode;
             await SaveAsync();
         }
 
@@ -294,12 +300,6 @@ namespace CRM.Services
         public static async Task SetPostgreSQLConfigurationAsync(ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration config)
         {
             PostgreSQLConfiguration = config;
-            await SaveAsync();
-        }
-
-        public static async Task SetRegionLanguageCodeAsync(RegionLanguageCode regionLanguageCode)
-        {
-            RegionLanguageCode = regionLanguageCode;
             await SaveAsync();
         }
 

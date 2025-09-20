@@ -10,7 +10,7 @@
         Weight
     }
 
-    public enum RegionLanguageCode
+    public enum LanguageRegionCode
     {
         czCZ,
         daDK,

@@ -64,7 +64,7 @@
         public class ApplicationConfigurationServicePersonalPreferenceConfiguration
         {
             public string delimeter {  get; set; } = string.Empty;
-            public RegionLanguageCode regionLanguageCode { get; set; }
+            public LanguageRegionCode languageRegionCode { get; set; }
             public UnitType unitType {  get; set; }
         }
 

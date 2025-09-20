@@ -8,7 +8,7 @@ BEGIN
 		BEGIN TRANSACTION;
 
 		DELETE FROM [dbo].[ProductFamily]
-		WHERE [ProductFamilyId] = @product
+		WHERE [ProductFamilyId] = @productFamilyId
 
 		COMMIT TRANSACTION;
 	END TRY

@@ -13,7 +13,6 @@ namespace CRM.Services
         private bool _dataValidationPassed;
         private string? _dataSubjectName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private MeasurementType? _measurementType;
         private UnitType? _measurementInputUnitType;
         private UnitType? _measurementOutputUnitType;
         private string _operationType;
@@ -33,7 +32,6 @@ namespace CRM.Services
             object[]? dataToBeProcessed = null,
             Guid? dataSubjectId = null,
             string? dataSubjectName = null,
-            MeasurementType? measurementType = null,
             UnitType? measurementInputUnitType = null,
             UnitType? measurementOutputUnitType = null,
             bool? outputStoredProcedureParameterCapture = null,
@@ -44,7 +42,6 @@ namespace CRM.Services
             _dataSubjectId = dataSubjectId;
             _dataSubjectName = dataSubjectName;
             _dataToBeProcessed = dataToBeProcessed;
-            _measurementType = measurementType;
             _measurementInputUnitType = measurementInputUnitType;
             _measurementOutputUnitType = measurementOutputUnitType;
             _operationType = operationType;

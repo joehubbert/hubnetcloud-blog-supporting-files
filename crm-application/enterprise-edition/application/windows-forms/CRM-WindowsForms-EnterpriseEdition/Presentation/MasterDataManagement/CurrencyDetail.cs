@@ -61,7 +61,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             try
             {
-                DataTable? currencyDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+                DataTable? currencyDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
                 if (currencyDataTable != null)
                 {
@@ -203,7 +203,7 @@ namespace CRM.Presentation.MasterDataManagement
                     string storedProcedureName = "spUpdateCurrency";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

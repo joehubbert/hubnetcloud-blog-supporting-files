@@ -1,4 +1,5 @@
-﻿using CRM.Presentation.CompanyManagement.CompanyConfiguration;
+﻿using CRM.Model;
+using CRM.Presentation.CompanyManagement.CompanyConfiguration;
 using CRM.Services;
 
 namespace CRM.Helpers
@@ -8,8 +9,8 @@ namespace CRM.Helpers
         private ToolStripSplitButton _placeholderControl;
         private Guid _companyConfigurationId;
         private string _companyName;
-        private TranslationService _translationService;
-        private string activeRegionLanguageCode;
+        private TranslationService _translationService = new TranslationService();
+        private RegionLanguageCode activeRegionLanguageCode;
         public Guid CompanyConfigurationId => _companyConfigurationId;
 
         public ActiveCompanyConfigurationHelper(ToolStripSplitButton placeholderControl)
@@ -24,7 +25,6 @@ namespace CRM.Helpers
 
         public async Task LoadAsync()
         {
-            _translationService = new TranslationService();
             GetActiveRegionLanguageCode();
 
             var companyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
@@ -40,7 +40,7 @@ namespace CRM.Helpers
 
                 string prefix = "Company Configuration";
 
-                if (activeRegionLanguageCode != "en-GB")
+                if (activeRegionLanguageCode != RegionLanguageCode.enGB)
                 {
                     prefix = _translationService.Translate(prefix, activeRegionLanguageCode);
                 }

@@ -751,7 +751,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                 string storedProcedureName = "spCreateCompanyConfiguration";
                 string operationType = "Create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
         }

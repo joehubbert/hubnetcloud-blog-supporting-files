@@ -122,21 +122,21 @@ namespace CRM.Services
             }
         }
 
-        public static string RegionLanguageCode
+        public static RegionLanguageCode RegionLanguageCode
         {
             get
             {
                 EnsureLoaded();
-                return _configuration!.personalPreferenceConfiguration.languageCode;
+                return _configuration!.personalPreferenceConfiguration.regionLanguageCode;
             }
             set
             {
                 EnsureLoaded();
-                _configuration!.personalPreferenceConfiguration.languageCode = value;
+                _configuration!.personalPreferenceConfiguration.regionLanguageCode = value;
             }
         }
 
-        public static string unitType
+        public static UnitType unitType
         {
             get
             {
@@ -178,14 +178,14 @@ namespace CRM.Services
             return _configuration!.systemConfiguration.loggingEnabled;
         }
 
-        public static async Task<string> GetRegionLanguageCodeAsync()
+        public static async Task<RegionLanguageCode> GetRegionLanguageCodeAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
-            return _configuration!.personalPreferenceConfiguration.languageCode;
+            return _configuration!.personalPreferenceConfiguration.regionLanguageCode;
         }
 
-        public static async Task<string> GetUnitTypeAsync()
+        public static async Task<UnitType> GetUnitTypeAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
@@ -297,13 +297,13 @@ namespace CRM.Services
             await SaveAsync();
         }
 
-        public static async Task SetRegionLanguageCodeAsync(string languageCode)
+        public static async Task SetRegionLanguageCodeAsync(RegionLanguageCode regionLanguageCode)
         {
-            RegionLanguageCode = languageCode;
+            RegionLanguageCode = regionLanguageCode;
             await SaveAsync();
         }
 
-        public static async Task SetUnitTypeAsync(string unitType)
+        public static async Task SetUnitTypeAsync(UnitType unitType)
         {
             ApplicationConfigurationService.unitType = unitType;
             await SaveAsync();

@@ -71,7 +71,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
 
             try
             {
-                DataTable? currencyConversionDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+                DataTable? currencyConversionDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
                 if (currencyConversionDataTable != null)
                 {
@@ -474,7 +474,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
                     string storedProcedureName = "spUpdateCurrencyConversion";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

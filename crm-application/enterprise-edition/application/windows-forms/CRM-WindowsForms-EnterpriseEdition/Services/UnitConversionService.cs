@@ -1,12 +1,14 @@
-﻿namespace CRM.Services
+﻿using CRM.Model;
+
+namespace CRM.Services
 {
-    internal class UnitConversionService
+    public class UnitConversionService
     {
-        public static decimal Convert(
-            string inputUnitType,
+        public static decimal ConvertMeasurement(
+            UnitType inputUnitType,
             decimal measurement,
-            string measurementType,
-            string outputUnitType)
+            MeasurementType measurementType,
+            UnitType outputUnitType)
         {
             //Conversion factors
             const decimal areaConversionFactor = 0.15500031m;           // 1 cm² = 0.15500031 in²
@@ -15,68 +17,61 @@
             const decimal volumeConversionFactor = 0.0610237m;          // 1 cm³ = 0.0610237 in³
             const decimal weightConversionFactor = 2.20462m;            // 1 kg = 2.20462 lbs
 
-            if (string.IsNullOrWhiteSpace(inputUnitType))
-                throw new ArgumentNullException(nameof(inputUnitType));
-            if (string.IsNullOrWhiteSpace(measurementType))
-                throw new ArgumentNullException(nameof(measurementType));
-            if (string.IsNullOrWhiteSpace(outputUnitType))
-                throw new ArgumentNullException(nameof(outputUnitType));
-
             if (inputUnitType == outputUnitType)
                 return measurement;
 
             switch (measurementType)
             {
-                case "Area":
+                case MeasurementType.Area:
                     // cm² <-> in²
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return measurement * areaConversionFactor; // cm² to in²
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return measurement / areaConversionFactor; // in² to cm²
                     break;
 
-                case "Distance":
+                case MeasurementType.Distance:
                     // cm <-> in
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return measurement / distanceConversionFactor; // cm to in
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return measurement * distanceConversionFactor; // in to cm
                     break;
 
-                case "Liquid":
+                case MeasurementType.Liquid:
                     // L <-> US gal
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return measurement / liquidConversionFactor; // L to gal
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return measurement * liquidConversionFactor; // gal to L
                     break;
 
-                case "Temperature":
+                case MeasurementType.Temperature:
                     // °C <-> °F
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return (measurement * 9m / 5m) + 32m; // °C to °F
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return (measurement - 32m) * 5m / 9m; // °F to °C
                     break;
 
-                case "Volume":
+                case MeasurementType.Volume:
                     // cm³ <-> in³
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return measurement * volumeConversionFactor; // cm³ to in³
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return measurement / volumeConversionFactor; // in³ to cm³
                     break;
 
-                case "Weight":
+                case MeasurementType.Weight:
                     // kg <-> lbs
-                    if (inputUnitType == "metric" && outputUnitType == "imperial")
+                    if (inputUnitType == UnitType.Metric && outputUnitType == UnitType.Imperial)
                         return measurement * weightConversionFactor; // kg to lbs
-                    if (inputUnitType == "imperial" && outputUnitType == "metric")
+                    if (inputUnitType == UnitType.Imperial && outputUnitType == UnitType.Metric)
                         return measurement / weightConversionFactor; // lbs to kg
                     break;
 
                 default:
-                    ErrorMessageService errorMessageServiceNotImplemented = new ErrorMessageService("Error.Measurement.Type.NotImplemented", measurementType);
+                    ErrorMessageService errorMessageServiceNotImplemented = new ErrorMessageService("Error.Measurement.Type.NotImplemented", measurementType.ToString());
                     break;
             }
 

@@ -100,6 +100,7 @@ namespace CRM.Presentation.Note
             try
             {
                 DataTable? noteDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    _databaseConnectionSettings,
                     noteDetailNoteGetStoredProcedureName,
                     parameters.ToArray(),
                     noteDetailModuleNoteTypeFriendlyName
@@ -303,6 +304,7 @@ namespace CRM.Presentation.Note
                     string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                        _databaseConnectionSettings,
                         noteDetailNoteUpdateStoredProcedureName,
                         parameters.ToArray(),
                         noteDetailModuleNoteTypeFriendlyName,

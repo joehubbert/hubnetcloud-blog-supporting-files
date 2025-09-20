@@ -55,7 +55,7 @@ namespace CRM.Presentation.MasterDataManagement
 
 			try
 			{
-				DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+				DataTable? countryDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
 				if (countryDataTable != null)
 				{
@@ -202,7 +202,7 @@ namespace CRM.Presentation.MasterDataManagement
                     string storedProcedureName = "spUpdateCountry";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

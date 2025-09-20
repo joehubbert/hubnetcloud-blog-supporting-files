@@ -10,7 +10,8 @@ namespace CRM.Presentation.General
 {
     public partial class AppConfiguration : Form
     {
-        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper;
+        private TextBoxNumericCharacterDataValidationHelper _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
+        private TranslationService _translationService = new TranslationService();
         private static readonly string configFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CRM-WindowsForms.EnterpriseEdition");
         private static readonly string configFilePath = Path.Combine(configFolderPath, "applicationConfiguration.json");
         private readonly Dictionary<int, string> databaseEngineOptions = new Dictionary<int, string>
@@ -47,36 +48,34 @@ namespace CRM.Presentation.General
             { 5, "Prefer" }
         };
         private int? postgreSQLSSLModeCode;
-        private readonly Dictionary<int, (string DisplayName, string LanguageCode)> regionLanguageOptions = new Dictionary<int, (string, string)>
+        private readonly Dictionary<int, (string DisplayName, RegionLanguageCode RegionLanguageCode)> regionLanguageOptions = new Dictionary<int, (string, RegionLanguageCode)>
         {
-            { 0, ("Čeština", "cs-CZ") },
-            { 1, ("Dansk", "da-DK") },
-            { 2, ("Deutsch", "de-DE") },
-            { 3, ("English", "en-GB") },
-            { 5, ("Español", "es-ES") },
-            { 6, ("Français", "fr-FR") },
-            { 7, ("Italiano", "it-IT") },
-            { 8, ("Nederlands", "nl-NL") },
-            { 9, ("Norsk bokmål", "nb-NO") },
-            { 10, ("Polski", "pl-PL") },
-            { 11, ("Português", "pt-PT") },
-            { 12, ("Suomi", "fi") },
-            { 13, ("Svenska", "sv-SE") },
-            { 14, ("한국어", "ko") },
-            { 15, ("中文", "zh") },
-            { 16, ("日本語", "ja-JP") }
+            { 0, ("Čeština", RegionLanguageCode.czCZ) },
+            { 1, ("Dansk", RegionLanguageCode.daDK) },
+            { 2, ("Deutsch", RegionLanguageCode.deDE) },
+            { 3, ("English", RegionLanguageCode.enGB) },
+            { 5, ("Español", RegionLanguageCode.esES) },
+            { 6, ("Français", RegionLanguageCode.frFR) },
+            { 7, ("Italiano", RegionLanguageCode.itIT) },
+            { 8, ("Nederlands", RegionLanguageCode.nlNL) },
+            { 9, ("Norsk bokmål", RegionLanguageCode.nbNO) },
+            { 10, ("Polski", RegionLanguageCode.plPL) },
+            { 11, ("Português", RegionLanguageCode.ptPT) },
+            { 12, ("Suomi", RegionLanguageCode.fi) },
+            { 13, ("Svenska", RegionLanguageCode.svSE) },
+            { 14, ("한국어", RegionLanguageCode.ko) },
+            { 15, ("中文", RegionLanguageCode.zh) },
+            { 16, ("日本語", RegionLanguageCode.jaJP) }
         };
 
         private string? userProfileActiveDatabaseEngine;
         private string? userProfileActiveDelimeter;
-        private string? userProfileActiveRegionLanguageCode;
-        private string? userProfileActiveUnitType;
+        private RegionLanguageCode? userProfileActiveRegionLanguageCode;
+        private UnitType? userProfileActiveUnitType;
 
         public AppConfiguration()
         {
             InitializeComponent();
-            _textBoxNumericHelper = new TextBoxNumericCharacterDataValidationHelper();
-            //_translationService = new TranslationService();
             InitializeEventHandlers();
             ExistingConfigurationFileCheckAsync();
         }
@@ -99,9 +98,9 @@ namespace CRM.Presentation.General
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.KeyPress += _textBoxNumericHelper.NumericKeyPressHandler;
         }
 
-        private void AppConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object? sender, EventArgs e)
+        private void AuthenticationTypeRadioButton_CheckedChanged(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            UpdateDatabaseTabAuthenticationUI();
         }
 
         private async void ExistingConfigurationFileCheckAsync()
@@ -221,8 +220,8 @@ namespace CRM.Presentation.General
 
                     // Unit Type radio buttons
                     userProfileActiveUnitType = await ApplicationConfigurationService.GetUnitTypeAsync();
-                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked = userProfileActiveUnitType == "imperial";
-                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked = userProfileActiveUnitType == "metric";
+                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked = userProfileActiveUnitType == UnitType.Imperial;
+                    appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked = userProfileActiveUnitType == UnitType.Metric;
 
                     UpdateDatabaseTabAuthenticationUI();
                 }
@@ -233,77 +232,153 @@ namespace CRM.Presentation.General
             }
         }
 
-        private async void appConfigurationSaveSettingsButton_Click(object sender, EventArgs e)
+        private RegionLanguageCode GetSelectedRegionLanguageCode()
         {
-            switch (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text)
+            var selectedItem = appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedItem))
+                return RegionLanguageCode.enGB;
+
+            // Extract the RegionLanguageCode from the formatted string "Language (Code)"
+            var startIndex = selectedItem.LastIndexOf('(') + 1;
+            var endIndex = selectedItem.LastIndexOf(')');
+
+            if (startIndex > 0 && endIndex > startIndex)
             {
-                case "Azure Database for MySQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for MySQL");
-                    await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
-                    break;
-                case "Azure Database for PostgreSQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for PostgreSQL");
-                    await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
-                    break;
-                case "Azure SQL Database":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Database");
-                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
-                    break;
-                case "Azure SQL Managed Instance":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Managed Instance");
-                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
-                    break;
-                case "Microsoft SQL Server":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Microsoft SQL Server");
-                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
-                    break;
-                case "MySQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("MySQL");
-                    await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
-                    break;
-                case "PostgreSQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("PostgreSQL");
-                    await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
-                    break;
-                default:
-                    throw new InvalidOperationException("Unsupported database engine selected.");
-            }
-            await ApplicationConfigurationService.SetDelimeterAsync(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedItem?.ToString() ?? ".");
-            await ApplicationConfigurationService.SetRegionLanguageCodeAsync(appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.SelectedItem?.ToString()?.Split('(')[1].TrimEnd(')') ?? "en-GB");
-            if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked)
-            {
-                await ApplicationConfigurationService.SetUnitTypeAsync("imperial");
-            }
-            else if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked)
-            {
-                await ApplicationConfigurationService.SetUnitTypeAsync("metric");
-            }
-            if (appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Checked)
-            {
-                await ApplicationConfigurationService.SetLoggingEnabledAsync(true);
-            }
-            else if (appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Checked)
-            {
-                await ApplicationConfigurationService.SetLoggingEnabledAsync(false);
+                var codeString = selectedItem.Substring(startIndex, endIndex - startIndex);
+                if (Enum.TryParse<RegionLanguageCode>(codeString, out var regionCode))
+                {
+                    return regionCode;
+                }
             }
 
-            ErrorMessageService errorMessageService = new ErrorMessageService("Information.ApplicationConfiguration.Settings.Saved");
+            return RegionLanguageCode.enGB; // Default fallback
+        }
+        private void TestMSSQLConnection()
+        {
+            var mssqlConfig = CreateMSSQLConfiguration();
+            var builder = new SqlConnectionStringBuilder
+            {
+                DataSource = mssqlConfig.serverName,
+                InitialCatalog = mssqlConfig.databaseName,
+                Encrypt = mssqlConfig.encryptionEnabled,
+                TrustServerCertificate = mssqlConfig.trustServerCertificate,
+                ApplicationName = "CRM-WindowsForms-EnterpriseEdition",
+                ConnectTimeout = mssqlConfig.connectionTimeout
+            };
+
+            var selectedEngine = appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text;
+
+            // Set authentication and credentials based on mssqlConfig
+            if (mssqlConfig.authenticationType == "Kerberos")
+            {
+                builder.IntegratedSecurity = true; // Use Windows Authentication
+            }
+            else if (mssqlConfig.authenticationType == "SQL")
+            {
+                builder.IntegratedSecurity = false; // Use SQL Authentication
+            }
+            else if (mssqlConfig.authenticationType == "EntraId")
+            {
+                builder.IntegratedSecurity = false; // Use Entra ID Authentication
+                builder.Authentication = SqlAuthenticationMethod.ActiveDirectoryInteractive;
+            }
+            else
+            {
+                throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
+            }
+            if (mssqlConfig.authenticationType == "SQL" || mssqlConfig.authenticationType == "EntraId")
+            {
+                if (!string.IsNullOrWhiteSpace(mssqlConfig.username))
+                    builder.UserID = mssqlConfig.username;
+                if (mssqlConfig.authenticationType == "SQL" && !string.IsNullOrWhiteSpace(mssqlConfig.password))
+                    builder.Password = mssqlConfig.password;
+            }
+
+            // Azure SQL specific settings
+            if (selectedEngine == "Azure SQL Database" || selectedEngine == "Azure SQL Managed Instance")
+            {
+                builder.Encrypt = true;
+            }
+
+            var connectionString = builder.ConnectionString;
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
+            }
         }
 
-        private void appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxPopulateData()
+        private void TestMySQLConnection()
         {
-            var ordered = databaseEngineOptions.OrderBy(kvp => kvp.Key).ToList();
-            var comboBoxItems = ordered.Select(kvp => kvp.Value).ToList();
-            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DataSource = comboBoxItems;
-            int selectedIndex = 4; // Default to MSSQL, which has key 4 in the dictionary
-            if (userProfileActiveDatabaseEngine != null)
+            var mySQLConfig = CreateMySQLConfiguration();
+            var builder = new MySqlConnectionStringBuilder
             {
-                var idx = ordered.FindIndex(kvp => kvp.Value.Equals(userProfileActiveDatabaseEngine, StringComparison.OrdinalIgnoreCase));
-                if (idx >= 0)
-                    selectedIndex = idx;
+                Server = mySQLConfig.serverName,
+                Port = (uint)mySQLConfig.portNumber,
+                Database = mySQLConfig.databaseName,
+                UserID = mySQLConfig.username,
+                Password = mySQLConfig.password,
+                SslMode = (MySqlSslMode)Enum.Parse(typeof(MySqlSslMode), mySQLConfig.sslMode, true),
+                ConnectionTimeout = (uint)mySQLConfig.connectionTimeout
+            };
+            if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for MySQL")
+            {
+                builder.SslMode = MySqlSslMode.Required;
             }
-            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedIndex = selectedIndex;
+            var connectionString = builder.ConnectionString;
+            try
+            {
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    connection.Open();
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
+            }
         }
+
+        private void TestPostgreSQLConnection()
+        {
+            var postgreSQLConfig = CreatePostgreSQLConfiguration();
+            var builder = new NpgsqlConnectionStringBuilder
+            {
+                Host = postgreSQLConfig.serverName,
+                Port = postgreSQLConfig.portNumber,
+                Database = postgreSQLConfig.databaseName,
+                Username = postgreSQLConfig.username,
+                Password = postgreSQLConfig.password,
+                SslMode = (SslMode)Enum.Parse(typeof(SslMode), postgreSQLConfig.sslMode, true),
+                Timeout = postgreSQLConfig.connectionTimeout
+            };
+            if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for PostgreSQL")
+            {
+                builder.SslMode = SslMode.Require;
+            }
+            var connectionString = builder.ConnectionString;
+            try
+            {
+                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
+                {
+                    connection.Open();
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
+                }
+            }
+            catch (Exception ex)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
+            }
+        }
+
 
         private void UpdateDatabaseTabAuthenticationUI()
         {
@@ -447,14 +522,77 @@ namespace CRM.Presentation.General
             }
         }
 
-        private void appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        private async void appConfigurationSaveSettingsButton_Click(object sender, EventArgs e)
         {
-            UpdateDatabaseTabAuthenticationUI();
+            switch (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text)
+            {
+                case "Azure Database for MySQL":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for MySQL");
+                    await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
+                    break;
+                case "Azure Database for PostgreSQL":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for PostgreSQL");
+                    await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
+                    break;
+                case "Azure SQL Database":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Database");
+                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
+                    break;
+                case "Azure SQL Managed Instance":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Managed Instance");
+                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
+                    break;
+                case "Microsoft SQL Server":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Microsoft SQL Server");
+                    await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
+                    break;
+                case "MySQL":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("MySQL");
+                    await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
+                    break;
+                case "PostgreSQL":
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("PostgreSQL");
+                    await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
+                    break;
+                default:
+                    throw new InvalidOperationException("Unsupported database engine selected.");
+            }
+            await ApplicationConfigurationService.SetDelimeterAsync(appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.SelectedItem?.ToString() ?? ".");
+            await ApplicationConfigurationService.SetRegionLanguageCodeAsync(GetSelectedRegionLanguageCode());
+            if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelImperialRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetUnitTypeAsync(UnitType.Imperial);
+            }
+            else if (appConfigurationTabControlPersonalPreferencesTabPageUnitTypePanelMetricRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetUnitTypeAsync(UnitType.Metric);
+            }
+            if (appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelYesRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetLoggingEnabledAsync(true);
+            }
+            else if (appConfigurationTabControlSystemTabPageTabControlLoggingTabPageLoggingEnabledPanelNoRadioButton.Checked)
+            {
+                await ApplicationConfigurationService.SetLoggingEnabledAsync(false);
+            }
+
+            ErrorMessageService errorMessageService = new ErrorMessageService("Information.ApplicationConfiguration.Settings.Saved");
         }
 
-        private void AuthenticationTypeRadioButton_CheckedChanged(object? sender, EventArgs e)
+
+        private void appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxPopulateData()
         {
-            UpdateDatabaseTabAuthenticationUI();
+            var ordered = databaseEngineOptions.OrderBy(kvp => kvp.Key).ToList();
+            var comboBoxItems = ordered.Select(kvp => kvp.Value).ToList();
+            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DataSource = comboBoxItems;
+            int selectedIndex = 4; // Default to MSSQL, which has key 4 in the dictionary
+            if (userProfileActiveDatabaseEngine != null)
+            {
+                var idx = ordered.FindIndex(kvp => kvp.Value.Equals(userProfileActiveDatabaseEngine, StringComparison.OrdinalIgnoreCase));
+                if (idx >= 0)
+                    selectedIndex = idx;
+            }
+            appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedIndex = selectedIndex;
         }
 
         private void appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -515,6 +653,11 @@ namespace CRM.Presentation.General
             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedIndex = selectedIndex;
         }
 
+        private void appConfigurationTabControlDatabaseTabPageTabControl_SelectedIndexChanged(object? sender, EventArgs e)
+        {
+            UpdateDatabaseTabAuthenticationUI();
+        }
+
         private void appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxPopulateData()
         {
             var ordered = delimeterOptions.OrderBy(kvp => kvp.Key).ToList();
@@ -536,17 +679,16 @@ namespace CRM.Presentation.General
         {
             var ordered = regionLanguageOptions.OrderBy(kvp => kvp.Key).ToList();
             var comboBoxItems = ordered
-                .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.LanguageCode})")
+                .Select(kvp => $"{kvp.Value.DisplayName} ({kvp.Value.RegionLanguageCode})")
                 .ToList();
             appConfigurationTabControlPersonalPreferencesTabPageRegionLanguageComboBox.DataSource = comboBoxItems;
+
             int selectedIndex = 3; // Default to English (en-GB), which has key 3 in the dictionary
-            if (!string.IsNullOrWhiteSpace(userProfileActiveRegionLanguageCode))
+
+            if (userProfileActiveRegionLanguageCode.HasValue)
             {
                 var idx = ordered.FindIndex(kvp =>
-                    kvp.Value.LanguageCode.Equals(userProfileActiveRegionLanguageCode, StringComparison.OrdinalIgnoreCase) ||
-                    kvp.Value.LanguageCode.Equals(userProfileActiveRegionLanguageCode, StringComparison.InvariantCultureIgnoreCase) ||
-                    kvp.Value.LanguageCode.ToLowerInvariant() == userProfileActiveRegionLanguageCode.ToLowerInvariant()
-                );
+                    kvp.Value.RegionLanguageCode == userProfileActiveRegionLanguageCode.Value);
                 if (idx >= 0)
                     selectedIndex = idx;
             }
@@ -651,132 +793,6 @@ namespace CRM.Presentation.General
                 authenticationType = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "native" :
                                     appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
             };
-        }
-
-        private void TestMSSQLConnection()
-        {
-            var mssqlConfig = CreateMSSQLConfiguration();
-            var builder = new SqlConnectionStringBuilder
-            {
-                DataSource = mssqlConfig.serverName,
-                InitialCatalog = mssqlConfig.databaseName,
-                Encrypt = mssqlConfig.encryptionEnabled,
-                TrustServerCertificate = mssqlConfig.trustServerCertificate,
-                ApplicationName = "CRM-WindowsForms-EnterpriseEdition",
-                ConnectTimeout = mssqlConfig.connectionTimeout
-            };
-
-            var selectedEngine = appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text;
-
-            // Set authentication and credentials based on mssqlConfig
-            if (mssqlConfig.authenticationType == "Kerberos")
-            {
-                builder.IntegratedSecurity = true; // Use Windows Authentication
-            }
-            else if (mssqlConfig.authenticationType == "SQL")
-            {
-                builder.IntegratedSecurity = false; // Use SQL Authentication
-            }
-            else if (mssqlConfig.authenticationType == "EntraId")
-            {
-                builder.IntegratedSecurity = false; // Use Entra ID Authentication
-                builder.Authentication = SqlAuthenticationMethod.ActiveDirectoryInteractive;
-            }
-            else
-            {
-                throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
-            }
-            if (mssqlConfig.authenticationType == "SQL" || mssqlConfig.authenticationType == "EntraId")
-            {
-                if (!string.IsNullOrWhiteSpace(mssqlConfig.username))
-                    builder.UserID = mssqlConfig.username;
-                if (mssqlConfig.authenticationType == "SQL" && !string.IsNullOrWhiteSpace(mssqlConfig.password))
-                    builder.Password = mssqlConfig.password;
-            }
-
-            // Azure SQL specific settings
-            if (selectedEngine == "Azure SQL Database" || selectedEngine == "Azure SQL Managed Instance")
-            {
-                builder.Encrypt = true;
-            }
-
-            var connectionString = builder.ConnectionString;
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
-            }
-        }
-
-        private void TestMySQLConnection()
-        {
-            var mySQLConfig = CreateMySQLConfiguration();
-            var builder = new MySqlConnectionStringBuilder
-            {
-                Server = mySQLConfig.serverName,
-                Port = (uint)mySQLConfig.portNumber,
-                Database = mySQLConfig.databaseName,
-                UserID = mySQLConfig.username,
-                Password = mySQLConfig.password,
-                SslMode = (MySqlSslMode)Enum.Parse(typeof(MySqlSslMode), mySQLConfig.sslMode, true),
-                ConnectionTimeout = (uint)mySQLConfig.connectionTimeout
-            };
-            if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for MySQL")
-            {
-                builder.SslMode = MySqlSslMode.Required;
-            }
-            var connectionString = builder.ConnectionString;
-            try
-            {
-                using (MySqlConnection connection = new MySqlConnection(connectionString))
-                {
-                    connection.Open();
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
-            }
-        }
-
-        private void TestPostgreSQLConnection()
-        {
-            var postgreSQLConfig = CreatePostgreSQLConfiguration();
-            var builder = new NpgsqlConnectionStringBuilder
-            {
-                Host = postgreSQLConfig.serverName,
-                Port = postgreSQLConfig.portNumber,
-                Database = postgreSQLConfig.databaseName,
-                Username = postgreSQLConfig.username,
-                Password = postgreSQLConfig.password,
-                SslMode = (SslMode)Enum.Parse(typeof(SslMode), postgreSQLConfig.sslMode, true),
-                Timeout = postgreSQLConfig.connectionTimeout
-            };
-            if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for PostgreSQL")
-            {
-                builder.SslMode = SslMode.Require;
-            }
-            var connectionString = builder.ConnectionString;
-            try
-            {
-                using (NpgsqlConnection connection = new NpgsqlConnection(connectionString))
-                {
-                    connection.Open();
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Information.Database.Connection.Test.Successful");
-                }
-            }
-            catch (Exception ex)
-            {
-                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Connection.Failed", null, ex.Message);
-            }
         }
     }
 }

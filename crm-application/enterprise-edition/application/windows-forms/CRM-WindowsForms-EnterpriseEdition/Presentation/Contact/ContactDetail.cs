@@ -67,6 +67,7 @@ namespace CRM.Presentation.Contact
 			try
 			{
 				DataTable? contactDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    _databaseConnectionSettings,
 					contactDetailContactGetStoredProcedureName,
 					parameters.ToArray(),
 					contactDetailModuleContactTypeFriendlyName
@@ -325,6 +326,7 @@ namespace CRM.Presentation.Contact
                     string operationType = "Update";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                        _databaseConnectionSettings,
                         contactDetailContactUpdateStoredProcedureName,
                         parameters.ToArray(),
                         contactDetailModuleContactTypeFriendlyName,

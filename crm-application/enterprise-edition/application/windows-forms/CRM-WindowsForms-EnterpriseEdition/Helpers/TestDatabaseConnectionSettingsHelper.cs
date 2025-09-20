@@ -10,7 +10,7 @@ namespace CRM.Helpers
             bool connectionAvailable = false;
             try
             {
-                connectionAvailable = await DBInterface.TestConnectionAsync(databaseConnectionSettings.DatabaseConnectionString);
+                connectionAvailable = await DBInterface.TestConnectionAsync(databaseConnectionSettings, databaseConnectionSettings.DatabaseConnectionString);
             }
             catch (Exception ex)
             {

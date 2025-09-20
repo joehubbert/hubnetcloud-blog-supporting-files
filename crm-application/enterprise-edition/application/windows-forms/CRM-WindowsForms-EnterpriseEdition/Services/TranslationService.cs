@@ -6,31 +6,31 @@ namespace CRM.Services
     {
         private TranslationDictionaryModel _translationDictionaryModel = new();
 
-        private Dictionary<string, Dictionary<string, string>> LanguageDictionaries => new()
+        private Dictionary<RegionLanguageCode, Dictionary<string, string>> LanguageDictionaries => new()
         {
-            ["cs-CZ"] = _translationDictionaryModel.csCZ,
-            ["da-DK"] = _translationDictionaryModel.daDK,
-            ["de-DE"] = _translationDictionaryModel.deDE,
-            ["es-ES"] = _translationDictionaryModel.esES,
-            ["fi"] = _translationDictionaryModel.fi,
-            ["fr-FR"] = _translationDictionaryModel.frFR,
-            ["it-IT"] = _translationDictionaryModel.itIT,
-            ["ja-JP"] = _translationDictionaryModel.jaJP,
-            ["ko"] = _translationDictionaryModel.ko,
-            ["nb-NO"] = _translationDictionaryModel.nbNO,
-            ["nl-NL"] = _translationDictionaryModel.nlNL,
-            ["pl-PL"] = _translationDictionaryModel.plPL,
-            ["pt-PT"] = _translationDictionaryModel.ptPT,
-            ["sv-SE"] = _translationDictionaryModel.svSE,
-            ["zh"] = _translationDictionaryModel.zh
+            [RegionLanguageCode.czCZ] = _translationDictionaryModel.csCZ,
+            [RegionLanguageCode.daDK] = _translationDictionaryModel.daDK,
+            [RegionLanguageCode.deDE] = _translationDictionaryModel.deDE,
+            [RegionLanguageCode.esES] = _translationDictionaryModel.esES,
+            [RegionLanguageCode.fi] = _translationDictionaryModel.fi,
+            [RegionLanguageCode.frFR] = _translationDictionaryModel.frFR,
+            [RegionLanguageCode.itIT] = _translationDictionaryModel.itIT,
+            [RegionLanguageCode.jaJP] = _translationDictionaryModel.jaJP,
+            [RegionLanguageCode.ko] = _translationDictionaryModel.ko,
+            [RegionLanguageCode.nbNO] = _translationDictionaryModel.nbNO,
+            [RegionLanguageCode.nlNL] = _translationDictionaryModel.nlNL,
+            [RegionLanguageCode.plPL] = _translationDictionaryModel.plPL,
+            [RegionLanguageCode.ptPT] = _translationDictionaryModel.ptPT,
+            [RegionLanguageCode.svSE] = _translationDictionaryModel.svSE,
+            [RegionLanguageCode.zh] = _translationDictionaryModel.zh
         };
 
-        private Dictionary<string, string>? GetDictionary(string languageCode)
+        private Dictionary<string, string>? GetDictionary(RegionLanguageCode languageCode)
         {
             return LanguageDictionaries.TryGetValue(languageCode, out var dictionary) ? dictionary : null;
         }
 
-        public string Translate(object input, string targetLanguageCode)
+        public string Translate(object input, RegionLanguageCode targetLanguageCode)
         {
             string originalText = input switch
             {
@@ -69,7 +69,7 @@ namespace CRM.Services
             }
         }
 
-        public string TranslateString(string inputString, string targetLanguageCode)
+        public string TranslateString(string inputString, RegionLanguageCode targetLanguageCode)
         {
             bool hasTrailingAsterisk = inputString.EndsWith("*");
             string lookupText = hasTrailingAsterisk ? inputString.TrimEnd('*').TrimEnd() : inputString;

@@ -1,11 +1,12 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 
 namespace CRM.Helpers
 {
     internal class TextBoxNumericCharacterDataValidationHelper
     {
         private TranslationService _translationService;
-        private string activeRegionLanguageCode;
+        private RegionLanguageCode activeRegionLanguageCode;
         private string errorText = "Only numeric characters allowed";
 
         private async Task UpdateActiveRegionLanguageCodeAndErrorText()
@@ -13,7 +14,7 @@ namespace CRM.Helpers
             _translationService = new TranslationService();
 
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
-            if (activeRegionLanguageCode != "en-GB")
+            if (activeRegionLanguageCode != RegionLanguageCode.enGB)
             {
                 errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
             }
@@ -24,7 +25,7 @@ namespace CRM.Helpers
             _translationService = new TranslationService();
 
             activeRegionLanguageCode = await ApplicationConfigurationService.GetRegionLanguageCodeAsync();
-            if (activeRegionLanguageCode != "en-GB")
+            if (activeRegionLanguageCode != RegionLanguageCode.enGB)
             {
                 errorText = _translationService.Translate(errorText, activeRegionLanguageCode);
             }

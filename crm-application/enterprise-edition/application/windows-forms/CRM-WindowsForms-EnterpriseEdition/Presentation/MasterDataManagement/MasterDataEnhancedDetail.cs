@@ -71,6 +71,7 @@ namespace CRM.Presentation.MasterDataManagement
             try
             {
                 DataTable? masterDataEnhancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    _databaseConnectionSettings,
                     dataSubjectGetStoredProcedureName,
                     parameters.ToArray(),
                     dataSubjectName);
@@ -262,7 +263,7 @@ namespace CRM.Presentation.MasterDataManagement
 
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectUpdateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectUpdateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                     this.Close();
                 }
                 else

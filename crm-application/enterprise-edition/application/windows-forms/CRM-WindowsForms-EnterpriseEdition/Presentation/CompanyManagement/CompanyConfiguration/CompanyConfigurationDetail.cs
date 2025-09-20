@@ -92,7 +92,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
 
             try
             {
-                DataTable? companyConfigurationDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+                DataTable? companyConfigurationDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
                 if (companyConfigurationDataTable != null)
                 {
@@ -233,7 +233,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                 }
             };
 
-            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+            DataTable? dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
             if (dataTable.Rows.Count == 0)
             {
@@ -1143,7 +1143,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     string storedProcedureName = "spUpdateCompanyConfiguration";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

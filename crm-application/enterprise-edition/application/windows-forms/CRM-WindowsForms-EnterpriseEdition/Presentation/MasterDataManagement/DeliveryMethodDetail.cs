@@ -63,7 +63,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             try
             {
-                DataTable? deliveryMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+                DataTable? deliveryMethodDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
                 if (deliveryMethodDataTable != null)
                 {
@@ -279,7 +279,7 @@ namespace CRM.Presentation.MasterDataManagement
                     string storedProcedureName = "spUpdateDeliveryMethod";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
                     this.Close();
                 }
                 else

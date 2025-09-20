@@ -58,6 +58,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 string storedProcedureName = "spGetHTMLTemplate";
 
                 DataTable? htmlTemplateDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    _databaseConnectionSettings,
                     storedProcedureName,
                     parameters.ToArray(),
                     dataSubject
@@ -253,6 +254,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                     string storedProcedureName = "spUpdateHTMLTemplate";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                        _databaseConnectionSettings,
                         storedProcedureName,
                         parameters.ToArray(),
                         dataSubject,

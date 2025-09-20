@@ -1,5 +1,41 @@
 ﻿namespace CRM.Model
 {
+    public enum MeasurementType
+    {
+        Area,
+        Distance,
+        Liquid,
+        Temperature,
+        Volume,
+        Weight
+    }
+
+    public enum RegionLanguageCode
+    {
+        czCZ,
+        daDK,
+        deDE,
+        enGB,
+        esES,
+        fi,
+        frFR,
+        itIT,
+        jaJP,
+        ko,
+        nbNO,
+        nlNL,
+        plPL,
+        ptPT,
+        svSE,
+        zh
+    }
+
+    public enum UnitType
+    {
+        Imperial,
+        Metric
+    }
+
     public class ApplicationConfigurationModel
     {
         public class ApplicationConfigurationServiceRoot
@@ -64,8 +100,8 @@
         public class ApplicationConfigurationServicePersonalPreferenceConfiguration
         {
             public string delimeter {  get; set; } = string.Empty;
-            public string languageCode { get; set; } = string.Empty;
-            public string unitType {  get; set; } = string.Empty;
+            public RegionLanguageCode regionLanguageCode { get; set; }
+            public UnitType unitType {  get; set; }
         }
 
         public class ApplicationConfigurationServiceSystemConfiguration

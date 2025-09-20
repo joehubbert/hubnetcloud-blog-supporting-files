@@ -78,7 +78,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
             try
             {
-                DataTable? customerLeadTable = await DBInterface.ExecuteSelectStoredProcedureAsync(storedProcedureName, parameters, dataSubject);
+                DataTable? customerLeadTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
 
                 if (customerLeadTable != null)
                 {
@@ -561,7 +561,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                     string storedProcedureName = "spUpdateCustomerLead";
                     string operationType = "Update";
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                     this.Close();
                 }
                 else

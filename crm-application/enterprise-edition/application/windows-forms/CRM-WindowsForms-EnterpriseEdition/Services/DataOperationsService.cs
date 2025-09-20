@@ -13,6 +13,9 @@ namespace CRM.Services
         private bool _dataValidationPassed;
         private string? _dataSubjectName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private MeasurementType? _measurementType;
+        private UnitType? _measurementInputUnitType;
+        private UnitType? _measurementOutputUnitType;
         private string _operationType;
         private bool? _outputStoredProcedureParameterCapture;
         private Dictionary<string, object>? _outputStoredProcedureParameters;
@@ -29,7 +32,10 @@ namespace CRM.Services
             string operationType,
             object[]? dataToBeProcessed = null,
             Guid? dataSubjectId = null,
-            string? dataSubjectName = null,      
+            string? dataSubjectName = null,
+            MeasurementType? measurementType = null,
+            UnitType? measurementInputUnitType = null,
+            UnitType? measurementOutputUnitType = null,
             bool? outputStoredProcedureParameterCapture = null,
             string? outboundStoredProcedureParameterName = null,
             string? storedProcedureName = null
@@ -38,6 +44,9 @@ namespace CRM.Services
             _dataSubjectId = dataSubjectId;
             _dataSubjectName = dataSubjectName;
             _dataToBeProcessed = dataToBeProcessed;
+            _measurementType = measurementType;
+            _measurementInputUnitType = measurementInputUnitType;
+            _measurementOutputUnitType = measurementOutputUnitType;
             _operationType = operationType;
             _outputStoredProcedureParameterCapture = outputStoredProcedureParameterCapture;
             _outboundStoredProcedureParameterName = outboundStoredProcedureParameterName;
@@ -219,6 +228,7 @@ namespace CRM.Services
                 if (_outputStoredProcedureParameterCapture == true)
                 {
                     var outputParameters = await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureWithOutputParametersAsync(
+                        _databaseConnectionSettings,
                         _storedProcedureName,
                         storedProcedureParameterList.ToArray(),
                         _dataSubjectName,
@@ -232,6 +242,7 @@ namespace CRM.Services
                 {
                     // Use the standard method when output parameter capture is not requested
                     var success = await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                        _databaseConnectionSettings,
                         _storedProcedureName,
                         storedProcedureParameterList.ToArray(),
                         _dataSubjectName,
@@ -320,10 +331,10 @@ namespace CRM.Services
                             }
                         }
 
-                        dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_storedProcedureName, storedProcedureParameterList.ToArray(), _dataSubjectName);
+                        dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, _storedProcedureName, storedProcedureParameterList.ToArray(), _dataSubjectName);
                         break;
                     case "SelectNoParameter":
-                        dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_storedProcedureName, _dataSubjectName);
+                        dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_databaseConnectionSettings, _storedProcedureName, _dataSubjectName);
                         break;
                 }
 
@@ -346,6 +357,9 @@ namespace CRM.Services
             if (_dataToBeProcessed == null)
                 throw new InvalidOperationException("No data provided for unit conversion");
 
+            if (_measurementInputUnitType == null || _measurementOutputUnitType == null)
+                throw new InvalidOperationException("Input and output unit types must be specified for unit conversion");
+
             var measurementsToBeConvertedList = new List<MeasurementConversionModel>();
             var convertedMeasurements = new List<object>();
 
@@ -356,11 +370,30 @@ namespace CRM.Services
 
                 if (item is Dictionary<string, object> propertyDictionary)
                 {
+                    // Extract MeasurementType with proper null handling
+                    var measurementTypeValue = propertyDictionary.GetValueOrDefault("MeasurementType", null);
+                    if (measurementTypeValue == null)
+                        continue; // Skip if no measurement type is specified
+
+                    MeasurementType measurementType;
+                    if (measurementTypeValue is MeasurementType enumValue)
+                    {
+                        measurementType = enumValue;
+                    }
+                    else if (measurementTypeValue is string stringValue && Enum.TryParse<MeasurementType>(stringValue, out var parsedValue))
+                    {
+                        measurementType = parsedValue;
+                    }
+                    else
+                    {
+                        continue; // Skip if measurement type cannot be parsed
+                    }
+
                     var measurement = new MeasurementConversionModel
                     {
-                        MeasurementType = (string)propertyDictionary.GetValueOrDefault("MeasurementType", string.Empty),
+                        MeasurementType = measurementType,
                         Value = Convert.ToDecimal(propertyDictionary.GetValueOrDefault("Value", 0m)),
-                        PropertyName = (string?)propertyDictionary.GetValueOrDefault("PropertyName", string.Empty)
+                        PropertyName = propertyDictionary.GetValueOrDefault("PropertyName", string.Empty) as string
                     };
 
                     // Extract the SetValue action from the dictionary
@@ -376,15 +409,11 @@ namespace CRM.Services
             // Perform conversions
             foreach (var measurement in measurementsToBeConvertedList)
             {
-                // Default conversion: imperial to metric
-                string inputUnitType = "imperial";
-                string outputUnitType = "metric";
-
-                decimal convertedValue = UnitConversionService.Convert(
-                    inputUnitType,
+                decimal convertedValue = UnitConversionService.ConvertMeasurement(
+                    _measurementInputUnitType.Value,
                     measurement.Value,
                     measurement.MeasurementType,
-                    outputUnitType
+                    _measurementOutputUnitType.Value
                 );
 
                 // Create converted measurement object
@@ -394,8 +423,8 @@ namespace CRM.Services
                     ["ConvertedValue"] = convertedValue,
                     ["MeasurementType"] = measurement.MeasurementType,
                     ["PropertyName"] = measurement.PropertyName ?? string.Empty,
-                    ["InputUnitType"] = inputUnitType,
-                    ["OutputUnitType"] = outputUnitType
+                    ["InputUnitType"] = _measurementInputUnitType.Value,
+                    ["OutputUnitType"] = _measurementOutputUnitType.Value
                 };
 
                 convertedMeasurements.Add(convertedMeasurement);

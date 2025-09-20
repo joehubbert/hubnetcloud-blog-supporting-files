@@ -1,5 +1,6 @@
 ﻿using CRM.Helpers;
 using CRM.Interface;
+using CRM.Model;
 using CRM.Presentation.Contact;
 using CRM.Presentation.Note;
 using CRM.Services;

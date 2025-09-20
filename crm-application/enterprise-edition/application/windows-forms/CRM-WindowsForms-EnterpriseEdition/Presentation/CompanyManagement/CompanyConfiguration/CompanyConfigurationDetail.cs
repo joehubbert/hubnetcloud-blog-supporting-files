@@ -1,5 +1,6 @@
 ﻿using CRM.Helpers;
 using CRM.Interface;
+using CRM.Model;
 using CRM.Presentation.CompanyManagement.HTMLTemplate;
 using CRM.Services;
 using System.Data;

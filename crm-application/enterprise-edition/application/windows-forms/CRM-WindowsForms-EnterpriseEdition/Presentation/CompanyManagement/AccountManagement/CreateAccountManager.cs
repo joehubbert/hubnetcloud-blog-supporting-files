@@ -1,5 +1,6 @@
 ﻿using CRM.Helpers;
 using CRM.Interface;
+using CRM.Model;
 using CRM.Services;
 
 namespace CRM.Presentation.CompanyManagement.AccountManagement

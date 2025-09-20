@@ -1,4 +1,5 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
@@ -6,13 +7,6 @@ using System.Data;
 
 namespace CRM.Interface
 {
-    internal class StoredProcedureParameter
-    {
-        public ParameterDirection ParameterDirection { get; set; } = ParameterDirection.Input;
-        public string ParameterName { get; set; } = string.Empty;
-        public object? ParameterValue { get; set; }
-    }
-
     internal class DBInterface
     {
         private static object[] BuildDbParameters(DatabaseConnectionSettings dbSettings, StoredProcedureParameter[] parameters)

@@ -1,8 +1,8 @@
 ﻿using CRM.Helpers;
 using CRM.Interface;
+using CRM.Model;
 using CRM.Services;
 using System.Data;
-using System.Diagnostics;
 
 namespace CRM.Presentation.Note
 {

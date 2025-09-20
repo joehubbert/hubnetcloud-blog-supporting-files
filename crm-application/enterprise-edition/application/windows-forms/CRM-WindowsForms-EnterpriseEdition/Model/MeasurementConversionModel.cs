@@ -1,7 +1,5 @@
 ﻿namespace CRM.Model
 {
-
-
     public class MeasurementConversionModel
     {
         public MeasurementType MeasurementType { get; set; }

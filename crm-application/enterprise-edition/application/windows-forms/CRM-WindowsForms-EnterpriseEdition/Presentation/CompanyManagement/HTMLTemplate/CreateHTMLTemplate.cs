@@ -129,6 +129,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 string storedProcedureName = "spCreateHTMLTemplate";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                    _databaseConnectionSettings,
                     storedProcedureName,
                     parameters.ToArray(),
                     dataSubject,

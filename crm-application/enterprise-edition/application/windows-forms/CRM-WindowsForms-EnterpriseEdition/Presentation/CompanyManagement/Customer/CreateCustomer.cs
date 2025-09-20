@@ -992,7 +992,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 string storedProcedureName = "spCreateCustomer";
                 string operationType = "Create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
                 this.Close();
             }
         }  

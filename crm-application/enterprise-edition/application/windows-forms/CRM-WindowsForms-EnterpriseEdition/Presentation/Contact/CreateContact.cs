@@ -184,6 +184,7 @@ namespace CRM.Presentation.Contact
                 string operationType = "Create";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
+                    _databaseConnectionSettings,
                     createContactModuleContactCreateStoredProcedureName,
                     parameters.ToArray(),
                     createContactModuleContactTypeFriendlyName,

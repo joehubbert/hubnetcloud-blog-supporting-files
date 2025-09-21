@@ -1,33 +1,34 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 
 namespace CRM.Helpers
 {
     internal static class ModuleThemeHelper
     {
-        public static void ApplyTheme(Form targetForm, string moduleGroup)
+        public static void ApplyTheme(Form targetForm, ModuleGroup moduleGroup)
         {
             switch (moduleGroup)
             {
-                case "CompanyManagement":
+                case ModuleGroup.CompanyManagement:
                     targetForm.BackColor = Color.LemonChiffon;
                     break;
-                case "CustomerManagement":
+                case ModuleGroup.CustomerManagement:
                     targetForm.BackColor = Color.LightGreen;
                     break;
-                case "MarketingManagement":
+                case ModuleGroup.MarketingManagement:
                     targetForm.BackColor = Color.NavajoWhite;
                     break;
-                case "OrderManagement":
+                case ModuleGroup.OrderManagement:
                     targetForm.BackColor = Color.LightSalmon;
                     break;
-                case "ProductManagement":
+                case ModuleGroup.ProductManagement:
                     targetForm.BackColor = Color.SkyBlue;
                     break;
-                case "SupplierManagement":
+                case ModuleGroup.SupplierManagement:
                     targetForm.BackColor = Color.MediumAquamarine;
                     break;
                 default:
-                    new ErrorMessageService("Error.Module.NotImplemented", moduleGroup);
+                    new ErrorMessageService("Error.Module.NotImplemented", moduleGroup.ToString());
                     break;
             }
         }

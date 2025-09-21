@@ -1,5 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllNoteForCustomer]
-	@customerId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetAllSupplierNoteForSupplier]
+	@supplierId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -8,16 +8,16 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Customer Note Id],
-			[Customer Note Title],
-			[Customer Note Type],
-			[Customer Note],
+			[Supplier Note Id],
+			[Supplier Note Title],
+			[Supplier Note Type],
+			[Supplier Note],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By]
-			FROM [dbo].[vwCustomerNoteSummary]
-			WHERE [Customer Id] = @customerId
+			FROM [dbo].[vwSupplierNoteSummary]
+			WHERE [Supplier Id] = @supplierId
 
 		COMMIT TRANSACTION;
 	END TRY

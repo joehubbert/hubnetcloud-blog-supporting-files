@@ -1,5 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllNoteForProduct]
-	@productId UNIQUEIDENTIFIER
+﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderStatusHistory]
 AS
 
 BEGIN
@@ -8,16 +7,15 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Product Note Id],
-			[Product Note Title],
-			[Product Note Type],
-			[Product Note],
+			[Supplier Order Status History Id],
+			[Supplier Order Id],
+			[Supplier Order Status Id],
+			[Supplier Order Status],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By]
-			FROM [dbo].[vwProductNoteSummary]
-			WHERE [Product Id] = @productId
+			FROM [dbo].[vwSupplierOrderStatusHistory]
 
 		COMMIT TRANSACTION;
 	END TRY

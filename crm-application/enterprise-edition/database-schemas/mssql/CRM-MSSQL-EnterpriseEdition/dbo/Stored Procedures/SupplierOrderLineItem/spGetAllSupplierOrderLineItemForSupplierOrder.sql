@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderLineItem]
+﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderLineItemForSupplierOrder]
+	@supplierOrderId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -19,6 +20,7 @@ BEGIN
 			[Modified Timestamp UTC],
 			[Modified By]
 			FROM [dbo].[vwSupplierOrderLineItem]
+			WHERE [Supplier Order Id] = @supplierOrderId
 
 		COMMIT TRANSACTION;
 	END TRY

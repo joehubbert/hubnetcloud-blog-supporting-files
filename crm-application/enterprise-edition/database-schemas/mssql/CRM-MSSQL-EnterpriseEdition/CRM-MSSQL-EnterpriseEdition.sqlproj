@@ -143,6 +143,7 @@
     <Folder Include="dbo\Stored Procedures\TaxProfile" />
     <Folder Include="dbo\Stored Procedures\WholesaleDeliveryType" />
     <Folder Include="dbo\Stored Procedures\ProductSalesRegion" />
+    <Folder Include="dbo\Stored Procedures\PromotionType" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountManager.sql" />
@@ -447,10 +448,10 @@
     <Build Include="dbo\Stored Procedures\MarketingCampaignStatusHistory\spGetAllMarketingCampaignStatusHistoryForMarketingCampaign.sql" />
     <Build Include="dbo\Stored Procedures\MarketingCampaignType\spGetAllMarketingCampaignType.sql" />
     <Build Include="dbo\Stored Procedures\MarketingChannel\spGetAllMarketingChannel.sql" />
-    <Build Include="dbo\Stored Procedures\CustomerNote\spGetAllNoteForCustomer.sql" />
+    <Build Include="dbo\Stored Procedures\CustomerNote\spGetAllCustomerNoteForCustomer.sql" />
     <Build Include="dbo\Stored Procedures\CustomerLeadNote\spGetAllNoteForCustomerLead.sql" />
-    <Build Include="dbo\Stored Procedures\ProductNote\spGetAllNoteForProduct.sql" />
-    <Build Include="dbo\Stored Procedures\SupplierNote\spGetAllNoteForSupplier.sql" />
+    <Build Include="dbo\Stored Procedures\ProductNote\spGetAllProductNoteForProduct.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierNote\spGetAllSupplierNoteForSupplier.sql" />
     <Build Include="dbo\Stored Procedures\Order\spGetAllOrder.sql" />
     <Build Include="dbo\Stored Procedures\Order\spGetAllOrderForCustomer.sql" />
     <Build Include="dbo\Stored Procedures\Order\spGetAllOrderForProduct.sql" />
@@ -532,13 +533,10 @@
     <Build Include="dbo\Stored Procedures\SupplierOrder\spGetAllSupplierOrderForSupplier.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderLineItem\spGetAllSupplierOrderLineItem.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderLineItemStatus\spGetAllSupplierOrderLineItemStatus.sql" />
-    <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderLineItemStatusHistory.sql" />
-    <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderLineItemStatusHistoryForOrderLineItem.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderPayment\spGetAllSupplierOrderPayment.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderPaymentStatus\spGetAllSupplierOrderPaymentStatus.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderPaymentStatusHistory\spGetAllSupplierOrderPaymentStatusHistory.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderStatus\spGetAllSupplierOrderStatus.sql" />
-    <Build Include="dbo\Stored Procedures\SupplierOrderLineItemStatusHistory\spGetAllSupplierOrderStatusHistory.sql" />
     <Build Include="dbo\Stored Procedures\TaxProfile\spGetAllTaxProfile.sql" />
     <Build Include="dbo\Stored Procedures\Customer\spGetAllTopParentCustomer.sql" />
     <Build Include="dbo\Stored Procedures\WholesaleDeliveryType\spGetAllWholesaleDeliveryType.sql" />
@@ -779,6 +777,33 @@
     <Build Include="dbo\Stored Procedures\SupplierOrder\spDeleteSupplierOrder.sql" />
     <Build Include="dbo\Stored Procedures\OrderLineItem\spDeleteOrderLineItem.sql" />
     <Build Include="dbo\Stored Procedures\Order\spDeleteOrder.sql" />
+    <Build Include="dbo\Stored Procedures\OrderInvoice\spGetAllOrderInvoiceForOrder.sql" />
+    <Build Include="dbo\Stored Procedures\MarketingCampaignMarketingChannel\spGetAllMarketingCampaignMarketingChannelForMarketingCam.sql" />
+    <Build Include="dbo\Stored Procedures\OrderPaymentStatusHistory\spGetAllOrderPaymentStatusHistoryForOrderPayment.sql" />
+    <Build Include="dbo\Stored Procedures\Promotion\spGetAllPromotionForMarketingCampaign.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionManufacturer\spGetAllPromotionManufacturerForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionProduct\spGetAllPromotionProductForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionManufacturer\spGetAllPromotionManufacturerProductCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionManufacturer\spGetAllPromotionManufacturerProductSubCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionProductCategory\spGetAllPromotionProductCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionProductFamily\spGetAllPromotionProductFamilyForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionProductSubCategory\spGetAllPromotionProductSubCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionSupplier\spGetAllPromotionSupplierForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionSupplier\spGetAllPromotionSupplierProductCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionSupplier\spGetAllPromotionSupplierProductSubCategoryForPromotion.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionType\spCreatePromotionType.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionType\spDeletePromotionType.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionType\spGetAllPromotionType.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionType\spGetPromotionType.sql" />
+    <Build Include="dbo\Stored Procedures\PromotionType\spUpdatePromotionType.sql" />
+    <Build Include="dbo\Views\vwPromotionType.sql" />
+    <Build Include="dbo\Stored Procedures\SalesSubRegion\spGetAllSalesSubRegionForSalesRegion.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderLineItem\spGetAllSupplierOrderLineItemForSupplierOrder.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderPayment\spGetAllSupplierOrderPaymentForSupplierOrder.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderLineItemStatusHistory\spGetAllSupplierOrderLineItemStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderLineItemStatusHistory\spGetAllSupplierOrderLineItemStatusHistoryForOrderLineItem.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistory.sql" />
+    <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistoryForSupplierOrder.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

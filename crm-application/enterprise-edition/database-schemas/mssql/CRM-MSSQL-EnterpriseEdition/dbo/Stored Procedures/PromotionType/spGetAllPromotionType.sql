@@ -1,0 +1,23 @@
+﻿CREATE PROCEDURE [dbo].[spGetAllPromotionType]
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			SELECT
+			[Promotion Type Id],
+			[Promotion Type],
+			[Active Status]
+			FROM [dbo].[vwPromotionType]
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

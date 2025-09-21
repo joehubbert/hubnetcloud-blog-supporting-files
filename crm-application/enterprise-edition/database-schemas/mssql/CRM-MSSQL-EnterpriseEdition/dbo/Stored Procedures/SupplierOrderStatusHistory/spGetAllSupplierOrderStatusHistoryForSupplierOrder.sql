@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderLineItem]
+﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderStatusHistoryForSupplierOrder]
+	@supplierOrderId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -7,18 +8,16 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
+			[Supplier Order Status History Id],
 			[Supplier Order Id],
-			[Supplier Order Line Item Id],
-			[Product Name],
-			[Wholesale Price Per Unit],
-			[Wholesale Carton Quantity],
-			[Wholesale Unit Quantity Per Carton]
-			[Total Line Item Price],
+			[Supplier Order Status Id],
+			[Supplier Order Status],
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By]
-			FROM [dbo].[vwSupplierOrderLineItem]
+			FROM [dbo].[vwSupplierOrderStatusHistory]
+			WHERE [Supplier Order Id] = @supplierOrderId
 
 		COMMIT TRANSACTION;
 	END TRY

@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderStatusHistory]
+﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderPaymentForSupplierOrder]
 	@supplierOrderId UNIQUEIDENTIFIER
 AS
 
@@ -8,15 +8,12 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			SELECT
-			[Supplier Order Status History Id],
+			[Supplier Order Payment Id],
 			[Supplier Order Id],
-			[Supplier Order Status Id],
-			[Supplier Order Status],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
-			FROM [dbo].[vwSupplierOrderStatusHistory]
+			[Payment Method Id],
+			[Payment Method],
+			[Payment Amount]
+			FROM [dbo].[vwSupplierOrderPayment]
 			WHERE [Supplier Order Id] = @supplierOrderId
 
 		COMMIT TRANSACTION;

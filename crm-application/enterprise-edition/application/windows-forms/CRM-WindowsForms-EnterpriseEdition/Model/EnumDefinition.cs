@@ -1,8 +1,15 @@
 ﻿namespace CRM.Model
 {
+    public enum DataSortingOrder
+    {
+        ASC,
+        DESC
+    }
+
     public enum FunctionTitle
     {
         AccountManager,
+        AssociatedCustomerToAccountManager,
         CompanyConfiguration,
         Country,
         Currency,
@@ -20,6 +27,7 @@
         CustomerTier,
         CustomerType,
         DeliveryMethod,
+        GlobalParentCustomer,
         HTMLTemplate,
         HTMLTemplateType,
         Manufacturer,
@@ -32,6 +40,7 @@
         Order,
         OrderInvoice,
         OrderLineItem,
+        OrderLineItemDelivery,
         OrderLineItemStatus,
         OrderLineItemStatusHistory,
         OrderPayment,
@@ -80,6 +89,7 @@
         SupplierOrderStatus,
         SupplierOrderStatusHistory,
         TaxProfile,
+        TopParentCustomer,
         WholesaleDeliveryType
     }
 

@@ -804,6 +804,7 @@
     <Build Include="dbo\Stored Procedures\SupplierOrderLineItemStatusHistory\spGetAllSupplierOrderLineItemStatusHistoryForOrderLineItem.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistory.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistoryForSupplierOrder.sql" />
+    <Build Include="dbo\Stored Procedures\OrderLineItemDelivery\spGetAllOrderLineItemDeliveryForOrderLineItem.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

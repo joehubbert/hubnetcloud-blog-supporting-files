@@ -1,4 +1,5 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllOrderLineItemDelivery]
+﻿CREATE PROCEDURE [dbo].[spGetAllOrderLineItemDeliveryForOrderLineItem]
+	@orderLineItemId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -15,6 +16,7 @@ BEGIN
 			[Shipping Date],
 			[Delivery Date]
 			FROM [dbo].[vwOrderLineItemDelivery]
+			WHERE [Order Line Item Id] = @orderLineItemId
 
 		COMMIT TRANSACTION;
 	END TRY

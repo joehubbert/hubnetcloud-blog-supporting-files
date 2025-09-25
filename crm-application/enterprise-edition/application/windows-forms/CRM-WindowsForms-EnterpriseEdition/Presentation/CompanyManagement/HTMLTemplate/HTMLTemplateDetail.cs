@@ -100,7 +100,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
 
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailCompanyConfigurationComboBox, FunctionTitle.CompanyConfiguration, null, true, "Company Configuration Id", companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -112,7 +112,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
         private async Task LoadHTMLTemplateTypeAsync(Guid htmlTemplateTypeId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(htmlTemplateDetailHTMLTemplateTypeComboBox,
-                "spGetAllHTMLTemplateType",
+                FunctionTitle.HTMLTemplateType,
                 null,
                 true,
                 "HTML Template Type Id",

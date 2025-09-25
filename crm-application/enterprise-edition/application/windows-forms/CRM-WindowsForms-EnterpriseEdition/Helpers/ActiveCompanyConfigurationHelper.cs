@@ -10,6 +10,7 @@ namespace CRM.Helpers
         private Guid _companyConfigurationId;
         private string _companyName;
         private TranslationService _translationService = new TranslationService();
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private LanguageRegionCode activeLanguageRegionCode;
         public Guid CompanyConfigurationId => _companyConfigurationId;
 
@@ -37,8 +38,16 @@ namespace CRM.Helpers
             {
                 _companyConfigurationId = companyConfiguration.companyConfigurationId;
                 _companyName = companyConfiguration.companyName;
+                FunctionTitle functionTitle = FunctionTitle.CompanyConfiguration;
 
-                string prefix = "Company Configuration";
+                var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(functionTitle);
+                if (dataSubjectProperties == null || dataSubjectProperties.DataParentSubject == null)
+                {
+                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle.ToString());
+                    return;
+                }
+
+                string prefix = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
 
                 if (activeLanguageRegionCode != LanguageRegionCode.enGB)
                 {

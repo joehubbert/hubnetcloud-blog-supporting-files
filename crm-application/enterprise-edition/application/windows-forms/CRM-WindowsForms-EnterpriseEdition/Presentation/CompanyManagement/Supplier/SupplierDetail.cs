@@ -66,7 +66,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
         private async Task LoadCountryDataAsync(Guid countryId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlOverviewTabPageAddressLine5ComboBox,
-                "spGetAllCountry",
+                FunctionTitle.Country,
                 null,
                 true, 
                 "Country Id",
@@ -82,7 +82,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(supplierDetailTabControlFinanceTabPagePaymentCurrencyComboBox,
-                "spGetAllCurrency",
+                FunctionTitle.Currency,
                 null,
                 true,
                 "Currency Id",
@@ -103,30 +103,20 @@ namespace CRM.Presentation.CompanyManagement.Supplier
         private async Task SupplierDetailExistingSupplierContact_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _supplierId,
-                "supplierId",
-                "spGetAllSupplierContactForSupplier",
-                "Existing Supplier Contacts",
-                supplierDetailTabControlSupplierContactTabPageDataGridView,
-                "Supplier Contact Id",
-                "View Supplier Contact",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: supplierDetailTabControlSupplierContactTabPageDataGridView,
+                detailsColumnText: "View Supplier Contact",
+                functionTitle: FunctionTitle.SupplierContact,
+                idValue: _supplierId
             );
         }
 
         private async Task SupplierDetailExistingSupplierNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _supplierId,
-                "supplierId",
-                "spGetAllNoteForSupplier",
-                "Existing Supplier Notes",
-                supplierDetailTabControlSupplierNoteTabPageDataGridView,
-                "Supplier Note Id",
-                "View Supplier Note",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: supplierDetailTabControlSupplierNoteTabPageDataGridView,
+                detailsColumnText: "View Supplier Note",
+                functionTitle: FunctionTitle.SupplierNote,
+                idValue: _supplierId
             );
         }
 
@@ -246,8 +236,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             supplierDetailTabControlSupplierContactTabPageDataGridView,
             e,
-            "Supplier Contact Id",
-            "Supplier Contact",
+            FunctionTitle.SupplierContact,
             id => {
                 var contactDetail = new ContactDetail("Supplier", id, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue, _supplierId);
                 contactDetail.Show();
@@ -270,7 +259,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
 
         private void supplierDetailTabControlSupplierNoteTabPageCreateNewSupplierNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_supplierId, "SupplierNote", supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
+            CreateNote createNote = new CreateNote(_supplierId, FunctionTitle.SupplierNote, ModuleGroup.SupplierManagement, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
             createNote.Show();
         }
 
@@ -279,10 +268,9 @@ namespace CRM.Presentation.CompanyManagement.Supplier
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             supplierDetailTabControlSupplierNoteTabPageDataGridView,
             e,
-            "Supplier Note Id",
-            "Supplier Note",
+            FunctionTitle.SupplierNote,
             id => {
-                var noteDetail = new NoteDetail(_supplierId, "Supplier", id, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
+                var noteDetail = new NoteDetail(_supplierId, FunctionTitle.SupplierNote, ModuleGroup.SupplierManagement, id, supplierDetailTabControlOverviewTabPageSupplierNameOriginalValue);
                 noteDetail.Show();
             });
         }

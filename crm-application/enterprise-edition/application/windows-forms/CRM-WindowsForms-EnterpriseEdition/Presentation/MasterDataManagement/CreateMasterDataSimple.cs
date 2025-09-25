@@ -10,25 +10,26 @@ namespace CRM.Presentation.MasterDataManagement
     {
         private Guid? _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
-        private readonly string _functionTitle;
-        private readonly string _moduleGroup;
+        private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private readonly string applicationTitlePrefix = "CRM - Create ";
-        private List<string> companyConfigurationEnabledDataSubjects;
+        private List<FunctionTitle> companyConfigurationEnabledDataSubjects;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private string dataSubjectCreateStoredProcedureName;
         private string dataSubjectFriendlyName;
         private string dataSubjectName;
-        private string dataSubjectStoredProcedureName;
-        private string dataSubjectStoredProcedureParameterPrefix;
+        private string dataSubjectStoredProcedureParameterName;
         private readonly string titleLabelPrefix = "Create ";
 
-        public CreateMasterDataSimple(string functionTitle, string moduleGroup)
+        public CreateMasterDataSimple(FunctionTitle functionTitle, ModuleGroup moduleGroup)
         {
             InitializeComponent();
             _functionTitle = functionTitle;
             LoadDatabaseConnectionSettingsAsync();
             _moduleGroup = moduleGroup;
             SetModuleTheme();
-            SetParameters(_functionTitle);
+            SetParameters();
         }
 
         private async void LoadActiveCompanyConfigurationAsync()
@@ -48,132 +49,29 @@ namespace CRM.Presentation.MasterDataManagement
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private void SetParameters(string functionTitle)
+        private void SetParameters()
         {
-            companyConfigurationEnabledDataSubjects = new List<string>
+            companyConfigurationEnabledDataSubjects = new List<FunctionTitle>
             {
-                "ProductCategory",
-                "ProductFamily",
-                "SalesRegion",
+                FunctionTitle.ProductCategory,
+                FunctionTitle.ProductFamily,
+                FunctionTitle.SalesRegion
             };
 
-            switch (functionTitle)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
             {
-                case "CustomerLeadNoteType":
-                    dataSubjectFriendlyName = "Customer Lead Note Type";
-                    dataSubjectStoredProcedureName = "spCreateCustomerLeadNoteType";
-                    dataSubjectStoredProcedureParameterPrefix = "customerLeadNoteType";
-                    break;
-                case "CustomerLeadStatus":
-                    dataSubjectFriendlyName = "Customer Lead Status";
-                    dataSubjectStoredProcedureName = "spCreateCustomerLeadStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "customerLeadStatus";
-                    break;
-                case "CustomerNoteType":
-                    dataSubjectFriendlyName = "Customer Note Type";
-                    dataSubjectStoredProcedureName = "spCreateCustomerNoteType";
-                    dataSubjectStoredProcedureParameterPrefix = "customerNoteType";
-                    break;
-                case "HTMLTemplateType":
-                    dataSubjectFriendlyName = "HTML Template Type";
-                    dataSubjectStoredProcedureName = "spCreateHTMLTemplateType";
-                    dataSubjectStoredProcedureParameterPrefix = "htmlTemplateType";
-                    break;
-                case "MarketingCampaignStatus":
-                    dataSubjectFriendlyName = "Marketing Campaign Status";
-                    dataSubjectStoredProcedureName = "spCreateMarketingCampaignStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "marketingCampaignStatus";
-                    break;
-                case "MarketingCampaignType":
-                    dataSubjectFriendlyName = "Marketing Campaign Tyoe";
-                    dataSubjectStoredProcedureName = "spCreateMarketingCampaignType";
-                    dataSubjectStoredProcedureParameterPrefix = "marketingCampaignType";
-                    break;
-                case "MarketingChannel":
-                    dataSubjectFriendlyName = "Marketing Channel";
-                    dataSubjectStoredProcedureName = "spCreateMarketingChannel";
-                    dataSubjectStoredProcedureParameterPrefix = "marketingChannel";
-                    break;
-                case "OrderLineItemStatus":
-                    dataSubjectFriendlyName = "Order Line Item Status";
-                    dataSubjectStoredProcedureName = "spCreateOrderLineItemStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "orderLineItemStatus";
-                    break;
-                case "OrderPaymentStatus":
-                    dataSubjectFriendlyName = "Order Payment Status";
-                    dataSubjectStoredProcedureName = "spCreateOrderPaymentStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "orderPaymentStatus";
-                    break;
-                case "OrderStatus":
-                    dataSubjectFriendlyName = "Order Status";
-                    dataSubjectStoredProcedureName = "spCreateOrderStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "orderStatus";
-                    break;
-                case "OrderType":
-                    dataSubjectFriendlyName = "Order Type";
-                    dataSubjectStoredProcedureName = "spCreateOrderType";
-                    dataSubjectStoredProcedureParameterPrefix = "orderType";
-                    break;
-                case "PaymentMethod":
-                    dataSubjectFriendlyName = "Payment Method";
-                    dataSubjectStoredProcedureName = "spCreatePaymentMethod";
-                    dataSubjectStoredProcedureParameterPrefix = "paymentMethod";
-                    break;
-                case "ProductCategory":
-                    dataSubjectFriendlyName = "Product Category";
-                    dataSubjectStoredProcedureName = "spCreateProductCategory";
-                    dataSubjectStoredProcedureParameterPrefix = "productCategory";
-                    break;
-                case "ProductFamily":
-                    dataSubjectFriendlyName = "Product Family";
-                    dataSubjectStoredProcedureName = "spCreateProductFamily";
-                    dataSubjectStoredProcedureParameterPrefix = "productFamily";
-                    break;
-                case "ProductNoteType":
-                    dataSubjectFriendlyName = "Product Note Type";
-                    dataSubjectStoredProcedureName = "spCreateProductNoteType";
-                    dataSubjectStoredProcedureParameterPrefix = "productNoteType";
-                    break;
-                case "PromotionType":
-                    dataSubjectFriendlyName = "Promotion Type";
-                    dataSubjectStoredProcedureName = "spCreatePromotionType";
-                    dataSubjectStoredProcedureParameterPrefix = "promotionType";
-                    break;
-                case "SalesRegion":
-                    dataSubjectFriendlyName = "Sales Region";
-                    dataSubjectStoredProcedureName = "spCreateSalesRegion";
-                    dataSubjectStoredProcedureParameterPrefix = "salesRegion";
-                    break;
-                case "SupplierNoteType":
-                    dataSubjectFriendlyName = "Supplier Note Type";
-                    dataSubjectStoredProcedureName = "spCreateSupplierNoteType";
-                    dataSubjectStoredProcedureParameterPrefix = "supplierNoteType";
-                    break;
-                case "SupplierOrderLineItemStatus":
-                    dataSubjectFriendlyName = "Supplier Order Line Item Status";
-                    dataSubjectStoredProcedureName = "spCreateSupplierOrderLineItemStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "supplierOrderLineItemStatus";
-                    break;
-                case "SupplierOrderPaymentStatus":
-                    dataSubjectFriendlyName = "Supplier Order Payment Status";
-                    dataSubjectStoredProcedureName = "spCreateSupplierOrderPaymentStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "supplierOrderPaymentStatus";
-                    break;
-                case "SupplierOrderStatus":
-                    dataSubjectFriendlyName = "Supplier Order Status";
-                    dataSubjectStoredProcedureName = "spCreateSupplierOrderStatus";
-                    dataSubjectStoredProcedureParameterPrefix = "supplierOrderStatus";
-                    break;
-                case "WholesaleDeliveryType":
-                    dataSubjectFriendlyName = "Wholesale Delivery Type";
-                    dataSubjectStoredProcedureName = "spCreateWholesaleDeliveryType";
-                    dataSubjectStoredProcedureParameterPrefix = "wholesaleDeliveryType";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName))
+            {
+                dataSubjectCreateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName;
+            }
+            
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            dataSubjectStoredProcedureParameterName = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
 
             if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
             {
@@ -186,7 +84,7 @@ namespace CRM.Presentation.MasterDataManagement
                 createMasterDataSimpleStatusStripCompanyConfigurationPlaceholder.Visible = false;
             }
 
-            dataSubjectName = functionTitle;
+            dataSubjectName = _functionTitle.ToString();
 
             createMasterDataSimpleTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataSimpleMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
@@ -257,7 +155,7 @@ namespace CRM.Presentation.MasterDataManagement
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}",
+                        ParameterName = dataSubjectStoredProcedureParameterName,
                         ParameterValue = dataSubjectValue
                     }
                 };
@@ -273,7 +171,7 @@ namespace CRM.Presentation.MasterDataManagement
 
                 string operationType = "Create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectCreateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                 this.Close();
             }
         }

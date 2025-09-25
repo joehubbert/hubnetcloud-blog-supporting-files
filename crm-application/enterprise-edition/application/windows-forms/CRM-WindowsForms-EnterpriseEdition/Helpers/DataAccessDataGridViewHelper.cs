@@ -1,4 +1,5 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 using System.Data;
 
 namespace CRM.Helpers
@@ -23,28 +24,47 @@ namespace CRM.Helpers
 
         //Loads data into a DataGridView from a stored procedure and adds a "Details" link column.
         public static async Task LoadDataGridViewAsync(
-            object idValue,
-            string idParameterName,
-            string storedProcedureName,
-            string dataSubject,
-            DataGridView grid,
-            string keyColumnName,
+            DataGridView dataGridView,
             string detailsColumnText,
-            string sortColumnOrder,
-            string? sortColumnName)
+            FunctionTitle functionTitle,  
+            Guid idValue
+            )
         {
             await LoadActiveCompanyConfigurationAsync();
 
             var dataOperationsService = new DataOperationsService();
 
-            var parameters = new object[]
+            string dataSubject = string.Empty;
+            string? sortColumnName = string.Empty;
+            DataSortingOrder? sortColumnOrder;            
+            string storedProcedureName = string.Empty;
+            string storedProcedureParameterIdName = string.Empty;
+            var uiModelHelper = new UIModelHelper();
+
+            var dataSubjectProperties = uiModelHelper.GetDataSubjectProperties(functionTitle);
+            if (dataSubjectProperties == null)
             {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle.ToString());
+                return;
+            }
+
+            dataSubject = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            sortColumnName = dataSubjectProperties.DataSubject.DataSubjectSortingColumnName;
+            sortColumnOrder = dataSubjectProperties.DataSubject.DataSubjectSortingColumnOrder;
+            storedProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectAllStoredProcedureName;
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                storedProcedureParameterIdName = dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+
+            var parameters = new object[]
+{
                 new Dictionary<string, object>
                 {
-                    ["PropertyStoredProcedureParameterName"] = idParameterName,
+                    ["PropertyStoredProcedureParameterName"] = storedProcedureParameterIdName,
                     ["PropertyValue"] = idValue
                 }
-            };
+};
 
             await dataOperationsService.DataSubmissionServiceOrchestrator(
                 operationType: "Select",
@@ -67,13 +87,13 @@ namespace CRM.Helpers
                 }
             }
 
-            dataTable.DefaultView.Sort = $"{sortColumn} {sortColumnOrder}";
-            grid.AutoGenerateColumns = true;
-            grid.DataSource = dataTable;
-            grid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            dataTable.DefaultView.Sort = $"{sortColumn} {sortColumnOrder.ToString()}";
+            dataGridView.AutoGenerateColumns = true;
+            dataGridView.DataSource = dataTable;
+            dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            if (grid.Columns.Contains("Details"))
-                grid.Columns.Remove("Details");
+            if (dataGridView.Columns.Contains("Details"))
+                dataGridView.Columns.Remove("Details");
 
             var detailsLink = new DataGridViewLinkColumn
             {
@@ -82,24 +102,41 @@ namespace CRM.Helpers
                 UseColumnTextForLinkValue = true,
                 Name = "Details"
             };
-            grid.Columns.Add(detailsLink);
+            dataGridView.Columns.Add(detailsLink);
         }
 
         // Handles the click event for a "Details" link column in a DataGridView.
         public static void HandleDetailsCellClick(
-            DataGridView grid,
-            DataGridViewCellEventArgs e,
-            string keyColumnName,
-            string dataSubject,
+            DataGridView dataGridView,
+            DataGridViewCellEventArgs dataGridViewEventArgs,
+            FunctionTitle functionTitle,
             Action<Guid> showDetailForm)
         {
-            if (e.ColumnIndex == grid.Columns["Details"].Index && e.RowIndex >= 0)
+            UIModelHelper uiModelHelper = new UIModelHelper();
+
+            var dataSubjectProperties = uiModelHelper.GetDataSubjectProperties(functionTitle);
+            if (dataSubjectProperties == null)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle.ToString());
+                return;
+            }
+
+            string dataSubjectFriendlyName = string.Empty;
+            string dataSubjectIdFriendlyName = string.Empty;
+            
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName))
+            {
+                dataSubjectIdFriendlyName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName;
+            }
+
+            if (dataGridViewEventArgs.ColumnIndex == dataGridView.Columns["Details"].Index && dataGridViewEventArgs.RowIndex >= 0)
             {
                 try
                 {
-                    if (grid.Columns.Contains(keyColumnName))
+                    if (dataGridView.Columns.Contains(dataSubjectIdFriendlyName))
                     {
-                        var cellValue = grid.Rows[e.RowIndex].Cells[keyColumnName].Value;
+                        var cellValue = dataGridView.Rows[dataGridViewEventArgs.RowIndex].Cells[dataSubjectIdFriendlyName].Value;
                         if (cellValue is Guid id)
                         {
                             showDetailForm(id);
@@ -110,17 +147,17 @@ namespace CRM.Helpers
                         }
                         else
                         {
-                            new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
+                            new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubjectIdFriendlyName);
                         }
                     }
                     else
                     {
-                        new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubject);
+                        new ErrorMessageService("Error.Data.IdColumnNotFound", dataSubjectIdFriendlyName);
                     }
                 }
                 catch (Exception ex)
                 {
-                    new ErrorMessageService("Error.Data.Retrieval", dataSubject, ex.Message);
+                    new ErrorMessageService("Error.Data.Retrieval", dataSubjectFriendlyName, ex.Message);
                 }
             }
         }

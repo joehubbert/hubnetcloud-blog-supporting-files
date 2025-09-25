@@ -1,5 +1,7 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 using System.Data;
+using System.Diagnostics.CodeAnalysis;
 
 namespace CRM.Helpers
 {
@@ -14,13 +16,14 @@ namespace CRM.Helpers
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
         private DataOperationsService _dataOperationsService = new DataOperationsService();
-        private string _storedProcedureName;
+        private FunctionTitle _functionTitle;
         private object[]? _storedProcedureParameter;
         private bool _treatFiltersAsPreselection;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
 
         public DataAccessComboBoxHelper(
             ComboBox comboBox,
-            string storedProcedureName,
+            FunctionTitle functionTitle,
             Guid? companyConfigurationId = null,
             bool? dataSubjectFilter1 = false,
             string? dataSubjectFilterColumn1 = null,
@@ -54,7 +57,7 @@ namespace CRM.Helpers
             {
                 _dataSubjectId2 = dataSubjectId2;
             }
-            _storedProcedureName = storedProcedureName;
+            _functionTitle = functionTitle;
             if (storedProcedureParameter != null && storedProcedureParameter.Length > 0)
             {
                 _storedProcedureParameter = storedProcedureParameter;
@@ -73,112 +76,22 @@ namespace CRM.Helpers
         {
             string dataSubject = string.Empty;
             string idColumnName = string.Empty;
+            string storedProcedureName = string.Empty;
 
-            switch (_storedProcedureName)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
             {
-                case "spGetAllAccountManager":
-                    dataSubject = "Account Manager";
-                    idColumnName = "Account Manager Id";
-                    break;
-                case "spGetAllCompanyConfiguration":
-                    dataSubject = "Company Configuration";
-                    idColumnName = "Company Configuration Id";
-                    break;
-                case "spGetAllCountry":
-                    dataSubject = "Country";
-                    idColumnName = "Country Id";
-                    break;
-                case "spGetAllCurrency":
-                    dataSubject = "Currency";
-                    idColumnName = "Currency Id";
-                    break;
-                case "spGetAllCustomerContactForCustomer":
-                    dataSubject = "Customer Contact";
-                    idColumnName = "Customer Contact Id";
-                    break;
-                case "spGetAllCustomerLeadNoteType":
-                    dataSubject = "Customer Lead Note Type";
-                    idColumnName = "Customer Lead Note Type Id";
-                    break;
-                case "spGetAllCustomerLeadType":
-                    dataSubject = "Customer Lead Type";
-                    idColumnName = "Customer Lead Type Id";
-                    break;
-                case "spGetAllCustomerNoteType":
-                    dataSubject = "Customer Note Type";
-                    idColumnName = "Customer Note Type Id";
-                    break;
-                case "spGetAllCustomerTier":
-                    dataSubject = "Customer Tier";
-                    idColumnName = "Customer Tier Id";
-                    break;
-                case "spGetAllCustomerType":
-                    dataSubject = "Customer Type";
-                    idColumnName = "Customer Type Id";
-                    break;
-                case "spGetAllGlobalParentCustomer":
-                    dataSubject = "Global Parent Customer";
-                    idColumnName = "Customer Id";
-                    break;
-                case "spGetAllHTMLTemplateType":
-                    dataSubject = "HTML Template Type";
-                    idColumnName = "HTML Template Type Id";
-                    break;
-                case "spGetAllManufacturer":
-                    dataSubject = "Manufacturer";
-                    idColumnName = "Manufacturer Id";
-                    break;
-                case "spGetAllMarketingChannel":
-                    dataSubject = "Marketing Channel";
-                    idColumnName = "Marketing Channel Id";
-                    break;
-                case "spGetAllProductCategory":
-                    dataSubject = "Product Category";
-                    idColumnName = "Product Category Id";
-                    break;
-                case "spGetAllProductFamily":
-                    dataSubject = "Product Family";
-                    idColumnName = "Product Family Id";
-                    break;
-                case "spGetAllProductNoteType":
-                    dataSubject = "Product Note Type";
-                    idColumnName = "Product Note Type Id";
-                    break;
-                case "spGetAllProductSubCategory":
-                    dataSubject = "Product Sub Category";
-                    idColumnName = "Product Sub Category Id";
-                    break;
-                case "spGetAllPromotionTargetType":
-                    dataSubject = "Promotion Target Type";
-                    idColumnName = "Promotion Target Type Id";
-                    break;
-                case "spGetAllSalesRegion":
-                    dataSubject = "Sales Region";
-                    idColumnName = "Sales Region Id";
-                    break;
-                case "spGetAllSalesSubRegion":
-                    dataSubject = "Sales Sub Region";
-                    idColumnName = "Sales Sub Region Id";
-                    break;
-                case "spGetAllSupplierNoteType":
-                    dataSubject = "Supplier Note Type";
-                    idColumnName = "Supplier Note Type Id";
-                    break;
-                case "spGetAllTaxProfile":
-                    dataSubject = "Tax Profile";
-                    idColumnName = "Tax Profile Id";
-                    break;
-                case "spGetAllTopParentCustomer":
-                    dataSubject = "Top Parent Customer";
-                    idColumnName = "Customer Id";
-                    break;
-                case "spGetAllWholesaleDeliveryType":
-                    dataSubject = "Wholesale Delivery Type";
-                    idColumnName = "Wholesale Delivery Type Id";
-                    break;
-                default:
-                    throw new ArgumentException("Invalid stored procedure name.");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
+
+            dataSubject = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+
+            if (!string.IsNullOrWhiteSpace (dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName))
+            {
+                idColumnName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName;
+            }          
+            storedProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectAllStoredProcedureName;
 
             try
             {
@@ -190,7 +103,7 @@ namespace CRM.Helpers
                         operationType: "Select",
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
-                        storedProcedureName: _storedProcedureName
+                        storedProcedureName: storedProcedureName
                     );
 
                     dataTable = _dataOperationsService.SelectResults;
@@ -200,7 +113,7 @@ namespace CRM.Helpers
                     await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "SelectNoParameter",
                         dataSubjectName: dataSubject,
-                        storedProcedureName: _storedProcedureName
+                        storedProcedureName: storedProcedureName
                     );
 
                     dataTable = _dataOperationsService.SelectResults;
@@ -224,33 +137,33 @@ namespace CRM.Helpers
                             ? row.Field<Guid>(idColumnName)
                             : Guid.Empty;
 
-                        item.DisplayText = _storedProcedureName switch
+                        item.DisplayText = _functionTitle switch
                         {
-                            "spGetAllAccountManager" => $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}",
-                            "spGetAllCompanyConfiguration" => $"{row.Field<string>("Company Name")} ({row.Field<Guid>("Company Configuration Id")})",
-                            "spGetAllCountry" => $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}",
-                            "spGetAllCurrency" => $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}",
-                            "spGetAllCustomerContactForCustomer" => $"{row.Field<string>("Customer Contact Last Name")}, {row.Field<string>("Customer Contact First Name")} - {row.Field<string>("Customer Contact Email Address")}",
-                            "spGetAllCustomerLeadNoteType" => row.Field<string>("Customer Lead Note Type"),
-                            "spGetAllCustomerLeadType" => $"{row.Field<string>("Customer Lead Type")} - {row.Field<string>("Customer Lead Type Description")}",
-                            "spGetAllCustomerNoteType" => row.Field<string>("Customer Note Type"),
-                            "spGetAllCustomerTier" => $"{row.Field<string>("Customer Tier Code")} - {row.Field<string>("Customer Tier Description")}",
-                            "spGetAllCustomerType" => $"{row.Field<string>("Customer Type")} - {row.Field<string>("Customer Type Description")}",
-                            "spGetAllGlobalParentCustomer" => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
-                            "spGetAllHTMLTemplateType" => row.Field<string>("HTML Template Type"),
-                            "spGetAllManufacturer" => row.Field<string>("Manufacturer Name"),
-                            "spGetAllMarketingChannel" => row.Field<string>("Marketing Channel"),
-                            "spGetAllProductCategory" => row.Field<string>("Product Category"),
-                            "spGetAllProductFamily" => row.Field<string>("Product Family"),
-                            "spGetAllProductNoteType" => row.Field<string>("Product Note Type"),
-                            "spGetAllProductSubCategory" => row.Field<string>("Product Sub Category"),
-                            "spGetAllPromotionTargetType" => $"{row.Field<string>("Promotion Target Type")} - {row.Field<string>("Promotion Target Type Description")}",
-                            "spGetAllSalesRegion" => row.Field<string>("Sales Region"),
-                            "spGetAllSalesSubRegion" => row.Field<string>("Sales Sub Region"),
-                            "spGetAllSupplierNoteType" => row.Field<string>("Supplier Note Type"),
-                            "spGetAllTaxProfile" => $"{row.Field<string>("Tax Profile")} | {row.Field<decimal>("Tax Rate")}",
-                            "spGetAllTopParentCustomer" => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
-                            "spGetAllWholesaleDeliveryType" => row.Field<string>("Wholesale Delivery Type"),
+                            FunctionTitle.AccountManager => $"{row.Field<string>("Last Name")}, {row.Field<string>("First Name")} | {row.Field<string>("Email Address")}",
+                            FunctionTitle.CompanyConfiguration => $"{row.Field<string>("Company Name")} ({row.Field<Guid>("Company Configuration Id")})",
+                            FunctionTitle.Country => $"{row.Field<string>("ISO 3166-1 Alpha 2 Country Code")} - {row.Field<string>("Country English Name")}",
+                            FunctionTitle.Currency => $"{row.Field<string>("Currency Code")} - {row.Field<string>("Currency Name")}",
+                            FunctionTitle.CustomerContact => $"{row.Field<string>("Customer Contact Last Name")}, {row.Field<string>("Customer Contact First Name")} - {row.Field<string>("Customer Contact Email Address")}",
+                            FunctionTitle.CustomerLeadNoteType => row.Field<string>("Customer Lead Note Type"),
+                            FunctionTitle.CustomerLeadType => $"{row.Field<string>("Customer Lead Type")} - {row.Field<string>("Customer Lead Type Description")}",
+                            FunctionTitle.CustomerNoteType => row.Field<string>("Customer Note Type"),
+                            FunctionTitle.CustomerTier => $"{row.Field<string>("Customer Tier Code")} - {row.Field<string>("Customer Tier Description")}",
+                            FunctionTitle.CustomerType => $"{row.Field<string>("Customer Type")} - {row.Field<string>("Customer Type Description")}",
+                            FunctionTitle.GlobalParentCustomer => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
+                            FunctionTitle.HTMLTemplateType => row.Field<string>("HTML Template Type"),
+                            FunctionTitle.Manufacturer => row.Field<string>("Manufacturer Name"),
+                            FunctionTitle.MarketingChannel => row.Field<string>("Marketing Channel"),
+                            FunctionTitle.ProductCategory => row.Field<string>("Product Category"),
+                            FunctionTitle.ProductFamily => row.Field<string>("Product Family"),
+                            FunctionTitle.ProductNoteType => row.Field<string>("Product Note Type"),
+                            FunctionTitle.ProductSubCategory => row.Field<string>("Product Sub Category"),
+                            FunctionTitle.PromotionTargetType => $"{row.Field<string>("Promotion Target Type")} - {row.Field<string>("Promotion Target Type Description")}",
+                            FunctionTitle.SalesRegion => row.Field<string>("Sales Region"),
+                            FunctionTitle.SalesSubRegion => row.Field<string>("Sales Sub Region"),
+                            FunctionTitle.SupplierNoteType => row.Field<string>("Supplier Note Type"),
+                            FunctionTitle.TaxProfile => $"{row.Field<string>("Tax Profile")} | {row.Field<decimal>("Tax Rate")}",
+                            FunctionTitle.TopParentCustomer => $"{row.Field<string>("Customer Id")} | {row.Field<string>("Company Name")}",
+                            FunctionTitle.WholesaleDeliveryType => row.Field<string>("Wholesale Delivery Type"),
                             _ => string.Empty
                         };
                         return item;

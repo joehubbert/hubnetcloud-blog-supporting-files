@@ -11,24 +11,26 @@ namespace CRM.Presentation.MasterDataManagement
         private Guid? _companyConfigurationId;
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private readonly string _functionTitle;
-        private readonly string _moduleGroup;
+        private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private readonly string applicationTitlePrefix = "CRM - Create ";
-        private List<string> companyConfigurationEnabledDataSubjects;
+        private List<FunctionTitle> companyConfigurationEnabledDataSubjects;
+        private string dataSubjectCreateStoredProcedureName;
         private string dataSubjectFriendlyName;
         private string dataSubjectName;
-        private string dataSubjectStoredProcedureName;
-        private string dataSubjectStoredProcedureParameterPrefix;
+        private string dataSubjectStoredProcedureParameter;
+        private string dataSubjectStoredProcedureDescriptionParameter;
         private readonly string titleLabelPrefix = "Create ";
 
-        public CreateMasterDataEnhanced(string functionTitle, string moduleGroup)
+        public CreateMasterDataEnhanced(FunctionTitle functionTitle, ModuleGroup moduleGroup)
         {
             InitializeComponent();
 			_functionTitle = functionTitle;
             LoadDatabaseConnectionSettingsAsync();
             _moduleGroup = moduleGroup;
             SetModuleTheme();
-            SetParameters(_functionTitle);
+            SetParameters();
         }
 
 		private async Task LoadActiveCompanyConfigurationAsync()
@@ -48,36 +50,29 @@ namespace CRM.Presentation.MasterDataManagement
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private async void SetParameters(string functionTitle)
+        private async void SetParameters()
         {
-            companyConfigurationEnabledDataSubjects = new List<string>
+            companyConfigurationEnabledDataSubjects = new List<FunctionTitle>
             {
-                "CustomerLeadType",
-                "CustomerType"
+                FunctionTitle.CustomerLeadType,
+                FunctionTitle.CustomerType
             };
 
-            switch (functionTitle)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
             {
-                case "CustomerLeadType":
-                    dataSubjectFriendlyName = "Customer Lead Type";
-                    dataSubjectStoredProcedureName = "spCreateCustomerLeadType";
-                    dataSubjectStoredProcedureParameterPrefix = "customerLeadType";
-                    break;
-                case "CustomerType":
-                    dataSubjectFriendlyName = "Customer Type";
-                    dataSubjectStoredProcedureName = "spCreateCustomerType";
-                    dataSubjectStoredProcedureParameterPrefix = "customerType";
-                    break;
-                case "PromotionTargetType":
-                    dataSubjectFriendlyName = "Promotion Target Type";
-                    dataSubjectStoredProcedureName = "spCreatePromotionTargetType";
-                    dataSubjectStoredProcedureParameterPrefix = "promotionTargetType";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName))
+            {
+                dataSubjectCreateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName;
+            }
+            
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            dataSubjectStoredProcedureParameter = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
+            dataSubjectStoredProcedureDescriptionParameter = $"{dataSubjectStoredProcedureParameter}Description";
 
 			if (companyConfigurationEnabledDataSubjects.Contains(_functionTitle))
 			{
@@ -90,7 +85,7 @@ namespace CRM.Presentation.MasterDataManagement
 				createMasterDataEnhancedStatusStripCompanyConfigurationPlaceholder.Visible = false;
 			}
 
-			dataSubjectName = functionTitle;
+			dataSubjectName = _functionTitle.ToString();
             createMasterDataEnhancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataEnhancedMasterDataTypeTextBoxLabel.Text = $"{dataSubjectFriendlyName}*";
             createMasterDataEnhancedMasterDataDescriptionTextBoxLabel.Text = $"{dataSubjectFriendlyName} Description*";
@@ -170,12 +165,12 @@ namespace CRM.Presentation.MasterDataManagement
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}",
+                        ParameterName = dataSubjectStoredProcedureParameter,
                         ParameterValue = dataSubjectValue
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{dataSubjectStoredProcedureParameterPrefix}Description",
+                        ParameterName = dataSubjectStoredProcedureDescriptionParameter,
                         ParameterValue = dataSubjectDescriptionValue
                     }
                 };
@@ -191,7 +186,7 @@ namespace CRM.Presentation.MasterDataManagement
 
                 string operationType = "Create";
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectCreateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
                 this.Close();
             }
         }

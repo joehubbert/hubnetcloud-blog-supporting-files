@@ -95,7 +95,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
         private async void LoadAccountManagerDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageAccountManagerComboBox, "spGetAllAccountManager", _companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageAccountManagerComboBox, FunctionTitle.AccountManager, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -108,28 +108,28 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
         private async void LoadCountryDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlBillingInformationTabPageAddressLine5ComboBox, FunctionTitle.Country);
             await _dataAccessComboBoxHelper.LoadDataAsync();
 
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlShippingInformationTabPageAddressLine5ComboBox, FunctionTitle.Country);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadCurrencyDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlFinanceTabPagePaymentCurrencyComboBox, FunctionTitle.Currency);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void LoadCustomerTierDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTierComboBox, "spGetAllCustomerTier", _companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTierComboBox, FunctionTitle.CustomerTier, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void LoadCustomerTypeAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTypeComboBox, "spGetAllCustomerType", _companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageCustomerTypeComboBox, FunctionTitle.CustomerType, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -140,19 +140,19 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
         private async Task LoadGlobalParentCustomerDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox, "spGetAllGlobalParentCustomer");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageGlobalParentCustomerComboBox, FunctionTitle.GlobalParentCustomer);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadSalesRegionDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageSalesRegionComboBox, "spGetAllSalesRegion", _companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageSalesRegionComboBox, FunctionTitle.SalesRegion, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadSalesSubRegionAsync(Guid salesRegionId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageSalesSubRegionComboBox, "spGetAllSalesSubRegion", null, true, "Sales Region Id", salesRegionId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageSalesSubRegionComboBox, FunctionTitle.SalesSubRegion, null, true, "Sales Region Id", salesRegionId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -167,7 +167,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
         private async Task LoadTopParentCustomerDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageTopParentCustomerComboBox, "spGetAllTopParentCustomer");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerTabControlOverviewTabPageTopParentCustomerComboBox, FunctionTitle.TopParentCustomer);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

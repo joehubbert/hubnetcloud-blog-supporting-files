@@ -47,7 +47,7 @@ namespace CRM.Presentation.Manufacturer
         private async Task LoadCountryDataAsync(Guid countryId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(manufacturerDetailTabControlOverviewTabPageAddressLine5ComboBox,
-                "spGetAllCountry",
+                FunctionTitle.Country,
                 null,
                 true,
                 "Country Id",

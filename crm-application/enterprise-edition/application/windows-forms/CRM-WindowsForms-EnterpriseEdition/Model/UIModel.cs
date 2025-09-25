@@ -28,6 +28,8 @@
                 DataSubject = FunctionTitle.AssociatedCustomerToAccountManager,
                 DataSubjectCamelCaseName = "associatedCustomerToAccountManager",
                 DataSubjectFriendlyName = "Associated Customer to Account Manager",
+                DataSubjectIdFriendlyName = "Customer Id",
+                DataSubjectIdName = "CustomerId",
                 DataSubjectPlural = "Associated Customers to Account Manager",
                 DataSubjectSelectAllStoredProcedureName = "spGetAssociatedCustomerToAccountManager",
                 DataSubjectSortingColumnName = "Company Tier",

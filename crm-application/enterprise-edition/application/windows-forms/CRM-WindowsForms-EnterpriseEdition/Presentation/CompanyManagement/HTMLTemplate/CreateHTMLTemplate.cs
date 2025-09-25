@@ -41,7 +41,7 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
 
         private async void LoadHTMLTemplateTypeAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createHTMLTemplateHTMLTemplateTypeComboBox, "spGetAllHTMLTemplateType");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createHTMLTemplateHTMLTemplateTypeComboBox, FunctionTitle.HTMLTemplateType);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

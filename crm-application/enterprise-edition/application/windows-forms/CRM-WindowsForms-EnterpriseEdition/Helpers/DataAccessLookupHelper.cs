@@ -1,4 +1,5 @@
-﻿using CRM.Services;
+﻿using CRM.Model;
+using CRM.Services;
 using System.Data;
 
 namespace CRM.Helpers
@@ -6,6 +7,7 @@ namespace CRM.Helpers
     internal class DataAccessLookupHelper
     {
         private Guid? _companyConfigurationId;
+        private string _dataSubject;
         private bool? _dataSubjectFilter1;
         private string? _dataSubjectFilterColumn1;
         private Guid? _dataSubjectId1;
@@ -13,15 +15,18 @@ namespace CRM.Helpers
         private string? _dataSubjectFilterColumn2;
         private Guid? _dataSubjectId2;
         private DataOperationsService _dataOperationsService = new DataOperationsService();
-        private string _storedProcedureName;
+        private FunctionTitle _functionTitle;
+        private string _idColumnName;
         private object[]? _storedProcedureParameter;
+        private string _storedProcedureName;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
 
         // Add properties to expose display and value member column names
         public string DisplayMemberColumnName { get; private set; } = "Display Text";
         public string ValueMemberColumnName { get; private set; } = "Id";
 
         public DataAccessLookupHelper(
-            string storedProcedureName,
+            FunctionTitle functionTitle,
             Guid? companyConfigurationId = null,
             bool? dataSubjectFilter1 = false,
             string? dataSubjectFilterColumn1 = null,
@@ -53,69 +58,56 @@ namespace CRM.Helpers
             {
                 _dataSubjectId2 = dataSubjectId2;
             }
-            _storedProcedureName = storedProcedureName;
+            _functionTitle = functionTitle;
             if (storedProcedureParameter != null && storedProcedureParameter.Length > 0)
             {
                 _storedProcedureParameter = storedProcedureParameter;
             }
-            
+
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
+            }
+
+            _dataSubject = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            _idColumnName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName ?? "Id";
+            _storedProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectAllStoredProcedureName;
+            ValueMemberColumnName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName ?? "Id";
+
             // Set display/value member based on stored procedure
-            SetColumnMappingsForStoredProcedure(storedProcedureName);
+            SetColumnMappingsForStoredProcedure();
         }
 
-        private void SetColumnMappingsForStoredProcedure(string storedProcedureName)
+        private void SetColumnMappingsForStoredProcedure()
         {
-            switch (storedProcedureName)
+            switch (_functionTitle)
             {
-                case "spGetCompanyConfiguration":
-                    DisplayMemberColumnName = "Company Configuration Name";
-                    ValueMemberColumnName = "Company Configuration Id";
+                case FunctionTitle.CompanyConfiguration:
+                    DisplayMemberColumnName = "Company Name";
                     break;
-                case "spGetAllCurrency":
-                    DisplayMemberColumnName = "Currency Name";
-                    ValueMemberColumnName = "Currency Id";
+                case FunctionTitle.Currency:
+                    DisplayMemberColumnName = "Currency Code";
                     break;
-                case "spGetAllWholesaleDeliveryType":
+                case FunctionTitle.WholesaleDeliveryType:
                     DisplayMemberColumnName = "Wholesale Delivery Type";
-                    ValueMemberColumnName = "Wholesale Delivery Type Id";
                     break;
                 default:
                     DisplayMemberColumnName = "Display Text";
-                    ValueMemberColumnName = "Id";
                     break;
             }
         }
 
         public async Task<DataTable?> GetFilteredDataTableAsync()
         {
-            string dataSubject = string.Empty;
-            string idColumnName = string.Empty;
-
-            switch (_storedProcedureName)
-            {
-                case "spGetAllCompanyConfiguration":
-                    dataSubject = "Company Configuration";
-                    idColumnName = "Company Configuration Id";
-                    break;
-                case "spGetAllCurrency":
-                    dataSubject = "Currency";
-                    idColumnName = "Currency Id";
-                    break;
-                case "spGetAllWholesaleDeliveryType":
-                    dataSubject = "Wholesale Delivery Type";
-                    idColumnName = "Wholesale Delivery Type Id";
-                    break;
-                default:
-                    throw new ArgumentException("Invalid stored procedure name.");
-            }
-
             DataTable? dataTable;
 
             if (_storedProcedureParameter != null)
             {
                 await _dataOperationsService.DataSubmissionServiceOrchestrator(
                     operationType: "Select",
-                    dataSubjectName: dataSubject,
+                    dataSubjectName: _dataSubject,
                     dataToBeProcessed: _storedProcedureParameter,
                     storedProcedureName: _storedProcedureName
                 );
@@ -126,7 +118,7 @@ namespace CRM.Helpers
             {
                 await _dataOperationsService.DataSubmissionServiceOrchestrator(
                     operationType: "SelectNoParameter",
-                    dataSubjectName: dataSubject,
+                    dataSubjectName: _dataSubject,
                     storedProcedureName: _storedProcedureName
                 );
 
@@ -134,8 +126,8 @@ namespace CRM.Helpers
             }
 
             // If the table has a "Display Text" column but should use a different column name
-            // create that column if needed (specifically for "spGetAllWholesaleDeliveryType")
-            if (_storedProcedureName == "spGetAllWholesaleDeliveryType" && 
+            // create that column if needed (specifically for FunctionTitle.WholesaleDeliveryType)
+            if (_functionTitle == FunctionTitle.WholesaleDeliveryType && 
                 dataTable.Columns.Contains("Wholesale Delivery Type") && 
                 !dataTable.Columns.Contains("Display Text"))
             {

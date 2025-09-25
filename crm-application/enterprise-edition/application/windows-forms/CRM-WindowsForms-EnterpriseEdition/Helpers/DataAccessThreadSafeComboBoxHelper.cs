@@ -1,10 +1,11 @@
-﻿using System.Data;
+﻿using CRM.Model;
+using System.Data;
 
 namespace CRM.Helpers
 {
     internal class ThreadSafeComboBoxLoader
     {
-        public static async Task LoadComboBoxDataAsync(Control control, ComboBox comboBox, string storedProcedureName,
+        public static async Task LoadComboBoxDataAsync(Control control, ComboBox comboBox, FunctionTitle functionTitle,
             Guid? companyConfigurationId = null, bool suppressExceptions = false)
         {
             if (comboBox == null)
@@ -14,7 +15,7 @@ namespace CRM.Helpers
             {
                 // Create a helper that doesn't have a direct reference to the ComboBox
                 var helper = new DataAccessLookupHelper(
-                    storedProcedureName,
+                    functionTitle,
                     companyConfigurationId);
 
                 // Fetch data on background thread

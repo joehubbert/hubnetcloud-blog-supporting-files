@@ -36,7 +36,7 @@ namespace CRM.Presentation.MasterDataManagement
 
         private async void LoadTaxProfileAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createDeliveryMethodTaxProfileComboBox, "spGetAllTaxProfile");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createDeliveryMethodTaxProfileComboBox, FunctionTitle.TaxProfile);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

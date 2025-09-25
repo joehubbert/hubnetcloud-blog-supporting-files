@@ -267,7 +267,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
             {
                 case "FinancialInformation":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountAddressLine5ComboBox,
-                        "spGetAllCountry",
+                        FunctionTitle.Country,
                         null,
                         true,
                         "Country Id",
@@ -281,7 +281,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
                     break;
                 case "GeneralInformation":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlGeneralInformationTabPageAddressLine5ComboBox,
-                        "spGetAllCountry",
+                        FunctionTitle.Country,
                         null,
                         true,
                         "Country Id",
@@ -301,7 +301,7 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(companyConfigurationDetailTabControlFinancialInformationTabPageTabControlGeneralTabPageBankAccountCurrencyComboBox,
-                "spGetAllCurrency",
+                FunctionTitle.Currency,
                 null,
                 true,
                 "Currency Id",

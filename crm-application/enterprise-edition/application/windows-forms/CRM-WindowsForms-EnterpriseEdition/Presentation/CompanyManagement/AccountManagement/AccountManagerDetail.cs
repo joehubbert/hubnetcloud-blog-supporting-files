@@ -48,15 +48,10 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
         private async Task AccountManagerDetailAssociatedCustomer_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _accountManagerId,
-                "accountManagerId",
-                "spGetAssociatedCustomerToAccountManager",
-                "Associated Customers to Account Manager",
-                accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
-                "Customer Id",
-                "View Customer",
-                "ASC",
-                "Company Tier"
+                dataGridView: accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
+                detailsColumnText: "View Customer",
+                functionTitle: FunctionTitle.AssociatedCustomerToAccountManager,
+                idValue: _accountManagerId
             );
         }
 
@@ -121,7 +116,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
 
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", null, true, "Company Configuration Id", companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(accountManagerDetailTabControlAccountManagerInformationTabPageCompanyConfigurationComboBox, FunctionTitle.CompanyConfiguration, null, true, "Company Configuration Id", companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -144,8 +139,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             accountManagerDetailTabControlAssociatedCustomersTabPageDataGridView,
             e,
-            "Customer Id",
-            "Customer",
+            FunctionTitle.AssociatedCustomerToAccountManager,
             id => {
                 var customerDetail = new CustomerDetail(id);
                 customerDetail.Show();

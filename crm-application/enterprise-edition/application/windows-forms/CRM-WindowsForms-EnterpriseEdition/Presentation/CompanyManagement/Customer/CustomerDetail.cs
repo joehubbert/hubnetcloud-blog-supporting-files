@@ -325,52 +325,37 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task CustomerDetailExistingCustomerContact_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _customerId,
-                "customerId",
-                "spGetAllCustomerContactForCustomer",
-                "Existing Customer Contacts",
-                customerDetailTabControlCustomerContactTabPageDataGridView,
-                "Customer Contact Id",
-                "View Customer Contact",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: customerDetailTabControlCustomerContactTabPageDataGridView,
+                detailsColumnText: "View Customer Contact",
+                functionTitle: FunctionTitle.CustomerContact,
+                idValue: _customerId
             );
         }
 
         private async Task CustomerDetailExistingCustomerLead_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _customerId,
-                "customerId",
-                "spGetAllCustomerLeadForCustomer",
-                "Existing Customer Leads",
-                customerDetailTabControlCustomerLeadTabPageDataGridView,
-                "Customer Lead Id",
-                "View Customer Lead",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: customerDetailTabControlCustomerLeadTabPageDataGridView,
+                detailsColumnText: "View Customer Lead",
+                functionTitle: FunctionTitle.CustomerLead,
+                idValue: _customerId
             );
         }
 
         private async Task CustomerDetailExistingCustomerNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _customerId,
-                "customerId",
-                "spGetAllNoteForCustomer",
-                "Existing Customer Notes",
-                customerDetailTabControlCustomerNoteTabPageDataGridView,
-                "Customer Note Id",
-                "View Customer Note",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: customerDetailTabControlCustomerNoteTabPageDataGridView,
+                detailsColumnText: "View Customer Note",
+                functionTitle: FunctionTitle.CustomerNote,
+                idValue: _customerId
             );
         }
 
         private async Task LoadAccountManagerDataAsync(Guid accountManagerId, Guid companyConfigurationId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageAccountManagerComboBox,
-                "spGetAllAccountManager",
+                FunctionTitle.AccountManager,
                 companyConfigurationId,
                 true,
                 "Account Manager Id",
@@ -386,7 +371,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCompanyConfigurationComboBox,
-                "spGetAllCompanyConfiguration",
+                FunctionTitle.CompanyConfiguration,
                 null,
                 true,
                 "Company Configuration Id",
@@ -405,7 +390,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
             {
                 case "Billing":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlBillingInformationTabPageAddressLine5ComboBox,
-                        "spGetAllCountry",
+                        FunctionTitle.Country,
                         null,
                         true,
                         "Country Id",
@@ -418,7 +403,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     break;
                 case "Shipping":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlShippingInformationTabPageAddressLine5ComboBox,
-                        "spGetAllCountry",
+                        FunctionTitle.Country,
                         null,
                         true,
                         "Country Id",
@@ -439,7 +424,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadCurrencyDataAsync(Guid currencyId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlFinanceTabPagePaymentCurrencyComboBox,
-                "spGetAllCurrency",
+                FunctionTitle.Currency,
                 null,
                 true,
                 "Currency Id",
@@ -455,7 +440,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadCustomerTierDataAsync(Guid companyConfigurationId, Guid customerTierId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCustomerTierComboBox,
-                "spGetAllCustomerTier",
+                FunctionTitle.CustomerTier,
                 companyConfigurationId,
                 true,
                 "Customer Tier Id",
@@ -471,7 +456,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadCustomerTypeAsync(Guid companyConfigurationId, Guid customerTypeId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageCustomerTierComboBox,
-                "spGetAllCustomerType",
+                FunctionTitle.CustomerType,
                 companyConfigurationId,
                 true,
                 "Customer Type Id",
@@ -492,7 +477,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadGlobalParentCustomerDataAsync(Guid customerId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageGlobalParentCustomerComboBox,
-                "spGetAllGlobalParentCustomer",
+                FunctionTitle.GlobalParentCustomer,
                 null,
                 true,
                 "Customer Id",
@@ -508,7 +493,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadSalesRegionDataAsync(Guid companyConfigurationId, Guid salesRegionId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageSalesRegionComboBox,
-                "spGetAllSalesRegion",
+                FunctionTitle.SalesRegion,
                 companyConfigurationId,
                 true,
                 "Sales Region Id",
@@ -524,7 +509,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadSalesSubRegionAsync(Guid salesRegionId, Guid salesSubRegionId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageSalesSubRegionComboBox,
-                "spGetAllSalesSubRegion",
+                FunctionTitle.SalesSubRegion,
                 null,
                 true,
                 "Sales Region Id",
@@ -540,7 +525,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
         private async Task LoadTopParentCustomerDataAsync(Guid customerId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerDetailTabControlOverviewTabPageTopParentCustomerComboBox,
-                "spGetAllTopParentCustomer",
+                FunctionTitle.TopParentCustomer,
                 null,
                 true,
                 "Customer Id",
@@ -573,8 +558,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             customerDetailTabControlCustomerContactTabPageDataGridView,
             e,
-            "Customer Contact Id",
-            "Customer Contact",
+            FunctionTitle.CustomerContact,
             id => {
                 var contactDetail = new ContactDetail("CustomerContact", id, customerDisplayName, _customerId);
                 contactDetail.Show();
@@ -606,8 +590,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             customerDetailTabControlCustomerLeadTabPageDataGridView,
             e,
-            "Customer Lead Id",
-            "Customer Lead",
+            FunctionTitle.CustomerLead,
             id => {
                 var customerLeadDetail = new CustomerLeadDetail(_customerId, id, customerDisplayName);
                 customerLeadDetail.Show();
@@ -630,7 +613,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
 
         private void customerDetailTabControlCustomerNoteTabPageCreateNewCustomerNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_customerId, "CustomerNote", customerDisplayName);
+            CreateNote createNote = new CreateNote(_customerId, FunctionTitle.CustomerNote, ModuleGroup.CustomerManagement, customerDisplayName);
             createNote.Show();
         }
 
@@ -639,10 +622,9 @@ namespace CRM.Presentation.CompanyManagement.Customer
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             customerDetailTabControlCustomerNoteTabPageDataGridView,
             e,
-            "Customer Note Id",
-            "Customer Note",
+            FunctionTitle.CustomerNote,
             id => {
-                var noteDetail = new NoteDetail(_customerId, "Customer", id, customerDisplayName);
+                var noteDetail = new NoteDetail(_customerId, FunctionTitle.CustomerNote, ModuleGroup.CustomerManagement, id, customerDisplayName);
                 noteDetail.Show();
             });
         }

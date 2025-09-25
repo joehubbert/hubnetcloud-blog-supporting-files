@@ -114,7 +114,7 @@ namespace CRM.Presentation.MasterDataManagement
         private async Task LoadTaxProfileAsync(Guid taxProfileId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(deliveryMethodDetailTaxProfileComboBox,
-                "spGetAllTaxProfile",
+                FunctionTitle.TaxProfile,
                 null,
                 true,
                 "Tax Profile Id",taxProfileId,

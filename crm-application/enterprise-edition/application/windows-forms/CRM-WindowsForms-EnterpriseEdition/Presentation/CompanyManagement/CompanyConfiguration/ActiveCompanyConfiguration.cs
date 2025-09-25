@@ -25,11 +25,11 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
             var applicationConfigurationCompanyConfiguration = await ApplicationConfigurationService.GetCompanyConfigurationAsync();
             if (applicationConfigurationCompanyConfiguration.companyConfigurationId != null)
             {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration", applicationConfigurationCompanyConfiguration.companyConfigurationId);
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, FunctionTitle.CompanyConfiguration, applicationConfigurationCompanyConfiguration.companyConfigurationId);
             }
             else
             {
-                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, "spGetAllCompanyConfiguration");
+                _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(activeCompanyConfigurationCompanyConfigurationComboBox, FunctionTitle.CompanyConfiguration);
             }
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }

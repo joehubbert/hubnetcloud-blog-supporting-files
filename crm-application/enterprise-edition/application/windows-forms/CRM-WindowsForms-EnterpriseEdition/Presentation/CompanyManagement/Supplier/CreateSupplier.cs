@@ -42,13 +42,13 @@ namespace CRM.Presentation.CompanyManagement.Supplier
 
         private async Task LoadCountryDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlOverviewTabPageAddressLine5ComboBox, "spGetAllCountry");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlOverviewTabPageAddressLine5ComboBox, FunctionTitle.Country);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async Task LoadCurrencyDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox, "spGetAllCurrency");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createSupplierTabControlFinanceTabPagePaymentCurrencyComboBox, FunctionTitle.Currency);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

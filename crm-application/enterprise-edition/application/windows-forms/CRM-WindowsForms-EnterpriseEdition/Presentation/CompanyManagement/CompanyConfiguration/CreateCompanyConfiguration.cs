@@ -92,16 +92,16 @@ namespace CRM.Presentation.CompanyManagement.CompanyConfiguration
 
         private async void LoadCountryAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, "spGetAllCountry");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountAddressLine5ComboBox, FunctionTitle.Country);
             await _dataAccessComboBoxHelper.LoadDataAsync();
 
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox, "spGetAllCountry");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlGeneralInformationTabPageAddressLine5ComboBox, FunctionTitle.Country);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void LoadCurrencyDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, "spGetAllCurrency");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCompanyConfigurationTabControlFinancialInformationTabPageBankAccountCurrencyComboBox, FunctionTitle.Currency);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

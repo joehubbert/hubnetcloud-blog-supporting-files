@@ -12,25 +12,28 @@ namespace CRM.Presentation.Note
         private readonly Guid _dataSubjectId;
         private readonly string? _dataSubjectName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-		private readonly string _functionTitle;
-        private readonly string applicationTitlePrefix = "CRM - Create ";
-        private string createNoteModuleNoteCreateStoredProcedureName;
-        private string createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix;
-        private string createNoteModuleNoteCreateStoredProcedureParameterPrefix;
-        private string createNoteModuleNoteTypeFriendlyName;
-        private string? createNoteNoteTitleFriendlyName;
-        private string createNoteNoteTypeFriendlyName;
-        private string createNoteNoteTypeGetStoredProcedureName;
-        private string createNoteNoteTypeIdFriendlyName;
+		private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
+        private readonly string applicationTitlePrefix = "CRM - Create ";    
+        private string createNoteDataSubjectCamelCaseName;
+        private string createNoteDataSubjectCreateStoredProcedureName;
+        private string? createNoteDataSubjectTitleFriendlyName;
+        private string createNoteDataSubjectTitleName;
+        private string createNoteDataSubjectTypeFriendlyName;
+        private string createNoteDataSubjectTypeIdFriendlyName;
+        private string createNoteDataSubjectTypeIdName;
+        private string createNoteParentDataSubjectFriendlyName;
+        private string createNoteParentDataSubjectStoredProcedureIdName;
 
-        public CreateNote(Guid dataSubjectId, string functionTitle, string? dataSubjectName = null)
+        public CreateNote(Guid dataSubjectId, FunctionTitle functionTitle, ModuleGroup moduleGroup, string? dataSubjectName = null)
         {
             InitializeComponent();
             InitializeEventHandlers();
             _dataSubjectId = dataSubjectId;
             _dataSubjectName = dataSubjectName;
 			_functionTitle = functionTitle;
-            SetModuleTheme();
+            SetParameters();
             LoadDatabaseConnectionSettingsAsync();
             LoadNoteTypeAsync();
         }
@@ -47,68 +50,49 @@ namespace CRM.Presentation.Note
 
         private async void LoadNoteTypeAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createNoteNoteTypeComboBox, createNoteNoteTypeGetStoredProcedureName);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createNoteNoteTypeComboBox, _functionTitle);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
-        private void SetModuleTheme()
+        private void SetParameters()
         {
-            switch (_functionTitle)
+            ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
+
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null || dataSubjectProperties.DataParentSubject == null)
             {
-                case "CustomerNote":
-                    this.BackColor = Color.LightGreen;
-                    createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerNote";
-                    createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customer";
-                    createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerNote";
-                    createNoteModuleNoteTypeFriendlyName = "Customer Note";
-                    createNoteNoteTitleFriendlyName = "Customer Note Title";
-                    createNoteNoteTypeFriendlyName = "Customer Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerNoteType";
-                    createNoteNoteTypeIdFriendlyName = "Customer Note Type Id";
-                    createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer: {_dataSubjectName} ({_dataSubjectId})";
-					break;
-                case "CustomerLeadNote":
-                    this.BackColor = Color.LightGreen;
-                    createNoteModuleNoteCreateStoredProcedureName = "spCreateCustomerLeadNote";
-                    createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "customerLead";
-                    createNoteModuleNoteCreateStoredProcedureParameterPrefix = "customerLeadNote";
-                    createNoteModuleNoteTypeFriendlyName = "Customer Lead Note";
-                    createNoteNoteTitleFriendlyName = "Customer Lead Note Title";
-                    createNoteNoteTypeFriendlyName = "Customer Lead Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "spGetAllCustomerLeadNoteType";
-                    createNoteNoteTypeIdFriendlyName = "Customer Lead Note Type Id";
-					createNoteStatusStripDataSubjectPlaceholder.Text = $"Customer Lead: {_dataSubjectName} ({_dataSubjectId})";
-					break;
-                case "ProductNote":
-                    this.BackColor = Color.SkyBlue;
-                    createNoteModuleNoteCreateStoredProcedureName = "spCreateProductNote";
-                    createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "product";
-                    createNoteModuleNoteCreateStoredProcedureParameterPrefix = "productNote";
-                    createNoteModuleNoteTypeFriendlyName = "Product Note";
-                    createNoteNoteTitleFriendlyName = "Product Note Title";
-                    createNoteNoteTypeFriendlyName = "Product Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "spGetAllProductNoteType";
-                    createNoteNoteTypeIdFriendlyName = "Product Note Type Id";
-					createNoteStatusStripDataSubjectPlaceholder.Text = $"Product: {_dataSubjectName} ({_dataSubjectId})";
-					break;
-                case "SupplierNote":
-                    this.BackColor = Color.MediumAquamarine;
-                    createNoteModuleNoteCreateStoredProcedureName = "spCreateSupplierNote";
-                    createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix = "supplier";
-                    createNoteModuleNoteCreateStoredProcedureParameterPrefix = "supplierNote";
-                    createNoteModuleNoteTypeFriendlyName = "Supplier Note";
-                    createNoteNoteTitleFriendlyName = "Supplier Note Title";
-                    createNoteNoteTypeFriendlyName = "Supplier Note Type";
-                    createNoteNoteTypeGetStoredProcedureName = "spGetAllSupplierNoteType";
-                    createNoteNoteTypeIdFriendlyName = "Supplier Note Type Id";
-					createNoteStatusStripDataSubjectPlaceholder.Text = $"Supplier: {_dataSubjectName} ({_dataSubjectId})";
-					break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
 
-            this.Text = $"{applicationTitlePrefix}{createNoteModuleNoteTypeFriendlyName}";
-            createNoteTitleLabel.Text = createNoteModuleNoteTypeFriendlyName;
-            createNoteNoteTitleTextBoxLabel.Text = $"{createNoteNoteTitleFriendlyName}*";
-            createNoteNoteTypeComboBoxLabel.Text = $"{createNoteNoteTypeFriendlyName}*";
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName))
+            {
+                createNoteDataSubjectCreateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                createNoteParentDataSubjectStoredProcedureIdName = dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectFriendlyName))
+            {
+                createNoteParentDataSubjectFriendlyName = dataSubjectProperties.DataParentSubject.DataSubjectFriendlyName;
+            }
+
+            createNoteDataSubjectCamelCaseName = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
+            createNoteDataSubjectTitleName = $"{createNoteDataSubjectCamelCaseName}Title";
+            createNoteDataSubjectTypeIdName = $"{createNoteDataSubjectCamelCaseName}TypeId";
+            createNoteDataSubjectTypeFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            createNoteDataSubjectTitleFriendlyName = $"{createNoteDataSubjectTypeFriendlyName} Title";
+            createNoteDataSubjectTypeFriendlyName = $"{createNoteDataSubjectTypeFriendlyName} Type";
+            createNoteDataSubjectTypeIdFriendlyName = $"{createNoteDataSubjectTypeFriendlyName} Id";
+            createNoteStatusStripDataSubjectPlaceholder.Text = $"{createNoteParentDataSubjectFriendlyName}: {_dataSubjectName} ({_dataSubjectId})";
+
+            this.Text = $"{applicationTitlePrefix}{createNoteDataSubjectTypeFriendlyName}";
+            createNoteTitleLabel.Text = createNoteDataSubjectTypeFriendlyName;
+            createNoteNoteTitleTextBoxLabel.Text = $"{createNoteDataSubjectTitleFriendlyName}*";
+            createNoteNoteTypeComboBoxLabel.Text = $"{createNoteDataSubjectTypeFriendlyName}*";
             createNoteStatusStrip.BackColor = SystemColors.Control;
         }
 
@@ -129,7 +113,7 @@ namespace CRM.Presentation.Note
                 new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteModuleNoteTypeFriendlyName,
+                    Name = createNoteDataSubjectTypeFriendlyName,
                     Value = note,
                     MaxLength = 4000,
                     ValueType = typeof(string)
@@ -137,7 +121,7 @@ namespace CRM.Presentation.Note
                 new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteNoteTitleFriendlyName,
+                    Name = createNoteDataSubjectTitleFriendlyName,
                     Value = noteTitle,
                     MaxLength = 50,
                     ValueType = typeof(string)
@@ -145,7 +129,7 @@ namespace CRM.Presentation.Note
                 new DataValidationService.DataProperty
                 {
                     AllowNullValue = false,
-                    Name = createNoteNoteTypeIdFriendlyName,
+                    Name = createNoteDataSubjectTypeIdFriendlyName,
                     Value = noteTypeId,
                     ValueType = typeof(Guid)
                 }
@@ -165,22 +149,22 @@ namespace CRM.Presentation.Note
                 {
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureDataSubjectParentParameterPrefix}Id",
+                        ParameterName = createNoteParentDataSubjectStoredProcedureIdName,
                         ParameterValue = _dataSubjectId
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}",
+                        ParameterName = createNoteDataSubjectCamelCaseName,
                         ParameterValue = note
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}Title",
+                        ParameterName = createNoteDataSubjectTitleName,
                         ParameterValue = noteTitle
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{createNoteModuleNoteCreateStoredProcedureParameterPrefix}TypeId",
+                        ParameterName = createNoteDataSubjectTypeIdName,
                         ParameterValue = noteTypeId
                     }
                 };
@@ -189,9 +173,9 @@ namespace CRM.Presentation.Note
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
                     _databaseConnectionSettings,
-                    createNoteModuleNoteCreateStoredProcedureName,
+                    createNoteDataSubjectCreateStoredProcedureName,
                     parameters.ToArray(),
-                    createNoteModuleNoteTypeFriendlyName,
+                    createNoteDataSubjectTypeFriendlyName,
                     operationType
                     );
                 this.Close();

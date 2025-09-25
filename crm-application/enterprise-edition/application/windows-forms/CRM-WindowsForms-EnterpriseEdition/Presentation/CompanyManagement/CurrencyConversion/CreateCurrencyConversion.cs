@@ -42,7 +42,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
             _companyConfigurationId = _companyConfigHelper.CompanyConfigurationId;
 
             var companyConfigurationDataTableHelper = new DataAccessLookupHelper(
-                "spGetAllCompanyConfiguration",
+                FunctionTitle.CompanyConfiguration,
                 _companyConfigurationId);
 
             var companyConfigurationDataTable = await companyConfigurationDataTableHelper.GetFilteredDataTableAsync();
@@ -57,7 +57,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
 
         private async Task LoadCurrencyDataAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionBaseCurrencyComboBox, "spGetAllCurrency", 
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionBaseCurrencyComboBox, FunctionTitle.Currency, 
                 null,
                 true,
                 "Currency Id",
@@ -69,7 +69,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
                 true);
             await _dataAccessComboBoxHelper.LoadDataAsync();
 
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionTargetCurrencyComboBox, "spGetAllCurrency");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCurrencyConversionTargetCurrencyComboBox, FunctionTitle.Currency);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

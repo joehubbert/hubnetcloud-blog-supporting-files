@@ -48,13 +48,13 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
                 }
             };
 
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerContactPanelCustomerContactComboBox, "spGetAllCustomerContactForCustomer", null, false, null, null, false, null, null, parameters);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerContactPanelCustomerContactComboBox, FunctionTitle.CustomerContact, null, false, null, null, false, null, null, parameters);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
         private async void LoadCustomerLeadTypeAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerLeadTypeComboBox, "spGetAllCustomerLeadType");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadCustomerLeadTypeComboBox, FunctionTitle.CustomerLeadType);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -65,7 +65,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
 
         private async void LoadMarketingChannelAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox, "spGetAllMarketingChannel");
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createCustomerLeadMarketingChannelPanelMarketingChannelComboBox, FunctionTitle.MarketingChannel);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 

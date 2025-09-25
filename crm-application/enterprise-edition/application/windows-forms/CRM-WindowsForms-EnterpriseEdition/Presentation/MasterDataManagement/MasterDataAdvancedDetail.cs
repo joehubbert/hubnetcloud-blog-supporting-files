@@ -11,26 +11,28 @@ namespace CRM.Presentation.MasterDataManagement
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private readonly Guid _dataSubjectId;
         private DatabaseConnectionSettings? _databaseConnectionSettings;     
-        private readonly string _functionTitle;
-        private readonly string _moduleGroup;
+        private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private readonly string applicationTitlePrefix = "CRM - ";
         private string dataParentSubjectFriendlyName;
-        private string dataParentSubjectIdFriendlyName;
-        private Guid dataParentSubjectOriginalValue;
-        private string dataParentSubjectGetStoredProcedureName;
-        private bool dataSubjectActiveStatusOriginalValue;
+        private FunctionTitle dataParentSubjectFunctionTitle;
+        private string dataParentSubjectIdFriendlyName; 
+        private Guid dataParentSubjectIdOriginalValue;
+        private string dataParentSubjectSelectAllStoredProcedureName;
+        private string dataParentSubjectStoredProcedureIdParameterName;
+        private bool dataSubjectActiveStatusOriginalValue;        
         private string dataSubjectFriendlyName;
-        private string dataSubjectGetStoredProcedureName;
         private string dataSubjectIdFriendlyName;
-        private string dataSubjectIdName;
         private string dataSubjectName;
         private string dataSubjectOriginalValue;
+        private string dataSubjectSelectStoredProcedureName;
+        private string dataSubjectStoredProcedureIdParameterName;
+        private string dataSubjectStoredProcedureParameterName;
         private string dataSubjectUpdateStoredProcedureName;
-        private string dataSubjectUpdateStoredProcedureParameterPrefix;
-        private string dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix;
         private readonly string titleLabelSuffix = " Detail";
 
-        public MasterDataAdvancedDetail(Guid dataSubjectId, string functionTitle, string moduleGroup)
+        public MasterDataAdvancedDetail(Guid dataSubjectId, FunctionTitle functionTitle, ModuleGroup moduleGroup)
         {
             InitializeComponent();
             InitializeEventHandlers();
@@ -44,7 +46,7 @@ namespace CRM.Presentation.MasterDataManagement
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            SetParameters(_functionTitle);
+            SetParameters();
             MasterDataAdvancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
         }
 
@@ -55,17 +57,15 @@ namespace CRM.Presentation.MasterDataManagement
 
         private async Task LoadDataParentSubjectAsync(Guid companyConfigurationId, Guid dataParentSubjectId)
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(masterDataAdvancedDetailDataParentSubjectComboBox,
-                dataParentSubjectGetStoredProcedureName,
-                companyConfigurationId,
-                true,
-                dataParentSubjectIdFriendlyName,
-                dataParentSubjectId,
-                false,
-                null,
-                null,
-                null,
-                true);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(
+                comboBox: masterDataAdvancedDetailDataParentSubjectComboBox,
+                companyConfigurationId: companyConfigurationId,
+                dataSubjectFilter1: true,
+                dataSubjectFilterColumn1: dataParentSubjectIdFriendlyName,
+                dataSubjectId1: dataParentSubjectId,
+                functionTitle: dataParentSubjectFunctionTitle,
+                treatFiltersAsPreselection: true
+            );
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -86,7 +86,7 @@ namespace CRM.Presentation.MasterDataManagement
             {
                 new StoredProcedureParameter
                 {
-                    ParameterName = $"@{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
+                    ParameterName = dataSubjectStoredProcedureIdParameterName,
                     ParameterValue = _dataSubjectId
                 }
             };
@@ -95,7 +95,7 @@ namespace CRM.Presentation.MasterDataManagement
             {
                 DataTable? masterDataAdvancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     _databaseConnectionSettings,
-                    dataSubjectGetStoredProcedureName,
+                    dataSubjectSelectStoredProcedureName,
                     parameters.ToArray(),
                     dataSubjectName);
 
@@ -114,7 +114,7 @@ namespace CRM.Presentation.MasterDataManagement
                     masterDataAdvancedDetailLastUpdatedTimestampTextBox.Text = masterDataAdvancedDetailDataRow["Modified Timestamp UTC"].ToString();
                     masterDataAdvancedDetailActiveStatusCheckBox.Checked = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
-                    dataParentSubjectOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
+                    dataParentSubjectIdOriginalValue = (Guid)masterDataAdvancedDetailDataRow[dataParentSubjectIdFriendlyName];
                     dataSubjectOriginalValue = masterDataAdvancedDetailDataRow[dataSubjectFriendlyName].ToString();
                     dataSubjectActiveStatusOriginalValue = (bool)masterDataAdvancedDetailDataRow["Active Status"];
 
@@ -136,41 +136,54 @@ namespace CRM.Presentation.MasterDataManagement
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private void SetParameters(string functionTitle)
+        private void SetParameters()
         {
-            switch (functionTitle)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null || dataSubjectProperties.DataParentSubject == null)
             {
-                case "ProductSubCategory":
-                    dataParentSubjectFriendlyName = "Product Category";
-                    dataParentSubjectIdFriendlyName = "Product Category Id";
-                    dataParentSubjectGetStoredProcedureName = "spGetAllProductCategory";
-                    dataSubjectFriendlyName = "Product Sub Category";
-                    dataSubjectGetStoredProcedureName = "spGetProductSubCategory";
-                    dataSubjectIdFriendlyName = "Product Sub Category Id";
-                    dataSubjectIdName = "ProductSubCategoryId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateProductSubCategory";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "productSubCategory";
-                    dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix = "productCategory";
-                    break;
-                case "SalesSubRegion":
-                    dataParentSubjectFriendlyName = "Sales Region";
-                    dataParentSubjectIdFriendlyName = "Sales Region Id";
-                    dataParentSubjectGetStoredProcedureName = "spGetAllSalesRegion";
-                    dataSubjectFriendlyName = "Sales Sub Region";
-                    dataSubjectGetStoredProcedureName = "spGetSalesSubRegion";
-                    dataSubjectIdFriendlyName = "Sales Sub Region Id";
-                    dataSubjectIdName = "SalesSubRegionId";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateSalesSubRegion";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "salesSubRegion";
-                    dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix = "salesRegion";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
 
-            dataSubjectName = functionTitle;
+            dataParentSubjectFriendlyName = dataSubjectProperties.DataParentSubject.DataSubjectFriendlyName;
+            dataParentSubjectFunctionTitle = dataSubjectProperties.DataParentSubject.DataSubject;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectIdFriendlyName))
+            {
+                dataParentSubjectIdFriendlyName = dataSubjectProperties.DataParentSubject.DataSubjectIdFriendlyName;
+            }
+            
+            dataParentSubjectSelectAllStoredProcedureName = dataSubjectProperties.DataParentSubject.DataSubjectSelectAllStoredProcedureName;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                dataParentSubjectStoredProcedureIdParameterName = dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+            
+            dataSubjectStoredProcedureParameterName = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName))
+            {
+                dataSubjectIdFriendlyName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName;
+            }
+            
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectSelectStoredProcedureName))
+            {
+                dataSubjectSelectStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectStoredProcedureName;
+            }
+            
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                dataSubjectStoredProcedureIdParameterName = dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+             
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectUpdateStoredProcedureName))
+            {
+                dataSubjectUpdateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectUpdateStoredProcedureName;
+            }
+
+            dataSubjectName = _functionTitle.ToString();
 
             masterDataAdvancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
             masterDataAdvancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
@@ -248,7 +261,7 @@ namespace CRM.Presentation.MasterDataManagement
                     new ChangeDetail
                     {
                         VariableName = dataParentSubjectFriendlyName,
-                        OriginalValue = dataParentSubjectOriginalValue,
+                        OriginalValue = dataParentSubjectIdOriginalValue,
                         NewValue = dataParentSubjectIdValue
                     },
                     new ChangeDetail
@@ -274,12 +287,12 @@ namespace CRM.Presentation.MasterDataManagement
                         },
                         new StoredProcedureParameter
                         {
-                            ParameterName = $"{dataSubjectUpdateStoredProcedureParentDataSubjectParameterPrefix}Id",
+                            ParameterName = dataParentSubjectStoredProcedureIdParameterName,
                             ParameterValue = dataParentSubjectIdValue
                         },
                         new StoredProcedureParameter
                         {
-                            ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}",
+                            ParameterName = dataSubjectStoredProcedureParameterName,
                             ParameterValue = dataSubjectValue
                         }
                     };

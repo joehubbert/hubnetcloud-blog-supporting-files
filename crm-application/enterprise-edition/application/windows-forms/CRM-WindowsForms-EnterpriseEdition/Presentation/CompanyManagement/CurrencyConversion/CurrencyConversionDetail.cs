@@ -132,7 +132,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
         private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailCompanyConfigurationComboBox,
-                "spGetAllCompanyConfiguration",
+                FunctionTitle.CompanyConfiguration,
                 null,
                 true,
                 "Company Configuration Id",
@@ -151,7 +151,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
             {
                 case "base":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailBaseCurrencyComboBox,
-                        "spGetAllCurrency",
+                        FunctionTitle.Currency,
                         null,
                         true,
                         "Currency Id",
@@ -165,7 +165,7 @@ namespace CRM.Presentation.CompanyManagement.CurrencyConversion
                     break;
                 case "target":
                     _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(currencyConversionDetailTargetCurrencyComboBox,
-                        "spGetAllCurrency",
+                        FunctionTitle.Currency,
                         null,
                         true,
                         "Currency Id",

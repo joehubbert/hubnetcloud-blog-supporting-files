@@ -169,15 +169,10 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
         private async Task CustomerLeadDetailExistingCustomerLeadNote_Load(object sender, EventArgs e)
         {
             await DataAccessDataGridViewHelper.LoadDataGridViewAsync(
-                _customerLeadId,
-                "customerLeadId",
-                "spGetAllNoteForCustomerLead",
-                "Existing Customer Lead Notes",
-                customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView,
-                "Customer Lead Note Id",
-                "View Customer Lead Note",
-                "DESC",
-                "Created Timestamp UTC"
+                dataGridView: customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView,
+                detailsColumnText: "View Customer Lead Note",
+                functionTitle: FunctionTitle.CustomerLeadNote,
+                idValue: _customerLeadId
             );
         }
 
@@ -200,7 +195,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
             if (customerContactId != null)
             {
                 _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox,
-                    "spGetAllCustomerContactForCustomer",
+                    FunctionTitle.CustomerContact,
                     null,
                     true,
                     "Customer Contact Id",
@@ -214,7 +209,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
             else
             {
                 _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerContactPanelCustomerContactComboBox,
-                    "spGetAllCustomerContactForCustomer",
+                    FunctionTitle.CustomerContact,
                     null,
                     false,
                     null,
@@ -232,7 +227,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
         private async Task LoadCustomerLeadTypeAsync(Guid customerLeadTypeId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageCustomerLeadTypeComboBox,
-                "spGetAllCustomerLeadType",
+                FunctionTitle.CustomerLeadType,
                 null,
                 true,
                 "Customer Lead Type Id",
@@ -248,7 +243,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
         private async Task LoadMarketingChannelAsync(Guid marketingChannelId)
         {
             _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerLeadDetailTabControlOverviewTabPageMarketingChannelPanelMarketingChannelComboBox,
-                "spGetAllMarketingChannel",
+                FunctionTitle.MarketingChannel,
                 null,
                 true,
                 "Marketing Channel Id",
@@ -320,17 +315,16 @@ namespace CRM.Presentation.CompanyManagement.CustomerLead
             DataAccessDataGridViewHelper.HandleDetailsCellClick(
             customerLeadDetailTabControlCustomerLeadNoteTabPageDataGridView,
             e,
-            "Customer Lead Note Id",
-            "Customer Lead Note",
+            FunctionTitle.CustomerLeadNote,
             id => {
-                var noteDetail = new NoteDetail(_customerLeadId, "CustomerLead", id, customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
+                var noteDetail = new NoteDetail(_customerLeadId, FunctionTitle.CustomerLeadNote, ModuleGroup.CustomerManagement, id, customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
                 noteDetail.Show();
             });
         }
 
         private void customerLeadDetailTabControlCustomerLeadNoteTabPageCreateNewCustomerLeadNoteButton_Click(object sender, EventArgs e)
         {
-            CreateNote createNote = new CreateNote(_customerLeadId, "CustomerLead", customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
+            CreateNote createNote = new CreateNote(_customerLeadId, FunctionTitle.CustomerLeadNote, ModuleGroup.CustomerManagement, customerLeadDetailTabControlOverviewTabPageCustomerLeadTitleOriginalValue);
             createNote.Show();
         }
 

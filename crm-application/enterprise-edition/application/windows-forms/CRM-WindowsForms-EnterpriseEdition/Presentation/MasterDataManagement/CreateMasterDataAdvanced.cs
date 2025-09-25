@@ -12,20 +12,21 @@ namespace CRM.Presentation.MasterDataManagement
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataAccessComboBoxHelper? _dataAccessComboBoxHelper;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private readonly string _functionTitle;
-        private readonly string _moduleGroup;
+        private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private readonly string applicationTitlePrefix = "CRM - Create ";
         private string dataParentSubjectFriendlyName;
         private string dataParentSubjectIdFriendlyName;
         private string dataParentSubjectGetStoredProcedureName;
+        private string dataSubjectCreateStoredProcedureName;
+        private string dataSubjectCreateStoredProcedureParameter;
+        private string dataSubjectCreateStoredProcedureParentDataSubjectIdParameter;
         private string dataSubjectFriendlyName;
         private string dataSubjectName;
-        private string dataSubjectCreateStoredProcedureName;
-        private string dataSubjectCreateStoredProcedureParameterPrefix;
-        private string dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix;
         private readonly string titleLabelPrefix = "Create ";
 
-        public CreateMasterDataAdvanced(string functionTitle, string moduleGroup)
+        public CreateMasterDataAdvanced(FunctionTitle functionTitle, ModuleGroup moduleGroup)
         {
             InitializeComponent();
             _functionTitle = functionTitle;
@@ -33,7 +34,7 @@ namespace CRM.Presentation.MasterDataManagement
             LoadActiveCompanyConfigurationAsync();
             _moduleGroup = moduleGroup;
             SetModuleTheme();
-            SetParameters(_functionTitle);
+            SetParameters();
         }
 
         private void InitializeEventHandlers()
@@ -50,7 +51,7 @@ namespace CRM.Presentation.MasterDataManagement
 
         private async void LoadDataParentSubjectAsync()
         {
-            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createMasterDataAdvancedDataParentSubjectComboBox, dataParentSubjectGetStoredProcedureName, _companyConfigurationId);
+            _dataAccessComboBoxHelper = new DataAccessComboBoxHelper(createMasterDataAdvancedDataParentSubjectComboBox, _functionTitle, _companyConfigurationId);
             await _dataAccessComboBoxHelper.LoadDataAsync();
         }
 
@@ -64,35 +65,40 @@ namespace CRM.Presentation.MasterDataManagement
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private void SetParameters(string functionTitle)
+        private void SetParameters()
         {
-            switch (functionTitle)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null || dataSubjectProperties.DataParentSubject == null)
             {
-                case "ProductSubCategory":
-                    dataParentSubjectFriendlyName = "Product Category";
-                    dataParentSubjectIdFriendlyName = "Product Category Id";
-                    dataParentSubjectGetStoredProcedureName = "spGetAllProductCategory";
-                    dataSubjectFriendlyName = "Product Sub Category";
-                    dataSubjectCreateStoredProcedureName = "spCreateProductSubCategory";
-                    dataSubjectCreateStoredProcedureParameterPrefix = "productSubCategory";
-                    dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix = "productCategory";
-                    break;
-                case "SalesSubRegion":
-                    dataParentSubjectFriendlyName = "Sales Region";
-                    dataParentSubjectIdFriendlyName = "Sales Region Id";
-                    dataParentSubjectGetStoredProcedureName = "spGetAllSalesRegion";
-                    dataSubjectFriendlyName = "Sales Sub Region";
-                    dataSubjectCreateStoredProcedureName = "spCreateSalesSubRegion";
-                    dataSubjectCreateStoredProcedureParameterPrefix = "salesSubRegion";
-                    dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix = "salesRegion";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
 
-            dataSubjectName = functionTitle;
+            dataParentSubjectFriendlyName = dataSubjectProperties.DataParentSubject.DataSubjectFriendlyName;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectIdFriendlyName))
+            {
+                dataParentSubjectIdFriendlyName = dataSubjectProperties.DataParentSubject.DataSubjectIdFriendlyName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectSelectStoredProcedureName))
+            {
+                dataParentSubjectGetStoredProcedureName = dataSubjectProperties.DataParentSubject.DataSubjectSelectStoredProcedureName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName))
+            {
+                dataSubjectCreateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectCreateStoredProcedureName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                dataSubjectCreateStoredProcedureParentDataSubjectIdParameter = dataSubjectProperties.DataParentSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+
+            dataSubjectCreateStoredProcedureParameter = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            dataSubjectName = _functionTitle.ToString();
 
             createMasterDataAdvancedTitleLabel.Text = $"{titleLabelPrefix}{dataSubjectFriendlyName}";
             createMasterDataAdvancedDataParentSubjectComboBoxLabel.Text = $"{dataParentSubjectFriendlyName}*";
@@ -174,12 +180,12 @@ namespace CRM.Presentation.MasterDataManagement
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{dataSubjectCreateStoredProcedureParentDataSubjectParameterPrefix}Id",
+                        ParameterName = dataSubjectCreateStoredProcedureParentDataSubjectIdParameter,
                         ParameterValue = dataParentSubjectValue
                     },
                     new StoredProcedureParameter
                     {
-                        ParameterName = $"{dataSubjectCreateStoredProcedureParameterPrefix}",
+                        ParameterName = dataSubjectCreateStoredProcedureParameter,
                         ParameterValue = dataSubjectValue
                     }
                 };

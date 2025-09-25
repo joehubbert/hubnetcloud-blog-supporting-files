@@ -95,7 +95,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerTier
 		private async Task LoadCompanyConfigurationAsync(Guid companyConfigurationId)
 		{
 			_dataAccessComboBoxHelper = new DataAccessComboBoxHelper(customerTierDetailCompanyConfigurationComboBox,
-                "spGetAllCompanyConfiguration",
+                FunctionTitle.CompanyConfiguration,
                 null,
                 true,
                 "Company Configuration Id",

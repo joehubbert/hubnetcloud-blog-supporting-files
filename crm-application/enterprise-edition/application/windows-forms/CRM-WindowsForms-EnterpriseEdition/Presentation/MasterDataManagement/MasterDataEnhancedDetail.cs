@@ -10,21 +10,24 @@ namespace CRM.Presentation.MasterDataManagement
     {
         private readonly Guid _dataSubjectId;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
-        private readonly string _functionTitle;
-        private readonly string _moduleGroup;
+        private readonly FunctionTitle _functionTitle;
+        private readonly ModuleGroup _moduleGroup;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
         private readonly string applicationTitlePrefix = "CRM - ";
-        private bool dataSubjectActiveStatusOriginalValue;
+        private bool dataSubjectActiveStatusOriginalValue;  
         private string dataSubjectDescriptionOriginalValue;
-        private string dataSubjectFriendlyName;
-        private string dataSubjectGetStoredProcedureName;
+        private string dataSubjectFriendlyName;    
         private string dataSubjectIdFriendlyName;
         private string dataSubjectName;
         private string dataSubjectOriginalValue;
+        private string dataSubjectSelectStoredProcedure;
+        private string dataSubjectStoredProcedureDescriptionParameter;
+        private string dataSubjectStoredProcedureIdParameter;
+        private string dataSubjectStoredProcedureParameter;
         private string dataSubjectUpdateStoredProcedureName;
-        private string dataSubjectUpdateStoredProcedureParameterPrefix;
         private readonly string titleLabelSuffix = " Detail";
 
-        public MasterDataEnhancedDetail(Guid dataSubjectId, string functionTitle, string moduleGroup)
+        public MasterDataEnhancedDetail(Guid dataSubjectId, FunctionTitle functionTitle, ModuleGroup moduleGroup)
         {
             InitializeComponent();
             InitializeEventHandlers();
@@ -38,7 +41,7 @@ namespace CRM.Presentation.MasterDataManagement
         {
             base.OnLoad(e);
             await LoadDatabaseConnectionSettingsAsync();
-            SetParameters(_functionTitle);
+            SetParameters();
             MasterDataEnhancedDetailMasterDataInformation_Load(this, EventArgs.Empty);
         }
 
@@ -64,7 +67,7 @@ namespace CRM.Presentation.MasterDataManagement
             {
                 new StoredProcedureParameter
                 {
-                    ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
+                    ParameterName = dataSubjectStoredProcedureIdParameter,
                     ParameterValue = _dataSubjectId
                 }
             };
@@ -73,7 +76,7 @@ namespace CRM.Presentation.MasterDataManagement
             {
                 DataTable? masterDataEnhancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                     _databaseConnectionSettings,
-                    dataSubjectGetStoredProcedureName,
+                    dataSubjectSelectStoredProcedure,
                     parameters.ToArray(),
                     dataSubjectName);
 
@@ -111,38 +114,41 @@ namespace CRM.Presentation.MasterDataManagement
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
         }
 
-        private void SetParameters(string functionTitle)
+        private void SetParameters()
         {
-            switch (functionTitle)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
             {
-                case "CustomerLeadType":
-                    dataSubjectFriendlyName = "Customer Lead Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerLeadType";
-                    dataSubjectIdFriendlyName = "Customer Lead Type Id";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerLeadType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerLeadType";
-                    break;
-                case "CustomerType":
-                    dataSubjectFriendlyName = "Customer Type";
-                    dataSubjectGetStoredProcedureName = "spGetCustomerType";
-                    dataSubjectIdFriendlyName = "Customer Type Id";
-                    dataSubjectUpdateStoredProcedureName = "spUpdateCustomerType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "customerType";
-                    break;
-                case "PromotionTargetType":
-                    dataSubjectFriendlyName = "Promotion Target Type";
-                    dataSubjectGetStoredProcedureName = "spGetPromotionTargetType";
-                    dataSubjectIdFriendlyName = "Promotion Target Type Id";
-                    dataSubjectUpdateStoredProcedureName = "spUpdatePromotionTargetType";
-                    dataSubjectUpdateStoredProcedureParameterPrefix = "promotionTargetType";
-                    break;
-                default:
-                    this.Text = functionTitle;
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle);
-                    break;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
 
-            dataSubjectName = functionTitle;
+            dataSubjectFriendlyName = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName))
+            {
+                dataSubjectIdFriendlyName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName;
+            }               
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectSelectStoredProcedureName))
+            {
+                dataSubjectSelectStoredProcedure = dataSubjectProperties.DataSubject.DataSubjectSelectStoredProcedureName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectUpdateStoredProcedureName))
+            {
+                dataSubjectUpdateStoredProcedureName = dataSubjectProperties.DataSubject.DataSubjectUpdateStoredProcedureName;
+            }
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName))
+            {
+                dataSubjectStoredProcedureIdParameter = dataSubjectProperties.DataSubject.DataSubjectStoredProcedureIdParameterName;
+            }
+
+            dataSubjectStoredProcedureParameter = dataSubjectProperties.DataSubject.DataSubjectCamelCaseName;
+            dataSubjectStoredProcedureDescriptionParameter = $"{dataSubjectStoredProcedureParameter}Description";
+
+            dataSubjectName = _functionTitle.ToString();
 
             masterDataEnhancedDetailTitleLabel.Text = $"{dataSubjectFriendlyName}{titleLabelSuffix}";
             masterDataEnhancedDetailDataSubjectIdTextBoxLabel.Text = dataSubjectIdFriendlyName;
@@ -247,17 +253,17 @@ namespace CRM.Presentation.MasterDataManagement
                         },
                         new StoredProcedureParameter
                         {
-                            ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}",
+                            ParameterName = dataSubjectStoredProcedureParameter,
                             ParameterValue = dataSubjectValue
                         },
                         new StoredProcedureParameter
                         {
-                            ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Description",
+                            ParameterName = dataSubjectStoredProcedureDescriptionParameter,
                             ParameterValue = dataSubjectDescriptionValue
                         },
                         new StoredProcedureParameter
                         {
-                            ParameterName = $"{dataSubjectUpdateStoredProcedureParameterPrefix}Id",
+                            ParameterName = dataSubjectStoredProcedureIdParameter,
                             ParameterValue = _dataSubjectId
                         }
                     };

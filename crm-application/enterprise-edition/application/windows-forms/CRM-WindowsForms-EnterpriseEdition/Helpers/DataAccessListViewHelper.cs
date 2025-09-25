@@ -1,4 +1,4 @@
-﻿using CRM.Interface;
+﻿using CRM.Model;
 using CRM.Services;
 using System.Data;
 
@@ -17,12 +17,13 @@ namespace CRM.Helpers
         private DataOperationsService _dataOperationsService = new DataOperationsService();
         private DataTable? _dataTable;
         private List<DataRow>? _filteredRows;
-        private string _storedProcedureName;
+        private FunctionTitle _functionTitle;
         private object[]? _storedProcedureParameter;
+        private UIModelHelper _uiModelHelper = new UIModelHelper();
 
         public DataAccessListViewHelper(
             ListView listView,
-            string storedProcedureName,
+            FunctionTitle functionTitle,
             Guid? companyConfigurationId = null,
             bool? dataSubjectFilter1 = false,
             string? dataSubjectFilterColumn1 = null,
@@ -55,7 +56,7 @@ namespace CRM.Helpers
             {
                 _dataSubjectId2 = dataSubjectId2;
             }
-            _storedProcedureName = storedProcedureName;
+            _functionTitle = functionTitle;
             if (storedProcedureParameter != null && storedProcedureParameter.Length > 0)
             {
                 _storedProcedureParameter = storedProcedureParameter;
@@ -66,20 +67,22 @@ namespace CRM.Helpers
         {
             string dataSubject = string.Empty;
             string idColumnName = string.Empty;
+            string storedProcedureName = string.Empty;
 
-            switch (_storedProcedureName)
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(_functionTitle);
+            if (dataSubjectProperties == null)
             {
-                case "spGetAllSalesSubRegion":
-                    dataSubject = "Sales Sub Region";
-                    idColumnName = "Sales Sub Region Id";
-                    break;
-                case "spGetAllSupplier":
-                    dataSubject = "Supplier";
-                    idColumnName = "Supplier Id";
-                    break;
-                default:
-                    throw new ArgumentException($"Invalid stored procedure name., {_storedProcedureName}");
+                ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", _functionTitle.ToString());
+                return;
             }
+
+            dataSubject = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+
+            if (!string.IsNullOrWhiteSpace(dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName))
+            {
+                idColumnName = dataSubjectProperties.DataSubject.DataSubjectIdFriendlyName;
+            }
+            storedProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectAllStoredProcedureName;
 
             try
             {
@@ -91,7 +94,7 @@ namespace CRM.Helpers
                         operationType: "Select",
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
-                        storedProcedureName: _storedProcedureName
+                        storedProcedureName: storedProcedureName
                     );
 
                     dataTable = _dataOperationsService.SelectResults;
@@ -101,7 +104,7 @@ namespace CRM.Helpers
                     await _dataOperationsService.DataSubmissionServiceOrchestrator(
                         operationType: "SelectNoParameter",
                         dataSubjectName: dataSubject,
-                        storedProcedureName: _storedProcedureName
+                        storedProcedureName: storedProcedureName
                     );
 
                     dataTable = _dataOperationsService.SelectResults;
@@ -112,13 +115,13 @@ namespace CRM.Helpers
                 var dataListQuery = dataTable.AsEnumerable()
                     .Select(row => {
                         string displayText = "";
-                        if (_storedProcedureName == "spGetAllSalesSubRegion")
+                        if (_functionTitle == FunctionTitle.SalesSubRegion)
                         {
                             string subRegion = row.Field<string>("Sales Sub Region");
                             string region = row.Field<string>("Sales Region");
                             displayText = $"{subRegion} ({region})";
                         }
-                        else if (_storedProcedureName == "spGetAllSupplier")
+                        else if (_functionTitle == FunctionTitle.Supplier)
                         {
                             string name = row.Field<string>("Supplier Name");
                             Guid id = row.Field<Guid>("Supplier Id");
@@ -239,12 +242,12 @@ namespace CRM.Helpers
                 _listView.Items.Clear();
                 _listView.FullRowSelect = true;
                 _listView.Columns.Clear();
-                switch (_storedProcedureName)
+                switch (_functionTitle)
                 {
-                    case "spGetAllSalesSubRegion":
+                    case FunctionTitle.SalesSubRegion:
                         _listView.Columns.Add("Name", _listView.ClientSize.Width - 4);
                         break;
-                    case "spGetAllSupplier":
+                    case FunctionTitle.Supplier:
                         _listView.Columns.Add("Name", 400);
                         break;
                 }

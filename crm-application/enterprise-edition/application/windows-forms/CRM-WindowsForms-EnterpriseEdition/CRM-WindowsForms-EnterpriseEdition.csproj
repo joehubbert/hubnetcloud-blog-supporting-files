@@ -16,12 +16,12 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Data.SqlClient" Version="6.1.1" />
-    <PackageReference Include="Microsoft.Identity.Client" Version="4.77.0" />
-    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.77.0" />
+    <PackageReference Include="Microsoft.Identity.Client" Version="4.77.1" />
+    <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.77.1" />
     <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.3485.44" />
     <PackageReference Include="MySql.Data" Version="9.4.0" />
     <PackageReference Include="Npgsql" Version="9.0.3" />
-    <PackageReference Include="PDFsharp" Version="6.2.1" />
+    <PackageReference Include="PDFsharp" Version="6.2.2" />
   </ItemGroup>
 
   <ItemGroup>

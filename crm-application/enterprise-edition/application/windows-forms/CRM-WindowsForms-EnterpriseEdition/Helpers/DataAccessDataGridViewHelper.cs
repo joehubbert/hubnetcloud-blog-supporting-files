@@ -67,9 +67,9 @@ namespace CRM.Helpers
 };
 
             await dataOperationsService.DataSubmissionServiceOrchestrator(
-                operationType: "Select",
                 dataSubjectName: dataSubject,
                 dataToBeProcessed: parameters,
+                operationType: DataOperationType.Select,
                 storedProcedureName: storedProcedureName
             );
 

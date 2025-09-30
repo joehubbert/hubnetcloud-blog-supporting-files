@@ -1,4 +1,5 @@
 ﻿using CRM.Interface;
+using CRM.Model;
 using Microsoft.Data.SqlClient;
 using MySql.Data.MySqlClient;
 using Npgsql;
@@ -23,35 +24,35 @@ namespace CRM.Services
             return new ExecuteStoredProcedureService(dbSettings);
         }
 
-        public async Task<DataTable> ExecuteAsync(string storedProcedureName, params object[] parameters)
+        public async Task<DataTable> ExecuteAsync(string storedProcedureName, params object[] storedProcedureParameters)
         {
             switch (_dbSettings.ActiveDatabaseEngine)
             {
-                case "Azure SQL Database":
-                case "Azure SQL Managed Instance":
-                case "Microsoft SQL Server":
-                    return await ExecuteSqlServerAsync(storedProcedureName, parameters);
-                case "Azure Database for MySQL":
-                case "MySQL":
-                    return await ExecuteMySqlAsync(storedProcedureName, parameters);
-                case "AzureDatabase for PostgreSQL":
-                case "PostgreSQL":
-                    return await ExecutePostgreSqlAsync(storedProcedureName, parameters);
+                case DatabaseEngine.AzureSQLDatabase:
+                case DatabaseEngine.AzureSQLManagedInstance:
+                case DatabaseEngine.MicrosoftSQLServer:
+                    return await ExecuteSqlServerAsync(storedProcedureName, storedProcedureParameters);
+                case DatabaseEngine.AzureDatabaseForMySQL:
+                case DatabaseEngine.MySQL:
+                    return await ExecuteMySqlAsync(storedProcedureName, storedProcedureParameters);
+                case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                case DatabaseEngine.PostgreSQL:
+                    return await ExecutePostgreSqlAsync(storedProcedureName, storedProcedureParameters);
                 default:
                     throw new NotSupportedException($"Database type '{_dbSettings.ActiveDatabaseEngine}' is not supported.");
             }
         }
 
-        private async Task<DataTable> ExecuteSqlServerAsync(string storedProcedureName, object[] parameters)
+        private async Task<DataTable> ExecuteSqlServerAsync(string storedProcedureName, object[] storedProcedureParameters)
         {
             using var connection = new SqlConnection(_dbSettings.DatabaseConnectionString);
             using var command = new SqlCommand(storedProcedureName, connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            if (parameters != null)
+            if (storedProcedureParameters != null)
             {
-                foreach (SqlParameter param in parameters)
+                foreach (SqlParameter param in storedProcedureParameters)
                     command.Parameters.Add(param);
             }
             await connection.OpenAsync();
@@ -61,16 +62,16 @@ namespace CRM.Services
             return dataTable;
         }
 
-        private async Task<DataTable> ExecuteMySqlAsync(string storedProcedureName, object[] parameters)
+        private async Task<DataTable> ExecuteMySqlAsync(string storedProcedureName, object[] storedProcedureParameters)
         {
             using var connection = new MySqlConnection(_dbSettings.DatabaseConnectionString);
             using var command = new MySqlCommand(storedProcedureName, connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            if (parameters != null)
+            if (storedProcedureParameters != null)
             {
-                foreach (MySqlParameter param in parameters)
+                foreach (MySqlParameter param in storedProcedureParameters)
                     command.Parameters.Add(param);
             }
             await connection.OpenAsync();
@@ -80,16 +81,16 @@ namespace CRM.Services
             return dataTable;
         }
 
-        private async Task<DataTable> ExecutePostgreSqlAsync(string storedProcedureName, object[] parameters)
+        private async Task<DataTable> ExecutePostgreSqlAsync(string storedProcedureName, object[] storedProcedureParameters)
         {
             using var connection = new NpgsqlConnection(_dbSettings.DatabaseConnectionString);
             using var command = new NpgsqlCommand(storedProcedureName, connection)
             {
                 CommandType = CommandType.StoredProcedure
             };
-            if (parameters != null)
+            if (storedProcedureParameters != null)
             {
-                foreach (NpgsqlParameter param in parameters)
+                foreach (NpgsqlParameter param in storedProcedureParameters)
                     command.Parameters.Add(param);
             }
             await connection.OpenAsync();

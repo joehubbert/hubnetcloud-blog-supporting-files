@@ -14,38 +14,38 @@ namespace CRM.Presentation.General
         private TranslationService _translationService = new TranslationService();
         private static readonly string configFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CRM-WindowsForms.EnterpriseEdition");
         private static readonly string configFilePath = Path.Combine(configFolderPath, "applicationConfiguration.json");
-        private readonly Dictionary<int, string> databaseEngineOptions = new Dictionary<int, string>
+        private readonly Dictionary<int, (DatabaseEngine Engine, string DisplayName)> databaseEngineOptions = new Dictionary<int, (DatabaseEngine, string)>
         {
-            { 0, "Azure Database for MySQL" },
-            { 1, "Azure Database for PostgreSQL" },
-            { 2, "Azure SQL Database" },
-            { 3, "Azure SQL Managed Instance" },
-            { 4, "Microsoft SQL Server" },
-            { 5, "MySQL" },
-            { 6, "PostgreSQL" }
+            { 0, (DatabaseEngine.AzureDatabaseForMySQL, "Azure Database for MySQL") },
+            { 1, (DatabaseEngine.AzureDatabaseForPostgreSQL, "Azure Database for PostgreSQL") },
+            { 2, (DatabaseEngine.AzureSQLDatabase, "Azure SQL Database") },
+            { 3, (DatabaseEngine.AzureSQLManagedInstance, "Azure SQL Managed Instance") },
+            { 4, (DatabaseEngine.MicrosoftSQLServer, "Microsoft SQL Server") },
+            { 5, (DatabaseEngine.MySQL, "MySQL") },
+            { 6, (DatabaseEngine.PostgreSQL, "PostgreSQL") }
         };
-        private readonly Dictionary<int, string> delimeterOptions = new Dictionary<int, string>
+        private readonly Dictionary<int, (Delimeter Delimeter, string DisplayName)> delimeterOptions = new Dictionary<int, (Delimeter, string)>
         {
-            { 0, "." },
-            { 1, "," }
+            { 0, (Delimeter.Comma, ",") },
+            { 1, (Delimeter.Period, ".") },
         };
-        private readonly Dictionary<int, string> mysqlSSLMode = new Dictionary<int, string>
+        private readonly Dictionary<int, MySQLSSLMode> mysqlSSLMode = new Dictionary<int, MySQLSSLMode>
         {
-            { 0, "Disabled" },
-            { 1, "Required" },
-            { 2, "Preferred" },
-            { 3, "VerifyCA" },
-            { 4, "VerifyFull" }
+            { 0, MySQLSSLMode.Disabled },
+            { 1, MySQLSSLMode.Preferred },
+            { 2, MySQLSSLMode.Required },
+            { 3, MySQLSSLMode.VerifyCA },
+            { 4, MySQLSSLMode.VerifyFull }
         };
         private int? mySQLSSLModeCode;
-        private readonly Dictionary<int, string> postgresqlSSLMode = new Dictionary<int, string>
+        private readonly Dictionary<int, PostgreSQLSSLMode> postgresqlSSLMode = new Dictionary<int, PostgreSQLSSLMode>
         {
-            { 0, "Disable" },
-            { 1, "VerifyCA" },
-            { 2, "Require" },
-            { 3, "VerifyFull" },
-            { 4, "Allow" },
-            { 5, "Prefer" }
+            { 0, PostgreSQLSSLMode.Allow },
+            { 1, PostgreSQLSSLMode.Disable },
+            { 2, PostgreSQLSSLMode.Prefer },
+            { 3, PostgreSQLSSLMode.Require },
+            { 4, PostgreSQLSSLMode.VerifyCA },
+            { 5, PostgreSQLSSLMode.VerifyFull }
         };
         private int? postgreSQLSSLModeCode;
         private readonly Dictionary<int, (string DisplayName, LanguageRegionCode LanguageRegionCode)> regionLanguageOptions = new Dictionary<int, (string, LanguageRegionCode)>
@@ -68,7 +68,7 @@ namespace CRM.Presentation.General
             { 16, ("日本語", LanguageRegionCode.jaJP) }
         };
 
-        private string? userProfileActiveDatabaseEngine;
+        private DatabaseEngine? userProfileActiveDatabaseEngine;
         private string? userProfileActiveDelimeter;
         private LanguageRegionCode? userProfileActiveLanguageRegionCode;
         private UnitType? userProfileActiveUnitType;
@@ -124,89 +124,89 @@ namespace CRM.Presentation.General
 
                     // Always load and populate all configurations
                     var mssqlConfig = await ApplicationConfigurationService.GetMSSQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Text = mssqlConfig.serverName;
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Text = mssqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageServerNameTextBox.Text = mssqlConfig.serverName ?? string.Empty;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageDatabaseNameTextBox.Text = mssqlConfig.databaseName ?? string.Empty;
                     switch (mssqlConfig.authenticationType)
                     {
-                        case "SQL":
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Text = mssqlConfig.password;
-                            break;
-                        case "Kerberos":
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = false;
+                        case MSSQLAuthenticationType.EntraId:
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username ?? string.Empty;
                             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
                             break;
-                        case "EntraId":
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username;
+                        case MSSQLAuthenticationType.SQLServer:
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Text = mssqlConfig.username ?? string.Empty;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Text = mssqlConfig.password ?? string.Empty;
+                            break;
+                        case MSSQLAuthenticationType.Windows:
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked = true;
+                            appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageUsernameTextBox.Enabled = false;
                             appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPagePasswordTextBox.Enabled = false;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
                     }
-                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text = mssqlConfig.certficateHostName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageCertificateHostnameTextBox.Text = mssqlConfig.certficateHostName ?? string.Empty;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Checked = mssqlConfig.encryptionEnabled;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Checked = mssqlConfig.trustServerCertificate;
                     appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text = mssqlConfig.connectionTimeout.ToString();
 
                     var mysqlConfig = await ApplicationConfigurationService.GetMySQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Text = mysqlConfig.serverName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Text = mysqlConfig.serverName ?? string.Empty;
                     appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePortNumberTextBox.Text = mysqlConfig.portNumber.ToString();
-                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Text = mysqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageDatabaseNameTextBox.Text = mysqlConfig.databaseName ?? string.Empty;
                     switch (mysqlConfig.authenticationType)
                     {
-                        case "native":
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Text = mysqlConfig.password;
-                            break;
-                        case "EntraId":
+                        case MySQLAuthenticationType.EntraId:
                             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username ?? string.Empty;
                             appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Enabled = false;
+                            break;
+                        case MySQLAuthenticationType.Native:
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text = mysqlConfig.username ?? string.Empty;
+                            appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Text = mysqlConfig.password ?? string.Empty;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported MySQL authentication type in configuration file.");
                     }
-                    mySQLSSLModeCode = mysqlSSLMode.FirstOrDefault(kvp => string.Equals(kvp.Value.ToString(), mysqlConfig.sslMode, StringComparison.OrdinalIgnoreCase)).Key;
+                    mySQLSSLModeCode = mysqlSSLMode.FirstOrDefault(kvp => string.Equals(kvp.Value.ToString(), mysqlConfig.sslMode.ToString(), StringComparison.OrdinalIgnoreCase)).Key;
 
                     var postgresqlConfig = await ApplicationConfigurationService.GetPostgreSQLConfigurationAsync();
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Text = postgresqlConfig.serverName;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Text = postgresqlConfig.serverName ?? string.Empty;
                     appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePortNumberTextBox.Text = postgresqlConfig.portNumber.ToString();
-                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Text = postgresqlConfig.databaseName;
+                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageDatabaseNameTextBox.Text = postgresqlConfig.databaseName ?? string.Empty;
                     switch (postgresqlConfig.authenticationType)
                     {
-                        case "native":
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Text = postgresqlConfig.password;
-                            break;
-                        case "EntraId":
+                        case PostgreSQLAuthenticationType.EntraId:
                             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked = true;
-                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username ?? string.Empty;
                             appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Enabled = false;
+                            break;
+                        case PostgreSQLAuthenticationType.Native:
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked = true;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text = postgresqlConfig.username ?? string.Empty;
+                            appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Text = postgresqlConfig.password ?? string.Empty;
                             break;
                         default:
                             throw new InvalidOperationException("Unsupported PostgreSQL authentication type in configuration file.");
                     }
-                    postgreSQLSSLModeCode = postgresqlSSLMode.FirstOrDefault(kvp => string.Equals(kvp.Value.ToString(), postgresqlConfig.sslMode, StringComparison.OrdinalIgnoreCase)).Key;
+                    postgreSQLSSLModeCode = postgresqlSSLMode.FirstOrDefault(kvp => string.Equals(kvp.Value.ToString(), postgresqlConfig.sslMode.ToString(), StringComparison.OrdinalIgnoreCase)).Key;
 
                     // Set the tab focus based on the active engine
                     switch (userProfileActiveDatabaseEngine)
                     {
-                        case "Microsoft SQL Server":
-                        case "Azure SQL Database":
-                        case "Azure SQL Managed Instance":
+                        case DatabaseEngine.AzureSQLDatabase:
+                        case DatabaseEngine.AzureSQLManagedInstance:
+                        case DatabaseEngine.MicrosoftSQLServer:
                             appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage;
                             break;
-                        case "MySQL":
-                        case "Azure Database for MySQL":
+                        case DatabaseEngine.AzureDatabaseForMySQL:
+                        case DatabaseEngine.MySQL:
                             appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage;
                             break;
-                        case "PostgreSQL":
-                        case "Azure Database for PostgreSQL":
+                        case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                        case DatabaseEngine.PostgreSQL:
                             appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage;
                             break;
                         default:
@@ -269,15 +269,15 @@ namespace CRM.Presentation.General
             var selectedEngine = appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text;
 
             // Set authentication and credentials based on mssqlConfig
-            if (mssqlConfig.authenticationType == "Kerberos")
+            if (mssqlConfig.authenticationType == MSSQLAuthenticationType.Windows)
             {
                 builder.IntegratedSecurity = true; // Use Windows Authentication
             }
-            else if (mssqlConfig.authenticationType == "SQL")
+            else if (mssqlConfig.authenticationType == MSSQLAuthenticationType.SQLServer)
             {
                 builder.IntegratedSecurity = false; // Use SQL Authentication
             }
-            else if (mssqlConfig.authenticationType == "EntraId")
+            else if (mssqlConfig.authenticationType == MSSQLAuthenticationType.EntraId)
             {
                 builder.IntegratedSecurity = false; // Use Entra ID Authentication
                 builder.Authentication = SqlAuthenticationMethod.ActiveDirectoryInteractive;
@@ -286,11 +286,11 @@ namespace CRM.Presentation.General
             {
                 throw new InvalidOperationException("Unsupported MSSQL authentication type in configuration file.");
             }
-            if (mssqlConfig.authenticationType == "SQL" || mssqlConfig.authenticationType == "EntraId")
+            if (mssqlConfig.authenticationType == MSSQLAuthenticationType.SQLServer || mssqlConfig.authenticationType == MSSQLAuthenticationType.EntraId)
             {
                 if (!string.IsNullOrWhiteSpace(mssqlConfig.username))
                     builder.UserID = mssqlConfig.username;
-                if (mssqlConfig.authenticationType == "SQL" && !string.IsNullOrWhiteSpace(mssqlConfig.password))
+                if (mssqlConfig.authenticationType == MSSQLAuthenticationType.SQLServer && !string.IsNullOrWhiteSpace(mssqlConfig.password))
                     builder.Password = mssqlConfig.password;
             }
 
@@ -325,7 +325,7 @@ namespace CRM.Presentation.General
                 Database = mySQLConfig.databaseName,
                 UserID = mySQLConfig.username,
                 Password = mySQLConfig.password,
-                SslMode = (MySqlSslMode)Enum.Parse(typeof(MySqlSslMode), mySQLConfig.sslMode, true),
+                SslMode = (MySqlSslMode)Enum.Parse(typeof(MySqlSslMode), mySQLConfig.sslMode.ToString(), true),
                 ConnectionTimeout = (uint)mySQLConfig.connectionTimeout
             };
             if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for MySQL")
@@ -357,7 +357,7 @@ namespace CRM.Presentation.General
                 Database = postgreSQLConfig.databaseName,
                 Username = postgreSQLConfig.username,
                 Password = postgreSQLConfig.password,
-                SslMode = (SslMode)Enum.Parse(typeof(SslMode), postgreSQLConfig.sslMode, true),
+                SslMode = (SslMode)Enum.Parse(typeof(SslMode), postgreSQLConfig.sslMode.ToString(), true),
                 Timeout = postgreSQLConfig.connectionTimeout
             };
             if (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text == "Azure Database for PostgreSQL")
@@ -527,31 +527,31 @@ namespace CRM.Presentation.General
             switch (appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.Text)
             {
                 case "Azure Database for MySQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for MySQL");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.AzureDatabaseForMySQL);
                     await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
                     break;
                 case "Azure Database for PostgreSQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure Database for PostgreSQL");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.AzureDatabaseForPostgreSQL);
                     await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
                     break;
                 case "Azure SQL Database":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Database");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.AzureSQLDatabase);
                     await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
                     break;
                 case "Azure SQL Managed Instance":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Azure SQL Managed Instance");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.AzureSQLManagedInstance);
                     await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
                     break;
                 case "Microsoft SQL Server":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("Microsoft SQL Server");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.MicrosoftSQLServer);
                     await ApplicationConfigurationService.SetMSSQLConfigurationAsync(CreateMSSQLConfiguration());
                     break;
                 case "MySQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("MySQL");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.MySQL);
                     await ApplicationConfigurationService.SetMySQLConfigurationAsync(CreateMySQLConfiguration());
                     break;
                 case "PostgreSQL":
-                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync("PostgreSQL");
+                    await ApplicationConfigurationService.SetActiveDatabaseEngineAsync(DatabaseEngine.PostgreSQL);
                     await ApplicationConfigurationService.SetPostgreSQLConfigurationAsync(CreatePostgreSQLConfiguration());
                     break;
                 default:
@@ -583,37 +583,45 @@ namespace CRM.Presentation.General
         private void appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBoxPopulateData()
         {
             var ordered = databaseEngineOptions.OrderBy(kvp => kvp.Key).ToList();
-            var comboBoxItems = ordered.Select(kvp => kvp.Value).ToList();
+            var comboBoxItems = ordered.Select(kvp => kvp.Value.DisplayName).ToList();
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.DataSource = comboBoxItems;
             int selectedIndex = 4; // Default to MSSQL, which has key 4 in the dictionary
             if (userProfileActiveDatabaseEngine != null)
             {
-                var idx = ordered.FindIndex(kvp => kvp.Value.Equals(userProfileActiveDatabaseEngine, StringComparison.OrdinalIgnoreCase));
-                if (idx >= 0)
-                    selectedIndex = idx;
+                var matchingEngine = ordered.FirstOrDefault(kvp => kvp.Value.Engine == userProfileActiveDatabaseEngine);
+                if (matchingEngine.Key != 0 || matchingEngine.Value.Engine == userProfileActiveDatabaseEngine)
+                {
+                    selectedIndex = ordered.FindIndex(kvp => kvp.Key == matchingEngine.Key);
+                }
             }
             appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedIndex = selectedIndex;
         }
 
         private void appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var selectedValue = appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedItem?.ToString();
-            if (selectedValue == null) return;
-            userProfileActiveDatabaseEngine = selectedValue;
+            var selectedText = appConfigurationTabControlDatabaseTabPageDatabaseEngineChoiceComboBox.SelectedItem?.ToString();
+            if (string.IsNullOrEmpty(selectedText)) return;
+
+            // Find the corresponding database engine
+            var selectedEngine = databaseEngineOptions.Values.FirstOrDefault(v => v.DisplayName == selectedText);
+            if (selectedEngine.Engine == default) return;
+
+            userProfileActiveDatabaseEngine = selectedEngine.Engine;
+
             // Show the appropriate tab based on the selected database engine
-            switch (selectedValue)
+            switch (selectedEngine.Engine)
             {
-                case "Azure SQL Database":
-                case "Azure SQL Managed Instance":
-                case "Microsoft SQL Server":
+                case DatabaseEngine.AzureSQLDatabase:
+                case DatabaseEngine.AzureSQLManagedInstance:
+                case DatabaseEngine.MicrosoftSQLServer:
                     appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPage;
                     break;
-                case "Azure Database for MySQL":
-                case "MySQL":
+                case DatabaseEngine.AzureDatabaseForMySQL:
+                case DatabaseEngine.MySQL:
                     appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPage;
                     break;
-                case "Azure Database for PostgreSQL":
-                case "PostgreSQL":
+                case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                case DatabaseEngine.PostgreSQL:
                     appConfigurationTabControlDatabaseTabPageTabControl.SelectedTab = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPage;
                     break;
                 default:
@@ -661,7 +669,7 @@ namespace CRM.Presentation.General
         private void appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBoxPopulateData()
         {
             var ordered = delimeterOptions.OrderBy(kvp => kvp.Key).ToList();
-            var comboBoxItems = ordered.Select(kvp => kvp.Value).ToList();
+            var comboBoxItems = ordered.Select(kvp => kvp.Value.DisplayName).ToList();
             appConfigurationTabControlPersonalPreferencesTabPageDelimeterComboBox.DataSource = comboBoxItems;
             var delimiterValue = userProfileActiveDelimeter?.Trim();
 
@@ -757,14 +765,26 @@ namespace CRM.Presentation.General
                 encryptionEnabled = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageEncryptConnectionCheckBox.Checked,
                 trustServerCertificate = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageTrustServerCertificateCheckBox.Checked,
                 connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
-                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "SQL" :
-                                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked ? "Kerberos" :
-                                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
+                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? MSSQLAuthenticationType.SQLServer :
+                                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelKerberosRadioButton.Checked ? MSSQLAuthenticationType.Windows :
+                                    appConfigurationTabControlDatabaseTabPageTabControlMSSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? MSSQLAuthenticationType.EntraId :
+                                    throw new InvalidOperationException("No authentication type selected for MSSQL.")
             };
         }
 
         private ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration CreateMySQLConfiguration()
         {
+            // Get the selected SSL mode from the combo box and convert it to the enum
+            var selectedSslMode = MySQLSSLMode.Preferred; // Default
+            if (appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.SelectedItem != null)
+            {
+                var selectedItem = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.SelectedItem;
+                if (selectedItem is MySQLSSLMode sslModeEnum)
+                {
+                    selectedSslMode = sslModeEnum;
+                }
+            }
+
             return new ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration
             {
                 serverName = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageServerNameTextBox.Text,
@@ -773,14 +793,26 @@ namespace CRM.Presentation.General
                 username = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageUsernameTextBox.Text,
                 password = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPagePasswordTextBox.Text,
                 connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
-                sslMode = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageSSLModeComboBox.SelectedItem?.ToString() ?? "If Available",
-                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "native" :
-                                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
+                sslMode = selectedSslMode,
+                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? MySQLAuthenticationType.Native :
+                                    appConfigurationTabControlDatabaseTabPageTabControlMySQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? MySQLAuthenticationType.EntraId :
+                                    throw new InvalidOperationException("No authentication type selected for MySQL.")
             };
         }
 
         private ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration CreatePostgreSQLConfiguration()
         {
+            // Get the selected SSL mode from the combo box and convert it to the enum
+            var selectedSslMode = PostgreSQLSSLMode.Prefer; // Default
+            if (appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedItem != null)
+            {
+                var selectedItem = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedItem;
+                if (selectedItem is PostgreSQLSSLMode sslModeEnum)
+                {
+                    selectedSslMode = sslModeEnum;
+                }
+            }
+
             return new ApplicationConfigurationModel.ApplicationConfigurationServicePostgreSQLConfiguration
             {
                 serverName = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageServerNameTextBox.Text,
@@ -789,9 +821,10 @@ namespace CRM.Presentation.General
                 username = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageUsernameTextBox.Text,
                 password = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPagePasswordTextBox.Text,
                 connectionTimeout = int.TryParse(appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageConnectionTimeoutTextBox.Text, out var timeout) ? timeout : 30,
-                sslMode = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageSSLModeComboBox.SelectedItem?.ToString() ?? "prefer",
-                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? "native" :
-                                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? "EntraId" : ""
+                sslMode = selectedSslMode,
+                authenticationType = appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelNativeRadioButton.Checked ? PostgreSQLAuthenticationType.Native :
+                                    appConfigurationTabControlDatabaseTabPageTabControlPostgreSQLTabPageAuthenticationTypePanelEntraIdRadioButton.Checked ? PostgreSQLAuthenticationType.EntraId :
+                                    throw new InvalidOperationException("No authentication type selected for PostgreSQL.")
             };
         }
     }

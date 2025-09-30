@@ -1,9 +1,36 @@
 ﻿namespace CRM.Model
 {
+    public enum DataOperationType
+    {
+        Create,
+        Delete,
+        MeasurementConversion,
+        Select,
+        SelectNoParameter,
+        Update
+    }
+
     public enum DataSortingOrder
     {
         ASC,
         DESC
+    }
+
+    public enum DatabaseEngine
+    {
+        AzureDatabaseForMySQL,
+        AzureDatabaseForPostgreSQL,
+        AzureSQLDatabase,
+        AzureSQLManagedInstance,
+        MicrosoftSQLServer,
+        MySQL,
+        PostgreSQL
+    }
+
+    public enum  Delimeter
+    {
+        Comma,
+        Period
     }
 
     public enum FunctionTitle
@@ -103,6 +130,28 @@
         Weight
     }
 
+    public enum MSSQLAuthenticationType
+    {
+        EntraId,
+        SQLServer,
+        Windows
+    }
+
+    public enum  MySQLAuthenticationType
+    {
+        EntraId,
+        Native
+    }
+
+    public enum MySQLSSLMode
+    {
+        Disabled,
+        Required,
+        Preferred,
+        VerifyCA,
+        VerifyFull
+    }
+
     public enum LanguageRegionCode
     {
         czCZ,
@@ -131,6 +180,22 @@
         OrderManagement,
         ProductManagement,
         SupplierManagement
+    }
+
+    public enum PostgreSQLAuthenticationType
+    {
+        EntraId,
+        Native
+    }
+
+    public enum PostgreSQLSSLMode
+    {
+        Allow,
+        Disable,
+        Prefer,
+        Require,
+        VerifyCA,
+        VerifyFull
     }
 
     public enum UnitType

@@ -15,7 +15,7 @@ namespace CRM.Services
         private DatabaseConnectionSettings? _databaseConnectionSettings;
         private UnitType? _measurementInputUnitType;
         private UnitType? _measurementOutputUnitType;
-        private string _operationType;
+        private DataOperationType _operationType;
         private bool? _outputStoredProcedureParameterCapture;
         private Dictionary<string, object>? _outputStoredProcedureParameters;
         private string? _outboundStoredProcedureParameterName;
@@ -28,7 +28,7 @@ namespace CRM.Services
 
         public async Task DataSubmissionServiceOrchestrator
             (
-            string operationType,
+            DataOperationType operationType,
             object[]? dataToBeProcessed = null,
             Guid? dataSubjectId = null,
             string? dataSubjectName = null,
@@ -49,7 +49,11 @@ namespace CRM.Services
             _outboundStoredProcedureParameterName = outboundStoredProcedureParameterName;
             _storedProcedureName = storedProcedureName;
 
-            if (_operationType == "Create" || _operationType == "MeasurementConversion" || _operationType == "Select" || _operationType == "Update")
+            if (_operationType == DataOperationType.Create || 
+                _operationType == DataOperationType.MeasurementConversion || 
+                _operationType == DataOperationType.Select || 
+                _operationType == DataOperationType.Update
+                )
             {
                 if (_dataToBeProcessed == null || _dataToBeProcessed.Length == 0)
                 {
@@ -58,7 +62,12 @@ namespace CRM.Services
                 }
             }
 
-            if (_operationType == "Create" || _operationType == "Delete" || _operationType == "Select" || _operationType == "SelectNoParameter" || _operationType == "Update")
+            if (_operationType == DataOperationType.Create || 
+                _operationType == DataOperationType.Delete || 
+                _operationType == DataOperationType.Select || 
+                _operationType == DataOperationType.SelectNoParameter || 
+                _operationType == DataOperationType.Update
+                )
             {
                 if (_dataSubjectName == null || string.IsNullOrWhiteSpace(_dataSubjectName))
                 {
@@ -79,7 +88,10 @@ namespace CRM.Services
                 }
             }
 
-            if (_operationType == "Create" || _operationType == "Delete" || _operationType == "Update")
+            if (_operationType == DataOperationType.Create || 
+                _operationType == DataOperationType.Delete || 
+                _operationType == DataOperationType.Update
+                )
             {
                 if (_outputStoredProcedureParameterCapture == true)
                 {
@@ -91,7 +103,9 @@ namespace CRM.Services
                 }
             }
 
-            if (_operationType == "Delete" || _operationType == "Update")
+            if (_operationType == DataOperationType.Delete || 
+                _operationType == DataOperationType.Update
+                )
             {
                 if (_dataSubjectId == null)
                 {
@@ -102,7 +116,7 @@ namespace CRM.Services
 
             switch (_operationType)
             {
-                case "Create":
+                case DataOperationType.Create:
                     DataValidation();
                     if (!_dataValidationPassed)
                     {
@@ -113,7 +127,7 @@ namespace CRM.Services
                         _outputStoredProcedureParameters = await CreateDeleteUpdateOperation();
                     }
                     break;
-                case "Delete":
+                case DataOperationType.Delete:
                     var result = MessageBox.Show(
                     $"Deleting {_dataSubjectName} is an irreversible operation. Are you sure that you want to continue? Clicking Cancel will cancel the deletion.",
                     "Warning",
@@ -129,14 +143,14 @@ namespace CRM.Services
                         return;
                     }
                     break;
-                case "MeasurementConversion":
+                case DataOperationType.MeasurementConversion:
                     _unitConversionResults = UnitConversion();
                     break;
-                case "Select":
-                case "SelectNoParameter":
+                case DataOperationType.Select:
+                case DataOperationType.SelectNoParameter:
                     _selectResults = await SelectOperation();
                     break;
-                case "Update":
+                case DataOperationType.Update:
                     DataValidation();
                     if (!_dataValidationPassed)
                     {
@@ -225,26 +239,26 @@ namespace CRM.Services
                 if (_outputStoredProcedureParameterCapture == true)
                 {
                     var outputParameters = await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureWithOutputParametersAsync(
-                        _databaseConnectionSettings,
-                        _storedProcedureName,
-                        storedProcedureParameterList.ToArray(),
-                        _dataSubjectName,
-                        _operationType,
-                        _outputStoredProcedureParameterCapture.Value,
-                        _outboundStoredProcedureParameterName);
-
+                        dataSubject: _dataSubjectName,
+                        databaseConnectionSettings: _databaseConnectionSettings,
+                        operationType: _operationType,
+                        storedProcedureName: _storedProcedureName,
+                        storedProcedureParameters: storedProcedureParameterList.ToArray(),
+                        outboundStoredProcedureParameterName: _outboundStoredProcedureParameterName,
+                        outputStoredProcedureParameterCapture: _outputStoredProcedureParameterCapture.Value
+                        );
                     return outputParameters;
                 }
                 else
                 {
                     // Use the standard method when output parameter capture is not requested
                     var success = await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                        _databaseConnectionSettings,
-                        _storedProcedureName,
-                        storedProcedureParameterList.ToArray(),
-                        _dataSubjectName,
-                        _operationType);
-
+                        dataSubject: _dataSubjectName,
+                        databaseConnectionSettings: _databaseConnectionSettings,
+                        operationType: _operationType,
+                        storedProcedureName: _storedProcedureName,
+                        storedProcedureParameters: storedProcedureParameterList.ToArray()
+                        );
                     return success ? new Dictionary<string, object>() : null;
                 }
             }
@@ -309,7 +323,7 @@ namespace CRM.Services
             {
                 switch (_operationType)
                 {
-                    case "Select":
+                    case DataOperationType.Select:
                         var storedProcedureParameterList = new List<StoredProcedureParameter>();
 
                         foreach (var item in _dataToBeProcessed)
@@ -328,10 +342,19 @@ namespace CRM.Services
                             }
                         }
 
-                        dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, _storedProcedureName, storedProcedureParameterList.ToArray(), _dataSubjectName);
+                        dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                            dataSubject: _dataSubjectName,
+                            databaseConnectionSettings: _databaseConnectionSettings,
+                            storedProcedureName: _storedProcedureName,
+                            storedProcedureParameters: storedProcedureParameterList.ToArray()
+                            );
                         break;
-                    case "SelectNoParameter":
-                        dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_databaseConnectionSettings, _storedProcedureName, _dataSubjectName);
+                    case DataOperationType.SelectNoParameter:
+                        dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(
+                            dataSubject: _dataSubjectName,
+                            databaseConnectionSettings: _databaseConnectionSettings,
+                            storedProcedureName: _storedProcedureName
+                            );
                         break;
                 }
 

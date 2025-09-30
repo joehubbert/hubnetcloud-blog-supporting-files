@@ -18,7 +18,7 @@
 
         public class ApplicationConfigurationServiceDatabaseConfiguration
         {
-            public string activeDatabaseEngine { get; set; } = string.Empty;
+            public DatabaseEngine activeDatabaseEngine { get; set; }
             public ApplicationConfigurationServiceMSSQLConfiguration mssqlConfiguration { get; set; } = new();
             public ApplicationConfigurationServiceMySQLConfiguration mysqlConfiguration { get; set; } = new();
             public ApplicationConfigurationServicePostgreSQLConfiguration postgresConfiguration { get; set; } = new();
@@ -34,7 +34,7 @@
             public bool encryptionEnabled { get; set; }
             public bool trustServerCertificate { get; set; }
             public int connectionTimeout { get; set; }
-            public string authenticationType { get; set; } = string.Empty;
+            public MSSQLAuthenticationType authenticationType { get; set; }
         }
 
         public class ApplicationConfigurationServiceMySQLConfiguration
@@ -45,8 +45,8 @@
             public string username { get; set; } = string.Empty;
             public string password { get; set; } = string.Empty;
             public int connectionTimeout { get; set; }
-            public string sslMode { get; set; } = string.Empty;
-            public string authenticationType { get; set; } = string.Empty;
+            public MySQLSSLMode sslMode { get; set; }
+            public MySQLAuthenticationType authenticationType { get; set; }
         }
 
         public class ApplicationConfigurationServicePostgreSQLConfiguration
@@ -57,8 +57,8 @@
             public string username { get; set; } = string.Empty;
             public string password { get; set; } = string.Empty;
             public int connectionTimeout { get; set; }
-            public string sslMode { get; set; } = string.Empty;
-            public string authenticationType { get; set; } = string.Empty;
+            public PostgreSQLSSLMode sslMode { get; set; }
+            public PostgreSQLAuthenticationType authenticationType { get; set; }
         }
 
         public class ApplicationConfigurationServicePersonalPreferenceConfiguration

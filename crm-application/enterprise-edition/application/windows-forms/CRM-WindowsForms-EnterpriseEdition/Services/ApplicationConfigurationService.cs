@@ -80,7 +80,7 @@ namespace CRM.Services
             }
         }
 
-        public static string ActiveDatabaseEngine
+        public static DatabaseEngine ActiveDatabaseEngine
         {
             get
             {
@@ -157,7 +157,7 @@ namespace CRM.Services
             return _configuration!.companyConfiguration;
         }
 
-        public static async Task<string> GetActiveDatabaseEngineAsync()
+        public static async Task<DatabaseEngine> GetActiveDatabaseEngineAsync()
         {
             if (_configuration == null)
                 await LoadAsync();
@@ -213,7 +213,7 @@ namespace CRM.Services
             return _configuration!.databaseConfiguration.postgresConfiguration;
         }
 
-        public static async Task SetActiveDatabaseEngineAsync(string activeDatabaseEngine)
+        public static async Task SetActiveDatabaseEngineAsync(DatabaseEngine activeDatabaseEngine)
         {
             ActiveDatabaseEngine = activeDatabaseEngine;
             await SaveAsync();

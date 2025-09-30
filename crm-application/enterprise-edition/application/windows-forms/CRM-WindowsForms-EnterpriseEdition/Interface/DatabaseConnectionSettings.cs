@@ -8,7 +8,7 @@ namespace CRM.Interface
 {
     public class DatabaseConnectionSettings
     {
-        public string? ActiveDatabaseEngine { get; private set; }
+        public DatabaseEngine? ActiveDatabaseEngine { get; private set; }
 
         public ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration? MSSQLConfig { get; private set; }
         public ApplicationConfigurationModel.ApplicationConfigurationServiceMySQLConfiguration? MySQLConfig { get; private set; }
@@ -22,17 +22,17 @@ namespace CRM.Interface
 
             switch (settings.ActiveDatabaseEngine)
             {
-                case "Microsoft SQL Server":
-                case "Azure SQL Database":
-                case "Azure SQL Managed Instance":
+                case DatabaseEngine.AzureSQLDatabase:
+                case DatabaseEngine.AzureSQLManagedInstance:
+                case DatabaseEngine.MicrosoftSQLServer:
                     settings.MSSQLConfig = await ApplicationConfigurationService.GetMSSQLConfigurationAsync();
                     break;
-                case "MySQL":
-                case "Azure Database for MySQL":
+                case DatabaseEngine.AzureDatabaseForMySQL:
+                case DatabaseEngine.MySQL:
                     settings.MySQLConfig = await ApplicationConfigurationService.GetMySQLConfigurationAsync();
                     break;
-                case "PostgreSQL":
-                case "Azure Database for PostgreSQL":
+                case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                case DatabaseEngine.PostgreSQL:
                     settings.PostgreSQLConfig = await ApplicationConfigurationService.GetPostgreSQLConfigurationAsync();
                     break;
             }
@@ -46,38 +46,38 @@ namespace CRM.Interface
             {
                 switch (ActiveDatabaseEngine)
                 {
-                    case "Microsoft SQL Server":
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
                         if (MSSQLConfig == null)
                             throw new InvalidOperationException("MSSQL configuration not loaded.");
                         var mssqlBuilder = new SqlConnectionStringBuilder
                         {
                             DataSource = MSSQLConfig.serverName,
                             InitialCatalog = MSSQLConfig.databaseName,
-                            IntegratedSecurity = MSSQLConfig.authenticationType == "Kerberos",
+                            IntegratedSecurity = MSSQLConfig.authenticationType == MSSQLAuthenticationType.Windows,
                             Encrypt = MSSQLConfig.encryptionEnabled,
                             TrustServerCertificate = MSSQLConfig.trustServerCertificate,
                             ApplicationName = "CRM - Enterprise Edition",
                             ConnectTimeout = MSSQLConfig.connectionTimeout
                         };
 
-                        if (MSSQLConfig.authenticationType == "SQL" || MSSQLConfig.authenticationType == "EntraId")
+                        if (MSSQLConfig.authenticationType == MSSQLAuthenticationType.SQLServer || MSSQLConfig.authenticationType == MSSQLAuthenticationType.EntraId)
                         {
                             if (!string.IsNullOrWhiteSpace(MSSQLConfig.username))
                                 mssqlBuilder.UserID = MSSQLConfig.username;
-                            if (MSSQLConfig.authenticationType == "SQL" && !string.IsNullOrWhiteSpace(MSSQLConfig.password))
+                            if (MSSQLConfig.authenticationType == MSSQLAuthenticationType.SQLServer && !string.IsNullOrWhiteSpace(MSSQLConfig.password))
                                 mssqlBuilder.Password = MSSQLConfig.password;
                         }
 
-                        if (ActiveDatabaseEngine == "Azure SQL Database" || ActiveDatabaseEngine == "Azure SQL Managed Instance")
+                        if (ActiveDatabaseEngine == DatabaseEngine.AzureSQLDatabase || ActiveDatabaseEngine == DatabaseEngine.AzureSQLManagedInstance)
                         {
-                            if (MSSQLConfig.authenticationType == "EntraId")
+                            if (MSSQLConfig.authenticationType == MSSQLAuthenticationType.EntraId)
                                 mssqlBuilder.Authentication = SqlAuthenticationMethod.ActiveDirectoryInteractive;
                         }
                         return mssqlBuilder.ConnectionString;
-                    case "MySQL":
-                    case "Azure Database for MySQL":
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.MySQL:
                         if (MySQLConfig == null)
                             throw new InvalidOperationException("MySQL configuration not loaded.");
                         var mysqlBuilder = new MySqlConnectionStringBuilder
@@ -87,16 +87,16 @@ namespace CRM.Interface
                             Database = MySQLConfig.databaseName,
                             UserID = MySQLConfig.username,
                             Password = MySQLConfig.password,
-                            SslMode = Enum.TryParse(MySQLConfig.sslMode, out MySqlSslMode sslMode) ? sslMode : MySqlSslMode.Preferred,
+                            SslMode = Enum.TryParse(MySQLConfig.sslMode.ToString(), out MySqlSslMode sslMode) ? sslMode : MySqlSslMode.Preferred,
                             ConnectionTimeout = (uint)MySQLConfig.connectionTimeout
                         };
-                        if (ActiveDatabaseEngine == "Azure Database for MySQL")
+                        if (ActiveDatabaseEngine == DatabaseEngine.AzureDatabaseForMySQL)
                         {
                             mysqlBuilder.SslMode = MySqlSslMode.Required;
                         }
                         return mysqlBuilder.ConnectionString;
-                    case "PostgreSQL":
-                    case "Azure Database for PostgreSQL":
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.PostgreSQL:
                         if (PostgreSQLConfig == null)
                             throw new InvalidOperationException("PostgreSQL configuration not loaded.");
                         var npgsqlBuilder = new NpgsqlConnectionStringBuilder
@@ -106,10 +106,10 @@ namespace CRM.Interface
                             Database = PostgreSQLConfig.databaseName,
                             Username = PostgreSQLConfig.username,
                             Password = PostgreSQLConfig.password,
-                            SslMode = Enum.TryParse(PostgreSQLConfig.sslMode, out SslMode pgSslMode) ? pgSslMode : SslMode.Prefer,
+                            SslMode = Enum.TryParse(PostgreSQLConfig.sslMode.ToString(), out SslMode pgSslMode) ? pgSslMode : SslMode.Prefer,
                             Timeout = PostgreSQLConfig.connectionTimeout
                         };
-                        if (ActiveDatabaseEngine == "Azure Database for PostgreSQL")
+                        if (ActiveDatabaseEngine == DatabaseEngine.AzureDatabaseForPostgreSQL)
                         {
                             npgsqlBuilder.SslMode = SslMode.Require;
                         }

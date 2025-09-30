@@ -100,9 +100,9 @@ namespace CRM.Helpers
                 if (_storedProcedureParameter != null)
                 {
                     await _dataOperationsService.DataSubmissionServiceOrchestrator(
-                        operationType: "Select",
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
+                        operationType: DataOperationType.Select,
                         storedProcedureName: storedProcedureName
                     );
 
@@ -111,8 +111,8 @@ namespace CRM.Helpers
                 else
                 {
                     await _dataOperationsService.DataSubmissionServiceOrchestrator(
-                        operationType: "SelectNoParameter",
                         dataSubjectName: dataSubject,
+                        operationType: DataOperationType.SelectNoParameter, 
                         storedProcedureName: storedProcedureName
                     );
 

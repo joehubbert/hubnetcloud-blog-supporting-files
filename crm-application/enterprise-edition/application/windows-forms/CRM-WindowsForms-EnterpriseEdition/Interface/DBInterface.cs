@@ -9,27 +9,30 @@ namespace CRM.Interface
 {
     internal class DBInterface
     {
-        private static object[] BuildDbParameters(DatabaseConnectionSettings dbSettings, StoredProcedureParameter[] parameters)
+        private static object[] BuildDbParameters(
+            DatabaseConnectionSettings dbSettings, 
+            StoredProcedureParameter[] parameters
+            )
         {
             switch (dbSettings.ActiveDatabaseEngine)
             {
-                case "Azure SQL Database":
-                case "Azure SQL Managed Instance":
-                case "Microsoft SQL Server":
+                case DatabaseEngine.AzureSQLDatabase:
+                case DatabaseEngine.AzureSQLManagedInstance:
+                case DatabaseEngine.MicrosoftSQLServer:
                     return parameters.Select(p => {
                         var sqlParam = new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value);
                         sqlParam.Direction = p.ParameterDirection;
                         return sqlParam;
                     }).ToArray();
-                case "Azure Database for MySQL":
-                case "MySQL":
+                case DatabaseEngine.AzureDatabaseForMySQL:
+                case DatabaseEngine.MySQL:
                     return parameters.Select(p => {
                         var mySqlParam = new MySqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value);
                         mySqlParam.Direction = p.ParameterDirection;
                         return mySqlParam;
                     }).ToArray();
-                case "Azure Database for PostgreSQL":
-                case "PostgreSQL":
+                case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                case DatabaseEngine.PostgreSQL:
                     return parameters.Select(p => {
                         var npgsqlParam = new NpgsqlParameter(p.ParameterName, p.ParameterValue ?? DBNull.Value);
                         npgsqlParam.Direction = p.ParameterDirection;
@@ -40,24 +43,30 @@ namespace CRM.Interface
             }
         }
 
-        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(DatabaseConnectionSettings databaseConnectionSettings, string storedProcedureName, StoredProcedureParameter[] parameters, string dataSubject, string operationType)
+        public static async Task<bool> ExecuteCreateUpdateDeleteStoredProcedureAsync(
+            string dataSubject,
+            DatabaseConnectionSettings databaseConnectionSettings,
+            DataOperationType operationType,
+            string storedProcedureName, 
+            StoredProcedureParameter[] storedProcedureParameters
+            )
         {
             try
             {
                 var executor = await ExecuteStoredProcedureService.CreateAsync();
-                var dbParameters = BuildDbParameters(databaseConnectionSettings, parameters);
+                var dbParameters = BuildDbParameters(databaseConnectionSettings, storedProcedureParameters);
 
                 switch (databaseConnectionSettings.ActiveDatabaseEngine)
                 {
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
-                    case "Microsoft SQL Server":
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
                         storedProcedureName = $"{storedProcedureName}";
                         break;
-                    case "Azure Database for MySQL":
-                    case "MySQL":
-                    case "Azure Database for PostgreSQL":
-                    case "PostgreSQL":
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.MySQL:
+                    case DatabaseEngine.PostgreSQL:
                         // No change to storedProcedureName for these engines
                         break;
                     default:
@@ -66,13 +75,13 @@ namespace CRM.Interface
 
                 await executor.ExecuteAsync(storedProcedureName, dbParameters);
 
-                if (operationType != "Select")
+                if (operationType != DataOperationType.Select)
                 {
                     string successMessage = operationType switch
                     {
-                        "Update" => $"{dataSubject} details updated successfully.",
-                        "Delete" => $"{dataSubject} deleted successfully.",
-                        "Create" => $"New {dataSubject} created successfully.",
+                        DataOperationType.Create => $"New {dataSubject} created successfully.",
+                        DataOperationType.Delete => $"{dataSubject} deleted successfully.",
+                        DataOperationType.Update => $"{dataSubject} details updated successfully.",
                         _ => $"{dataSubject} operation completed successfully."
                     };
 
@@ -84,10 +93,10 @@ namespace CRM.Interface
             {
                 string errorMessage = operationType switch
                 {
-                    "Update" => $"Failed to update {dataSubject} details: {ex.Message}",
-                    "Delete" => $"Failed to delete {dataSubject}: {ex.Message}",
-                    "Create" => $"Failed to create new {dataSubject}: {ex.Message}",
-                    "Select" => $"No data found for the specified {dataSubject}: {ex.Message}",
+                    DataOperationType.Create => $"Failed to create new {dataSubject}: {ex.Message}",
+                    DataOperationType.Delete => $"Failed to delete {dataSubject}: {ex.Message}",
+                    DataOperationType.Select => $"No data found for the specified {dataSubject}: {ex.Message}",
+                    DataOperationType.Update => $"Failed to update {dataSubject} details: {ex.Message}",         
                     _ => $"Failed to complete {dataSubject} operation: {ex.Message}"
                 };
 
@@ -97,47 +106,74 @@ namespace CRM.Interface
         }
 
         public static async Task<Dictionary<string, object>?> ExecuteCreateUpdateDeleteStoredProcedureWithOutputParametersAsync(
-            DatabaseConnectionSettings databaseConnectionSettings,
-            string storedProcedureName,
-            StoredProcedureParameter[] parameters,
             string dataSubject,
-            string operationType,
-            bool outputStoredProcedureParameterCapture = false,
-            string? outboundStoredProcedureParameterName = null
+            DatabaseConnectionSettings databaseConnectionSettings,
+            DataOperationType operationType, 
+            string storedProcedureName,
+            StoredProcedureParameter[] storedProcedureParameters,
+            string? outboundStoredProcedureParameterName = null,
+            bool outputStoredProcedureParameterCapture = false
             )
         {
             try
             {
                 var executor = await ExecuteStoredProcedureService.CreateAsync();
-                var dbParameters = BuildDbParameters(databaseConnectionSettings, parameters);
+                var dbParameters = BuildDbParameters(databaseConnectionSettings, storedProcedureParameters);
                 var outputParameterValues = new Dictionary<string, object>();
 
                 switch (databaseConnectionSettings.ActiveDatabaseEngine)
                 {
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
-                    case "Microsoft SQL Server":
-                        await ExecuteSqlServerWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, databaseConnectionSettings);
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
+                        await ExecuteSqlServerWithOutputAsync(
+                            dataSubject: dataSubject,
+                            databaseConnectionSettings: databaseConnectionSettings,
+                            dbParameters: dbParameters,
+                            operationType: operationType,
+                            outputParameterValues: outputParameterValues,
+                            outboundStoredProcedureParameterName: outboundStoredProcedureParameterName,
+                            outputStoredProcedureParameterCapture : outputStoredProcedureParameterCapture,
+                            storedProcedureName: storedProcedureName
+                            );
                         break;
-                    case "Azure Database for MySQL":
-                    case "MySQL":
-                        await ExecuteMySqlWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, databaseConnectionSettings);
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.MySQL:
+                        await ExecuteMySqlWithOutputAsync(
+                            dataSubject: dataSubject,
+                            databaseConnectionSettings: databaseConnectionSettings,
+                            dbParameters: dbParameters,
+                            operationType: operationType,
+                            outputParameterValues: outputParameterValues,
+                            outboundStoredProcedureParameterName: outboundStoredProcedureParameterName,
+                            outputStoredProcedureParameterCapture: outputStoredProcedureParameterCapture,
+                            storedProcedureName: storedProcedureName
+                            );
                         break;
-                    case "Azure Database for PostgreSQL":
-                    case "PostgreSQL":
-                        await ExecutePostgreSqlWithOutputAsync(storedProcedureName, dbParameters, dataSubject, operationType, outputParameterValues, outputStoredProcedureParameterCapture, outboundStoredProcedureParameterName, databaseConnectionSettings);
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.PostgreSQL:
+                        await ExecutePostgreSqlWithOutputAsync(
+                            dataSubject: dataSubject,
+                            databaseConnectionSettings: databaseConnectionSettings,
+                            dbParameters: dbParameters,
+                            operationType: operationType,
+                            outputParameterValues: outputParameterValues,
+                            outboundStoredProcedureParameterName: outboundStoredProcedureParameterName,
+                            outputStoredProcedureParameterCapture: outputStoredProcedureParameterCapture,
+                            storedProcedureName: storedProcedureName
+                            );
                         break;
                     default:
                         throw new NotSupportedException($"Database type '{databaseConnectionSettings.ActiveDatabaseEngine}' is not supported.");
                 }
 
-                if (operationType != "Select")
+                if (operationType != DataOperationType.Select)
                 {
                     string successMessage = operationType switch
                     {
-                        "Update" => $"{dataSubject} details updated successfully.",
-                        "Delete" => $"{dataSubject} deleted successfully.",
-                        "Create" => $"New {dataSubject} created successfully.",
+                        DataOperationType.Create => $"New {dataSubject} created successfully.",
+                        DataOperationType.Delete => $"{dataSubject} deleted successfully.",
+                        DataOperationType.Update => $"{dataSubject} details updated successfully.",
                         _ => $"{dataSubject} operation completed successfully."
                     };
 
@@ -150,9 +186,9 @@ namespace CRM.Interface
             {
                 string errorMessage = operationType switch
                 {
-                    "Update" => $"Failed to update {dataSubject} details: {ex.Message}",
-                    "Delete" => $"Failed to delete {dataSubject}: {ex.Message}",
-                    "Create" => $"Failed to create new {dataSubject}: {ex.Message}",
+                    DataOperationType.Create => $"Failed to create new {dataSubject}: {ex.Message}",
+                    DataOperationType.Delete => $"Failed to delete {dataSubject}: {ex.Message}",
+                    DataOperationType.Update => $"Failed to update {dataSubject} details: {ex.Message}",  
                     _ => $"Failed to complete {dataSubject} operation: {ex.Message}"
                 };
 
@@ -161,24 +197,29 @@ namespace CRM.Interface
             }
         }
 
-        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(DatabaseConnectionSettings databaseConnectionSettings, string storedProcedureName, StoredProcedureParameter[] parameters, string dataSubject)
+        public static async Task<DataTable> ExecuteSelectStoredProcedureAsync(
+            string dataSubject,
+            DatabaseConnectionSettings databaseConnectionSettings, 
+            string storedProcedureName, 
+            StoredProcedureParameter[] storedProcedureParameters
+            )
         {
             try
             {
                 var executor = await ExecuteStoredProcedureService.CreateAsync();
-                var dbParameters = BuildDbParameters(databaseConnectionSettings, parameters);
+                var dbParameters = BuildDbParameters(databaseConnectionSettings, storedProcedureParameters);
                 
                 switch (databaseConnectionSettings.ActiveDatabaseEngine)
                 {
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
-                    case "Microsoft SQL Server":
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
                         storedProcedureName = $"{storedProcedureName}";
                         break;
-                    case "Azure Database for MySQL":
-                    case "MySQL":
-                    case "Azure Database for PostgreSQL":
-                    case "PostgreSQL":
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.MySQL:
+                    case DatabaseEngine.PostgreSQL:
                         // No change to storedProcedureName for these engines
                         break;
                     default:
@@ -197,7 +238,11 @@ namespace CRM.Interface
             }
         }
 
-        public static async Task<DataTable> ExecuteSelectStoredProcedureNoParameterAsync(DatabaseConnectionSettings databaseConnectionSettings, string storedProcedureName, string dataSubject)
+        public static async Task<DataTable> ExecuteSelectStoredProcedureNoParameterAsync(
+            string dataSubject,
+            DatabaseConnectionSettings databaseConnectionSettings, 
+            string storedProcedureName
+            )
         {
             try
             {
@@ -205,15 +250,15 @@ namespace CRM.Interface
 
                 switch (databaseConnectionSettings.ActiveDatabaseEngine)
                 {
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
-                    case "Microsoft SQL Server":
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
                         storedProcedureName = $"{storedProcedureName}";
                         break;
-                    case "Azure Database for MySQL":
-                    case "MySQL":
-                    case "Azure Database for PostgreSQL":
-                    case "PostgreSQL":
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.MySQL:
+                    case DatabaseEngine.PostgreSQL:
                         // No change to storedProcedureName for these engines
                         break;
                     default:
@@ -233,14 +278,14 @@ namespace CRM.Interface
         }
 
         private static async Task ExecuteSqlServerWithOutputAsync(
-            string storedProcedureName,
-            object[] dbParameters,
             string dataSubject,
-            string operationType,
+            DatabaseConnectionSettings databaseConnectionSettings,
+            object[] dbParameters,
+            DataOperationType operationType,
             Dictionary<string, object> outputParameterValues,
-            bool outputStoredProcedureParameterCapture,
             string? outboundStoredProcedureParameterName,
-            DatabaseConnectionSettings databaseConnectionSettings
+            bool outputStoredProcedureParameterCapture,   
+            string storedProcedureName
             )
         {
             using var connection = new SqlConnection(databaseConnectionSettings.DatabaseConnectionString);
@@ -282,14 +327,14 @@ namespace CRM.Interface
         }
 
         private static async Task ExecuteMySqlWithOutputAsync(
-            string storedProcedureName,
-            object[] dbParameters,
             string dataSubject,
-            string operationType,
+            DatabaseConnectionSettings databaseConnectionSettings,
+            object[] dbParameters,
+            DataOperationType operationType,
             Dictionary<string, object> outputParameterValues,
-            bool outputStoredProcedureParameterCapture,
             string? outboundStoredProcedureParameterName,
-            DatabaseConnectionSettings databaseConnectionSettings
+            bool outputStoredProcedureParameterCapture,
+            string storedProcedureName
             )
         {
             using var connection = new MySqlConnection(databaseConnectionSettings.DatabaseConnectionString);
@@ -331,14 +376,14 @@ namespace CRM.Interface
         }
 
         private static async Task ExecutePostgreSqlWithOutputAsync(
-            string storedProcedureName,
-            object[] dbParameters,
             string dataSubject,
-            string operationType,
+            DatabaseConnectionSettings databaseConnectionSettings,
+            object[] dbParameters,
+            DataOperationType operationType,
             Dictionary<string, object> outputParameterValues,
             bool outputStoredProcedureParameterCapture,
             string? outboundStoredProcedureParameterName,
-            DatabaseConnectionSettings databaseConnectionSettings
+            string storedProcedureName
             )
         {
             using var connection = new NpgsqlConnection(databaseConnectionSettings.DatabaseConnectionString);
@@ -381,15 +426,15 @@ namespace CRM.Interface
 
         public static async Task<bool> TestConnectionAsync(DatabaseConnectionSettings databaseConnectionSettings, string connectionString)
         {
-            string? engine = databaseConnectionSettings.ActiveDatabaseEngine;
+            DatabaseEngine? databaseEngine = databaseConnectionSettings.ActiveDatabaseEngine;
 
             try
             {
-                switch (engine)
+                switch (databaseEngine)
                 {
-                    case "Azure SQL Database":
-                    case "Azure SQL Managed Instance":
-                    case "Microsoft SQL Server":
+                    case DatabaseEngine.AzureSQLDatabase:
+                    case DatabaseEngine.AzureSQLManagedInstance:
+                    case DatabaseEngine.MicrosoftSQLServer:
                         var sqlBuilder = new SqlConnectionStringBuilder(connectionString)
                         {
                             ConnectTimeout = 1
@@ -399,8 +444,8 @@ namespace CRM.Interface
                             await conn.OpenAsync();
                             return conn.State == ConnectionState.Open;
                         }
-                    case "Azure Database for MySQL":
-                    case "MySQL":
+                    case DatabaseEngine.AzureDatabaseForMySQL:
+                    case DatabaseEngine.MySQL:
                         var mysqlBuilder = new MySqlConnectionStringBuilder(connectionString)
                         {
                             ConnectionTimeout = 1
@@ -410,8 +455,8 @@ namespace CRM.Interface
                             await conn.OpenAsync();
                             return conn.State == ConnectionState.Open;
                         }
-                    case "Azure Database for PostgreSQL":
-                    case "PostgreSQL":
+                    case DatabaseEngine.AzureDatabaseForPostgreSQL:
+                    case DatabaseEngine.PostgreSQL:
                         var npgsqlBuilder = new NpgsqlConnectionStringBuilder(connectionString)
                         {
                             Timeout = 1
@@ -422,7 +467,7 @@ namespace CRM.Interface
                             return conn.State == ConnectionState.Open;
                         }
                     default:
-                        throw new NotSupportedException($"Database type '{engine}' is not supported.");
+                        throw new NotSupportedException($"Database type '{databaseEngine}' is not supported.");
                 }
             }
             catch (Exception ex)

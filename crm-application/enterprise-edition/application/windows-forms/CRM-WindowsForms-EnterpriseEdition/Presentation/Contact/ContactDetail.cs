@@ -68,10 +68,10 @@ namespace CRM.Presentation.Contact
 			try
 			{
 				DataTable? contactDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    contactDetailModuleContactTypeFriendlyName,
                     _databaseConnectionSettings,
 					contactDetailContactGetStoredProcedureName,
-					parameters.ToArray(),
-					contactDetailModuleContactTypeFriendlyName
+					parameters.ToArray()
 					);
 
 				if (contactDataTable != null)
@@ -324,14 +324,14 @@ namespace CRM.Presentation.Contact
                         }
                     };
 
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                        _databaseConnectionSettings,
-                        contactDetailContactUpdateStoredProcedureName,
-                        parameters.ToArray(),
                         contactDetailModuleContactTypeFriendlyName,
-                        operationType
+                        _databaseConnectionSettings,
+                        operationType,
+                        contactDetailContactUpdateStoredProcedureName,
+                        parameters.ToArray()
                         );
                     this.Close();
                 }

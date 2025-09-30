@@ -59,10 +59,10 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 string storedProcedureName = "spGetHTMLTemplate";
 
                 DataTable? htmlTemplateDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    dataSubject,
                     _databaseConnectionSettings,
                     storedProcedureName,
-                    parameters.ToArray(),
-                    dataSubject
+                    parameters.ToArray()
                     );
 
                 if (htmlTemplateDataTable != null)
@@ -251,15 +251,15 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                         }
                     };
 
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
                     string storedProcedureName = "spUpdateHTMLTemplate";
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                        _databaseConnectionSettings,
-                        storedProcedureName,
-                        parameters.ToArray(),
                         dataSubject,
-                        operationType
+                        _databaseConnectionSettings,
+                        operationType,
+                        storedProcedureName,
+                        parameters.ToArray()
                         );
                     this.Close();
                 }

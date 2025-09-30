@@ -64,7 +64,7 @@ namespace CRM.Presentation.MasterDataManagement
 
             try
             {
-                DataTable? taxProfileDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+                DataTable? taxProfileDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
                 if (taxProfileDataTable != null)
                 {
@@ -210,9 +210,9 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
                     string storedProcedureName = "spUpdateTaxProfile";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName, parameters);
                     this.Close();
                 }
                 else

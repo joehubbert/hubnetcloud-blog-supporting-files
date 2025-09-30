@@ -99,11 +99,11 @@ namespace CRM.Presentation.General
                         }
                     };
 
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubjectFriendlyName);
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubjectFriendlyName, _databaseConnectionSettings, storedProcedureName, parameters.ToArray());
                 }
                 else
                 {
-                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(_databaseConnectionSettings, storedProcedureName, dataSubjectFriendlyName);
+                    dataTable = await DBInterface.ExecuteSelectStoredProcedureNoParameterAsync(dataSubjectFriendlyName, _databaseConnectionSettings, storedProcedureName);
                 }
 
                 if (dataTable.Rows.Count == 0)

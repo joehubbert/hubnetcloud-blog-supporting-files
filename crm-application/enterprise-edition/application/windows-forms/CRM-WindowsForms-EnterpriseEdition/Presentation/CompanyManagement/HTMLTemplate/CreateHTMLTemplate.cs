@@ -126,15 +126,15 @@ namespace CRM.Presentation.CompanyManagement.HTMLTemplate
                 };
 
                 string dataSubject = "HTML Template";
-                string operationType = "Create";
+                DataOperationType operationType = DataOperationType.Create;
                 string storedProcedureName = "spCreateHTMLTemplate";
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                    _databaseConnectionSettings,
-                    storedProcedureName,
-                    parameters.ToArray(),
                     dataSubject,
-                    operationType
+                    _databaseConnectionSettings,
+                    operationType,
+                    storedProcedureName,
+                    parameters.ToArray()
                     );
                 this.Close();
             }

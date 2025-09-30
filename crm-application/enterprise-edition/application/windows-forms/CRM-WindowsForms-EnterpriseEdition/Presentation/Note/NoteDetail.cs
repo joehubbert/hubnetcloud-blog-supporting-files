@@ -105,10 +105,10 @@ namespace CRM.Presentation.Note
             try
             {
                 DataTable? noteDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    noteDetailDataSubjectFriendlyName,
                     _databaseConnectionSettings,
                     noteDetailDataSubjectSelectStoredProcedureName,
-                    parameters.ToArray(),
-                    noteDetailDataSubjectFriendlyName
+                    parameters.ToArray()
                     );
 
                 if (noteDataTable != null)
@@ -292,14 +292,14 @@ namespace CRM.Presentation.Note
                         }
                     };
 
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
                     await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                        _databaseConnectionSettings,
-                        noteDetailDataSubjectUpdateStoredProcedureName,
-                        parameters.ToArray(),
                         noteDetailDataSubjectFriendlyName,
-                        operationType
+                        _databaseConnectionSettings,
+                        operationType,
+                        noteDetailDataSubjectUpdateStoredProcedureName,
+                        parameters.ToArray()
                         );
                     this.Close();
                 }

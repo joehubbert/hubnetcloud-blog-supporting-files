@@ -139,7 +139,7 @@ namespace CRM.Presentation.CompanyManagement.Customer
             };
             try
             {
-                DataTable? customerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+                DataTable? customerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
                 if (customerDataTable != null)
                 {
@@ -1795,9 +1795,9 @@ namespace CRM.Presentation.CompanyManagement.Customer
                     }
 
                     string storedProcedureName = "spUpdateCustomer";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName, parameters.ToArray());
                     this.Close();
                 }
                 else

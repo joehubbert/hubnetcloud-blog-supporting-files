@@ -86,7 +86,7 @@ namespace CRM.Presentation.Manufacturer
             };
             try
             {
-                DataTable? manufacturerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+                DataTable? manufacturerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
                 if (manufacturerDataTable != null)
                 {
@@ -450,9 +450,9 @@ namespace CRM.Presentation.Manufacturer
                     }
 
                     string storedProcedureName = "spUpdateManufacturer";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName, parameters.ToArray()  );
                     this.Close();
                 }
                 else

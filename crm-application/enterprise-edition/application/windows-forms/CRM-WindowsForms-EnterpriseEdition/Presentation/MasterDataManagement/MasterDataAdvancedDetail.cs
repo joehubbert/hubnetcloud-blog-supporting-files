@@ -94,10 +94,11 @@ namespace CRM.Presentation.MasterDataManagement
             try
             {
                 DataTable? masterDataAdvancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    dataSubjectName,
                     _databaseConnectionSettings,
                     dataSubjectSelectStoredProcedureName,
-                    parameters.ToArray(),
-                    dataSubjectName);
+                    parameters.ToArray()
+                    );
 
                 if (masterDataAdvancedDetailDataTable != null)
                 {
@@ -297,9 +298,9 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
 
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectUpdateStoredProcedureName, parameters, dataSubjectName, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectName, _databaseConnectionSettings, operationType, dataSubjectUpdateStoredProcedureName, parameters);
                     this.Close();
                 }
                 else

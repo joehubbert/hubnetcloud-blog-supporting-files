@@ -58,7 +58,7 @@ namespace CRM.Presentation.CompanyManagement.CustomerTier
 
 			try
 			{
-				DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+				DataTable? customerTierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
 				if (customerTierDataTable != null)
 				{
@@ -242,9 +242,9 @@ namespace CRM.Presentation.CompanyManagement.CustomerTier
                         }
                     };
                     string storedProcedureName = "spUpdateCustomerTier";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName,  parameters);
                     this.Close();
                 }
                 else

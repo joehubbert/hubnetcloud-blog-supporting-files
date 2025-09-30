@@ -169,14 +169,14 @@ namespace CRM.Presentation.Note
                     }
                 };
 
-                string operationType = "Create";
+                DataOperationType operationType = DataOperationType.Create;
 
                 await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(
-                    _databaseConnectionSettings,
-                    createNoteDataSubjectCreateStoredProcedureName,
-                    parameters.ToArray(),
                     createNoteDataSubjectTypeFriendlyName,
-                    operationType
+                    _databaseConnectionSettings,
+                    operationType,
+                    createNoteDataSubjectCreateStoredProcedureName,
+                    parameters.ToArray()
                     );
                 this.Close();
             }

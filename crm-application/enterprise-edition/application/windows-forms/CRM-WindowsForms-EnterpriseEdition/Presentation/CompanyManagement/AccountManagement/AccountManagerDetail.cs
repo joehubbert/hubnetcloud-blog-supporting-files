@@ -76,7 +76,7 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
 
             try
             {
-                DataTable? accountManagerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+                DataTable? accountManagerDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
                 if (accountManagerDataTable != null)
                 {
@@ -324,9 +324,9 @@ namespace CRM.Presentation.CompanyManagement.AccountManagement
                     };
 
                     string storedProcedureName = "spUpdateAccountManager";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName,  parameters);
                     this.Close();
                 }
                 else

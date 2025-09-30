@@ -75,10 +75,11 @@ namespace CRM.Presentation.MasterDataManagement
             try
             {
                 DataTable? masterDataEnhancedDetailDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
+                    dataSubjectName,
                     _databaseConnectionSettings,
                     dataSubjectSelectStoredProcedure,
-                    parameters.ToArray(),
-                    dataSubjectName);
+                    parameters.ToArray()
+                    );
 
                 if (masterDataEnhancedDetailDataTable != null)
                 {
@@ -268,9 +269,9 @@ namespace CRM.Presentation.MasterDataManagement
                         }
                     };
 
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, dataSubjectUpdateStoredProcedureName, parameters.ToArray(), dataSubjectName, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubjectName, _databaseConnectionSettings, operationType, dataSubjectUpdateStoredProcedureName, parameters.ToArray());
                     this.Close();
                 }
                 else

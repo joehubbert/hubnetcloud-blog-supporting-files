@@ -991,9 +991,9 @@ namespace CRM.Presentation.CompanyManagement.Customer
                 }
 
                 string storedProcedureName = "spCreateCustomer";
-                string operationType = "Create";
+                DataOperationType operationType = DataOperationType.Create;
 
-                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName, parameters.ToArray()  );
                 this.Close();
             }
         }  

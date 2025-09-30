@@ -141,7 +141,7 @@ namespace CRM.Presentation.CompanyManagement.Supplier
             };
             try
             {
-                DataTable? supplierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters, dataSubject);
+                DataTable? supplierDataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(dataSubject, _databaseConnectionSettings, storedProcedureName, parameters);
 
                 if (supplierDataTable != null)
                 {
@@ -613,9 +613,9 @@ namespace CRM.Presentation.CompanyManagement.Supplier
                     }
 
                     string storedProcedureName = "spUpdateSupplier";
-                    string operationType = "Update";
+                    DataOperationType operationType = DataOperationType.Update;
 
-                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(_databaseConnectionSettings, storedProcedureName, parameters.ToArray(), dataSubject, operationType);
+                    await DBInterface.ExecuteCreateUpdateDeleteStoredProcedureAsync(dataSubject, _databaseConnectionSettings, operationType, storedProcedureName, parameters.ToArray()  );
                     this.Close();
                 }
                 else

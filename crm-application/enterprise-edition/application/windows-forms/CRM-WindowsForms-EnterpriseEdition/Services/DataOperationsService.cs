@@ -26,7 +26,7 @@ namespace CRM.Services
         public DataTable? SelectResults => _selectResults;
         public object[]? UnitConversionResults => _unitConversionResults;
 
-        public async Task DataSubmissionServiceOrchestrator
+        public async Task DataOperationsServiceOrchestrator
             (
             DataOperationType operationType,
             object[]? dataToBeProcessed = null,

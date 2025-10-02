@@ -86,8 +86,6 @@ namespace CRM.Services
                     await LoadDatabaseConnectionSettingsAsync();
                     await TestDatabaseConnectionSettingsAsync(_dataSubjectName);
                 }
-
-                await RemoveEmptyValuesFromDataToBeProcessed();
             }
 
             if (_operationType == DataOperationType.Create || 
@@ -119,6 +117,7 @@ namespace CRM.Services
             switch (_operationType)
             {
                 case DataOperationType.Create:
+                    await RemoveEmptyValuesFromDataToBeProcessed();
                     DataValidation();
                     if (!_dataValidationPassed)
                     {
@@ -153,6 +152,7 @@ namespace CRM.Services
                     _selectResults = await SelectOperation();
                     break;
                 case DataOperationType.Update:
+                    await RemoveEmptyValuesFromDataToBeProcessed();
                     DataValidation();
                     if (!_dataValidationPassed)
                     {

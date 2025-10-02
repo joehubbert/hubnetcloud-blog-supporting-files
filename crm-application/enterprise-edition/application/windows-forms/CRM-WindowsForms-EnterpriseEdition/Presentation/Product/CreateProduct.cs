@@ -675,12 +675,58 @@ namespace CRM.Presentation.Product
         private void PopulateProductDetailsUnitInformationModel(object? sender, EventArgs e)
         {
             _productModel.ProductDetailsUnitInformation.UnitBarcode = TextBoxCleanerHelper.GetTrimmedText(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitBarcodeTextBox);
-            _productModel.ProductDetailsUnitInformation.UnitDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxB);
-            _productModel.ProductDetailsUnitInformation.UnitHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxB);
+
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxA.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxB.Text))
+            {
+                _productModel.ProductDetailsUnitInformation.UnitDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitDepthTextBoxB);
+            }
+            else
+            {
+                _productModel.ProductDetailsUnitInformation.UnitDepth = null;
+            }
+
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxA.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxB.Text))
+            {
+                _productModel.ProductDetailsUnitInformation.UnitHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitHeightTextBoxB);
+            }
+            else
+            {
+                _productModel.ProductDetailsUnitInformation.UnitHeight = null;
+            }
+
             _productModel.ProductDetailsUnitInformation.UnitMinimumStockQuantity = (int?)_numericParserHelper.ParseInt(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitMinimumStockQuantityTextBox);
-            _productModel.ProductDetailsUnitInformation.UnitPrice = (decimal)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxB);
-            _productModel.ProductDetailsUnitInformation.UnitWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxB);
-            _productModel.ProductDetailsUnitInformation.UnitWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxB);
+            
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxA.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxB.Text))
+            {
+                _productModel.ProductDetailsUnitInformation.UnitPrice = (decimal)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxB);
+            }
+            else
+            {
+                _productModel.ProductDetailsUnitInformation.UnitPrice = 0; // or whatever default value is appropriate
+            }
+
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxA.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxB.Text))
+            {
+                _productModel.ProductDetailsUnitInformation.UnitWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWeightTextBoxB);
+            }
+            else
+            {
+                _productModel.ProductDetailsUnitInformation.UnitWeight = null;
+            }
+
+            if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxA.Text) &&
+                !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxB.Text))
+            {
+                _productModel.ProductDetailsUnitInformation.UnitWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitWidthTextBoxB);
+            }
+            else
+            {
+                _productModel.ProductDetailsUnitInformation.UnitWidth = null;
+            }
 
             // Calculate area of a unit
             if (_productModel.ProductDetailsUnitInformation.UnitDepth.HasValue &&
@@ -749,10 +795,47 @@ namespace CRM.Presentation.Product
             if (deliveryType == "Carton" || deliveryType == "Pallet - Carton")
             {
                 _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonBarcode = TextBoxCleanerHelper.GetTrimmedText(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonBarcodeTextBox);
-                _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonPackagingWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxB);
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonDepthTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonDepth = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonHeightTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonHeight = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonPackagingWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonPackagingWeightTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonPackagingWeight = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonWidth = null;
+                }
+
                 _productModel.ProductDetailsWholesaleInformation.CartonInformationUnitQuantityPerCarton = (int?)_numericParserHelper.ParseInt(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxUnitQuantityPerCartonTextBox);
 
                 // Calculate carton area
@@ -793,10 +876,45 @@ namespace CRM.Presentation.Product
             if (deliveryType == "Pallet - Carton" || deliveryType == "Pallet - Unit")
             {
                 _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletBarcode = TextBoxCleanerHelper.GetTrimmedText(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletBarcodeTextBox);
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxB);
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxB);
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletHeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletHeight = null;
+                }
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWeight = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWeight = null;
+                }
+
+                if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxA.Text) &&
+                    !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxB.Text))
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWidth = (decimal?)_numericParserHelper.ParseDecimal(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxA, createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxB);
+                }
+                else
+                {
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWidth = null;
+                }
 
                 // Calculate pallet area
                 if (_productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth.HasValue &&

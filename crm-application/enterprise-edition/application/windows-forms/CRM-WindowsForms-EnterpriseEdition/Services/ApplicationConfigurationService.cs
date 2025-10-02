@@ -1,6 +1,7 @@
 ﻿using CRM.Interface;
 using CRM.Model;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace CRM.Services
 {
@@ -13,6 +14,15 @@ namespace CRM.Services
 
         private static ApplicationConfigurationModel.ApplicationConfigurationServiceRoot? _configuration;
         private static readonly object _lock = new();
+
+        private static JsonSerializerOptions GetJsonOptions()
+        {
+            return new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                Converters = { new JsonStringEnumConverter() }
+            };
+        }
 
         public static async Task<ApplicationConfigurationModel.ApplicationConfigurationServiceRoot> LoadAsync()
         {
@@ -27,7 +37,8 @@ namespace CRM.Services
             else
             {
                 var json = await File.ReadAllTextAsync(ConfigFilePath);
-                _configuration = JsonSerializer.Deserialize<ApplicationConfigurationModel.ApplicationConfigurationServiceRoot>(json)
+                var options = GetJsonOptions();
+                _configuration = JsonSerializer.Deserialize<ApplicationConfigurationModel.ApplicationConfigurationServiceRoot>(json, options)
                     ?? new ApplicationConfigurationModel.ApplicationConfigurationServiceRoot();
 
                 // Decrypt sensitive properties after loading
@@ -54,7 +65,8 @@ namespace CRM.Services
             _configuration.databaseConfiguration.postgresConfiguration.password =
                 DPAPIHelper.Encrypt(_configuration.databaseConfiguration.postgresConfiguration.password);
 
-            var json = JsonSerializer.Serialize(_configuration, new JsonSerializerOptions { WriteIndented = true });
+            var options = GetJsonOptions();
+            var json = JsonSerializer.Serialize(_configuration, options);
             await File.WriteAllTextAsync(ConfigFilePath, json);
 
             // Decrypt back in memory for runtime use

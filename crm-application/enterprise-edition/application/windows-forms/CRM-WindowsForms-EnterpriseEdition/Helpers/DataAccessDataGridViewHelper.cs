@@ -49,6 +49,7 @@ namespace CRM.Helpers
             }
 
             dataSubject = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+            DataTable? dataTable = new DataTable();
             sortColumnName = dataSubjectProperties.DataSubject.DataSubjectSortingColumnName;
             sortColumnOrder = dataSubjectProperties.DataSubject.DataSubjectSortingColumnOrder;
             storedProcedureName = dataSubjectProperties.DataSubject.DataSubjectSelectAllStoredProcedureName;
@@ -66,14 +67,21 @@ namespace CRM.Helpers
                 }
 };
 
-            await dataOperationsService.DataOperationsServiceOrchestrator(
+            bool success = await dataOperationsService.DataOperationsServiceOrchestrator(
                 dataSubjectName: dataSubject,
                 dataToBeProcessed: parameters,
                 operationType: DataOperationType.Select,
                 storedProcedureName: storedProcedureName
             );
 
-            DataTable? dataTable = dataOperationsService.SelectResults;
+            if (success)
+            {
+                dataTable = dataOperationsService.SelectResults;
+            }
+            else
+            {
+                return;
+            }
 
             string sortColumn = sortColumnName ?? "Created Timestamp UTC";
 

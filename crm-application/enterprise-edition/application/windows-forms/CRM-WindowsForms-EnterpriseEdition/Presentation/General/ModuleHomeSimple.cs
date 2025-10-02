@@ -7,6 +7,7 @@ using CRM.Presentation.CompanyManagement.Supplier;
 using CRM.Presentation.Manufacturer;
 using CRM.Presentation.Product;
 using CRM.Services;
+using System.Diagnostics;
 
 namespace CRM.Presentation.General
 {
@@ -39,7 +40,7 @@ namespace CRM.Presentation.General
         {
             ModuleThemeHelper.ApplyTheme(this, _moduleGroup);
 
-            dataSubjectPluralName = _generalSharedComponents.GetModuleGroupValue(_moduleGroup, "moduleGroupDataSubjectName");
+            dataSubjectPluralName = _generalSharedComponents.GetModuleGroupValue(_moduleGroup, "moduleGroupDataSubjectPluralName");
             dataSubjectSingularName = _generalSharedComponents.GetModuleGroupValue(_moduleGroup, "moduleGroupDataSubjectName");
             moduleFriendlyName = _generalSharedComponents.GetModuleGroupValue(_moduleGroup, "moduleGroupFriendlyName");
 

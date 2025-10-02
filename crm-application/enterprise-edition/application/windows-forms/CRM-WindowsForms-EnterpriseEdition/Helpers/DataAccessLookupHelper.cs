@@ -101,28 +101,42 @@ namespace CRM.Helpers
 
         public async Task<DataTable?> GetFilteredDataTableAsync()
         {
-            DataTable? dataTable;
+            DataTable? dataTable = new DataTable();
 
             if (_storedProcedureParameter != null)
             {
-                await _dataOperationsService.DataOperationsServiceOrchestrator(                    
+                bool success = await _dataOperationsService.DataOperationsServiceOrchestrator(                    
                     dataSubjectName: _dataSubject,
                     dataToBeProcessed: _storedProcedureParameter,
                     operationType: DataOperationType.Select,
                     storedProcedureName: _storedProcedureName
                 );
 
-                dataTable = _dataOperationsService.SelectResults;
+                if (success)
+                {
+                    dataTable = _dataOperationsService.SelectResults;
+                }
+                else
+                {
+                    return dataTable;
+                }
             }
             else
             {
-                await _dataOperationsService.DataOperationsServiceOrchestrator(                    
+                bool success = await _dataOperationsService.DataOperationsServiceOrchestrator(                    
                     dataSubjectName: _dataSubject,
                     operationType: DataOperationType.SelectNoParameter,
                     storedProcedureName: _storedProcedureName
                 );
 
-                dataTable = _dataOperationsService.SelectResults;
+                if (success)
+                {
+                    dataTable = _dataOperationsService.SelectResults;
+                }
+                else
+                {
+                    return dataTable;
+                }
             }
 
             // If the table has a "Display Text" column but should use a different column name

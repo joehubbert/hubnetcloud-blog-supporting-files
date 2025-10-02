@@ -90,24 +90,38 @@ namespace CRM.Helpers
 
                 if (_storedProcedureParameter != null)
                 {
-                    await _dataOperationsService.DataOperationsServiceOrchestrator(                        
+                    bool success = await _dataOperationsService.DataOperationsServiceOrchestrator(                        
                         dataSubjectName: dataSubject,
                         dataToBeProcessed: _storedProcedureParameter,
                         operationType: DataOperationType.Select,
                         storedProcedureName: storedProcedureName
                     );
-
-                    dataTable = _dataOperationsService.SelectResults;
+                    
+                    if (success)
+                    {
+                        dataTable = _dataOperationsService.SelectResults;
+                    }
+                    else
+                    {
+                        return;
+                    }                       
                 }
                 else
                 {
-                    await _dataOperationsService.DataOperationsServiceOrchestrator(                        
+                    bool success = await _dataOperationsService.DataOperationsServiceOrchestrator(                        
                         dataSubjectName: dataSubject,
                         operationType: DataOperationType.SelectNoParameter,
                         storedProcedureName: storedProcedureName
                     );
 
-                    dataTable = _dataOperationsService.SelectResults;
+                    if (success)
+                    {
+                        dataTable = _dataOperationsService.SelectResults;
+                    }
+                    else
+                    {
+                        return;
+                    }
                 }
 
                 _dataTable = dataTable;

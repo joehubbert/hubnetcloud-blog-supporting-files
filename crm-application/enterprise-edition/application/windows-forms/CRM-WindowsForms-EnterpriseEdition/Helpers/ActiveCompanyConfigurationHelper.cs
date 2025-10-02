@@ -34,29 +34,51 @@ namespace CRM.Helpers
                 ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CompanyConfiguration.NoData");
                 return;
             }
-            else
+
+            // Check if companyConfigurationId is empty GUID
+            if (companyConfiguration.companyConfigurationId == Guid.Empty)
             {
-                _companyConfigurationId = companyConfiguration.companyConfigurationId;
-                _companyName = companyConfiguration.companyName;
-                FunctionTitle functionTitle = FunctionTitle.CompanyConfiguration;
-
-                var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(functionTitle);
-                if (dataSubjectProperties == null || dataSubjectProperties.DataParentSubject == null)
-                {
-                    ErrorMessageService errorMessageService = new ErrorMessageService("Error.Module.Function.NotImplemented", functionTitle.ToString());
-                    return;
-                }
-
-                string prefix = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
-
-                if (activeLanguageRegionCode != LanguageRegionCode.enGB)
-                {
-                    prefix = _translationService.Translate(prefix, activeLanguageRegionCode);
-                }
-
-                string displayText = $"{prefix}: {_companyName} ({_companyConfigurationId})";
-                _placeholderControl.Text = displayText;
+                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CompanyConfiguration.NoData");
+                return;
             }
+
+            // Check if companyName is empty or null
+            if (string.IsNullOrWhiteSpace(companyConfiguration.companyName))
+            {
+                ErrorMessageService errorMessageService = new ErrorMessageService("Warning.CompanyConfiguration.NoData");
+                return;
+            }
+
+            _companyConfigurationId = companyConfiguration.companyConfigurationId;
+            _companyName = companyConfiguration.companyName;
+            FunctionTitle functionTitle = FunctionTitle.CompanyConfiguration;
+
+            var dataSubjectProperties = _uiModelHelper.GetDataSubjectProperties(functionTitle);
+            if (dataSubjectProperties == null)
+            {
+                // Instead of showing error, let's just use a default display
+                string displayText = $"Company: {_companyName} ({_companyConfigurationId})";
+                _placeholderControl.Text = displayText;
+                return;
+            }
+
+            if (dataSubjectProperties.DataParentSubject == null)
+            {
+                // Instead of showing error, let's just use a default display
+                string displayText = $"Company: {_companyName} ({_companyConfigurationId})";
+                _placeholderControl.Text = displayText;
+                return;
+            }
+
+            string prefix = dataSubjectProperties.DataSubject.DataSubjectFriendlyName;
+
+            if (activeLanguageRegionCode != LanguageRegionCode.enGB)
+            {
+                prefix = _translationService.Translate(prefix, activeLanguageRegionCode);
+            }
+
+            string finalDisplayText = $"{prefix}: {_companyName} ({_companyConfigurationId})";
+            _placeholderControl.Text = finalDisplayText;
         }
 
         public async Task ShowChangeDialogAndReloadAsync(Form parentForm)

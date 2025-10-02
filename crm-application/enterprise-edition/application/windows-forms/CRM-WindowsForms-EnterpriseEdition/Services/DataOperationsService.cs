@@ -26,7 +26,7 @@ namespace CRM.Services
         public DataTable? SelectResults => _selectResults;
         public object[]? UnitConversionResults => _unitConversionResults;
 
-        public async Task DataOperationsServiceOrchestrator
+        public async Task<bool> DataOperationsServiceOrchestrator
             (
             DataOperationType operationType,
             object[]? dataToBeProcessed = null,
@@ -58,7 +58,7 @@ namespace CRM.Services
                 if (_dataToBeProcessed == null || _dataToBeProcessed.Length == 0)
                 {
                     ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.NoData");
-                    return;
+                    return false;
                 }
             }
 
@@ -72,13 +72,13 @@ namespace CRM.Services
                 if (_dataSubjectName == null || string.IsNullOrWhiteSpace(_dataSubjectName))
                 {
                     ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Dynamic", "No Data Subject provided.");
-                    return;
+                    return false;
                 }
 
                 if (_storedProcedureName == null || string.IsNullOrWhiteSpace(_storedProcedureName))
                 {
                     ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Dynamic", "No Stored Procedure Name provided.");
-                    return;
+                    return false;
                 }
 
                 if (_databaseConnectionSettings == null)
@@ -86,6 +86,8 @@ namespace CRM.Services
                     await LoadDatabaseConnectionSettingsAsync();
                     await TestDatabaseConnectionSettingsAsync(_dataSubjectName);
                 }
+
+                await RemoveEmptyValuesFromDataToBeProcessed();
             }
 
             if (_operationType == DataOperationType.Create || 
@@ -98,7 +100,7 @@ namespace CRM.Services
                     if (_outboundStoredProcedureParameterName == null || string.IsNullOrWhiteSpace(_outboundStoredProcedureParameterName))
                     {
                         ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Dynamic", "No Outbound Stored Procedure Parameter Name provided.");
-                        return;
+                        return false;
                     }
                 }
             }
@@ -110,7 +112,7 @@ namespace CRM.Services
                 if (_dataSubjectId == null)
                 {
                     ErrorMessageService errorMessageService = new ErrorMessageService("Warning.Data.Validation.Dynamic", $"No Data Subject Id for {dataSubjectName} provided.");
-                    return;
+                    return false;
                 }
             }
 
@@ -120,7 +122,7 @@ namespace CRM.Services
                     DataValidation();
                     if (!_dataValidationPassed)
                     {
-                        return;
+                        return false;
                     }
                     else
                     {
@@ -140,7 +142,7 @@ namespace CRM.Services
                     }
                     else
                     {
-                        return;
+                        return false;
                     }
                     break;
                 case DataOperationType.MeasurementConversion:
@@ -154,14 +156,14 @@ namespace CRM.Services
                     DataValidation();
                     if (!_dataValidationPassed)
                     {
-                        return;
+                        return false;
                     }
                     else
                     {
                         ChangeValidation();
                         if (!_changeValidationPassed)
                         {
-                            return;
+                            return false;
                         }
                         else
                         {
@@ -172,6 +174,8 @@ namespace CRM.Services
                 default: 
                     throw new InvalidOperationException("Invalid operation type specified");
             }
+
+            return true;
         }
 
         private bool ChangeValidation()
@@ -313,6 +317,44 @@ namespace CRM.Services
         private async Task LoadDatabaseConnectionSettingsAsync()
         {
             _databaseConnectionSettings = await DatabaseConnectionSettings.LoadAsync();
+        }
+
+        private async Task RemoveEmptyValuesFromDataToBeProcessed()
+        {
+            if (_dataToBeProcessed == null)
+                return;
+
+            var itemsToKeep = new List<object>();
+
+            foreach (var item in _dataToBeProcessed)
+            {
+                if (item == null)
+                    continue;
+
+                if (item is Dictionary<string, object> propertyDictionary)
+                {
+                    var allowNullValue = (bool)propertyDictionary.GetValueOrDefault("AllowNullValue", false);
+                    var propertyValue = propertyDictionary.GetValueOrDefault("PropertyValue", "");
+
+                    // Remove item if AllowNullValue is true AND PropertyValue is null or empty
+                    bool shouldRemove = allowNullValue &&
+                                       (propertyValue == null ||
+                                        (propertyValue is string stringValue && string.IsNullOrEmpty(stringValue)));
+
+                    if (!shouldRemove)
+                    {
+                        itemsToKeep.Add(item);
+                    }
+                }
+                else
+                {
+                    // Keep non-dictionary items
+                    itemsToKeep.Add(item);
+                }
+            }
+
+            // Update the array with filtered items
+            _dataToBeProcessed = itemsToKeep.ToArray();
         }
 
         private async Task<DataTable?> SelectOperation()

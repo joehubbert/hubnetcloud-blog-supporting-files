@@ -1,14 +1,16 @@
-﻿namespace CRM.Services
+﻿using CRM.Model;
+
+namespace CRM.Services
 {
     internal class ApplicationLoggingService
     {
-        private string _action;
+        private LogAction _action;
         private string? _errorCode;
         private string? _errorException;
         private static readonly string ConfigFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CRM-WindowsForms.EnterpriseEdition");
-        private static readonly string ApplicationLogFilePath = Path.Combine(ConfigFolderPath, "CRM-WindowsForms-EnterpriseEdition-Log.txt");
+        private static readonly string ApplicationLogFilePath = Path.Combine(ConfigFolderPath, "CRM-WindowsForms-EnterpriseEdition-Log-", $"{DateTime.UtcNow:yyyy-MM-dd}", ".txt");
 
-        public ApplicationLoggingService(string action, string? errorCode = null, string? errorException = null)
+        public ApplicationLoggingService(LogAction action, string? errorCode = null, string? errorException = null)
         {
             _action = action;
             if (errorCode != null)
@@ -22,20 +24,20 @@
             Orchestrator(_action);
         }
 
-        private void Orchestrator(string action)
+        private void Orchestrator(LogAction action)
         {
             switch (action)
             {
-                case "AppendToLogFile":
+                case LogAction.AppendToLogFile:
                     AppendToLogFile(_errorCode ?? string.Empty, _errorException ?? string.Empty);
                     break;
-                case "CreateLogFileIfNotExists":
+                case LogAction.CreateLogFileIfNotExists:
                     CreateLogFileIfNotExists();
                     break;
-                case "ClearLogFile":
+                case LogAction.ClearLogFile:
                     ClearLogFile();
                     break;
-                case "OpenLogFile":
+                case LogAction.OpenLogFile:
                     OpenLogFile();
                     break;
                 default:

@@ -1,4 +1,6 @@
-﻿namespace CRM.Services
+﻿using CRM.Model;
+
+namespace CRM.Services
 {
     internal class ErrorMessageService
     {
@@ -153,7 +155,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -164,7 +166,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -175,7 +177,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -186,7 +188,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -197,7 +199,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -208,7 +210,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -219,7 +221,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -230,7 +232,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -241,7 +243,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -252,7 +254,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -263,7 +265,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -274,7 +276,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -285,7 +287,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -296,7 +298,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -307,7 +309,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -318,7 +320,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -329,7 +331,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -340,7 +342,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -351,7 +353,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -362,7 +364,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -373,7 +375,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -384,7 +386,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -395,7 +397,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -406,7 +408,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -417,7 +419,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -428,7 +430,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -439,7 +441,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -450,7 +452,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -461,7 +463,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -472,7 +474,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -483,7 +485,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -494,7 +496,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -505,7 +507,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -516,7 +518,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -527,7 +529,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Warning);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -538,7 +540,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
 
@@ -549,7 +551,7 @@
             MessageBox.Show(messageText, messageTitle, MessageBoxButtons.OK, MessageBoxIcon.Information);
             if (loggingEnabled)
             {
-                new ApplicationLoggingService("AppendToLogFile", messageTitle, messageText);
+                new ApplicationLoggingService(LogAction.AppendToLogFile, messageTitle, messageText);
             }
         }
     }

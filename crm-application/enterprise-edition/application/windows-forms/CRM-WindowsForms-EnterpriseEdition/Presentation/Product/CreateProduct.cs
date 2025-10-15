@@ -81,6 +81,13 @@ namespace CRM.Presentation.Product
             createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA.TextChanged += createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBox_TextChanged;
             createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB.TextChanged += createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBox_TextChanged;
 
+            var barcodeTextBoxes = new[]
+            {
+                createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitBarcodeTextBox,
+                createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonBarcodeTextBox,
+                createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletBarcodeTextBox
+            };
+
             var calculateWholesalePricePerUnitControls = new[]
             {
                 (Control)createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxUnitQuantityPerCartonTextBox,
@@ -229,6 +236,15 @@ namespace CRM.Presentation.Product
                 (Control)createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleEnabledPanelNoRadioButton,
                 (Control)createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleEnabledPanelYesRadioButton
             };
+
+            foreach (var textBox in barcodeTextBoxes)
+            {
+                textBox.TextChanged += (sender, e) => _productSharedComponents.ValidateBarcodeInput(
+                        unitBarcode: createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitBarcodeTextBox,
+                        cartonBarcode: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonBarcodeTextBox,
+                        palletBarcode: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletBarcodeTextBox
+                    );
+            }
 
             foreach (var item in calculateWholesalePricePerUnitControls)
             {

@@ -1080,6 +1080,58 @@ namespace CRM.Presentation.Product
             }
         }
 
+        public void ValidateBarcodeInput(TextBox unitBarcode, TextBox cartonBarcode, TextBox palletBarcode)
+        {
+            // Get trimmed values from all textboxes
+            string unitBarcodeValue = TextBoxCleanerHelper.GetTrimmedText(unitBarcode);
+            string cartonBarcodeValue = TextBoxCleanerHelper.GetTrimmedText(cartonBarcode);
+            string palletBarcodeValue = TextBoxCleanerHelper.GetTrimmedText(palletBarcode);
+
+            // Skip validation if all barcodes are empty
+            if (string.IsNullOrWhiteSpace(unitBarcodeValue) &&
+                string.IsNullOrWhiteSpace(cartonBarcodeValue) &&
+                string.IsNullOrWhiteSpace(palletBarcodeValue))
+            {
+                return;
+            }
+
+            // Check Unit Barcode vs Carton Barcode
+            if (!string.IsNullOrWhiteSpace(unitBarcodeValue) &&
+                !string.IsNullOrWhiteSpace(cartonBarcodeValue) &&
+                unitBarcodeValue.Equals(cartonBarcodeValue, StringComparison.OrdinalIgnoreCase))
+            {
+                new ErrorMessageService("Warning.Data.Validation.Dynamic",
+                    "Carton Barcode cannot be the same as Unit Barcode. Carton Barcode has been cleared.");
+                cartonBarcode.Clear();
+                cartonBarcode.Focus();
+                return;
+            }
+
+            // Check Unit Barcode vs Pallet Barcode
+            if (!string.IsNullOrWhiteSpace(unitBarcodeValue) &&
+                !string.IsNullOrWhiteSpace(palletBarcodeValue) &&
+                unitBarcodeValue.Equals(palletBarcodeValue, StringComparison.OrdinalIgnoreCase))
+            {
+                new ErrorMessageService("Warning.Data.Validation.Dynamic",
+                    "Pallet Barcode cannot be the same as Unit Barcode. Pallet Barcode has been cleared.");
+                palletBarcode.Clear();
+                palletBarcode.Focus();
+                return;
+            }
+
+            // Check Carton Barcode vs Pallet Barcode
+            if (!string.IsNullOrWhiteSpace(cartonBarcodeValue) &&
+                !string.IsNullOrWhiteSpace(palletBarcodeValue) &&
+                cartonBarcodeValue.Equals(palletBarcodeValue, StringComparison.OrdinalIgnoreCase))
+            {
+                new ErrorMessageService("Warning.Data.Validation.Dynamic",
+                    "Pallet Barcode cannot be the same as Carton Barcode. Pallet Barcode has been cleared.");
+                palletBarcode.Clear();
+                palletBarcode.Focus();
+                return;
+            }
+        }
+
         public async Task<bool> ValidateWholesaleDataModel(ProductModel productModel, ComboBox wholesaleDeliveryTypeComboBox)
         {
             string deliveryType = GetSelectedWholesaleDeliveryType(comboBox: wholesaleDeliveryTypeComboBox);

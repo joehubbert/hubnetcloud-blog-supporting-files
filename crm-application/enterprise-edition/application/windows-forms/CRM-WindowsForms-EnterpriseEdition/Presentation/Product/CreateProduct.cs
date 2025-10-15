@@ -3,7 +3,6 @@ using CRM.Model;
 using CRM.Presentation.General;
 using CRM.Services;
 using System.Data;
-using System.Diagnostics;
 
 namespace CRM.Presentation.Product
 {
@@ -14,10 +13,12 @@ namespace CRM.Presentation.Product
         private ActiveCompanyConfigurationHelper? _companyConfigHelper;
         private DataOperationsService _dataOperationsService = new DataOperationsService();
         private GeneralSharedComponents _generalSharedComponents = new GeneralSharedComponents();
-		private NumericParserHelper _numericParserHelper = new NumericParserHelper();
+        private NumericParserHelper _numericParserHelper = new NumericParserHelper();
         private ProductSharedComponents _productSharedComponents = new ProductSharedComponents();
-		private ProductModel _productModel = new ProductModel();
+        private ProductModel _productModel = new ProductModel();
         private bool _suppressDateValidation = false;
+        private bool _suppressWholesalePricePerCartonTextChanged = false;
+        private bool _suppressWholesalePricePerPalletTextChanged = false;
         private List<TextBoxCharactersRemainingHelper> _textBoxCharactersRemainingHelpers = new();
         private TextBoxNumericCharacterDataValidationHelper _textBoxNumericChracterDataValidationHelper = new TextBoxNumericCharacterDataValidationHelper();
         private TranslationService _translationService = new TranslationService();
@@ -35,8 +36,8 @@ namespace CRM.Presentation.Product
 
         private async void CreateProduct_Load(object? sender, EventArgs e)
         {
-            LoadActiveCompanyConfigurationAsync();
-            LoadUserPreferencesAsync();
+            await LoadActiveCompanyConfigurationAsync();
+            await LoadUserPreferencesAsync();
             await LoadComboBoxData();
             _productSharedComponents.ConfigureListViews(
                 availableListView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
@@ -322,53 +323,66 @@ namespace CRM.Presentation.Product
             }
         }
 
-		private void CalculateWholesalePricePerUnit(object? sender, EventArgs e)
-		{
-			try
-			{
-				// Exit early if loading data
-				if (_wholesaleDeliveryTypeLoading)
-					return;
+        private void CalculateWholesalePricePerUnit(object? sender, EventArgs e)
+        {
+            try
+            {
+                // Exit early if loading data
+                if (_wholesaleDeliveryTypeLoading)
+                    return;
 
-				// Check if a supplier is selected
-				if (createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems.Count == 0)
-					return;
+                // Check if a supplier is selected
+                if (createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems.Count == 0)
+                    return;
 
-				var item = createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems[0];
-				if (item.Tag == null)
-					return;
+                var item = createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems[0];
+                if (item.Tag == null)
+                    return;
 
-				var supplier = (ProductSupplierRelationshipChosenList)item.Tag;
+                var supplier = (ProductSupplierRelationshipChosenList)item.Tag;
 
-				// Get delivery type safely
-				string deliveryType = _productSharedComponents.GetSelectedWholesaleDeliveryType(comboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox);
-				if (string.IsNullOrEmpty(deliveryType))
-					return;
+                // Get delivery type safely
+                string deliveryType = _productSharedComponents.GetSelectedWholesaleDeliveryType(comboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox);
+                if (string.IsNullOrEmpty(deliveryType))
+                    return;
 
-				// Use the reusable method
-				ProductSharedComponents.CalculateAndUpdateWholesalePriceControls(
-					chosenSupplierList: supplier,
+                // IMPORTANT: If the sender is a pallet price textbox and delivery type uses pallet pricing,
+                // exit immediately - let the dedicated TextChanged handler manage this
+                if (sender == createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA ||
+                    sender == createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB)
+                {
+                    if (deliveryType == "Pallet - Carton" || deliveryType == "Pallet - Unit")
+                    {
+                        return; // Exit - don't interfere with manual pallet price entry
+                    }
+                }
+
+                // Use the reusable method for calculations triggered by other controls
+                ProductSharedComponents.CalculateAndUpdateWholesalePriceControls(
+                    chosenSupplierList: supplier,
                     deliveryType: deliveryType,
-					productModel: _productModel,
-					// Unit price update delegate
-					(unitPartA, unitPartB) => {
-						createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxA.Text = unitPartA;
-						createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxB.Text = unitPartB;
-					},
-					// Carton price update delegate (for "Pallet - Carton" delivery type)
-					(cartonPartA, cartonPartB) => {
-						createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = cartonPartA;
-						createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = cartonPartB;
-					}
-				);
-			}
-			catch (Exception ex)
-			{
-				new ErrorMessageService("Error.Calculation.Dynamic", "Wholesale Price Per Unit", ex.Message);
-			}
-		}
+                    productModel: _productModel,
+                    // Unit price update delegate
+                    (unitPartA, unitPartB) =>
+                    {
+                        createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxA.Text = unitPartA;
+                        createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxB.Text = unitPartB;
+                    },
+                    // Carton price update delegate (for "Pallet - Carton" delivery type)
+                    (cartonPartA, cartonPartB) =>
+                    {
+                        createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = cartonPartA;
+                        createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = cartonPartB;
+                    }
+                );
+            }
+            catch (Exception ex)
+            {
+                new ErrorMessageService("Error.Calculation.Dynamic", "Wholesale Price Per Unit", ex.Message);
+            }
+        }
 
-        private async void LoadActiveCompanyConfigurationAsync()
+        private async Task LoadActiveCompanyConfigurationAsync()
         {
             _companyConfigHelper = new ActiveCompanyConfigurationHelper(createProductStatusStripCompanyConfigurationPlaceholder);
             await _companyConfigHelper.LoadAsync();
@@ -395,20 +409,20 @@ namespace CRM.Presentation.Product
         {
             await LoadProductCategoryDataAsync();
             await LoadProductCategoryAndProductSubCategoryDataAsync();
-			await _generalSharedComponents.LoadManufacturerDataAsync(comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageManufacturerComboBox);
+            await _generalSharedComponents.LoadManufacturerDataAsync(comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageManufacturerComboBox);
             await _generalSharedComponents.LoadCountryDataAsync(comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageProductCountryOfOriginComboBox);
             await LoadWholesaleDeliveryTypeAsync();
             await LoadSalesRegionAsync();
-			await LoadSalesRegionAndSubRegionsAsync();
-			await _productSharedComponents.LoadSupplierAsync(
+            await LoadSalesRegionAndSubRegionsAsync();
+            await _productSharedComponents.LoadSupplierAsync(
                 availableSupplierListView: createProductTabControlProductSupplierRelationshipTabPageAvailableSupplierListView,
                 chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
                 companyConfigurationId: _companyConfigurationId,
                 productModel: _productModel
-				);
-		}
+                );
+        }
 
-		private async Task LoadProductCategoryDataAsync()
+        private async Task LoadProductCategoryDataAsync()
         {
             await _generalSharedComponents.LoadProductCategoryDataAsync(
                 comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageProductCategoryComboBox,
@@ -426,10 +440,10 @@ namespace CRM.Presentation.Product
 
         private async Task LoadProductSubCategoryAsync(Guid productCategoryId)
         {
-			await _generalSharedComponents.LoadProductSubCategoryDataAsync(
-	                comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageProductSubCategoryComboBox,
-	                productCategoryId: productCategoryId
-	                );
+            await _generalSharedComponents.LoadProductSubCategoryDataAsync(
+                    comboBox: createProductTabControlProductDetailTabPageTabControlGeneralInformationTabPageProductSubCategoryComboBox,
+                    productCategoryId: productCategoryId
+                    );
         }
 
         private async Task LoadProductCategoryAndProductSubCategoryDataAsync()
@@ -443,10 +457,10 @@ namespace CRM.Presentation.Product
 
         private async Task LoadSalesRegionAsync()
         {
-			await _generalSharedComponents.LoadSalesRegionDataAsync(
-				comboBox: createProductTabControlProductSalesSubRegionAvailabilityTabPageSalesRegionComboBox,
-				companyConfigurationId: _companyConfigurationId
-				);
+            await _generalSharedComponents.LoadSalesRegionDataAsync(
+                comboBox: createProductTabControlProductSalesSubRegionAvailabilityTabPageSalesRegionComboBox,
+                companyConfigurationId: _companyConfigurationId
+                );
         }
 
         private async Task LoadSalesRegionAndSubRegionsAsync()
@@ -462,8 +476,6 @@ namespace CRM.Presentation.Product
                     Guid firstRegionId = _productSharedComponents.GetFirstSalesRegionId(comboBox: createProductTabControlProductSalesSubRegionAvailabilityTabPageSalesRegionComboBox);
                     if (firstRegionId != Guid.Empty)
                     {
-                        Debug.WriteLine($"First sales region ID: {firstRegionId}");
-
                         await _productSharedComponents.LoadSalesSubRegionsAsync(
                             listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
                             productModel: _productModel,
@@ -474,7 +486,7 @@ namespace CRM.Presentation.Product
             });
         }
 
-        private async void LoadUserPreferencesAsync()
+        private async Task LoadUserPreferencesAsync()
         {
             activeLanguageRegionCode = await ApplicationConfigurationService.GetLanguageRegionCodeAsync();
             activeUnitType = await ApplicationConfigurationService.GetUnitTypeAsync();
@@ -518,6 +530,7 @@ namespace CRM.Presentation.Product
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageCartonGroupBoxCartonWidthTextBoxLabel, MeasurementType = MeasurementType.Distance, Mandatory = true },
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletDepthTextBoxLabel, MeasurementType = MeasurementType.Distance, Mandatory = true },
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletHeightTextBoxLabel, MeasurementType = MeasurementType.Distance, Mandatory = true },
+                new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletAreaTextBoxLabel, MeasurementType = MeasurementType.Area, Mandatory = false },
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletVolumeTextBoxLabel, MeasurementType = MeasurementType.Volume, Mandatory = false },
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWeightTextBoxLabel, MeasurementType = MeasurementType.Weight, Mandatory = true },
                 new { Label = createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletWidthTextBoxLabel, MeasurementType = MeasurementType.Distance, Mandatory = true }
@@ -697,7 +710,7 @@ namespace CRM.Presentation.Product
             }
 
             _productModel.ProductDetailsUnitInformation.UnitMinimumStockQuantity = (int?)_numericParserHelper.ParseInt(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitMinimumStockQuantityTextBox);
-            
+
             if (!string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxA.Text) &&
                 !string.IsNullOrWhiteSpace(createProductTabControlProductDetailTabPageTabControlUnitInformationTabPageUnitPriceTextBoxB.Text))
             {
@@ -924,6 +937,8 @@ namespace CRM.Presentation.Product
                     _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea = CalculateDimensionsHelper.GetArea(
                         _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth.Value,
                         _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWidth.Value);
+
+                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxPalletAreaTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea.ToString() ?? string.Empty;
                 }
 
                 // Calculate pallet volume
@@ -943,14 +958,15 @@ namespace CRM.Presentation.Product
 
             if (deliveryType == "Pallet - Carton")
             {
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonStackingHeightPallet = (int?)_numericParserHelper.ParseInt(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxCartonStackingHeightPalletTextBox);
+                _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonStackingHeightPallet = (byte?)_numericParserHelper.ParseByte(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxCartonStackingHeightPalletTextBox);
 
                 // Calculate how many cartons can fit per level on a pallet
                 if (_productModel.ProductDetailsWholesaleInformation.CartonInformationCartonArea.HasValue &&
                     _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea.HasValue
                     )
                 {
-                    _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPalletLevel = (int?)Math.Floor(_productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea.Value / _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonArea.Value);
+                    _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPalletLevel = (byte?)Math.Floor(_productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea.Value / _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonArea.Value);
+                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxCartonQuantityPerPalletLevelTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPalletLevel?.ToString() ?? string.Empty;
                 }
 
                 // Calculate how many cartons in total can fit on a pallet
@@ -959,7 +975,7 @@ namespace CRM.Presentation.Product
                     )
                 {
                     _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPallet = (int?)_productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPalletLevel.Value * _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonStackingHeightPallet.Value;
-                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxCartonQuantityPerPalletLevelTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPallet?.ToString() ?? string.Empty;
+                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxTotalCartonQuantityPerPalletTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPallet?.ToString() ?? string.Empty;
                 }
 
                 // Calculate total pallet height
@@ -996,7 +1012,7 @@ namespace CRM.Presentation.Product
 
             if (deliveryType == "Pallet - Unit")
             {
-                _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitStackingHeightPallet = (int?)_numericParserHelper.ParseInt(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxUnitStackingHeightPalletTextBox);
+                _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitStackingHeightPallet = (byte?)_numericParserHelper.ParseByte(createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxUnitStackingHeightPalletTextBox);
 
                 // Calculate how many units can fit per level on a pallet
                 if (_productModel.ProductDetailsUnitInformation.UnitArea.HasValue &&
@@ -1004,6 +1020,7 @@ namespace CRM.Presentation.Product
                     )
                 {
                     _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPalletLevel = (int?)Math.Floor(_productModel.ProductDetailsWholesaleInformation.PalletInformationPalletArea.Value / _productModel.ProductDetailsUnitInformation.UnitArea.Value);
+                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxUnitQuantityPerPalletLevelTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPalletLevel?.ToString() ?? string.Empty;
                 }
 
                 // Calculate how many units in total can fit on a pallet
@@ -1012,7 +1029,7 @@ namespace CRM.Presentation.Product
                     )
                 {
                     _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPallet = (int?)_productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPalletLevel.Value * _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitStackingHeightPallet.Value;
-                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxUnitQuantityPerPalletLevelTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPallet?.ToString() ?? string.Empty;
+                    createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPagePalletGroupBoxTotalUnitQuantityPerPalletTextBox.Text = _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPallet?.ToString() ?? string.Empty;
                 }
 
                 // Calculate total pallet height
@@ -1074,7 +1091,7 @@ namespace CRM.Presentation.Product
                         wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
                         wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
                         wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
-						);
+                        );
                     return;
                 }
 
@@ -1091,18 +1108,18 @@ namespace CRM.Presentation.Product
 
                 // Get delivery type safely
                 string deliveryType = _productSharedComponents.GetSelectedWholesaleDeliveryType(comboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox);
-				if (string.IsNullOrEmpty(deliveryType))
+                if (string.IsNullOrEmpty(deliveryType))
                 {
-					// Update supplier price textboxes even when delivery type is not selected
-					_productSharedComponents.UpdateSupplierPriceTextBoxStates(
-						chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
-						wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
-						wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
-						wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
-						wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
-						wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
-						);
-					return;
+                    // Update supplier price textboxes even when delivery type is not selected
+                    _productSharedComponents.UpdateSupplierPriceTextBoxStates(
+                        chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
+                        wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
+                        wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
+                        wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
+                        wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
+                        wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
+                        );
+                    return;
                 }
 
                 // Handle the different delivery types
@@ -1128,16 +1145,16 @@ namespace CRM.Presentation.Product
                     }
                 }
 
-				// Update supplier price textboxes based on the new delivery type
-				_productSharedComponents.UpdateSupplierPriceTextBoxStates(
-					chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
-					wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
-					wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
-					wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
-					wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
-					wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
-					);
-			}
+                // Update supplier price textboxes based on the new delivery type
+                _productSharedComponents.UpdateSupplierPriceTextBoxStates(
+                    chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
+                    wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
+                    wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
+                    wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
+                    wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
+                    wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
+                    );
+            }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error in rendering wholesale controls: {ex.Message}");
@@ -1246,8 +1263,8 @@ namespace CRM.Presentation.Product
                 {
                     _productSharedComponents.MoveProductImage(
                         imageList: createProductTabControlProductImageTabPageImageList,
-						imageListView: createProductTabControlProductImageTabPageImageListView,
-                        index: index, 
+                        imageListView: createProductTabControlProductImageTabPageImageListView,
+                        index: index,
                         newIndex: index - 1,
                         productModel: _productModel
                         );
@@ -1264,14 +1281,14 @@ namespace CRM.Presentation.Product
                 int index = selectedIndices[0];
                 if (index < _productModel.ProductImageList.Count - 1)
                 {
-					_productSharedComponents.MoveProductImage(
-	                    imageList: createProductTabControlProductImageTabPageImageList,
-	                    imageListView: createProductTabControlProductImageTabPageImageListView,
-	                    index: index,
-	                    newIndex: index + 1,
-	                    productModel: _productModel
-	                    );
-					createProductTabControlProductImageTabPageImageListView.Items[index + 1].Selected = true;
+                    _productSharedComponents.MoveProductImage(
+                        imageList: createProductTabControlProductImageTabPageImageList,
+                        imageListView: createProductTabControlProductImageTabPageImageListView,
+                        index: index,
+                        newIndex: index + 1,
+                        productModel: _productModel
+                        );
+                    createProductTabControlProductImageTabPageImageListView.Items[index + 1].Selected = true;
                 }
             }
         }
@@ -1434,12 +1451,12 @@ namespace CRM.Presentation.Product
         {
             if (createProductTabControlProductSalesSubRegionAvailabilityTabPageSalesRegionComboBox.SelectedValue is Guid selectedSalesRegionId)
             {
-				await _productSharedComponents.LoadSalesSubRegionsAsync(
-	                listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
-	                productModel: _productModel,
-	                salesRegionId: selectedSalesRegionId
-					);
-			}
+                await _productSharedComponents.LoadSalesSubRegionsAsync(
+                    listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
+                    productModel: _productModel,
+                    salesRegionId: selectedSalesRegionId
+                    );
+            }
         }
 
         private void createProductTabControlProductSupplierRelationshipTabPageActiveProductSupplierRelationshipCheckBox_CheckedChanged(object? sender, EventArgs e)
@@ -1508,18 +1525,18 @@ namespace CRM.Presentation.Product
                 }
             }
 
-			// Update the enable/disable state of price textboxes based on delivery type
-			_productSharedComponents.UpdateSupplierPriceTextBoxStates(
-	            chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
-	            wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
-	            wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
-	            wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
-	            wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
-	            wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
-	            );
+            // Update the enable/disable state of price textboxes based on delivery type
+            _productSharedComponents.UpdateSupplierPriceTextBoxStates(
+                chosenSupplierListView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
+                wholesaleDeliveryTypeComboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox,
+                wholesalePricePerCartonTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA,
+                wholesalePricePerCartonTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB,
+                wholesalePricePerPalletTextBoxA: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
+                wholesalePricePerPalletTextBoxB: createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB
+                );
 
-			// Update currency label and populate data if selected
-			if (hasSelection)
+            // Update currency label and populate data if selected
+            if (hasSelection)
             {
                 var item = createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems[0];
                 var supplier = (ProductSupplierRelationshipChosenList)item.Tag;
@@ -1604,11 +1621,11 @@ namespace CRM.Presentation.Product
                 _productSharedComponents.UpdateAvailableSalesSubRegionListView(
                     listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
                     productModel: _productModel
-					);
-				_productSharedComponents.UpdateChosenSalesSubRegionListView(
+                    );
+                _productSharedComponents.UpdateChosenSalesSubRegionListView(
                     listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageChosenSalesSubRegionListView,
                     productModel: _productModel
-					);
+                    );
             }
         }
 
@@ -1632,15 +1649,15 @@ namespace CRM.Presentation.Product
                     SalesSubRegionId = salesSubRegion.SalesSubRegionId
                 });
 
-				_productSharedComponents.UpdateAvailableSalesSubRegionListView(
-					listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
-					productModel: _productModel
-					);
-				_productSharedComponents.UpdateChosenSalesSubRegionListView(
-					listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageChosenSalesSubRegionListView,
-					productModel: _productModel
-					);
-			}
+                _productSharedComponents.UpdateAvailableSalesSubRegionListView(
+                    listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageAvailableSalesSubRegionListView,
+                    productModel: _productModel
+                    );
+                _productSharedComponents.UpdateChosenSalesSubRegionListView(
+                    listView: createProductTabControlProductSalesSubRegionAvailabilityTabPageChosenSalesSubRegionListView,
+                    productModel: _productModel
+                    );
+            }
         }
 
         private void createProductTabControlProductSupplierRelationshipTabPageMoveSupplierToAvailableListViewButton_Click(object? sender, EventArgs e)
@@ -1660,14 +1677,14 @@ namespace CRM.Presentation.Product
                     SupplierName = supplier.SupplierName
                 });
 
-				_productSharedComponents.UpdateAvailableSupplierListView(
+                _productSharedComponents.UpdateAvailableSupplierListView(
                     listView: createProductTabControlProductSupplierRelationshipTabPageAvailableSupplierListView,
                     productModel: _productModel
-					);
-				_productSharedComponents.UpdateChosenSupplierListView(
+                    );
+                _productSharedComponents.UpdateChosenSupplierListView(
                     listView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
                     productModel: _productModel
-					);
+                    );
             }
         }
 
@@ -1694,15 +1711,15 @@ namespace CRM.Presentation.Product
                     WholesalePricePerUnit = 0
                 });
 
-				_productSharedComponents.UpdateAvailableSupplierListView(
-	                listView: createProductTabControlProductSupplierRelationshipTabPageAvailableSupplierListView,
-	                productModel: _productModel
-	                );
-				_productSharedComponents.UpdateChosenSupplierListView(
-	                listView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
-	                productModel: _productModel
-	                );
-			}
+                _productSharedComponents.UpdateAvailableSupplierListView(
+                    listView: createProductTabControlProductSupplierRelationshipTabPageAvailableSupplierListView,
+                    productModel: _productModel
+                    );
+                _productSharedComponents.UpdateChosenSupplierListView(
+                    listView: createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView,
+                    productModel: _productModel
+                    );
+            }
         }
 
         private void createProductTabControlProductSupplierRelationshipTabPageSupplierProductCodeTextBox_TextChanged(object? sender, EventArgs e)
@@ -1717,6 +1734,9 @@ namespace CRM.Presentation.Product
 
         private void createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBox_TextChanged(object? sender, EventArgs e)
         {
+            if (_suppressWholesalePricePerCartonTextChanged)
+                return;
+
             if (createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems.Count > 0)
             {
                 var item = createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems[0];
@@ -1731,8 +1751,7 @@ namespace CRM.Presentation.Product
                 }
                 else
                 {
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = string.Empty;
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = string.Empty;
+                    supplier.WholesalePricePerCarton = null;
                 }
 
                 string wholesalePricePerCartonPartA;
@@ -1741,25 +1760,38 @@ namespace CRM.Presentation.Product
                 if (supplier.WholesalePricePerCarton.HasValue)
                 {
                     SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)supplier.WholesalePricePerCarton, out wholesalePricePerCartonPartA, out wholesalePricePerCartonPartB);
-
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = wholesalePricePerCartonPartA;
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = wholesalePricePerCartonPartB;
                 }
                 else
                 {
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = string.Empty;
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = string.Empty;
+                    wholesalePricePerCartonPartA = string.Empty;
+                    wholesalePricePerCartonPartB = string.Empty;
+                }
+
+                // Prevent recursive calls
+                _suppressWholesalePricePerCartonTextChanged = true;
+                try
+                {
+                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = wholesalePricePerCartonPartA;
+                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = wholesalePricePerCartonPartB;
+                }
+                finally
+                {
+                    _suppressWholesalePricePerCartonTextChanged = false;
                 }
             }
         }
 
         private void createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBox_TextChanged(object? sender, EventArgs e)
         {
+            if (_suppressWholesalePricePerPalletTextChanged)
+                return;
+
             if (createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems.Count > 0)
             {
                 var item = createProductTabControlProductSupplierRelationshipTabPageChosenSupplierListView.SelectedItems[0];
                 var supplier = (ProductSupplierRelationshipChosenList)item.Tag;
 
+                // Parse and update supplier model
                 if (!string.IsNullOrWhiteSpace(createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA.Text) &&
                     !string.IsNullOrWhiteSpace(createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB.Text))
                 {
@@ -1767,16 +1799,43 @@ namespace CRM.Presentation.Product
                         createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA,
                         createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB);
                 }
+                else
+                {
+                    supplier.WholesalePricePerPallet = null;
+                }
 
-                string WholesalePricePerPalletPartA;
-                string WholesalePricePerPalletPartB;
-
+                // Only normalize and calculate if we have a complete value
                 if (supplier.WholesalePricePerPallet.HasValue)
                 {
-                    SplitDecimalHelper.SplitDecimalUsingDelimiter((decimal)supplier.WholesalePricePerPallet, out WholesalePricePerPalletPartA, out WholesalePricePerPalletPartB);
+                    // Get delivery type
+                    string deliveryType = _productSharedComponents.GetSelectedWholesaleDeliveryType(
+                        comboBox: createProductTabControlProductDetailTabPageTabControlWholesaleInformationTabPageGeneralInformationGroupBoxWholesaleDeliveryTypeComboBox);
 
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxA.Text = WholesalePricePerPalletPartA;
-                    createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerPalletTextBoxB.Text = WholesalePricePerPalletPartB;
+                    // Only proceed with calculations if we have pallet-based delivery type
+                    if (deliveryType == "Pallet - Carton" || deliveryType == "Pallet - Unit")
+                    {
+                        // Calculate derived prices
+                        var result = ProductSharedComponents.CalculateWholesalePricePerUnit(
+                            productModel: _productModel,
+                            supplier: supplier,
+                            deliveryType: deliveryType);
+
+                        if (result.Success)
+                        {
+                            // Update unit price
+                            SplitDecimalHelper.SplitDecimalUsingDelimiter(result.PricePerUnit, out string unitPartA, out string unitPartB);
+                            createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxA.Text = unitPartA;
+                            createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerUnitTextBoxB.Text = unitPartB;
+
+                            // Update carton price if applicable (for "Pallet - Carton" delivery type)
+                            if (deliveryType == "Pallet - Carton" && result.CartonPrice.HasValue)
+                            {
+                                SplitDecimalHelper.SplitDecimalUsingDelimiter(result.CartonPrice.Value, out string cartonPartA, out string cartonPartB);
+                                createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxA.Text = cartonPartA;
+                                createProductTabControlProductSupplierRelationshipTabPageWholesalePricePerCartonTextBoxB.Text = cartonPartB;
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -1820,7 +1879,7 @@ namespace CRM.Presentation.Product
 
                     // Process the conversion results and update the model
                     if (conversionResults != null)
-                    {    
+                    {
                         _productSharedComponents.ProcessUnitConversionResults(
                             conversionResults: conversionResults,
                             productModel: _productModel);
@@ -1855,7 +1914,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Active Status",                
+                ["PropertyName"] = "Product General Information: Active Status",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "activeStatus",
                 ["PropertyType"] = typeof(bool),
@@ -1896,32 +1955,6 @@ namespace CRM.Presentation.Product
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.CartonInformationCartonDepth
             });
 
-            // Carton Enabled
-            if (deliveryType == "Carton" || deliveryType == "Pallet - Carton")
-            {
-                productDetailData.Add(new Dictionary<string, object>
-                {
-                    ["AllowNullValue"] = false,
-                    ["PropertyName"] = "Product Wholesale Information: Carton Enabled",
-                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                    ["PropertyStoredProcedureParameterName"] = "wholesaleCartonEnabled",
-                    ["PropertyType"] = typeof(bool),
-                    ["PropertyValue"] = true
-                });
-            }
-            else
-            {
-                productDetailData.Add(new Dictionary<string, object>
-                {
-                    ["AllowNullValue"] = false,
-                    ["PropertyName"] = "Product Wholesale Information: Carton Enabled",
-                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                    ["PropertyStoredProcedureParameterName"] = "wholesaleCartonEnabled",
-                    ["PropertyType"] = typeof(bool),
-                    ["PropertyValue"] = false
-                });
-            }
-
             // Carton Height
             productDetailData.Add(new Dictionary<string, object>
             {
@@ -1951,7 +1984,7 @@ namespace CRM.Presentation.Product
                 ["PropertyName"] = "Product Wholesale Information: Carton Quantity Per Pallet Level",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "wholesaleCartonQuantityPerPalletLevel",
-                ["PropertyType"] = typeof(int),
+                ["PropertyType"] = typeof(byte),
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonQuantityPerPalletLevel
             });
 
@@ -1962,7 +1995,7 @@ namespace CRM.Presentation.Product
                 ["PropertyName"] = "Product Wholesale Information: Carton Stacking Height Per Pallet",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "wholesaleCartonStackingHeightPerPallet",
-                ["PropertyType"] = typeof(int),
+                ["PropertyType"] = typeof(byte),
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationCartonStackingHeightPallet
             });
 
@@ -2032,32 +2065,6 @@ namespace CRM.Presentation.Product
                 ["PropertyType"] = typeof(decimal),
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletDepth
             });
-
-            // Pallet Enabled
-            if (deliveryType == "Pallet - Carton" || deliveryType == "Pallet - Unit")
-            {
-                productDetailData.Add(new Dictionary<string, object>
-                {
-                    ["AllowNullValue"] = false,
-                    ["PropertyName"] = "Product Wholesale Information: Pallet Enabled",
-                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                    ["PropertyStoredProcedureParameterName"] = "wholesalePalletFlag",
-                    ["PropertyType"] = typeof(bool),
-                    ["PropertyValue"] = true
-                });
-            }
-            else
-            {
-                productDetailData.Add(new Dictionary<string, object>
-                {
-                    ["AllowNullValue"] = false,
-                    ["PropertyName"] = "Product Wholesale Information: Pallet Enabled",
-                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                    ["PropertyStoredProcedureParameterName"] = "wholesalePalletFlag",
-                    ["PropertyType"] = typeof(bool),
-                    ["PropertyValue"] = false
-                });
-            }
 
             // Pallet Height
             productDetailData.Add(new Dictionary<string, object>
@@ -2136,22 +2143,11 @@ namespace CRM.Presentation.Product
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationPalletWidth
             });
 
-            // Product Category Id
-            productDetailData.Add(new Dictionary<string, object>
-            {
-                ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Product Category Id",                
-                ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                ["PropertyStoredProcedureParameterName"] = "productCategoryId",
-                ["PropertyType"] = typeof(Guid),
-                ["PropertyValue"] = _productModel.ProductDetailsGeneralInformation.ProductCategoryId
-            });
-
             // Product Country Of Origin Id
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Product Country Of Origin Id",                
+                ["PropertyName"] = "Product General Information: Product Country Of Origin Id",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "productCountryOfOriginId",
                 ["PropertyType"] = typeof(Guid),
@@ -2162,7 +2158,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = true,
-                ["PropertyName"] = "Product General Information: Product Description",                
+                ["PropertyName"] = "Product General Information: Product Description",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "productDescription",
                 ["PropertyType"] = typeof(string),
@@ -2181,11 +2177,21 @@ namespace CRM.Presentation.Product
                 ["PropertyValue"] = _productModel.ProductDetailsGeneralInformation.ProductFamilyId
             });
 
+            // Product Id (Output Parameter)
+            productDetailData.Add(new Dictionary<string, object>
+            {
+                ["PropertyName"] = "Product: Product Id",
+                ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Output,
+                ["PropertyStoredProcedureParameterName"] = "productId",
+                ["PropertyType"] = typeof(Guid),
+                ["PropertyValue"] = DBNull.Value
+            });
+
             // Product Manufacturer Id
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Product Manufacturer Id",                
+                ["PropertyName"] = "Product General Information: Product Manufacturer Id",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "manufacturerId",
                 ["PropertyType"] = typeof(Guid),
@@ -2196,7 +2202,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = true,
-                ["PropertyName"] = "Product General Information: Product Manufacturer Part Number",                
+                ["PropertyName"] = "Product General Information: Product Manufacturer Part Number",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "manufacturerPartNumber",
                 ["PropertyType"] = typeof(string),
@@ -2208,7 +2214,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Product Name",                
+                ["PropertyName"] = "Product General Information: Product Name",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "productName",
                 ["PropertyType"] = typeof(string),
@@ -2220,7 +2226,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product General Information: Product Sub Category Id",                
+                ["PropertyName"] = "Product General Information: Product Sub Category Id",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "productSubCategoryId",
                 ["PropertyType"] = typeof(Guid),
@@ -2244,7 +2250,7 @@ namespace CRM.Presentation.Product
                 ["AllowNullValue"] = true,
                 ["PropertyName"] = "Product Wholesale Information: Unit Quantity Per Pallet",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
-                ["PropertyStoredProcedureParameterName"] = "wholesaleUnitQuantityPerPallet",
+                ["PropertyStoredProcedureParameterName"] = "wholesaleTotalUnitQuantityPerPallet",
                 ["PropertyType"] = typeof(int),
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitQuantityPerPallet
             });
@@ -2253,7 +2259,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Area",                
+                ["PropertyName"] = "Product Unit Information: Unit Area",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitArea",
                 ["PropertyType"] = typeof(decimal),
@@ -2264,7 +2270,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = true,
-                ["PropertyName"] = "Product Unit Information: Unit Barcode",                
+                ["PropertyName"] = "Product Unit Information: Unit Barcode",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitBarcode",
                 ["PropertyType"] = typeof(string),
@@ -2276,7 +2282,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Depth",                
+                ["PropertyName"] = "Product Unit Information: Unit Depth",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitDepthCentimeter",
                 ["PropertyType"] = typeof(decimal),
@@ -2287,7 +2293,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Height",                
+                ["PropertyName"] = "Product Unit Information: Unit Height",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitHeightCentimeter",
                 ["PropertyType"] = typeof(decimal),
@@ -2297,8 +2303,8 @@ namespace CRM.Presentation.Product
             // Unit Minimum Stock Quantity
             productDetailData.Add(new Dictionary<string, object>
             {
-                ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Minimum Stock Quantity",                
+                ["AllowNullValue"] = true,
+                ["PropertyName"] = "Product Unit Information: Unit Minimum Stock Quantity",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitMinimumStockQuantity",
                 ["PropertyType"] = typeof(int),
@@ -2309,7 +2315,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Price",                
+                ["PropertyName"] = "Product Unit Information: Unit Price",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitPrice",
                 ["PropertyType"] = typeof(decimal),
@@ -2345,15 +2351,26 @@ namespace CRM.Presentation.Product
                 ["PropertyName"] = "Product Wholesale Information: Unit Stacking Height Per Pallet",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "wholesaleUnitStackingHeightPerPallet",
-                ["PropertyType"] = typeof(int),
+                ["PropertyType"] = typeof(byte),
                 ["PropertyValue"] = _productModel.ProductDetailsWholesaleInformation.PalletInformationUnitStackingHeightPallet
+            });
+
+            // Unit Stock Quantity Held
+            productDetailData.Add(new Dictionary<string, object>
+            {
+                ["AllowNullValue"] = false,
+                ["PropertyName"] = "Product Unit Information: Unit Stock Quantity Held",
+                ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
+                ["PropertyStoredProcedureParameterName"] = "unitStockQuantityHeld",
+                ["PropertyType"] = typeof(int),
+                ["PropertyValue"] = 0
             });
 
             // Unit Volume
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Volume",                
+                ["PropertyName"] = "Product Unit Information: Unit Volume",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitVolumeCubicCentimeter",
                 ["PropertyType"] = typeof(decimal),
@@ -2364,7 +2381,7 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Weight",                
+                ["PropertyName"] = "Product Unit Information: Unit Weight",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitWeightKilogram",
                 ["PropertyType"] = typeof(decimal),
@@ -2375,18 +2392,44 @@ namespace CRM.Presentation.Product
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = false,
-                ["PropertyName"] = "Product Unit Information: Unit Width",                
+                ["PropertyName"] = "Product Unit Information: Unit Width",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "unitWidthCentimeter",
                 ["PropertyType"] = typeof(decimal),
                 ["PropertyValue"] = _productModel.ProductDetailsUnitInformation.UnitWidth
             });
 
+            // Wholesale Carton Flag
+            if (deliveryType == "Carton" || deliveryType == "Pallet - Carton")
+            {
+                productDetailData.Add(new Dictionary<string, object>
+                {
+                    ["AllowNullValue"] = false,
+                    ["PropertyName"] = "Product Wholesale Information: Wholesale Carton Flag",
+                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
+                    ["PropertyStoredProcedureParameterName"] = "wholesaleCartonFlag",
+                    ["PropertyType"] = typeof(bool),
+                    ["PropertyValue"] = true
+                });
+            }
+            else
+            {
+                productDetailData.Add(new Dictionary<string, object>
+                {
+                    ["AllowNullValue"] = false,
+                    ["PropertyName"] = "Product Wholesale Information: Wholesale Carton Flag",
+                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
+                    ["PropertyStoredProcedureParameterName"] = "wholesaleCartonFlag",
+                    ["PropertyType"] = typeof(bool),
+                    ["PropertyValue"] = false
+                });
+            }
+
             // Wholesale Delivery Type Id
             productDetailData.Add(new Dictionary<string, object>
             {
                 ["AllowNullValue"] = true,
-                ["PropertyName"] = "Product Wholesale Information: Wholesale Delivery Type Id",                
+                ["PropertyName"] = "Product Wholesale Information: Wholesale Delivery Type Id",
                 ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                 ["PropertyStoredProcedureParameterName"] = "wholesaleDeliveryTypeId",
                 ["PropertyType"] = typeof(Guid),
@@ -2414,6 +2457,32 @@ namespace CRM.Presentation.Product
                     ["PropertyName"] = "Product Wholesale Information: Wholesale Enabled",
                     ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
                     ["PropertyStoredProcedureParameterName"] = "wholesaleFlag",
+                    ["PropertyType"] = typeof(bool),
+                    ["PropertyValue"] = false
+                });
+            }
+
+            // Wholesale Pallet Flag
+            if (deliveryType == "Pallet - Carton" || deliveryType == "Pallet - Unit")
+            {
+                productDetailData.Add(new Dictionary<string, object>
+                {
+                    ["AllowNullValue"] = false,
+                    ["PropertyName"] = "Product Wholesale Information: Wholesale Pallet Flag",
+                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
+                    ["PropertyStoredProcedureParameterName"] = "wholesalePalletFlag",
+                    ["PropertyType"] = typeof(bool),
+                    ["PropertyValue"] = true
+                });
+            }
+            else
+            {
+                productDetailData.Add(new Dictionary<string, object>
+                {
+                    ["AllowNullValue"] = false,
+                    ["PropertyName"] = "Product Wholesale Information: Wholesale Pallet Flag",
+                    ["PropertyStoredProcedureParameterDirection"] = ParameterDirection.Input,
+                    ["PropertyStoredProcedureParameterName"] = "wholesalePalletFlag",
                     ["PropertyType"] = typeof(bool),
                     ["PropertyValue"] = false
                 });
@@ -2451,14 +2520,19 @@ namespace CRM.Presentation.Product
                 dataToBeProcessed: productDetailData.ToArray(),
                 operationType: DataOperationType.Create,
                 outboundStoredProcedureParameterName: "productId",
-                outputStoredProcedureParameterCapture: true,               
+                outputStoredProcedureParameterCapture: true,
                 storedProcedureName: productDetailCreateStoredProcedureName
             );
 
             // Capture Product Id
             if (createProductDetailsSuccess)
             {
-                productDetailProductId = _dataOperationsService.OutputStoredProcedureParameters["productId"] != null ? (Guid)_dataOperationsService.OutputStoredProcedureParameters["productId"] : Guid.Empty;
+                productDetailProductId = _dataOperationsService.OutputStoredProcedureParameters["productId"] switch
+                {
+                    Guid guidValue => guidValue,
+                    string stringValue when Guid.TryParse(stringValue, out var parsedGuid) => parsedGuid,
+                    _ => Guid.Empty
+                };
             }
             else
             {
@@ -2800,7 +2874,8 @@ namespace CRM.Presentation.Product
                 {
                     productSupplierRelationshipData.Clear();
                 }
-            }               
+            }
+
             this.Close();
         }
     }

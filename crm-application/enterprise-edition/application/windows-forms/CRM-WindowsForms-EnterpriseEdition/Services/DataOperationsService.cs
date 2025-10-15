@@ -7,12 +7,14 @@ namespace CRM.Services
 {
     internal class DataOperationsService
     {
+        private DatabaseEngine? _activeDatabaseEngine;
         private bool _changeValidationPassed;
         private Guid? _dataSubjectId;
         private object[]? _dataToBeProcessed;
         private bool _dataValidationPassed;
         private string? _dataSubjectName;
         private DatabaseConnectionSettings? _databaseConnectionSettings;
+        private bool _loggingEnabled;
         private UnitType? _measurementInputUnitType;
         private UnitType? _measurementOutputUnitType;
         private DataOperationType _operationType;
@@ -42,6 +44,7 @@ namespace CRM.Services
             _dataSubjectId = dataSubjectId;
             _dataSubjectName = dataSubjectName;
             _dataToBeProcessed = dataToBeProcessed;
+            _loggingEnabled = await ApplicationConfigurationService.GetLoggingEnabledAsync();
             _measurementInputUnitType = measurementInputUnitType;
             _measurementOutputUnitType = measurementOutputUnitType;
             _operationType = operationType;
@@ -86,6 +89,8 @@ namespace CRM.Services
                     await LoadDatabaseConnectionSettingsAsync();
                     await TestDatabaseConnectionSettingsAsync(_dataSubjectName);
                 }
+
+                _activeDatabaseEngine = await ApplicationConfigurationService.GetActiveDatabaseEngineAsync();
             }
 
             if (_operationType == DataOperationType.Create || 
@@ -227,17 +232,37 @@ namespace CRM.Services
 
                     if (item is Dictionary<string, object> propertyDictionary)
                     {
+                        // Handle ParameterDirection - it's already an enum, not a string
+                        ParameterDirection paramDirection = ParameterDirection.Input;
+                        if (propertyDictionary.ContainsKey("PropertyStoredProcedureParameterDirection"))
+                        {
+                            var directionValue = propertyDictionary["PropertyStoredProcedureParameterDirection"];
+                            if (directionValue is ParameterDirection enumValue)
+                            {
+                                paramDirection = enumValue;
+                            }
+                            else if (directionValue is string stringValue)
+                            {
+                                paramDirection = Enum.Parse<ParameterDirection>(stringValue);
+                            }
+                        }
+
                         var storedProcedureParameter = new StoredProcedureParameter
                         {
-                            ParameterDirection = propertyDictionary.ContainsKey("PropertyStoredProcedureParameterDirection")
-                            ? Enum.Parse<ParameterDirection>((string)propertyDictionary["PropertyStoredProcedureParameterDirection"])
-                            : ParameterDirection.Input,
+                            ParameterDirection = paramDirection,
                             ParameterName = (string)propertyDictionary.GetValueOrDefault("PropertyStoredProcedureParameterName", string.Empty),
-                            ParameterValue = propertyDictionary.GetValueOrDefault("PropertyValue", "")
+                            ParameterValue = propertyDictionary.GetValueOrDefault("PropertyValue", ""),
+                            MaxLength = propertyDictionary.ContainsKey("MaxLength") ? (int)propertyDictionary["MaxLength"] : 0
                         };
 
                         storedProcedureParameterList.Add(storedProcedureParameter);
                     }
+                }
+
+                if (_loggingEnabled)
+                {
+                    var storedProcedureCall = await StoredProcedureDebug(storedProcedureParameterList);
+                    new ApplicationLoggingService(LogAction.AppendToLogFile, storedProcedureCall);
                 }
 
                 if (_outputStoredProcedureParameterCapture == true)
@@ -283,6 +308,16 @@ namespace CRM.Services
 
                 if (item is Dictionary<string, object> propertyDictionary)
                 {
+                    // Skip validation for Output parameters
+                    if (propertyDictionary.ContainsKey("PropertyStoredProcedureParameterDirection"))
+                    {
+                        var direction = propertyDictionary["PropertyStoredProcedureParameterDirection"];
+                        if (direction is ParameterDirection paramDirection && paramDirection == ParameterDirection.Output)
+                        {
+                            continue; // Skip this parameter - it's an output parameter
+                        }
+                    }
+
                     var dataProperty = new DataValidationService.DataProperty
                     {
                         AllowNullValue = (bool)propertyDictionary.GetValueOrDefault("AllowNullValue", false),
@@ -384,6 +419,12 @@ namespace CRM.Services
                             }
                         }
 
+                        if (_loggingEnabled)
+                        {
+                            var storedProcedureCall = await StoredProcedureDebug(storedProcedureParameterList);
+                            new ApplicationLoggingService(LogAction.AppendToLogFile, storedProcedureCall);
+                        }
+
                         dataTable = await DBInterface.ExecuteSelectStoredProcedureAsync(
                             dataSubject: _dataSubjectName,
                             databaseConnectionSettings: _databaseConnectionSettings,
@@ -411,6 +452,71 @@ namespace CRM.Services
             {
                 ErrorMessageService errorMessageService = new ErrorMessageService("Error.Database.Operation.Failed", _dataSubjectName, ex.Message);
                 return dataTable;
+            }
+        }
+
+        private async Task<string> StoredProcedureDebug(List<StoredProcedureParameter> storedProcedureParameterList)
+        {
+            try
+            {
+                string parameterValueAssignment;
+                string storedProcedureCallPrefix;
+
+                var parameterStrings = storedProcedureParameterList
+                    .Select(p =>
+                    {
+                        var value = p.ParameterValue switch
+                        {
+                            DBNull => "NULL",
+                            null => "NULL",
+                            string str => $"'{str.Replace("'", "''")}'",
+                            Guid guid => $"'{guid}'",
+                            DateTime dt => $"'{dt:yyyy-MM-dd HH:mm:ss}'",
+                            bool b => b ? "1" : "0",
+                            _ => p.ParameterValue.ToString()
+                        };
+
+                        var parameterName = p.ParameterName ?? string.Empty;
+
+                        if (_activeDatabaseEngine == DatabaseEngine.AzureSQLDatabase ||
+                            _activeDatabaseEngine == DatabaseEngine.AzureSQLManagedInstance ||
+                            _activeDatabaseEngine == DatabaseEngine.MicrosoftSQLServer)
+                        {
+                            // For SQL Server, ensure parameter starts with @
+                            if (!parameterName.StartsWith("@"))
+                            {
+                                parameterValueAssignment = $"@{parameterName} = {value}";
+                            }
+                            else
+                            {
+                                parameterValueAssignment = $"{parameterName} = {value}";
+                            }
+                        }
+                        else
+                        {
+                            parameterValueAssignment = $"{parameterName} => {value}";
+                        }
+
+                        return parameterValueAssignment;
+                    });
+
+                if (_activeDatabaseEngine == DatabaseEngine.AzureSQLDatabase ||
+                    _activeDatabaseEngine == DatabaseEngine.AzureSQLManagedInstance ||
+                    _activeDatabaseEngine == DatabaseEngine.MicrosoftSQLServer)
+                {
+                    storedProcedureCallPrefix = "EXEC";
+                }
+                else
+                {
+                    storedProcedureCallPrefix = "CALL";
+                }
+
+                var storedProcedureCall = $"{storedProcedureCallPrefix} {_storedProcedureName} {string.Join(", ", parameterStrings)}";
+                return storedProcedureCall;
+            }
+            catch (Exception ex)
+            {
+                return $"-- Error generating stored procedure debug string: {ex.Message}";
             }
         }
 

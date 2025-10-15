@@ -12,6 +12,7 @@ namespace CRM.Presentation.Product
         private DataAccessListViewHelper? _dataAccessListViewHelper;
         private DataSubjectLookupResultModel? _dataSubjectProperties;
         private GeneralSharedComponents _generalSharedComponents = new GeneralSharedComponents();
+        private TranslationService _translationService = new TranslationService();
 
         public void AddProductImage(ImageList imageList, ListView listView, int maxPixelHeight, int maxPixelWidth, PictureBox pictureBox, ProductModel productModel)
         {

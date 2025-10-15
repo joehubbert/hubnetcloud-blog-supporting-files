@@ -8,7 +8,7 @@ namespace CRM.Services
         private string? _errorCode;
         private string? _errorException;
         private static readonly string ConfigFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "CRM-WindowsForms.EnterpriseEdition");
-        private static readonly string ApplicationLogFilePath = Path.Combine(ConfigFolderPath, "CRM-WindowsForms-EnterpriseEdition-Log-", $"{DateTime.UtcNow:yyyy-MM-dd}", ".txt");
+        private static string ApplicationLogFilePath => Path.Combine(ConfigFolderPath, $"CRM-WindowsForms-EnterpriseEdition-Log-{DateTime.UtcNow:yyyy-MM-dd}.txt");
 
         public ApplicationLoggingService(LogAction action, string? errorCode = null, string? errorException = null)
         {
@@ -50,7 +50,7 @@ namespace CRM.Services
             CreateLogFileIfNotExists();
             using (var streamWriter = new StreamWriter(ApplicationLogFilePath, true))
             {
-                streamWriter.WriteLine($"{DateTime.UtcNow:yyyy-MM-dd-HH-mm-ss} Error Code: {errorCode}, Exception: {errorException}");
+                streamWriter.WriteLine($"{DateTime.UtcNow:yyyy-MM-dd HH:mm:ss} - {errorCode}{(string.IsNullOrEmpty(errorException) ? "" : $" - {errorException}")}");
             }
         }
 
@@ -80,7 +80,7 @@ namespace CRM.Services
                 }
                 using (var streamWriter = new StreamWriter(ApplicationLogFilePath, true))
                 {
-                    streamWriter.WriteLine($"CRM-Forms-EnterpriseEdition Log File Created At: {DateTime.UtcNow:yyyy-MM-dd-HH-mm-ss}");
+                    streamWriter.WriteLine($"CRM-Forms-EnterpriseEdition Log File Created At: {DateTime.UtcNow:yyyy-MM-dd HH:mm:ss}");
                 }
             }
         }

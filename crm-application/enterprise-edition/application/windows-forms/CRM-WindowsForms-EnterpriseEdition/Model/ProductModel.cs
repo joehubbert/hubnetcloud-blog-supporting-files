@@ -90,10 +90,10 @@ namespace CRM.Model
         public bool? GeneralInformationWholesaleReorderOriginalValue { get; set; }
         public int? PalletInformationCartonQuantityPerPallet { get; set; }
         public int? PalletInformationCartonQuantityPerPalletOriginalValue { get; set; }
-        public int? PalletInformationCartonQuantityPerPalletLevel { get; set; }
-        public int? PalletInformationCartonQuantityPerPalletLevelOriginalValue { get; set; }
-        public int? PalletInformationCartonStackingHeightPallet { get; set; }
-        public int? PalletInformationCartonStackingHeightPalletOriginalValue { get; set; }
+        public byte? PalletInformationCartonQuantityPerPalletLevel { get; set; }
+        public byte? PalletInformationCartonQuantityPerPalletLevelOriginalValue { get; set; }
+        public byte? PalletInformationCartonStackingHeightPallet { get; set; }
+        public byte? PalletInformationCartonStackingHeightPalletOriginalValue { get; set; }
         public decimal? PalletInformationPalletArea { get; set; }
         public decimal? PalletInformationPalletAreaOriginalValue { get; set; }
         public string? PalletInformationPalletBarcode { get; set; } = string.Empty;
@@ -118,8 +118,8 @@ namespace CRM.Model
         public int? PalletInformationUnitQuantityPerPalletOriginalValue { get; set; }
         public int? PalletInformationUnitQuantityPerPalletLevel { get; set; }
         public int? PalletInformationUnitQuantityPerPalletLevelOriginalValue { get; set; }
-        public int? PalletInformationUnitStackingHeightPallet { get; set; }
-        public int? PalletInformationUnitStackingHeightPalletOriginalValue { get; set; }
+        public byte? PalletInformationUnitStackingHeightPallet { get; set; }
+        public byte? PalletInformationUnitStackingHeightPalletOriginalValue { get; set; }
     }
 
     public class ProductImageDimension

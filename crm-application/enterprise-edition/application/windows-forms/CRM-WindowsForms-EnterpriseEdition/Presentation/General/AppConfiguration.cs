@@ -737,7 +737,7 @@ namespace CRM.Presentation.General
 
             if (result == DialogResult.OK)
             {
-                new ApplicationLoggingService("ClearLogFile");
+                new ApplicationLoggingService(LogAction.ClearLogFile);
                 ErrorMessageService errorMessageService = new ErrorMessageService("Warning.LoggingService.Clear");
             }
             else
@@ -749,8 +749,8 @@ namespace CRM.Presentation.General
 
         private void appConfigurationTabControlSystemTabPageTabControlLoggingTabPageViewLogButton_Click(object sender, EventArgs e)
         {
-            new ApplicationLoggingService("CreateLogFileIfNotExists");
-            new ApplicationLoggingService("OpenLogFile");
+            new ApplicationLoggingService(LogAction.CreateLogFileIfNotExists);
+            new ApplicationLoggingService(LogAction.OpenLogFile);
         }
 
         private ApplicationConfigurationModel.ApplicationConfigurationServiceMSSQLConfiguration CreateMSSQLConfiguration()

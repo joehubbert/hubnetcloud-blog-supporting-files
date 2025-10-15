@@ -172,6 +172,14 @@
         zh
     }
 
+    public enum LogAction
+    {
+        AppendToLogFile,
+        CreateLogFileIfNotExists,
+        ClearLogFile,
+        OpenLogFile
+    }
+
     public enum ModuleGroup
     {
         CompanyManagement,

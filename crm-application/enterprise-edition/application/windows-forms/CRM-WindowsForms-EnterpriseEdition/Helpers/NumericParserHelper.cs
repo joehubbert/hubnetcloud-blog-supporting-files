@@ -2,6 +2,18 @@
 {
     public class NumericParserHelper
     {
+        public byte? ParseByte(TextBox textBox)
+        {
+            var text = TextBoxCleanerHelper.GetTrimmedText(textBox);
+            if (string.IsNullOrWhiteSpace(text))
+                return null;
+
+            if (byte.TryParse(text, out byte result))
+                return result;
+
+            return null;
+        }
+
         public decimal? ParseDecimal(TextBox textBoxA, TextBox textBoxB)
         {
             var partA = TextBoxCleanerHelper.GetTrimmedText(textBoxA);

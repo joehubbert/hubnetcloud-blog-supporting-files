@@ -20,8 +20,17 @@ namespace CRM.Interface
                 case DatabaseEngine.AzureSQLManagedInstance:
                 case DatabaseEngine.MicrosoftSQLServer:
                     return parameters.Select(p => {
-                        var sqlParam = new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value);
-                        sqlParam.Direction = p.ParameterDirection;
+                        var sqlParam = new SqlParameter("@" + p.ParameterName, p.ParameterValue ?? DBNull.Value)
+                        {
+                            Direction = p.ParameterDirection
+                        };
+                        
+                        // Set size for string/output parameters
+                        if (p.ParameterValue is string || p.ParameterDirection == ParameterDirection.Output)
+                        {
+                            sqlParam.Size = p.MaxLength > 0 ? p.MaxLength : -1; // -1 = MAX
+                        }
+                        
                         return sqlParam;
                     }).ToArray();
                 case DatabaseEngine.AzureDatabaseForMySQL:

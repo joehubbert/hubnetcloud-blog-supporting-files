@@ -14,7 +14,7 @@
 
 -- Declare Built-In Master Data Type
 DECLARE @builtInMasterDataTypeId UNIQUEIDENTIFIER
-SET @builtInMasterDataTypeId = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemAssigned] = 1)
+SET @builtInMasterDataTypeId = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemDefined] = 1)
 
 INSERT INTO #PalletPresetTemp 
 (
@@ -153,7 +153,7 @@ VALUES
 
 MERGE INTO [dbo].[PalletPreset] AS target
 USING #PalletPresetTemp AS source
-ON target.[PalletPreset] = source.[PalletPreset]
+ON target.[PalletPresetCode] = source.[PalletPresetCode]
 WHEN NOT MATCHED THEN
 INSERT
 (

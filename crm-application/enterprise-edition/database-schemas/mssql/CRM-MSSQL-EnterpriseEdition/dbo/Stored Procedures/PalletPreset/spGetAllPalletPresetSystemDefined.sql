@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllPalletPresetSystemAssigned]
+﻿CREATE PROCEDURE [dbo].[spGetAllPalletPresetSystemDefined]
 AS
 
 BEGIN

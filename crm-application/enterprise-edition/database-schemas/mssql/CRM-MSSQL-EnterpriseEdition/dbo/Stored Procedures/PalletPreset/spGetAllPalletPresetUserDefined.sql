@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllPalletPresetUserAssigned]
+﻿CREATE PROCEDURE [dbo].[spGetAllPalletPresetUserDefined]
 AS
 
 BEGIN

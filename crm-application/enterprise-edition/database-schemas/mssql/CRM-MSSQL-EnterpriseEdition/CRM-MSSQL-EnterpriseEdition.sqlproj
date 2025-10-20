@@ -823,8 +823,8 @@
     <Build Include="dbo\Stored Procedures\PalletPreset\spUpdatePalletPreset.sql" />
     <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllUserDefinedMasterDataType.sql" />
     <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllSystemDefinedMasterDataType.sql" />
-    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetSystemAssigned.sql" />
-    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetUserAssigned.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetSystemDefined.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetUserDefined.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

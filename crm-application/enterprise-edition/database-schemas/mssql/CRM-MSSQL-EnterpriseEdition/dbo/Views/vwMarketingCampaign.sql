@@ -27,7 +27,8 @@ MC.[ActiveStatus] AS [Active Status],
 MC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 MC.[CreatedBy] AS [Created By],
 MC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-MC.[ModifiedBy] AS [Modified By]
+MC.[ModifiedBy] AS [Modified By],
+MC.[RowVersion] AS [Row Version]
 FROM [dbo].[MarketingCampaign] MC
 INNER JOIN [dbo].[CompanyConfiguration] CC ON MC.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
 INNER JOIN [dbo].[MarketingCampaignType] MCT ON MC.[MarketingCampaignTypeId] = MCT.[MarketingCampaignTypeId]
@@ -51,4 +52,5 @@ MC.[ActiveStatus],
 MC.[CreatedTimestampUTC],
 MC.[CreatedBy],
 MC.[ModifiedTimestampUTC],
-MC.[ModifiedBy]
+MC.[ModifiedBy],
+MC.[RowVersion]

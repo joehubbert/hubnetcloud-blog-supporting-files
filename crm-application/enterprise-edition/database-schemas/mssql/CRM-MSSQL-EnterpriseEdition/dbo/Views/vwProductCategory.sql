@@ -10,6 +10,7 @@ PC.[ActiveStatus] AS [Active Status],
 PC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PC.[CreatedBy] AS [Created By],
 PC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-PC.[ModifiedBy] AS [Modified By]
+PC.[ModifiedBy] AS [Modified By],
+PC.[RowVersion] AS [Row Version]
 FROM [dbo].[ProductCategory] PC
 INNER JOIN [dbo].[CompanyConfiguration] CC ON PC.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

@@ -62,7 +62,8 @@ P.[ActiveStatus] AS [Active Status],
 P.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 P.[CreatedBy] AS [Created By],
 P.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-P.[ModifiedBy] AS [Modified By]
+P.[ModifiedBy] AS [Modified By],
+P.[RowVersion] AS [Row Version]
 FROM [dbo].[Product] P
 INNER JOIN [dbo].[Country] C ON P.[ProductCountryOfOriginId] = C.[CountryId]
 INNER JOIN [dbo].[Manufacturer] M ON P.[ManufacturerId] = M.[ManufacturerId]

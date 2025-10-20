@@ -11,7 +11,8 @@ LEFT(CLN.[CustomerLeadNote],50) AS [Customer Lead Note],
 CLN.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CLN.[CreatedBy] AS [Created By],
 CLN.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CLN.[ModifiedBy] AS [Modified By]
+CLN.[ModifiedBy] AS [Modified By],
+CLN.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerLeadNote] CLN
 INNER JOIN [dbo].[CustomerLeadNoteType] CLNT ON CLN.[CustomerLeadNoteTypeId] = CLNT.[CustomerLeadNoteTypeId]
 INNER JOIN [dbo].[CustomerLead] CL ON CLN.[CustomerLeadId] = CL.[CustomerLeadId]

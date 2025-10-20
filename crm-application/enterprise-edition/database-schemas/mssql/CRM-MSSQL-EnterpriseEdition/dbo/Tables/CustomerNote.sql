@@ -8,7 +8,8 @@
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
-	[ModifiedBy] NVARCHAR(50) NULL
+	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_CustomerNote_CustomerId] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_CustomerNote_CustomerNoteTypeId] FOREIGN KEY ([CustomerNoteTypeId]) REFERENCES [dbo].[CustomerNoteType]([CustomerNoteTypeId])
 )

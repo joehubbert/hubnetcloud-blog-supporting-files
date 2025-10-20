@@ -9,6 +9,7 @@ CLS.[CustomerLeadStatus] AS [Customer Lead Status],
 CLSH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CLSH.[CreatedBy] AS [Created By],
 CLSH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CLSH.[ModifiedBy] AS [Modified By]
+CLSH.[ModifiedBy] AS [Modified By],
+CLSH.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerLeadStatusHistory] CLSH
 INNER JOIN [dbo].[CustomerLeadStatus] CLS ON CLSH.[CustomerLeadStatusId] = CLS.[CustomerLeadStatusId]

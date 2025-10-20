@@ -12,7 +12,12 @@ BEGIN
 			[Order Id],
 			[Order Payment Id],
 			[Order Payment Status Id],
-			[Order Payment Status]
+			[Order Payment Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwOrderPaymentStatusHistory]
 			WHERE [Order Payment Status History Id] = @orderPaymentStatusHistoryId
 

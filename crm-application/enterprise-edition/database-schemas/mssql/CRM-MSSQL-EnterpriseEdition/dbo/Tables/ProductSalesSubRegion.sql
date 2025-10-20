@@ -10,6 +10,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_ProductSalesSubRegion_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
 	CONSTRAINT [FK_ProductSalesSubRegion_SalesSubRegionId] FOREIGN KEY ([SalesSubRegionId]) REFERENCES [dbo].[SalesSubRegion]([SalesSubRegionId]),
 	CONSTRAINT [UC_ProductSalesSubRegion_ProductId_SalesSubRegionId_EffectiveDate] UNIQUE ([ProductId], [SalesSubRegionId], [EffectiveDate])

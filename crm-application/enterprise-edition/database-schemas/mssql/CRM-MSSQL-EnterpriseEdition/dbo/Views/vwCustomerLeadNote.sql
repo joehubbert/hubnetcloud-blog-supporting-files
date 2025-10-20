@@ -10,6 +10,7 @@ CN.[CustomerLeadNote] AS [Customer Lead Note],
 CN.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CN.[CreatedBy] AS [Created By],
 CN.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CN.[ModifiedBy] AS [Modified By]
+CN.[ModifiedBy] AS [Modified By],
+CN.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerLeadNote] CN
 INNER JOIN [dbo].[CustomerLeadNoteType] CLNT ON CN.[CustomerLeadNoteTypeId] = CLNT.[CustomerLeadNoteTypeId]

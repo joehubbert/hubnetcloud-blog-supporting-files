@@ -22,7 +22,8 @@ S.[ActiveStatus] AS [Active Status],
 S.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 S.[CreatedBy] AS [Created By],
 S.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-S.[ModifiedBy] AS [Modified By]
+S.[ModifiedBy] AS [Modified By],
+S.[RowVersion] AS [Row Version]
 FROM [dbo].[Supplier] S
 INNER JOIN [dbo].[CompanyConfiguration] CC ON S.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
 INNER JOIN [dbo].[Currency] C ON S.[PaymentCurrencyId] = C.[CurrencyId]

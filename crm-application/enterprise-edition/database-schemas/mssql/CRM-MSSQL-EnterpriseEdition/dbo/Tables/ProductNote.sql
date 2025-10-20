@@ -9,6 +9,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_ProductNote_ProductId] FOREIGN KEY ([ProductId]) REFERENCES [dbo].[Product]([ProductId]),
 	CONSTRAINT [FK_ProductNote_ProductNoteTypeId] FOREIGN KEY ([ProductNoteTypeId]) REFERENCES [dbo].[ProductNoteType]([ProductNoteTypeId])
 )

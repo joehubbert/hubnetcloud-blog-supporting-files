@@ -15,7 +15,8 @@ SOLI.[LineItemTotal] AS [Total Line Item Price],
 SOLI.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SOLI.[CreatedBy] AS [Created By],
 SOLI.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-SOLI.[ModifiedBy] AS [Modified By]
+SOLI.[ModifiedBy] AS [Modified By],
+SOLI.[RowVersion] AS [Row Version]
 FROM [dbo].[SupplierOrderLineItem] SOLI
 INNER JOIN [dbo].[Product] P ON SOLI.[ProductId] = P.[ProductId]
 INNER JOIN [dbo].[SupplierOrderLineItemStatusHistory] SOLISH ON SOLI.[SupplierOrderLineItemId] = SOLISH.[SupplierOrderLineItemId]
@@ -34,4 +35,5 @@ SOLI.[LineItemTotal],
 SOLI.[CreatedTimestampUTC],
 SOLI.[CreatedBy],
 SOLI.[ModifiedTimestampUTC],
-SOLI.[ModifiedBy]
+SOLI.[ModifiedBy],
+SOLI.[RowVersion]

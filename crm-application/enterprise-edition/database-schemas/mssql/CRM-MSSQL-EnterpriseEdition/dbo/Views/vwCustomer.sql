@@ -68,7 +68,8 @@ C.[CustomerSince] AS [Customer Since],
 C.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 C.[CreatedBy] AS [Created By],
 C.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-C.[ModifiedBy] AS [Modified By]
+C.[ModifiedBy] AS [Modified By],
+C.[RowVersion] AS [Row Version]
 FROM [dbo].[Customer] C
 INNER JOIN [dbo].[AccountManager] AM ON C.[AccountManagerId] = AM.[AccountManagerId]
 INNER JOIN [dbo].[CompanyConfiguration] CC ON C.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
@@ -141,4 +142,5 @@ C.[CustomerSince],
 C.[CreatedTimestampUTC],
 C.[CreatedBy],
 C.[ModifiedTimestampUTC],
-C.[ModifiedBy]
+C.[ModifiedBy],
+C.[RowVersion]

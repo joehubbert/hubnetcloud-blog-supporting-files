@@ -9,6 +9,7 @@ OLIS.[OrderLineItemStatus] AS [Order Line Item Status],
 OLISH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 OLISH.[CreatedBy] AS [Created By],
 OLISH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-OLISH.[ModifiedBy] [Modified By]
+OLISH.[ModifiedBy] [Modified By],
+OLISH.[RowVersion] AS [Row Version]
 FROM [dbo].[OrderLineItemStatusHistory] OLISH
 INNER JOIN [dbo].[OrderLineItemStatus] OLIS ON OLISH.[OrderLineItemStatusId] = OLIS.[OrderLineItemStatusId]

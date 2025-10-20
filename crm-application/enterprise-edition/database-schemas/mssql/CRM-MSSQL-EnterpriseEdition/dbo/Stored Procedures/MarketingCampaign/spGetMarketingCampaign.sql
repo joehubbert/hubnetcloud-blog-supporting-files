@@ -33,7 +33,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwMarketingCampaign]
 			WHERE [Marketing Campaign Id] = @marketingCampaignId
 

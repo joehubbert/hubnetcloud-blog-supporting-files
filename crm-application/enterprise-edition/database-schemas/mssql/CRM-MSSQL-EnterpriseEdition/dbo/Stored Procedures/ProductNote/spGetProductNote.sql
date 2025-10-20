@@ -16,7 +16,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwProductNote]
 			WHERE [Product Note Id] = @productNoteId
 

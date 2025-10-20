@@ -41,7 +41,8 @@ BEGIN
 			[Created By],
 			[Modified Timestamp UTC],
 			[Modified By],
-			[Active Status]
+			[Active Status],
+			[Row Version]
 			FROM [dbo].[vwCompanyConfiguration]
 			WHERE [Company Configuration Id] = @companyConfigurationId
 

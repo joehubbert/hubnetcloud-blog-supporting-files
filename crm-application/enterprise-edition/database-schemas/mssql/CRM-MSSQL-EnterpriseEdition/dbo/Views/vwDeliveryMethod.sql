@@ -12,6 +12,7 @@ DM.[ActiveStatus] AS [Delivery Method Active Status],
 DM.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 DM.[CreatedBy] AS [Created By],
 DM.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-DM.[ModifiedBy] AS [Modified By]
+DM.[ModifiedBy] AS [Modified By],
+DM.[RowVersion] AS [Row Version]
 FROM [dbo].[DeliveryMethod] DM
 INNER JOIN [dbo].[TaxProfile] TP ON DM.[TaxProfileId] = TP.[TaxProfileId]

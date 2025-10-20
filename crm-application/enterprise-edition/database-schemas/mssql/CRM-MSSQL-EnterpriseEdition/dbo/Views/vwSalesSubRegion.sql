@@ -10,6 +10,7 @@ SSR.ActiveStatus AS [Active Status],
 SSR.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SSR.[CreatedBy] AS [Created By],
 SSR.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-SSR.[ModifiedBy] AS [Modified By]
+SSR.[ModifiedBy] AS [Modified By],
+SSR.[RowVersion] AS [Row Version]
 FROM [dbo].[SalesSubRegion] SSR
 INNER JOIN [dbo].[SalesRegion] SR ON SSR.[SalesRegionId] = SR.[SalesRegionId]

@@ -10,7 +10,12 @@ BEGIN
 			SELECT
 			[Supplier Order Payment Status Id],
 			[Supplier Order Payment Status],
-			[Active Status]
+			[Active Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwSupplierOrderPaymentStatus]
 			WHERE [Supplier Order Payment Status Id] = @supplierOrderPaymentStatusId
 

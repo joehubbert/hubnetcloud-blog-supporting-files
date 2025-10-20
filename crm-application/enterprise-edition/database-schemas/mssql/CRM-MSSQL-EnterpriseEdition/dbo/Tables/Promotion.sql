@@ -17,6 +17,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_Promotion_MarketingCampaignId] FOREIGN KEY ([MarketingCampaignId]) REFERENCES [dbo].[MarketingCampaign]([MarketingCampaignId]),
 	CONSTRAINT [FK_Promotion_PromotionTargetTypeId] FOREIGN KEY ([PromotionTargetTypeId]) REFERENCES [dbo].[PromotionTargetType]([PromotionTargetTypeId]),
 	CONSTRAINT [FK_Promotion_PromotionTypeId] FOREIGN KEY ([PromotionTypeId]) REFERENCES [dbo].[PromotionType]([PromotionTypeId]),

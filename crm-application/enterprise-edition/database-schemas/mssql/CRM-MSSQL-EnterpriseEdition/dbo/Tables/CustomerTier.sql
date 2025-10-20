@@ -9,6 +9,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_CustomerTier_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration] ([CompanyConfigurationId]),
     CONSTRAINT [UC_CustomerTier_CustomerTierCode] UNIQUE ([CustomerTierCode])
 )

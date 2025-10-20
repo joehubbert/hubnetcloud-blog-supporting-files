@@ -19,7 +19,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Created Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwProductImage]
 			WHERE [Product Image Id] = @productImageId
 

@@ -17,7 +17,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwCustomerType]
 			WHERE [Customer Type Id] = @customerTypeId
 

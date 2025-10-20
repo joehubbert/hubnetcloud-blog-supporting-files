@@ -35,6 +35,7 @@ CC.[ActiveStatus] AS [Active Status],
 CC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CC.[CreatedBy] AS [Created By],
 CC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CC.[ModifiedBy] AS [Modified By]
+CC.[ModifiedBy] AS [Modified By],
+CC.[RowVersion] AS [Row Version]
 FROM [dbo].[CompanyConfiguration] CC
 INNER JOIN [dbo].[Currency] C ON CC.[BankAccountCurrencyId] = C.[CurrencyId]

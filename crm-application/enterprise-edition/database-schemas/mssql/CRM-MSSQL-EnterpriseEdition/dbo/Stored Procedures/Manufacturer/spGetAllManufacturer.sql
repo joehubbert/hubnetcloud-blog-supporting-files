@@ -17,7 +17,8 @@ BEGIN
 			[Telephone Number],
 			[Email Address],
 			[VAT Registered],
-			[VAT Number]
+			[VAT Number],
+			[Active Status]
 			FROM [dbo].[vwManufacturer]
 
 		COMMIT TRANSACTION;

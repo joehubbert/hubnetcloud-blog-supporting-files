@@ -19,7 +19,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwCustomerContact]
 			WHERE [Customer Contact Id] = @customerContactId
 

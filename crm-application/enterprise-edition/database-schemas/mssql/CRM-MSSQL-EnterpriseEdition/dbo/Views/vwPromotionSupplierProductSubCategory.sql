@@ -12,7 +12,8 @@ PSC.[ProductSubCategory] AS [Product Sub Category],
 PSPSC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PSPSC.[CreatedBy] AS [Created By],
 PSPSC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-PSPSC.[ModifiedBy] AS [Modified By]
+PSPSC.[ModifiedBy] AS [Modified By],
+PSPSC.[RowVersion] AS [Row Version]
 FROM [dbo].[PromotionSupplierProductSubCategory] PSPSC
 INNER JOIN [dbo].[Supplier] S ON PSPSC.[SupplierId] = S.[SupplierId]
 INNER JOIN [dbo].[ProductSubCategory] PSC ON PSPSC.[ProductSubCategoryId] = PSC.[ProductSubCategoryId]

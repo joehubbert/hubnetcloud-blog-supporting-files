@@ -28,7 +28,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwSupplier]
 			WHERE [Supplier Id] = @supplierId
 

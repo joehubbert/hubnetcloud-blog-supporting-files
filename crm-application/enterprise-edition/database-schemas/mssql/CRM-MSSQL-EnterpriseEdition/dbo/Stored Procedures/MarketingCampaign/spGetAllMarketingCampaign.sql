@@ -28,11 +28,7 @@ BEGIN
 			[Marketing Campaign Forecasted Revenue vs Gross Revenue],
 			[Marketing Campaign Gross Revenue vs Net Revenue],
 			[Marketing Campaign Average Order Value],
-			[Active Status],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[Active Status]
 			FROM [dbo].[vwMarketingCampaign]
 
 		COMMIT TRANSACTION;

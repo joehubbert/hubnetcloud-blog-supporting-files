@@ -14,7 +14,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwWholesaleDeliveryType]
 			WHERE [Wholesale Delivery Type Id] = @wholesaleDeliveryTypeId
 

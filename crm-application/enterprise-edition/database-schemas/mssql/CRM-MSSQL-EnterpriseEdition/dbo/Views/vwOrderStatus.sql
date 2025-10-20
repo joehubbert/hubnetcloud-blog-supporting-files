@@ -8,5 +8,6 @@ SELECT
 [CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],
 [ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-[ModifiedBy] AS [Modified By]
+[ModifiedBy] AS [Modified By],
+[RowVersion] AS [Row Version]
 FROM [dbo].[OrderStatus]

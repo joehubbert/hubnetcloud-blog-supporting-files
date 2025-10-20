@@ -21,7 +21,8 @@ P.[ActiveStatus] AS [Active Status],
 P.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 P.[CreatedBy] AS [Created By],
 P.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-P.[ModifiedBy] AS [Modified By]
+P.[ModifiedBy] AS [Modified By],
+P.[RowVersion] AS [Row Version]
 FROM [dbo].[Promotion] P
 INNER JOIN [dbo].[MarketingCampaign] MC ON P.[MarketingCampaignId] = MC.[MarketingCampaignId]
 INNER JOIN [dbo].[PromotionTargetType] PTT ON P.[PromotionTargetTypeId] = PTT.[PromotionTargetTypeId]

@@ -16,7 +16,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwProductFamily]
 			WHERE [Product Family Id] = @productFamilyId
 

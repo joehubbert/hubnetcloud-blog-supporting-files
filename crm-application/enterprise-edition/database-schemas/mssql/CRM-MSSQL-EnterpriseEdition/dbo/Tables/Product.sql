@@ -54,6 +54,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_Product_ManufacturerId] FOREIGN KEY ([ManufacturerId]) REFERENCES [dbo].[Manufacturer]([ManufacturerId]),
     CONSTRAINT [FK_Product_ProductCountryOfOriginId] FOREIGN KEY ([ProductCountryOfOriginId]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [FK_Product_ProductFamilyId] FOREIGN KEY ([ProductFamilyId]) REFERENCES [dbo].[ProductFamily]([ProductFamilyId]),

@@ -14,7 +14,12 @@ BEGIN
 			[Product Name],
 			[Delivery Method],
 			[Shipping Date],
-			[Delivery Date]
+			[Delivery Date],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwOrderLineItemDelivery]
 			WHERE [Order Line Item Delivery Id] = @orderLineItemDeliveryId
 

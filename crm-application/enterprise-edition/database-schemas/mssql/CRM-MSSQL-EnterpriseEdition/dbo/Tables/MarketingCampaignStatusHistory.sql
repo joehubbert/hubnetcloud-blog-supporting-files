@@ -7,6 +7,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_MarketingCampaignStatusHistory_MarketingCampaignId] FOREIGN KEY ([MarketingCampaignId]) REFERENCES [dbo].[MarketingCampaign]([MarketingCampaignId]),
     CONSTRAINT [FK_MarketingCampaignStatusHistory_MarketingCampaignStatusId] FOREIGN KEY ([MarketingCampaignStatusId]) REFERENCES [dbo].[MarketingCampaignStatus]([MarketingCampaignStatusId])
 )

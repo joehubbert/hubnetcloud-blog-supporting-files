@@ -10,7 +10,12 @@ BEGIN
 			SELECT
 			[Marketing Campaign Status Id],
 			[Marketing Campaign Status],
-			[Active Status]
+			[Active Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwMarketingCampaignStatus]
 			WHERE [Marketing Campaign Status Id] = @marketingCampaignStatusId;
 

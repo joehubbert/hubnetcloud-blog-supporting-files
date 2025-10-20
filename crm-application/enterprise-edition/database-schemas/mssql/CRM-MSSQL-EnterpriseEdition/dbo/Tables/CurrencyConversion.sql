@@ -13,6 +13,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_CurrencyConversion_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
 	CONSTRAINT [FK_CurrencyConversion_BaseCurrencyId] FOREIGN KEY ([BaseCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
 	CONSTRAINT [FK_CurrencyConversion_TargetCurrencyId] FOREIGN KEY ([TargetCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),

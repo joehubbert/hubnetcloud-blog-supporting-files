@@ -32,6 +32,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_CompanyConfiguration_AddressLine5] FOREIGN KEY ([AddressLine5]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [FK_CompanyConfiguration_BankAccountAddressLine5] FOREIGN KEY ([BankAccountAddressLine5]) REFERENCES [dbo].[Country]([CountryId]),
     CONSTRAINT [FK_CompanyConfiguration_BankAccountCurrencyId] FOREIGN KEY ([BankAccountCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),

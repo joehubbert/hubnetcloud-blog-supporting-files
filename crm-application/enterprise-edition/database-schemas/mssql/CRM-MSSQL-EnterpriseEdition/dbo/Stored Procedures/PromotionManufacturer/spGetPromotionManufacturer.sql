@@ -16,7 +16,8 @@ BEGIN
 			[Created Timestmap],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwPromotionManufacturer]
 			WHERE [Promotion Manufacturer Id] = @promotionManufacturerId
 

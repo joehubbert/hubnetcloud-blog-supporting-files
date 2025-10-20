@@ -12,7 +12,8 @@ CC.[LastName] AS [Customer Contact Last Name],
 CL.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CL.[CreatedBy] AS [Created By],
 CL.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CL.[ModifiedBy] AS [Modified By]
+CL.[ModifiedBy] AS [Modified By],
+CL.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerLead] CL
 INNER JOIN [dbo].[CustomerLeadType] CLT ON CL.[CustomerLeadTypeId] = CLT.[CustomerLeadTypeId]
 LEFT JOIN [dbo].[CustomerContact] CC ON CL.[CustomerContactId] = CC.[CustomerContactId]

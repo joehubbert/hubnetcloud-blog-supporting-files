@@ -12,7 +12,12 @@ BEGIN
 		[Supplier Order Id],
 		[Payment Method Id],
 		[Payment Method],
-		[Payment Amount]
+		[Payment Amount],
+		[Created Timestamp UTC],
+		[Created By],
+		[Modified Timestamp UTC],
+		[Modified By],
+		[Row Version]
 		FROM [dbo].[vwSupplierOrderPayment]
 		WHERE [Supplier Order Id] = @supplierOrderPaymentId
 

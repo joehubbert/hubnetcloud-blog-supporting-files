@@ -9,6 +9,7 @@ SOS.[SupplierOrderStatus] AS [Supplier Order Status],
 SOSH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SOSH.[CreatedBy] AS [Created By],
 SOSH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-SOSH.[ModifiedBy] AS [Modified By]
+SOSH.[ModifiedBy] AS [Modified By],
+SOSH.[RowVersion] AS [Row Version]
 FROM [dbo].[SupplierOrderStatusHistory] SOSH
 INNER JOIN [dbo].[SupplierOrderStatus] SOS ON SOSH.[SupplierOrderStatusId] = SOS.[SupplierOrderStatusId]

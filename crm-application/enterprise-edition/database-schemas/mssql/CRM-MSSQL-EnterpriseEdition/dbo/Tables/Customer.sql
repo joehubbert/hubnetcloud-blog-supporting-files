@@ -47,6 +47,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [CC_Customer_GlobalParent_TopParent] CHECK (NOT ([GlobalParentCustomer] = 1 AND [TopParentCustomer] = 1)),
     CONSTRAINT [FK_Customer_GlobalParentCustomerId] FOREIGN KEY ([GlobalParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
     CONSTRAINT [FK_Customer_TopParentCustomerId] FOREIGN KEY ([TopParentCustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),

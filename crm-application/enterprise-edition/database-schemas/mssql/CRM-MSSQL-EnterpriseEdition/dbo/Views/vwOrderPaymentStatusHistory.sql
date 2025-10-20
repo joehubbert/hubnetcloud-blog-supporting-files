@@ -10,7 +10,8 @@ OPS.[OrderPaymentStatus] AS [Order Payment Status],
 OPSH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 OPSH.[CreatedBy] AS [Created By],
 OPSH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-OPSH.[ModifiedBy] AS [Modified By]
+OPSH.[ModifiedBy] AS [Modified By],
+OPSH.[RowVersion] AS [Row Version]
 FROM [dbo].[OrderPaymentStatusHistory] OPSH
 INNER JOIN [dbo].[OrderPayment] OP ON OPSH.[OrderPaymentId] = OP.[OrderPaymentId]
 INNER JOIN [dbo].[OrderPaymentStatus] OPS ON OPSH.[OrderPaymentStatusId] = OPS.[OrderPaymentStatusId]

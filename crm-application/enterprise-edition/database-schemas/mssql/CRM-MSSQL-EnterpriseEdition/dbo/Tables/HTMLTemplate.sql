@@ -10,6 +10,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_HTMLTemplate_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration] ([CompanyConfigurationId]),
     CONSTRAINT [FK_HTMLTemplate_HTMLTemplateType] FOREIGN KEY ([HTMLTemplateTypeId]) REFERENCES [dbo].[HTMLTemplateType] ([HTMLTemplateTypeId])
 )

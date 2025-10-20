@@ -9,6 +9,7 @@ SOLIS.[SupplierOrderLineItemStatus] AS [Supplier Order Line Item Status],
 SOLISH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SOLISH.[CreatedBy] AS [Created By],
 SOLISH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-SOLISH.[ModifiedBy] [Modified By]
+SOLISH.[ModifiedBy] [Modified By],
+SOLISH.[RowVersion] AS [Row Version]
 FROM [dbo].[SupplierOrderLineItemStatusHistory] SOLISH
 INNER JOIN [dbo].[SupplierOrderLineItemStatus] SOLIS ON SOLISH.[SupplierOrderLineItemStatusId] = SOLIS.[SupplierOrderLineItemStatusId]

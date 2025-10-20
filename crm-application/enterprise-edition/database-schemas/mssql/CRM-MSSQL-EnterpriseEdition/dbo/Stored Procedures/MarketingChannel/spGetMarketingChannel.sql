@@ -10,7 +10,12 @@ BEGIN
 			SELECT
 			[Marketing Channel Id],
 			[Marketing Channel],
-			[Active Status]
+			[Active Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwMarketingChannel]
 			WHERE [Marketing Channel Id] = @marketingChannelId
 

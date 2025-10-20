@@ -11,6 +11,7 @@ CT.[ActiveStatus] AS [Active Status],
 CT.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CT.[CreatedBy] AS [Created By],
 CT.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CT.[ModifiedBy] AS [Modified By]
+CT.[ModifiedBy] AS [Modified By],
+CT.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerTier] CT
 INNER JOIN [dbo].[CompanyConfiguration] CC ON CT.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

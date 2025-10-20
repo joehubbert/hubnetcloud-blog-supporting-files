@@ -7,6 +7,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+    [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_CustomerLeadStatusHistory_CustomerLeadId] FOREIGN KEY ([CustomerLeadId]) REFERENCES [dbo].[CustomerLead]([CustomerLeadId]),
     CONSTRAINT [FK_CustomerLeadStatusHistory_CustomerLeadStatusId] FOREIGN KEY ([CustomerLeadStatusId]) REFERENCES [dbo].[CustomerLeadStatus]([CustomerLeadStatusId])
 )

@@ -18,7 +18,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwPromotionManufacturerProductSubCategory]
 			WHERE [Promotion Manufacturer Product Sub Category Id] = @promotionManufacturerProductSubCategoryId
 

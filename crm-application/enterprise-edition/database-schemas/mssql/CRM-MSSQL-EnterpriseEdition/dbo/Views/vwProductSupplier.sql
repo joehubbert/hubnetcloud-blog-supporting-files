@@ -15,7 +15,8 @@ PS.[SupplierProductCode] AS [Supplier Product Code],
 PS.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 PS.[CreatedBy] AS [Created By],
 PS.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-PS.[ModifiedBy] AS [Modified By]
+PS.[ModifiedBy] AS [Modified By],
+PS.[RowVersion] AS [Row Version]
 FROM [dbo].[ProductSupplier] PS
 INNER JOIN [dbo].[Product] P ON PS.[ProductId] = P.[ProductId]
 INNER JOIN [dbo].[Supplier] S ON PS.[SupplierId] = S.[SupplierId]

@@ -2,18 +2,19 @@
 AS
 
 SELECT
-    SO.[SupplierOrderId] AS [Supplier Order Id],
-    SO.[InternalReference] AS [Supplier Order Internal Reference],
-    S.[SupplierId] AS [Supplier Id],
-    S.[SupplierName] AS [Supplier Name], 
-    SOS.[SupplierOrderStatus] AS [Supplier Order Status],
-    PM.[PaymentMethod] AS [Payment Method],
-    VSOV.[TotalOrderValue] AS [Total Order Value],
-    CUR.[CurrencyCode] AS [Currency Code],
-    SO.[CreatedTimestampUTC] AS [Created Timestamp UTC],
-    SO.[CreatedBy] AS [Created By],
-    SO.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-    SO.[ModifiedBy] AS [Modified By]
+SO.[SupplierOrderId] AS [Supplier Order Id],
+SO.[InternalReference] AS [Supplier Order Internal Reference],
+S.[SupplierId] AS [Supplier Id],
+S.[SupplierName] AS [Supplier Name], 
+SOS.[SupplierOrderStatus] AS [Supplier Order Status],
+PM.[PaymentMethod] AS [Payment Method],
+VSOV.[TotalOrderValue] AS [Total Order Value],
+CUR.[CurrencyCode] AS [Currency Code],
+SO.[CreatedTimestampUTC] AS [Created Timestamp UTC],
+SO.[CreatedBy] AS [Created By],
+SO.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
+SO.[ModifiedBy] AS [Modified By],
+SO.[RowVersion] AS [Row Version]
 FROM [dbo].[SupplierOrder] SO
 INNER JOIN [dbo].[Supplier] S ON SO.[SupplierId] = S.[SupplierId]
 INNER JOIN [dbo].[Currency] CUR ON S.[PaymentCurrencyId] = CUR.[CurrencyId]

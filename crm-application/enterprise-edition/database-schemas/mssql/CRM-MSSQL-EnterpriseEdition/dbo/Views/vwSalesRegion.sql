@@ -10,6 +10,7 @@ SR.[ActiveStatus] AS [Active Status],
 SR.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 SR.[CreatedBy] AS [Created By],
 SR.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-SR.[ModifiedBy] AS [Modified By]
+SR.[ModifiedBy] AS [Modified By],
+SR.[RowVersion] AS [Row Version]
 FROM [dbo].[SalesRegion] SR
 INNER JOIN [dbo].[CompanyConfiguration] CC ON SR.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

@@ -30,7 +30,8 @@ BEGIN
 			[Global Parent Customer],
 			[Top Parent Customer],
 			[Active Status],
-			[Customer Since]
+			[Customer Since],
+			[Row Version]
 			FROM [dbo].[vwCustomer]
 
 		COMMIT TRANSACTION;

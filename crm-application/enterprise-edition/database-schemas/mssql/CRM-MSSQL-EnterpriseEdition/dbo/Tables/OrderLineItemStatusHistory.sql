@@ -7,6 +7,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_OrderLineItemStatusHistory_OrderLineItemId] FOREIGN KEY ([OrderLineItemId]) REFERENCES [dbo].[OrderLineItem]([OrderLineItemId]),
 	CONSTRAINT [FK_OrderLineItemStatusHistory_OrderLineItemStatusId] FOREIGN KEY ([OrderLineItemStatusId]) REFERENCES [dbo].[OrderLineItemStatus]([OrderLineItemStatusId])
 )

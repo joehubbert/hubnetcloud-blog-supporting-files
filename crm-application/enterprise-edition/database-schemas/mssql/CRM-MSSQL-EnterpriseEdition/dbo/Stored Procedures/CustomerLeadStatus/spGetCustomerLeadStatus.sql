@@ -10,7 +10,12 @@ BEGIN
 			SELECT
 			[Customer Lead Status Id],
 			[Customer Lead Status],
-			[Active Status]
+			[Active Status],
+			[Created Timestamp UTC],
+			[Created By],
+			[Modified Timestamp UTC],
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwCustomerLeadStatus]
 			WHERE [Customer Lead Status Id] = @customerLeadStatusId
 

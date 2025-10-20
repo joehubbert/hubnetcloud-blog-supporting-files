@@ -24,7 +24,8 @@ OLI.[LineItemTotal] AS [Total Line Item Price],
 OLI.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 OLI.[CreatedBy] AS [Created By],
 OLI.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-OLI.[ModifiedBy] AS [Modified By]
+OLI.[ModifiedBy] AS [Modified By],
+OLI.[RowVersion] AS [Row Version]
 FROM [dbo].[OrderLineItem] OLI
 INNER JOIN [dbo].[OrderLineItemStatusHistory] OLISH ON OLI.[OrderLineItemId] = OLISH.[OrderLineItemId]
 INNER JOIN [dbo].[OrderLineItemStatus] OLIS ON OLISH.[OrderLineItemStatusId] = OLIS.[OrderLineItemStatusId]
@@ -55,4 +56,5 @@ OLI.[LineItemTotal],
 OLI.[CreatedTimestampUTC],
 OLI.[CreatedBy],
 OLI.[ModifiedTimestampUTC],
-OLI.[ModifiedBy]
+OLI.[ModifiedBy],
+OLI.[RowVersion]

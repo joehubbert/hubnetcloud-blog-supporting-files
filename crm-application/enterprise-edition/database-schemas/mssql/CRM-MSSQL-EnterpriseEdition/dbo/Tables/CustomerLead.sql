@@ -12,6 +12,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_CustomerLead_Customer] FOREIGN KEY ([CustomerId]) REFERENCES [dbo].[Customer]([CustomerId]),
 	CONSTRAINT [FK_CustomerLead_CustomerContact] FOREIGN KEY ([CustomerContactId]) REFERENCES [dbo].[CustomerContact]([CustomerContactId]),
 	CONSTRAINT [FK_CustomerLead_CustomerLeadType] FOREIGN KEY ([CustomerLeadTypeId]) REFERENCES [dbo].[CustomerLeadType]([CustomerLeadTypeId]),

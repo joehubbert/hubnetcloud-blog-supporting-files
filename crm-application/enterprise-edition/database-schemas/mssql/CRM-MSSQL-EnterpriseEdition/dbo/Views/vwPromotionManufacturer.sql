@@ -10,7 +10,8 @@ M.[ManufacturerName] AS [Manufacturer Name],
 PM.[CreatedTimestampUTC] AS [Created Timestmap],
 PM.[CreatedBy] AS [Created By],
 PM.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-PM.[ModifiedBy] AS [Modified By]
+PM.[ModifiedBy] AS [Modified By],
+PM.[RowVersion] AS [Row Version]
 FROM [dbo].[PromotionManufacturer] PM
 INNER JOIN [dbo].[Manufacturer] M ON PM.[ManufacturerId] = M.[ManufacturerId]
 INNER JOIN [dbo].[Promotion] P ON PM.[PromotionId] = P.[PromotionId]

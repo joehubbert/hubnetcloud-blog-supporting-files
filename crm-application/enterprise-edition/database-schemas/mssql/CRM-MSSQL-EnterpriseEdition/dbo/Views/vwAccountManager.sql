@@ -13,6 +13,7 @@ AM.[ActiveStatus] AS [Active Status],
 AM.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 AM.[CreatedBy] AS [Created By],
 AM.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-AM.[ModifiedBy] AS [Modified By]
+AM.[ModifiedBy] AS [Modified By],
+AM.[RowVersion] AS [Row Version]
 FROM [dbo].[AccountManager] AM
 INNER JOIN [dbo].[CompanyConfiguration] CC ON AM.[CompanyConfigurationId] = CC.[CompanyConfigurationId]

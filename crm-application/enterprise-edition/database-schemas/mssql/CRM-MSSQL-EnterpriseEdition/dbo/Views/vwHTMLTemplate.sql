@@ -11,6 +11,7 @@ HTMLT.[HTMLTemplate] AS [HTML Template],
 HTMLT.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 HTMLT.[CreatedBy] AS [Created By],
 HTMLT.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-HTMLT.[ModifiedBy] AS [Modified By]
+HTMLT.[ModifiedBy] AS [Modified By],
+HTMLT.[RowVersion] AS [Row Version]
 FROM [dbo].[HTMLTemplate] HTMLT
 INNER JOIN [dbo].[HTMLTemplateType] HTMLTT ON HTMLT.[HTMLTemplateTypeId] = HTMLTT.[HTMLTemplateTypeId]

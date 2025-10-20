@@ -9,7 +9,8 @@ MCS.[MarketingCampaignStatus] AS [Marketing Campaign Status],
 MCSH.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 MCSH.[CreatedBy] AS [Created By],
 MCSH.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-MCSH.[ModifiedBy] AS [Modified By]
+MCSH.[ModifiedBy] AS [Modified By],
+MCSH.[RowVersion] AS [Row Version]
 FROM [dbo].[MarketingCampaignStatusHistory] MCSH
 INNER JOIN [dbo].[MarketingCampaign] MCA ON MCSH.[MarketingCampaignId] = MCA.[MarketingCampaignId]
 INNER JOIN [dbo].[MarketingCampaignStatus] MCS ON MCSH.[MarketingCampaignStatusId] = MCS.[MarketingCampaignStatusId]

@@ -23,7 +23,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwCustomerLead]
 			WHERE [Customer Lead Id] = @customerLeadId
 

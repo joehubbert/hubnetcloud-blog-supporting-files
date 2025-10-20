@@ -19,7 +19,8 @@ CC.[ActiveStatus] AS [Active Status],
 CC.[CreatedTimestampUTC] AS [Created Timestamp UTC],
 CC.[CreatedBy] AS [Created By],
 CC.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-CC.[ModifiedBy] AS [Modified By]
+CC.[ModifiedBy] AS [Modified By],
+CC.[RowVersion] AS [Row Version]
 FROM [dbo].[CurrencyConversion] CC
 INNER JOIN [dbo].[Currency] CURA ON CC.[BaseCurrencyId] = CURA.[CurrencyId]
 INNER JOIN [dbo].[Currency] CURB ON CC.[TargetCurrencyId] = CURB.[CurrencyId]

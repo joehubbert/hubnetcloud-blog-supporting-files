@@ -16,6 +16,7 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
+	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_MarketingCampaign_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
 	CONSTRAINT [FK_MarketingCampaign_MarketingCampaignTypeId] FOREIGN KEY ([MarketingCampaignTypeId]) REFERENCES [dbo].[MarketingCampaignType]([MarketingCampaignTypeId])
 )

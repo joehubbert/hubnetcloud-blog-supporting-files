@@ -12,4 +12,8 @@ FROM [dbo].[OrderLineItem] OLI
 INNER JOIN [dbo].[Order] O ON OLI.[OrderId] = O.[OrderId]
 INNER JOIN [dbo].[OrderType] OT ON O.[OrderTypeId] = OT.[OrderTypeId]
 INNER JOIN [dbo].[vwOrderValue] VOV ON OLI.[OrderId] = VOV.[OrderId]
-GROUP BY O.[OrderId], OLI.[ProductId], OT.[OrderTypeId], OT.[OrderType]
+GROUP BY
+O.[OrderId],
+OLI.[ProductId],
+OT.[OrderTypeId],
+OT.[OrderType]

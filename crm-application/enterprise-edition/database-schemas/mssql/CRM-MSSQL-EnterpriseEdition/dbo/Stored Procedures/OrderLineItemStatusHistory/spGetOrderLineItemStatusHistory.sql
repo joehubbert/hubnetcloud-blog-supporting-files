@@ -15,7 +15,8 @@ BEGIN
 			[Created Timestamp UTC],
 			[Created By],
 			[Modified Timestamp UTC],
-			[Modified By]
+			[Modified By],
+			[Row Version]
 			FROM [dbo].[vwOrderLineItemStatusHistory]
 			WHERE [Order Line Item Status History Id] = @orderLineItemStatusHistoryId
 

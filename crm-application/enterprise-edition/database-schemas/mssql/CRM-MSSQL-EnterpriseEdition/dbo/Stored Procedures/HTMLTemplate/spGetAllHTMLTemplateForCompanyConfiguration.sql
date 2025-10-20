@@ -13,11 +13,7 @@ BEGIN
 			[HTML Template Title],
 			[HTML Template Type Id],
 			[HTML Template Type],
-			[HTML Template],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By]
+			[HTML Template]
 			FROM [dbo].[vwHTMLTemplate]
 			WHERE [Company Configuration Id] = @companyConfigurationId;
 

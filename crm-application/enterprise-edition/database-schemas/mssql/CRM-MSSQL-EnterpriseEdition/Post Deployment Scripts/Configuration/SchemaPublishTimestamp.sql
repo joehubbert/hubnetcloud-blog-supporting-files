@@ -1,4 +1,4 @@
-﻿DECLARE @publishTimestamp DATETIME2 = GETUTCDATE();
+﻿DECLARE @publishTimestamp DATETIME2 = SYSUTCDATETIME();
 
 IF EXISTS (
     SELECT 1 FROM sys.extended_properties 

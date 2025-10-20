@@ -7,7 +7,7 @@
     [OrderFriendlyId] NVARCHAR(20) NOT NULL,
     [PurchaseOrderNumber] NVARCHAR(50) NULL,
     [InternalReference] NVARCHAR(50) NULL,
-    [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -27,7 +27,7 @@ BEGIN
 
     UPDATE [dbo].[Order]
     SET 
-        [ModifiedTimestampUTC] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = SYSUTCDATETIME(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[Order] o

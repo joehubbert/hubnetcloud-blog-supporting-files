@@ -16,7 +16,7 @@ BEGIN
 			)
 
 			DECLARE @orderInvoiceDate DATE
-			SET @orderInvoiceDate = GETUTCDATE();
+			SET @orderInvoiceDate = SYSUTCDATETIME();
 
 			DECLARE @orderInvoiceFriendlyId NVARCHAR(30)
 			DECLARE @orderInvoiceFriendlyIdNextSequence NVARCHAR(3)

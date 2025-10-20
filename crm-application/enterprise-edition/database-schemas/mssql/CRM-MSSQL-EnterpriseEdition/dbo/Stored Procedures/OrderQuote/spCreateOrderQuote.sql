@@ -16,7 +16,7 @@ BEGIN
 			)
 
 			DECLARE @orderQuoteDate DATE
-			SET @orderQuoteDate = GETUTCDATE();
+			SET @orderQuoteDate = SYSUTCDATETIME();
 
 			DECLARE @orderQuoteFriendlyId NVARCHAR(30)
 			DECLARE @orderQuoteFriendlyIdNextSequence NVARCHAR(3)

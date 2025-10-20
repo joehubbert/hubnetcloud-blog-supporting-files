@@ -5,7 +5,7 @@
     [SupplierNoteTitle] NVARCHAR(50) NOT NULL,
     [SupplierNoteTypeId] UNIQUEIDENTIFIER NOT NULL,
 	[SupplierNote] NVARCHAR(4000) NOT NULL,
-	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -24,7 +24,7 @@ BEGIN
 
     UPDATE [dbo].[SupplierNote]
     SET 
-        [ModifiedTimestampUTC] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = SYSUTCDATETIME(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[SupplierNote] sn

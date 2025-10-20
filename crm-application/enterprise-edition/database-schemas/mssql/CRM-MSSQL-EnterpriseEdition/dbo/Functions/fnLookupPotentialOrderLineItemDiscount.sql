@@ -18,7 +18,7 @@ RETURNS @result TABLE
 )
 AS
 BEGIN
-    DECLARE @currentUTCTimestampUTC DATETIME2 = GETUTCDATE();
+    DECLARE @currentUTCTimestampUTC DATETIME2 = SYSUTCDATETIME();
     DECLARE @discount DECIMAL(5,2) = 0.00;
     DECLARE @finalLineItemTotal MONEY;
     DECLARE @numGroups INT;

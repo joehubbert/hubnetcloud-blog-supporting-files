@@ -6,7 +6,7 @@
     [HTMLTemplateTitle] NVARCHAR(50) NOT NULL,
 	[HTMLTemplate] NVARCHAR(MAX) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
-	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -25,7 +25,7 @@ BEGIN
 
     UPDATE [dbo].[HTMLTemplate]
     SET 
-        [ModifiedTimestampUTC] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = SYSUTCDATETIME(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[HTMLTemplate] htmlt

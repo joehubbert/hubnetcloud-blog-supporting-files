@@ -28,4 +28,4 @@ INNER JOIN [dbo].[MarketingCampaign] MC ON P.[MarketingCampaignId] = MC.[Marketi
 INNER JOIN [dbo].[PromotionTargetType] PTT ON P.[PromotionTargetTypeId] = PTT.[PromotionTargetTypeId]
 INNER JOIN [dbo].[PromotionType] PT ON P.[PromotionTypeId] = PT.[PromotionTypeId]
 WHERE P.[ActiveStatus] = 1
-AND GETUTCDATE() BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]
+AND SYSUTCDATETIME() BETWEEN P.[PromotionStartTimestampUTC] AND P.[PromotionEndTimestampUTC]

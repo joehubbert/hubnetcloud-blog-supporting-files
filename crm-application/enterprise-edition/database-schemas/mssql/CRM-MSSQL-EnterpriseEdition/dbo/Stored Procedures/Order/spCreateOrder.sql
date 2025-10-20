@@ -17,7 +17,7 @@ BEGIN
 			);
 
 			DECLARE @orderDate DATE
-			SET @orderDate = GETUTCDATE()
+			SET @orderDate = SYSUTCDATETIME()
 
 			DECLARE @orderFriendlyId NVARCHAR(20)
 			DECLARE @orderFriendlyIdNextSequence NVARCHAR(6)

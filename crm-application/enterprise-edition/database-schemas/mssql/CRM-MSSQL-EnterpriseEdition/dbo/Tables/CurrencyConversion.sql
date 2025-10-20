@@ -9,7 +9,7 @@
 	[EffectiveDate] DATE NOT NULL,
 	[ExpiryDate] DATE NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -19,9 +19,9 @@
 	CONSTRAINT [FK_CurrencyConversion_TargetCurrencyId] FOREIGN KEY ([TargetCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
 	CONSTRAINT [CC_CurrencyConversion_BaseCurrencyConversionRate] CHECK ([BaseCurrencyConversionRate] = 1),
 	CONSTRAINT [CC_CurrencyConversion_TargetCurrencyConversionRate] CHECK ([TargetCurrencyConversionRate] > 0),
-	CONSTRAINT [CC_CurrencyConversion_EffectiveDate] CHECK ([EffectiveDate] <= GETUTCDATE()),
+	CONSTRAINT [CC_CurrencyConversion_EffectiveDate] CHECK ([EffectiveDate] <= SYSUTCDATETIME()),
 	CONSTRAINT [CC_CurrencyConversion_ExpiryDate] CHECK (
-		([ExpiryDate] IS NULL OR [ExpiryDate] > GETUTCDATE())
+		([ExpiryDate] IS NULL OR [ExpiryDate] > SYSUTCDATETIME())
 		AND ([EffectiveDate] < [ExpiryDate])),
 	CONSTRAINT [UC_CurrencyConversion_Unique] UNIQUE (
 		[BaseCurrencyId], [TargetCurrencyId], [EffectiveDate], [ExpiryDate]
@@ -42,7 +42,7 @@ BEGIN
 
     UPDATE [dbo].[CurrencyConversion]
     SET 
-        [ModifiedTimestampUTC] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = SYSUTCDATETIME(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[CurrencyConversion] cc

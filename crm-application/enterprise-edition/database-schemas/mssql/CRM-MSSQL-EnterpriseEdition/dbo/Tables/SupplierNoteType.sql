@@ -3,7 +3,7 @@
 	[SupplierNoteTypeId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[SupplierNoteType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -20,11 +20,11 @@ BEGIN
 	SET NOCOUNT ON;
 	UPDATE [dbo].[SupplierNoteType]
 	SET 
-		[ModifiedTimestampUTC] = GETUTCDATE(),
+		[ModifiedTimestampUTC] = SYSUTCDATETIME(),
 		[ModifiedBy] = SUSER_SNAME()
 	FROM 
-		[dbo].[SupplierNoteType] cnt
+		[dbo].[SupplierNoteType] snt
 	INNER JOIN 
-		inserted i ON cnt.[SupplierNoteTypeId] = i.[SupplierNoteTypeId];
+		inserted i ON snt.[SupplierNoteTypeId] = i.[SupplierNoteTypeId];
 END
 GO

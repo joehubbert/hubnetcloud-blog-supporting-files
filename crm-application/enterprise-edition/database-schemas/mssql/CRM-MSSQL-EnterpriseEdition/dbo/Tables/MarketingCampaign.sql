@@ -12,7 +12,7 @@
 	[ActualCost] MONEY NULL,
 	[ForecastedRevenue] MONEY NOT NULL,
 	[ActiveStatus] BIT NOT NULL,
-	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
@@ -31,7 +31,7 @@ BEGIN
 
     UPDATE [dbo].[MarketingCampaign]
     SET 
-        [ModifiedTimestampUTC] = GETUTCDATE(),
+        [ModifiedTimestampUTC] = SYSUTCDATETIME(),
         [ModifiedBy] = SUSER_SNAME()
     FROM 
         [dbo].[MarketingCampaign] mc

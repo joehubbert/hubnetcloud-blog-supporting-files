@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCurrency]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@currencyCode NCHAR(3),
 	@currencyId UNIQUEIDENTIFIER,
-	@currencyName NVARCHAR(50)
+	@currencyName NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -13,8 +15,10 @@ BEGIN
 			UPDATE [dbo].[Currency]
 			SET
 				[ActiveStatus] = @activeStatus,
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[CurrencyCode] = @currencyCode,
-				[CurrencyName] = @currencyName
+				[CurrencyName] = @currencyName,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [CurrencyId] = @currencyId
 
 		COMMIT TRANSACTION;

@@ -43,7 +43,7 @@ BEGIN
 				FROM [dbo].[Country] C
 				LEFT JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
 				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
-				AND C.[CompanyConfigurationId] = CT.[CompanyConfigurationId]
+				AND (C.[CompanyConfigurationId] = CT.[CompanyConfigurationId] OR (C.[CompanyConfigurationId] IS NULL AND CT.[CompanyConfigurationId] IS NULL))
 				WHERE C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
 				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
 				AND (C.[CompanyConfigurationId] = CT.[CompanyConfigurationId] OR (C.[CompanyConfigurationId] IS NULL AND CT.[CompanyConfigurationId] IS NULL))

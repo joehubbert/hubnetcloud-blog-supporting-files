@@ -1,13 +1,21 @@
 ﻿CREATE VIEW [dbo].[vwCurrency]
 AS
 SELECT
-[CurrencyId] AS [Currency Id],
-[CurrencyCode] AS [Currency Code],
-[CurrencyName] AS [Currency Name],
-[ActiveStatus] AS [Active Status],
-[CreatedTimestampUTC] AS [Created Timestamp UTC],
-[CreatedBy] AS [Created By],
-[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-[ModifiedBy] AS [Modified By],
-[RowVersion] AS [Row Version]
-FROM [dbo].[Currency]
+C.[CurrencyId] AS [Currency Id],
+MDT.[MasterDataTypeId] AS [Master Data Type Id],
+MDT.[MasterDataType] AS [Master Data Type],
+MDT.[SystemDefined] AS [System Defined],
+MDT.[UserDefined] AS [User Defined],
+C.[CurrencyCode] AS [Currency Code],
+C.[CurrencyName] AS [Currency Name],
+CC.[CompanyConfigurationId] AS [Company Configuration Id],
+CC.[CompanyName] AS [Company Name],
+C.[ActiveStatus] AS [Active Status],
+C.[CreatedTimestampUTC] AS [Created Timestamp UTC],
+C.[CreatedBy] AS [Created By],
+C.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
+C.[ModifiedBy] AS [Modified By],
+C.[RowVersion] AS [Row Version]
+FROM [dbo].[Currency] C
+INNER JOIN [dbo].[CompanyConfiguration] CC ON C.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
+INNER JOIN [dbo].[MasterDataType] MDT ON C.[MasterDataTypeId] = MDT.[MasterDataTypeId]

@@ -9,8 +9,14 @@ BEGIN
 
 			SELECT
 			[Currency Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[System Defined],
+			[User Defined],
 			[Currency Code],
 			[Currency Name],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

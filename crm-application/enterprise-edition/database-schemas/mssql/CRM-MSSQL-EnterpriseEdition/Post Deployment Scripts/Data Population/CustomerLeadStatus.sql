@@ -4,20 +4,68 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('New', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Attempted Contact', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Engaged', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Qualified', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Revisit Later', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Unresponsive', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('On Hold', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Converted', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Lost', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Demo Scheduled', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Awaiting Follow-Up', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Trial Started', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Pending Approval', 1)
-INSERT INTO #CustomerLeadStatusTemp ([CustomerLeadStatus], [ActiveStatus]) VALUES ('Pending Procurement', 1)
+INSERT INTO #CustomerLeadStatusTemp 
+(
+	[CustomerLeadStatus],
+	[ActiveStatus]
+)
+VALUES 
+(
+	'New',
+	1
+),
+(
+	'Attempted Contact', 
+	1
+),
+(
+	'Engaged', 
+	1
+),
+(
+	'Qualified', 
+	1
+),
+(
+	'Revisit Later',
+	1
+),
+(
+	'Unresponsive',
+	1
+),
+(
+	'On Hold',
+	1
+),
+(
+	'Converted',
+	1
+),
+(
+	'Lost',
+	1
+),
+(
+	'Demo Scheduled',
+	1
+),
+(
+	'Awaiting Follow-Up',
+	1
+),
+(
+	'Trial Started',
+	1
+),
+(
+	'Pending Approval',
+	1
+),
+(
+	'Pending Procurement',
+	1
+)
 
 MERGE INTO [dbo].[CustomerLeadStatus] AS target
 USING #CustomerLeadStatusTemp AS source

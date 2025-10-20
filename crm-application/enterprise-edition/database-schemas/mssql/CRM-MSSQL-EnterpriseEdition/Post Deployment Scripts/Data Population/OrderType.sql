@@ -4,8 +4,20 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #OrderTypeTemp ([OrderType], [ActiveStatus]) VALUES ('Final', 1)
-INSERT INTO #OrderTypeTemp ([OrderType], [ActiveStatus]) VALUES ('Quote', 1)
+INSERT INTO #OrderTypeTemp 
+(
+	[OrderType],
+	[ActiveStatus]
+)
+VALUES 
+(
+	'Final',
+	1
+),
+(
+	'Quote',
+	1
+)
 
 MERGE INTO [dbo].[OrderType] AS target
 USING #OrderTypeTemp AS source

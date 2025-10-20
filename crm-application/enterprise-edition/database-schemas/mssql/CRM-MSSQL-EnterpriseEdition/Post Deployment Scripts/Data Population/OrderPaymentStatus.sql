@@ -4,11 +4,36 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #OrderPaymentStatusTemp ([OrderPaymentStatus], [ActiveStatus]) VALUES ('Settled', 1)
-INSERT INTO #OrderPaymentStatusTemp ([OrderPaymentStatus], [ActiveStatus]) VALUES ('Refunded', 1)
-INSERT INTO #OrderPaymentStatusTemp ([OrderPaymentStatus], [ActiveStatus]) VALUES ('Partially Refunded', 1)
-INSERT INTO #OrderPaymentStatusTemp ([OrderPaymentStatus], [ActiveStatus]) VALUES ('Pending Payment', 1)
-INSERT INTO #OrderPaymentStatusTemp ([OrderPaymentStatus], [ActiveStatus]) VALUES ('Chargeback', 1)
+INSERT INTO #OrderPaymentStatusTemp
+(
+	[OrderPaymentStatus],
+	[ActiveStatus]
+) 
+VALUES 
+(
+	'Settled', 
+	1
+),
+(
+	'Partially Settled', 
+	1
+),
+(
+	'Unsettled', 
+	1
+),
+(
+	'Refunded', 
+	1
+),
+(
+	'Pending Payment', 
+	1
+),
+(
+	'Chargeback', 
+	1
+)
 
 MERGE INTO [dbo].[OrderPaymentStatus] AS target
 USING #OrderPaymentStatusTemp AS source

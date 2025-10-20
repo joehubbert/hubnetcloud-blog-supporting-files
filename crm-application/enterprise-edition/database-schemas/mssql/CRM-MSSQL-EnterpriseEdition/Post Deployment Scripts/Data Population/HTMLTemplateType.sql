@@ -4,9 +4,32 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #HTMLTemplateTypeTemp ([HTMLTemplateType], [ActiveStatus]) VALUES ('Invoice', 1)
-INSERT INTO #HTMLTemplateTypeTemp ([HTMLTemplateType], [ActiveStatus]) VALUES ('Email Notification', 1)
-INSERT INTO #HTMLTemplateTypeTemp ([HTMLTemplateType], [ActiveStatus]) VALUES ('Email Newsletter', 1)
+INSERT INTO #HTMLTemplateTypeTemp
+(
+	[HTMLTemplateType],
+	[ActiveStatus]
+) 
+VALUES 
+(
+	'Invoice', 
+	1
+),
+(
+	'Purchase Order', 
+	1
+),
+(
+	'Delivery Note', 
+	1
+),
+(
+	'Email Notification', 
+	1
+),
+(
+	'Email Newsletter', 
+	1
+)
 
 MERGE INTO [dbo].[HTMLTemplateType] AS target
 USING #HTMLTemplateTypeTemp AS source

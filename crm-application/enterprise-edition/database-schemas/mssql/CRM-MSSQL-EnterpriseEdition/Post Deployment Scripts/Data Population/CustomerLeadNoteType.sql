@@ -4,40 +4,148 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('General', 1)
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Initial Contact', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Follow-Up', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Client Background', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Decision Maker Info', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Pain Points', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Buying Signals', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Objections Raised', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Competitor Mentioned', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Call Summary', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Meeting Notes', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Email Summary', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Voicemail Left', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Demo Feedback', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Presentation Delivered', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Proposal Sent', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Next Steps', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Timeline', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Budget Info', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Deal Status Update', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Contract Discussion', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Waiting on Response', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Sales Strategy', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Internal Discussion', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Product Fit Assessment', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Custom Requirements', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Technical Considerations', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Risk Factors', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Legal/Compliance Concerns', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('General Note', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Personal Details', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Meeting Rescheduled', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Referral Source', 1);
-INSERT INTO #CustomerLeadNoteTypeTemp ([CustomerLeadNoteType], [ActiveStatus]) VALUES ('Social Media Interaction', 1);
+INSERT INTO #CustomerLeadNoteTypeTemp 
+(
+	[CustomerLeadNoteType],
+	[ActiveStatus]
+) 
+VALUES 
+(
+	'General',
+	1
+),
+(
+	'Initial Contact',
+	1
+),
+(
+	'Follow-Up',
+	1
+),
+(
+	'Client Background',
+	1
+),
+(
+	'Decision Maker Info',
+	1
+),
+(
+	'Pain Points',
+	1
+),
+(
+	'Buying Signals',
+	1
+),
+(
+	'Objections Raised',
+	1
+),
+(
+	'Competitor Mentioned',
+	1
+),
+(
+	'Call Summary',
+	1
+),
+(
+	'Meeting Notes',
+	1
+),
+(
+	'Email Summary',
+	1
+),
+(
+	'Voicemail Left',
+	1
+),
+(
+	'Demo Feedback',
+	1
+),
+(
+	'Presentation Delivered',
+	1
+),
+(
+	'Proposal Sent',
+	1
+),
+(
+	'Next Steps',
+	1
+),
+(
+	'Timeline',
+	1
+),
+(
+	'Budget Info',
+	1
+),
+(
+	'Deal Status Update',
+	1
+),
+(
+	'Contract Discussion',
+	1
+),
+(
+	'Waiting on Response',
+	1
+),
+(
+	'Sales Strategy',
+	1
+),
+(
+	'Internal Discussion',
+	1
+),
+(
+	'Product Fit Assessment',
+	1
+),
+(
+	'Custom Requirements',
+	1
+),
+(
+	'Technical Considerations',
+	1
+),
+(
+	'Risk Factors',
+	1
+),
+(
+	'Legal/Compliance Concerns',
+	1
+),
+(
+	'General Note',
+	1
+),
+(
+	'Personal Details',
+	1
+),
+(
+	'Meeting Rescheduled',
+	1
+),
+(
+	'Referral Source',
+	1
+),
+(
+	'Social Media Interaction',
+	1
+)
 
 MERGE INTO [dbo].[CustomerLeadNoteType] AS target
 USING #CustomerLeadNoteTypeTemp AS source

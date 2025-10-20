@@ -4,10 +4,28 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #CustomerNoteTypeTemp ([CustomerNoteType], [ActiveStatus]) VALUES ('General', 1)
-INSERT INTO #CustomerNoteTypeTemp ([CustomerNoteType], [ActiveStatus]) VALUES ('Complaint', 1)
-INSERT INTO #CustomerNoteTypeTemp ([CustomerNoteType], [ActiveStatus]) VALUES ('Compliment', 1)
-INSERT INTO #CustomerNoteTypeTemp ([CustomerNoteType], [ActiveStatus]) VALUES ('Suggestion', 1)
+INSERT INTO #CustomerNoteTypeTemp 
+(
+	[CustomerNoteType],
+	[ActiveStatus]
+) 
+VALUES 
+(
+	'General',
+	1
+),
+(
+	'Complaint',
+	1
+),
+(
+	'Compliment',
+	1
+),
+(
+	'Suggestion',
+	1
+)
 
 MERGE INTO [dbo].[CustomerNoteType] AS target
 USING #CustomerNoteTypeTemp AS source

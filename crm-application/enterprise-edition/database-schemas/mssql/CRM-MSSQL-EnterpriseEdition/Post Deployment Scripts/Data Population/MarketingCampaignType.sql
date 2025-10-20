@@ -4,12 +4,36 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('Email', 1)
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('Social', 1)
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('Event', 1)
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('Seasonal', 1)
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('Influencer', 1)
-INSERT INTO #MarketingCampaignTypeTemp ([MarketingCampaignType], [ActiveStatus]) VALUES ('MultiChannel', 1)
+INSERT INTO #MarketingCampaignTypeTemp
+(
+	[MarketingCampaignType],
+	[ActiveStatus]
+)
+VALUES
+(
+	'Email',
+	1
+),
+(
+	'Social',
+	1
+),
+(
+	'Event',
+	1
+),
+(
+	'Seasonal',
+	1
+),
+(
+	'Influencer',
+	1
+),
+(
+	'MultiChannel',
+	1
+)
 
 MERGE INTO [dbo].[MarketingCampaignType] AS target
 USING #MarketingCampaignTypeTemp AS source

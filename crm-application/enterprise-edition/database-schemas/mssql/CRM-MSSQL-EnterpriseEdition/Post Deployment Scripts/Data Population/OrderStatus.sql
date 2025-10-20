@@ -4,14 +4,44 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('New', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Pending', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Awaiting Payment', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Awaiting Shipment', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Picking from Warehouse', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('In Transit', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Complete', 1)
-INSERT INTO #OrderStatusTemp ([OrderStatus], [ActiveStatus]) VALUES ('Cancelled', 1)
+INSERT INTO #OrderStatusTemp 
+(
+	[OrderStatus],
+	[ActiveStatus]
+)
+VALUES
+(
+	'New', 
+	1
+),
+(
+	'Pending',
+	1
+),
+(
+	'Awaiting Payment',
+	1
+),
+(
+	'Awaiting Shipment',
+	1
+),
+(
+	'Picking from Warehouse',
+	1
+),
+(
+	'In Transit',
+	1
+),
+(
+	'Complete',
+	1
+),
+(
+	'Cancelled',
+	1
+)
 
 MERGE INTO [dbo].[OrderStatus] AS target
 USING #OrderStatusTemp AS source

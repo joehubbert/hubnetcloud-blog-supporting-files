@@ -5,14 +5,53 @@
 	[ActiveStatus] BIT NOT NULL
 )
 
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('USD', 'United States Dollar', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('EUR', 'Euro', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('GBP', 'Pound Sterling', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('DKK', 'Danish Kroner', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('SEK', 'Swedish Kroner', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('NOK', 'Norwegian Kroner', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('CAD', 'Canadian Dollar', 1)
-INSERT INTO #CurrencyTemp ([CurrencyCode], [CurrencyName], [ActiveStatus]) VALUES ('AUD', 'Australian Dollar', 1)
+INSERT INTO #CurrencyTemp
+(
+	[CurrencyCode],
+	[CurrencyName],
+	[ActiveStatus]
+) 
+VALUES 
+(
+	'USD',
+	'United States Dollar', 
+	1
+),
+(
+	'EUR',
+	'Euro',
+	1
+),
+(
+	'GBP',
+	'Pound Sterling',
+	1
+),
+(
+	'DKK',
+	'Danish Kroner',
+	1
+),
+(
+	'SEK',
+	'Swedish Kroner',
+	1
+),
+(
+	'NOK',
+	'Norwegian Kroner',
+	1
+),
+(
+	'CAD',
+	'Canadian Dollar',
+	1
+),
+(
+	'AUD',
+	'Australian Dollar',
+	1
+)
 
 MERGE INTO [dbo].[Currency] AS target
 USING #CurrencyTemp AS source

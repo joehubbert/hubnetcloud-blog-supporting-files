@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllPalletPreset]
+﻿CREATE PROCEDURE [dbo].[spGetAllPalletPresetSystemAssigned]
 AS
 
 BEGIN
@@ -22,6 +22,7 @@ BEGIN
 			[Pallet Tare Weight Kilogram],
 			[Active Status]
 			FROM [dbo].[vwPalletPreset]
+			WHERE [System Defined] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

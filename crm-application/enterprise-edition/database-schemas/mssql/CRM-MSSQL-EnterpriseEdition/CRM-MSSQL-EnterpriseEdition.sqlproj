@@ -144,6 +144,8 @@
     <Folder Include="dbo\Stored Procedures\WholesaleDeliveryType" />
     <Folder Include="dbo\Stored Procedures\ProductSalesRegion" />
     <Folder Include="dbo\Stored Procedures\PromotionType" />
+    <Folder Include="dbo\Stored Procedures\MasterDataType" />
+    <Folder Include="dbo\Stored Procedures\PalletPreset" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountManager.sql" />
@@ -805,6 +807,24 @@
     <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistory.sql" />
     <Build Include="dbo\Stored Procedures\SupplierOrderStatusHistory\spGetAllSupplierOrderStatusHistoryForSupplierOrder.sql" />
     <Build Include="dbo\Stored Procedures\OrderLineItemDelivery\spGetAllOrderLineItemDeliveryForOrderLineItem.sql" />
+    <Build Include="dbo\Tables\PalletPreset.sql" />
+    <Build Include="dbo\Tables\MasterDataType.sql" />
+    <Build Include="dbo\Views\vwPalletPreset.sql" />
+    <Build Include="dbo\Views\vwMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spCreateMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spDeleteMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spGetMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spUpdateMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spCreatePalletPreset.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spDeletePalletPreset.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPreset.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetPalletPreset.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spUpdatePalletPreset.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllUserDefinedMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllSystemDefinedMasterDataType.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetSystemAssigned.sql" />
+    <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetUserAssigned.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">
@@ -844,6 +864,8 @@
     <None Include="Post Deployment Scripts\Data Population\HTMLTemplateType.sql" />
     <None Include="Post Deployment Scripts\Data Population\WholesaleDeliveryType.sql" />
     <None Include="dbo\Stored Procedures\SupplierOrderLineItemStatus\spUpdateSupplierOrderLineItemStatus.sql" />
+    <None Include="Post Deployment Scripts\Data Population\PalletPreset.sql" />
+    <None Include="Post Deployment Scripts\Data Population\MasterDataType.sql" />
   </ItemGroup>
   <ItemGroup>
     <SqlCmdVariable Include="DatabaseVersion">

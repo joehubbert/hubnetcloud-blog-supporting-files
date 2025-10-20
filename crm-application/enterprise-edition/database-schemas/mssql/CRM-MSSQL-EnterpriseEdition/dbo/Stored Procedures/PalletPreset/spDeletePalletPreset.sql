@@ -1,6 +1,20 @@
 ﻿CREATE PROCEDURE [dbo].[spDeletePalletPreset]
-	@param1 int = 0,
-	@param2 int
+	@palletPresetId UNIQUEIDENTIFIER
 AS
-	SELECT @param1, @param2
-RETURN 0
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+		DELETE FROM [dbo].[PalletPreset]
+		WHERE [PalletPresetId] = @palletPresetId
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

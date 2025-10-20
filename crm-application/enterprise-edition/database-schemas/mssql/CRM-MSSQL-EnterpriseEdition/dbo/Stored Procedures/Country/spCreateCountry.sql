@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCountry]
     @activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@countryEnglishName NVARCHAR(100),
-	@iso31661A2CountryCode NCHAR(2)
+	@iso31661A2CountryCode NCHAR(2),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -11,21 +13,27 @@ BEGIN
 
 			CREATE TABLE #CountryTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[ISO31661A2CountryCode] NCHAR(2) NOT NULL,
 				[CountryEnglishName] NVARCHAR(100) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #CountryTemp
 			(
+				[MasterDataTypeId],
 				[ISO31661A2CountryCode],
 				[CountryEnglishName],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@iso31661A2CountryCode,
 				@countryEnglishName,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -33,10 +41,12 @@ BEGIN
 			(
 				SELECT *
 				FROM [dbo].[Country] C
-				INNER JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
+				LEFT JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
 				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
+				AND C.[CompanyConfigurationId] = CT.[CompanyConfigurationId]
 				WHERE C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
 				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
+				AND (C.[CompanyConfigurationId] = CT.[CompanyConfigurationId] OR (C.[CompanyConfigurationId] IS NULL AND CT.[CompanyConfigurationId] IS NULL))
 			)
 			THROW 50000, 'Country already exists, please update the existing record.', 1;
 			ELSE
@@ -47,14 +57,18 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[ISO31661A2CountryCode],
 				[CountryEnglishName],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[ISO31661A2CountryCode],
 				source.[CountryEnglishName],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

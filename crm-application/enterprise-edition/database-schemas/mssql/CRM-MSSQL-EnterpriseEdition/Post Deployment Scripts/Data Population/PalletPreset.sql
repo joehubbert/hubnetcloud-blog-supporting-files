@@ -13,8 +13,8 @@
 )
 
 -- Declare Built-In Master Data Type
-DECLARE @builtInMasterDataTypeId UNIQUEIDENTIFIER
-SET @builtInMasterDataTypeId = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemDefined] = 1)
+DECLARE @builtInMasterDataTypeIdPalletPreset UNIQUEIDENTIFIER
+SET @builtInMasterDataTypeIdPalletPreset = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemDefined] = 1)
 
 INSERT INTO #PalletPresetTemp 
 (
@@ -31,7 +31,7 @@ INSERT INTO #PalletPresetTemp
 ) 
 VALUES 
 (
-	@builtInMasterDataTypeId,
+	@builtInMasterDataTypeIdPalletPreset,
 	N'EPAL EUR-1 (1200×800)',
 	N'EUR1',
 	800,
@@ -43,7 +43,7 @@ VALUES
 	1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'EPAL EUR-2 (1200×1000)',
     N'EUR2',
     1000,
@@ -55,7 +55,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'EPAL EUR-3 (1000×1200)',
     N'EUR3',
     1200,
@@ -67,7 +67,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'EPAL EUR-6 (800×600)',
     N'EUR6',
     600,
@@ -79,7 +79,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'ISO Pallet (1200×1000)',
     N'ISO_1200x1000',
     1000,
@@ -91,7 +91,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'GMA (48×40 in)',
     N'GMA_48x40',
     1016,
@@ -103,7 +103,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'Australian (1165×1165)',
     N'AU_1165',
     1165,
@@ -115,7 +115,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'North American 42×42',
     N'NA_42x42',
     1067,
@@ -127,7 +127,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'North American 48×48',
     N'NA_48x48',
     1219,
@@ -139,7 +139,7 @@ VALUES
     1
 ),
 (
-    @builtInMasterDataTypeId,
+    @builtInMasterDataTypeIdPalletPreset,
     N'Quarter Euro (600×400)',
     N'EURO_QTR_60x40',
     400,

@@ -1,8 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCountry]
     @activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@countryId UNIQUEIDENTIFIER,
 	@countryEnglishName NVARCHAR(100),
-	@iso31661A2CountryCode NCHAR(2)
+	@iso31661A2CountryCode NCHAR(2),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -13,8 +15,10 @@ BEGIN
 			UPDATE [dbo].[Country]
 			SET
 				[ActiveStatus] = @activeStatus,
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[CountryEnglishName] = @countryEnglishName,
-				[ISO31661A2CountryCode] = @iso31661A2CountryCode
+				[ISO31661A2CountryCode] = @iso31661A2CountryCode,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [CountryId] = @countryId
 
 		COMMIT TRANSACTION;

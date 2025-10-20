@@ -1,1253 +1,1507 @@
 ﻿CREATE TABLE #CountryTemp
 (
+    [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
     [ISO31661A2CountryCode] NCHAR(2) NOT NULL,
     [CountryEnglishName] NVARCHAR(100) NOT NULL,
     [ActiveStatus] BIT NOT NULL
 );
 
+-- Declare Built-In Master Data Type
+DECLARE @builtInMasterDataTypeIdCountry UNIQUEIDENTIFIER
+SET @builtInMasterDataTypeIdCountry = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemDefined] = 1)
+
 INSERT INTO #CountryTemp
 (
+    [MasterDataTypeId],
     [ISO31661A2CountryCode],
     [CountryEnglishName],
     [ActiveStatus]
 )
 VALUES
 (
+    @builtInMasterDataTypeIdCountry,
     'AF',
     'Afghanistan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AL',
     'Albania',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DZ',
     'Algeria',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AS',
     'American Samoa',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AD',
     'Andorra',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AO',
     'Angola',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AI',
     'Anguilla',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AQ',
     'Antarctica',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AG',
     'Antigua and Barbuda',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AR',
     'Argentina',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AM',
     'Armenia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AW',
     'Aruba',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AU',
     'Australia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AT',
     'Austria',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AZ',
     'Azerbaijan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BS',
     'Bahamas',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BH',
     'Bahrain',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BD',
     'Bangladesh',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BB',
     'Barbados',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BY',
     'Belarus',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BE',
     'Belgium',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BZ',
     'Belize',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BJ',
     'Benin',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BM',
     'Bermuda',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BT',
     'Bhutan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BO',
     'Bolivia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BQ',
     'Bonaire, Sint Eustatius and Saba',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BA',
     'Bosnia and Herzegovina',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BW',
     'Botswana',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BV',
     'Bouvet Island',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BR',
     'Brazil',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IO',
     'British Indian Ocean Territory',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BN',
     'Brunei Darussalam',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BG',
     'Bulgaria',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BF',
     'Burkina Faso',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BI',
     'Burundi',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CV',
     'Cabo Verde',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KH',
     'Cambodia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CM',
     'Cameroon',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CA',
     'Canada',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KY',
     'Cayman Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CF',
     'Central African Republic',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TD',
     'Chad',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CL',
     'Chile',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CN',
     'China',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CX',
     'Christmas Island',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CC',
     'Cocos (Keeling) Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CO',
     'Colombia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KM',
     'Comoros',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CG',
     'Congo',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CD',
     'Congo, Democratic Republic of the',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CK',
     'Cook Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CR',
     'Costa Rica',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CI',
     'Côte d''Ivoire',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HR',
     'Croatia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CU',
     'Cuba',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CW',
     'Curaçao',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CY',
     'Cyprus',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CZ',
     'Czechia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DK',
     'Denmark',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DJ',
     'Djibouti',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DM',
     'Dominica',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DO',
     'Dominican Republic',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'EC',
     'Ecuador',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'EG',
     'Egypt',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SV',
     'El Salvador',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GQ',
     'Equatorial Guinea',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ER',
     'Eritrea',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'EE',
     'Estonia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SZ',
     'Eswatini',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ET',
     'Ethiopia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FK',
     'Falkland Islands (Malvinas)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FO',
     'Faroe Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FJ',
     'Fiji',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FI',
     'Finland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FR',
     'France',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GF',
     'French Guiana',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PF',
     'French Polynesia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TF',
     'French Southern Territories',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GA',
     'Gabon',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GM',
     'Gambia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GE',
     'Georgia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'DE',
     'Germany',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GH',
     'Ghana',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GI',
     'Gibraltar',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GR',
     'Greece',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GL',
     'Greenland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GD',
     'Grenada',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GP',
     'Guadeloupe',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GU',
     'Guam',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GT',
     'Guatemala',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GG',
     'Guernsey',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GN',
     'Guinea',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GW',
     'Guinea-Bissau',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GY',
     'Guyana',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HT',
     'Haiti',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HM',
     'Heard Island and McDonald Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VA',
     'Holy See',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HN',
     'Honduras',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HK',
     'Hong Kong',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'HU',
     'Hungary',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IS',
     'Iceland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IN',
     'India',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ID',
     'Indonesia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IR',
     'Iran',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IQ',
     'Iraq',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IE',
     'Ireland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IM',
     'Isle of Man',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IL',
     'Israel',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'IT',
     'Italy',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'JM',
     'Jamaica',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'JP',
     'Japan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'JE',
     'Jersey',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'JO',
     'Jordan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KZ',
     'Kazakhstan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KE',
     'Kenya',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KI',
     'Kiribati',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KP',
     'Korea (Democratic People''s Republic of)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KR',
     'Korea (Republic of)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KW',
     'Kuwait',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KG',
     'Kyrgyzstan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LA',
     'Lao People''s Democratic Republic',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LV',
     'Latvia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LB',
     'Lebanon',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LS',
     'Lesotho',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LR',
     'Liberia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LY',
     'Libya',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LI',
     'Liechtenstein',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LT',
     'Lithuania',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LU',
     'Luxembourg',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MO',
     'Macao',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MG',
     'Madagascar',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MW',
     'Malawi',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MY',
     'Malaysia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MV',
     'Maldives',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ML',
     'Mali',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MT',
     'Malta',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MH',
     'Marshall Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MQ',
     'Martinique',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MR',
     'Mauritania',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MU',
     'Mauritius',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'YT',
     'Mayotte',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MX',
     'Mexico',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'FM',
     'Micronesia (Federated States of)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MD',
     'Moldova',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MC',
     'Monaco',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MN',
     'Mongolia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ME',
     'Montenegro',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MS',
     'Montserrat',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MA',
     'Morocco',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MZ',
     'Mozambique',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MM',
     'Myanmar',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NA',
     'Namibia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NR',
     'Nauru',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NP',
     'Nepal',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NL',
     'Netherlands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NC',
     'New Caledonia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NZ',
     'New Zealand',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NI',
     'Nicaragua',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NE',
     'Niger',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NG',
     'Nigeria',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NU',
     'Niue',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NF',
     'Norfolk Island',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MK',
     'North Macedonia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MP',
     'Northern Mariana Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'NO',
     'Norway',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'OM',
     'Oman',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PK',
     'Pakistan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PW',
     'Palau',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PS',
     'Palestine, State of',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PA',
     'Panama',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PG',
     'Papua New Guinea',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PY',
     'Paraguay',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PE',
     'Peru',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PH',
     'Philippines',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PN',
     'Pitcairn',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PL',
     'Poland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PT',
     'Portugal',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PR',
     'Puerto Rico',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'QA',
     'Qatar',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'RE',
     'Réunion',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'RO',
     'Romania',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'RU',
     'Russian Federation',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'RW',
     'Rwanda',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'BL',
     'Saint Barthélemy',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SH',
     'Saint Helena, Ascension and Tristan da Cunha',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'KN',
     'Saint Kitts and Nevis',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LC',
     'Saint Lucia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'MF',
     'Saint Martin (French part)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'PM',
     'Saint Pierre and Miquelon',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VC',
     'Saint Vincent and the Grenadines',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'WS',
     'Samoa',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SM',
     'San Marino',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ST',
     'Sao Tome and Principe',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SA',
     'Saudi Arabia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SN',
     'Senegal',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'RS',
     'Serbia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SC',
     'Seychelles',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SL',
     'Sierra Leone',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SG',
     'Singapore',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SX',
     'Sint Maarten (Dutch part)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SK',
     'Slovakia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SI',
     'Slovenia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SB',
     'Solomon Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SO',
     'Somalia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ZA',
     'South Africa',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GS',
     'South Georgia and the South Sandwich Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SS',
     'South Sudan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ES',
     'Spain',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'LK',
     'Sri Lanka',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SD',
     'Sudan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SR',
     'Suriname',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SJ',
     'Svalbard and Jan Mayen',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SE',
     'Sweden',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'CH',
     'Switzerland',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'SY',
     'Syrian Arab Republic',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TW',
     'Taiwan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TJ',
     'Tajikistan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TZ',
     'Tanzania, United Republic of',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TH',
     'Thailand',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TL',
     'Timor-Leste',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TG',
     'Togo',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TK',
     'Tokelau',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TO',
     'Tonga',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TT',
     'Trinidad and Tobago',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TN',
     'Tunisia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TR',
     'Turkey',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TM',
     'Turkmenistan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TC',
     'Turks and Caicos Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'TV',
     'Tuvalu',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'UG',
     'Uganda',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'UA',
     'Ukraine',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'AE',
     'United Arab Emirates',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'GB',
     'United Kingdom',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'US',
     'United States',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'UM',
     'United States Minor Outlying Islands',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'UY',
     'Uruguay',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'UZ',
     'Uzbekistan',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VU',
     'Vanuatu',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VE',
     'Venezuela',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VN',
     'Vietnam',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VG',
     'Virgin Islands (British)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'VI',
     'Virgin Islands (U.S.)',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'WF',
     'Wallis and Futuna',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'EH',
     'Western Sahara',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'YE',
     'Yemen',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ZM',
     'Zambia',
     1
 ),
 (
+    @builtInMasterDataTypeIdCountry,
     'ZW',
     'Zimbabwe',
     1
@@ -1257,7 +1511,18 @@ MERGE INTO [dbo].[Country] AS target
 USING #CountryTemp AS source
     ON target.[ISO31661A2CountryCode] = source.[ISO31661A2CountryCode]
 WHEN NOT MATCHED THEN
-    INSERT ([ISO31661A2CountryCode], [CountryEnglishName], [ActiveStatus])
-    VALUES (source.[ISO31661A2CountryCode], source.[CountryEnglishName], source.[ActiveStatus]);
+INSERT
+(
+[MasterDataTypeId],
+[ISO31661A2CountryCode],
+[CountryEnglishName],
+[ActiveStatus]
+)
+VALUES 
+(source.[MasterDataTypeId], 
+source.[ISO31661A2CountryCode], 
+source.[CountryEnglishName], 
+source.[ActiveStatus]
+);
 
 DROP TABLE #CountryTemp;

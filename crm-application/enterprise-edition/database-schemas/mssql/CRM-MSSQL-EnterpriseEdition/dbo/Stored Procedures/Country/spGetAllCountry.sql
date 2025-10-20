@@ -8,8 +8,14 @@ BEGIN
 
 			SELECT
 			[Country Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[System Defined],
+			[User Defined],
 			[ISO 3166-1 Alpha 2 Country Code],
 			[Country English Name],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwCountry]
 

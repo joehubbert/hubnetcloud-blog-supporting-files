@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[Country]
-		WHERE [CountryId] = @countryId
+		DELETE C
+		FROM [dbo].[Country] C
+		INNER JOIN [dbo].[MasterDataType] MDT ON C.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE C.[CountryId] = @countryId
+		AND MDT.[SystemDefined] = 0
 
 		COMMIT TRANSACTION;
 	END TRY

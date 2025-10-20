@@ -9,7 +9,7 @@ BEGIN
 
 		DELETE FROM [dbo].[MasterDataType]
 		WHERE [MasterDataTypeId] = @masterDataTypeId
-		AND [SystemDefined] != 1
+		AND [SystemDefined] = 0
 
 		COMMIT TRANSACTION;
 	END TRY

@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[MarketingChannel] MC
-			INNER JOIN #MarketingChannelTemp MCT ON MC.[MarketingChannel] = MCT.[MarketingChannel]
-			WHERE MC.[MarketingChannel] = MCT.[MarketingChannel]
+				SELECT *
+				FROM [dbo].[MarketingChannel] MC
+				INNER JOIN #MarketingChannelTemp MCT ON MC.[MarketingChannel] = MCT.[MarketingChannel]
+				WHERE MC.[MarketingChannel] = MCT.[MarketingChannel]
 			)
 			THROW 50000, 'Marketing Channel already exists, please update the existing record.', 1;
 			ELSE

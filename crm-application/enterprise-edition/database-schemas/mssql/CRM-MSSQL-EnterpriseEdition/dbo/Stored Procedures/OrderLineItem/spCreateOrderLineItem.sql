@@ -23,7 +23,8 @@ BEGIN
         INSERT INTO #OrderLineItemTemp ([OrderId], [ProductId], [Quantity], [TaxProfileId])
         VALUES (@orderId, @productId, @quantity, @taxProfileId);
 
-        IF EXISTS (
+        IF EXISTS 
+        (
             SELECT 1
             FROM [dbo].[OrderLineItem] OLI
             INNER JOIN #OrderLineItemTemp OLIT 

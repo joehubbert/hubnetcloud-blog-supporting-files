@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[SupplierNoteType] CT
-			INNER JOIN #SupplierNoteTypeTemp CTT ON CT.[SupplierNoteType] = CTT.[SupplierNoteType]
-			WHERE CT.[SupplierNoteType] = CTT.[SupplierNoteType]
+				SELECT *
+				FROM [dbo].[SupplierNoteType] CT
+				INNER JOIN #SupplierNoteTypeTemp CTT ON CT.[SupplierNoteType] = CTT.[SupplierNoteType]
+				WHERE CT.[SupplierNoteType] = CTT.[SupplierNoteType]
 			)
 			THROW 50000, 'Supplier Note Type already exists, please update the existing record.', 1;
 			ELSE

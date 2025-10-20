@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[SupplierOrderLineItemStatus] SOLIS
-			INNER JOIN #SupplierOrderLineItemStatusTemp SOLIST ON SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
-			WHERE SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
+				SELECT *
+				FROM [dbo].[SupplierOrderLineItemStatus] SOLIS
+				INNER JOIN #SupplierOrderLineItemStatusTemp SOLIST ON SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
+				WHERE SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
 			)
 			THROW 50000, 'Supplier Order Line Item Status already exists, please update the existing record.', 1;
 			ELSE

@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[MarketingCampaignStatus] MCS
-			INNER JOIN #MarketingCampaignStatusTemp MCST ON MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
-			WHERE OS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
+				SELECT *
+				FROM [dbo].[MarketingCampaignStatus] MCS
+				INNER JOIN #MarketingCampaignStatusTemp MCST ON MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
+				WHERE OS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
 			)
 			THROW 50000, 'Marketing Campaign Status already exists, please update the existing record.', 1;
 			ELSE

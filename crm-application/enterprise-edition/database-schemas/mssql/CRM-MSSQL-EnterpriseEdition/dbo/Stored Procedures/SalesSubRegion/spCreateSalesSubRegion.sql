@@ -31,12 +31,12 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[SalesSubRegion] SRM
-			INNER JOIN #SalesSubRegionTemp SRMT ON SRM.[SalesRegionId] = SRMT.[SalesRegionId]
-			AND SRM.[SalesSubRegion] = SRMT.[SalesSubRegion]
-			WHERE SRM.[SalesRegionId] = SRMT.[SalesRegionId]
-			AND SRM.[SalesSubRegion] = SRMT.[SalesSubRegion]
+				SELECT *
+				FROM [dbo].[SalesSubRegion] SRM
+				INNER JOIN #SalesSubRegionTemp SRMT ON SRM.[SalesRegionId] = SRMT.[SalesRegionId]
+				AND SRM.[SalesSubRegion] = SRMT.[SalesSubRegion]
+				WHERE SRM.[SalesRegionId] = SRMT.[SalesRegionId]
+				AND SRM.[SalesSubRegion] = SRMT.[SalesSubRegion]
 			)
 			THROW 50000, 'Sales Sub Region already exists, please update the existing record.', 1;
 			ELSE

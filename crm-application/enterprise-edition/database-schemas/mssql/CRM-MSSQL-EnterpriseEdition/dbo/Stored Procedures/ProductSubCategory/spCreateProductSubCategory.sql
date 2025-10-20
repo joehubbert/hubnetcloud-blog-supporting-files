@@ -31,10 +31,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[ProductSubCategory] PSC
-			INNER JOIN #ProductSubCategoryTemp PSCT ON PSC.[ProductSubCategory] = PSCT.[ProductSubCategory]
-			WHERE PSC.[ProductSubCategory] = PSCT.[ProductSubCategory]
+				SELECT *
+				FROM [dbo].[ProductSubCategory] PSC
+				INNER JOIN #ProductSubCategoryTemp PSCT ON PSC.[ProductSubCategory] = PSCT.[ProductSubCategory]
+				WHERE PSC.[ProductSubCategory] = PSCT.[ProductSubCategory]
 			)
 			THROW 50000, 'Product Sub Category already exists, please update the existing record.', 1;
 			ELSE

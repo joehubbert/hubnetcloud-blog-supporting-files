@@ -47,18 +47,18 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerContact] CC
-			INNER JOIN #CustomerContactTemp CCT ON CC.[CustomerId] = CCT.[CustomerId]
-			AND CC.[FirstName] = CCT.[FirstName]
-			AND CC.[LastName] = CCT.[LastName]
-			AND CC.[EmailAddress] = CCT.[EmailAddress]
-			AND CC.[TelephoneNumber] = CCT.[TelephoneNumber]
-			WHERE CC.[CustomerId] = CCT.[CustomerId]
-			AND CC.[FirstName] = CCT.[FirstName]
-			AND CC.[LastName] = CCT.[LastName]
-			AND CC.[EmailAddress] = CCT.[EmailAddress]
-			AND CC.[TelephoneNumber] = CCT.[TelephoneNumber]
+				SELECT *
+				FROM [dbo].[CustomerContact] CC
+				INNER JOIN #CustomerContactTemp CCT ON CC.[CustomerId] = CCT.[CustomerId]
+				AND CC.[FirstName] = CCT.[FirstName]
+				AND CC.[LastName] = CCT.[LastName]
+				AND CC.[EmailAddress] = CCT.[EmailAddress]
+				AND CC.[TelephoneNumber] = CCT.[TelephoneNumber]
+				WHERE CC.[CustomerId] = CCT.[CustomerId]
+				AND CC.[FirstName] = CCT.[FirstName]
+				AND CC.[LastName] = CCT.[LastName]
+				AND CC.[EmailAddress] = CCT.[EmailAddress]
+				AND CC.[TelephoneNumber] = CCT.[TelephoneNumber]
 			)
 			THROW 50000, 'Customer Contact already exists, please update the existing record.', 1;
 			ELSE

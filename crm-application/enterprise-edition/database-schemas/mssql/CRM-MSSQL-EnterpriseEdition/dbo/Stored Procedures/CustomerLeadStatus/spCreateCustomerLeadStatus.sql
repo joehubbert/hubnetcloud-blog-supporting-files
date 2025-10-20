@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerLeadStatus] CLS
-			INNER JOIN #CustomerLeadStatusTemp CLST ON CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
-			WHERE CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
+				SELECT *
+				FROM [dbo].[CustomerLeadStatus] CLS
+				INNER JOIN #CustomerLeadStatusTemp CLST ON CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
+				WHERE CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
 			)
 			THROW 50000, 'Customer Lead Status already exists, please update the existing record.', 1;
 			ELSE

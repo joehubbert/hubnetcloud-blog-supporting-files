@@ -214,7 +214,8 @@ BEGIN
             @activeStatus
         )
 
-        IF EXISTS (
+        IF EXISTS 
+        (
             SELECT 1
             FROM [dbo].[Product] P
             INNER JOIN #ProductTemp PT ON P.[ManufacturerId] = PT.[ManufacturerId]

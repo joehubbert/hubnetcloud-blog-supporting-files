@@ -35,14 +35,14 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerTier] CT
-			INNER JOIN #CustomerTierTemp CTT ON CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
-			AND CT.[CustomerTierCode] = CTT.[CustomerTierCode]
-			AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
-			WHERE CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
-			AND CT.[CustomerTierCode] = CTT.[CustomerTierCode]
-			AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
+				SELECT *
+				FROM [dbo].[CustomerTier] CT
+				INNER JOIN #CustomerTierTemp CTT ON CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
+				AND CT.[CustomerTierCode] = CTT.[CustomerTierCode]
+				AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
+				WHERE CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
+				AND CT.[CustomerTierCode] = CTT.[CustomerTierCode]
+				AND CT.[CustomerTierDescription] = CTT.[CustomerTierDescription]
 			)
 			THROW 50000, 'Customer Tier already exists, please update the existing record.', 1;
 			ELSE

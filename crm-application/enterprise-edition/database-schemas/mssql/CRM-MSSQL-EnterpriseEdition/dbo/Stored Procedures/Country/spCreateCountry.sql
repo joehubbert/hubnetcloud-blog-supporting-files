@@ -31,12 +31,12 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[Country] C
-			INNER JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
-			AND C.[CountryEnglishName] = CT.[CountryEnglishName]
-			WHERE C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
-			AND C.[CountryEnglishName] = CT.[CountryEnglishName]
+				SELECT *
+				FROM [dbo].[Country] C
+				INNER JOIN #CountryTemp CT ON C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
+				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
+				WHERE C.[ISO31661A2CountryCode] = CT.[ISO31661A2CountryCode]
+				AND C.[CountryEnglishName] = CT.[CountryEnglishName]
 			)
 			THROW 50000, 'Country already exists, please update the existing record.', 1;
 			ELSE

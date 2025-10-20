@@ -35,12 +35,12 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerType] CT
-			INNER JOIN #CustomerTypeTemp CTT ON CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
-			AND CT.[CustomerType] = CTT.[CustomerType]
-			WHERE CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
-			AND CT.[CustomerType] = CTT.[CustomerType]
+				SELECT *
+				FROM [dbo].[CustomerType] CT
+				INNER JOIN #CustomerTypeTemp CTT ON CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
+				AND CT.[CustomerType] = CTT.[CustomerType]
+				WHERE CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId]
+				AND CT.[CustomerType] = CTT.[CustomerType]
 			)
 			THROW 50000, 'Customer Type already exists, please update the existing record.', 1;
 			ELSE

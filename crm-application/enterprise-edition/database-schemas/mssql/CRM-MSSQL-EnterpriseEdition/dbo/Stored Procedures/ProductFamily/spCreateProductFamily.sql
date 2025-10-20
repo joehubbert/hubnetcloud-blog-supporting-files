@@ -31,12 +31,12 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[ProductFamily] PC
-			INNER JOIN #ProductFamilyTemp PCT ON PC.[CompanyConfigurationId] = PCT.[CompanyConfigurationId]
-			AND PC.[ProductFamily] = PCT.[ProductFamily]
-			WHERE PC.[CompanyConfigurationId] = PCT.[CompanyConfigurationId]
-			AND PC.[ProductFamily] = PCT.[ProductFamily]
+				SELECT *
+				FROM [dbo].[ProductFamily] PC
+				INNER JOIN #ProductFamilyTemp PCT ON PC.[CompanyConfigurationId] = PCT.[CompanyConfigurationId]
+				AND PC.[ProductFamily] = PCT.[ProductFamily]
+				WHERE PC.[CompanyConfigurationId] = PCT.[CompanyConfigurationId]
+				AND PC.[ProductFamily] = PCT.[ProductFamily]
 			)
 			THROW 50000, 'Product Family already exists, please update the existing record.', 1;
 			ELSE

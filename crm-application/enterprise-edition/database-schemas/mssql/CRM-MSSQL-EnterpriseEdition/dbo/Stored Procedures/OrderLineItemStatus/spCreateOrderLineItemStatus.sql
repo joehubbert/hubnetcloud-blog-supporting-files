@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[OrderLineItemStatus] OLIS
-			INNER JOIN #OrderLineItemStatusTemp OLIST ON OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
-			WHERE OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
+				SELECT *
+				FROM [dbo].[OrderLineItemStatus] OLIS
+				INNER JOIN #OrderLineItemStatusTemp OLIST ON OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
+				WHERE OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
 			)
 			THROW 50000, 'Order Line Item Status already exists, please update the existing record.', 1;
 			ELSE

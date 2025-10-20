@@ -49,7 +49,8 @@ BEGIN
                       );
 
                 -- Check for overlapping periods for the same product/sales sub region pair and active status
-                IF EXISTS (
+                IF EXISTS 
+                (
                     SELECT 1
                     FROM [dbo].[ProductSalesSubRegion] PSSR
                     WHERE PSSR.[ProductId] = @productId

@@ -31,10 +31,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[PromotionTargetType] PTT
-			INNER JOIN #PromotionTargetTypeTemp PTTT ON PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
-			WHERE PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
+				SELECT *
+				FROM [dbo].[PromotionTargetType] PTT
+				INNER JOIN #PromotionTargetTypeTemp PTTT ON PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
+				WHERE PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
 			)
 			THROW 50000, 'Promotion Target Type already exists, please update the existing record.', 1;
 			ELSE

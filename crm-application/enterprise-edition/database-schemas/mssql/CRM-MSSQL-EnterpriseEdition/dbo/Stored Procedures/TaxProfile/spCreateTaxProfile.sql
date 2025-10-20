@@ -31,12 +31,12 @@ BEGIN
 
 			IF EXISTS
 			( 
-			SELECT *
-			FROM [dbo].[TaxProfile] TP
-			INNER JOIN #TazProfileTemp TPP ON TP.[TaxProfile] = TPP.[TaxProfile]
-			AND TP.[TaxRate] = TPP.[TaxRate]
-			WHERE TP.[TaxProfile] = TPP.[TaxProfile]
-			AND TP.[TaxRate] = TPP.[TaxRate]
+				SELECT *
+				FROM [dbo].[TaxProfile] TP
+				INNER JOIN #TazProfileTemp TPP ON TP.[TaxProfile] = TPP.[TaxProfile]
+				AND TP.[TaxRate] = TPP.[TaxRate]
+				WHERE TP.[TaxProfile] = TPP.[TaxProfile]
+				AND TP.[TaxRate] = TPP.[TaxRate]
 			)
 			THROW 50000, 'Tax Profile already exists, please update the existing record.', 1;
 			ELSE

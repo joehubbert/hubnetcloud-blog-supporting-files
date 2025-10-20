@@ -75,26 +75,26 @@ BEGIN
 
             IF EXISTS
             (
-            SELECT *
-            FROM [dbo].[Supplier] S
-            INNER JOIN #SupplierTemp ST ON S.[AddressLine1] = ST.[AddressLine1]
-            AND S.[AddressLine2] = ST.[AddressLine2]
-            AND S.[AddressLine3] = ST.[AddressLine3]
-            AND S.[AddressLine4] = ST.[AddressLine4]
-            AND S.[AddressLine5] = ST.[AddressLine5]
-            AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
-            AND S.[SupplierName] = ST.[SupplierName]
-            AND S.[VATRegistered] = ST.[VATRegistered]
-            AND S.[VATNumber] = ST.[VATNumber]
-            WHERE S.[AddressLine1] = ST.[AddressLine1]
-            AND S.[AddressLine2] = ST.[AddressLine2]
-            AND S.[AddressLine3] = ST.[AddressLine3]
-            AND S.[AddressLine4] = ST.[AddressLine4]
-            AND S.[AddressLine5] = ST.[AddressLine5]
-            AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
-            AND S.[SupplierName] = ST.[SupplierName]
-            AND S.[VATRegistered] = ST.[VATRegistered]
-            AND S.[VATNumber] = ST.[VATNumber]
+                SELECT *
+                FROM [dbo].[Supplier] S
+                INNER JOIN #SupplierTemp ST ON S.[AddressLine1] = ST.[AddressLine1]
+                AND S.[AddressLine2] = ST.[AddressLine2]
+                AND S.[AddressLine3] = ST.[AddressLine3]
+                AND S.[AddressLine4] = ST.[AddressLine4]
+                AND S.[AddressLine5] = ST.[AddressLine5]
+                AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
+                AND S.[SupplierName] = ST.[SupplierName]
+                AND S.[VATRegistered] = ST.[VATRegistered]
+                AND S.[VATNumber] = ST.[VATNumber]
+                WHERE S.[AddressLine1] = ST.[AddressLine1]
+                AND S.[AddressLine2] = ST.[AddressLine2]
+                AND S.[AddressLine3] = ST.[AddressLine3]
+                AND S.[AddressLine4] = ST.[AddressLine4]
+                AND S.[AddressLine5] = ST.[AddressLine5]
+                AND S.[CompanyConfigurationId] = ST.[CompanyConfigurationId]
+                AND S.[SupplierName] = ST.[SupplierName]
+                AND S.[VATRegistered] = ST.[VATRegistered]
+                AND S.[VATNumber] = ST.[VATNumber]
             )
             THROW 50000, 'Supplier already exists, please update the existing record.', 1;
             ELSE

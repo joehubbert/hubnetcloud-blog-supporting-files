@@ -47,18 +47,18 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[SupplierContact] SC
-			INNER JOIN #SupplierContactTemp SCT ON SC.[SupplierId] = SCT.[SupplierId]
-			AND SC.[FirstName] = SCT.[FirstName]
-			AND SC.[LastName] = SCT.[LastName]
-			AND SC.[EmailAddress] = SCT.[EmailAddress]
-			AND SC.[TelephoneNumber] = SCT.[TelephoneNumber]
-			WHERE SC.[SupplierId] = SCT.[SupplierId]
-			AND SC.[FirstName] = SCT.[FirstName]
-			AND SC.[LastName] = SCT.[LastName]
-			AND SC.[EmailAddress] = SCT.[EmailAddress]
-			AND SC.[TelephoneNumber] = SCT.[TelephoneNumber]
+				SELECT *
+				FROM [dbo].[SupplierContact] SC
+				INNER JOIN #SupplierContactTemp SCT ON SC.[SupplierId] = SCT.[SupplierId]
+				AND SC.[FirstName] = SCT.[FirstName]
+				AND SC.[LastName] = SCT.[LastName]
+				AND SC.[EmailAddress] = SCT.[EmailAddress]
+				AND SC.[TelephoneNumber] = SCT.[TelephoneNumber]
+				WHERE SC.[SupplierId] = SCT.[SupplierId]
+				AND SC.[FirstName] = SCT.[FirstName]
+				AND SC.[LastName] = SCT.[LastName]
+				AND SC.[EmailAddress] = SCT.[EmailAddress]
+				AND SC.[TelephoneNumber] = SCT.[TelephoneNumber]
 			)
 			THROW 50000, 'Supplier Contact already exists, please update the existing record.', 1;
 			ELSE

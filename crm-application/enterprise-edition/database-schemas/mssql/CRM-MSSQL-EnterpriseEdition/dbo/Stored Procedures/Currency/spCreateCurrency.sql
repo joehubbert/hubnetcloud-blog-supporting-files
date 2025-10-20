@@ -31,12 +31,12 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[Currency] C
-			INNER JOIN #CurrencyTemp CT ON C.[CurrencyCode] = CT.[CurrencyCode]
-			AND C.[CurrencyName] = CT.[CurrencyName]
-			WHERE C.[CurrencyCode] = CT.[CurrencyCode]
-			AND C.[CurrencyName] = CT.[CurrencyName]
+				SELECT *
+				FROM [dbo].[Currency] C
+				INNER JOIN #CurrencyTemp CT ON C.[CurrencyCode] = CT.[CurrencyCode]
+				AND C.[CurrencyName] = CT.[CurrencyName]
+				WHERE C.[CurrencyCode] = CT.[CurrencyCode]
+				AND C.[CurrencyName] = CT.[CurrencyName]
 			)
 			THROW 50000, 'Currency already exists, please update the existing record.', 1;
 			ELSE

@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[MasterDataType] CT
-			INNER JOIN #MasterDataTypeTemp CTT ON CT.[MasterDataType] = CTT.[MasterDataType]
-			WHERE CT.[MasterDataType] = CTT.[MasterDataType]
+				SELECT *
+				FROM [dbo].[MasterDataType] CT
+				INNER JOIN #MasterDataTypeTemp CTT ON CT.[MasterDataType] = CTT.[MasterDataType]
+				WHERE CT.[MasterDataType] = CTT.[MasterDataType]
 			)
 			THROW 50000, 'Master Data Type already exists, please update the existing record.', 1;
 			ELSE

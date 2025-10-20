@@ -127,12 +127,12 @@ BEGIN
 
             IF EXISTS
             (
-            SELECT *
-            FROM [dbo].[CompanyConfiguration] C
-            INNER JOIN #CompanyConfigurationTemp CT ON C.[CompanyName] = CT.[CompanyName]
-            AND C.[VATNumber] = CT.[VATNumber]
-            WHERE C.[CompanyName] = CT.[CompanyName]
-            AND C.[VATNumber] = CT.[VATNumber]
+                SELECT *
+                FROM [dbo].[CompanyConfiguration] C
+                INNER JOIN #CompanyConfigurationTemp CT ON C.[CompanyName] = CT.[CompanyName]
+                AND C.[VATNumber] = CT.[VATNumber]
+                WHERE C.[CompanyName] = CT.[CompanyName]
+                AND C.[VATNumber] = CT.[VATNumber]
             )
             THROW 50000, 'Company already exists, please update the existing record.', 1;
             ELSE

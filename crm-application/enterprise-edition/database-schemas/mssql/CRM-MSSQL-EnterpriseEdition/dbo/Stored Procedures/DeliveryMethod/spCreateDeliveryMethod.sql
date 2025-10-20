@@ -39,16 +39,16 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[DeliveryMethod] DM
-			INNER JOIN #DeliveryMethodTemp DMT ON DM.[TaxProfileId] = DMT.[TaxProfileId]
-			AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
-			AND DM.[DeliveryCost] = DMT.[DeliveryCost]
-			AND DM.[DeliveryTimeDays] = DMT.[DeliveryTimeDays]
-			WHERE DM.[TaxProfileId] = DMT.[TaxProfileId]
-			AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
-			AND DM.[DeliveryCost] = DMT.[DeliveryCost]
-			AND DM.[DeliveryTimeDays] = DMT.[DeliveryTimeDays]
+				SELECT *
+				FROM [dbo].[DeliveryMethod] DM
+				INNER JOIN #DeliveryMethodTemp DMT ON DM.[TaxProfileId] = DMT.[TaxProfileId]
+				AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
+				AND DM.[DeliveryCost] = DMT.[DeliveryCost]
+				AND DM.[DeliveryTimeDays] = DMT.[DeliveryTimeDays]
+				WHERE DM.[TaxProfileId] = DMT.[TaxProfileId]
+				AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
+				AND DM.[DeliveryCost] = DMT.[DeliveryCost]
+				AND DM.[DeliveryTimeDays] = DMT.[DeliveryTimeDays]
 			)
 			THROW 50000, 'Delivery Method already exists, please update the existing record.', 1;
 			ELSE

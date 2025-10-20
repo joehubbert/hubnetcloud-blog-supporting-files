@@ -31,10 +31,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerLeadType] CLT
-			INNER JOIN #CustomerLeadTypeTemp CLTT ON CLT.[CustomerLeadType] = CLTT.[CustomerLeadType]
-			WHERE CLT.[CustomerLeadType] = CLTT.[CustomerLeadType]
+				SELECT *
+				FROM [dbo].[CustomerLeadType] CLT
+				INNER JOIN #CustomerLeadTypeTemp CLTT ON CLT.[CustomerLeadType] = CLTT.[CustomerLeadType]
+				WHERE CLT.[CustomerLeadType] = CLTT.[CustomerLeadType]
 			)
 			THROW 50000, 'Customer Lead Type already exists, please update the existing record.', 1;
 			ELSE

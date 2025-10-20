@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[OrderType] OT
-			INNER JOIN #OrderTypeTemp OTT ON OT.[OrderType] = OTT.[OrderType]
-			WHERE OT.[OrderType] = OTT.[OrderType]
+				SELECT *
+				FROM [dbo].[OrderType] OT
+				INNER JOIN #OrderTypeTemp OTT ON OT.[OrderType] = OTT.[OrderType]
+				WHERE OT.[OrderType] = OTT.[OrderType]
 			)
 			THROW 50000, 'Order Type already exists, please update the existing record.', 1;
 			ELSE

@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[ProductNoteType] CT
-			INNER JOIN #ProductNoteTypeTemp CTT ON CT.[ProductNoteType] = CTT.[ProductNoteType]
-			WHERE CT.[ProductNoteType] = CTT.[ProductNoteType]
+				SELECT *
+				FROM [dbo].[ProductNoteType] CT
+				INNER JOIN #ProductNoteTypeTemp CTT ON CT.[ProductNoteType] = CTT.[ProductNoteType]
+				WHERE CT.[ProductNoteType] = CTT.[ProductNoteType]
 			)
 			THROW 50000, 'Product Note Type already exists, please update the existing record.', 1;
 			ELSE

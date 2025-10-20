@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[PaymentMethod] PM
-			INNER JOIN #PaymentMethodTemp PMT ON PM.[PaymentMethod] = PMT.[PaymentMethod]
-			WHERE PM.[PaymentMethod] = PMT.[PaymentMethod]
+				SELECT *
+				FROM [dbo].[PaymentMethod] PM
+				INNER JOIN #PaymentMethodTemp PMT ON PM.[PaymentMethod] = PMT.[PaymentMethod]
+				WHERE PM.[PaymentMethod] = PMT.[PaymentMethod]
 			)
 			THROW 50000, 'Payment Method already exists, please update the existing record.', 1;
 			ELSE

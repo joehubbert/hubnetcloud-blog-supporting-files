@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[CustomerNoteType] CNT
-			INNER JOIN #CustomerNoteTypeTemp CNTT ON CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
-			WHERE CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
+				SELECT *
+				FROM [dbo].[CustomerNoteType] CNT
+				INNER JOIN #CustomerNoteTypeTemp CNTT ON CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
+				WHERE CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
 			)
 			THROW 50000, 'Customer Note Type already exists, please update the existing record.', 1;
 			ELSE

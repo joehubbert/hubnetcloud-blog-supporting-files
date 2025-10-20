@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[WholesaleDeliveryType] CT
-			INNER JOIN #WholesaleDeliveryTypeTemp CTT ON CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
-			WHERE CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
+				SELECT *
+				FROM [dbo].[WholesaleDeliveryType] CT
+				INNER JOIN #WholesaleDeliveryTypeTemp CTT ON CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
+				WHERE CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
 			)
 			THROW 50000, 'Wholesale Delivery Type already exists, please update the existing record.', 1;
 			ELSE

@@ -61,7 +61,8 @@ BEGIN
                   );
 
             -- Check for overlapping periods for the same currency pair and active status
-            IF EXISTS (
+            IF EXISTS 
+            (
                 SELECT 1
                 FROM [dbo].[CurrencyConversion] CC
                 WHERE CC.[CompanyConfigurationId] = @companyConfigurationId

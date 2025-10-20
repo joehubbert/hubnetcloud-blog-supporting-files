@@ -63,28 +63,28 @@ BEGIN
 
             IF EXISTS
             (
-            SELECT *
-            FROM [dbo].[Manufacturer] M
-            INNER JOIN #ManufacturerTemp MT ON M.[AddressLine1] = MT.[AddressLine1]
-            AND M.[AddressLine2] = MT.[AddressLine2]
-            AND M.[AddressLine3] = MT.[AddressLine3]
-            AND M.[AddressLine4] = MT.[AddressLine4]
-            AND M.[AddressLine5] = MT.[AddressLine5]
-            AND M.[ManufacturerName] = MT.[ManufacturerName]
-            AND M.[EmailAddress] = MT.[EmailAddress]
-            AND M.[TelephoneNumber] = MT.[TelephoneNumber]
-            AND M.[VATRegistered] = MT.[VATRegistered]
-            AND M.[VATNumber] = MT.[VATNumber]
-            WHERE M.[AddressLine1] = MT.[AddressLine1]
-            AND M.[AddressLine2] = MT.[AddressLine2]
-            AND M.[AddressLine3] = MT.[AddressLine3]
-            AND M.[AddressLine4] = MT.[AddressLine4]
-            AND M.[AddressLine5] = MT.[AddressLine5]
-            AND M.[ManufacturerName] = MT.[ManufacturerName]
-            AND M.[EmailAddress] = MT.[EmailAddress]
-            AND M.[TelephoneNumber] = MT.[TelephoneNumber]
-            AND M.[VATRegistered] = MT.[VATRegistered]
-            AND M.[VATNumber] = MT.[VATNumber]
+                SELECT *
+                FROM [dbo].[Manufacturer] M
+                INNER JOIN #ManufacturerTemp MT ON M.[AddressLine1] = MT.[AddressLine1]
+                AND M.[AddressLine2] = MT.[AddressLine2]
+                AND M.[AddressLine3] = MT.[AddressLine3]
+                AND M.[AddressLine4] = MT.[AddressLine4]
+                AND M.[AddressLine5] = MT.[AddressLine5]
+                AND M.[ManufacturerName] = MT.[ManufacturerName]
+                AND M.[EmailAddress] = MT.[EmailAddress]
+                AND M.[TelephoneNumber] = MT.[TelephoneNumber]
+                AND M.[VATRegistered] = MT.[VATRegistered]
+                AND M.[VATNumber] = MT.[VATNumber]
+                WHERE M.[AddressLine1] = MT.[AddressLine1]
+                AND M.[AddressLine2] = MT.[AddressLine2]
+                AND M.[AddressLine3] = MT.[AddressLine3]
+                AND M.[AddressLine4] = MT.[AddressLine4]
+                AND M.[AddressLine5] = MT.[AddressLine5]
+                AND M.[ManufacturerName] = MT.[ManufacturerName]
+                AND M.[EmailAddress] = MT.[EmailAddress]
+                AND M.[TelephoneNumber] = MT.[TelephoneNumber]
+                AND M.[VATRegistered] = MT.[VATRegistered]
+                AND M.[VATNumber] = MT.[VATNumber]
             )
             THROW 50000, 'Manufacturer already exists, please update the existing record.', 1;
             ELSE

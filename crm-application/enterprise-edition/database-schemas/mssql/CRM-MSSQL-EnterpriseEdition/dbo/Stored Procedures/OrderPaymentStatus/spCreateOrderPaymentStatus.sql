@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[OrderPaymentStatus] OPS
-			INNER JOIN #OrderPaymentStatusTemp OPST ON OPS.[OrderPaymentStatus] = OPST.[OrderPaymentStatus]
-			WHERE OPS.[OrderPaymentStatus] = OPST.[OrderPaymentStatus]
+				SELECT *
+				FROM [dbo].[OrderPaymentStatus] OPS
+				INNER JOIN #OrderPaymentStatusTemp OPST ON OPS.[OrderPaymentStatus] = OPST.[OrderPaymentStatus]
+				WHERE OPS.[OrderPaymentStatus] = OPST.[OrderPaymentStatus]
 			)
 			THROW 50000, 'Order Payment Status already exists, please update the existing record.', 1;
 			ELSE

@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[SupplierOrderStatus] SOS
-			INNER JOIN #SupplierOrderStatusTemp SOST ON SOS.[SupplierOrderStatus] = SOST.[SupplierOrderStatus]
-			WHERE SOS.[SupplierOrderStatus] = SOST.[SupplierOrderStatus]
+				SELECT *
+				FROM [dbo].[SupplierOrderStatus] SOS
+				INNER JOIN #SupplierOrderStatusTemp SOST ON SOS.[SupplierOrderStatus] = SOST.[SupplierOrderStatus]
+				WHERE SOS.[SupplierOrderStatus] = SOST.[SupplierOrderStatus]
 			)
 			THROW 50000, 'Supplier Order Status already exists, please update the existing record.', 1;
 			ELSE

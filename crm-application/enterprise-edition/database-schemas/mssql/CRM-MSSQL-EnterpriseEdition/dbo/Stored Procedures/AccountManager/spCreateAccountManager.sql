@@ -43,18 +43,18 @@ BEGIN
 
             IF EXISTS
             (
-            SELECT *
-            FROM [dbo].[AccountManager] AM
-            INNER JOIN #AccountManagerTemp AMT ON AM.[CompanyConfigurationId] = AMT.[CompanyConfigurationId]
-            AND AM.[FirstName] = AMT.[FirstName]
-            AND AM.[LastName] = AMT.[LastName]
-            AND AM.[EmailAddress] = AMT.[EmailAddress]
-            AND AM.[TelephoneNumber] = AMT.[TelephoneNumber]
-            WHERE AM.[CompanyConfigurationId] = AMT.[CompanyConfigurationId]
-            AND AM.[FirstName] = AMT.[FirstName]
-            AND AM.[LastName] = AMT.[LastName]
-            AND AM.[EmailAddress] = AMT.[EmailAddress]
-            AND AM.[TelephoneNumber] = AMT.[TelephoneNumber]
+                SELECT *
+                FROM [dbo].[AccountManager] AM
+                INNER JOIN #AccountManagerTemp AMT ON AM.[CompanyConfigurationId] = AMT.[CompanyConfigurationId]
+                AND AM.[FirstName] = AMT.[FirstName]
+                AND AM.[LastName] = AMT.[LastName]
+                AND AM.[EmailAddress] = AMT.[EmailAddress]
+                AND AM.[TelephoneNumber] = AMT.[TelephoneNumber]
+                WHERE AM.[CompanyConfigurationId] = AMT.[CompanyConfigurationId]
+                AND AM.[FirstName] = AMT.[FirstName]
+                AND AM.[LastName] = AMT.[LastName]
+                AND AM.[EmailAddress] = AMT.[EmailAddress]
+                AND AM.[TelephoneNumber] = AMT.[TelephoneNumber]
             )
             THROW 50000, 'Account Manager already exists, please update the existing record.', 1;
             ELSE

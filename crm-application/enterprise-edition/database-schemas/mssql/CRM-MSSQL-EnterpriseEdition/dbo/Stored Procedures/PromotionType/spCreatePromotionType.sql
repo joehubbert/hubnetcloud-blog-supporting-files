@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[PromotionType] P
-			INNER JOIN #PromotionTypeTemp PT ON P.[PromotionType] = PT.[PromotionType]
-			WHERE P.[PromotionType] = PT.[PromotionType]
+				SELECT *
+				FROM [dbo].[PromotionType] P
+				INNER JOIN #PromotionTypeTemp PT ON P.[PromotionType] = PT.[PromotionType]
+				WHERE P.[PromotionType] = PT.[PromotionType]
 			)
 			THROW 50000, 'Promotion Type already exists, please update the existing record.', 1;
 			ELSE

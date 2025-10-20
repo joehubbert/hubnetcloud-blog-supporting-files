@@ -27,10 +27,10 @@ BEGIN
 
 			IF EXISTS
 			(
-			SELECT *
-			FROM [dbo].[HTMLTemplateType] HTMLT
-			INNER JOIN #HTMLTemplateTypeTemp HTMLTT ON HTMLT.[HTMLTemplateType] = HTMLTT.[HTMLTemplateType]
-			WHERE HTMLT.[HTMLTemplateType] = HTMLTT.[HTMLTemplateType]
+				SELECT *
+				FROM [dbo].[HTMLTemplateType] HTMLT
+				INNER JOIN #HTMLTemplateTypeTemp HTMLTT ON HTMLT.[HTMLTemplateType] = HTMLTT.[HTMLTemplateType]
+				WHERE HTMLT.[HTMLTemplateType] = HTMLTT.[HTMLTemplateType]
 			)
 			THROW 50000, 'HTML Template Type already exists, please update the existing record.', 1;
 			ELSE

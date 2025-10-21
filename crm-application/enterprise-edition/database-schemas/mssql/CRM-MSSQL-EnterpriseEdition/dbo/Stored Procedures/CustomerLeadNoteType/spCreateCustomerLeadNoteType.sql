@@ -1,6 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateCustomerLeadNoteType]
 	@activeStatus BIT,
-	@customerLeadNoteType NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@customerLeadNoteType NVARCHAR(50),
+	@customerLeadNoteTypeCode NVARCHAR(20),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +13,27 @@ BEGIN
 
 			CREATE TABLE #CustomerLeadNoteTypeTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[CustomerLeadNoteType] NVARCHAR(50) NOT NULL,
+				[CustomerLeadNoteTypeCode] NVARCHAR(20) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #CustomerLeadNoteTypeTemp
 			(
+				[MasterDataTypeId],
 				[CustomerLeadNoteType],
+				[CustomerLeadNoteTypeCode],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@customerLeadNoteType,
+				@customerLeadNoteTypeCode,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -29,8 +41,12 @@ BEGIN
 			(
 				SELECT *
 				FROM [dbo].[CustomerLeadNoteType] CLNT
-				INNER JOIN #CustomerLeadNoteTypeTemp CLNTT ON CLNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
+				LEFT JOIN #CustomerLeadNoteTypeTemp CLNTT ON CLNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
+				AND CLNT.[CustomerLeadNoteTypeCode] = CLNTT.[CustomerLeadNoteTypeCode]
+				AND (CLNT.[CompanyConfigurationId] = CLNTT.[CompanyConfigurationId] OR (CLNT.[CompanyConfigurationId] IS NULL AND CLNTT.[CompanyConfigurationId] IS NULL))
 				WHERE CNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
+				AND CLNT.[CustomerLeadNoteTypeCode] = CLNTT.[CustomerLeadNoteTypeCode]
+				AND (CLNT.[CompanyConfigurationId] = CLNTT.[CompanyConfigurationId] OR (CLNT.[CompanyConfigurationId] IS NULL AND CLNTT.[CompanyConfigurationId] IS NULL))
 			)
 			THROW 50000, 'Customer Lead Note Type already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +56,18 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[CustomerLeadNoteType],
+				[CustomerLeadNoteTypeCode],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[CustomerLeadNoteType],
+				source.[CustomerLeadNoteTypeCode],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

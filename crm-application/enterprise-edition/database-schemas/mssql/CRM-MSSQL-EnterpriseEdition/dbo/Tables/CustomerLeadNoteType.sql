@@ -1,14 +1,20 @@
 ﻿CREATE TABLE [dbo].[CustomerLeadNoteType]
 (
 	[CustomerLeadNoteTypeId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 	[CustomerLeadNoteType] NVARCHAR(50) NOT NULL,
+	[CustomerLeadNoteTypeCode] NVARCHAR(20) NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	[RowVersion] ROWVERSION NOT NULL,
-	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType] UNIQUE ([CustomerLeadNoteType])
+	CONSTRAINT [FK_CustomerLeadNoteType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [FK_CustomerLeadNoteType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType] UNIQUE ([CustomerLeadNoteType]),
+	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteTypeCode] UNIQUE ([CustomerLeadNoteTypeCode])
 )
 GO
 

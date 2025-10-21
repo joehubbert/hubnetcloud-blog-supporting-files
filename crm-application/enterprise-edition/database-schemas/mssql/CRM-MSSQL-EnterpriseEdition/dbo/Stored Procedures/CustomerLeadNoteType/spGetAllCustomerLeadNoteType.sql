@@ -8,7 +8,14 @@ BEGIN
 
 			SELECT
 			[Customer Lead Note Type Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Customer Lead Note Type],
+			[Customer Lead Note Type Code],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwCustomerLeadNoteType]
 

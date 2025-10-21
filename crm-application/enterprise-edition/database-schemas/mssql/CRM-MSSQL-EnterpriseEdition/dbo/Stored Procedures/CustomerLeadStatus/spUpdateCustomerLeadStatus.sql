@@ -1,7 +1,10 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCustomerLeadStatus]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@customerLeadStatus NVARCHAR(50),
-	@customerLeadStatusId UNIQUEIDENTIFIER
+	@customerLeadStatusCode NVARCHAR(20),
+	@customerLeadStatusId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +15,10 @@ BEGIN
 			UPDATE [dbo].[CustomerLeadStatus]
 			SET 
 				[ActiveStatus] = @activeStatus,
-				[CustomerLeadStatus] = @customerLeadStatus
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[CustomerLeadStatus] = @customerLeadStatus,
+				[CustomerLeadStatusCode] = @customerLeadStatusCode,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [CustomerLeadStatusId] = @customerLeadStatusId
 
 		COMMIT TRANSACTION;

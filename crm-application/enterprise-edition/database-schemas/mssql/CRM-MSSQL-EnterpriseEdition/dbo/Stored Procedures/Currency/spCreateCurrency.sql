@@ -60,6 +60,7 @@ BEGIN
 				[MasterDataTypeId],
 				[CurrencyCode],
 				[CurrencyName],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
@@ -67,6 +68,7 @@ BEGIN
 				source.[MasterDataTypeId],
 				source.[CurrencyCode],
 				source.[CurrencyName],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

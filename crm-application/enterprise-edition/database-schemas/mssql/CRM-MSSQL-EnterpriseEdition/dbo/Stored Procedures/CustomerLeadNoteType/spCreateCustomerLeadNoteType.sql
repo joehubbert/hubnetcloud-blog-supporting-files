@@ -53,6 +53,7 @@ BEGIN
 			MERGE INTO [dbo].[CustomerLeadNoteType] AS target
 			USING #CustomerLeadNoteTypeTemp AS source
 			ON target.[CustomerLeadNoteType] = source.[CustomerLeadNoteType]
+			AND target.[CustomerLeadNoteTypeCode] = source.[CustomerLeadNoteTypeCode]
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

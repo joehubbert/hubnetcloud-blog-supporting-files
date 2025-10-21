@@ -11,7 +11,7 @@ BEGIN
 		FROM [dbo].[Currency] C
 		INNER JOIN [dbo].[MasterDataType] MDT ON C.[MasterDataTypeId] = MDT.[MasterDataTypeId]
 		WHERE C.[CurrencyId] = @currencyId
-		AND MDT.[SystemDefined] = 0
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

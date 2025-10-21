@@ -4,8 +4,8 @@ AS
 SELECT
 [MasterDataTypeId] AS [Master Data Type Id],
 [MasterDataType] AS [Master Data Type],
-[SystemDefined] AS [System Defined],
-[UserDefined] AS [User Defined],
+[MasterDataTypeCode] AS [Master Data Type Code],
+[IsCustom] AS [Is Custom],
 [ActiveStatus] AS [Active Status],
 [CreatedTimestampUTC] AS [Created Timestamp UTC],
 [CreatedBy] AS [Created By],

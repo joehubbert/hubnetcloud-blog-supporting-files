@@ -1,6 +1,7 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateMasterDataType]
 	@activeStatus BIT,
-	@masterDataType NVARCHAR(50)
+	@masterDataType NVARCHAR(50),
+	@masterDataTypeCode NVARCHAR(20)
 AS
 
 BEGIN
@@ -10,18 +11,24 @@ BEGIN
 
 			CREATE TABLE #MasterDataTypeTemp
 			(
-				[MasterDataType] NVARCHAR(50) NOT NULL,				
+				[MasterDataType] NVARCHAR(50) NOT NULL,
+				[MasterDataTypeCode] NVARCHAR(20) NOT NULL,
+				[IsCustom] BIT NOT NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #MasterDataTypeTemp
 			(
 				[MasterDataType],
+				[MasterDataTypeCode],
+				[IsCustom],
 				[ActiveStatus]
 			)
 			VALUES
 			(
 				@masterDataType,
+				@masterDataTypeCode,
+				1,
 				@activeStatus
 			)
 
@@ -41,15 +48,15 @@ BEGIN
 			INSERT
 			(
 				[MasterDataType],
-				[SystemDefined],
-				[UserDefined],
+				[MasterDataTypeCode],
+				[IsCustom],
 				[ActiveStatus]
 			)
 			VALUES
 			(
 				source.[MasterDataType],
-				0,
-				1,
+				source.[MasterDataTypeCode],
+				source.[IsCustom],
 				source.[ActiveStatus]
 			);
 

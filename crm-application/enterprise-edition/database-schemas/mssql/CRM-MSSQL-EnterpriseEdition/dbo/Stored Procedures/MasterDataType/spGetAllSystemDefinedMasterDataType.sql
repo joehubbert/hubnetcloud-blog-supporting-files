@@ -9,11 +9,11 @@ BEGIN
 			SELECT
 			[Master Data Type Id],
 			[Master Data Type],
-			[System Defined],
-			[User Defined],
+			[Master Data Type Code],
+			[Is Custom],
 			[Active Status]
 			FROM [dbo].[vwMasterDataType]
-			WHERE [System Defined] = 1
+			WHERE [Is Custom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

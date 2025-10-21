@@ -8,7 +8,7 @@
 
 -- Declare Built-In Master Data Type
 DECLARE @builtInMasterDataTypeIdCurrency UNIQUEIDENTIFIER
-SET @builtInMasterDataTypeIdCurrency = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataType] = 'Built-In' AND [SystemDefined] = 1)
+SET @builtInMasterDataTypeIdCurrency = (SELECT [MasterDataTypeId] FROM [dbo].[MasterDataType] WHERE [MasterDataTypeCode] = 'BUILTIN' AND [IsCustom] = 0)
 
 INSERT INTO #CurrencyTemp
 (

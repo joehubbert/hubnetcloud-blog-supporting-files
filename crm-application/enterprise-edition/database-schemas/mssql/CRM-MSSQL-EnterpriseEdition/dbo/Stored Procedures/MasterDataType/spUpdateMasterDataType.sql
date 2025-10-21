@@ -1,9 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateMasterDataType]
 	@activeStatus BIT,
+	@isCustom BIT,
 	@masterDataType NVARCHAR(50),
-	@masterDataTypeId UNIQUEIDENTIFIER,
-	@systemDefined BIT,
-	@userDefined BIT
+	@masterDataTypeCode NVARCHAR(20),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -15,8 +15,8 @@ BEGIN
 			SET 
 				[ActiveStatus] = @activeStatus,
 				[MasterDataType] = @masterDataType,
-				[SystemDefined] = @systemDefined,
-				[UserDefined] = @userDefined
+				[MasterDataTypeCode] = @masterDataTypeCode,
+				[IsCustom] = @isCustom
 			WHERE [MasterDataTypeId] = @masterDataTypeId
 
 		COMMIT TRANSACTION;

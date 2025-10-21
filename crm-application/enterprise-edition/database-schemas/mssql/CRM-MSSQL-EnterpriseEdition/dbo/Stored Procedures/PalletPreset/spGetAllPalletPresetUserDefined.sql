@@ -10,8 +10,8 @@ BEGIN
 			[Pallet Preset Id],
 			[Master Data Type Id],
 			[Master Data Type],
-			[System Defined],
-			[User Defined],
+			[Master Data Type Code],
+			[Is Custom],
 			[Pallet Preset Name],
 			[Pallet Preset Code],
 			[Pallet Depth Millimeter],
@@ -22,7 +22,7 @@ BEGIN
 			[Pallet Tare Weight Kilogram],
 			[Active Status]
 			FROM [dbo].[vwPalletPreset]
-			WHERE [User Defined] = 1
+			WHERE [Is Custom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

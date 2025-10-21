@@ -1,34 +1,34 @@
 ﻿CREATE TABLE #MasterDataTypeTemp
 (
 	[MasterDataType] NVARCHAR(50) NOT NULL,
-	[SystemDefined] BIT NOT NULL,
-	[UserDefined] BIT NOT NULL,
+	[MasterDataTypeCode] NVARCHAR(20) NOT NULL,
+	[IsCustom] BIT NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
 
 INSERT INTO #MasterDataTypeTemp 
 (
 	[MasterDataType],
-	[SystemDefined],
-	[UserDefined],
+	[MasterDataTypeCode],
+	[IsCustom],
 	[ActiveStatus]
 ) 
 VALUES
 (
 	'Built-In',
-	1,
+	'BUILTIN',
 	0,
 	1
 ),
 (
 	'User Defined (Company Specific)',
-	0,
+	'USERCOMPANY',
 	1,
 	1
 ),
 (
 	'User Defined (Global)',
-	0,
+	'USERGLOBAL',
 	1,
 	1
 )
@@ -40,15 +40,15 @@ WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataType],
-	[SystemDefined],
-	[UserDefined],
+	[MasterDataTypeCode],
+	[IsCustom],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataType],
-	source.[SystemDefined],
-	source.[UserDefined],
+	source.[MasterDataTypeCode],
+	source.[IsCustom],
 	source.[ActiveStatus]
 );
 

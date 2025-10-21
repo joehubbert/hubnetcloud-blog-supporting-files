@@ -9,8 +9,8 @@ BEGIN
 			SELECT
 			[Master Data Type Id],
 			[Master Data Type],
-			[System Defined],
-			[User Defined],
+			[Master Data Type Code],
+			[Is Custom],
 			[Active Status]
 			FROM [dbo].[vwMasterDataType]
 

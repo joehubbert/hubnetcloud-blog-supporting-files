@@ -9,6 +9,10 @@ BEGIN
 
 			SELECT
 			[Currency Conversion Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Company Configuration Id],
 			[Company Name],
 			[Currency Conversion Friendly Name],

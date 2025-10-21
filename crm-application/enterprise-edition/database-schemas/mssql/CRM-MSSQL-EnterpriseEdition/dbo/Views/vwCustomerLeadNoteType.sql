@@ -18,5 +18,5 @@ CLNT.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 CLNT.[ModifiedBy] AS [Modified By],
 CLNT.[RowVersion] AS [Row Version]
 FROM [dbo].[CustomerLeadNoteType] CLNT
-INNER JOIN [dbo].[CompanyConfiguration] CC ON CLNT.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
+LEFT JOIN [dbo].[CompanyConfiguration] CC ON CLNT.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
 INNER JOIN [dbo].[MasterDataType] MDT ON CLNT.[MasterDataTypeId] = MDT.[MasterDataTypeId]

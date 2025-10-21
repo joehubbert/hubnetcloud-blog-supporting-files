@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[CurrencyConversion]
-		WHERE [CurrencyConversionId] = @currencyConversionId
+		DELETE CC
+		FROM [dbo].[CurrencyConversion] CC
+		INNER JOIN [dbo].[MasterDataType] MDT ON CC.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE CC.[CurrencyConversionId] = @currencyConversionId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

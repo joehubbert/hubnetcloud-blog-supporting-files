@@ -18,5 +18,5 @@ C.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 C.[ModifiedBy] AS [Modified By],
 C.[RowVersion] AS [Row Version]
 FROM [dbo].[Country] C
-INNER JOIN [dbo].[CompanyConfiguration] CC ON C.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
+LEFT JOIN [dbo].[CompanyConfiguration] CC ON C.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
 INNER JOIN [dbo].[MasterDataType] MDT ON C.[MasterDataTypeId] = MDT.[MasterDataTypeId]

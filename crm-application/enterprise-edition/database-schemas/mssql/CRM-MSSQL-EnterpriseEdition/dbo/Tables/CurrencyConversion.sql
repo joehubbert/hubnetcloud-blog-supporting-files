@@ -1,7 +1,8 @@
 ﻿CREATE TABLE [dbo].[CurrencyConversion]
 (
 	[CurrencyConversionId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
-	[CompanyConfigurationId] UNIQUEIDENTIFIER NOT NULL,
+	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[BaseCurrencyId] UNIQUEIDENTIFIER NOT NULL,
 	[TargetCurrencyId] UNIQUEIDENTIFIER NOT NULL,
 	[BaseCurrencyConversionRate] DECIMAL(18, 8) NOT NULL,
@@ -14,6 +15,7 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	[RowVersion] ROWVERSION NOT NULL,
+	CONSTRAINT [FK_CurrencyConversion_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_CurrencyConversion_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
 	CONSTRAINT [FK_CurrencyConversion_BaseCurrencyId] FOREIGN KEY ([BaseCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),
 	CONSTRAINT [FK_CurrencyConversion_TargetCurrencyId] FOREIGN KEY ([TargetCurrencyId]) REFERENCES [dbo].[Currency]([CurrencyId]),

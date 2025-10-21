@@ -2,9 +2,10 @@
     @activeStatus BIT,
     @baseCurrencyConversionRate DECIMAL(18, 8),
     @baseCurrencyId UNIQUEIDENTIFIER,
-    @companyConfigurationId UNIQUEIDENTIFIER,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
     @effectiveDate DATE,
     @expiryDate DATE = NULL,
+    @masterDataTypeId UNIQUEIDENTIFIER,
     @targetCurrencyConversionRate DECIMAL(18, 8),
     @targetCurrencyId UNIQUEIDENTIFIER
 AS
@@ -15,7 +16,8 @@ BEGIN
 
             CREATE TABLE #CurrencyConversionTemp
             (
-                [CompanyConfigurationId] UNIQUEIDENTIFIER NOT NULL,
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
                 [BaseCurrencyId] UNIQUEIDENTIFIER NOT NULL,
                 [TargetCurrencyId] UNIQUEIDENTIFIER NOT NULL,
                 [BaseCurrencyConversionRate] DECIMAL(18, 6) NOT NULL,
@@ -27,6 +29,7 @@ BEGIN
 
             INSERT INTO #CurrencyConversionTemp
             (
+                [MasterDataTypeId],
                 [CompanyConfigurationId],
                 [BaseCurrencyId],
                 [TargetCurrencyId],
@@ -38,6 +41,7 @@ BEGIN
             )
             VALUES
             (
+                @masterDataTypeId,
                 @companyConfigurationId,
                 @baseCurrencyId,
                 @targetCurrencyId,
@@ -65,7 +69,8 @@ BEGIN
             (
                 SELECT 1
                 FROM [dbo].[CurrencyConversion] CC
-                WHERE CC.[CompanyConfigurationId] = @companyConfigurationId
+                WHERE (CC.[CompanyConfigurationId] = @companyConfigurationId OR (CC.[CompanyConfigurationId] IS NULL AND @companyConfigurationId IS NULL))
+                  AND CC.[MasterDataTypeId] = @masterDataTypeId
                   AND CC.[BaseCurrencyId] = @baseCurrencyId
                   AND CC.[TargetCurrencyId] = @targetCurrencyId
                   AND CC.[ActiveStatus] = @activeStatus
@@ -82,7 +87,8 @@ BEGIN
 
             MERGE INTO [dbo].[CurrencyConversion] AS target
             USING #CurrencyConversionTemp AS source
-            ON target.[CompanyConfigurationId] = source.[CompanyConfigurationId]
+            ON target.[MasterDataTypeId] = source.[MasterDataTypeId]
+            AND target.[CompanyConfigurationId] = source.[CompanyConfigurationId]
             AND target.[BaseCurrencyId] = source.[BaseCurrencyId]
             AND target.[TargetCurrencyId] = source.[TargetCurrencyId]
             AND target.[EffectiveDate] = source.[EffectiveDate]
@@ -91,6 +97,7 @@ BEGIN
             WHEN NOT MATCHED THEN
             INSERT
             (
+                [MasterDataTypeId],
                 [CompanyConfigurationId],
                 [BaseCurrencyId],
                 [TargetCurrencyId],
@@ -102,6 +109,7 @@ BEGIN
             )
             VALUES
             (
+                source.[MasterDataTypeId],
                 source.[CompanyConfigurationId],
                 source.[BaseCurrencyId],
                 source.[TargetCurrencyId],

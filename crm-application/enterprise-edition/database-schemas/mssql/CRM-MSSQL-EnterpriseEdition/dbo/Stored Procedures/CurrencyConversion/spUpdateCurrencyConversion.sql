@@ -2,10 +2,11 @@
     @activeStatus BIT,
     @baseCurrencyConversionRate DECIMAL(18, 8),
     @baseCurrencyId UNIQUEIDENTIFIER,
-    @companyConfigurationId UNIQUEIDENTIFIER,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@currencyConversionId UNIQUEIDENTIFIER,
     @effectiveDate DATE,
     @expiryDate DATE = NULL,
+	@masterDataTypeId UNIQUEIDENTIFIER,
     @targetCurrencyConversionRate DECIMAL(18, 8),
     @targetCurrencyId UNIQUEIDENTIFIER
 AS
@@ -23,6 +24,7 @@ BEGIN
 				[CompanyConfigurationId] = @companyConfigurationId,
 				[EffectiveDate] = @effectiveDate,
 				[ExpiryDate] = @expiryDate,
+				[MasterDataTypeId] = @masterDataTypeId,
 				[TargetCurrencyConversionRate] = @targetCurrencyConversionRate,
 				[TargetCurrencyId] = @targetCurrencyId
 			WHERE [CurrencyConversionId] = @currencyConversionId

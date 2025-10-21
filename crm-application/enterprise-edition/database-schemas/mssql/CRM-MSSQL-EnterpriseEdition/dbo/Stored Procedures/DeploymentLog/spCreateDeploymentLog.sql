@@ -1,0 +1,27 @@
+﻿CREATE PROCEDURE [dbo].[spCreateDeploymentLog]
+	@databaseVersion NVARCHAR(20)
+AS
+
+BEGIN
+	BEGIN TRY
+		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
+		BEGIN TRANSACTION;
+
+			INSERT INTO [dbo].[DeploymentLog]
+			(
+				[DatabaseVersion]
+			)
+			VALUES
+			(
+				@databaseVersion
+			)
+
+		COMMIT TRANSACTION;
+	END TRY
+	BEGIN CATCH
+		IF @@TRANCOUNT > 0
+			ROLLBACK TRANSACTION;
+
+		THROW;
+	END CATCH
+END

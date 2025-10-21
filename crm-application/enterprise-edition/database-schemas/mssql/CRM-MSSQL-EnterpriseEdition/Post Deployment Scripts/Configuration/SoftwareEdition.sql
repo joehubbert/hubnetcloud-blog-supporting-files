@@ -1,4 +1,5 @@
-﻿IF EXISTS (
+﻿IF EXISTS 
+(
     SELECT 1 FROM sys.extended_properties 
     WHERE name = N'SoftwareEdition' AND class = 0
 )

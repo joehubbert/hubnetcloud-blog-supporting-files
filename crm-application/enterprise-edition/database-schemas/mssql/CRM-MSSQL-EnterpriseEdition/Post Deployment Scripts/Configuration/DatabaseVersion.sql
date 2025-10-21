@@ -1,4 +1,5 @@
-﻿IF EXISTS (
+﻿IF EXISTS 
+(
     SELECT 1 FROM sys.extended_properties 
     WHERE name = N'DatabaseVersion' AND class = 0
 )
@@ -9,3 +10,6 @@ ELSE
     EXEC sp_addextendedproperty 
         @name = N'DatabaseVersion', 
         @value = $(DatabaseVersion);
+
+EXEC [dbo].[spCreateDeploymentLog]
+    @databaseVersion = $(DatabaseVersion);

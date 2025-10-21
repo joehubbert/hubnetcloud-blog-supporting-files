@@ -1,6 +1,7 @@
 ﻿DECLARE @publishTimestamp DATETIME2 = SYSUTCDATETIME();
 
-IF EXISTS (
+IF EXISTS 
+(
     SELECT 1 FROM sys.extended_properties 
     WHERE name = N'SchemaPublishTimestampUTC' AND class = 0
 )

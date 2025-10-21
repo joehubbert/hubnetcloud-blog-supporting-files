@@ -146,6 +146,7 @@
     <Folder Include="dbo\Stored Procedures\PromotionType" />
     <Folder Include="dbo\Stored Procedures\MasterDataType" />
     <Folder Include="dbo\Stored Procedures\PalletPreset" />
+    <Folder Include="dbo\Stored Procedures\DeploymentLog" />
   </ItemGroup>
   <ItemGroup>
     <Build Include="dbo\Tables\AccountManager.sql" />
@@ -825,6 +826,10 @@
     <Build Include="dbo\Stored Procedures\MasterDataType\spGetAllSystemDefinedMasterDataType.sql" />
     <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetSystemDefined.sql" />
     <Build Include="dbo\Stored Procedures\PalletPreset\spGetAllPalletPresetUserDefined.sql" />
+    <Build Include="dbo\Tables\DeploymentLog.sql" />
+    <Build Include="dbo\Stored Procedures\DeploymentLog\spCreateDeploymentLog.sql" />
+    <Build Include="dbo\Views\vwDeploymentLog.sql" />
+    <Build Include="dbo\Stored Procedures\DeploymentLog\spGetAllDeploymentLog.sql" />
   </ItemGroup>
   <ItemGroup>
     <ArtifactReference Include="$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\160\SqlSchemas\master.dacpac">

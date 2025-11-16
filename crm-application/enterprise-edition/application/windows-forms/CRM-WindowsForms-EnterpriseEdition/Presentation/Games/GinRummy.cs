@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Windows.Forms;
+﻿using System.Drawing.Drawing2D;
 
 namespace CRM.Presentation.Games
 {
@@ -229,7 +224,7 @@ namespace CRM.Presentation.Games
 
         private void DealNewHand()
         {
-            deck = Card.GetDeck();
+            deck = Card.CreateStandardDeck();
             var rnd = new Random();
             deck = deck.OrderBy(_ => rnd.Next()).ToList();
 
@@ -888,7 +883,7 @@ namespace CRM.Presentation.Games
             var remaining = new List<Card>(hand);
 
             // Find runs first
-            foreach (var suit in new[] { "Clubs", "Diamonds", "Hearts", "Spades" })
+            foreach (CardSuit suit in Enum.GetValues(typeof(CardSuit)))
             {
                 var suited = remaining.Where(c => c.Suit == suit).OrderBy(c => c.Rank).ToList();
 
@@ -1243,16 +1238,8 @@ namespace CRM.Presentation.Games
             g.DrawArc(Pens.DarkGray, x + CardWidth - 10, y, 10, 10, 270, 90);
 
             // Draw card content
-            string suitSymbol = card.Suit switch
-            {
-                "Hearts" => "♥",
-                "Diamonds" => "♦",
-                "Clubs" => "♣",
-                "Spades" => "♠",
-                _ => "?"
-            };
-            var suitColor = (card.Suit == "Hearts" || card.Suit == "Diamonds")
-                ? Brushes.Crimson : Brushes.Black;
+            string suitSymbol = card.GetSuitString();
+            var suitColor = card.GetSuitBrush();
 
             var rankFont = new Font("Segoe UI", 16, FontStyle.Bold);
             var suitFont = new Font("Segoe UI", 14, FontStyle.Bold);
@@ -1322,36 +1309,6 @@ namespace CRM.Presentation.Games
             public string Name { get; set; } = string.Empty;
             public bool IsHuman { get; set; }
             public List<Card> Hand { get; set; } = new();
-        }
-
-        private class Card
-        {
-            public string Suit { get; set; } = string.Empty;
-            public int Rank { get; set; }
-
-            public override string ToString() => $"{GetRankString()}{Suit[0]}";
-
-            public string GetRankString()
-            {
-                return Rank switch
-                {
-                    11 => "J",
-                    12 => "Q",
-                    13 => "K",
-                    14 => "A",
-                    _ => Rank.ToString()
-                };
-            }
-
-            public static List<Card> GetDeck()
-            {
-                var suits = new[] { "Clubs", "Diamonds", "Hearts", "Spades" };
-                var deck = new List<Card>();
-                foreach (var suit in suits)
-                    for (int r = 2; r <= 14; r++)
-                        deck.Add(new Card { Suit = suit, Rank = r });
-                return deck;
-            }
         }
 
         private class AnimatedCard

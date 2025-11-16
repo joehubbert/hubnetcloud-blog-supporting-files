@@ -115,6 +115,12 @@ namespace CRM.Presentation.General
             solitaire.Show();
         }
 
+        private void homeMenuStripHelpEasterEggSpades_Click(object sender, EventArgs e)
+        {
+            Spades spades = new Spades();
+            spades.Show();
+        }
+
         private void homeMenuStripHelpEasterEggSpiderSolitaire_Click(object sender, EventArgs e)
         {
             using var dlg = new SpiderSolitaireDifficulty(1); // or your default suit count

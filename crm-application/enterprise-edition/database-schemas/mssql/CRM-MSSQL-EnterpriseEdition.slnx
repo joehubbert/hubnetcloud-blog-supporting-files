@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="CRM-MSSQL-EnterpriseEdition/CRM-MSSQL-EnterpriseEdition.sqlproj" Id="7e8bdbd9-0309-4f36-a7fe-69b8f6667703">
+    <Build />
+    <Deploy />
+  </Project>
+</Solution>

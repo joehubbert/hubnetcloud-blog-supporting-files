@@ -1,38 +1,41 @@
-﻿namespace CRM.Presentation.Games
+﻿using System.Drawing.Drawing2D;
+
+namespace CRM.Presentation.Games
 {
     public partial class FreeCell : Form
     {
-        private List<FreeCellCard>[] tableau = new List<FreeCellCard>[8];
-        private FreeCellCard[] freeCells = new FreeCellCard[4];
-        private List<FreeCellCard>[] foundations = new List<FreeCellCard>[4];
+        private List<Card>[] tableau = new List<Card>[8];
+        private Card[] freeCells = new Card[4];
+        private List<Card>[] foundations = new List<Card>[4];
         private Deck deck = new Deck();
 
-        private const int FreeCellCardWidth = 60;
-        private const int FreeCellCardHeight = 90;
-        private const int FreeCellCardSpacing = 20;
-        private const int TopMargin = 60;
-        private const int LeftMargin = 20;
+        private const int CardWidth = 70;
+        private const int CardHeight = 100;
+        private const int CardSpacing = 15;
+        private const int TopMargin = 180;
+        private const int LeftMargin = 50;
 
         // Scoring
         private int score = 0;
-        private Label scoreLabel;
+        private int moves = 0;
 
-        // Selection for moves
-        private int? selectedCol = null;
-        private int? selectedRow = null;
-        private int? selectedFreeCell = null;
-        private bool selectingFromFreeCell = false;
+        // UI Elements
+        private Label scoreLabel = null!;
+        private Label movesLabel = null!;
+        private Label statusLabel = null!;
+        private Button newGameButton = null!;
+        private Panel infoPanel = null!;
 
         // Animation
-        private System.Windows.Forms.Timer animationTimer;
-        private List<AnimationStep> currentAnimations = new List<AnimationStep>();
+        private System.Windows.Forms.Timer animationTimer = null!;
+        private List<AnimatedCard> currentAnimations = new();
         private Action? animationOnComplete = null;
 
         // Dragging
         private bool isDragging = false;
         private Point dragStartPoint;
         private Point dragCurrentPoint;
-        private List<FreeCellCard> draggingCards = null;
+        private List<Card>? draggingCards = null;
         private int? dragSourceCol = null;
         private int? dragSourceRow = null;
         private int? dragSourceFreeCell = null;
@@ -41,49 +44,107 @@
         {
             InitializeComponent();
             DoubleBuffered = true;
+            InitializeGameUI();
+            StartNewGame();
+        }
 
-            // Initialize animation timer before calling StartNewGame
+        private void InitializeGameUI()
+        {
+            this.Size = new Size(850, 700);
+            this.BackColor = Color.ForestGreen;
+            this.Text = "FreeCell";
+            this.MinimumSize = new Size(850, 700);
+
+            // New Game Button
+            newGameButton = new Button
+            {
+                Text = "New Game",
+                Location = new Point(20, 20),
+                Width = 120,
+                Height = 40,
+                FlatStyle = FlatStyle.Flat,
+                BackColor = Color.LightGray,
+                Font = new Font("Segoe UI", 11, FontStyle.Bold)
+            };
+            newGameButton.Click += (s, e) => StartNewGame();
+            Controls.Add(newGameButton);
+
+            // Info Panel
+            infoPanel = new Panel
+            {
+                Location = new Point(650, 15),
+                Size = new Size(180, 150),
+                BackColor = Color.FromArgb(200, 0, 50, 0),
+                BorderStyle = BorderStyle.FixedSingle
+            };
+            Controls.Add(infoPanel);
+
+            scoreLabel = new Label
+            {
+                Location = new Point(10, 10),
+                Size = new Size(160, 35),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.Transparent,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Text = "Score: 0"
+            };
+            infoPanel.Controls.Add(scoreLabel);
+
+            movesLabel = new Label
+            {
+                Location = new Point(10, 55),
+                Size = new Size(160, 35),
+                Font = new Font("Segoe UI", 12, FontStyle.Bold),
+                ForeColor = Color.White,
+                BackColor = Color.Transparent,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Text = "Moves: 0"
+            };
+            infoPanel.Controls.Add(movesLabel);
+
+            statusLabel = new Label
+            {
+                Location = new Point(10, 100),
+                Size = new Size(160, 40),
+                Font = new Font("Segoe UI", 10, FontStyle.Italic),
+                ForeColor = Color.Yellow,
+                BackColor = Color.Transparent,
+                TextAlign = ContentAlignment.MiddleLeft,
+                Text = "Drag cards to move"
+            };
+            infoPanel.Controls.Add(statusLabel);
+
+            // Animation timer
             animationTimer = new System.Windows.Forms.Timer();
-            animationTimer.Interval = 15;
+            animationTimer.Interval = 16; // ~60 FPS
             animationTimer.Tick += AnimationTimer_Tick;
 
-            // Initialize scoreLabel before calling StartNewGame
-            scoreLabel = new Label { Text = "Score: 0", Location = new Point(LeftMargin + 100, 10), AutoSize = true, Font = new Font("Segoe UI", 12, FontStyle.Bold) };
-            Controls.Add(scoreLabel);
-
-            StartNewGame();
             this.Paint += FreeCell_Paint;
             this.MouseDown += FreeCell_MouseDown;
             this.MouseMove += FreeCell_MouseMove;
             this.MouseUp += FreeCell_MouseUp;
-
-            // Restart button
-            var restartBtn = new Button { Text = "Restart", Location = new Point(LeftMargin, 5), Width = 90, Height = 25, FlatStyle = FlatStyle.Flat, BackColor = SystemColors.Control };
-            restartBtn.Click += (s, e) => StartNewGame();
-            Controls.Add(restartBtn);
         }
 
         private void StartNewGame()
         {
             deck.Shuffle();
             for (int i = 0; i < 8; i++)
-                tableau[i] = new List<FreeCellCard>();
+                tableau[i] = new List<Card>();
             for (int i = 0; i < 4; i++)
-                foundations[i] = new List<FreeCellCard>();
+                foundations[i] = new List<Card>();
             Array.Clear(freeCells, 0, freeCells.Length);
 
             int col = 0;
-            foreach (var card in deck.FreeCellCards)
+            foreach (var card in deck.Cards)
             {
                 tableau[col % 8].Add(card);
                 col++;
             }
+
             score = 0;
-            selectedCol = null;
-            selectedRow = null;
-            selectedFreeCell = null;
-            selectingFromFreeCell = false;
-            UpdateScoreLabel();
+            moves = 0;
+            UpdateLabels();
             currentAnimations.Clear();
             animationOnComplete = null;
             animationTimer.Stop();
@@ -92,171 +153,344 @@
             dragSourceCol = null;
             dragSourceRow = null;
             dragSourceFreeCell = null;
+            statusLabel.Text = "Drag cards to move";
+            statusLabel.ForeColor = Color.Yellow;
             Invalidate();
         }
 
-        private void UpdateScoreLabel()
+        private void UpdateLabels()
         {
             scoreLabel.Text = $"Score: {score}";
+            movesLabel.Text = $"Moves: {moves}";
         }
 
-        private void FreeCell_Paint(object sender, PaintEventArgs e)
+        private void FreeCell_Paint(object? sender, PaintEventArgs e)
         {
             var g = e.Graphics;
-            var font = new Font("Segoe UI", 11, FontStyle.Bold);
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
+            g.Clear(Color.ForestGreen);
+
+            // Draw FreeCells section labels
+            DrawSectionLabel(g, "Free Cells", LeftMargin, TopMargin - 60);
 
             // Draw FreeCells
             for (int i = 0; i < 4; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
                 int y = TopMargin;
-                bool highlight = selectingFromFreeCell && selectedFreeCell == i;
-                DrawFreeCellCard(g, freeCells[i], x, y, font, highlight);
-                g.DrawRectangle(Pens.Black, x, y, FreeCellCardWidth, FreeCellCardHeight);
-                g.DrawString("Free", font, Brushes.Black, x, y - 20);
+
+                // Draw slot outline
+                DrawCardSlot(g, x, y, "F" + (i + 1), false);
+
+                // Draw card if present and not animating
+                if (freeCells[i] != null && !IsCardAnimating(freeCells[i]))
+                {
+                    DrawCard(g, freeCells[i], x, y, false);
+                }
             }
 
+            // Draw Foundations section labels
+            DrawSectionLabel(g, "Foundations", LeftMargin + 4 * (CardWidth + CardSpacing) + 20, TopMargin - 60);
+
             // Draw Foundations
+            string[] foundationLabels = { "♣", "♦", "♥", "♠" };
             for (int i = 0; i < 4; i++)
             {
-                int x = LeftMargin + (i + 4) * (FreeCellCardWidth + FreeCellCardSpacing);
+                int x = LeftMargin + (i + 4) * (CardWidth + CardSpacing) + 20;
                 int y = TopMargin;
-                FreeCellCard top = foundations[i].Count > 0 ? foundations[i].Last() : null;
-                DrawFreeCellCard(g, top, x, y, font);
-                g.DrawRectangle(Pens.Black, x, y, FreeCellCardWidth, FreeCellCardHeight);
-                g.DrawString("Home", font, Brushes.Black, x, y - 20);
+                Card? top = foundations[i].Count > 0 ? foundations[i].Last() : null;
+
+                // Draw slot outline
+                DrawCardSlot(g, x, y, foundationLabels[i], false);
+
+                // Draw card if present and not animating
+                if (top != null && !IsCardAnimating(top))
+                {
+                    DrawCard(g, top, x, y, false);
+                }
             }
 
             // Draw Tableau
             for (int i = 0; i < 8; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
-                int y = TopMargin + FreeCellCardHeight + 40;
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 50;
+
                 for (int j = 0; j < tableau[i].Count; j++)
                 {
-                    bool highlight = selectedCol == i && selectedRow.HasValue && j >= selectedRow.Value && !selectingFromFreeCell;
-                    // Don't draw cards being dragged
+                    // Don't draw cards being dragged or animating
                     if (isDragging && dragSourceCol == i && dragSourceRow.HasValue && j >= dragSourceRow.Value)
                         continue;
-                    DrawFreeCellCard(g, tableau[i][j], x, y + j * 25, font, highlight);
+
+                    if (IsCardAnimating(tableau[i][j]))
+                        continue;
+
+                    DrawCard(g, tableau[i][j], x, y + j * 30, false);
                 }
-                g.DrawRectangle(Pens.Black, x, y, FreeCellCardWidth, FreeCellCardHeight + Math.Max(0, (tableau[i].Count - 1) * 25));
             }
 
-            // Draw animation cards if animating
-            if (currentAnimations.Count > 0)
+            // Draw animated cards
+            foreach (var anim in currentAnimations.Where(a => a.Delay == 0))
             {
-                foreach (var anim in currentAnimations)
-                {
-                    DrawFreeCellCard(g, anim.FreeCellCard, (int)anim.CurrentX, (int)anim.CurrentY, font, true);
-                }
+                DrawAnimatedCard(g, anim);
             }
 
-            // Draw dragging cards on top if dragging
+            // Draw dragging cards on top
             if (isDragging && draggingCards != null)
             {
                 for (int i = 0; i < draggingCards.Count; i++)
                 {
-                    int x = dragCurrentPoint.X;
-                    int y = dragCurrentPoint.Y + i * 25;
-                    DrawFreeCellCard(g, draggingCards[i], x, y, font, true);
+                    int x = dragCurrentPoint.X - CardWidth / 2;
+                    int y = dragCurrentPoint.Y - CardHeight / 2 + i * 30;
+                    DrawCard(g, draggingCards[i], x, y, true);
                 }
             }
 
             // Win detection
             if (IsWin())
             {
-                var winFont = new Font("Segoe UI", 32, FontStyle.Bold);
-                var text = "You Win!";
-                var size = g.MeasureString(text, winFont);
-                g.DrawString(text, winFont, Brushes.Green, (ClientSize.Width - size.Width) / 2, (ClientSize.Height - size.Height) / 2);
+                DrawWinMessage(g);
             }
         }
 
-        private void DrawFreeCellCard(Graphics g, FreeCellCard card, int x, int y, Font font, bool highlight = false)
+        private bool IsCardAnimating(Card card)
         {
-            if (card == null)
-            {
-                g.FillRectangle(highlight ? Brushes.LightYellow : Brushes.White, x, y, FreeCellCardWidth, FreeCellCardHeight);
-                return;
-            }
-            g.FillRectangle(highlight ? Brushes.LightYellow : Brushes.White, x, y, FreeCellCardWidth, FreeCellCardHeight);
-            g.DrawRectangle(Pens.Black, x, y, FreeCellCardWidth, FreeCellCardHeight);
-            Brush brush = (card.Suit == FreeCellSuit.Hearts || card.Suit == FreeCellSuit.Diamonds) ? Brushes.Red : Brushes.Black;
-            g.DrawString(card.ToString(), font, brush, x + 5, y + 5);
+            return currentAnimations.Any(a => a.Card == card);
         }
 
-        private void AnimateMultiFreeCellCardMove(List<FreeCellCard> cards, List<Point> froms, List<Point> tos, Action onComplete)
+        private void DrawSectionLabel(Graphics g, string text, int x, int y)
+        {
+            var font = new Font("Segoe UI", 12, FontStyle.Bold);
+            var size = g.MeasureString(text, font);
+            var backRect = new RectangleF(x - 5, y, size.Width + 10, size.Height + 4);
+
+            using (var brush = new SolidBrush(Color.FromArgb(150, 0, 0, 0)))
+            {
+                g.FillRoundedRectangle(brush, backRect, 5);
+            }
+            g.DrawString(text, font, Brushes.White, x, y);
+        }
+
+        private void DrawCardSlot(Graphics g, int x, int y, string label, bool highlight)
+        {
+            var rect = new Rectangle(x, y, CardWidth, CardHeight);
+
+            // Draw dashed border for empty slot
+            using (var pen = new Pen(highlight ? Color.Gold : Color.FromArgb(100, 255, 255, 255), 2)
+            { DashStyle = DashStyle.Dash })
+            {
+                g.DrawRectangle(pen, rect);
+            }
+
+            // Draw label in center
+            var font = new Font("Segoe UI", 20, FontStyle.Bold);
+            var size = g.MeasureString(label, font);
+            using (var labelBrush = new SolidBrush(Color.FromArgb(80, 255, 255, 255)))
+            {
+                g.DrawString(label, font, labelBrush,
+                    x + (CardWidth - size.Width) / 2,
+                    y + (CardHeight - size.Height) / 2);
+            }
+        }
+
+        private void DrawCard(Graphics g, Card card, int x, int y, bool highlight)
+        {
+            var rect = new Rectangle(x, y, CardWidth, CardHeight);
+
+            // Draw shadow
+            if (highlight)
+            {
+                using (var shadowBrush = new SolidBrush(Color.FromArgb(120, 255, 215, 0)))
+                {
+                    g.FillRectangle(shadowBrush, new Rectangle(x - 3, y - 3, CardWidth + 6, CardHeight + 6));
+                }
+            }
+            g.FillRectangle(new SolidBrush(Color.FromArgb(60, 0, 0, 0)),
+                new Rectangle(x + 4, y + 4, CardWidth, CardHeight));
+
+            // Draw card background with gradient
+            using (var gradientBrush = new LinearGradientBrush(rect, Color.White, Color.WhiteSmoke, 45f))
+            {
+                g.FillRectangle(gradientBrush, rect);
+            }
+
+            // Draw border
+            var pen = highlight ? new Pen(Color.Gold, 3) : new Pen(Color.Black, 2);
+            g.DrawRectangle(pen, rect);
+
+            // Draw rounded corners effect
+            g.DrawArc(Pens.DarkGray, x, y, 10, 10, 180, 90);
+            g.DrawArc(Pens.DarkGray, x + CardWidth - 10, y, 10, 10, 270, 90);
+
+            // Draw card content
+            string CardSuitSymbol = card.Suit switch
+            {
+                CardSuit.Hearts => "♥",
+                CardSuit.Diamonds => "♦",
+                CardSuit.Clubs => "♣",
+                CardSuit.Spades => "♠",
+                _ => "?"
+            };
+
+            var CardSuitColor = (card.Suit == CardSuit.Hearts || card.Suit == CardSuit.Diamonds)
+                ? Brushes.Crimson : Brushes.Black;
+
+            var rankFont = new Font("Segoe UI", 14, FontStyle.Bold);
+            var CardSuitFont = new Font("Segoe UI", 12, FontStyle.Bold);
+
+            // Top-left corner
+            g.DrawString(card.GetRankString(), rankFont, CardSuitColor, x + 5, y + 3);
+            g.DrawString(CardSuitSymbol, CardSuitFont, CardSuitColor, x + 5, y + 22);
+
+            // Bottom-right corner (upside down)
+            var state = g.Save();
+            g.TranslateTransform(x + CardWidth, y + CardHeight);
+            g.RotateTransform(180);
+            g.DrawString(card.GetRankString(), rankFont, CardSuitColor, 5, 3);
+            g.DrawString(CardSuitSymbol, CardSuitFont, CardSuitColor, 5, 22);
+            g.Restore(state);
+
+            // Center symbol
+            var centerFont = new Font("Segoe UI", 24, FontStyle.Bold);
+            var symbolSize = g.MeasureString(CardSuitSymbol, centerFont);
+            g.DrawString(CardSuitSymbol, centerFont, CardSuitColor,
+                x + CardWidth / 2 - symbolSize.Width / 2,
+                y + CardHeight / 2 - symbolSize.Height / 2);
+        }
+
+        private void DrawAnimatedCard(Graphics g, AnimatedCard anim)
+        {
+            var state = g.Save();
+
+            g.TranslateTransform(anim.Current.X + CardWidth / 2, anim.Current.Y + CardHeight / 2);
+            g.RotateTransform(anim.Rotation);
+            g.ScaleTransform(anim.Scale, anim.Scale);
+            g.TranslateTransform(-CardWidth / 2, -CardHeight / 2);
+
+            DrawCard(g, anim.Card, 0, 0, true);
+
+            g.Restore(state);
+        }
+
+        private void DrawWinMessage(Graphics g)
+        {
+            var winFont = new Font("Segoe UI", 36, FontStyle.Bold);
+            var text = "You Win!";
+            var size = g.MeasureString(text, winFont);
+
+            var backRect = new RectangleF(
+                (ClientSize.Width - size.Width) / 2 - 20,
+                (ClientSize.Height - size.Height) / 2 - 20,
+                size.Width + 40,
+                size.Height + 40);
+
+            using (var brush = new SolidBrush(Color.FromArgb(220, 0, 100, 0)))
+            {
+                g.FillRoundedRectangle(brush, backRect, 15);
+            }
+
+            g.DrawString(text, winFont, Brushes.Gold,
+                (ClientSize.Width - size.Width) / 2,
+                (ClientSize.Height - size.Height) / 2);
+        }
+
+        private void AnimateCardMove(List<Card> cards, List<Point> froms, List<Point> tos, Action onComplete)
         {
             currentAnimations.Clear();
             for (int i = 0; i < cards.Count; i++)
             {
-                currentAnimations.Add(new AnimationStep
+                currentAnimations.Add(new AnimatedCard
                 {
-                    FreeCellCard = cards[i],
+                    Card = cards[i],
                     From = froms[i],
                     To = tos[i],
-                    CurrentX = froms[i].X,
-                    CurrentY = froms[i].Y
+                    Current = froms[i],
+                    Progress = 0,
+                    Rotation = 0,
+                    Scale = 1.0f,
+                    Delay = i * 2 // Stagger multi-card moves
                 });
             }
             animationOnComplete = onComplete;
             animationTimer.Start();
         }
 
-        private void AnimationTimer_Tick(object sender, EventArgs e)
+        private void AnimationTimer_Tick(object? sender, EventArgs e)
         {
-            if (currentAnimations.Count == 0)
-            {
-                animationTimer.Stop();
-                return;
-            }
-            bool allArrived = true;
-            float speed = 20f;
+            bool anyActive = false;
+
             foreach (var anim in currentAnimations)
             {
-                float dx = anim.To.X - anim.CurrentX;
-                float dy = anim.To.Y - anim.CurrentY;
-                float dist = (float)Math.Sqrt(dx * dx + dy * dy);
-                if (dist < speed)
+                if (anim.Delay > 0)
                 {
-                    anim.CurrentX = anim.To.X;
-                    anim.CurrentY = anim.To.Y;
+                    anim.Delay--;
+                    anyActive = true;
+                    continue;
                 }
-                else
+
+                if (anim.Progress < 1.0)
                 {
-                    anim.CurrentX += dx / dist * speed;
-                    anim.CurrentY += dy / dist * speed;
-                    allArrived = false;
+                    anim.Progress += 0.12;
+                    if (anim.Progress > 1.0) anim.Progress = 1.0;
+
+                    // Cubic ease-in-out (same as GinRummy and Spades)
+                    double easedProgress = anim.Progress < 0.5
+                        ? 4 * anim.Progress * anim.Progress * anim.Progress
+                        : 1 - Math.Pow(-2 * anim.Progress + 2, 3) / 2;
+
+                    anim.Current = new Point(
+                        (int)(anim.From.X + (anim.To.X - anim.From.X) * easedProgress),
+                        (int)(anim.From.Y + (anim.To.Y - anim.From.Y) * easedProgress)
+                    );
+
+                    // Add subtle rotation during movement
+                    anim.Rotation = (float)(Math.Sin(anim.Progress * Math.PI) * 5);
+
+                    // Slight scale pulse for foundation moves
+                    if (IsMovingToFoundation(anim))
+                    {
+                        anim.Scale = 1.0f + (float)(Math.Sin(anim.Progress * Math.PI) * 0.1);
+                    }
+
+                    anyActive = true;
                 }
             }
+
             Invalidate();
-            if (allArrived)
+
+            if (!anyActive)
             {
                 animationTimer.Stop();
-                currentAnimations.Clear();
                 animationOnComplete?.Invoke();
                 animationOnComplete = null;
             }
         }
 
+        private bool IsMovingToFoundation(AnimatedCard anim)
+        {
+            // Check if destination is in foundation area
+            int foundationY = TopMargin;
+            return Math.Abs(anim.To.Y - foundationY) < 10;
+        }
+
         // DRAG & DROP LOGIC
 
-        private void FreeCell_MouseDown(object sender, MouseEventArgs e)
+        private void FreeCell_MouseDown(object? sender, MouseEventArgs e)
         {
             if (IsWin() || currentAnimations.Count > 0) return;
 
             // Check FreeCells
             for (int i = 0; i < 4; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
                 int y = TopMargin;
-                if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, FreeCellCardHeight) && freeCells[i] != null)
+                if (IsPointInRect(e.Location, x, y, CardWidth, CardHeight) && freeCells[i] != null)
                 {
                     isDragging = true;
                     dragStartPoint = e.Location;
                     dragCurrentPoint = e.Location;
-                    draggingCards = new List<FreeCellCard> { freeCells[i] };
+                    draggingCards = new List<Card> { freeCells[i] };
                     dragSourceFreeCell = i;
                     dragSourceCol = null;
                     dragSourceRow = null;
@@ -269,12 +503,12 @@
             // Check Tableau
             for (int i = 0; i < 8; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
-                int y = TopMargin + FreeCellCardHeight + 40;
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 50;
                 for (int j = 0; j < tableau[i].Count; j++)
                 {
-                    int cardY = y + j * 25;
-                    if (IsPointInRect(e.Location, x, cardY, FreeCellCardWidth, FreeCellCardHeight))
+                    int cardY = y + j * 30;
+                    if (IsPointInRect(e.Location, x, cardY, CardWidth, CardHeight))
                     {
                         if (CanPickUpSequence(tableau[i], j))
                         {
@@ -294,7 +528,7 @@
             }
         }
 
-        private void FreeCell_MouseMove(object sender, MouseEventArgs e)
+        private void FreeCell_MouseMove(object? sender, MouseEventArgs e)
         {
             if (isDragging)
             {
@@ -303,7 +537,7 @@
             }
         }
 
-        private void FreeCell_MouseUp(object sender, MouseEventArgs e)
+        private void FreeCell_MouseUp(object? sender, MouseEventArgs e)
         {
             if (!isDragging || draggingCards == null)
                 return;
@@ -311,19 +545,19 @@
             // Try to drop on FreeCell
             for (int i = 0; i < 4; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
                 int y = TopMargin;
-                if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, FreeCellCardHeight) && freeCells[i] == null && draggingCards.Count == 1)
+                if (IsPointInRect(e.Location, x, y, CardWidth, CardHeight) && freeCells[i] == null && draggingCards.Count == 1)
                 {
                     var card = draggingCards[0];
                     Point from = dragSourceFreeCell.HasValue
-                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
-                        : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
-                                    TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
+                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (CardWidth + CardSpacing), TopMargin)
+                        : new Point(LeftMargin + dragSourceCol!.Value * (CardWidth + CardSpacing),
+                                    TopMargin + CardHeight + 50 + dragSourceRow!.Value * 30);
                     Point to = new Point(x, y);
 
-                    AnimateMultiFreeCellCardMove(
-                        new List<FreeCellCard> { card },
+                    AnimateCardMove(
+                        new List<Card> { card },
                         new List<Point> { from },
                         new List<Point> { to },
                         () =>
@@ -335,8 +569,10 @@
 
                             freeCells[i] = card;
                             EndDrag();
-                            score -= 1;
-                            UpdateScoreLabel();
+                            moves++;
+                            UpdateLabels();
+                            statusLabel.Text = "Moved to Free Cell";
+                            statusLabel.ForeColor = Color.LightCyan;
                             Invalidate();
                         });
                     return;
@@ -346,19 +582,19 @@
             // Try to drop on Foundation
             for (int i = 0; i < 4; i++)
             {
-                int x = LeftMargin + (i + 4) * (FreeCellCardWidth + FreeCellCardSpacing);
+                int x = LeftMargin + (i + 4) * (CardWidth + CardSpacing) + 20;
                 int y = TopMargin;
-                if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, FreeCellCardHeight) && draggingCards.Count == 1 && CanMoveToFoundation(draggingCards[0], i))
+                if (IsPointInRect(e.Location, x, y, CardWidth, CardHeight) && draggingCards.Count == 1 && CanMoveToFoundation(draggingCards[0], i))
                 {
                     var card = draggingCards[0];
                     Point from = dragSourceFreeCell.HasValue
-                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
-                        : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
-                                    TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
+                        ? new Point(LeftMargin + dragSourceFreeCell.Value * (CardWidth + CardSpacing), TopMargin)
+                        : new Point(LeftMargin + dragSourceCol!.Value * (CardWidth + CardSpacing),
+                                    TopMargin + CardHeight + 50 + dragSourceRow!.Value * 30);
                     Point to = new Point(x, y);
 
-                    AnimateMultiFreeCellCardMove(
-                        new List<FreeCellCard> { card },
+                    AnimateCardMove(
+                        new List<Card> { card },
                         new List<Point> { from },
                         new List<Point> { to },
                         () =>
@@ -371,7 +607,10 @@
                             foundations[i].Add(card);
                             EndDrag();
                             score += 10;
-                            UpdateScoreLabel();
+                            moves++;
+                            UpdateLabels();
+                            statusLabel.Text = "Moved to Foundation!";
+                            statusLabel.ForeColor = Color.LightGreen;
                             Invalidate();
                         });
                     return;
@@ -381,26 +620,25 @@
             // Try to drop on Tableau
             for (int i = 0; i < 8; i++)
             {
-                int x = LeftMargin + i * (FreeCellCardWidth + FreeCellCardSpacing);
-                int y = TopMargin + FreeCellCardHeight + 40;
-                int colHeight = FreeCellCardHeight + Math.Max(0, (tableau[i].Count - 1) * 25);
+                int x = LeftMargin + i * (CardWidth + CardSpacing);
+                int y = TopMargin + CardHeight + 50;
+                int colHeight = tableau[i].Count > 0 ? CardHeight + (tableau[i].Count - 1) * 30 : CardHeight;
 
-                if (IsPointInRect(e.Location, x, y, FreeCellCardWidth, colHeight) && (dragSourceCol != i || dragSourceCol == null))
+                if (IsPointInRect(e.Location, x, y, CardWidth, colHeight) && (dragSourceCol != i || dragSourceCol == null))
                 {
                     if (draggingCards.Count == 1)
                     {
-                        // Use CanMoveToTableau for single card
                         if (CanMoveToTableau(draggingCards[0], i))
                         {
                             var card = draggingCards[0];
                             Point from = dragSourceFreeCell.HasValue
-                                ? new Point(LeftMargin + dragSourceFreeCell.Value * (FreeCellCardWidth + FreeCellCardSpacing), TopMargin)
-                                : new Point(LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
-                                            TopMargin + FreeCellCardHeight + 40 + dragSourceRow.Value * 25);
-                            Point to = new Point(x, y + tableau[i].Count * 25);
+                                ? new Point(LeftMargin + dragSourceFreeCell.Value * (CardWidth + CardSpacing), TopMargin)
+                                : new Point(LeftMargin + dragSourceCol!.Value * (CardWidth + CardSpacing),
+                                            TopMargin + CardHeight + 50 + dragSourceRow!.Value * 30);
+                            Point to = new Point(x, y + tableau[i].Count * 30);
 
-                            AnimateMultiFreeCellCardMove(
-                                new List<FreeCellCard> { card },
+                            AnimateCardMove(
+                                new List<Card> { card },
                                 new List<Point> { from },
                                 new List<Point> { to },
                                 () =>
@@ -412,8 +650,10 @@
 
                                     tableau[i].Add(card);
                                     EndDrag();
-                                    score -= 1;
-                                    UpdateScoreLabel();
+                                    moves++;
+                                    UpdateLabels();
+                                    statusLabel.Text = "Moved to Tableau";
+                                    statusLabel.ForeColor = Color.Yellow;
                                     Invalidate();
                                 });
                             return;
@@ -421,7 +661,6 @@
                     }
                     else
                     {
-                        // Use CanMoveSequenceToTableau for multi-card
                         if (CanMoveSequenceToTableau(draggingCards, i))
                         {
                             var froms = new List<Point>();
@@ -429,23 +668,25 @@
                             for (int k = 0; k < draggingCards.Count; k++)
                             {
                                 froms.Add(new Point(
-                                    LeftMargin + dragSourceCol.Value * (FreeCellCardWidth + FreeCellCardSpacing),
-                                    TopMargin + FreeCellCardHeight + 40 + (dragSourceRow.Value + k) * 25));
+                                    LeftMargin + dragSourceCol!.Value * (CardWidth + CardSpacing),
+                                    TopMargin + CardHeight + 50 + (dragSourceRow!.Value + k) * 30));
                                 tos.Add(new Point(
                                     x,
-                                    y + (tableau[i].Count + k) * 25));
+                                    y + (tableau[i].Count + k) * 30));
                             }
-                            AnimateMultiFreeCellCardMove(
+                            AnimateCardMove(
                                 draggingCards,
                                 froms,
                                 tos,
                                 () =>
                                 {
-                                    tableau[dragSourceCol.Value].RemoveRange(dragSourceRow.Value, draggingCards.Count);
+                                    tableau[dragSourceCol!.Value].RemoveRange(dragSourceRow!.Value, draggingCards.Count);
                                     tableau[i].AddRange(draggingCards);
                                     EndDrag();
-                                    score -= 1;
-                                    UpdateScoreLabel();
+                                    moves++;
+                                    UpdateLabels();
+                                    statusLabel.Text = "Moved sequence";
+                                    statusLabel.ForeColor = Color.Yellow;
                                     Invalidate();
                                 });
                             return;
@@ -456,8 +697,8 @@
 
             // Invalid drop
             EndDrag();
-            score -= 5;
-            UpdateScoreLabel();
+            statusLabel.Text = "Invalid move!";
+            statusLabel.ForeColor = Color.OrangeRed;
             Invalidate();
         }
 
@@ -476,41 +717,39 @@
             return p.X >= x && p.X <= x + w && p.Y >= y && p.Y <= y + h;
         }
 
-        private bool CanPickUpSequence(List<FreeCellCard> col, int startRow)
+        private bool CanPickUpSequence(List<Card> col, int startRow)
         {
-            // Only allow picking up a valid descending, alternating color sequence
             for (int i = startRow; i < col.Count - 1; i++)
             {
                 if (!IsValidSequence(col[i], col[i + 1]))
                     return false;
             }
-            // Only allow as many cards as can be moved (empty freecells/tableau)
-            int maxMovable = GetMaxMovableFreeCellCards();
+            int maxMovable = GetMaxMovableCards();
             return (col.Count - startRow) <= maxMovable;
         }
 
-        private bool IsValidSequence(FreeCellCard upper, FreeCellCard lower)
+        private bool IsValidSequence(Card upper, Card lower)
         {
             return upper.Rank == lower.Rank + 1 && IsRed(upper.Suit) != IsRed(lower.Suit);
         }
 
-        private int GetMaxMovableFreeCellCards()
+        private int GetMaxMovableCards()
         {
             int emptyFreeCells = freeCells.Count(c => c == null);
             int emptyTableau = tableau.Count(col => col.Count == 0);
             return (emptyFreeCells + 1) * (int)Math.Pow(2, emptyTableau);
         }
 
-        private bool CanMoveToFoundation(FreeCellCard card, int foundationIndex)
+        private bool CanMoveToFoundation(Card card, int foundationIndex)
         {
             var foundation = foundations[foundationIndex];
             if (foundation.Count == 0)
-                return card.Rank == 1; // Ace
+                return card.Rank == 1;
             var top = foundation.Last();
             return card.Suit == top.Suit && card.Rank == top.Rank + 1;
         }
 
-        private bool CanMoveToTableau(FreeCellCard card, int tableauIndex)
+        private bool CanMoveToTableau(Card card, int tableauIndex)
         {
             var col = tableau[tableauIndex];
             if (col.Count == 0)
@@ -519,7 +758,7 @@
             return IsValidSequence(top, card);
         }
 
-        private bool CanMoveSequenceToTableau(List<FreeCellCard> moving, int tableauIndex)
+        private bool CanMoveSequenceToTableau(List<Card> moving, int tableauIndex)
         {
             if (moving == null || moving.Count == 0) return false;
             var col = tableau[tableauIndex];
@@ -529,78 +768,31 @@
             return IsValidSequence(top, moving[0]);
         }
 
-        private bool IsRed(FreeCellSuit suit) => suit == FreeCellSuit.Hearts || suit == FreeCellSuit.Diamonds;
+        private bool IsRed(CardSuit CardSuit) => CardSuit == CardSuit.Hearts || CardSuit == CardSuit.Diamonds;
 
         private bool IsWin()
         {
             if (foundations.All(f => f.Count == 13))
             {
                 score += 1000;
-                UpdateScoreLabel();
+                UpdateLabels();
+                statusLabel.Text = "Victory!";
+                statusLabel.ForeColor = Color.Gold;
                 return true;
             }
             return false;
         }
 
-        private class AnimationStep
+        private class AnimatedCard
         {
-            public FreeCellCard FreeCellCard;
-            public Point From;
-            public Point To;
-            public float CurrentX;
-            public float CurrentY;
-        }
-    }
-
-    // --- Fixes for Suit/FreeCellSuit conversion and related issues ---
-
-    public class FreeCellCard
-    {
-        public FreeCellSuit Suit { get; }
-        public int Rank { get; } // 1=Ace, 13=King
-        public FreeCellCard(FreeCellSuit suit, int rank)
-        {
-            Suit = suit;
-            Rank = rank;
-        }
-        public override string ToString()
-        {
-            string rankStr = Rank switch
-            {
-                1 => "A",
-                11 => "J",
-                12 => "Q",
-                13 => "K",
-                _ => Rank.ToString()
-            };
-            return $"{rankStr}{SuitToChar(Suit)}";
-        }
-        private char SuitToChar(FreeCellSuit suit) => suit switch
-        {
-            FreeCellSuit.Clubs => '♣',
-            FreeCellSuit.Diamonds => '♦',
-            FreeCellSuit.Hearts => '♥',
-            FreeCellSuit.Spades => '♠',
-            _ => '?'
-        };
-    }
-
-    public enum FreeCellSuit { Clubs, Diamonds, Hearts, Spades }
-
-    public class Deck
-    {
-        public List<FreeCellCard> FreeCellCards { get; } = new List<FreeCellCard>();
-        public Deck()
-        {
-            FreeCellCards.Clear();
-            foreach (FreeCellSuit suit in Enum.GetValues(typeof(FreeCellSuit)))
-                for (int rank = 1; rank <= 13; rank++)
-                    FreeCellCards.Add(new FreeCellCard(suit, rank));
-        }
-        public void Shuffle()
-        {
-            var rnd = new Random();
-            FreeCellCards.Sort((a, b) => rnd.Next(-1, 2));
+            public Card Card { get; set; } = null!;
+            public Point From { get; set; }
+            public Point To { get; set; }
+            public Point Current { get; set; }
+            public double Progress { get; set; }
+            public float Rotation { get; set; }
+            public float Scale { get; set; }
+            public int Delay { get; set; }
         }
     }
 }

@@ -1367,21 +1367,4 @@ namespace CRM.Presentation.Games
             public int Delay;
         }
     }
-
-    // Extension method for rounded rectangles
-    public static class GraphicsExtensions
-    {
-        public static void FillRoundedRectangle(this Graphics g, Brush brush, RectangleF rect, float radius)
-        {
-            using (var path = new GraphicsPath())
-            {
-                path.AddArc(rect.X, rect.Y, radius, radius, 180, 90);
-                path.AddArc(rect.Right - radius, rect.Y, radius, radius, 270, 90);
-                path.AddArc(rect.Right - radius, rect.Bottom - radius, radius, radius, 0, 90);
-                path.AddArc(rect.X, rect.Bottom - radius, radius, radius, 90, 90);
-                path.CloseFigure();
-                g.FillPath(brush, path);
-            }
-        }
-    }
 }

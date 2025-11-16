@@ -97,6 +97,12 @@ namespace CRM.Presentation.General
             freeCell.Show();
         }
 
+        private void homeMenuStripHelpEasterEggGinRummy_Click(object sender, EventArgs e)
+        {
+            GinRummy ginRummy = new GinRummy();
+            ginRummy.Show();
+        }
+
         private void homeMenuStripHelpEasterEggHearts_Click(object sender, EventArgs e)
         {
             Hearts hearts = new Hearts();

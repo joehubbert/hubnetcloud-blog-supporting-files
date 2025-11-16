@@ -183,17 +183,17 @@
             homeMenuStripHelpEasterEgg = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggChess = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggFreeCell = new ToolStripMenuItem();
+            homeMenuStripHelpEasterEggGinRummy = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggHearts = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggMinesweeper = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSolitaire = new ToolStripMenuItem();
+            homeMenuStripHelpEasterEggSpades = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSpiderSolitaire = new ToolStripMenuItem();
             homeMenuStripHelpEasterEggSudoku = new ToolStripMenuItem();
             homeNavMarketingManagement = new Button();
             homeStatusStrip = new StatusStrip();
             homeStatusStripCompanyConfigurationPlaceholder = new ToolStripSplitButton();
             changeActiveCompanyConfigurationToolStripMenuItem = new ToolStripMenuItem();
-            homeMenuStripHelpEasterEggSpades = new ToolStripMenuItem();
-            homeMenuStripHelpEasterEggGinRummy = new ToolStripMenuItem();
             homeMenuStrip.SuspendLayout();
             homeStatusStrip.SuspendLayout();
             SuspendLayout();
@@ -1593,7 +1593,7 @@
             homeMenuStripHelpAbout.BackColor = Color.Transparent;
             homeMenuStripHelpAbout.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpAbout.Name = "homeMenuStripHelpAbout";
-            homeMenuStripHelpAbout.Size = new Size(145, 22);
+            homeMenuStripHelpAbout.Size = new Size(180, 22);
             homeMenuStripHelpAbout.Text = "&About";
             homeMenuStripHelpAbout.Click += homeMenuStripHelpAbout_Click;
             // 
@@ -1611,7 +1611,7 @@
             homeMenuStripHelpEasterEggChess.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggChess.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggChess.Name = "homeMenuStripHelpEasterEggChess";
-            homeMenuStripHelpEasterEggChess.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggChess.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggChess.Text = "&Chess";
             homeMenuStripHelpEasterEggChess.Click += homeMenuStripHelpEasterEggChess_Click;
             // 
@@ -1620,16 +1620,25 @@
             homeMenuStripHelpEasterEggFreeCell.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggFreeCell.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggFreeCell.Name = "homeMenuStripHelpEasterEggFreeCell";
-            homeMenuStripHelpEasterEggFreeCell.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggFreeCell.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggFreeCell.Text = "&FreeCell";
             homeMenuStripHelpEasterEggFreeCell.Click += homeMenuStripHelpEasterEggFreeCell_Click;
+            // 
+            // homeMenuStripHelpEasterEggGinRummy
+            // 
+            homeMenuStripHelpEasterEggGinRummy.BackColor = Color.Transparent;
+            homeMenuStripHelpEasterEggGinRummy.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripHelpEasterEggGinRummy.Name = "homeMenuStripHelpEasterEggGinRummy";
+            homeMenuStripHelpEasterEggGinRummy.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggGinRummy.Text = "&Gin Rummy";
+            homeMenuStripHelpEasterEggGinRummy.Click += homeMenuStripHelpEasterEggGinRummy_Click;
             // 
             // homeMenuStripHelpEasterEggHearts
             // 
             homeMenuStripHelpEasterEggHearts.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggHearts.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggHearts.Name = "homeMenuStripHelpEasterEggHearts";
-            homeMenuStripHelpEasterEggHearts.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggHearts.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggHearts.Text = "&Hearts";
             homeMenuStripHelpEasterEggHearts.Click += homeMenuStripHelpEasterEggHearts_Click;
             // 
@@ -1638,7 +1647,7 @@
             homeMenuStripHelpEasterEggMinesweeper.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggMinesweeper.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggMinesweeper.Name = "homeMenuStripHelpEasterEggMinesweeper";
-            homeMenuStripHelpEasterEggMinesweeper.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggMinesweeper.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggMinesweeper.Text = "&Minesweeper";
             homeMenuStripHelpEasterEggMinesweeper.Click += homeMenuStripHelpEasterEggMinesweeper_Click;
             // 
@@ -1647,16 +1656,25 @@
             homeMenuStripHelpEasterEggSolitaire.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSolitaire.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSolitaire.Name = "homeMenuStripHelpEasterEggSolitaire";
-            homeMenuStripHelpEasterEggSolitaire.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggSolitaire.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggSolitaire.Text = "&Solitaire";
             homeMenuStripHelpEasterEggSolitaire.Click += homeMenuStripHelpEasterEggSolitaire_Click;
+            // 
+            // homeMenuStripHelpEasterEggSpades
+            // 
+            homeMenuStripHelpEasterEggSpades.BackColor = Color.Transparent;
+            homeMenuStripHelpEasterEggSpades.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            homeMenuStripHelpEasterEggSpades.Name = "homeMenuStripHelpEasterEggSpades";
+            homeMenuStripHelpEasterEggSpades.Size = new Size(180, 22);
+            homeMenuStripHelpEasterEggSpades.Text = "&Spades";
+            homeMenuStripHelpEasterEggSpades.Click += homeMenuStripHelpEasterEggSpades_Click;
             // 
             // homeMenuStripHelpEasterEggSpiderSolitaire
             // 
             homeMenuStripHelpEasterEggSpiderSolitaire.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSpiderSolitaire.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSpiderSolitaire.Name = "homeMenuStripHelpEasterEggSpiderSolitaire";
-            homeMenuStripHelpEasterEggSpiderSolitaire.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggSpiderSolitaire.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggSpiderSolitaire.Text = "&Spider Solitaire";
             homeMenuStripHelpEasterEggSpiderSolitaire.Click += homeMenuStripHelpEasterEggSpiderSolitaire_Click;
             // 
@@ -1665,7 +1683,7 @@
             homeMenuStripHelpEasterEggSudoku.BackColor = Color.Transparent;
             homeMenuStripHelpEasterEggSudoku.DisplayStyle = ToolStripItemDisplayStyle.Text;
             homeMenuStripHelpEasterEggSudoku.Name = "homeMenuStripHelpEasterEggSudoku";
-            homeMenuStripHelpEasterEggSudoku.Size = new Size(165, 22);
+            homeMenuStripHelpEasterEggSudoku.Size = new Size(180, 22);
             homeMenuStripHelpEasterEggSudoku.Text = "&Sudoku";
             homeMenuStripHelpEasterEggSudoku.Click += homeMenuStripHelpEasterEggSudoku_Click;
             // 
@@ -1711,23 +1729,6 @@
             changeActiveCompanyConfigurationToolStripMenuItem.Size = new Size(283, 22);
             changeActiveCompanyConfigurationToolStripMenuItem.Text = "Change Active Company Configuration";
             changeActiveCompanyConfigurationToolStripMenuItem.Click += changeActiveCompanyConfigurationToolStripMenuItem_Click;
-            // 
-            // homeMenuStripHelpEasterEggSpades
-            // 
-            homeMenuStripHelpEasterEggSpades.BackColor = Color.Transparent;
-            homeMenuStripHelpEasterEggSpades.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripHelpEasterEggSpades.Name = "homeMenuStripHelpEasterEggSpades";
-            homeMenuStripHelpEasterEggSpades.Size = new Size(180, 22);
-            homeMenuStripHelpEasterEggSpades.Text = "&Spades";
-            homeMenuStripHelpEasterEggSpades.Click += homeMenuStripHelpEasterEggSpades_Click;
-            // 
-            // homeMenuStripHelpEasterEggGinRummy
-            // 
-            homeMenuStripHelpEasterEggGinRummy.BackColor = Color.Transparent;
-            homeMenuStripHelpEasterEggGinRummy.DisplayStyle = ToolStripItemDisplayStyle.Text;
-            homeMenuStripHelpEasterEggGinRummy.Name = "homeMenuStripHelpEasterEggGinRummy";
-            homeMenuStripHelpEasterEggGinRummy.Size = new Size(165, 22);
-            homeMenuStripHelpEasterEggGinRummy.Text = "&Gin Rummy";
             // 
             // Home
             // 

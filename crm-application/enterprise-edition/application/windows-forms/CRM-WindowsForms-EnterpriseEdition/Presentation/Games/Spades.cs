@@ -65,7 +65,7 @@ namespace CRM.Presentation.Games
         private void InitializeGameUI()
         {
             this.Size = new Size(1000, 650);
-            this.BackColor = Color.DarkGreen;
+            this.BackColor = Color.ForestGreen;
 
             difficultyComboBox = new ComboBox
             {
@@ -775,7 +775,7 @@ namespace CRM.Presentation.Games
             var g = e.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
             g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            g.Clear(Color.DarkGreen);
+            g.Clear(Color.ForestGreen);
 
             // Draw player names
             DrawPlayerLabel(g, 0, TableCenterX, HandTop - 25);

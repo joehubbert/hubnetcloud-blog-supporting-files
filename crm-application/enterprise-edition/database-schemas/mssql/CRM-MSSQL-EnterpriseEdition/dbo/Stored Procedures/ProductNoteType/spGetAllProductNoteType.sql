@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Product Note Type Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Product Note Type],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwProductNoteType]
 

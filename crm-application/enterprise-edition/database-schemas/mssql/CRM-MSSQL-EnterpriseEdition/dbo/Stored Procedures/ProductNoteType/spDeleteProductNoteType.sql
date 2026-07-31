@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[ProductNoteType]
-		WHERE [ProductNoteTypeId] = @productNoteTypeId
+		DELETE PNT
+		FROM [dbo].[ProductNoteType] PNT
+		INNER JOIN [dbo].[MasterDataType] MDT ON PNT.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE PNT.[ProductNoteTypeId] = @productNoteTypeId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

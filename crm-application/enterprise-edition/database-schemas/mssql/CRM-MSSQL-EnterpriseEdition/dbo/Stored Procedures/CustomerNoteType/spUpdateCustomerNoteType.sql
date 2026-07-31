@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCustomerNoteType]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@customerNoteType NVARCHAR(50),
-	@customerNoteTypeId UNIQUEIDENTIFIER
+	@customerNoteTypeId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[CustomerNoteType]
 			SET
 				[ActiveStatus] = @activeStatus,
-				[CustomerNoteType] = @customerNoteType
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[CustomerNoteType] = @customerNoteType,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [CustomerNoteTypeId] = @customerNoteTypeId
 
 		COMMIT TRANSACTION;

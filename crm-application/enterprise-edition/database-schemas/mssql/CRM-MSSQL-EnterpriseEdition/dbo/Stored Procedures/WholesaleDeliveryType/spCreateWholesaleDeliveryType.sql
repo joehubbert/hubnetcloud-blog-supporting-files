@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[spCreateWholesaleDeliveryType]
+CREATE PROCEDURE [dbo].[spCreateWholesaleDeliveryType]
 	@activeStatus BIT,
-	@wholesaleDeliveryType NVARCHAR(50)
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@wholesaleDeliveryType NVARCHAR(50),
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,27 +12,33 @@ BEGIN
 
 			CREATE TABLE #WholesaleDeliveryTypeTemp
 			(
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[WholesaleDeliveryType] NVARCHAR(50) NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #WholesaleDeliveryTypeTemp
 			(
+                [MasterDataTypeId],
 				[WholesaleDeliveryType],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                @masterDataTypeId,
 				@wholesaleDeliveryType,
+                @companyConfigurationId,
 				@activeStatus
 			)
 
 			IF EXISTS
 			(
 				SELECT *
-				FROM [dbo].[WholesaleDeliveryType] CT
-				INNER JOIN #WholesaleDeliveryTypeTemp CTT ON CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
-				WHERE CT.[WholesaleDeliveryType] = CTT.[WholesaleDeliveryType]
+				FROM [dbo].[WholesaleDeliveryType] E
+				INNER JOIN #WholesaleDeliveryTypeTemp ET ON E.[WholesaleDeliveryType] = ET.[WholesaleDeliveryType]
+				WHERE E.[WholesaleDeliveryType] = ET.[WholesaleDeliveryType]
 			)
 			THROW 50000, 'Wholesale Delivery Type already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+                [MasterDataTypeId],
 				[WholesaleDeliveryType],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                source.[MasterDataTypeId],
 				source.[WholesaleDeliveryType],
+                source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

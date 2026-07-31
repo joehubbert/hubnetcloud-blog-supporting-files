@@ -1,7 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spUpdateWholesaleDeliveryType]
+CREATE PROCEDURE [dbo].[spUpdateWholesaleDeliveryType]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@wholesaleDeliveryType NVARCHAR(50),
-	@wholesaleDeliveryTypeId UNIQUEIDENTIFIER
+	@wholesaleDeliveryTypeId UNIQUEIDENTIFIER,
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -11,9 +13,11 @@ BEGIN
 
 			UPDATE [dbo].[WholesaleDeliveryType]
 			SET
-				[ActiveStatus] = @activeStatus,
-				[WholesaleDeliveryType] = @wholesaleDeliveryType
-			WHERE [WholesaleDeliveryTypeId] = @wholesaleDeliveryTypeId
+                [ActiveStatus] = @activeStatus,
+                [CompanyConfigurationId] = @companyConfigurationId,
+				[WholesaleDeliveryType] = @wholesaleDeliveryType,
+                [MasterDataTypeId] = @masterDataTypeId
+			WHERE [WholesaleDeliveryTypeId] = @wholesaleDeliveryTypeId;
 
 		COMMIT TRANSACTION;
 	END TRY

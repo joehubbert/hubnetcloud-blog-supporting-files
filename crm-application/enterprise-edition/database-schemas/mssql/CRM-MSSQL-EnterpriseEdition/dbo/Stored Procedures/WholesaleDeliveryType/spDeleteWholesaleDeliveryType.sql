@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDeleteWholesaleDeliveryType]
+CREATE PROCEDURE [dbo].[spDeleteWholesaleDeliveryType]
 	@wholesaleDeliveryTypeId UNIQUEIDENTIFIER
 AS
 
@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[WholesaleDeliveryType]
-		WHERE [WholesaleDeliveryTypeId] = @wholesaleDeliveryTypeId
+        DELETE E
+        FROM [dbo].[WholesaleDeliveryType] E
+        INNER JOIN [dbo].[MasterDataType] MDT ON E.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+        WHERE E.[WholesaleDeliveryTypeId] = @wholesaleDeliveryTypeId
+        AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

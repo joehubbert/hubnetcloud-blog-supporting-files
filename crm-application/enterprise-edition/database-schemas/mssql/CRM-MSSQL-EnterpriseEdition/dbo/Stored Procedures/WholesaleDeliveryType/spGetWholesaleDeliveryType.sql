@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetWholesaleDeliveryType]
+CREATE PROCEDURE [dbo].[spGetWholesaleDeliveryType]
 	@wholesaleDeliveryTypeId UNIQUEIDENTIFIER
 AS
 
@@ -9,7 +9,13 @@ BEGIN
 
 			SELECT
 			[Wholesale Delivery Type Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Wholesale Delivery Type],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

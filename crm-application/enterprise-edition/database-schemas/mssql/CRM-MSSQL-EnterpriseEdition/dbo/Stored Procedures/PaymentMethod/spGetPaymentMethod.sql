@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetPaymentMethod]
+CREATE PROCEDURE [dbo].[spGetPaymentMethod]
 	@paymentMethodId UNIQUEIDENTIFIER
 AS
 
@@ -9,7 +9,13 @@ BEGIN
 
 			SELECT
 			[Payment Method Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Payment Method],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

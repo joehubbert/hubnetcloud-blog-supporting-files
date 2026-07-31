@@ -1,7 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spUpdatePaymentMethod]
+CREATE PROCEDURE [dbo].[spUpdatePaymentMethod]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@paymentMethod NVARCHAR(50),
-	@paymentMethodId UNIQUEIDENTIFIER
+	@paymentMethodId UNIQUEIDENTIFIER,
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,10 +12,12 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			UPDATE [dbo].[PaymentMethod]
-			SET 
-				[ActiveStatus] = @activeStatus,
-				[PaymentMethod] = @paymentMethod
-			WHERE [PaymentMethodId] = @paymentMethodId
+			SET
+                [ActiveStatus] = @activeStatus,
+                [CompanyConfigurationId] = @companyConfigurationId,
+				[PaymentMethod] = @paymentMethod,
+                [MasterDataTypeId] = @masterDataTypeId
+			WHERE [PaymentMethodId] = @paymentMethodId;
 
 		COMMIT TRANSACTION;
 	END TRY

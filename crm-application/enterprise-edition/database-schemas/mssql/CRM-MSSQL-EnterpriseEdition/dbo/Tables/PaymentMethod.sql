@@ -1,6 +1,8 @@
 ﻿CREATE TABLE [dbo].[PaymentMethod]
 (
 	[PaymentMethodId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[PaymentMethod] NVARCHAR(50) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
@@ -8,7 +10,9 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     [RowVersion] ROWVERSION NOT NULL,
-    CONSTRAINT [UC_PaymentMethod] UNIQUE ([PaymentMethod])
+	CONSTRAINT [FK_PaymentMethod_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+	CONSTRAINT [FK_PaymentMethod_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [UC_PaymentMethod] UNIQUE ([PaymentMethod])
 )
 GO
 

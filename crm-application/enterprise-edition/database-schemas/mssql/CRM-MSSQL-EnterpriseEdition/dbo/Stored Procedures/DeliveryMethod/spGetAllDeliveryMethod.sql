@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllDeliveryMethod]
+CREATE PROCEDURE [dbo].[spGetAllDeliveryMethod]
 AS
 
 BEGIN
@@ -8,12 +8,18 @@ BEGIN
 
 			SELECT
 			[Delivery Method Id],
-			[Delivery Method],
-			[Delivery Cost],
-			[Delivery Time Days],
-			[Tax Profile],
-			[Tax Rate],
-			[Delivery Method Active Status]
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
+            [Company Configuration Id],
+            [Company Name],
+            [Delivery Method],
+            [Delivery Cost],
+            [Delivery Time Days],
+            [Tax Profile],
+            [Tax Rate],
+            [Delivery Method Active Status]
 			FROM [dbo].[vwDeliveryMethod]
 
 		COMMIT TRANSACTION;

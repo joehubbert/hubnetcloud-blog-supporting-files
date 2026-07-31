@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetDeliveryMethod]
+CREATE PROCEDURE [dbo].[spGetDeliveryMethod]
 	@deliveryMethodId UNIQUEIDENTIFIER
 AS
 
@@ -9,17 +9,23 @@ BEGIN
 
 			SELECT
 			[Delivery Method Id],
-			[Delivery Method],
-			[Delivery Cost],
-			[Delivery Time Days],
-			[Tax Profile],
-			[Tax Rate],
-			[Delivery Method Active Status],
-			[Created Timestamp UTC],
-			[Created By],
-			[Modified Timestamp UTC],
-			[Modified By],
-			[Row Version]
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
+            [Company Configuration Id],
+            [Company Name],
+            [Delivery Method],
+            [Delivery Cost],
+            [Delivery Time Days],
+            [Tax Profile],
+            [Tax Rate],
+            [Delivery Method Active Status],
+            [Created Timestamp UTC],
+            [Created By],
+            [Modified Timestamp UTC],
+            [Modified By],
+            [Row Version]
 			FROM [dbo].[vwDeliveryMethod]
 			WHERE [Delivery Method Id] = @deliveryMethodId
 

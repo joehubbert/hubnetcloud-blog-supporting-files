@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDeleteDeliveryMethod]
+CREATE PROCEDURE [dbo].[spDeleteDeliveryMethod]
 	@deliveryMethodId UNIQUEIDENTIFIER
 AS
 
@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[DeliveryMethod]
-		WHERE [DeliveryMethodId] = @deliveryMethodId
+        DELETE DM
+        FROM [dbo].[DeliveryMethod] DM
+        INNER JOIN [dbo].[MasterDataType] MDT ON DM.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+        WHERE DM.[DeliveryMethodId] = @deliveryMethodId
+        AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

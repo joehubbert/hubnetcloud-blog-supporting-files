@@ -1,7 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spUpdateDeliveryMethod]
+CREATE PROCEDURE [dbo].[spUpdateDeliveryMethod]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@deliveryMethod NVARCHAR(50),
-	@deliveryMethodId UNIQUEIDENTIFIER
+	@deliveryMethodId UNIQUEIDENTIFIER,
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[DeliveryMethod]
 			SET 
 				[ActiveStatus] = @activeStatus,
-				[DeliveryMethod] = @deliveryMethod
+                [CompanyConfigurationId] = @companyConfigurationId,
+				[DeliveryMethod] = @deliveryMethod,
+                [MasterDataTypeId] = @masterDataTypeId
 			WHERE [DeliveryMethodId] = @deliveryMethodId
 
 		COMMIT TRANSACTION;

@@ -1,8 +1,10 @@
-﻿CREATE PROCEDURE [dbo].[spCreateDeliveryMethod]
+CREATE PROCEDURE [dbo].[spCreateDeliveryMethod]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@deliveryCost MONEY,
-	@deliveryMethod NVARCHAR(50),	
+	@deliveryMethod NVARCHAR(50),
 	@deliveryTimeDays INT,
+    @masterDataTypeId UNIQUEIDENTIFIER,
 	@taxProfileId UNIQUEIDENTIFIER
 AS
 
@@ -13,6 +15,8 @@ BEGIN
 
 			CREATE TABLE #DeliveryMethodTemp
 			(
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[TaxProfileId] UNIQUEIDENTIFIER NOT NULL,
 				[DeliveryMethod] NVARCHAR(50) NOT NULL,
 				[DeliveryCost] MONEY NOT NULL,
@@ -22,6 +26,8 @@ BEGIN
 
 			INSERT INTO #DeliveryMethodTemp
 			(
+                [MasterDataTypeId],
+                [CompanyConfigurationId],
 				[TaxProfileId],
 				[DeliveryMethod],
 				[DeliveryCost],
@@ -30,6 +36,8 @@ BEGIN
 			)
 			VALUES
 			(
+                @masterDataTypeId,
+                @companyConfigurationId,
 				@taxProfileId,
 				@deliveryMethod,
 				@deliveryCost,
@@ -54,13 +62,15 @@ BEGIN
 			ELSE
 			MERGE INTO [dbo].[DeliveryMethod] AS target
 			USING #DeliveryMethodTemp AS source
-			ON target.[TaxProfileId] = source.[TazProfileId]
+			ON target.[TaxProfileId] = source.[TaxProfileId]
 			AND target.[DeliveryMethod] = source.[DeliveryMethod]
 			AND target.[DeliveryCost] = source.[DeliveryCost]
 			AND target.[DeliveryTimeDays] = source.[DeliveryTimeDays]
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+                [MasterDataTypeId],
+                [CompanyConfigurationId],
 				[TaxProfileId],
 				[DeliveryMethod],
 				[DeliveryCost],
@@ -69,6 +79,8 @@ BEGIN
 			)
 			VALUES
 			(
+                source.[MasterDataTypeId],
+                source.[CompanyConfigurationId],
 				source.[TaxProfileId],
 				source.[DeliveryMethod],
 				source.[DeliveryCost],

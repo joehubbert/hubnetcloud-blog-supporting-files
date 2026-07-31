@@ -1,7 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spUpdateOrderPaymentStatus]
+CREATE PROCEDURE [dbo].[spUpdateOrderPaymentStatus]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@orderPaymentStatus NVARCHAR(50),
 	@orderPaymentStatusId UNIQUEIDENTIFIER,
-	@orderPaymentStatus NVARCHAR(50)
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -11,8 +13,10 @@ BEGIN
 
 			UPDATE [dbo].[OrderPaymentStatus]
 			SET
+                [ActiveStatus] = @activeStatus,
+                [CompanyConfigurationId] = @companyConfigurationId,
 				[OrderPaymentStatus] = @orderPaymentStatus,
-				[ActiveStatus] = @activeStatus
+                [MasterDataTypeId] = @masterDataTypeId
 			WHERE [OrderPaymentStatusId] = @orderPaymentStatusId;
 
 		COMMIT TRANSACTION;

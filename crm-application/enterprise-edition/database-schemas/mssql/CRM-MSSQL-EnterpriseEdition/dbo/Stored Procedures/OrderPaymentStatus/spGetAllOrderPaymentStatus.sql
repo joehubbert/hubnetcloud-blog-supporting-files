@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllOrderPaymentStatus]
+CREATE PROCEDURE [dbo].[spGetAllOrderPaymentStatus]
 AS
 
 BEGIN
@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Order Payment Status Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Order Payment Status],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status]
 			FROM [dbo].[vwOrderPaymentStatus]
 

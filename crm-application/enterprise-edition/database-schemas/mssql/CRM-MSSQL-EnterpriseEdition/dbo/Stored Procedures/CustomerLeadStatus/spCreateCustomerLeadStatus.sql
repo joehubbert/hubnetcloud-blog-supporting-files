@@ -43,10 +43,10 @@ BEGIN
 				FROM [dbo].[CustomerLeadStatus] CLS
 				LEFT JOIN #CustomerLeadStatusTemp CLST ON CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
 				AND CLS.[CustomerLeadStatusCode] = CLST.[CustomerLeadStatusCode]
-				AND (CLST.[CompanyConfigurationId] = CLSTT.[CompanyConfigurationId] OR (CLST.[CompanyConfigurationId] IS NULL AND CLSTT.[CompanyConfigurationId] IS NULL))
+				AND (CLS.[CompanyConfigurationId] = CLST.[CompanyConfigurationId] OR (CLS.[CompanyConfigurationId] IS NULL AND CLST.[CompanyConfigurationId] IS NULL))
 				WHERE CLS.[CustomerLeadStatus] = CLST.[CustomerLeadStatus]
 				AND CLS.[CustomerLeadStatusCode] = CLST.[CustomerLeadStatusCode]
-				AND (CLST.[CompanyConfigurationId] = CLSTT.[CompanyConfigurationId] OR (CLST.[CompanyConfigurationId] IS NULL AND CLSTT.[CompanyConfigurationId] IS NULL))
+				AND (CLS.[CompanyConfigurationId] = CLST.[CompanyConfigurationId] OR (CLS.[CompanyConfigurationId] IS NULL AND CLST.[CompanyConfigurationId] IS NULL))
 			)
 			THROW 50000, 'Customer Lead Status already exists, please update the existing record.', 1;
 			ELSE

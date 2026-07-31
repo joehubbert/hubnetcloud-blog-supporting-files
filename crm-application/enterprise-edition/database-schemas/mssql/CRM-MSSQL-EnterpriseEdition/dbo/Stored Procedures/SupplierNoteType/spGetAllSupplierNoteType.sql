@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Supplier Note Type Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Supplier Note Type],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwSupplierNoteType]
 

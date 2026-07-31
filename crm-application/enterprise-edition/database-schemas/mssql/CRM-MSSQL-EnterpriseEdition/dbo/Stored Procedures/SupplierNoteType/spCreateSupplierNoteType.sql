@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateSupplierNoteType]
 	@activeStatus BIT,
-	@supplierNoteType NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@supplierNoteType NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #SupplierNoteTypeTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[SupplierNoteType] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #SupplierNoteTypeTemp
 			(
+				[MasterDataTypeId],
 				[SupplierNoteType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@supplierNoteType,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[SupplierNoteType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[SupplierNoteType],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

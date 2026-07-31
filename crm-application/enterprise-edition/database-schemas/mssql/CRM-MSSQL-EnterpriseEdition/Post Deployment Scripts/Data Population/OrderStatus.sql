@@ -11,6 +11,7 @@ SET @builtInMasterDataTypeIdOrderStatus = (SELECT [MasterDataTypeId] FROM [dbo].
 
 INSERT INTO #OrderStatusTemp 
 (
+	[MasterDataTypeId],
 	[OrderStatus],
 	[ActiveStatus]
 )

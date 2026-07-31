@@ -11,6 +11,7 @@ SET @builtInMasterDataTypeIdSupplierOrderStatus = (SELECT [MasterDataTypeId] FRO
 
 INSERT INTO #SupplierOrderStatusTemp 
 (
+	[MasterDataTypeId],
 	[SupplierOrderStatus],
 	[ActiveStatus]
 )

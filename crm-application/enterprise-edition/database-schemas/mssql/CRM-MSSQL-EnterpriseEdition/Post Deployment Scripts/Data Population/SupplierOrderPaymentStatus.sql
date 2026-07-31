@@ -11,6 +11,7 @@ SET @builtInMasterDataTypeIdSupplierOrderPaymentStatus = (SELECT [MasterDataType
 
 INSERT INTO #SupplierOrderPaymentStatusTemp 
 (
+	[MasterDataTypeId],
 	[SupplierOrderPaymentStatus],
 	[ActiveStatus]
 )

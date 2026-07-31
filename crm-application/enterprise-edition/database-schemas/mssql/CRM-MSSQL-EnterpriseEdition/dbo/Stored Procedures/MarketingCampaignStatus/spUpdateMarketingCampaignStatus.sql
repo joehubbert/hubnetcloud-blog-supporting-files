@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateMarketingCampaignStatus]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@marketingCampaignStatus NVARCHAR(50),
-	@marketingCampaignStatusId UNIQUEIDENTIFIER
+	@marketingCampaignStatusId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[MarketingCampaignStatus]
 			SET 
 				[ActiveStatus] = @activeStatus,
-				[MarketingCampaignStatus] = @marketingCampaignStatus
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[MarketingCampaignStatus] = @marketingCampaignStatus,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [MarketingCampaignStatusId] = @marketingCampaignStatusId
 
 		COMMIT TRANSACTION;

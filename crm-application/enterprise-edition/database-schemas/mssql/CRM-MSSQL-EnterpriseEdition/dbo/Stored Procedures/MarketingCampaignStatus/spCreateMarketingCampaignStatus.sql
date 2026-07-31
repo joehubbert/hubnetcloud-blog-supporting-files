@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateMarketingCampaignStatus]
 	@activeStatus BIT,
-	@marketingCampaignStatus NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@marketingCampaignStatus NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #MarketingCampaignStatusTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[MarketingCampaignStatus] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #MarketingCampaignStatusTemp
 			(
+				[MasterDataTypeId],
 				[MarketingCampaignStatus],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@marketingCampaignStatus,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -30,7 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[MarketingCampaignStatus] MCS
 				INNER JOIN #MarketingCampaignStatusTemp MCST ON MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
-				WHERE OS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
+				WHERE MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
 			)
 			THROW 50000, 'Marketing Campaign Status already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[MarketingCampaignStatus],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[MarketingCampaignStatus],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

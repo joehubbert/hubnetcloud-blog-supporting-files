@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spDeleteSupplierOrderStatus]
+CREATE PROCEDURE [dbo].[spDeleteSupplierOrderStatus]
 	@supplierOrderStatusId UNIQUEIDENTIFIER
 AS
 
@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[SupplierOrderStatus]
-		WHERE [SupplierOrderStatusId] = @supplierOrderStatusId
+        DELETE E
+        FROM [dbo].[SupplierOrderStatus] E
+        INNER JOIN [dbo].[MasterDataType] MDT ON E.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+        WHERE E.[SupplierOrderStatusId] = @supplierOrderStatusId
+        AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

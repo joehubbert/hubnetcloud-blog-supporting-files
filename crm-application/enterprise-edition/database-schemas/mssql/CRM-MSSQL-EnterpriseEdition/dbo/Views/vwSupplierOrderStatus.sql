@@ -1,13 +1,21 @@
-﻿CREATE VIEW [dbo].[vwSupplierOrderStatus]
+CREATE VIEW [dbo].[vwSupplierOrderStatus]
 AS
 
 SELECT
-[SupplierOrderStatusId]	AS [Supplier Order Status Id],
-[SupplierOrderStatus] AS [Supplier Order Status],
-[ActiveStatus] AS [Active Status],
-[CreatedTimestampUTC] AS [Created Timestamp UTC],
-[CreatedBy] AS [Created By],
-[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
-[ModifiedBy] AS [Modified By],
-[RowVersion] AS [Row Version]
-FROM [dbo].[SupplierOrderStatus]
+SOS.[SupplierOrderStatusId] AS [Supplier Order Status Id],
+MDT.[MasterDataTypeId] AS [Master Data Type Id],
+MDT.[MasterDataType] AS [Master Data Type],
+MDT.[MasterDataTypeCode] AS [Master Data Type Code],
+MDT.[IsCustom] AS [Is Custom],
+SOS.[SupplierOrderStatus] AS [Supplier Order Status],
+CC.[CompanyConfigurationId] AS [Company Configuration Id],
+CC.[CompanyName] AS [Company Name],
+SOS.[ActiveStatus] AS [Active Status],
+SOS.[CreatedTimestampUTC] AS [Created Timestamp UTC],
+SOS.[CreatedBy] AS [Created By],
+SOS.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
+SOS.[ModifiedBy] AS [Modified By],
+SOS.[RowVersion] AS [Row Version]
+FROM [dbo].[SupplierOrderStatus] SOS
+LEFT JOIN [dbo].[CompanyConfiguration] CC ON SOS.[CompanyConfigurationId] = CC.[CompanyConfigurationId]
+INNER JOIN [dbo].[MasterDataType] MDT ON SOS.[MasterDataTypeId] = MDT.[MasterDataTypeId]

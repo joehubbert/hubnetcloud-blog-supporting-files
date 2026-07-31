@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetAllSupplierOrderStatus]
+CREATE PROCEDURE [dbo].[spGetAllSupplierOrderStatus]
 AS
 
 BEGIN
@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Supplier Order Status Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Supplier Order Status],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status]
 			FROM [dbo].[vwSupplierOrderStatus]
 

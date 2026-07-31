@@ -7,6 +7,8 @@ MDT.[MasterDataTypeId] AS [Master Data Type Id],
 MDT.[MasterDataType] AS [Master Data Type],
 MDT.[MasterDataTypeCode] AS [Master Data Type Code],
 MDT.[IsCustom] AS [Is Custom],
+CCFG.[CompanyConfigurationId] AS [Company Configuration Id],
+CCFG.[CompanyName] AS [Company Name],
 PP.[PalletPresetName] AS [Pallet Preset Name],
 PP.[PalletPresetCode] AS [Pallet Preset Code],
 PP.[PalletDepthMillimeter] AS [Pallet Depth Millimeter],
@@ -22,4 +24,5 @@ PP.[ModifiedTimestampUTC] AS [Modified Timestamp UTC],
 PP.[ModifiedBy] AS [Modified By],
 PP.[RowVersion] AS [Row Version]
 FROM [dbo].[PalletPreset] PP
+LEFT JOIN [dbo].[CompanyConfiguration] CCFG ON PP.[CompanyConfigurationId] = CCFG.[CompanyConfigurationId]
 INNER JOIN [dbo].[MasterDataType] MDT ON PP.[MasterDataTypeId] = MDT.[MasterDataTypeId]

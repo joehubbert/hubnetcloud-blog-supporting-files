@@ -1,6 +1,8 @@
 ﻿CREATE TABLE [dbo].[SupplierOrderPaymentStatus]
 (
 	[SupplierOrderPaymentStatusId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[SupplierOrderPaymentStatus] NVARCHAR(50) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
@@ -8,7 +10,9 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     [RowVersion] ROWVERSION NOT NULL,
-    CONSTRAINT [UC_SupplierOrderPaymentStatus_SupplierOrderPaymentStatus] UNIQUE ([SupplierOrderPaymentStatus])
+	CONSTRAINT [FK_SupplierOrderPaymentStatus_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+	CONSTRAINT [FK_SupplierOrderPaymentStatus_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [UC_SupplierOrderPaymentStatus_SupplierOrderPaymentStatus] UNIQUE ([SupplierOrderPaymentStatus])
 )
 GO
 

@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[spCreateSupplierOrderPaymentStatus]
+CREATE PROCEDURE [dbo].[spCreateSupplierOrderPaymentStatus]
 	@activeStatus BIT,
-	@supplierOrderPaymentStatus NVARCHAR(50)
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@supplierOrderPaymentStatus NVARCHAR(50),
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,27 +12,33 @@ BEGIN
 
 			CREATE TABLE #SupplierOrderPaymentStatusTemp
 			(
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[SupplierOrderPaymentStatus] NVARCHAR(50) NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #SupplierOrderPaymentStatusTemp
 			(
+                [MasterDataTypeId],
 				[SupplierOrderPaymentStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                @masterDataTypeId,
 				@supplierOrderPaymentStatus,
+                @companyConfigurationId,
 				@activeStatus
 			)
 
 			IF EXISTS
 			(
 				SELECT *
-				FROM [dbo].[SupplierOrderPaymentStatus] SOPS
-				INNER JOIN #SupplierOrderPaymentStatusTemp SOPST ON SOPS.[SupplierOrderPaymentStatus] = SOPST.[SupplierOrderPaymentStatus]
-				WHERE SOPS.[SupplierOrderPaymentStatus] = SOPST.[SupplierOrderPaymentStatus]
+				FROM [dbo].[SupplierOrderPaymentStatus] E
+				INNER JOIN #SupplierOrderPaymentStatusTemp ET ON E.[SupplierOrderPaymentStatus] = ET.[SupplierOrderPaymentStatus]
+				WHERE E.[SupplierOrderPaymentStatus] = ET.[SupplierOrderPaymentStatus]
 			)
 			THROW 50000, 'Supplier Order Payment Status already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+                [MasterDataTypeId],
 				[SupplierOrderPaymentStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                source.[MasterDataTypeId],
 				source.[SupplierOrderPaymentStatus],
+                source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

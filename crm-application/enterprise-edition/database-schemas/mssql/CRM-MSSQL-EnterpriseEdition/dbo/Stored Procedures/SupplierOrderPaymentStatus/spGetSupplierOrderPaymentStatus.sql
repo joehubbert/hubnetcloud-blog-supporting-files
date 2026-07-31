@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetSupplierOrderPaymentStatus]
+CREATE PROCEDURE [dbo].[spGetSupplierOrderPaymentStatus]
 	@supplierOrderPaymentStatusId UNIQUEIDENTIFIER
 AS
 
@@ -9,7 +9,13 @@ BEGIN
 
 			SELECT
 			[Supplier Order Payment Status Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Supplier Order Payment Status],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

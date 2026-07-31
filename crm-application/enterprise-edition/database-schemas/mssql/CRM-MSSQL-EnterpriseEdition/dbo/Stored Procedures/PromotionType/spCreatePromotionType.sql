@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreatePromotionType]
 	@activeStatus BIT,
-	@promotionType NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@promotionType NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #PromotionTypeTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[PromotionType] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #PromotionTypeTemp
 			(
+				[MasterDataTypeId],
 				[PromotionType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@promotionType,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[PromotionType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[PromotionType],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

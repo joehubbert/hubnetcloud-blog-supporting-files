@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[PromotionType]
-		WHERE [PromotionTypeId] = @promotionTypeId
+		DELETE PT
+		FROM [dbo].[PromotionType] PT
+		INNER JOIN [dbo].[MasterDataType] MDT ON PT.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE PT.[PromotionTypeId] = @promotionTypeId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

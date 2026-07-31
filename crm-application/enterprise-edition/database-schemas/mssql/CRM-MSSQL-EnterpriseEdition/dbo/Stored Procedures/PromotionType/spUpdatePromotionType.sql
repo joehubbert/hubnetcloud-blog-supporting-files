@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdatePromotionType]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@promotionType NVARCHAR(50),
-	@promotionTypeId UNIQUEIDENTIFIER
+	@promotionTypeId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[PromotionType]
 			SET
 				[ActiveStatus] = @activeStatus,
-				[PromotionType] = @promotionType
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[PromotionType] = @promotionType,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [PromotionTypeId] = @promotionTypeId
 
 		COMMIT TRANSACTION;

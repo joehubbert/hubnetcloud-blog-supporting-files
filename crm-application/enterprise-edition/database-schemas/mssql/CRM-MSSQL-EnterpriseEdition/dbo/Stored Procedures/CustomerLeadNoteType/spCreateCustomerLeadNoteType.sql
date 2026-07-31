@@ -44,7 +44,7 @@ BEGIN
 				LEFT JOIN #CustomerLeadNoteTypeTemp CLNTT ON CLNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
 				AND CLNT.[CustomerLeadNoteTypeCode] = CLNTT.[CustomerLeadNoteTypeCode]
 				AND (CLNT.[CompanyConfigurationId] = CLNTT.[CompanyConfigurationId] OR (CLNT.[CompanyConfigurationId] IS NULL AND CLNTT.[CompanyConfigurationId] IS NULL))
-				WHERE CNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
+				WHERE CLNT.[CustomerLeadNoteType] = CLNTT.[CustomerLeadNoteType]
 				AND CLNT.[CustomerLeadNoteTypeCode] = CLNTT.[CustomerLeadNoteTypeCode]
 				AND (CLNT.[CompanyConfigurationId] = CLNTT.[CompanyConfigurationId] OR (CLNT.[CompanyConfigurationId] IS NULL AND CLNTT.[CompanyConfigurationId] IS NULL))
 			)

@@ -10,11 +10,10 @@
 	[CreatedBy] NVARCHAR(50) NOT NULL DEFAULT SUSER_SNAME(),
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
-	[RowVersion] ROWVERSION NOT NULL,
-	CONSTRAINT [FK_CustomerLeadNoteType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	[RowVersion] ROWVERSION NOT NULL,	
 	CONSTRAINT [FK_CustomerLeadNoteType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
-	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType] UNIQUE ([CustomerLeadNoteType]),
-	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteTypeCode] UNIQUE ([CustomerLeadNoteTypeCode])
+	CONSTRAINT [FK_CustomerLeadNoteType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType] UNIQUE ([CustomerLeadNoteType])
 )
 GO
 

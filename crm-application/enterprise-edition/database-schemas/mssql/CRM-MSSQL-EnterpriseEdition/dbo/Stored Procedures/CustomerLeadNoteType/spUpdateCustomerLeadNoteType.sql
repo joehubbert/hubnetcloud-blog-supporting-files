@@ -1,6 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateCustomerLeadNoteType]
 	@activeStatus BIT,
-	@companyConfgurationId UNIQUEIDENTIFIER = NULL,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@customerLeadNoteType NVARCHAR(50),
 	@customerLeadNoteTypeCode NVARCHAR(20),
 	@customerLeadNoteTypeId UNIQUEIDENTIFIER,
@@ -15,7 +15,7 @@ BEGIN
 			UPDATE [dbo].[CustomerLeadNoteType]
 			SET
 				[ActiveStatus] = @activeStatus,
-				[CompanyConfigurationId] = @companyConfgurationId,
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[CustomerLeadNoteType] = @customerLeadNoteType,
 				[CustomerLeadNoteTypeCode] = @customerLeadNoteTypeCode,
 				[MasterDataTypeId] = @masterDataTypeId

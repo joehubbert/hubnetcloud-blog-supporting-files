@@ -10,7 +10,7 @@ BEGIN
 		DELETE CLNT
 		FROM [dbo].[CustomerLeadNoteType] CLNT
 		INNER JOIN [dbo].[MasterDataType] MDT ON CLNT.[MasterDataTypeId] = MDT.[MasterDataTypeId]
-		WHERE CLNT.[CustomerLeadNoteType] = @customerLeadNoteTypeId
+		WHERE CLNT.[CustomerLeadNoteTypeId] = @customerLeadNoteTypeId
 		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;

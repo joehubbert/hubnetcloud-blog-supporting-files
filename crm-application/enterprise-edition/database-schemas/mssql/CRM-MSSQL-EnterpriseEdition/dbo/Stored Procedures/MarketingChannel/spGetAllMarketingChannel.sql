@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Marketing Channel Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Marketing Channel],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwMarketingChannel]
 

@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[spUpdateMarketingChannel]
+CREATE PROCEDURE [dbo].[spUpdateMarketingChannel]
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@marketingChannel NVARCHAR(50),
-	@marketingChannelId UNIQUEIDENTIFIER
+	@marketingChannelId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,7 +12,9 @@ BEGIN
 
 			UPDATE [dbo].[MarketingChannel]
 			SET
-				[MarketingChannel] = @marketingChannel
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[MarketingChannel] = @marketingChannel,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [MarketingChannelId] = @marketingChannelId;
 
 		COMMIT TRANSACTION;

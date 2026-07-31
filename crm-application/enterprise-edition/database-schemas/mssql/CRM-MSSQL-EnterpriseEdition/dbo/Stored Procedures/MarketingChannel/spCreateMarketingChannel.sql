@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateMarketingChannel]
 	@activeStatus BIT,
-	@marketingChannel NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@marketingChannel NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #MarketingChannelTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[MarketingChannel] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #MarketingChannelTemp
 			(
+				[MasterDataTypeId],
 				[MarketingChannel],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@marketingChannel,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[MarketingChannel],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[MarketingChannel],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

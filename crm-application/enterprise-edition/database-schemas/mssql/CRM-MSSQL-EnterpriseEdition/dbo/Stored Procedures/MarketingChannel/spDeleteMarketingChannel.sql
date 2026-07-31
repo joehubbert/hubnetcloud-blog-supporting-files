@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[MarketingChannel]
-		WHERE [MarketingChannelId] = @marketingChannelId
+		DELETE MC
+		FROM [dbo].[MarketingChannel] MC
+		INNER JOIN [dbo].[MasterDataType] MDT ON MC.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE MC.[MarketingChannelId] = @marketingChannelId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

@@ -1,7 +1,9 @@
-﻿CREATE PROCEDURE [dbo].[spUpdateOrderStatus]
+CREATE PROCEDURE [dbo].[spUpdateOrderStatus]
 	@activeStatus BIT,
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@orderStatus NVARCHAR(50),
-	@orderStatusId UNIQUEIDENTIFIER
+	@orderStatusId UNIQUEIDENTIFIER,
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,10 +12,12 @@ BEGIN
 		BEGIN TRANSACTION;
 
 			UPDATE [dbo].[OrderStatus]
-			SET 
-				[ActiveStatus] = @activeStatus,
-				[OrderStatus] = @orderStatus
-			WHERE [OrderStatusId] = @orderStatusId
+			SET
+                [ActiveStatus] = @activeStatus,
+                [CompanyConfigurationId] = @companyConfigurationId,
+				[OrderStatus] = @orderStatus,
+                [MasterDataTypeId] = @masterDataTypeId
+			WHERE [OrderStatusId] = @orderStatusId;
 
 		COMMIT TRANSACTION;
 	END TRY

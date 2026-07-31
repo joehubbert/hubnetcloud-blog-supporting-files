@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetOrderStatus]
+CREATE PROCEDURE [dbo].[spGetOrderStatus]
 	@orderStatusId UNIQUEIDENTIFIER
 AS
 
@@ -9,7 +9,13 @@ BEGIN
 
 			SELECT
 			[Order Status Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Order Status],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

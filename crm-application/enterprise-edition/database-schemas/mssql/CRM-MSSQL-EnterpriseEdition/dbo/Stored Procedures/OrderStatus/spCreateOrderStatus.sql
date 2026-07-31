@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[spCreateOrderStatus]
+CREATE PROCEDURE [dbo].[spCreateOrderStatus]
 	@activeStatus BIT,
-	@orderStatus NVARCHAR(50)
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@orderStatus NVARCHAR(50),
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,27 +12,33 @@ BEGIN
 
 			CREATE TABLE #OrderStatusTemp
 			(
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[OrderStatus] NVARCHAR(50) NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #OrderStatusTemp
 			(
+                [MasterDataTypeId],
 				[OrderStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                @masterDataTypeId,
 				@orderStatus,
+                @companyConfigurationId,
 				@activeStatus
 			)
 
 			IF EXISTS
 			(
 				SELECT *
-				FROM [dbo].[OrderStatus] OS
-				INNER JOIN #OrderStatusTemp OST ON OS.[OrderStatus] = OST.[OrderStatus]
-				WHERE OS.[OrderStatus] = OST.[OrderStatus]
+				FROM [dbo].[OrderStatus] E
+				INNER JOIN #OrderStatusTemp ET ON E.[OrderStatus] = ET.[OrderStatus]
+				WHERE E.[OrderStatus] = ET.[OrderStatus]
 			)
 			THROW 50000, 'Order Status already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+                [MasterDataTypeId],
 				[OrderStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                source.[MasterDataTypeId],
 				source.[OrderStatus],
+                source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

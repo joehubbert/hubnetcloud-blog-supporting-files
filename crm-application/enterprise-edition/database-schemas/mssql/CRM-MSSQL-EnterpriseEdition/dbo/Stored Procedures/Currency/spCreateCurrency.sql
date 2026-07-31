@@ -54,6 +54,7 @@ BEGIN
 			USING #CurrencyTemp AS source
 			ON target.[CurrencyCode] = source.[CurrencyCode]
 			AND target.[CurrencyName] = source.[CurrencyName]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

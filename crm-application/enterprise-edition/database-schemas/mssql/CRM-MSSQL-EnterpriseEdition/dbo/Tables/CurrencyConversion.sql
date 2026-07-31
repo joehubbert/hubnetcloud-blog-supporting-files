@@ -26,7 +26,7 @@
 		([ExpiryDate] IS NULL OR [ExpiryDate] > SYSUTCDATETIME())
 		AND ([EffectiveDate] < [ExpiryDate])),
 	CONSTRAINT [UC_CurrencyConversion_Unique] UNIQUE (
-		[BaseCurrencyId], [TargetCurrencyId], [EffectiveDate], [ExpiryDate]
+		[BaseCurrencyId], [TargetCurrencyId], [EffectiveDate], [ExpiryDate], [CompanyConfigurationId]
 	),
 	INDEX [NCIX_CurrencyConversion_BaseCurrencyId_TargetCurrencyId] NONCLUSTERED
 	(

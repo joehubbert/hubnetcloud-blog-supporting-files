@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[MarketingCampaignType] MCT
 				INNER JOIN #MarketingCampaignTypeTemp MCTT ON MCT.[MarketingCampaignType] = MCTT.[MarketingCampaignType]
+				AND (MCT.[CompanyConfigurationId] = MCTT.[CompanyConfigurationId] OR (MCT.[CompanyConfigurationId] IS NULL AND MCTT.[CompanyConfigurationId] IS NULL))
 				WHERE MCT.[MarketingCampaignType] = MCTT.[MarketingCampaignType]
 			)
 			THROW 50000, 'Marketing Campaign Type already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[MarketingCampaignType] AS target
 			USING #MarketingCampaignTypeTemp AS source
 			ON target.[MarketingCampaignType] = source.[MarketingCampaignType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

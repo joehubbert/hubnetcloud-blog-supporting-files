@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #CustomerLeadStatusTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[CustomerLeadStatus] NVARCHAR(50) NOT NULL,
 	[CustomerLeadStatusCode] NVARCHAR(20) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
@@ -106,10 +107,12 @@ VALUES
 MERGE INTO [dbo].[CustomerLeadStatus] AS target
 USING #CustomerLeadStatusTemp AS source
 ON target.[CustomerLeadStatus] = source.[CustomerLeadStatus]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[CustomerLeadStatus],
 	[CustomerLeadStatusCode],
 	[ActiveStatus]
@@ -117,6 +120,7 @@ INSERT
 VALUES 
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[CustomerLeadStatus],
 	source.[CustomerLeadStatusCode],
 	source.[ActiveStatus]

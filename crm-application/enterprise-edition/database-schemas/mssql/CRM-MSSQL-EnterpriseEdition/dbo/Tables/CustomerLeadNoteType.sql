@@ -13,7 +13,7 @@
 	[RowVersion] ROWVERSION NOT NULL,	
 	CONSTRAINT [FK_CustomerLeadNoteType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_CustomerLeadNoteType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType] UNIQUE ([CustomerLeadNoteType])
+	CONSTRAINT [UC_CustomerLeadNoteType_CustomerLeadNoteType_CompanyConfigurationId] UNIQUE ([CustomerLeadNoteType], [CompanyConfigurationId])
 )
 GO
 

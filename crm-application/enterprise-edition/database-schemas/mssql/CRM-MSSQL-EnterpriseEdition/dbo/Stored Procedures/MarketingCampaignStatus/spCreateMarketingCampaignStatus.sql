@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[MarketingCampaignStatus] MCS
 				INNER JOIN #MarketingCampaignStatusTemp MCST ON MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
+				AND (MCS.[CompanyConfigurationId] = MCST.[CompanyConfigurationId] OR (MCS.[CompanyConfigurationId] IS NULL AND MCST.[CompanyConfigurationId] IS NULL))
 				WHERE MCS.[MarketingCampaignStatus] = MCST.[MarketingCampaignStatus]
 			)
 			THROW 50000, 'Marketing Campaign Status already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[MarketingCampaignStatus] AS target
 			USING #MarketingCampaignStatusTemp AS source
 			ON target.[MarketingCampaignStatus] = source.[MarketingCampaignStatus]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

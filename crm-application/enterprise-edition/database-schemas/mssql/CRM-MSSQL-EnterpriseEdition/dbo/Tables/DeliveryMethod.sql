@@ -16,7 +16,7 @@
 	CONSTRAINT [FK_DeliveryMethod_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_DeliveryMethod_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
 	CONSTRAINT [FK_DeliveryMethod_TaxProfileId] FOREIGN KEY ([TaxProfileId]) REFERENCES [dbo].[TaxProfile]([TaxProfileId]),
-	CONSTRAINT [UC_DeliveryMethod_DeliveryMethod] UNIQUE ([DeliveryMethod])
+	CONSTRAINT [UC_DeliveryMethod_DeliveryMethod_CompanyConfigurationId] UNIQUE ([DeliveryMethod], [CompanyConfigurationId])
 )
 GO
 

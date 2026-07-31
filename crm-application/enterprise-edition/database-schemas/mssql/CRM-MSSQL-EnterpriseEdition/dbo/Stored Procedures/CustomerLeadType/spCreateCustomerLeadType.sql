@@ -46,12 +46,14 @@ BEGIN
 				SELECT *
 				FROM [dbo].[CustomerLeadType] CLT
 				INNER JOIN #CustomerLeadTypeTemp CLTT ON CLT.[CustomerLeadType] = CLTT.[CustomerLeadType]
+				AND (CLT.[CompanyConfigurationId] = CLTT.[CompanyConfigurationId] OR (CLT.[CompanyConfigurationId] IS NULL AND CLTT.[CompanyConfigurationId] IS NULL))
 			)
 			THROW 50000, 'Customer Lead Type already exists, please update the existing record.', 1;
 			ELSE
 			MERGE INTO [dbo].[CustomerLeadType] AS target
 			USING #CustomerLeadTypeTemp AS source
 			ON target.[CustomerLeadType] = source.[CustomerLeadType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

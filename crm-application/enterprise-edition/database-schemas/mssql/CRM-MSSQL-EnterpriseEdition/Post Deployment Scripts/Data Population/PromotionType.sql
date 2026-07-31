@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #PromotionTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[PromotionType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -84,16 +85,19 @@ VALUES
 MERGE INTO [dbo].[PromotionType] AS target
 USING #PromotionTypeTemp AS source
 ON target.[PromotionType] = source.[PromotionType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[PromotionType],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[PromotionType],
 	source.[ActiveStatus]
 );

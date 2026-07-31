@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[CustomerNoteType] CNT
 				INNER JOIN #CustomerNoteTypeTemp CNTT ON CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
+				AND (CNT.[CompanyConfigurationId] = CNTT.[CompanyConfigurationId] OR (CNT.[CompanyConfigurationId] IS NULL AND CNTT.[CompanyConfigurationId] IS NULL))
 				WHERE CNT.[CustomerNoteType] = CNTT.[CustomerNoteType]
 			)
 			THROW 50000, 'Customer Note Type already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[CustomerNoteType] AS target
 			USING #CustomerNoteTypeTemp AS source
 			ON target.[CustomerNoteType] = source.[CustomerNoteType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

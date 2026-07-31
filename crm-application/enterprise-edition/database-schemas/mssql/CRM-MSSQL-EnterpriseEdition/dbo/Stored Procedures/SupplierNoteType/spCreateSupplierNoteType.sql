@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[SupplierNoteType] CT
 				INNER JOIN #SupplierNoteTypeTemp CTT ON CT.[SupplierNoteType] = CTT.[SupplierNoteType]
+				AND (CT.[CompanyConfigurationId] = CTT.[CompanyConfigurationId] OR (CT.[CompanyConfigurationId] IS NULL AND CTT.[CompanyConfigurationId] IS NULL))
 				WHERE CT.[SupplierNoteType] = CTT.[SupplierNoteType]
 			)
 			THROW 50000, 'Supplier Note Type already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[SupplierNoteType] AS target
 			USING #SupplierNoteTypeTemp AS source
 			ON target.[SupplierNoteType] = source.[SupplierNoteType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

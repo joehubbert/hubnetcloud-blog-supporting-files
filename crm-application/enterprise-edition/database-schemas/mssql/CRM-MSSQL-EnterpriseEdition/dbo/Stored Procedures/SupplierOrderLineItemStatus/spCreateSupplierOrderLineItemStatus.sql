@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[SupplierOrderLineItemStatus] E
 				INNER JOIN #SupplierOrderLineItemStatusTemp ET ON E.[SupplierOrderLineItemStatus] = ET.[SupplierOrderLineItemStatus]
+				AND (E.[CompanyConfigurationId] = ET.[CompanyConfigurationId] OR (E.[CompanyConfigurationId] IS NULL AND ET.[CompanyConfigurationId] IS NULL))
 				WHERE E.[SupplierOrderLineItemStatus] = ET.[SupplierOrderLineItemStatus]
 			)
 			THROW 50000, 'Supplier Order Line Item Status already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[SupplierOrderLineItemStatus] AS target
 			USING #SupplierOrderLineItemStatusTemp AS source
 			ON target.[SupplierOrderLineItemStatus] = source.[SupplierOrderLineItemStatus]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

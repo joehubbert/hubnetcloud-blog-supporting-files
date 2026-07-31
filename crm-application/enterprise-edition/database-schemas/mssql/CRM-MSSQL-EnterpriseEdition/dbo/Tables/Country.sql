@@ -16,7 +16,7 @@
 )
 GO
 
-CREATE UNIQUE INDEX [NCIX_Country_ISO31661A2CountryCode] ON [dbo].[Country] ([ISO31661A2CountryCode])
+CREATE UNIQUE INDEX [NCIX_Country_ISO31661A2CountryCode_CompanyConfigurationId] ON [dbo].[Country] ([ISO31661A2CountryCode], [CompanyConfigurationId])
 GO
 
 CREATE TRIGGER [TRG_UpdateCountry]

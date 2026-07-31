@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #CurrencyTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[CurrencyCode] NCHAR(3) NOT NULL,
 	[CurrencyName] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
@@ -70,10 +71,12 @@ VALUES
 MERGE INTO [dbo].[Currency] AS target
 USING #CurrencyTemp AS source
 ON target.[CurrencyCode] = source.[CurrencyCode]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[CurrencyCode],
 	[CurrencyName],
 	[ActiveStatus]
@@ -81,6 +84,7 @@ INSERT
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[CurrencyCode],
 	source.[CurrencyName],
 	source.[ActiveStatus]

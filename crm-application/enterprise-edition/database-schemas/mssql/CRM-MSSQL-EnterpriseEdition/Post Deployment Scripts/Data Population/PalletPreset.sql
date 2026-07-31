@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #PalletPresetTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[PalletPresetName] NVARCHAR(50) NOT NULL,
 	[PalletPresetCode] NVARCHAR(20) NOT NULL,
 	[PalletDepthMillimeter] INT NOT NULL,
@@ -154,10 +155,12 @@ VALUES
 MERGE INTO [dbo].[PalletPreset] AS target
 USING #PalletPresetTemp AS source
 ON target.[PalletPresetCode] = source.[PalletPresetCode]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[PalletPresetName],
 	[PalletPresetCode],
 	[PalletDepthMillimeter],
@@ -171,6 +174,7 @@ INSERT
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[PalletPresetName],
 	source.[PalletPresetCode],
 	source.[PalletDepthMillimeter],

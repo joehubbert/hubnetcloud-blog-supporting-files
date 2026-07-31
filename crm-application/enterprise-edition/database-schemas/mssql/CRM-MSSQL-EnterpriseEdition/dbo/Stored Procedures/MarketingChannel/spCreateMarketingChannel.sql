@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[MarketingChannel] MC
 				INNER JOIN #MarketingChannelTemp MCT ON MC.[MarketingChannel] = MCT.[MarketingChannel]
+				AND (MC.[CompanyConfigurationId] = MCT.[CompanyConfigurationId] OR (MC.[CompanyConfigurationId] IS NULL AND MCT.[CompanyConfigurationId] IS NULL))
 				WHERE MC.[MarketingChannel] = MCT.[MarketingChannel]
 			)
 			THROW 50000, 'Marketing Channel already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[MarketingChannel] AS target
 			USING #MarketingChannelTemp AS source
 			ON target.[MarketingChannel] = source.[MarketingChannel]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

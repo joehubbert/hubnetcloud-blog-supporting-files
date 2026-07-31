@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #CustomerLeadTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[CustomerLeadType] NVARCHAR(50) NOT NULL,
 	[CustomerLeadTypeCode] NVARCHAR(20) NOT NULL,
 	[CustomerLeadTypeDescription] NVARCHAR(255) NOT NULL,
@@ -93,10 +94,12 @@ VALUES
 MERGE INTO [dbo].[CustomerLeadType] AS target
 USING #CustomerLeadTypeTemp AS source
 ON target.[CustomerLeadType] = source.[CustomerLeadType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[CustomerLeadType],
 	[CustomerLeadTypeCode],
 	[CustomerLeadTypeDescription],
@@ -105,6 +108,7 @@ INSERT
 VALUES 
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[CustomerLeadType],
 	source.[CustomerLeadTypeCode],
 	source.[CustomerLeadTypeDescription],

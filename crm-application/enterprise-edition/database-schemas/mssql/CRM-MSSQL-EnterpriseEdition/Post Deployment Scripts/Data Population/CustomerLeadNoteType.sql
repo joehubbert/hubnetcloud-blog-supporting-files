@@ -3,6 +3,7 @@
 	[CustomerLeadNoteType] NVARCHAR(50) NOT NULL,
 	[CustomerLeadNoteTypeCode] NVARCHAR(20) NOT NULL,
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
 
@@ -220,12 +221,14 @@ VALUES
 MERGE INTO [dbo].[CustomerLeadNoteType] AS target
 USING #CustomerLeadNoteTypeTemp AS source
 ON target.[CustomerLeadNoteType] = source.[CustomerLeadNoteType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[CustomerLeadNoteType],
 	[CustomerLeadNoteTypeCode],
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[ActiveStatus]
 )
 VALUES 
@@ -233,6 +236,7 @@ VALUES
 	source.[CustomerLeadNoteType],
 	source.[CustomerLeadNoteTypeCode],
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[ActiveStatus]
 );
 

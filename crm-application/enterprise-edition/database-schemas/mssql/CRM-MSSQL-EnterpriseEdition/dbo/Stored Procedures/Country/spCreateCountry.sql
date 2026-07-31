@@ -54,6 +54,7 @@ BEGIN
 			USING #CountryTemp AS source
 			ON target.[ISO31661A2CountryCode] = source.[ISO31661A2CountryCode]
 			AND target.[CountryEnglishName] = source.[CountryEnglishName]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

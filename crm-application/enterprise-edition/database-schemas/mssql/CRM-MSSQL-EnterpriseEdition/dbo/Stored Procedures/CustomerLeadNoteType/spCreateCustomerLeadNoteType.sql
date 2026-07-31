@@ -54,6 +54,7 @@ BEGIN
 			USING #CustomerLeadNoteTypeTemp AS source
 			ON target.[CustomerLeadNoteType] = source.[CustomerLeadNoteType]
 			AND target.[CustomerLeadNoteTypeCode] = source.[CustomerLeadNoteTypeCode]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

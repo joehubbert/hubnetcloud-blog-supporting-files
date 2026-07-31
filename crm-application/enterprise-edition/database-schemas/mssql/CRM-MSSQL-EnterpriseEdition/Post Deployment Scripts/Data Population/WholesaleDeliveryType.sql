@@ -1,6 +1,7 @@
 CREATE TABLE #WholesaleDeliveryTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[WholesaleDeliveryType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -35,16 +36,19 @@ VALUES
 MERGE INTO [dbo].[WholesaleDeliveryType] AS target
 USING #WholesaleDeliveryTypeTemp AS source
 ON target.[WholesaleDeliveryType] = source.[WholesaleDeliveryType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[WholesaleDeliveryType],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[WholesaleDeliveryType],
 	source.[ActiveStatus]
 );

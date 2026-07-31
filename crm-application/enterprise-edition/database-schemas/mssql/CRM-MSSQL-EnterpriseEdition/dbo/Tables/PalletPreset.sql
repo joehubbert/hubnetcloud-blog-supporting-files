@@ -17,9 +17,9 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     [RowVersion] ROWVERSION NOT NULL,
-	CONSTRAINT [UC_PalletPreset_PalletPresetCode] UNIQUE ([PalletPresetCode]),
     CONSTRAINT [FK_PalletPreset_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
-    CONSTRAINT [FK_PalletPreset_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId])
+    CONSTRAINT [FK_PalletPreset_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [UC_PalletPreset_PalletPresetCode_CompanyConfigurationId] UNIQUE ([PalletPresetCode], [CompanyConfigurationId])
 )
 GO
 

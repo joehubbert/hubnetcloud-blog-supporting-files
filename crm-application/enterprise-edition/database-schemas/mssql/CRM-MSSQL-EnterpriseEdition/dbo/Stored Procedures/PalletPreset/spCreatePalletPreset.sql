@@ -66,6 +66,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[PalletPreset] PP
 				INNER JOIN #PalletPresetTemp PPT ON PP.[PalletPresetCode] = PPT.[PalletPresetCode]
+				AND (PP.[CompanyConfigurationId] = PPT.[CompanyConfigurationId] OR (PP.[CompanyConfigurationId] IS NULL AND PPT.[CompanyConfigurationId] IS NULL))
 				WHERE PP.[PalletPresetCode] = PPT.[PalletPresetCode]
 			)
 			THROW 50000, 'Pallet Preset with the same code already exists, please use a different code.', 1;
@@ -73,6 +74,7 @@ BEGIN
 			MERGE INTO [dbo].[PalletPreset] AS target
 			USING #PalletPresetTemp AS source
 			ON target.[PalletPresetCode] = source.[PalletPresetCode]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

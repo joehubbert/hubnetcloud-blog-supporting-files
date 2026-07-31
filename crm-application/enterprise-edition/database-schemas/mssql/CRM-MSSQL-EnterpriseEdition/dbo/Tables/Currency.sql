@@ -13,7 +13,7 @@
     [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_Currency_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
     CONSTRAINT [FK_Currency_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]), 
-    CONSTRAINT [UC_CurrencyCode] UNIQUE ([CurrencyCode])
+    CONSTRAINT [UC_CurrencyCode_CompanyConfigurationId] UNIQUE ([CurrencyCode], [CompanyConfigurationId])
 )
 GO
 

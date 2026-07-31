@@ -42,6 +42,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[PromotionTargetType] PTT
 				INNER JOIN #PromotionTargetTypeTemp PTTT ON PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
+				AND (PTT.[CompanyConfigurationId] = PTTT.[CompanyConfigurationId] OR (PTT.[CompanyConfigurationId] IS NULL AND PTTT.[CompanyConfigurationId] IS NULL))
 				WHERE PTT.[PromotionTargetType] = PTTT.[PromotionTargetType]
 			)
 			THROW 50000, 'Promotion Target Type already exists, please update the existing record.', 1;
@@ -49,6 +50,7 @@ BEGIN
 			MERGE INTO [dbo].[PromotionTargetType] AS target
 			USING #PromotionTargetTypeTemp AS source
 			ON target.[PromotionTargetType] = source.[PromotionTargetType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

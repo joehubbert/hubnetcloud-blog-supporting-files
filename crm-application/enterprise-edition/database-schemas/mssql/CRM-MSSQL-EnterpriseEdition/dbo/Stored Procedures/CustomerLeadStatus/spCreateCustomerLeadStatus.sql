@@ -54,6 +54,7 @@ BEGIN
 			USING #CustomerLeadStatusTemp AS source
 			ON target.[CustomerLeadStatus] = source.[CustomerLeadStatus]
 			AND target.[CustomerLeadStatusCode] = source.[CustomerLeadStatusCode]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

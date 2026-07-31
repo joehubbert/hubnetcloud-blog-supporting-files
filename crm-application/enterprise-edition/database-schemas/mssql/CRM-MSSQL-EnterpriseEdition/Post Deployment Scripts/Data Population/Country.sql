@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #CountryTemp
 (
     [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+    [CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
     [ISO31661A2CountryCode] NCHAR(2) NOT NULL,
     [CountryEnglishName] NVARCHAR(100) NOT NULL,
     [ActiveStatus] BIT NOT NULL
@@ -1510,16 +1511,19 @@ VALUES
 MERGE INTO [dbo].[Country] AS target
 USING #CountryTemp AS source
     ON target.[ISO31661A2CountryCode] = source.[ISO31661A2CountryCode]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 [MasterDataTypeId],
+	[CompanyConfigurationId],
 [ISO31661A2CountryCode],
 [CountryEnglishName],
 [ActiveStatus]
 )
 VALUES 
-(source.[MasterDataTypeId], 
+(source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 source.[ISO31661A2CountryCode], 
 source.[CountryEnglishName], 
 source.[ActiveStatus]

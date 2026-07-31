@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[OrderLineItemStatus] OLIS
 				INNER JOIN #OrderLineItemStatusTemp OLIST ON OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
+				AND (OLIS.[CompanyConfigurationId] = OLIST.[CompanyConfigurationId] OR (OLIS.[CompanyConfigurationId] IS NULL AND OLIST.[CompanyConfigurationId] IS NULL))
 				WHERE OLIS.[OrderLineItemStatus] = OLIST.[OrderLineItemStatus]
 			)
 			THROW 50000, 'Order Line Item Status already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[OrderLineItemStatus] AS target
 			USING #OrderLineItemStatusTemp AS source
 			ON target.[OrderLineItemStatus] = source.[OrderLineItemStatus]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

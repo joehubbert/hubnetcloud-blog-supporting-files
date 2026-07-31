@@ -1,6 +1,7 @@
 CREATE TABLE #SupplierOrderLineItemStatusTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[SupplierOrderLineItemStatus] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -75,16 +76,19 @@ VALUES
 MERGE INTO [dbo].[SupplierOrderLineItemStatus] AS target
 USING #SupplierOrderLineItemStatusTemp AS source
 ON target.[SupplierOrderLineItemStatus] = source.[SupplierOrderLineItemStatus]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[SupplierOrderLineItemStatus],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[SupplierOrderLineItemStatus],
 	source.[ActiveStatus]
 );

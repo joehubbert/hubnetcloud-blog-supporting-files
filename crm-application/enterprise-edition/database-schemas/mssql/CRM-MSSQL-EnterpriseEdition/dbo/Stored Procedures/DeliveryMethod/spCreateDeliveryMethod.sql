@@ -53,6 +53,7 @@ BEGIN
 				AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
 				AND DM.[DeliveryCost] = DMT.[DeliveryCost]
 				AND DM.[DeliveryTimeDays] = DMT.[DeliveryTimeDays]
+				AND (DM.[CompanyConfigurationId] = DMT.[CompanyConfigurationId] OR (DM.[CompanyConfigurationId] IS NULL AND DMT.[CompanyConfigurationId] IS NULL))
 				WHERE DM.[TaxProfileId] = DMT.[TaxProfileId]
 				AND DM.[DeliveryMethod] = DMT.[DeliveryMethod]
 				AND DM.[DeliveryCost] = DMT.[DeliveryCost]
@@ -66,6 +67,7 @@ BEGIN
 			AND target.[DeliveryMethod] = source.[DeliveryMethod]
 			AND target.[DeliveryCost] = source.[DeliveryCost]
 			AND target.[DeliveryTimeDays] = source.[DeliveryTimeDays]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

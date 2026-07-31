@@ -55,7 +55,7 @@ BEGIN
             -- Mark previous expired records as inactive
             UPDATE [dbo].[CurrencyConversion]
             SET [ActiveStatus] = 0
-            WHERE [CompanyConfigurationId] = @companyConfigurationId
+            WHERE ([CompanyConfigurationId] = @companyConfigurationId OR ([CompanyConfigurationId] IS NULL AND @companyConfigurationId IS NULL))
               AND [BaseCurrencyId] = @baseCurrencyId
               AND [TargetCurrencyId] = @targetCurrencyId
               AND [ActiveStatus] = 1
@@ -70,7 +70,6 @@ BEGIN
                 SELECT 1
                 FROM [dbo].[CurrencyConversion] CC
                 WHERE (CC.[CompanyConfigurationId] = @companyConfigurationId OR (CC.[CompanyConfigurationId] IS NULL AND @companyConfigurationId IS NULL))
-                  AND CC.[MasterDataTypeId] = @masterDataTypeId
                   AND CC.[BaseCurrencyId] = @baseCurrencyId
                   AND CC.[TargetCurrencyId] = @targetCurrencyId
                   AND CC.[ActiveStatus] = @activeStatus
@@ -87,13 +86,11 @@ BEGIN
 
             MERGE INTO [dbo].[CurrencyConversion] AS target
             USING #CurrencyConversionTemp AS source
-            ON target.[MasterDataTypeId] = source.[MasterDataTypeId]
-            AND target.[CompanyConfigurationId] = source.[CompanyConfigurationId]
+            ON (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
             AND target.[BaseCurrencyId] = source.[BaseCurrencyId]
             AND target.[TargetCurrencyId] = source.[TargetCurrencyId]
             AND target.[EffectiveDate] = source.[EffectiveDate]
             AND (target.[ExpiryDate] = source.[ExpiryDate] OR (target.[ExpiryDate] IS NULL AND source.[ExpiryDate] IS NULL))
-            AND target.[ActiveStatus] = source.[ActiveStatus]
             WHEN NOT MATCHED THEN
             INSERT
             (

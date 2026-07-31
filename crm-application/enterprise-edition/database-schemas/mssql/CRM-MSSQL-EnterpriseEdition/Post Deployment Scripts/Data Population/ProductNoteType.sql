@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #ProductNoteTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[ProductNoteType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -89,16 +90,19 @@ VALUES
 MERGE INTO [dbo].[ProductNoteType] AS target
 USING #ProductNoteTypeTemp AS source
 ON target.[ProductNoteType] = source.[ProductNoteType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[ProductNoteType],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[ProductNoteType],
 	source.[ActiveStatus]
 );

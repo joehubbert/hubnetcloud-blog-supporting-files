@@ -13,8 +13,7 @@
     [RowVersion] ROWVERSION NOT NULL,
     CONSTRAINT [FK_CustomerLeadStatus_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
     CONSTRAINT [FK_CustomerLeadStatus_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-    CONSTRAINT [UC_CustomerLeadStatus_CustomerLeadStatus] UNIQUE ([CustomerLeadStatus]),
-    CONSTRAINT [UC_CustomerLeadStatus_CustomerLeadStatusCode] UNIQUE ([CustomerLeadStatusCode])
+    CONSTRAINT [UC_CustomerLeadStatus_CustomerLeadStatusCode_CompanyConfigurationId] UNIQUE ([CustomerLeadStatusCode], [CompanyConfigurationId])
 )
 GO
 

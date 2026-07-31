@@ -38,6 +38,7 @@ BEGIN
 				SELECT *
 				FROM [dbo].[WholesaleDeliveryType] E
 				INNER JOIN #WholesaleDeliveryTypeTemp ET ON E.[WholesaleDeliveryType] = ET.[WholesaleDeliveryType]
+				AND (E.[CompanyConfigurationId] = ET.[CompanyConfigurationId] OR (E.[CompanyConfigurationId] IS NULL AND ET.[CompanyConfigurationId] IS NULL))
 				WHERE E.[WholesaleDeliveryType] = ET.[WholesaleDeliveryType]
 			)
 			THROW 50000, 'Wholesale Delivery Type already exists, please update the existing record.', 1;
@@ -45,6 +46,7 @@ BEGIN
 			MERGE INTO [dbo].[WholesaleDeliveryType] AS target
 			USING #WholesaleDeliveryTypeTemp AS source
 			ON target.[WholesaleDeliveryType] = source.[WholesaleDeliveryType]
+			AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 			WHEN NOT MATCHED THEN
 			INSERT
 			(

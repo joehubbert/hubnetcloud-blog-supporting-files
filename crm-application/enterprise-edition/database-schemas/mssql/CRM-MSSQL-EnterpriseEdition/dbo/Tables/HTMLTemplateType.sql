@@ -12,7 +12,7 @@
 	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_HTMLTemplateType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_HTMLTemplateType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_HTMLTemplateType_HTMLTemplateType] UNIQUE ([HTMLTemplateType])
+	CONSTRAINT [UC_HTMLTemplateType_HTMLTemplateType_CompanyConfigurationId] UNIQUE ([HTMLTemplateType], [CompanyConfigurationId])
 )
 GO
 

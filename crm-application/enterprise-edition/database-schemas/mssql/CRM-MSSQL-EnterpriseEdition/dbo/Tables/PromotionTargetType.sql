@@ -13,7 +13,7 @@
 	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_PromotionTargetType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_PromotionTargetType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_PromotionTargetType_PromotionTargetType] UNIQUE ([PromotionTargetType])
+	CONSTRAINT [UC_PromotionTargetType_PromotionTargetType_CompanyConfigurationId] UNIQUE ([PromotionTargetType], [CompanyConfigurationId])
 )
 GO
 

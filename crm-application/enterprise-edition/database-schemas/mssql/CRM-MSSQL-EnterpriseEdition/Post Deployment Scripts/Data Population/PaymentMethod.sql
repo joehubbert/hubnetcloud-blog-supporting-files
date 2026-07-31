@@ -1,6 +1,7 @@
 CREATE TABLE #PaymentMethodTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[PaymentMethod] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -55,16 +56,19 @@ VALUES
 MERGE INTO [dbo].[PaymentMethod] AS target
 USING #PaymentMethodTemp AS source
 ON target.[PaymentMethod] = source.[PaymentMethod]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT 
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[PaymentMethod],
 	[ActiveStatus]
 ) 
 VALUES 
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[PaymentMethod],
 	source.[ActiveStatus]
 );

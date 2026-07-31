@@ -12,7 +12,7 @@
     [RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_PaymentMethod_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_PaymentMethod_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_PaymentMethod] UNIQUE ([PaymentMethod])
+	CONSTRAINT [UC_PaymentMethod_CompanyConfigurationId] UNIQUE ([PaymentMethod], [CompanyConfigurationId])
 )
 GO
 

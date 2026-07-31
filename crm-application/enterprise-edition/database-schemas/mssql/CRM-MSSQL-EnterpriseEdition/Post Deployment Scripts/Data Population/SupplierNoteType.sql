@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #SupplierNoteTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[SupplierNoteType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -59,16 +60,19 @@ VALUES
 MERGE INTO [dbo].[SupplierNoteType] AS target
 USING #SupplierNoteTypeTemp AS source
 ON target.[SupplierNoteType] = source.[SupplierNoteType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[SupplierNoteType],
 	[ActiveStatus]
 )
 VALUES
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[SupplierNoteType],
 	source.[ActiveStatus]
 );

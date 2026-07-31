@@ -12,7 +12,7 @@
     [RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_OrderStatus_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_OrderStatus_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_OrderStatus_OrderStatus] UNIQUE ([OrderStatus])
+	CONSTRAINT [UC_OrderStatus_OrderStatus_CompanyConfigurationId] UNIQUE ([OrderStatus], [CompanyConfigurationId])
 )
 GO
 

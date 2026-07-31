@@ -12,7 +12,7 @@
 	[RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [FK_MarketingCampaignType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
 	CONSTRAINT [FK_MarketingCampaignType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
-	CONSTRAINT [UC_MarketingCampaignType_MarketingCampaignType] UNIQUE ([MarketingCampaignType])
+	CONSTRAINT [UC_MarketingCampaignType_MarketingCampaignType_CompanyConfigurationId] UNIQUE ([MarketingCampaignType], [CompanyConfigurationId])
 )
 GO
 

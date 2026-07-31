@@ -12,7 +12,9 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
 	[RowVersion] ROWVERSION NOT NULL,
-	CONSTRAINT [UC_CustomerLeadType_CustomerLeadType] UNIQUE ([CustomerLeadType])
+	CONSTRAINT [FK_CustomerLeadType_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+	CONSTRAINT [FK_CustomerLeadType_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
+	CONSTRAINT [UC_CustomerLeadType_CustomerLeadType_CompanyConfigurationId] UNIQUE ([CustomerLeadType], [CompanyConfigurationId])
 )
 GO
 

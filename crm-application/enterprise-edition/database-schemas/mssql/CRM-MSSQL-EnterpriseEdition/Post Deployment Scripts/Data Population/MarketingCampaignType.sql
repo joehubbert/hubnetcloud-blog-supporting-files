@@ -1,6 +1,7 @@
 ﻿CREATE TABLE #MarketingCampaignTypeTemp
 (
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL DEFAULT NULL,
 	[MarketingCampaignType] NVARCHAR(50) NOT NULL,
 	[ActiveStatus] BIT NOT NULL
 )
@@ -49,16 +50,19 @@ VALUES
 MERGE INTO [dbo].[MarketingCampaignType] AS target
 USING #MarketingCampaignTypeTemp AS source
 ON target.[MarketingCampaignType] = source.[MarketingCampaignType]
+AND (target.[CompanyConfigurationId] = source.[CompanyConfigurationId] OR (target.[CompanyConfigurationId] IS NULL AND source.[CompanyConfigurationId] IS NULL))
 WHEN NOT MATCHED THEN
 INSERT
 (
 	[MasterDataTypeId],
+	[CompanyConfigurationId],
 	[MarketingCampaignType],
 	[ActiveStatus]
 )
 VALUES 
 (
 	source.[MasterDataTypeId],
+	source.[CompanyConfigurationId],
 	source.[MarketingCampaignType],
 	source.[ActiveStatus]
 );

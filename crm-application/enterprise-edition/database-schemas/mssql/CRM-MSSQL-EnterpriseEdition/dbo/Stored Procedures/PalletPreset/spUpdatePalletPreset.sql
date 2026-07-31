@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdatePalletPreset]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@masterDataTypeId UNIQUEIDENTIFIER,
 	@palletAreaCentimeterSquared DECIMAL(10, 2),
 	@palletDepthMillimeter INT,
@@ -20,6 +21,7 @@ BEGIN
 			UPDATE [dbo].[PalletPreset]
 			SET 
 				[ActiveStatus] = @activeStatus,
+				[CompanyConfigurationId] = @companyConfigurationId,
 				[MasterDataTypeId] = @masterDataTypeId,
 				[PalletAreaCentimeterSquared] = @palletAreaCentimeterSquared,
 				[PalletDepthMillimeter] = @palletDepthMillimeter,

@@ -2,6 +2,7 @@
 (
 	[PalletPresetId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
 	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[PalletPresetName] NVARCHAR(50) NOT NULL,
 	[PalletPresetCode] NVARCHAR(20) NOT NULL,
 	[PalletDepthMillimeter] INT NOT NULL,
@@ -17,7 +18,8 @@
 	[ModifiedBy] NVARCHAR(50) NULL,
     [RowVersion] ROWVERSION NOT NULL,
 	CONSTRAINT [UC_PalletPreset_PalletPresetCode] UNIQUE ([PalletPresetCode]),
-	CONSTRAINT [FK_PalletPreset_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId])
+    CONSTRAINT [FK_PalletPreset_MasterDataType] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+    CONSTRAINT [FK_PalletPreset_CompanyConfiguration] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId])
 )
 GO
 

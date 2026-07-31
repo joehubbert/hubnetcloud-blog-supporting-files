@@ -13,6 +13,8 @@ BEGIN
 			[Master Data Type],
 			[Master Data Type Code],
 			[Is Custom],
+			[Company Configuration Id],
+			[Company Name],
 			[Pallet Preset Name],
 			[Pallet Preset Code],
 			[Pallet Depth Millimeter],

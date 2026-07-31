@@ -6,8 +6,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[PalletPreset]
-		WHERE [PalletPresetId] = @palletPresetId
+		DELETE PP
+		FROM [dbo].[PalletPreset] PP
+		INNER JOIN [dbo].[MasterDataType] MDT ON PP.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE PP.[PalletPresetId] = @palletPresetId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

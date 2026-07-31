@@ -1,5 +1,6 @@
 ﻿CREATE PROCEDURE [dbo].[spCreatePalletPreset]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@masterDataTypeId UNIQUEIDENTIFIER,
 	@palletAreaCentimeterSquared DECIMAL(10, 2),
 	@palletDepthMillimeter INT,
@@ -19,6 +20,7 @@ BEGIN
 			CREATE TABLE #PalletPresetTemp
 			(
 				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[PalletPresetName] NVARCHAR(50) NOT NULL,
 				[PalletPresetCode] NVARCHAR(20) NOT NULL,
 				[PalletDepthMillimeter] INT NOT NULL,
@@ -33,6 +35,7 @@ BEGIN
 			INSERT INTO #PalletPresetTemp
 			(
 				[MasterDataTypeId],
+				[CompanyConfigurationId],
 				[PalletPresetName],
 				[PalletPresetCode],
 				[PalletDepthMillimeter],
@@ -46,6 +49,7 @@ BEGIN
 			VALUES
 			(
 				@masterDataTypeId,
+				@companyConfigurationId,
 				@palletPresetName,
 				@palletPresetCode,
 				@palletDepthMillimeter,
@@ -73,6 +77,7 @@ BEGIN
 			INSERT
 			(
 				[MasterDataTypeId],
+				[CompanyConfigurationId],
 				[PalletPresetName],
 				[PalletPresetCode],
 				[PalletDepthMillimeter],
@@ -86,6 +91,7 @@ BEGIN
 			VALUES
 			(
 				source.[MasterDataTypeId],
+				source.[CompanyConfigurationId],
 				source.[PalletPresetName],
 				source.[PalletPresetCode],
 				source.[PalletDepthMillimeter],

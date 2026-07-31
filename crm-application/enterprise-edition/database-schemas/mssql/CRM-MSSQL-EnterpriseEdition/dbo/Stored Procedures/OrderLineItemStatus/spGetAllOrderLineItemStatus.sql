@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[Order Line Item Status Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Order Line Item Status],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwOrderLineItemStatus]
 

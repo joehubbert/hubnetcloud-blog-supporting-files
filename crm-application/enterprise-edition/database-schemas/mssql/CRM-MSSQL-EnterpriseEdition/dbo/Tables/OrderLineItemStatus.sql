@@ -1,6 +1,8 @@
 ﻿CREATE TABLE [dbo].[OrderLineItemStatus]
 (
 	[OrderLineItemStatusId] UNIQUEIDENTIFIER NOT NULL PRIMARY KEY DEFAULT NEWID(),
+	[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
+	[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 	[OrderLineItemStatus] NVARCHAR(50) NOT NULL,
     [ActiveStatus] BIT NOT NULL,
 	[CreatedTimestampUTC] DATETIME2 NOT NULL DEFAULT SYSUTCDATETIME(),
@@ -8,6 +10,8 @@
 	[ModifiedTimestampUTC] DATETIME2 NULL,
 	[ModifiedBy] NVARCHAR(50) NULL,
     [RowVersion] ROWVERSION NOT NULL,
+	CONSTRAINT [FK_OrderLineItemStatus_MasterDataTypeId] FOREIGN KEY ([MasterDataTypeId]) REFERENCES [dbo].[MasterDataType]([MasterDataTypeId]),
+	CONSTRAINT [FK_OrderLineItemStatus_CompanyConfigurationId] FOREIGN KEY ([CompanyConfigurationId]) REFERENCES [dbo].[CompanyConfiguration]([CompanyConfigurationId]),
     CONSTRAINT [UC_OrderLineItemStatus_OrderLineItemStatus] UNIQUE ([OrderLineItemStatus])
 )
 GO

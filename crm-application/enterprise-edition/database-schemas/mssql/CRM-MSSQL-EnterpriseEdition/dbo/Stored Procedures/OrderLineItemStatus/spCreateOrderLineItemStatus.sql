@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateOrderLineItemStatus]
 	@activeStatus BIT,
-	@orderLineItemStatus NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@orderLineItemStatus NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #OrderLineItemStatusTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[OrderLineItemStatus] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #OrderLineItemStatusTemp
 			(
+				[MasterDataTypeId],
 				[OrderLineItemStatus],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@orderLineItemStatus,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[OrderLineItemStatus],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[OrderLineItemStatus],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

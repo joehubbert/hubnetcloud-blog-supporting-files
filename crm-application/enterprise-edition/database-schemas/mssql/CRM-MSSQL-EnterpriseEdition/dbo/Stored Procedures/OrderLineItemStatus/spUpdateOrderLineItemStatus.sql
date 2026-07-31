@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateOrderLineItemStatus]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@orderLineItemStatus NVARCHAR(50),
-	@orderLineItemStatusId UNIQUEIDENTIFIER
+	@orderLineItemStatusId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[OrderLineItemStatus]
 			SET 
 				[ActiveStatus] = @activeStatus,
-				[OrderLineItemStatus] = @orderLineItemStatus
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[OrderLineItemStatus] = @orderLineItemStatus,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [OrderLineItemStatusId] = @orderLineItemStatusId
 
 		COMMIT TRANSACTION;

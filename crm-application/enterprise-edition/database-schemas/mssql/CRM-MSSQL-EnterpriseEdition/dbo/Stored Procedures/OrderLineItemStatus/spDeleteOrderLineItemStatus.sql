@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[OrderLineItemStatus]
-		WHERE [OrderLineItemStatusId] = @orderLineItemStatusId
+		DELETE OLIS
+		FROM [dbo].[OrderLineItemStatus] OLIS
+		INNER JOIN [dbo].[MasterDataType] MDT ON OLIS.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE OLIS.[OrderLineItemStatusId] = @orderLineItemStatusId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

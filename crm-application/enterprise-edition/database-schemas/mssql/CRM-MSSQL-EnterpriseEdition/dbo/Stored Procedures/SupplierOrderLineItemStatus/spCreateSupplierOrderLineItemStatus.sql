@@ -1,6 +1,8 @@
-﻿CREATE PROCEDURE [dbo].[spCreateSupplierOrderLineItemStatus]
+CREATE PROCEDURE [dbo].[spCreateSupplierOrderLineItemStatus]
 	@activeStatus BIT,
-	@supplierOrderLineItemStatus NVARCHAR(50)
+    @companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@supplierOrderLineItemStatus NVARCHAR(50),
+    @masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,27 +12,33 @@ BEGIN
 
 			CREATE TABLE #SupplierOrderLineItemStatusTemp
 			(
+                [MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[SupplierOrderLineItemStatus] NVARCHAR(50) NOT NULL,
+                [CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #SupplierOrderLineItemStatusTemp
 			(
+                [MasterDataTypeId],
 				[SupplierOrderLineItemStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                @masterDataTypeId,
 				@supplierOrderLineItemStatus,
+                @companyConfigurationId,
 				@activeStatus
 			)
 
 			IF EXISTS
 			(
 				SELECT *
-				FROM [dbo].[SupplierOrderLineItemStatus] SOLIS
-				INNER JOIN #SupplierOrderLineItemStatusTemp SOLIST ON SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
-				WHERE SOLIS.[SupplierOrderLineItemStatus] = SOLIST.[SupplierOrderLineItemStatus]
+				FROM [dbo].[SupplierOrderLineItemStatus] E
+				INNER JOIN #SupplierOrderLineItemStatusTemp ET ON E.[SupplierOrderLineItemStatus] = ET.[SupplierOrderLineItemStatus]
+				WHERE E.[SupplierOrderLineItemStatus] = ET.[SupplierOrderLineItemStatus]
 			)
 			THROW 50000, 'Supplier Order Line Item Status already exists, please update the existing record.', 1;
 			ELSE
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+                [MasterDataTypeId],
 				[SupplierOrderLineItemStatus],
+                [CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+                source.[MasterDataTypeId],
 				source.[SupplierOrderLineItemStatus],
+                source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

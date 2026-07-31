@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[spGetSupplierOrderLineItemStatus]
+CREATE PROCEDURE [dbo].[spGetSupplierOrderLineItemStatus]
 	@supplierOrderLineItemStatusId UNIQUEIDENTIFIER
 AS
 
@@ -9,7 +9,13 @@ BEGIN
 
 			SELECT
 			[Supplier Order Line Item Status Id],
+            [Master Data Type Id],
+            [Master Data Type],
+            [Master Data Type Code],
+            [Is Custom],
 			[Supplier Order Line Item Status],
+            [Company Configuration Id],
+            [Company Name],
 			[Active Status],
 			[Created Timestamp UTC],
 			[Created By],

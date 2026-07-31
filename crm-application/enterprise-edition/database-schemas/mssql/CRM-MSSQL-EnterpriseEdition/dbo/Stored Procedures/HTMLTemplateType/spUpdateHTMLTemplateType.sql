@@ -1,7 +1,9 @@
 ﻿CREATE PROCEDURE [dbo].[spUpdateHTMLTemplateType]
 	@activeStatus BIT,
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
 	@htmlTemplateType NVARCHAR(50),
-	@htmlTemplateTypeId UNIQUEIDENTIFIER
+	@htmlTemplateTypeId UNIQUEIDENTIFIER,
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -12,7 +14,9 @@ BEGIN
 			UPDATE [dbo].[HTMLTemplateType]
 			SET
 				[ActiveStatus] = @activeStatus,
-				[HTMLTemplateType] = @htmlTemplateType
+				[CompanyConfigurationId] = @companyConfigurationId,
+				[HTMLTemplateType] = @htmlTemplateType,
+				[MasterDataTypeId] = @masterDataTypeId
 			WHERE [HTMLTemplateTypeId] = @htmlTemplateTypeId
 
 		COMMIT TRANSACTION;

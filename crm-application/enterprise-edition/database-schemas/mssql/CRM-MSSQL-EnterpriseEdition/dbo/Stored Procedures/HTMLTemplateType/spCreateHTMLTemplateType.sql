@@ -1,6 +1,8 @@
 ﻿CREATE PROCEDURE [dbo].[spCreateHTMLTemplateType]
 	@activeStatus BIT,
-	@htmlTemplateType NVARCHAR(50)
+	@companyConfigurationId UNIQUEIDENTIFIER = NULL,
+	@htmlTemplateType NVARCHAR(50),
+	@masterDataTypeId UNIQUEIDENTIFIER
 AS
 
 BEGIN
@@ -10,18 +12,24 @@ BEGIN
 
 			CREATE TABLE #HTMLTemplateTypeTemp
 			(
+				[MasterDataTypeId] UNIQUEIDENTIFIER NOT NULL,
 				[HTMLTemplateType] NVARCHAR(50) NOT NULL,
+				[CompanyConfigurationId] UNIQUEIDENTIFIER NULL,
 				[ActiveStatus] BIT NOT NULL
 			)
 
 			INSERT INTO #HTMLTemplateTypeTemp
 			(
+				[MasterDataTypeId],
 				[HTMLTemplateType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				@masterDataTypeId,
 				@htmlTemplateType,
+				@companyConfigurationId,
 				@activeStatus
 			)
 
@@ -40,12 +48,16 @@ BEGIN
 			WHEN NOT MATCHED THEN
 			INSERT
 			(
+				[MasterDataTypeId],
 				[HTMLTemplateType],
+				[CompanyConfigurationId],
 				[ActiveStatus]
 			)
 			VALUES
 			(
+				source.[MasterDataTypeId],
 				source.[HTMLTemplateType],
+				source.[CompanyConfigurationId],
 				source.[ActiveStatus]
 			);
 

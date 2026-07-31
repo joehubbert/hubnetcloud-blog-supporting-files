@@ -8,7 +8,13 @@ BEGIN
 
 			SELECT
 			[HTML Template Type Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[HTML Template Type],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwHTMLTemplateType]
 

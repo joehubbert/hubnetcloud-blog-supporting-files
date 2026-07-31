@@ -7,8 +7,11 @@ BEGIN
 		SET TRANSACTION ISOLATION LEVEL SNAPSHOT;
 		BEGIN TRANSACTION;
 
-		DELETE FROM [dbo].[HTMLTemplateType]
-		WHERE [HTMLTemplateTypeId] = @htmlTemplateTypeId
+		DELETE HTMLTT
+		FROM [dbo].[HTMLTemplateType] HTMLTT
+		INNER JOIN [dbo].[MasterDataType] MDT ON HTMLTT.[MasterDataTypeId] = MDT.[MasterDataTypeId]
+		WHERE HTMLTT.[HTMLTemplateTypeId] = @htmlTemplateTypeId
+		AND MDT.[IsCustom] = 1
 
 		COMMIT TRANSACTION;
 	END TRY

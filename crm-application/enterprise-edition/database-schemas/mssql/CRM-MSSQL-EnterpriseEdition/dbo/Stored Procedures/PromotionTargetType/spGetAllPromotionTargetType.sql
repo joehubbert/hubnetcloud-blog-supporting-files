@@ -8,8 +8,14 @@ BEGIN
 
 			SELECT
 			[Promotion Target Type Id],
+			[Master Data Type Id],
+			[Master Data Type],
+			[Master Data Type Code],
+			[Is Custom],
 			[Promotion Target Type],
 			[Promotion Target Type Description],
+			[Company Configuration Id],
+			[Company Name],
 			[Active Status]
 			FROM [dbo].[vwPromotionTargetType]
 

@@ -18,7 +18,7 @@
     <PackageReference Include="Microsoft.Data.SqlClient" Version="7.0.2" />
     <PackageReference Include="Microsoft.Identity.Client" Version="4.87.0" />
     <PackageReference Include="Microsoft.Identity.Client.Extensions.Msal" Version="4.87.0" />
-    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4078.44" />
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.4129.50" />
     <PackageReference Include="MySql.Data" Version="26.7.0" />
     <PackageReference Include="Npgsql" Version="10.0.3" />
     <PackageReference Include="PDFsharp" Version="6.2.4" />
